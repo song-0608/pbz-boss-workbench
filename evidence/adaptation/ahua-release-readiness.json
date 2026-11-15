@@ -1,7 +1,7 @@
 {
   "gates": {
     "local_checks_current": true,
-    "installed_candidate_used_and_closed": false,
+    "installed_candidate_used_and_closed": true,
     "all_28_natural_and_restored": false,
     "all_28_active_cancel_and_restored": false,
     "all_29_actual_bindings": false,
@@ -11,7 +11,6 @@
   "ready_for_release": false,
   "missing_natural": [
     "attack_01",
-    "dash",
     "heavy_01",
     "heavy_02",
     "homing_flower",
@@ -34,10 +33,7 @@
     "special_11",
     "special_move_01",
     "special_move_back",
-    "special_move_left",
-    "special_move_right",
-    "teleport_left",
-    "teleport_right"
+    "special_move_left"
   ],
   "missing_cancel": [
     "attack_01",
@@ -70,11 +66,6 @@
     "teleport_right"
   ],
   "missing_bindings": [
-    {
-      "slot": "dash",
-      "skill": "dash",
-      "key": "F4"
-    },
     {
       "slot": "heavy_01",
       "skill": "heavy_01",
@@ -199,24 +190,9 @@
       "slot": "special_move_left",
       "skill": "special_move_left",
       "key": "B"
-    },
-    {
-      "slot": "special_move_right",
-      "skill": "special_move_right",
-      "key": "G"
-    },
-    {
-      "slot": "teleport_left",
-      "skill": "teleport_left",
-      "key": "Q"
-    },
-    {
-      "slot": "teleport_right",
-      "skill": "teleport_right",
-      "key": "E"
     }
   ],
-  "at": "2026-11-16T02:26:56.178124+08:00",
+  "at": "2026-11-16T02:49:39.840523+08:00",
   "release_id": "ahua-28-m2-27f0a3e600f89e91",
   "candidate_manifest_sha256": "b5d7084c8e028e72e01d7719bb3aa38964dc362abb30db77bb671f2ed08d0091",
   "module_source_sha256": {
@@ -268,8 +244,12 @@
     "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
     "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138"
   },
-  "exact_source_closed_sessions": [],
-  "installed_closed_sessions": [],
+  "exact_source_closed_sessions": [
+    "20261116-023140"
+  ],
+  "installed_closed_sessions": [
+    "20261116-023140"
+  ],
   "expected_bindings": [
     {
       "slot": "dash",
