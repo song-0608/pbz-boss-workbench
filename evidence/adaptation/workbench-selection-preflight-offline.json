@@ -1,0 +1,61 @@
+{
+  "at": "2026-11-16T07:27:38.700296+08:00",
+  "passed": true,
+  "candidate": "runtime/release-candidates/ahua-boss-workbench-v2-dev-f00bf8218d6febb2",
+  "manifest_sha256": "2489e159e190a966002eab264b39e781c1012aff067c5b98d834a1757bf37ef3",
+  "checks": [
+    {
+      "name": "selection_and_real_refusal",
+      "passed": true,
+      "output": "test_actual_refusal_is_failure_and_tampering_cannot_promote (test_selection_candidate.SelectionCandidateTests.test_actual_refusal_is_failure_and_tampering_cannot_promote) ... ok\ntest_rebuild_and_exact_skill_reuse_reject_other_changes (test_selection_candidate.SelectionCandidateTests.test_rebuild_and_exact_skill_reuse_reject_other_changes) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.735s\n\nOK"
+    },
+    {
+      "name": "native_preflight",
+      "passed": true,
+      "output": "PASS native preflight: no other-Boss navigation, exact identity/player, bounded terrain and no spawning"
+    },
+    {
+      "name": "workbench_rejection_preserves_assembly",
+      "passed": true,
+      "output": "PASS preflight: rejected/error selection preserves current assembly and input owner; valid choice switches once"
+    },
+    {
+      "name": "three_boss_catalog",
+      "passed": true,
+      "output": "PASS three-Boss candidate catalog, exact native bindings, isolated profiles and locked YouLong"
+    },
+    {
+      "name": "published_workbench_regression",
+      "passed": true,
+      "output": "PASS Boss workbench selection, preview quarantine, restore rollback and switch serialization"
+    },
+    {
+      "name": "terrain_clearance",
+      "passed": true,
+      "output": "PASS initialization-only clearance: flat area, narrow ledge, height discontinuity, invalid data and bounded queries"
+    },
+    {
+      "name": "all_candidate_lua_syntax",
+      "passed": true,
+      "output": "PASS 58 Lua syntax files"
+    }
+  ],
+  "lua_files_checked": 58,
+  "sources": {
+    "tools/build_selection_candidate.py": "87a8809201663fb608ac42dcba91b1ca10edd4904d06220e358ed8c5c28a15f8",
+    "tools/boss_selection_preflight.lua": "00aa8165bd8e98fde9b68942a7233be5066683506bddc2b8c4991017707e9f8c",
+    "tests/test_boss_selection_preflight.lua": "4cf18b84eff5ede44ebdd9fc828f41360a60cd59b6748d7c6f1b475e4ca9bc03",
+    "tests/test_workbench_selection_preflight.lua": "fdf7245821fcab1e45b6aa04d9b6cc794d06649aaed20be07a8d55a14fe7f17a",
+    "tools/selection_skill_reuse.py": "ff8fb60717f6754b391d8ff7a12886e85f58a9a762566557a3f9e5c73216bdfc",
+    "tests/test_selection_candidate.py": "01f8a3188da9fb74abfeeec3395aa7557c25864b9d7894c76b5418a4b6b7fbdf",
+    "tools/collect_clearance_rejection.py": "7512984e8d1ffd21aacd6ffc0af4f40051388651d757924ba1e069bc2f202eb8",
+    "tools/verify_selection_candidate.py": "d6857fd7d7592a932dd5ac58fe3215fb9ac9896f6fb5d3c76cb0ddd87c974661"
+  },
+  "closed_refusal_receipt_sha256": "2fe57ae3f7f301bae306b0f727a31e0f1e46ed606c27b511f1e9c98aba733b36",
+  "installed_release": "ahua-boss-workbench-v1-f0bcf1323e641e03",
+  "game_started": false,
+  "candidate_installed": false,
+  "live_preflight_verified": false,
+  "new_playable_bosses": 0,
+  "complete_mod": false
+}
