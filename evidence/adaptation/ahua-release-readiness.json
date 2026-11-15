@@ -3,33 +3,18 @@
     "local_checks_current": true,
     "installed_candidate_used_and_closed": true,
     "all_28_natural_and_restored": false,
-    "all_28_active_cancel_and_restored": false,
-    "all_29_actual_bindings": false,
-    "full_600_seconds_and_continuous_active": false,
+    "all_28_active_cancel_and_restored": true,
+    "all_29_actual_bindings": true,
+    "full_600_seconds_and_continuous_active": true,
     "ordinary_native_menu_world_cycle": true
   },
   "ready_for_release": false,
   "missing_natural": [
     "attack_01",
     "dash",
-    "heavy_01",
-    "heavy_02",
     "homing_flower",
     "homing_flower_hard",
-    "skill_02",
-    "skill_04",
-    "skill_06",
-    "skill_06_hard",
-    "skill_07",
-    "skill_07_hard",
-    "skill_08",
-    "skill_09",
-    "special_02_new",
-    "special_03",
-    "special_03_flower",
-    "special_03_flower_cd",
     "special_05_a",
-    "special_07",
     "special_11",
     "special_move_01",
     "special_move_back",
@@ -38,173 +23,9 @@
     "teleport_left",
     "teleport_right"
   ],
-  "missing_cancel": [
-    "attack_01",
-    "dash",
-    "heavy_01",
-    "heavy_02",
-    "homing_flower",
-    "homing_flower_hard",
-    "skill_01",
-    "skill_02",
-    "skill_04",
-    "skill_06",
-    "skill_06_hard",
-    "skill_07",
-    "skill_07_hard",
-    "skill_09",
-    "special_02_new",
-    "special_03",
-    "special_03_flower",
-    "special_03_flower_cd",
-    "special_05_a",
-    "special_07",
-    "special_11",
-    "special_move_01",
-    "special_move_back",
-    "special_move_left",
-    "special_move_right",
-    "teleport_left",
-    "teleport_right"
-  ],
-  "missing_bindings": [
-    {
-      "slot": "dash",
-      "skill": "dash",
-      "key": "F4"
-    },
-    {
-      "slot": "heavy_01",
-      "skill": "heavy_01",
-      "key": "F2"
-    },
-    {
-      "slot": "heavy_02",
-      "skill": "heavy_02",
-      "key": "SEVEN"
-    },
-    {
-      "slot": "homing_flower",
-      "skill": "homing_flower",
-      "key": "Z"
-    },
-    {
-      "slot": "homing_flower_hard",
-      "skill": "homing_flower_hard",
-      "key": "X"
-    },
-    {
-      "slot": "native_combo",
-      "skill": "attack_01",
-      "key": "R"
-    },
-    {
-      "slot": "primary_attack",
-      "skill": "skill_01",
-      "key": "LEFT_MOUSE_BUTTON"
-    },
-    {
-      "slot": "skill_02",
-      "skill": "skill_02",
-      "key": "F3"
-    },
-    {
-      "slot": "skill_04",
-      "skill": "skill_04",
-      "key": "ONE"
-    },
-    {
-      "slot": "skill_06",
-      "skill": "skill_06",
-      "key": "F5"
-    },
-    {
-      "slot": "skill_06_hard",
-      "skill": "skill_06_hard",
-      "key": "NINE"
-    },
-    {
-      "slot": "skill_07",
-      "skill": "skill_07",
-      "key": "F9"
-    },
-    {
-      "slot": "skill_07_hard",
-      "skill": "skill_07_hard",
-      "key": "TWO"
-    },
-    {
-      "slot": "skill_09",
-      "skill": "skill_09",
-      "key": "T"
-    },
-    {
-      "slot": "special_02_new",
-      "skill": "special_02_new",
-      "key": "FIVE"
-    },
-    {
-      "slot": "special_03",
-      "skill": "special_03",
-      "key": "EIGHT"
-    },
-    {
-      "slot": "special_03_flower",
-      "skill": "special_03_flower",
-      "key": "THREE"
-    },
-    {
-      "slot": "special_03_flower_cd",
-      "skill": "special_03_flower_cd",
-      "key": "FOUR"
-    },
-    {
-      "slot": "special_05_a",
-      "skill": "special_05_a",
-      "key": "H"
-    },
-    {
-      "slot": "special_07",
-      "skill": "special_07",
-      "key": "SIX"
-    },
-    {
-      "slot": "special_11",
-      "skill": "special_11",
-      "key": "SPACE"
-    },
-    {
-      "slot": "special_move_01",
-      "skill": "special_move_01",
-      "key": "C"
-    },
-    {
-      "slot": "special_move_back",
-      "skill": "special_move_back",
-      "key": "V"
-    },
-    {
-      "slot": "special_move_left",
-      "skill": "special_move_left",
-      "key": "B"
-    },
-    {
-      "slot": "special_move_right",
-      "skill": "special_move_right",
-      "key": "G"
-    },
-    {
-      "slot": "teleport_left",
-      "skill": "teleport_left",
-      "key": "Q"
-    },
-    {
-      "slot": "teleport_right",
-      "skill": "teleport_right",
-      "key": "E"
-    }
-  ],
-  "at": "2026-11-16T03:27:39.504251+08:00",
+  "missing_cancel": [],
+  "missing_bindings": [],
+  "at": "2026-11-16T04:00:35.348703+08:00",
   "release_id": "ahua-28-m2-3524e745dc21da3c",
   "candidate_manifest_sha256": "f86b6776d7943415165fcb4e80c1eab192a03b87c83477de1ee333618e83ec7d",
   "module_source_sha256": {
@@ -257,10 +78,14 @@
     "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138"
   },
   "exact_source_closed_sessions": [
-    "20261116-031001"
+    "20261116-031001",
+    "20261116-032731",
+    "20261116-034418"
   ],
   "installed_closed_sessions": [
-    "20261116-031001"
+    "20261116-031001",
+    "20261116-032731",
+    "20261116-034418"
   ],
   "expected_bindings": [
     {
@@ -409,7 +234,33 @@
       "key": "E"
     }
   ],
-  "stability": [],
+  "stability": [
+    {
+      "session": "20261116-034418",
+      "proof": {
+        "elapsed_seconds": 600.017876,
+        "declared_600_seconds": true,
+        "heartbeat_count": 635,
+        "heartbeat_span_seconds": 599,
+        "maximum_heartbeat_gap": 1,
+        "heartbeat_ordered": true,
+        "active_span_seconds": 565,
+        "longest_continuous_active_seconds": 387,
+        "statuses_valid": true,
+        "restoration": {
+          "label": "exit",
+          "reason": "",
+          "player_position_delta": 0.0,
+          "player_new_active_count": 0,
+          "camera_cleanup_verified": true,
+          "passed": true
+        },
+        "fault_absent": true,
+        "passed": true
+      },
+      "log_sha256": "ce5c640a5e86f83633346655d430b070fd51c1358f127f73d0c049d6a3ab8724"
+    }
+  ],
   "native_menu_reloads": [
     {
       "session": "20261116-031001",

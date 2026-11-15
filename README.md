@@ -13,21 +13,19 @@ are verified. Current-source acceptance and supported machine setup are
 documented in [63-整体优化与工作台收尾.md](63-整体优化与工作台收尾.md) and
 [64-双Boss工作台操作说明.md](64-双Boss工作台操作说明.md).
 
-The WanJun candidate passed its four ability natural-completion and active
-cancellation checks, movement and camera checks, a 600-second assembly, more
-than eight minutes of continuous takeover, and clean isolated-session
-restoration on 2026-11-15. Current-source workbench interaction and the ordinary
-Ahua/WanJun/Ahua roundtrip passed in closed session `20261115-232001`, including
-owned-object cleanup, movement, camera control, and character-specific skills.
-The same-process native menu world cycle passed in closed session
-`20261116-005016`: automatic reassembly, ordinary skill damage, and full player
-restoration. The previous frozen candidate completed all 28 Ahua natural and
-active-cancellation checks and 29 bindings. A later dead-target reentry test
-found a reference to a collected training actor in setup observation. The new
-candidate skips expired or dead initial targets and retains camera restoration
-records before target handling; current-source gameplay revalidation is pending.
-All 79 offline check
-groups passed on 2026-11-16; this does not replace gameplay acceptance.
+The frozen candidate is `ahua-28-m2-3524e745dc21da3c`. Its workbench interaction,
+ordinary Ahua/WanJun/Ahua roundtrip, and same-process native menu world cycle
+passed in closed session `20261116-031001`. These checks include owned-object
+cleanup, movement, camera control, character-specific skills, automatic world
+reassembly, ordinary skill damage, and full player restoration.
+
+The candidate skips expired or dead initial targets, retains camera restoration
+records before target handling, and gives each newly loaded player its full
+stability-observation window. Current-source ability, continuous-takeover,
+independent WanJun baseline, and dead-target recovery acceptance are being
+completed. Earlier candidates' gameplay results remain historical evidence.
+All 79 offline check groups passed on 2026-11-16; this does not replace gameplay
+acceptance.
 
 ## Performance
 
