@@ -1,0 +1,76 @@
+{
+  "at": "2026-11-16T07:34:05.632229+08:00",
+  "passed": true,
+  "id": "056_youlong",
+  "bundle": "research/boss-adaptation/developer-bundles/056_youlong-4d2c3309253bb881",
+  "bundle_manifest_sha256": "b82120aa685718872a3ae3e76a276ba73cd8084053c3c76b53d822da81db9227",
+  "workflow": "runtime/developer-workflows/youlong-99322df6dec326cf",
+  "workflow_manifest_sha256": "70257a6a7f39f60c150011e859cc45c032278202b5857113641747301999d86b",
+  "checks": [
+    {
+      "name": "youlong_developer_bundle",
+      "passed": true,
+      "output": "test_frozen_bundle_deterministic_and_scope_or_source_tamper_refused (test_youlong_developer_bundle.YouLongBundleTests.test_frozen_bundle_deterministic_and_scope_or_source_tamper_refused) ... ok\ntest_real_harpoon_identity_and_explicit_initial_actions (test_youlong_developer_bundle.YouLongBundleTests.test_real_harpoon_identity_and_explicit_initial_actions) ... ok\ntest_wrong_candidate_and_transitive_evidence_refused (test_youlong_developer_bundle.YouLongBundleTests.test_wrong_candidate_and_transitive_evidence_refused) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.361s\n\nOK"
+    },
+    {
+      "name": "youlong_developer_workflow",
+      "passed": true,
+      "output": "test_gate_refuses_missing_bundle_or_wrong_boss_without_game_calls (test_youlong_developer_workflow.WorkflowTests.test_gate_refuses_missing_bundle_or_wrong_boss_without_game_calls) ... ok\ntest_generated_payload_or_extra_file_is_refused (test_youlong_developer_workflow.WorkflowTests.test_generated_payload_or_extra_file_is_refused) ... ok\ntest_historical_source_change_is_refused (test_youlong_developer_workflow.WorkflowTests.test_historical_source_change_is_refused) ... ok\ntest_rendered_revision_retains_gates_and_routes_nested_steps (test_youlong_developer_workflow.WorkflowTests.test_rendered_revision_retains_gates_and_routes_nested_steps) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.126s\n\nOK"
+    },
+    {
+      "name": "native_grant_boundaries",
+      "passed": true,
+      "output": "PASS YouLong exact Harpoon identity, native idle-only bindings, excluded dependence and atomic rejection"
+    },
+    {
+      "name": "ahua_practice.py_cli_import",
+      "passed": true,
+      "output": "usage: ahua_practice.py [-h] [--performance-profile] [--cloud-off-reviewed]\n                        [--load-map-hook-trial] [--monitor] [--expanded]\n                        [--skill-lab] [--combo-scheduler-trial]\n                        [--player-key-trial] [--death-trial]\n                        [--incoming-combat-trial] [--native-death-trial]\n                        [--active-skill-death-trial]\n                        [--active-skill-disposal-trial]\n                        [--scene-transition-trial] [--arena-navigation-trial]\n                        [--boss-candidate {056_youlong}]\n                        [--boss-candidate-bundle BOSS_CANDIDATE_BUNDLE]\n                        [{prepare,review,launch,arm,stop,status}]\n\n阿花离线训练入口，不接触正式存档\n\npositional arguments:\n  {prepare,review,launch,arm,stop,status}\n\noptions:\n  -h, --help            show this help message and exit\n  --performance-profile\n                        开发性能验收：只读统计游戏线程回调与反射开销\n  --cloud-off-reviewed\n  --load-map-hook-trial\n                        启动时显式启用引擎LoadMap detour，仅用于开发切图验收\n  --monitor\n  --expanded            开发验收：F8/F9为重击02和特殊03候选\n  --skill-lab           开发验收：F9选择、F8试放；普攻01隔离禁用\n  --combo-scheduler-trial\n                        仅开发技能台：Attack_01最多25秒Brain调度许可\n  --player-key-trial    开发验收：只对受保护默认键位临时开放待验F8\n  --death-trial         开发验收：F12仅对本轮自建Boss尝试一次原生伤害，不改血量字段\n  --incoming-combat-trial\n                        开发验收：F12让两个本轮训练角色用真实技能07攻击自建Boss，最多360秒\n  --native-death-trial  开发验收：核对当轮死亡枚举后，F12仅对本轮自建Boss调用一次Kill\n  --active-skill-death-trial\n                        开发验收：F12仅在本轮技能08真实活动时请求一次自建阿花原生死亡\n  --active-skill-disposal-trial\n                        开发验收：F12同线程销毁精确活动技能08的自建Actor，销毁后不读旧Spec\n  --scene-transition-trial\n                        开发切图验收：恢复后经原菜单重载；F12仅在空闲接管时重载当前研究地图一次\n  --arena-navigation-trial\n                        开发验收：只使用当前导航投影核对的同层分离落点\n  --boss-candidate {056_youlong}\n                        独立候选验收；不注册为玩家可玩Boss\n  --boss-candidate-bundle BOSS_CANDIDATE_BUNDLE\n                        冻结的独立开发覆盖包；不替换已安装版本"
+    },
+    {
+      "name": "run_control_lifecycle_probe.py_cli_import",
+      "passed": true,
+      "output": "usage: run_control_lifecycle_probe.py [-h] [--performance-profile]\n                                      [--interactive] [--camera] [--combat]\n                                      [--update-modules] [--remote]\n                                      [--batch-skills] [--barrier]\n                                      [--protect-player] [--practice]\n                                      [--look-only] [--target-cycle]\n                                      [--extra-skills] [--skill-lab]\n                                      [--combo-scheduler-trial]\n                                      [--player-key-trial] [--death-trial]\n                                      [--incoming-combat-trial]\n                                      [--native-death-trial]\n                                      [--active-skill-death-trial]\n                                      [--active-skill-disposal-trial]\n                                      [--player-entry]\n                                      [--scene-transition-trial]\n                                      [--arena-navigation-trial]\n                                      [--boss-candidate {056_youlong}]\n                                      [--boss-candidate-bundle BOSS_CANDIDATE_BUNDLE]\n\noptions:\n  -h, --help            show this help message and exit\n  --performance-profile\n  --interactive\n  --camera\n  --combat\n  --update-modules\n  --remote\n  --batch-skills\n  --barrier\n  --protect-player\n  --practice\n  --look-only\n  --target-cycle\n  --extra-skills\n  --skill-lab\n  --combo-scheduler-trial\n  --player-key-trial\n  --death-trial\n  --incoming-combat-trial\n  --native-death-trial\n  --active-skill-death-trial\n  --active-skill-disposal-trial\n  --player-entry\n  --scene-transition-trial\n  --arena-navigation-trial\n  --boss-candidate {056_youlong}\n  --boss-candidate-bundle BOSS_CANDIDATE_BUNDLE"
+    },
+    {
+      "name": "test_player_skill_batch.py_cli_import",
+      "passed": true,
+      "output": "usage: test_player_skill_batch.py [-h] [--interrupt] [--cycle-target]\n                                  skills [skills ...]\n\npositional arguments:\n  skills\n\noptions:\n  -h, --help      show this help message and exit\n  --interrupt\n  --cycle-target  诊断专用：强制一次F7；默认仅当前HUD证明遮挡时切换"
+    },
+    {
+      "name": "run_boss_candidate_milestone.py_cli_import",
+      "passed": true,
+      "output": "usage: run_boss_candidate_milestone.py [-h] [--resume]\n                                       [--natural-session NATURAL_SESSION]\n\noptions:\n  -h, --help            show this help message and exit\n  --resume              复用同一装配内已通过的招式，不延长租约\n  --natural-session NATURAL_SESSION\n                        仅复用公共Lua逐字节一致的已关闭自然动作，不复用取消和稳定性"
+    },
+    {
+      "name": "collect_boss_candidate_acceptance.py_cli_import",
+      "passed": true,
+      "output": "usage: collect_boss_candidate_acceptance.py [-h] session identifier\n\npositional arguments:\n  session\n  identifier\n\noptions:\n  -h, --help  show this help message and exit"
+    }
+  ],
+  "candidate_action_pool": 8,
+  "excluded_metadata_paths": 24,
+  "source_files": {
+    "tools/youlong_developer_bundle.py": "95030f0c0eb32df112bc4a50919fee7ce9bdafd3b92a2c98a65cf46414efc000",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/build_boss_profile_candidate.py": "71016a704b8804545823df72a85833e77c2fc700b0945b2f86ce085cbe979522",
+    "tests/test_youlong_developer_bundle.py": "9343d7b036ce8fb1c51508be689b6101cad186cc97acf2c3cb9735ccb5d5a5b5",
+    "tests/test_youlong_developer_candidate.lua": "f275b2bee013b7c38e169546fec763b792215e33d4cd8300fcc8ba069d2c7998",
+    "tools/youlong_developer_workflow.py": "df0c492bcd8e7a8ceb44b0d97eec0305b1c3b1a688bad69fae756f85f66b92df",
+    "tests/test_youlong_developer_workflow.py": "b37f09efea3ed0a1b3d39af3ff3c63e41fc2865ca2688ed99628d5518a42bc3c",
+    "tools/verify_youlong_developer.py": "a4b8884a999156219ace3ba135d936e9f57308078f154ceae34e57802a68af96"
+  },
+  "historical_source_sha256": {
+    "ahua_practice.py": "d77ab6485eea48e11c09aac8e42a2cb57eedaf1ce01a8ed3a34c58971673a431",
+    "run_control_lifecycle_probe.py": "816672ec788f7872a37a29a3567cb4261f5fe8c5483e60e1fb2f8a3328c147f2",
+    "test_player_skill_batch.py": "0deb9e3d3485e569dbb0d81828f7f784b55b8e336434a7d0a22345d0b35a6430",
+    "run_boss_candidate_milestone.py": "311b7483af00d56024d426d968be68a2eb09a62df1659cee778d1ecc6552e524",
+    "collect_boss_candidate_acceptance.py": "cca1dd53e47d69d75e005c535056daf0638d17c070aa3f0b9ab8863dbf5e12cb"
+  },
+  "game_started": false,
+  "playable": false,
+  "live_grants_verified": false,
+  "activation_verified": false,
+  "complete_mod": false,
+  "installed_release": "ahua-boss-workbench-v1-f0bcf1323e641e03"
+}
