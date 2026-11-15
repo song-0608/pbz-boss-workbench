@@ -21,8 +21,12 @@ Ahua/WanJun/Ahua roundtrip passed in closed session `20261115-232001`, including
 owned-object cleanup, movement, camera control, and character-specific skills.
 The same-process native menu world cycle passed in closed session
 `20261116-005016`: automatic reassembly, ordinary skill damage, and full player
-restoration. The full Ahua catalog and dead-target recovery remain release
-requirements. All 79 offline check
+restoration. The previous frozen candidate completed all 28 Ahua natural and
+active-cancellation checks and 29 bindings. A later dead-target reentry test
+found a reference to a collected training actor in setup observation. The new
+candidate skips expired or dead initial targets and retains camera restoration
+records before target handling; current-source gameplay revalidation is pending.
+All 79 offline check
 groups passed on 2026-11-16; this does not replace gameplay acceptance.
 
 ## Performance

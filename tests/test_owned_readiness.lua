@@ -32,4 +32,21 @@ test('nonfinite vectors and missing participants reject',function()
     local g,r=fixture();r[2].velocity.X=0/0;rejects(g,r)
     g,r=fixture();r[3]=nil;rejects(g,r)
 end)
+test('collected initial target never dereferences an expired wrapper or locks a corpse',function()
+    local arena=require('owned_arena');local requests=0
+    local combat={request_target=function(_,ticket,target,socket)
+        assert(ticket=='receipt'and socket=='None');requests=requests+1
+    end}
+    local expired=setmetatable({},{__index=function()error('expired wrapper was dereferenced')end})
+    assert(not arena.request_initial_target(combat,'receipt',expired,function()return false end))
+    assert(requests==0)
+    for _,health in ipairs({0,-1,math.huge,0/0,'9000'})do
+        local dead={AttributeSetBase={Health={CurrentValue=health}}}
+        assert(not arena.request_initial_target(combat,'receipt',dead,function()return true end))
+        assert(requests==0)
+    end
+    local living={AttributeSetBase={Health={CurrentValue=9000}}}
+    assert(arena.request_initial_target(combat,'receipt',living,function()return true end))
+    assert(requests==1)
+end)
 print('Owned readiness fixtures passed: '..total)

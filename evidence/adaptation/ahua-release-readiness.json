@@ -1,20 +1,224 @@
 {
   "gates": {
     "local_checks_current": true,
-    "installed_candidate_used_and_closed": true,
-    "all_28_natural_and_restored": true,
-    "all_28_active_cancel_and_restored": true,
-    "all_29_actual_bindings": true,
-    "full_600_seconds_and_continuous_active": true,
-    "ordinary_native_menu_world_cycle": true
+    "installed_candidate_used_and_closed": false,
+    "all_28_natural_and_restored": false,
+    "all_28_active_cancel_and_restored": false,
+    "all_29_actual_bindings": false,
+    "full_600_seconds_and_continuous_active": false,
+    "ordinary_native_menu_world_cycle": false
   },
-  "ready_for_release": true,
-  "missing_natural": [],
-  "missing_cancel": [],
-  "missing_bindings": [],
-  "at": "2026-11-16T02:20:10.085360+08:00",
-  "release_id": "ahua-28-m2-b4afb7fce5a1eb7e",
-  "candidate_manifest_sha256": "a16d21af4cecd894d1e62dd7d306eaa036c9ea98561700574b5fd784c74c887f",
+  "ready_for_release": false,
+  "missing_natural": [
+    "attack_01",
+    "dash",
+    "heavy_01",
+    "heavy_02",
+    "homing_flower",
+    "homing_flower_hard",
+    "skill_01",
+    "skill_02",
+    "skill_04",
+    "skill_06",
+    "skill_06_hard",
+    "skill_07",
+    "skill_07_hard",
+    "skill_08",
+    "skill_09",
+    "special_02_new",
+    "special_03",
+    "special_03_flower",
+    "special_03_flower_cd",
+    "special_05_a",
+    "special_07",
+    "special_11",
+    "special_move_01",
+    "special_move_back",
+    "special_move_left",
+    "special_move_right",
+    "teleport_left",
+    "teleport_right"
+  ],
+  "missing_cancel": [
+    "attack_01",
+    "dash",
+    "heavy_01",
+    "heavy_02",
+    "homing_flower",
+    "homing_flower_hard",
+    "skill_01",
+    "skill_02",
+    "skill_04",
+    "skill_06",
+    "skill_06_hard",
+    "skill_07",
+    "skill_07_hard",
+    "skill_08",
+    "skill_09",
+    "special_02_new",
+    "special_03",
+    "special_03_flower",
+    "special_03_flower_cd",
+    "special_05_a",
+    "special_07",
+    "special_11",
+    "special_move_01",
+    "special_move_back",
+    "special_move_left",
+    "special_move_right",
+    "teleport_left",
+    "teleport_right"
+  ],
+  "missing_bindings": [
+    {
+      "slot": "dash",
+      "skill": "dash",
+      "key": "F4"
+    },
+    {
+      "slot": "heavy_01",
+      "skill": "heavy_01",
+      "key": "F2"
+    },
+    {
+      "slot": "heavy_02",
+      "skill": "heavy_02",
+      "key": "SEVEN"
+    },
+    {
+      "slot": "homing_flower",
+      "skill": "homing_flower",
+      "key": "Z"
+    },
+    {
+      "slot": "homing_flower_hard",
+      "skill": "homing_flower_hard",
+      "key": "X"
+    },
+    {
+      "slot": "native_combo",
+      "skill": "attack_01",
+      "key": "R"
+    },
+    {
+      "slot": "primary_attack",
+      "skill": "skill_01",
+      "key": "LEFT_MOUSE_BUTTON"
+    },
+    {
+      "slot": "skill_02",
+      "skill": "skill_02",
+      "key": "F3"
+    },
+    {
+      "slot": "skill_04",
+      "skill": "skill_04",
+      "key": "ONE"
+    },
+    {
+      "slot": "skill_06",
+      "skill": "skill_06",
+      "key": "F5"
+    },
+    {
+      "slot": "skill_06_hard",
+      "skill": "skill_06_hard",
+      "key": "NINE"
+    },
+    {
+      "slot": "skill_07",
+      "skill": "skill_07",
+      "key": "F9"
+    },
+    {
+      "slot": "skill_07_hard",
+      "skill": "skill_07_hard",
+      "key": "TWO"
+    },
+    {
+      "slot": "skill_08",
+      "skill": "skill_08",
+      "key": "F8"
+    },
+    {
+      "slot": "skill_09",
+      "skill": "skill_09",
+      "key": "T"
+    },
+    {
+      "slot": "slot1",
+      "skill": "skill_01",
+      "key": "F1"
+    },
+    {
+      "slot": "special_02_new",
+      "skill": "special_02_new",
+      "key": "FIVE"
+    },
+    {
+      "slot": "special_03",
+      "skill": "special_03",
+      "key": "EIGHT"
+    },
+    {
+      "slot": "special_03_flower",
+      "skill": "special_03_flower",
+      "key": "THREE"
+    },
+    {
+      "slot": "special_03_flower_cd",
+      "skill": "special_03_flower_cd",
+      "key": "FOUR"
+    },
+    {
+      "slot": "special_05_a",
+      "skill": "special_05_a",
+      "key": "H"
+    },
+    {
+      "slot": "special_07",
+      "skill": "special_07",
+      "key": "SIX"
+    },
+    {
+      "slot": "special_11",
+      "skill": "special_11",
+      "key": "SPACE"
+    },
+    {
+      "slot": "special_move_01",
+      "skill": "special_move_01",
+      "key": "C"
+    },
+    {
+      "slot": "special_move_back",
+      "skill": "special_move_back",
+      "key": "V"
+    },
+    {
+      "slot": "special_move_left",
+      "skill": "special_move_left",
+      "key": "B"
+    },
+    {
+      "slot": "special_move_right",
+      "skill": "special_move_right",
+      "key": "G"
+    },
+    {
+      "slot": "teleport_left",
+      "skill": "teleport_left",
+      "key": "Q"
+    },
+    {
+      "slot": "teleport_right",
+      "skill": "teleport_right",
+      "key": "E"
+    }
+  ],
+  "at": "2026-11-16T02:26:56.178124+08:00",
+  "release_id": "ahua-28-m2-27f0a3e600f89e91",
+  "candidate_manifest_sha256": "b5d7084c8e028e72e01d7719bb3aa38964dc362abb30db77bb671f2ed08d0091",
   "module_source_sha256": {
     "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
     "boss_candidate.lua": "4b848bc35c20c36eec01fdb4025ac34363fdb7221059b8787b74f777dc52b1d1",
@@ -34,7 +238,7 @@
     "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
     "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
     "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
-    "owned_arena.lua": "4a069e70ef6486618509741ea55bf8b4c5525e5a2f710b63f1ff6b80d7df5a80",
+    "owned_arena.lua": "247a31fe0994f5fb4d03015eb2440ae4e5d831e80a6d701007413e8527ec6d13",
     "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
     "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
     "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
@@ -51,7 +255,7 @@
     "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
     "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
     "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
-    "ue_combat.lua": "ad13f34efeefe5b2538747772c1b117276c57501044fc9e17072a0b9405a3af5",
+    "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
     "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
     "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
     "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
@@ -64,24 +268,8 @@
     "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
     "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138"
   },
-  "exact_source_closed_sessions": [
-    "20261115-232001",
-    "20261116-003054",
-    "20261116-005016",
-    "20261116-011040",
-    "20261116-012744",
-    "20261116-014513",
-    "20261116-020337"
-  ],
-  "installed_closed_sessions": [
-    "20261115-232001",
-    "20261116-003054",
-    "20261116-005016",
-    "20261116-011040",
-    "20261116-012744",
-    "20261116-014513",
-    "20261116-020337"
-  ],
+  "exact_source_closed_sessions": [],
+  "installed_closed_sessions": [],
   "expected_bindings": [
     {
       "slot": "dash",
@@ -229,39 +417,8 @@
       "key": "E"
     }
   ],
-  "stability": [
-    {
-      "session": "20261116-003054",
-      "proof": {
-        "elapsed_seconds": 600.008696,
-        "declared_600_seconds": true,
-        "heartbeat_count": 649,
-        "heartbeat_span_seconds": 599,
-        "maximum_heartbeat_gap": 2,
-        "heartbeat_ordered": true,
-        "active_span_seconds": 565,
-        "longest_continuous_active_seconds": 388,
-        "statuses_valid": true,
-        "restoration": {
-          "label": "exit",
-          "reason": "",
-          "player_position_delta": 0.0,
-          "player_new_active_count": 0,
-          "camera_cleanup_verified": true,
-          "passed": true
-        },
-        "fault_absent": true,
-        "passed": true
-      },
-      "log_sha256": "383264e186f2cd3680b4c30f0de91d6215ff64ac9c30e8293b0cf37c2ce222b0"
-    }
-  ],
-  "native_menu_reloads": [
-    {
-      "session": "20261116-005016",
-      "evidence": "evidence\\official-validation\\20261116-005016\\auto-world-reassembly-evidence.json"
-    }
-  ],
+  "stability": [],
+  "native_menu_reloads": [],
   "complete_mod": false,
   "game_started": false,
   "scope": "current fixed build, local protected offline launcher"

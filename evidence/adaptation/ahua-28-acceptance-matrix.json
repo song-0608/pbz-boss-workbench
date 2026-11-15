@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-16T02:20:06.113447+08:00",
+  "at": "2026-11-16T02:26:56.079229+08:00",
   "ability_count": 28,
   "skill_binding_count": 29,
   "scope": "报告中的历史通过仅对应各自部署SHA；没有本收集器旧记录的能力不推断为失败或已通过",
@@ -17,7 +17,7 @@
     "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
     "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
     "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
-    "ue_combat.lua": "ad13f34efeefe5b2538747772c1b117276c57501044fc9e17072a0b9405a3af5",
+    "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
     "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
     "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
     "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
@@ -31,7 +31,7 @@
     "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
     "boss_catalog.lua": "ca1135403634123d9947c5883217d9c13df421856feaefc59035c28c428d1f32",
     "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
-    "owned_arena.lua": "4a069e70ef6486618509741ea55bf8b4c5525e5a2f710b63f1ff6b80d7df5a80",
+    "owned_arena.lua": "247a31fe0994f5fb4d03015eb2440ae4e5d831e80a6d701007413e8527ec6d13",
     "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
     "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
     "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
@@ -743,8 +743,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "dash",
@@ -1348,8 +1348,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "heavy_01",
@@ -1953,8 +1953,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "heavy_02",
@@ -2768,8 +2768,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "homing_flower",
@@ -3594,8 +3594,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "homing_flower_hard",
@@ -4341,8 +4341,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_01",
@@ -5400,8 +5400,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_02",
@@ -6083,8 +6083,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_04",
@@ -6828,8 +6828,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_06",
@@ -7511,8 +7511,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_06_hard",
@@ -8248,8 +8248,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_07",
@@ -8931,8 +8931,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_07_hard",
@@ -9676,8 +9676,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_08",
@@ -10496,8 +10496,8 @@
           "evidence_sha256": "09aaf9c0a6e27aa9aa92f5603eb20ece342893a6508044ada7432c55e6bd40e4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "skill_09",
@@ -11311,8 +11311,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_02_new",
@@ -12126,8 +12126,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_03",
@@ -12863,8 +12863,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_03_flower",
@@ -13608,8 +13608,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_03_flower_cd",
@@ -14345,8 +14345,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_05_a",
@@ -15021,8 +15021,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_07",
@@ -15836,8 +15836,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_11",
@@ -16441,8 +16441,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_move_01",
@@ -16968,8 +16968,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_move_back",
@@ -17495,8 +17495,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_move_left",
@@ -18022,8 +18022,8 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "special_move_right",
@@ -18549,8 +18549,8 @@
           "evidence_sha256": "9ef5f1683d978438ee578ccfb12b4a3b2b31a8e0f8985489300acd3ef630b3b6"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "teleport_left",
@@ -19232,8 +19232,8 @@
           "evidence_sha256": "33d823df81291330ed1b931a177558fa8eede19846598af0e8652296aab8b7d8"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     },
     {
       "skill": "teleport_right",
@@ -19837,10 +19837,10 @@
           "evidence_sha256": "578360abafdfe289d8afa6e8108b7c7c84374fb6509211687f5f9f437f3a57b4"
         }
       ],
-      "current_source_ordinary_natural": true,
-      "current_source_ordinary_cancel": true
+      "current_source_ordinary_natural": false,
+      "current_source_ordinary_cancel": false
     }
   ],
-  "current_source_all_ordinary_natural": true,
-  "current_source_all_ordinary_cancel": true
+  "current_source_all_ordinary_natural": false,
+  "current_source_all_ordinary_cancel": false
 }

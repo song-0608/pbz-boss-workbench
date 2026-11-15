@@ -8,7 +8,7 @@ from collect_workbench_recovery import proof
 
 class RecoveryEvidenceTests(unittest.TestCase):
     enter='[PBZBossControl] enter success=true state=ACTIVE reason=\n'
-    clear='PBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n'
+    clear='PBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n'
     restore=('[PBZBossControl] exit success=true state=OFF reason=\n'
         'ORIGINAL_PLAYER_POSITION_DELTA=0.0\nORIGINAL_PLAYER_NEW_ACTIVE_COUNT=0\n'
         'CAMERA_CLEANUP_ENGINE_VERIFIED=true\n')
@@ -19,6 +19,16 @@ class RecoveryEvidenceTests(unittest.TestCase):
 
     def test_dead_stale_target_with_full_same_cycle_restoration_passes(self):
         self.assertTrue(proof(self.enter+self.hud()+self.clear+self.restore)['passed'])
+
+    def test_native_success_requires_actual_empty_component_readback_too(self):
+        text=self.enter+self.hud()+self.clear.replace('fallback=true','fallback=false')+self.restore
+        result=proof(text)
+        self.assertTrue(result['passed'])
+        self.assertFalse(result['dead_target_clear_restorations'][0]['fallback_used'])
+        self.assertFalse(proof(text.replace('CLEAR_VERIFIED=true','CLEAR_VERIFIED=false'))['passed'])
+        self.assertFalse(proof(text.replace(self.clear.replace('fallback=true','fallback=false'),
+            'PBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n'))['passed'])
+        self.assertTrue(proof(self.enter+self.clear+self.hud()+self.clear+self.restore)['passed'])
 
     def test_missing_native_fallback_dead_status_or_readback_fails(self):
         text=self.enter+self.hud()+self.clear+self.restore

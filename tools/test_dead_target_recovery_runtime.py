@@ -188,7 +188,7 @@ def main():
         menu.click(0, 0, 2560, 1600, 'control_exit')
         tail = wait_for(path, start, lambda t: restoration_result(t, 'exit')['passed'], 10)
         report['proof'] = recovery_proof(tail)
-        assert report['proof']['passed'], 'Dead-target fallback and full restoration not verified'
+        assert report['proof']['passed'], 'Dead-target native clear readback and full restoration not verified'
         report['passed'] = True
     except Exception as error:
         report['error'] = str(error)

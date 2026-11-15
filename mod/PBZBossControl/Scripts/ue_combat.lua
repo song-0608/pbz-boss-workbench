@@ -39,10 +39,12 @@ function Native.new(g,binding)
         end,
         clear_target=function(component)
             component:StopLockTarget()
+            local fallback=false
             -- 死亡目标可能使原生StopLockTarget提前退出，留下仍有效的Mesh引用。
             -- 只清理当前实例已核对声明的锁定结构；调用后仍必须读回实际组件。
             local remaining=component.LockTarget.Component
             if remaining and remaining:IsValid()then
+                fallback=true
                 -- UE4SS整结构表赋值跳过nil字段，必须直接写反射字段才能置空UObject指针。
                 local target=component.LockTarget
                 target.Component=nil
@@ -53,6 +55,7 @@ function Native.new(g,binding)
             end
             local after=component.LockTarget.Component
             assert(not(after and after:IsValid()),'target component remains after native cleanup')
+            print('PBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback='..tostring(fallback)..'\n')
         end,
         target_actor=function(actor)
             local target=actor:GetLockingTarget(false)

@@ -16,9 +16,9 @@ def validate_common_runtime(current,base,recovery=None):
     if current.get('ue_combat.lua')!=base.get('ue_combat.lua'):
         assert recovery and recovery.get('passed') and recovery.get('module_source_sha256')==current, \
             'changed target adapter requires current-source dead-target restoration acceptance'
-        assert recovery.get('dead_target_stale_lock_restorations') and recovery.get('requires_real_dead_target_status') \
-            and recovery.get('requires_native_fallback_and_full_restoration')
-        assert all(row.get('restoration',{}).get('passed') for row in recovery['dead_target_stale_lock_restorations'])
+        assert recovery.get('dead_target_clear_restorations') and recovery.get('requires_real_dead_target_status') \
+            and recovery.get('requires_native_clear_readback_and_full_restoration')
+        assert all(row.get('restoration',{}).get('passed') for row in recovery['dead_target_clear_restorations'])
         allowed.add('ue_combat.lua')
     for name,expected in base.items():
         if name not in allowed:assert current.get(name)==expected,'independent Boss adapter changed: '+name

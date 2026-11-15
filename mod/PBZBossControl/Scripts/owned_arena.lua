@@ -1,4 +1,14 @@
 local Arena={}
+-- 初始目标只是本次装配的候选；尸体回收后不得解引用旧包装或重新锁定死亡目标。
+function Arena.request_initial_target(combat,ticket,target,usable)
+    if not usable(target)then return false,'target no longer engine-usable'end
+    local health=target.AttributeSetBase.Health.CurrentValue
+    if type(health)~='number'or health~=health or health<=0 or health==math.huge then
+        return false,'target no longer living'
+    end
+    combat:request_target(ticket,target,'None')
+    return true
+end
 function Arena.start(options)
 assert(type(options)=="table","arena options required")
 local experiment_player_entry=options.player_entry==true
@@ -717,12 +727,14 @@ ExecuteInGameThread(function()
                             player_baseline=player_active();player_new_active={}
                             local p,b=player:K2_GetActorLocation(),actor:K2_GetActorLocation()
                             player_position={X=p.X,Y=p.Y,Z=p.Z};boss_position={X=b.X,Y=b.Y,Z=b.Z}
+                            -- 先登记镜头恢复责任，目标记录异常也不能丢失退出读回。
+                            last_camera_ticket=session.receipt.camera_rig
                             if experiment_combat_binding then
-                                api.combat:request_target(session.receipt.combat,target_actor,'None')
-                                log('INTERACTIVE_TARGET',target_actor:GetFullName())
+                                local selected,reason=Arena.request_initial_target(api.combat,session.receipt.combat,target_actor,valid)
+                                if selected then log('INTERACTIVE_TARGET',target_actor:GetFullName())
+                                else log('INTERACTIVE_TARGET_SKIPPED',reason)end
                             end
                             if session.receipt.input_barrier then log('INPUT_BARRIER_CONSTRUCTED',api.input_barrier:verify(session.receipt.input_barrier))end
-                            last_camera_ticket=session.receipt.camera_rig
                             local observation_scope=require('observation_scope').capture(session)
                             local function observe_camera()
                                 -- 用途：正常F10会释放receipt，旧延迟回调应结束，而非产生“camera receipt missing”故障。

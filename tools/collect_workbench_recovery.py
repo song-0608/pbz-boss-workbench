@@ -14,8 +14,11 @@ def proof(text):
     for index,start in enumerate(starts):
         end=starts[index+1].start() if index+1<len(starts) else len(text)
         interval=text[start.start():end]
-        cleared=interval.find('PBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true')
-        if cleared<0:continue
+        clears=list(re.finditer(r'PBZ_COMBAT_TARGET:CLEAR_VERIFIED=true\|fallback=(true|false)(?:\r?\n|$)',interval))
+        clear=next((row for row in reversed(clears)
+            if restoration_result(interval[row.end():],'exit')['passed']),None)
+        if not clear:continue
+        cleared=clear.start()
         statuses=[];cursor=0
         for line in interval[:cleared].splitlines(keepends=True):
             line_start=cursor;cursor+=len(line)
@@ -36,9 +39,10 @@ def proof(text):
         if dead and restoration['passed'] and not any(token in interval for token in (
                 'state=FAULTED','PBZ_CONTROL_RESTORE:FAILED=','HUD_UNAVAILABLE=')):
             accepted.append({'log_offset':start.start(),'log_end':end,'restoration':restoration,
+                'fallback_used':clear[1]=='true',
                 'dead_status_followed_by_rejected_target_cycle':lost_lock})
-    return {'passed':bool(accepted),'dead_target_stale_lock_restorations':accepted,
-            'requires_real_dead_target_status':True,'requires_native_fallback_and_full_restoration':True}
+    return {'passed':bool(accepted),'dead_target_clear_restorations':accepted,
+            'requires_real_dead_target_status':True,'requires_native_clear_readback_and_full_restoration':True}
 
 
 def collect(session):

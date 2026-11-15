@@ -23,11 +23,11 @@ class RuntimeGateTests(unittest.TestCase):
     def test_changed_target_adapter_requires_exact_source_recovery(self):
         base,current=self.fixture();current['ue_combat.lua']='new'
         recovery={'passed':True,'module_source_sha256':dict(current),
-            'dead_target_stale_lock_restorations':[{'restoration':{'passed':True}}],
-            'requires_real_dead_target_status':True,'requires_native_fallback_and_full_restoration':True}
+            'dead_target_clear_restorations':[{'restoration':{'passed':True}}],
+            'requires_real_dead_target_status':True,'requires_native_clear_readback_and_full_restoration':True}
         validate_common_runtime(current,base,recovery)
         for bad in (None,dict(recovery,passed=False),dict(recovery,module_source_sha256=base),
-                    dict(recovery,dead_target_stale_lock_restorations=[])):
+                    dict(recovery,dead_target_clear_restorations=[])):
             with self.subTest(bad=bad),self.assertRaises(AssertionError):
                 validate_common_runtime(current,base,bad)
 
