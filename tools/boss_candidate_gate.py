@@ -6,7 +6,10 @@ from boss_adaptation_workflow import ROOT, BUILD, OUT, sha
 ALLOWED = {'057_wanjun'}
 
 
-def validate(identifier, root=ROOT):
+def validate(identifier, root=ROOT, bundle=None):
+    if bundle is not None:
+        from build_boss_developer_bundle import validate as validate_bundle
+        return validate_bundle(identifier, bundle, root=root)
     if identifier not in ALLOWED:
         raise RuntimeError('Candidate is not registered for protected developer assembly')
     dossier = json.loads((root/'research/boss-adaptation/dossiers'/(identifier+'.json')).read_text(encoding='utf-8'))

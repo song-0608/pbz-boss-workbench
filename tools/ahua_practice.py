@@ -191,18 +191,20 @@ def review_cloud():
     print('属性截图已刷新；须查看本次截图后确认云同步关闭。',flush=True)
 
 
-def arm(expanded=False, skill_lab=False, player_key_trial=False,death_trial=False,native_death_trial=False,active_skill_death_trial=False,scene_transition_trial=False,arena_navigation_trial=False,combo_scheduler_trial=False,incoming_combat_trial=False,active_skill_disposal_trial=False,performance_profile=False,boss_candidate=None):
+def arm(expanded=False, skill_lab=False, player_key_trial=False,death_trial=False,native_death_trial=False,active_skill_death_trial=False,scene_transition_trial=False,arena_navigation_trial=False,combo_scheduler_trial=False,incoming_combat_trial=False,active_skill_disposal_trial=False,performance_profile=False,boss_candidate=None,boss_candidate_bundle=None):
     from mod_installation import active_mod_root
     active_mod_root()
     active_skill_death_trial=active_skill_death_trial or active_skill_disposal_trial
     if combo_scheduler_trial and not skill_lab:raise RuntimeError('连招调度只允许显式开发技能试验台')
     native_death_trial=native_death_trial or active_skill_death_trial
     death_trial=death_trial or native_death_trial or incoming_combat_trial
+    if boss_candidate_bundle and not boss_candidate:
+        raise RuntimeError('独立开发包必须指定候选Boss')
     if boss_candidate:
         if any((expanded,skill_lab,player_key_trial,death_trial,combo_scheduler_trial,scene_transition_trial)):
             raise RuntimeError('独立Boss候选不能混用阿花实验模式')
         from boss_candidate_gate import validate
-        validate(boss_candidate)
+        validate(boss_candidate,bundle=boss_candidate_bundle)
     player_entry=not(boss_candidate or expanded or skill_lab or player_key_trial or death_trial)
     arena_navigation_trial=arena_navigation_trial or player_entry or active_skill_disposal_trial or bool(boss_candidate)
     if arena_navigation_trial and not(player_entry or boss_candidate or skill_lab or combo_scheduler_trial or player_key_trial or active_skill_disposal_trial):
@@ -245,6 +247,7 @@ def arm(expanded=False, skill_lab=False, player_key_trial=False,death_trial=Fals
          *(['--arena-navigation-trial']if arena_navigation_trial else[]),
          *(['--player-entry']if player_entry else[]),
          *(['--boss-candidate',boss_candidate]if boss_candidate else[]),
+         *(['--boss-candidate-bundle',str(boss_candidate_bundle)]if boss_candidate_bundle else[]),
          *(['--skill-lab'] if skill_lab else []),
          *(['--combo-scheduler-trial'] if combo_scheduler_trial else []),
          *(['--player-key-trial'] if player_key_trial else []),
@@ -273,6 +276,7 @@ def arm(expanded=False, skill_lab=False, player_key_trial=False,death_trial=Fals
     owner['scene_transition_trial']=scene_transition_trial
     owner['player_entry']=player_entry
     owner['boss_candidate']=boss_candidate
+    owner['boss_candidate_bundle']=str(Path(boss_candidate_bundle).resolve())if boss_candidate_bundle else None
     owner['active_skill_disposal_trial']=active_skill_disposal_trial
     owner['incoming_combat_trial']=incoming_combat_trial
     owner['arena_navigation_trial']=arena_navigation_trial
@@ -368,7 +372,8 @@ def main():
     parser.add_argument('--active-skill-disposal-trial',action='store_true',help='开发验收：F12同线程销毁精确活动技能08的自建Actor，销毁后不读旧Spec')
     parser.add_argument('--scene-transition-trial',action='store_true',help='开发切图验收：恢复后经原菜单重载；F12仅在空闲接管时重载当前研究地图一次')
     parser.add_argument('--arena-navigation-trial',action='store_true',help='开发验收：只使用当前导航投影核对的同层分离落点')
-    parser.add_argument('--boss-candidate',choices=('057_wanjun',),help='独立候选验收；不注册为玩家可玩Boss')
+    parser.add_argument('--boss-candidate',choices=('057_wanjun','073_yanqiansui'),help='独立候选验收；不注册为玩家可玩Boss')
+    parser.add_argument('--boss-candidate-bundle',type=Path,help='冻结的独立开发覆盖包；不替换已安装版本')
     args = parser.parse_args()
     if args.monitor:
         monitor()
@@ -384,7 +389,8 @@ def main():
             incoming_combat_trial=args.incoming_combat_trial,
             death_trial=args.death_trial,native_death_trial=args.native_death_trial,active_skill_death_trial=args.active_skill_death_trial,
             scene_transition_trial=args.scene_transition_trial,arena_navigation_trial=args.arena_navigation_trial,
-            combo_scheduler_trial=args.combo_scheduler_trial,active_skill_disposal_trial=args.active_skill_disposal_trial,boss_candidate=args.boss_candidate)
+            combo_scheduler_trial=args.combo_scheduler_trial,active_skill_disposal_trial=args.active_skill_disposal_trial,boss_candidate=args.boss_candidate,
+            boss_candidate_bundle=args.boss_candidate_bundle)
     elif args.action == 'stop':
         stop()
     else:

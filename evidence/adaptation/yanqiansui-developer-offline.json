@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "candidate": "073_yanqiansui",
+  "bundle": "research/boss-adaptation/developer-bundles/073_yanqiansui-6ef01f57bf40960d",
+  "bundle_manifest_sha256": "6bc7dbb56c703d20aca3804381a0bae6e9690ffd2080a77cbfd0f1f9ee68524c",
+  "offline_passed": true,
+  "runtime_acceptance_passed": false,
+  "playable": false,
+  "checks": [
+    {
+      "name": "developer_bundle_5_tests",
+      "passed": true
+    },
+    {
+      "name": "developer_live_binding_lua_cases",
+      "passed": true
+    },
+    {
+      "name": "existing_wanjun_candidate_lua",
+      "passed": true
+    },
+    {
+      "name": "candidate_acceptance_3_tests",
+      "passed": true
+    },
+    {
+      "name": "research_input_dispatch_8_tests",
+      "passed": true
+    },
+    {
+      "name": "player_skill_wait_4_tests",
+      "passed": true
+    },
+    {
+      "name": "changed_python_syntax",
+      "passed": true
+    },
+    {
+      "name": "installed_v1_package_integrity",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "tools/build_boss_developer_bundle.py": "d8450e67256b3840a4726fa862bbc57818d2a88a298829d9d1e5c9e6efd9c47c",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/boss_candidate_gate.py": "86c08d5058dd646cd85532f4612bcd1028a4012dde9ec22969118bb985fc4625",
+    "tools/ahua_practice.py": "d77ab6485eea48e11c09aac8e42a2cb57eedaf1ce01a8ed3a34c58971673a431",
+    "tools/run_control_lifecycle_probe.py": "816672ec788f7872a37a29a3567cb4261f5fe8c5483e60e1fb2f8a3328c147f2",
+    "tools/test_player_skill_batch.py": "76ab05f85c424aba249d45530f510a7fee5998f03434e7122b88a3608fa2e956",
+    "tools/run_boss_candidate_milestone.py": "fc9c7afffc8e8b21a00e25ee210d383f83b9b3161410f49e56ccfb467ce43a4d",
+    "tools/collect_boss_candidate_acceptance.py": "6ca00e9baa17a2aa6ce851fca3c8b9833fe76a6563832c993287359a6e260d0b",
+    "tests/test_boss_developer_bundle.py": "232e58b84d01e2b2d23a433b667423cfc5771c03e2178882b3f2f16c9dc6a069",
+    "tests/test_boss_developer_candidate.lua": "b595a1360c016532d00a62bc1edfabb351c53cc3cba0f45aa4003aa3b2dcbf12"
+  },
+  "next_step": "One protected independent candidate batch; metadata alone never unlocks players."
+}

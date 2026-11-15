@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "session": "20261116-052550",
+  "id": "073_yanqiansui",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "playable": false,
+  "control_accepted": false,
+  "metadata_only": false,
+  "observed_native_grants": [
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_CA_GEx_01.GA_YanQianSui_CA_GEx_01_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/Prototypes/Abilities/GA_GhostTrailPassive.GA_GhostTrailPassive_C",
+    "Class /Script/SGameLocomotionDriver.GA_SpaceState",
+    "BlueprintGeneratedClass /SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.GA_LocomotionDriver_3DDefault_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/Passive/GA_YanQianSui_Passive.GA_YanQianSui_Passive_C",
+    "BlueprintGeneratedClass /PBZCombatAsset/Prototypes/Abilities/GA_MobUtilitiesPassive.GA_MobUtilitiesPassive_C",
+    "BlueprintGeneratedClass /PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.GA_CommonUtilitiesPassive_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_B_01.GA_YanQianSui_DodgeAttack_B_01_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_F_01.GA_YanQianSui_DodgeAttack_F_01_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_L_01.GA_YanQianSui_DodgeAttack_L_01_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_R_01.GA_YanQianSui_DodgeAttack_R_01_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_02.GA_YanQianSui_Skill_02_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_03.GA_YanQianSui_Skill_03_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_04.GA_YanQianSui_Skill_04_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_05.GA_YanQianSui_Skill_05_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_06.GA_YanQianSui_Skill_06_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_09.GA_YanQianSui_Skill_09_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_10.GA_YanQianSui_Skill_10_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_12.GA_YanQianSui_Skill_12_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_04.GA_YanQianSui_SpecialAttack_04_C",
+    "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_03.GA_YanQianSui_SpecialAttack_03_C"
+  ],
+  "candidate_skills": {
+    "skill_01": {
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_03.GA_YanQianSui_SpecialAttack_03_C",
+      "natural_completion_verified": true,
+      "cancellation_runtime_verified": false,
+      "gameplay_verified": true,
+      "movement_runtime_verified": true
+    },
+    "heavy_01": {
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_04.GA_YanQianSui_SpecialAttack_04_C",
+      "natural_completion_verified": true,
+      "cancellation_runtime_verified": false,
+      "gameplay_verified": true,
+      "movement_runtime_verified": true
+    },
+    "skill_02": {
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+      "natural_completion_verified": true,
+      "cancellation_runtime_verified": false,
+      "gameplay_verified": false,
+      "movement_runtime_verified": true
+    },
+    "dash": {
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_03.GA_YanQianSui_Skill_03_C",
+      "natural_completion_verified": false,
+      "cancellation_runtime_verified": false,
+      "gameplay_verified": false,
+      "movement_runtime_verified": false
+    }
+  },
+  "dispositions": [
+    {
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+      "status": "blocked_scene_dependent",
+      "observed_distance_cm": 162716.2147793,
+      "reason": "Natural completion relocated the actor far outside the local training arena; lifecycle-only PASS is insufficient.",
+      "next_step": "Exclude from local developer actions until scene dependency and landing are independently adapted."
+    }
+  ],
+  "formal_postcheck_passed": true,
+  "sources": {
+    "evidence/official-validation/20261116-052550/boss-candidate-acceptance.json": "b68492bcbd08be2fb0de999117a83e2fc46b3f6e344769acf30d18c3e9f1f224",
+    "evidence/official-validation/20261116-052550/UE4SS.log": "2e1f452f9dc0219bd639ddfb9b6d740de4f1a4097522f8685655cfc0d8cf1e23",
+    "evidence/official-validation/20261116-052550/postcheck.json": "887c7096a570375333c67ef27cafa56e2beb1c1e22651a9700f2cc53f1cf20f7",
+    "research/boss-adaptation/developer-bundles/073_yanqiansui-6ef01f57bf40960d/manifest.json": "6bc7dbb56c703d20aca3804381a0bae6e9690ffd2080a77cbfd0f1f9ee68524c"
+  }
+}

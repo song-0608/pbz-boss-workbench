@@ -42,8 +42,19 @@ def collect(session,identifier):
     selected=[d for d in deployments if d.get('boss_candidate')==identifier]
     assert len(selected)==1,'One exact candidate assembly required'
     deployment=selected[0]
+    source_paths=[p for p in work.glob('control-lifecycle-deployment-*.json')
+        if json.loads(p.read_text(encoding='utf-8'))==deployment]
+    assert len(source_paths)==1
     assert not deployment['player_entry'] and deployment['grant']['exe_sha256']==BUILD
-    assert deployment['candidate_identity_grant']=={k:deployment['grant'][k] for k in ('boss_candidate','identity_receipt_sha256')}
+    grant_keys=('boss_candidate','identity_receipt_sha256')
+    if deployment.get('developer_bundle'):
+        from build_boss_developer_bundle import validate
+        assert deployment['candidate_identity_grant']==validate(identifier,Path(deployment['developer_bundle']))
+        grant_keys+=('ability_metadata_receipt_sha256','developer_bundle_sha256')
+        bundle=json.loads((Path(deployment['developer_bundle'])/'manifest.json').read_text(encoding='utf-8'))
+        assert deployment['module_source_sha256']['boss_candidate.lua']==bundle['overrides']['Scripts/boss_candidate.lua']
+        source_paths += [Path(deployment['developer_bundle'])/name for name in ('manifest.json','boss_candidate.lua')]
+    assert deployment['candidate_identity_grant']=={k:deployment['grant'][k] for k in grant_keys}
     raw_path=work/'UE4SS.log';raw=raw_path.read_text(encoding='utf-8',errors='replace')
     begin,rejected=candidate_interval(raw,identifier)
     segment=raw[begin:]
@@ -105,7 +116,7 @@ def collect(session,identifier):
             and all(movement_camera.values())),
         'accepted_skills':accepted_skills,'playable':False,
         'pending':['Ordinary player Boss switching and world-cycle acceptance are separate gates.'],
-        'sources':{str(p.relative_to(ROOT)):sha(p) for p in (raw_path,state_path,post_path,actions_path,milestone_path)}}
+        'sources':{str(p.relative_to(ROOT)):sha(p) for p in (raw_path,state_path,post_path,actions_path,milestone_path,*source_paths)}}
     output=work/'boss-candidate-acceptance.json';write_json(output,result)
     print(json.dumps({'report':str(output),'base_control_accepted':result['base_control_accepted'],
         'accepted_skills':list(accepted_skills),'stability_passed':stability['passed'],'playable':False},ensure_ascii=False))

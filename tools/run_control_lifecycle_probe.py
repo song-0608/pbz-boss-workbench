@@ -39,11 +39,15 @@ def main():
     parser.add_argument('--player-entry',action='store_true')
     parser.add_argument('--scene-transition-trial',action='store_true')
     parser.add_argument('--arena-navigation-trial',action='store_true')
-    parser.add_argument('--boss-candidate',choices=('057_wanjun',))
+    parser.add_argument('--boss-candidate',choices=('057_wanjun','073_yanqiansui'))
+    parser.add_argument('--boss-candidate-bundle',type=Path)
     args=parser.parse_args()
     mod_root=active_mod_root()
     scripts=mod_root/'Scripts'
     candidate_grant={}
+    module_overrides={}
+    if args.boss_candidate_bundle and not args.boss_candidate:
+        raise RuntimeError('Developer bundle requires an explicit Boss candidate')
     if args.boss_candidate:
         if not(args.practice and args.interactive and args.remote and args.camera and args.combat and args.barrier
                and args.protect_player and args.batch_skills and args.arena_navigation_trial and args.target_cycle):
@@ -52,7 +56,9 @@ def main():
                 args.combo_scheduler_trial,args.scene_transition_trial)):
             raise RuntimeError('Candidate cannot inherit Ahua developer or player acceptance')
         from boss_candidate_gate import validate
-        candidate_grant=validate(args.boss_candidate)
+        candidate_grant=validate(args.boss_candidate,bundle=args.boss_candidate_bundle)
+        if args.boss_candidate_bundle:
+            module_overrides['boss_candidate.lua']=(args.boss_candidate_bundle/'boss_candidate.lua').read_bytes()
     if args.active_skill_disposal_trial and not args.active_skill_death_trial:
         raise RuntimeError('Disposal trial requires explicit protected active-skill scope')
     if args.incoming_combat_trial and(not args.death_trial or args.native_death_trial or args.active_skill_death_trial or args.player_entry):
@@ -267,19 +273,20 @@ def main():
     pending={main_path:content}
     for source in scripts.rglob('*.lua'):
         if source.name=='main.lua':continue
+        source_data=module_overrides.get(source.relative_to(scripts).as_posix(),source.read_bytes())
         target=directory/source.relative_to(scripts)
         if target.exists():
             declared=next((r for r in s['ue4ss_loader_manifest'] if r['physical_path']==str(target)),None)
             if not declared or hashlib.sha256(target.read_bytes()).hexdigest()!=declared['sha256']:
                 raise RuntimeError('Undeclared or changed existing script preserved: '+str(target))
-            if target.read_bytes()!=source.read_bytes():
+            if target.read_bytes()!=source_data:
                 if not args.update_modules:raise RuntimeError('Module changed; batch rebuild required before reloading')
                 # 用途：旧实验结束且现有哈希吻合后，留底批量更新，不覆盖未结束实验。
                 backup=work/'module-history'/str(time.time_ns())/source.relative_to(scripts)
                 backup.parent.mkdir(parents=True,exist_ok=True);backup.write_bytes(target.read_bytes())
-                pending[target]=source.read_bytes()
+                pending[target]=source_data
             continue
-        pending[target]=source.read_bytes()
+        pending[target]=source_data
     (work/'control-probe-before.lua').write_bytes(main_path.read_bytes())
     row['sha256']=hashlib.sha256(content).hexdigest()
     for target,data in pending.items():
@@ -303,6 +310,7 @@ def main():
                 'performance_profile':args.performance_profile,
                 'player_entry':args.player_entry,'boss_id':player_settings.read()['boss_id']if args.player_entry else None,
                 'boss_candidate':args.boss_candidate,'candidate_identity_grant':candidate_grant,
+                'developer_bundle':str(args.boss_candidate_bundle.resolve())if args.boss_candidate_bundle else None,
                 'scene_transition_trial':args.scene_transition_trial,
                 'arena_navigation_trial':args.arena_navigation_trial,
                 'skill_lab':args.skill_lab,'expanded':args.extra_skills,'player_key_trial':args.player_key_trial,
@@ -313,7 +321,8 @@ def main():
                 'player_keymap':player_keys if not(args.boss_candidate or args.skill_lab or args.extra_skills) else None,
                 'mod_source_directory':str(mod_root),
                 'assembly_source_sha256':hashlib.sha256((mod_root/'Experiments/spawn_lifecycle.lua').read_bytes()).hexdigest(),
-                'module_source_sha256':{p.relative_to(scripts).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                'module_source_sha256':{p.relative_to(scripts).as_posix():hashlib.sha256(
+                    module_overrides.get(p.relative_to(scripts).as_posix(),p.read_bytes())).hexdigest()
                     for p in scripts.rglob('*.lua') if p.name!='main.lua'}}
     import workbench_support
     deployment['workbench']=workbench_support.capability(deployment['module_source_sha256'],args.player_entry)

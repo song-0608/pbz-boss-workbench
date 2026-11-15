@@ -19,7 +19,10 @@ def main():
     parser.add_argument('--resume',action='store_true',help='复用同一装配内已通过的招式，不延长租约')
     args=parser.parse_args()
     owner,state=practice.owned_session()
-    assert owner.get('phase')=='armed' and owner.get('boss_candidate')=='057_wanjun'
+    assert owner.get('phase')=='armed' and owner.get('boss_candidate')
+    from boss_candidate_gate import validate
+    identifier=owner['boss_candidate'];validate(identifier,bundle=owner.get('boss_candidate_bundle'))
+    boss_name=practice.read(practice.ROOT/'research/boss-adaptation/dossiers'/(identifier+'.json'))['metadata_identity']['display_name']
     assert not owner.get('player_entry') and not owner.get('skill_lab') and not owner.get('expanded')
     path=practice.log_path(state);work=Path(state['work']);offset=owner['log_offset']
     def raw():return path.read_text(encoding='utf-8',errors='replace')
@@ -53,9 +56,11 @@ def main():
         return start
     save()
     try:
-        skills=['skill_01','heavy_01','skill_02','dash']
+        order=['skill_01','heavy_01','skill_02','dash']
         actual={r['skill'] for r in owner['actual_bindings']}
-        assert set(skills)<=actual,'all independent candidate bindings required'
+        skills=[skill for skill in order if skill in actual]
+        assert skills and skills[0]=='skill_01' and actual<=set(order),'exact independent candidate bindings required'
+        if identifier=='057_wanjun':assert skills==order,'all original WanJun bindings required'
         for interrupt in (False,True):
             remaining=list(skills)
             if args.resume:
@@ -95,9 +100,9 @@ def main():
             rows=re.findall(r'PBZ_PLAYER_UI:STATUS=(\{[^\r\n]+\})',text)
             status=json.loads(rows[-1]) if rows else None
             assert valid_status(status,'official-validation-'+work.name,time.time()),'fresh candidate HUD required'
-            assert status['text'].startswith('巨锤客：万钧 | ACTIVE\n'),'candidate must remain ACTIVE'
+            assert status['text'].startswith(boss_name+' | ACTIVE\n'),'candidate must remain ACTIVE'
             if time.time()>=next_progress:
-                print('万钧稳定性：装配 '+str(int(time.time()-ready))+' 秒，连续接管 '+str(int(time.time()-active_started))+' 秒',flush=True)
+                print(boss_name+'稳定性：装配 '+str(int(time.time()-ready))+' 秒，连续接管 '+str(int(time.time()-active_started))+' 秒',flush=True)
                 next_progress=time.time()+30
             time.sleep(1)
         menu.click(0,0,2560,1600,'control_exit')

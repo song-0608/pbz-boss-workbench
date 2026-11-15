@@ -46,7 +46,7 @@ def main():
     path=practice.log_path(state)
     if owner.get('boss_candidate'):
         from boss_candidate_gate import validate
-        identifier=owner['boss_candidate'];validate(identifier)
+        identifier=owner['boss_candidate'];validate(identifier,bundle=owner.get('boss_candidate_bundle'))
         dossier=practice.read(practice.ROOT/'research/boss-adaptation/dossiers'/(identifier+'.json'))
         boss_name=dossier['metadata_identity']['display_name']
     else:
