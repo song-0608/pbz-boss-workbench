@@ -1,5 +1,6 @@
 """Consolidated ordinary workbench roundtrip, then leave YanQianSui ready for a world cycle."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -17,7 +18,7 @@ IDENTIFIER = '073_yanqiansui'
 OWNED = ('boss', 'boss_controller', 'target', 'target_controller', 'extra_target', 'extra_target_controller')
 
 
-def main(finish_world=False):
+def main(finish_world=False, resume_los=False, resume_cooldown=False):
     owner, state = practice.owned_session()
     assert owner['phase'] == 'armed' and owner.get('player_entry') and owner.get('workbench')
     assert not owner.get('boss_candidate') and not owner.get('scene_transition_trial')
@@ -36,6 +37,42 @@ def main(finish_world=False):
         later = raw[report['world_scope_offset']:]
         assert re.findall(r'PLAYER_ENTRY_READY=([^\r\n]+)', later) == [IDENTIFIER, IDENTIFIER]
         assert 'IDLE_WORLD_OBJECTS_RETIRED=' in later and 'WORLD_REASSEMBLY_AWAITING_GAMEPLAY=' in later
+    elif resume_cooldown:
+        previous=practice.read(target)
+        assert previous['state_file']==state['state_file'] and previous['roundtrip_passed'] is False
+        assert previous['checks']==['active_ahua_open_restores_player','ahua_to_yanqiansui_cleanup']
+        assert previous['error']=='dash: No natural completion proof\n' and previous.get('resumed_from')
+        current=path.read_text(encoding='utf-8',errors='replace')
+        assert previous['lines']==current[previous['log_offset']:previous['log_end']].splitlines()
+        actions=practice.read(work/'player-extra-skill-actions.json')
+        rejected,completed=actions[-2:]
+        assert rejected['skill']=='dash' and rejected['passed'] is False and rejected['cleanup_restoration']['passed'] is True
+        interval=current[rejected['log_offset']:rejected['log_end']]
+        assert 'KEY_SKILL_BEGIN='not in interval and 'game rejected activation; possession retained'in interval
+        assert completed['skill']=='dash' and completed['passed'] is True and completed['interrupt'] is False
+        assert completed['proof']['natural_completion'] and completed['proof']['restoration']['passed']
+        assert completed['lines']==current[completed['log_offset']:completed['log_end']].splitlines()
+        failed=work/'yanqiansui-integration-cooldown-attempt.json';assert not failed.exists()
+        failed.write_bytes(target.read_bytes())
+        report=dict(previous,completion_resumed_from=failed.name,completion_resumed_from_sha256=hashlib.sha256(failed.read_bytes()).hexdigest())
+        report.pop('error',None)
+    elif resume_los:
+        previous=practice.read(target)
+        assert previous['state_file']==state['state_file'] and previous['roundtrip_passed'] is False
+        assert previous['checks']==['active_ahua_open_restores_player','ahua_to_yanqiansui_cleanup']
+        assert previous['error'].endswith('dash: Target cycle and fresh visible target not verified\n')
+        current=path.read_text(encoding='utf-8',errors='replace')
+        assert previous['lines']==current[previous['log_offset']:previous['log_end']].splitlines()
+        actions=practice.read(work/'player-extra-skill-actions.json')
+        assert [(r['skill'],r['passed'],r['interrupt'])for r in actions]==[
+            ('skill_01',True,False),('heavy_01',True,False),('skill_02',True,False),('dash',False,False)]
+        assert actions[-1]['cast_dispatched'] is False and actions[-1]['cleanup_restoration']['passed'] is True
+        assert not any(k in current[previous['log_end']:]for k in ('KEY_SKILL_BEGIN=','enter success=true','PLAYER_ENTRY_READY='))
+        failed=work/'yanqiansui-integration-los-attempt.json'
+        assert not failed.exists()
+        failed.write_bytes(target.read_bytes())
+        report=dict(previous,resumed_from=failed.name,resumed_from_sha256=hashlib.sha256(failed.read_bytes()).hexdigest())
+        report.pop('error',None)
     else:
         assert not target.exists(), 'Preserve existing integration attempt'
         assert min(state['deadline_unix'], state['control_probe_expires_at']) - time.time() > 420
@@ -89,14 +126,24 @@ def main(finish_world=False):
             report['world_finished'] = True
             report['checks'].append('new_world_ordinary_skill_and_restoration')
             return 0
-        send('control_enter', '[PBZBossControl] enter success=true state=ACTIVE')
-        open_active()
-        report['checks'].append('active_ahua_open_restores_player')
-        choose(IDENTIFIER, 2)
-        report['checks'].append('ahua_to_yanqiansui_cleanup')
-        save()
-        skills(['skill_01', 'heavy_01', 'skill_02', 'dash'])
-        skills(['skill_01', 'heavy_01', 'skill_02', 'dash'], interrupt=True)
+        if resume_cooldown:
+            pass
+        elif resume_los:
+            send('control_workbench_toggle','WORKBENCH_INPUT_LOCKED=')
+            choose('ahua_guitoudao',-2)
+            send('control_workbench_toggle','WORKBENCH_INPUT_LOCKED=')
+            choose(IDENTIFIER,2)
+            skills(['skill_01', 'heavy_01', 'skill_02', 'dash'], interrupt=True)
+            skills(['dash'])
+        else:
+            send('control_enter', '[PBZBossControl] enter success=true state=ACTIVE')
+            open_active()
+            report['checks'].append('active_ahua_open_restores_player')
+            choose(IDENTIFIER, 2)
+            report['checks'].append('ahua_to_yanqiansui_cleanup')
+            save()
+            skills(['skill_01', 'heavy_01', 'skill_02', 'dash'])
+            skills(['skill_01', 'heavy_01', 'skill_02', 'dash'], interrupt=True)
         report['checks'].append('four_ordinary_bindings_natural_cancel')
         start, _ = send('control_enter', '[PBZBossControl] enter success=true state=ACTIVE')
         baseline = wait_for(path, start, lambda t: 'CAMERA_ARM_YAW=' in t, 6)
@@ -136,5 +183,9 @@ def main(finish_world=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--finish-world', action='store_true')
-    raise SystemExit(main(parser.parse_args().finish_world))
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--finish-world', action='store_true')
+    mode.add_argument('--resume-los', action='store_true')
+    mode.add_argument('--resume-cooldown', action='store_true')
+    args=parser.parse_args()
+    raise SystemExit(main(args.finish_world,args.resume_los,args.resume_cooldown))

@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "id": "073_yanqiansui",
+  "session": "20261116-061722",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "ordinary_skills_verified": true,
+  "actions": [
+    {
+      "natural_completion": {
+        "health_before": 9000.0,
+        "health_after": 8900.0,
+        "distance": 240.32860248411,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_SpecialAttack_03_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_03.GA_YanQianSui_SpecialAttack_03_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        240.32860248411,
+        240.32860248411
+      ],
+      "skill": "skill_01",
+      "interrupt": false,
+      "log_offset": 151169,
+      "log_end": 169952
+    },
+    {
+      "natural_completion": {
+        "health_before": 8900.0,
+        "health_after": 8800.0,
+        "distance": 138.05844677433,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_SpecialAttack_04_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_04.GA_YanQianSui_SpecialAttack_04_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        138.05844677433,
+        138.05844677433
+      ],
+      "skill": "heavy_01",
+      "interrupt": false,
+      "log_offset": 169952,
+      "log_end": 188186
+    },
+    {
+      "natural_completion": {
+        "health_before": 8800.0,
+        "health_after": 8720.0,
+        "distance": 982.03069155001,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_Skill_03_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_03.GA_YanQianSui_Skill_03_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        994.46355677347,
+        982.03069155001
+      ],
+      "skill": "skill_02",
+      "interrupt": false,
+      "log_offset": 188186,
+      "log_end": 207352
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_SpecialAttack_03_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_03.GA_YanQianSui_SpecialAttack_03_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        27.983119546273
+      ],
+      "skill": "skill_01",
+      "interrupt": true,
+      "log_offset": 374659,
+      "log_end": 386434
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_SpecialAttack_04_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_04.GA_YanQianSui_SpecialAttack_04_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        41.77640151976
+      ],
+      "skill": "heavy_01",
+      "interrupt": true,
+      "log_offset": 386434,
+      "log_end": 398261
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_Skill_03_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_03.GA_YanQianSui_Skill_03_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        133.64386738637
+      ],
+      "skill": "skill_02",
+      "interrupt": true,
+      "log_offset": 398261,
+      "log_end": 410027
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_Skill_04_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_04.GA_YanQianSui_Skill_04_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        78.808909989778
+      ],
+      "skill": "dash",
+      "interrupt": true,
+      "log_offset": 410027,
+      "log_end": 422279
+    },
+    {
+      "natural_completion": {
+        "health_before": 9000.0,
+        "health_after": 8920.0,
+        "distance": 766.5827690231,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YanQianSui_Skill_04_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_04.GA_YanQianSui_Skill_04_C",
+      "class_matches_live_binding": true,
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        845.78778793551,
+        766.5827690231
+      ],
+      "skill": "dash",
+      "interrupt": false,
+      "log_offset": 471158,
+      "log_end": 489859
+    }
+  ],
+  "failed_actions": [
+    {
+      "skill": "dash",
+      "interrupt": false,
+      "stage": "target_precondition",
+      "error": "Target cycle and fresh visible target not verified",
+      "cast_dispatched": false,
+      "cleanup_restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "log_offset": 207352,
+      "log_end": 219491
+    },
+    {
+      "skill": "dash",
+      "interrupt": false,
+      "stage": "skill_lifecycle",
+      "error": "No natural completion proof",
+      "cast_dispatched": true,
+      "cleanup_restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "log_offset": 422279,
+      "log_end": 434818
+    }
+  ],
+  "module_source_sha256": {
+    "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+    "boss_candidate.lua": "4b848bc35c20c36eec01fdb4025ac34363fdb7221059b8787b74f777dc52b1d1",
+    "boss_catalog.lua": "b1a45a0bda67b997441642d5844ccab85b1146ad81a447f982788f47a8c69ffa",
+    "boss_workbench.lua": "ad710314627467e09fe8cb84a42ba7e8650e750234bf9ebb6d1ba05e92b7c4c2",
+    "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+    "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+    "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+    "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+    "control_bridge.lua": "cc67e503ce4c42dc4b09f5c8c3e9e8ddc6f8b05fe7fa773249d89b2109c70658",
+    "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+    "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+    "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+    "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+    "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+    "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+    "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+    "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+    "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+    "owned_arena.lua": "aa81e1872d2db9e6efe0bb8a8f7f5cb4780a5f2f3a5b97760fc5fd2e546ae286",
+    "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+    "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+    "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+    "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+    "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+    "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
+    "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+    "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+    "runtime.lua": "97a458ee2be9996e352a66fdff17b4c4359ea81794f1d64c262585213202010f",
+    "session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+    "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+    "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+    "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+    "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+    "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+    "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+    "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
+    "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
+    "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+    "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+    "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+    "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+    "workbench_catalog.lua": "fd1a438cdf75a44f63239ec852c10ffe47ff8412e4a64e60ba9d7c283de87d2a",
+    "workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+    "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+    "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+    "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
+    "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138",
+    "profiles/yanqiansui.lua": "87984906d2627c4fecca86a3b33997b78742457e2e537faefd75887116483512",
+    "profiles/yanqiansui_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d"
+  },
+  "ordinary_roundtrip_accepted": false,
+  "movement_camera_accepted": false,
+  "world_cycle_accepted": false,
+  "playable": false,
+  "formal_postcheck_passed": true,
+  "failure": "Native long movement left the initially navigable ledge; route clearance and fresh movement/camera acceptance remain required.",
+  "recovery": {
+    "state_file": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261116-061722\\state.json",
+    "log_offset": 570345,
+    "purpose": "recover ordinary Ahua after incomplete new-profile movement test",
+    "passed": false,
+    "owned_cleanup_verified": true,
+    "error": "enter success=true state=ACTIVE",
+    "log_end": 607828
+  },
+  "sources": {
+    "evidence/official-validation/20261116-061722/UE4SS.log": "7b4ecf16f9c01a8e18909a9d93c427668a8f0a011764651be226bbf8c7eae3c9",
+    "evidence/official-validation/20261116-061722/postcheck.json": "bb6e0dcdc989b5f436953f4326fe1532f97794daad33e997aa9e0dc018b8732e",
+    "evidence/official-validation/20261116-061722/control-lifecycle-deployment.json": "16ffb407bcb42b878afc1f64c4f5665a25b267493d8e3b3bfb31e6f29c0d4be8",
+    "evidence/official-validation/20261116-061722/player-extra-skill-actions.json": "157d9b7af99fc7d51587d84ca8afbc91e928dc596b73cf5641ce6e6facfb9748",
+    "evidence/official-validation/20261116-061722/yanqiansui-integration-actions.json": "ce02576b4dbb126bf3f84b4d1e8674e2131d4cc28eec738777dfd4fd27c1853b",
+    "evidence/official-validation/20261116-061722/yanqiansui-integration-los-attempt.json": "6586001105ba3c1d3274cc7890d430b1a79435ddfd69c09f8b34db6312aa11e9",
+    "evidence/official-validation/20261116-061722/yanqiansui-integration-cooldown-attempt.json": "6c199fe05dd62c92a8a8d2dd2860a5c320fa9abf84c54983a55147ac1f19e42a",
+    "evidence/official-validation/20261116-061722/yanqiansui-integration-recovery.json": "5ff5248bd5fc480561e3fea4d0f8ff11800ff32e12bead9df92c36636c02be37",
+    "evidence/official-validation/20261116-061722/control-position-actions.json": "0eb3a4e657086e02e007167b3d20261b07d889180e5d41d0e45f0d7383e8caef"
+  }
+}

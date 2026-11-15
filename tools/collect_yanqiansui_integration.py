@@ -54,17 +54,46 @@ def collect(session):
     assert 0 <= start < action['world_scope_offset'] < end <= len(raw)
     segment = raw[start:end]
     assert action['lines'] == segment.splitlines()
-    assert re.findall(r'WORKBENCH_BOSS_SELECTED=([^\r\n]+)', segment) == [IDENTIFIER, 'ahua_guitoudao', IDENTIFIER]
+    retry_paths=[]
+    retried=bool(action.get('resumed_from'))
+    if retried:
+        assert action['resumed_from']=='yanqiansui-integration-los-attempt.json'
+        previous_path=work/action['resumed_from']
+        assert sha(previous_path)==action['resumed_from_sha256']
+        previous=read(previous_path.name)
+        assert previous['state_file']==str(state_path) and previous['log_offset']==start
+        assert previous['roundtrip_passed'] is False and previous['checks']==CHECKS[:2]
+        assert previous['error'].endswith('dash: Target cycle and fresh visible target not verified\n')
+        assert previous['lines']==raw[start:previous['log_end']].splitlines()
+        positioning=read('control-position-actions.json')
+        assert len(positioning)==1 and positioning[0]['purpose']=='control_backward'
+        assert positioning[0]['key']=='S' and positioning[0]['seconds']==.35
+        retry_paths=[previous_path,work/'control-position-actions.json']
+    cooldown_retry=bool(action.get('completion_resumed_from'))
+    if cooldown_retry:
+        assert retried and action['completion_resumed_from']=='yanqiansui-integration-cooldown-attempt.json'
+        cooldown_path=work/action['completion_resumed_from']
+        assert sha(cooldown_path)==action['completion_resumed_from_sha256']
+        cooldown=read(cooldown_path.name)
+        assert cooldown['state_file']==str(state_path) and cooldown['log_offset']==start
+        assert cooldown['checks']==CHECKS[:2] and cooldown['roundtrip_passed'] is False
+        assert cooldown['error']=='dash: No natural completion proof\n'
+        assert cooldown['resumed_from_sha256']==action['resumed_from_sha256']
+        assert cooldown['lines']==raw[start:cooldown['log_end']].splitlines()
+        retry_paths.append(cooldown_path)
+    selections=[IDENTIFIER,'ahua_guitoudao',IDENTIFIER]
+    if retried:selections=[IDENTIFIER,'ahua_guitoudao',IDENTIFIER,*selections[1:]]
+    assert re.findall(r'WORKBENCH_BOSS_SELECTED=([^\r\n]+)', segment) == selections
     ready = list(re.finditer(r'PBZ_CONTROL_LIFECYCLE:PLAYER_ENTRY_READY=([^\r\n]+)', segment))
-    assert [r[1] for r in ready] == [IDENTIFIER, 'ahua_guitoudao', IDENTIFIER, IDENTIFIER]
-    assert action['world_scope_offset'] == start + ready[2].start()
+    assert [r[1] for r in ready] == [*selections,IDENTIFIER]
+    assert action['world_scope_offset'] == start + ready[-2].start()
     expected = {'boss', 'boss_controller', 'target', 'target_controller', 'extra_target', 'extra_target_controller'}
-    for interval in (segment[:ready[0].start()], segment[ready[0].end():ready[1].start()],
-                     segment[ready[1].end():ready[2].start()]):
+    intervals=[segment[:ready[0].start()]]+[segment[a.end():b.start()]for a,b in zip(ready[:-2],ready[1:-1])]
+    for interval in intervals:
         assert set(re.findall(r'OWNED_DESTROY_VERIFIED=([^|\r\n]+)\|engine_unusable=true', interval)) == expected
-    assert segment.count('WORKBENCH_INPUT_LOCKED=') == segment.count('WORKBENCH_INPUT_RESTORED=true') == 3
+    assert segment.count('WORKBENCH_INPUT_LOCKED=') == segment.count('WORKBENCH_INPUT_RESTORED=true') == len(selections)
     assert restoration_result(segment[:ready[0].start()], 'auto_exit')['passed']
-    yan_segment = segment[ready[0].end():ready[1].start()]
+    yan_segment = segment[ready[-4].end():ready[-3].start()]
     movement_segment = yan_segment[yan_segment.rfind('[PBZBossControl] enter success=true state=ACTIVE'):]
     motion = movement_camera_proof(movement_segment)
     assert motion['passed'] and action['movement_camera'] == motion
@@ -73,12 +102,25 @@ def collect(session):
     classes = {'ahua_guitoudao': {r['skill']: r['class_path'] for r in capabilities()},
                IDENTIFIER: {key: row['class_path'] for key, row in accepted.items()}}
     proofs = []
+    rejected=[]
     for row in read('player-extra-skill-actions.json'):
         a, b = row['log_offset'], row['log_end']
         if not start <= a < b <= end:
             continue
         assert row['state_file'] == str(state_path) and row['lines'] == raw[a:b].splitlines()
-        assert row['passed'] is True and row['cast_dispatched'] is True
+        if not row['cast_dispatched']:
+            assert retried and row['skill']=='dash' and row['passed'] is False and row['interrupt'] is False
+            assert row['failure_kind']=='target_precondition_not_met' and row['cleanup_restoration']['passed'] is True
+            assert 'KEY_SKILL_BEGIN='not in raw[a:b]
+            rejected.append({'log_offset':a,'log_end':b,'cast_dispatched':False})
+            continue
+        if not row['passed']:
+            assert cooldown_retry and row['skill']=='dash' and row['interrupt'] is False
+            assert row['cleanup_restoration']['passed'] is True
+            assert 'KEY_SKILL_BEGIN='not in raw[a:b]
+            assert '[PBZBossControl] dash success=false state=ACTIVE reason=game rejected activation; possession retained'in raw[a:b]
+            rejected.append({'log_offset':a,'log_end':b,'cast_dispatched':True,'native_activation_rejected':True})
+            continue
         boss = re.findall(r'PLAYER_ENTRY_READY=([^\r\n]+)', raw[:a])[-1]
         proof = exact_role_proof(raw, row, boss, classes[boss][row['skill']])
         if boss == IDENTIFIER:
@@ -86,7 +128,8 @@ def collect(session):
             assert proof['local_displacement_verified']
         assert proof['active_cancel_and_restoration'] if row['interrupt'] else proof['natural_completion'] and proof['restoration']['passed']
         proofs.append(dict(proof, boss=boss, skill=row['skill'], interrupt=row['interrupt'], log_offset=a))
-    first_yan = [p for p in proofs if p['boss'] == IDENTIFIER and p['log_offset'] < start + ready[1].start()]
+    assert len(rejected)==int(retried)+int(cooldown_retry)
+    first_yan = [p for p in proofs if p['boss'] == IDENTIFIER and p['log_offset'] < start + ready[-3].start()]
     assert {(p['skill'], p['interrupt']) for p in first_yan} == {(s, i) for s in accepted for i in (False, True)}
     ahua = [p for p in proofs if p['boss'] == 'ahua_guitoudao']
     assert {(p['skill'], p['interrupt']) for p in ahua} == {('skill_01', False), ('skill_08', True)}
@@ -103,10 +146,11 @@ def collect(session):
     assert len([r for r in menu_actions if r['purpose'] == 'control_menu_confirm']) == 1
     assert len([r for r in menu_actions if r['purpose'] == 'control_menu_continue']) == 1
     paths = [state_path, work / 'postcheck.json', raw_path, work / 'yanqiansui-integration-actions.json',
-        work / 'player-extra-skill-actions.json', witness_path, work / 'settings-menu-actions.json', base_path, *deployments]
+        work / 'player-extra-skill-actions.json', witness_path, work / 'settings-menu-actions.json', base_path, *deployments,*retry_paths]
     result = {'passed': True, 'session': session, 'id': IDENTIFIER, 'target_build_sha256': BUILD,
         'module_source_sha256': current, 'ordinary_roundtrip_verified': True, 'input_layers_recovered': True,
         'owned_object_cleanup_verified': True, 'movement_camera': motion, 'skill_proofs': proofs,
+        'undispatched_attempts':rejected,
         'world_cycle': world, 'new_profile_world_cycle_verified': True, 'complete_mod': False,
         'sources': {p.relative_to(ROOT).as_posix(): sha(p) for p in paths}}
     output = work / 'yanqiansui-integration-acceptance.json'

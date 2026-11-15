@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "id": "056_youlong",
+  "session": "20261116-061722",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "metadata_only": true,
+  "playable": false,
+  "live_grants_verified": false,
+  "activation_verified": false,
+  "ability_metadata": [
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Skill_05_Jump_R.GA_AquaKiller_Skill_05_Jump_R_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special.GA_AquaKiller_Special_C",
+      "metadata_verified": false,
+      "ability_kind": null,
+      "rejection": "...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:55: asset unavailable",
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_02.GA_AquaKiller_Special_02_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_09.GA_AquaKiller_Special_09_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/YuCha/GA_AquaKiller_Skill_04_02.GA_AquaKiller_Skill_04_02_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01.GA_YouLong_CACombo_01_C",
+      "metadata_verified": true,
+      "ability_kind": "subtree",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01_Mad.GA_YouLong_CACombo_01_Mad_C",
+      "metadata_verified": true,
+      "ability_kind": "subtree",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_L.GA_YouLong_DodgeAttack_L_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_R.GA_YouLong_DodgeAttack_R_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B.GA_YouLong_Dodge_B_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B_Hard.GA_YouLong_Dodge_B_Hard_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F.GA_YouLong_Dodge_F_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_R.GA_YouLong_Dodge_R_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_01.GA_YouLong_HeavyAttack_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02.GA_YouLong_HeavyAttack_02_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_01.GA_YouLong_MiddleAttack_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02.GA_YouLong_MiddleAttack_02_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03.GA_YouLong_Skill_03_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04.GA_YouLong_Skill_04_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04_Hard.GA_YouLong_Skill_04_Hard_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_B.GA_YouLong_Skill_05_B_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_C.GA_YouLong_Skill_05_C_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01_Normal.GA_YouLong_SpecialAttack_01_Normal_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad_Hard.GA_YouLong_SpecialAttack_02_Mad_Hard_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_03.GA_YouLong_SpecialAttack_03_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_A.GA_YouLong_SpecialAttack_05_A_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_C.GA_YouLong_SpecialAttack_05_C_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/Summon/GA_BaiheDisciple_FishingNet_Skill_03.GA_BaiheDisciple_FishingNet_Skill_03_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/Summon/GA_BaiheDisciple_FishingNet_Skill_03_Child.GA_BaiheDisciple_FishingNet_Skill_03_Child_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/TakeSpear/GA_Hun_BDEd_YouLong_TakeSpear_M_01.GA_Hun_BDEd_YouLong_TakeSpear_M_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/TakeSpear/GA_YouLong_TakeSpear.GA_YouLong_TakeSpear_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/GA_YouLong_SummonPassive_General.GA_YouLong_SummonPassive_General_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    }
+  ],
+  "sources": {
+    "runtime/official-validation-20261116-061722/state.json": "e8a8504f415d1e271362dd2e75779ce3e0dd1a2fced3fdfedd59eb5f2d47a627",
+    "evidence/official-validation/20261116-061722/postcheck.json": "bb6e0dcdc989b5f436953f4326fe1532f97794daad33e997aa9e0dc018b8732e",
+    "evidence/official-validation/20261116-061722/youlong-metadata-action.json": "06ada2083478b8e16b3ded5654303f2d1ca5bfb0225b651a0780edd533719c0e",
+    "evidence/official-validation/20261116-061722/UE4SS.log": "7b4ecf16f9c01a8e18909a9d93c427668a8f0a011764651be226bbf8c7eae3c9",
+    "research/boss-adaptation/followup-batches/youlong-abilities-a0d0b27589f3b3d6/manifest.json": "2160ad980626a158225708c23673857c215cd0038b3985553bd6b402aeeccb74",
+    "research/boss-adaptation/followup-batches/youlong-abilities-a0d0b27589f3b3d6/identity-probe.lua": "cf83036e95e8819e1adfcc3ec2df69324de474b04e5f3dcaeac43cae07451949",
+    "research/boss-adaptation/followup-batches/youlong-abilities-a0d0b27589f3b3d6/identity-probe-manifest.json": "e3842c6cfd3e9711a64f1bf9e3454fb007f37901a9583a5e09ea7c8dab1f52e8"
+  }
+}

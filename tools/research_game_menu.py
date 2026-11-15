@@ -50,6 +50,9 @@ def validate_control_menu_transition(owner,text):
 
 def click(x,y,width,height,purpose):
     registered_mouse=None
+    # Bounded native positioning uses the same live isolation, lease and window gates.
+    backward=purpose=='control_backward'
+    if backward:purpose='control_forward'
     positioning_key={'practice_position_left':65,'practice_position_forward':87,
                      'practice_position_back':83}.get(purpose)
     from workbench_support import ACTIONS,validate_dispatch
@@ -222,7 +225,7 @@ def click(x,y,width,height,purpose):
             if not owner.get('skill_lab') or owner.get('phase')!='armed' or owner['state_file']!=state['state_file']:
                 raise RuntimeError('Explicit current-session developer skill lab required')
         lab_cast=119 if purpose=='control_lab_cast' and owner.get('skill_lab_cast_key')=='F8' else 122
-        key={'control_lab_next':120,'control_lab_cast':lab_cast,'control_target':118,'control_skill5':116,'control_skill8':119,'control_skill9':120,'control_enter':117,'control_forward':87,'control_skill':112,'control_skill2':113,'control_skill3':114,'control_skill4':115,'control_exit':121}.get(purpose)
+        key={'control_lab_next':120,'control_lab_cast':lab_cast,'control_target':118,'control_skill5':116,'control_skill8':119,'control_skill9':120,'control_enter':117,'control_forward':83 if backward else 87,'control_skill':112,'control_skill2':113,'control_skill3':114,'control_skill4':115,'control_exit':121}.get(purpose)
         if skill_key_override is not None:key=skill_key_override
         if purpose=='control_attack':
             flags=registered_mouse or (2,4)
@@ -242,7 +245,12 @@ def click(x,y,width,height,purpose):
             u.keybd_event(followup_key,0,0,0)
             try:time.sleep(.65 if registered_cancel or lab_cancel or death_after else .20)
             finally:u.keybd_event(followup_key,0,2,0)
-        return {'pressed':purpose,'only_research_game_targeted':True}
+        if backward:
+            action_path=Path(state['work'])/'control-position-actions.json'
+            actions=json.loads(action_path.read_text(encoding='utf-8'))if action_path.exists()else[]
+            actions.append({'at':v.utc8(),'purpose':'control_backward','key':'S','seconds':.35})
+            v.save(action_path,actions)
+        return {'pressed':'control_backward'if backward else purpose,'only_research_game_targeted':True}
     if purpose in ('observe_reload','control_reload'):
         if not state.get('readonly_hot_reload_enabled'):raise RuntimeError('Hot reload not declared')
         # 用途：只为此只读研究会话发送固定Ctrl+R，不提供任意按键接口。
