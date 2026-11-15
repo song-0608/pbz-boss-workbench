@@ -17,6 +17,7 @@ from player_status_stream import valid_status
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--resume',action='store_true',help='复用同一装配内已通过的招式，不延长租约')
+    parser.add_argument('--natural-session',help='仅复用公共Lua逐字节一致的已关闭自然动作，不复用取消和稳定性')
     args=parser.parse_args()
     owner,state=practice.owned_session()
     assert owner.get('phase')=='armed' and owner.get('boss_candidate')
@@ -36,6 +37,12 @@ def main():
     report={'candidate':owner['boss_candidate'],'state_file':state['state_file'],
             'started_at':datetime.now().astimezone().isoformat(),'log_offset':offset,'phases':[],'passed':False}
     target=work/'boss-candidate-milestone.json'
+    previous_naturals={}
+    if args.natural_session:
+        from boss_candidate_retry import previous_natural
+        deployment=practice.read(work/'control-lifecycle-deployment.json')
+        previous_naturals,sources=previous_natural(args.natural_session,identifier,deployment['module_source_sha256'])
+        report.update(natural_session=args.natural_session,previous_natural_sources=sources)
     if target.exists():
         previous=json.loads(target.read_text(encoding='utf-8'))
         assert args.resume and previous['state_file']==state['state_file'] and previous['candidate']==owner['boss_candidate']
@@ -63,6 +70,11 @@ def main():
         if identifier=='057_wanjun':assert skills==order,'all original WanJun bindings required'
         for interrupt in (False,True):
             remaining=list(skills)
+            if not interrupt and previous_naturals:
+                bindings=dict(re.findall(r'CANDIDATE_LIVE_BINDING='+re.escape(identifier)+r'\|([^|\r\n]+)\|([^\r\n]+)',text))
+                for skill,proof in previous_naturals.items():
+                    assert bindings.get(skill)==proof['exact_granted_class'],'Live candidate class differs from previous natural action'
+                    if skill in remaining:remaining.remove(skill)
             if args.resume:
                 actions_path=work/'player-extra-skill-actions.json'
                 actions=json.loads(actions_path.read_text(encoding='utf-8'))if actions_path.exists()else []

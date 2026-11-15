@@ -63,9 +63,17 @@ def collect(session,identifier):
         assert boss==identifier and skill not in bindings
         bindings[skill]=path
     assert bindings
+    milestone_path=work/'boss-candidate-milestone.json'
+    milestone=json.loads(milestone_path.read_text(encoding='utf-8'))
+    reused={};reused_sources={}
+    if milestone.get('natural_session'):
+        from boss_candidate_retry import previous_natural
+        reused,reused_sources=previous_natural(milestone['natural_session'],identifier,deployment['module_source_sha256'])
+        assert reused_sources==milestone['previous_natural_sources']
+        assert all(bindings.get(k)==v['exact_granted_class'] for k,v in reused.items())
     actions_path=work/'player-extra-skill-actions.json'
     actions=json.loads(actions_path.read_text(encoding='utf-8'))
-    results=[]
+    results=[dict(v,reused_from_session=milestone['natural_session'])for v in reused.values()]
     for action in actions:
         if action['log_offset']<begin:continue
         assert action['state_file']==str(state_path)
@@ -94,8 +102,6 @@ def collect(session,identifier):
             'gameplay_verified':any(r['natural_completion']['damage_observed'] for r in natural),
             'movement_runtime_verified':any(r['natural_completion']['movement_observed'] for r in natural)}
     stability=stability_proof(segment,session,metadata['display_name'])
-    milestone_path=work/'boss-candidate-milestone.json'
-    milestone=json.loads(milestone_path.read_text(encoding='utf-8'))
     assert milestone['state_file']==str(state_path) and milestone['candidate']==identifier
     last_enter=segment.rfind('[PBZBossControl] enter success=true state=ACTIVE')
     movement_segment=segment[last_enter:] if last_enter>=0 else ''
@@ -119,7 +125,7 @@ def collect(session,identifier):
             and all(movement_camera.values())),
         'accepted_skills':accepted_skills,'playable':False,
         'pending':['Ordinary player Boss switching and world-cycle acceptance are separate gates.'],
-        'sources':{str(p.relative_to(ROOT)):sha(p) for p in (raw_path,state_path,post_path,actions_path,milestone_path,*source_paths)}}
+        'sources':{**reused_sources,**{str(p.relative_to(ROOT)):sha(p) for p in (raw_path,state_path,post_path,actions_path,milestone_path,*source_paths)}}}
     output=work/'boss-candidate-acceptance.json';write_json(output,result)
     print(json.dumps({'report':str(output),'base_control_accepted':result['base_control_accepted'],
         'accepted_skills':list(accepted_skills),'stability_passed':stability['passed'],'playable':False},ensure_ascii=False))

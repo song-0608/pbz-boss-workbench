@@ -16,7 +16,7 @@ SOURCES = ('tools/build_boss_developer_bundle.py', 'tools/boss_developer_candida
     'tools/test_player_skill_batch.py', 'tools/run_boss_candidate_milestone.py',
     'tools/collect_boss_candidate_acceptance.py', 'tests/test_boss_developer_bundle.py',
     'tests/test_boss_developer_candidate.lua', 'tools/candidate_effect_scope.py',
-    'tests/test_candidate_effect_scope.py')
+    'tests/test_candidate_effect_scope.py', 'tools/boss_candidate_retry.py', 'tests/test_boss_candidate_retry.py')
 
 
 def read(path):

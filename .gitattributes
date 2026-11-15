@@ -28,3 +28,7 @@ tools/candidate_effect_scope.py -text whitespace=cr-at-eol
 tests/test_candidate_effect_scope.py -text whitespace=cr-at-eol
 research/boss-adaptation/developer-bundles/073_yanqiansui-bac8f48df90e3bee/** -text whitespace=cr-at-eol
 evidence/adaptation/yanqiansui-local-scope-offline.json -text whitespace=cr-at-eol
+tools/boss_candidate_retry.py -text whitespace=cr-at-eol
+tests/test_boss_candidate_retry.py -text whitespace=cr-at-eol
+research/boss-adaptation/developer-bundles/073_yanqiansui-f9da59a9e05988bf/** -text whitespace=cr-at-eol
+research/boss-adaptation/developer-attempt-receipts/20261116-053706.json -text whitespace=cr-at-eol
