@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scope": "offline integration candidate, no new gameplay claim",
+  "game_started": false,
+  "candidate": "runtime/release-candidates/ahua-boss-workbench-v2-dev-fc170a5ecd820768",
+  "manifest_sha256": "8de763c399d5471fe75a78aace0079969f30d55109de193cbeaaf42254dfb7d7",
+  "lua_syntax_count": 56,
+  "catalog_and_bindings_test_passed": true,
+  "player_settings_tests_passed": 4,
+  "source_sha256": {
+    "tools/build_three_boss_candidate.py": "f1a7759e5c2577735a81474989532822fb03749f16af653bc5c48ca14833b44f",
+    "tools/test_yanqiansui_integration.py": "9292961642b49a2f9a49ef1c08b19f46d6a1675ebe5342a5470eec097f9a3238",
+    "tools/collect_yanqiansui_integration.py": "dec7c50822cfb41c5a75e416f22f0a6ba74a65837fdb0052457a81b244180706",
+    "tools/player_settings.py": "d4c4be18d92e30deeb89dbafb10399dba5cbd1c055b5d122629fbfbeda68f247",
+    "tests/test_player_settings.py": "2720fe8f3894184c57b26dcdd4e6913bb94d5e264a3101dd3897daab49b2d0bd",
+    "tests/test_three_boss_candidate.lua": "fccc584f4c0941c6df2773a6d7558e3466ffc136dfe82743a02b717dddf3dcc9"
+  },
+  "complete_mod": false
+}

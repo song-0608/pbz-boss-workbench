@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-BOSSES={'ahua_guitoudao':'新娘阿花','057_wanjun':'巨锤客：万钧'}
+BOSSES={'ahua_guitoudao':'新娘阿花','057_wanjun':'巨锤客：万钧','073_yanqiansui':'琴女烟千岁'}
 LABELS={'enter':'开始操控','exit':'恢复主角','cycle_target':'切换目标','primary_attack':'主攻击快捷键（技能01）',
         'slot1':'技能01','heavy_01':'重击01','skill_02':'技能02','dash':'冲刺','skill_06':'技能06',
         'skill_08':'技能08','skill_07':'技能07','teleport_left':'左侧瞬移','teleport_right':'右侧瞬移','native_combo':'原生连招'}
@@ -63,6 +63,9 @@ def editor_skill_labels(boss_id):
     if boss_id=='057_wanjun':
         return {'slot1':'万钧重锤攻击','heavy_01':'万钧左闪攻击',
                 'skill_02':'万钧右闪攻击','dash':'万钧左侧攻击'}
+    if boss_id=='073_yanqiansui':
+        return {'slot1':'烟千岁特殊攻击03','heavy_01':'烟千岁特殊攻击04',
+                'skill_02':'烟千岁技能03','dash':'烟千岁技能04'}
     import player_keymap
     return {slot:LABELS[slot]for slot in player_keymap.read()['skills']}
 

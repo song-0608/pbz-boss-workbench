@@ -33,6 +33,9 @@ class PlayerSettings(unittest.TestCase):
         labels=player_settings.editor_skill_labels('057_wanjun')
         self.assertEqual(set(labels),{'slot1','heavy_01','skill_02','dash'})
         self.assertTrue(all(label.startswith('万钧')for label in labels.values()))
+        labels=player_settings.editor_skill_labels('073_yanqiansui')
+        self.assertEqual(set(labels),{'slot1','heavy_01','skill_02','dash'})
+        self.assertTrue(all(label.startswith('烟千岁')for label in labels.values()))
         self.assertEqual(set(player_settings.editor_skill_labels('ahua_guitoudao')),set(player_keymap.read()['skills']))
         with self.assertRaises(ValueError):player_settings.editor_skill_labels('invented')
 
