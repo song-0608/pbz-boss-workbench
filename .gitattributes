@@ -37,3 +37,4 @@ tests/test_yanqiansui_profile.py -text whitespace=cr-at-eol
 tools/youlong_metadata.py -text whitespace=cr-at-eol
 tests/test_youlong_metadata.py -text whitespace=cr-at-eol
 research/boss-adaptation/followup-batches/youlong-abilities-a0d0b27589f3b3d6/** -text whitespace=cr-at-eol
+research/boss-adaptation/developer-attempt-receipts/20261116-055334.json -text whitespace=cr-at-eol
