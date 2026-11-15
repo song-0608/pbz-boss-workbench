@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "fingerprint": "62359a4091381b58",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_files": {
+    "tools/build_boss_followup_batch.py": "cb7e2c2d4528659f8214c4cdec3f86e260721f464e7a0fe7f43815fdbd613f31",
+    "tools/build_boss_identity_probe.py": "ce5dc0e302b9928f507bbcf805168fd4c00c64fd55cf492d0ac35341a8943af5",
+    "tools/run_boss_identity_batch.py": "2866e2e5aae1886e59ba2a564d01c73971620b52cc3fe760d9b22d5f461efc67",
+    "tools/collect_boss_identity.py": "879c846fdca229d3b83cf0bbde76e5d7f02a38813639992c825cf0ddd6a0cabe",
+    "tools/collect_boss_followup.py": "bc982f55e0a48b1366d0f557cbbe678fc2770a46a7a8af22122a2157e7dd8ae6",
+    "tests/test_boss_followup.py": "9bbea39841644d260699b486aa012e83cc19b076867e3438699b7c682a479314",
+    "tests/test_boss_followup_probe.lua": "1dae9a44c646998a339b55b0c9a30c219c8c1a580b1a172e7a316923a6f50ce8"
+  },
+  "evidence": {
+    "research/boss-adaptation/identity-receipts/20261115-090045.json": "fd65b7abf922cf2d1b965e91a1f334c1aa64729d921385c5db001b9bffe742aa",
+    "research/boss-adaptation/dossiers/073_yanqiansui.json": "2c11ec4cd09d169feb182ca3adb7546596fce4edb8aeb349f3d4a9236582f827"
+  },
+  "offline_only": true,
+  "game_started": false,
+  "candidate_files": {
+    "candidates/056_youlong.json": "ba8ec1145fa4fe22206915a2444dcf1d0ca7b704956298c34f9278300c6692e3"
+  },
+  "next_batch": {
+    "kind": "missing_metadata_only",
+    "candidate_ids": [
+      "056_youlong"
+    ],
+    "ability_metadata_candidate": "073_yanqiansui",
+    "max_seconds": 90,
+    "repeat_name_scan": false,
+    "repeat_verified_identity": false,
+    "gameplay_input_allowed": false,
+    "ability_activation_allowed": false
+  }
+}

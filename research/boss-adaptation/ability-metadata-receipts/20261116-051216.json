@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "session": "20261116-051216",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "batch_fingerprint": "62359a4091381b58",
+  "metadata_only": true,
+  "playable": false,
+  "identity_candidates": [
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon",
+      "observed_cdo_config": [
+        "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+      ],
+      "display_name": "发狂的水行帮主：游龙",
+      "checks": {
+        "exact_class": true,
+        "npc_lineage": true,
+        "complete_lineage": true,
+        "exact_config": true,
+        "cdo_config_binding": true,
+        "declared_config_match": true,
+        "display_name": true,
+        "no_rejection": true
+      },
+      "identity_verified": true,
+      "rejections": [],
+      "playable": false,
+      "control_verified": false
+    }
+  ],
+  "ability_metadata": [
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_Hun_BDEd_YanQianSui_01.GA_Hun_BDEd_YanQianSui_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_Hun_BDEx_YanQianSui_01.GA_Hun_BDEx_YanQianSui_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_CA_GEx_01.GA_YanQianSui_CA_GEx_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_F_Red.GA_YanQianSui_DodgeAttack_F_Red_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_HeavyAttack_01.GA_YanQianSui_HeavyAttack_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_HeavyAttack_03.GA_YanQianSui_HeavyAttack_03_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_MiddleAttack_01.GA_YanQianSui_MiddleAttack_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill.GA_YanQianSui_Skill_C",
+      "metadata_verified": false,
+      "ability_kind": null,
+      "rejection": "...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:49: asset unavailable",
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_03.GA_YanQianSui_Skill_03_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_04.GA_YanQianSui_Skill_04_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_05.GA_YanQianSui_Skill_05_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_06.GA_YanQianSui_Skill_06_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_07.GA_YanQianSui_Skill_07_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_07_Blue.GA_YanQianSui_Skill_07_Blue_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_07_Red.GA_YanQianSui_Skill_07_Red_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_08.GA_YanQianSui_Skill_08_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_11_Red.GA_YanQianSui_Skill_11_Red_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_01.GA_YanQianSui_SpecialAttack_01_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_02_Red.GA_YanQianSui_SpecialAttack_02_Red_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_03.GA_YanQianSui_SpecialAttack_03_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_04.GA_YanQianSui_SpecialAttack_04_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_SpecialAttack_05.GA_YanQianSui_SpecialAttack_05_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/Story/GA_YanQianSui_StoryIntro.GA_YanQianSui_StoryIntro_C",
+      "metadata_verified": true,
+      "ability_kind": "leaf",
+      "rejection": null,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false
+    }
+  ],
+  "live_grants_verified": false,
+  "activation_verified": false,
+  "sources": {
+    "runtime/official-validation-20261116-051216/state.json": "53ac3cf0fc3028761dc084c3c6bf7c07082eee8c235f5f4877fd352b43484715",
+    "evidence/official-validation/20261116-051216/postcheck.json": "b11d31fb8d75c5d0f67a92a5ae79df3cef9224402956d07ba03667c84f8b2df7",
+    "evidence/official-validation/20261116-051216/multi-boss-identity-results.json": "65227abe84979f01d026a607c8cbac598df404f713a56b1dc2c65e90599eb962",
+    "evidence/official-validation/20261116-051216/UE4SS.log": "9e1c9ee9361c8ad298291348d47e42237e960226c5f164ac7cab988e460118ae",
+    "research/boss-adaptation/followup-batches/metadata-62359a4091381b58/manifest.json": "fa75f4e0f1535fadbb94f152df8ebe063b913794d4247c42ba047afd3e921f36",
+    "research/boss-adaptation/followup-batches/metadata-62359a4091381b58/identity-probe-manifest.json": "80590418f0b9d4f88cf8436eb6860cad03e23083499bd1a40d9143adae6bcfea",
+    "research/boss-adaptation/followup-batches/metadata-62359a4091381b58/identity-probe.lua": "83939892c8dc0da2fb06b032943a8094269eb4e3ba28f920feb8a3f6c07fe18c"
+  },
+  "next_step": "Bind only independently observed unique live grants in a protected developer candidate; metadata does not unlock players."
+}

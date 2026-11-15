@@ -242,28 +242,26 @@
   "metadata_identity": {
     "id": "056_youlong",
     "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
-    "config_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother.ActorC_YouLong_SecondBrother",
+    "config_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon",
     "observed_cdo_config": [
       "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
     ],
-    "display_name": "水行帮主：游龙",
+    "display_name": "发狂的水行帮主：游龙",
     "checks": {
       "exact_class": true,
       "npc_lineage": true,
       "complete_lineage": true,
       "exact_config": true,
-      "cdo_config_binding": false,
-      "declared_config_match": false,
+      "cdo_config_binding": true,
+      "declared_config_match": true,
       "display_name": true,
-      "no_rejection": false
+      "no_rejection": true
     },
-    "identity_verified": false,
-    "rejections": [
-      "character|...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:45: default config differs from candidate"
-    ],
+    "identity_verified": true,
+    "rejections": [],
     "playable": false,
     "control_verified": false,
-    "receipt": "research\\boss-adaptation\\identity-receipts\\20261115-090045.json",
-    "receipt_sha256": "fd65b7abf922cf2d1b965e91a1f334c1aa64729d921385c5db001b9bffe742aa"
+    "receipt": "research\\boss-adaptation\\identity-receipts\\20261116-051216.json",
+    "receipt_sha256": "61afffb5d9cff156e8fafa50c16f9f70c2c551bed83868dc5e7c260bb9a8e591"
   }
 }

@@ -1,0 +1,22 @@
+{
+  "id": "056_youlong",
+  "resource_folder": "056_YouLong",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon"
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon"
+  ],
+  "enabled": false,
+  "playable": false,
+  "identity_verified": false,
+  "correction_source": {
+    "receipt": "research/boss-adaptation/identity-receipts/20261115-090045.json",
+    "sha256": "fd65b7abf922cf2d1b965e91a1f334c1aa64729d921385c5db001b9bffe742aa",
+    "observed_cdo_config": "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon",
+    "previous_rejected_config": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother.ActorC_YouLong_SecondBrother",
+    "runtime_revalidation_required": true
+  }
+}

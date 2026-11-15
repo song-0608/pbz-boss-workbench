@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "session": "20261116-051216",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "metadata_only": true,
+  "playable": false,
+  "candidates": [
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon",
+      "observed_cdo_config": [
+        "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+      ],
+      "display_name": "发狂的水行帮主：游龙",
+      "checks": {
+        "exact_class": true,
+        "npc_lineage": true,
+        "complete_lineage": true,
+        "exact_config": true,
+        "cdo_config_binding": true,
+        "declared_config_match": true,
+        "display_name": true,
+        "no_rejection": true
+      },
+      "identity_verified": true,
+      "rejections": [],
+      "playable": false,
+      "control_verified": false
+    }
+  ],
+  "sources": {
+    "runtime\\official-validation-20261116-051216\\state.json": "53ac3cf0fc3028761dc084c3c6bf7c07082eee8c235f5f4877fd352b43484715",
+    "evidence\\official-validation\\20261116-051216\\postcheck.json": "b11d31fb8d75c5d0f67a92a5ae79df3cef9224402956d07ba03667c84f8b2df7",
+    "evidence\\official-validation\\20261116-051216\\UE4SS.log": "9e1c9ee9361c8ad298291348d47e42237e960226c5f164ac7cab988e460118ae",
+    "evidence\\official-validation\\20261116-051216\\multi-boss-identity-results.json": "65227abe84979f01d026a607c8cbac598df404f713a56b1dc2c65e90599eb962",
+    "research\\boss-adaptation\\followup-batches\\metadata-62359a4091381b58\\identity-probe-manifest.json": "80590418f0b9d4f88cf8436eb6860cad03e23083499bd1a40d9143adae6bcfea",
+    "research\\boss-adaptation\\followup-batches\\metadata-62359a4091381b58\\manifest.json": "fa75f4e0f1535fadbb94f152df8ebe063b913794d4247c42ba047afd3e921f36",
+    "research\\boss-adaptation\\followup-batches\\metadata-62359a4091381b58\\identity-probe.lua": "83939892c8dc0da2fb06b032943a8094269eb4e3ba28f920feb8a3f6c07fe18c"
+  }
+}

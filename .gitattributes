@@ -1,3 +1,13 @@
 releases/ahua-boss-workbench-v1-f0bcf1323e641e03/** -text whitespace=cr-at-eol
 evidence/releases/ahua-boss-workbench-v1-f0bcf1323e641e03-acceptance.json -text whitespace=cr-at-eol
 evidence/adaptation/ahua-delivery-local-checks.json -text whitespace=cr-at-eol
+research/boss-adaptation/followup-batches/metadata-62359a4091381b58/** -text whitespace=cr-at-eol
+research/boss-adaptation/identity-receipts/20261116-051216.json -text whitespace=cr-at-eol
+research/boss-adaptation/ability-metadata-receipts/20261116-051216.json -text whitespace=cr-at-eol
+tools/build_boss_followup_batch.py -text whitespace=cr-at-eol
+tools/build_boss_identity_probe.py -text whitespace=cr-at-eol
+tools/run_boss_identity_batch.py -text whitespace=cr-at-eol
+tools/collect_boss_identity.py -text whitespace=cr-at-eol
+tools/collect_boss_followup.py -text whitespace=cr-at-eol
+tests/test_boss_followup.py -text whitespace=cr-at-eol
+tests/test_boss_followup_probe.lua -text whitespace=cr-at-eol

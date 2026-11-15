@@ -18,6 +18,9 @@ def main(batch):
     if not state.get('readonly_ai_experiment')or time.time()>state['deadline_unix']-120:
         raise RuntimeError('Bounded idle read-only carrier required')
     manifest=json.loads((batch/'identity-probe-manifest.json').read_text(encoding='utf-8'))
+    if manifest.get('ability_requests'):
+        from build_boss_followup_batch import verify
+        verify(batch)
     raw=(batch/'identity-probe.lua').read_bytes()
     if manifest['target_build_sha256']!=BUILD or hashlib.sha256(raw).hexdigest()!=manifest['script_sha256']:
         raise RuntimeError('Frozen identity probe differs from source receipt')
@@ -33,7 +36,8 @@ def main(batch):
     target.write_bytes(raw);v.verify_build(state['ue4ss_loader_manifest'])
     menu.click(0,0,2560,1600,'observe_reload')
     text=practice.wait_tokens(log,['PBZ_MULTI_ID:END='],timeout=100,offset=offset)
-    lines=[line for line in text.splitlines()if 'PBZ_MULTI_ID:'in line]
+    lines=[line for line in text.splitlines()if 'PBZ_MULTI_ID:'in line or (
+        manifest.get('ability_requests') and 'PBZ_BOSS_META:'in line)]
     result={'at':v.utc8(),'state_file':str(v.state_path()),'script_sha256':row['sha256'],
         'batch_manifest_sha256':manifest['batch_manifest_sha256'],'lines':lines,
         'metadata_only':True,'boss_control_verified':False,
