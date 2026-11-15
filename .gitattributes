@@ -24,3 +24,7 @@ tests/test_boss_developer_candidate.lua -text whitespace=cr-at-eol
 research/boss-adaptation/developer-bundles/073_yanqiansui-6ef01f57bf40960d/** -text whitespace=cr-at-eol
 research/boss-adaptation/developer-attempt-receipts/20261116-052550.json -text whitespace=cr-at-eol
 evidence/adaptation/yanqiansui-developer-offline.json -text whitespace=cr-at-eol
+tools/candidate_effect_scope.py -text whitespace=cr-at-eol
+tests/test_candidate_effect_scope.py -text whitespace=cr-at-eol
+research/boss-adaptation/developer-bundles/073_yanqiansui-bac8f48df90e3bee/** -text whitespace=cr-at-eol
+evidence/adaptation/yanqiansui-local-scope-offline.json -text whitespace=cr-at-eol

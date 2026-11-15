@@ -50,7 +50,7 @@ def collect(session,identifier):
     if deployment.get('developer_bundle'):
         from build_boss_developer_bundle import validate
         assert deployment['candidate_identity_grant']==validate(identifier,Path(deployment['developer_bundle']))
-        grant_keys+=('ability_metadata_receipt_sha256','developer_bundle_sha256')
+        grant_keys+=('ability_metadata_receipt_sha256','developer_bundle_sha256','developer_max_displacement_cm')
         bundle=json.loads((Path(deployment['developer_bundle'])/'manifest.json').read_text(encoding='utf-8'))
         assert deployment['module_source_sha256']['boss_candidate.lua']==bundle['overrides']['Scripts/boss_candidate.lua']
         source_paths += [Path(deployment['developer_bundle'])/name for name in ('manifest.json','boss_candidate.lua')]
@@ -75,6 +75,9 @@ def collect(session,identifier):
         assert action['lines'] and all(line in interval for line in action['lines'])
         skill=action['skill'];assert skill in bindings
         result=analyze(interval,skill)
+        if deployment.get('developer_bundle'):
+            from candidate_effect_scope import local_effect
+            result=local_effect(result,interval,deployment['grant']['developer_max_displacement_cm'])
         path=bindings[skill]
         result['exact_granted_class']=path
         result['class_matches_live_binding']=result['ability_class_short']==path.rsplit('.',1)[-1]

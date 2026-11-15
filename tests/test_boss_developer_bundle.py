@@ -15,11 +15,12 @@ class DeveloperBundleTests(unittest.TestCase):
     def test_real_metadata_pool_excludes_dependencies_story_and_failed_asset(self):
         definition, evidence = bundle.definition()
         pool = definition['ability_pool']
-        self.assertEqual(len(pool), 19)
+        self.assertEqual(len(pool), 18)
         self.assertTrue(pool[0].endswith('GA_YanQianSui_MiddleAttack_01_C'))
         self.assertTrue(all('/Story/' not in p and 'GA_Hun_' not in p and '_CA_' not in p for p in pool))
         self.assertFalse(any(p.endswith('.GA_YanQianSui_Skill_C') for p in pool))
-        self.assertEqual(len(evidence), 3)
+        self.assertFalse(any(p.endswith('.GA_YanQianSui_Skill_01_C') for p in pool))
+        self.assertEqual(len(evidence), 4)
 
     def fixture(self, root):
         for name in bundle.SOURCES:
@@ -33,7 +34,7 @@ class DeveloperBundleTests(unittest.TestCase):
         definition = {'id': bundle.IDENTIFIER, 'class_path': '/Fixture.Actor_C',
             'config_path': '/Fixture.Config', 'display_name': 'fixture',
             'identity_receipt_sha256': 'a' * 64, 'ability_metadata_receipt_sha256': 'b' * 64,
-            'ability_pool': ['/Fixture.Ability_C']}
+            'ability_pool': ['/Fixture.Ability_C'], 'max_local_displacement_cm': 3000}
         return definition
 
     def test_deterministic_build_keeps_base_and_exact_override(self):

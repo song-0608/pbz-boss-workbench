@@ -46,7 +46,7 @@ def main():
     path=practice.log_path(state)
     if owner.get('boss_candidate'):
         from boss_candidate_gate import validate
-        identifier=owner['boss_candidate'];validate(identifier,bundle=owner.get('boss_candidate_bundle'))
+        identifier=owner['boss_candidate'];candidate_grant=validate(identifier,bundle=owner.get('boss_candidate_bundle'))
         dossier=practice.read(practice.ROOT/'research/boss-adaptation/dossiers'/(identifier+'.json'))
         boss_name=dossier['metadata_identity']['display_name']
     else:
@@ -87,6 +87,10 @@ def main():
             row['stage']='restoration'
             tail=wait_for(path,offset,lambda t:restoration_result(t,'exit')['passed'],8)
             proof=action_proof(tail,skill);row['proof']=proof
+            if owner.get('boss_candidate_bundle'):
+                from candidate_effect_scope import local_effect
+                proof=local_effect(proof,tail,candidate_grant['developer_max_displacement_cm']);row['proof']=proof
+                assert proof['local_displacement_verified'],'Candidate left local training area; scene dependency is unadapted'
             assert restoration_result(tail,'exit')['passed'],'Restoration incomplete'
             assert not args.interrupt or proof['active_cancel_and_restoration'],'Cancellation incomplete'
             row['passed']=True;row['stage']='complete'

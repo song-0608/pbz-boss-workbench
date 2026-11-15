@@ -10,11 +10,13 @@ from mod_installation import active_mod_root, unlinked_path
 
 IDENTIFIER = '073_yanqiansui'
 METADATA = 'research/boss-adaptation/ability-metadata-receipts/20261116-051216.json'
+ATTEMPT = 'research/boss-adaptation/developer-attempt-receipts/20261116-052550.json'
 SOURCES = ('tools/build_boss_developer_bundle.py', 'tools/boss_developer_candidate.lua',
     'tools/boss_candidate_gate.py', 'tools/ahua_practice.py', 'tools/run_control_lifecycle_probe.py',
     'tools/test_player_skill_batch.py', 'tools/run_boss_candidate_milestone.py',
     'tools/collect_boss_candidate_acceptance.py', 'tests/test_boss_developer_bundle.py',
-    'tests/test_boss_developer_candidate.lua')
+    'tests/test_boss_developer_candidate.lua', 'tools/candidate_effect_scope.py',
+    'tests/test_candidate_effect_scope.py')
 
 
 def read(path):
@@ -33,6 +35,20 @@ def definition(root=ROOT):
     assert receipt['target_build_sha256'] == BUILD and receipt['metadata_only'] and not receipt['playable']
     assert not receipt['live_grants_verified'] and not receipt['activation_verified']
     validate_sources(receipt, root)
+    attempt_path = root / ATTEMPT
+    attempt = read(attempt_path)
+    assert attempt['id'] == IDENTIFIER and attempt['target_build_sha256'] == BUILD
+    assert attempt['formal_postcheck_passed'] and not attempt['control_accepted'] and not attempt['playable']
+    validate_sources(attempt, root)
+    accepted_path = next(root / name for name in attempt['sources'] if name.endswith('/boss-candidate-acceptance.json'))
+    accepted = read(accepted_path)
+    validate_sources(accepted, root)
+    assert accepted['id'] == IDENTIFIER and not accepted['base_control_accepted'] and not accepted['playable']
+    blocked = '/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C'
+    assert any(row['class_path'] == blocked and row['status'] == 'blocked_scene_dependent'
+        and row['observed_distance_cm'] > 160000 for row in attempt['dispositions'])
+    assert any(row['exact_granted_class'] == blocked and row['natural_completion']['distance'] > 160000
+        for row in accepted['actions'] if row.get('natural_completion'))
     dossier_path = root / 'research/boss-adaptation/dossiers' / (IDENTIFIER + '.json')
     dossier = read(dossier_path)
     identity = dossier['metadata_identity']
@@ -48,7 +64,7 @@ def definition(root=ROOT):
     # Explicit initial action allowlist; dependencies, counter-context and story are excluded.
     priority = ['MiddleAttack_01', 'HeavyAttack_01', 'SpecialAttack_01', 'DodgeAttack_F_Red',
         'HeavyAttack_03', 'SpecialAttack_02_Red', 'SpecialAttack_03', 'SpecialAttack_04',
-        'SpecialAttack_05', 'Skill_01', 'Skill_03', 'Skill_04', 'Skill_05', 'Skill_06',
+        'SpecialAttack_05', 'Skill_03', 'Skill_04', 'Skill_05', 'Skill_06',
         'Skill_07', 'Skill_07_Blue', 'Skill_07_Red', 'Skill_08', 'Skill_11_Red']
     prefix = '/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/'
     expected = [prefix + 'GA_YanQianSui_' + name + '.GA_YanQianSui_' + name + '_C' for name in priority]
@@ -62,8 +78,8 @@ def definition(root=ROOT):
     assert pool and len(pool) <= 32
     result = {k: identity[k] for k in ('id', 'class_path', 'config_path', 'display_name')}
     result.update(identity_receipt_sha256=sha(identity_path), ability_metadata_receipt_sha256=sha(metadata_path),
-        ability_pool=pool)
-    evidence = {p.relative_to(root).as_posix(): sha(p) for p in (dossier_path, identity_path, metadata_path)}
+        ability_pool=pool, blocked_scene_abilities=[blocked], max_local_displacement_cm=3000)
+    evidence = {p.relative_to(root).as_posix(): sha(p) for p in (dossier_path, identity_path, metadata_path, attempt_path)}
     return result, evidence
 
 
@@ -114,6 +130,7 @@ def validate(identifier, bundle, base=None, root=ROOT):
     assert module_path.read_bytes() == render(value, root), 'Developer override differs from generated source'
     return {'boss_candidate': identifier, 'identity_receipt_sha256': value['identity_receipt_sha256'],
         'ability_metadata_receipt_sha256': value['ability_metadata_receipt_sha256'],
+        'developer_max_displacement_cm': value['max_local_displacement_cm'],
         'developer_bundle_sha256': sha(manifest_path)}
 
 

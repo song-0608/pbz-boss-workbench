@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "073_yanqiansui",
+  "bundle": "research/boss-adaptation/developer-bundles/073_yanqiansui-bac8f48df90e3bee",
+  "bundle_manifest_sha256": "73d2ef622aeba5de2e0a5c1454cf963277f8a5227bc7d0929c02f34ed86355e4",
+  "offline_passed": true,
+  "playable": false,
+  "checks": {
+    "effect_scope_python": 4,
+    "developer_bundle_python": 5,
+    "developer_native_grants_lua": true,
+    "changed_python_syntax": true
+  },
+  "source_sha256": {
+    "tools/build_boss_developer_bundle.py": "160c89bcaf0f9ecbc6dcf664855d030073b35f7d6bdfca464d62573755f6028d",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/boss_candidate_gate.py": "86c08d5058dd646cd85532f4612bcd1028a4012dde9ec22969118bb985fc4625",
+    "tools/ahua_practice.py": "d77ab6485eea48e11c09aac8e42a2cb57eedaf1ce01a8ed3a34c58971673a431",
+    "tools/run_control_lifecycle_probe.py": "816672ec788f7872a37a29a3567cb4261f5fe8c5483e60e1fb2f8a3328c147f2",
+    "tools/test_player_skill_batch.py": "0deb9e3d3485e569dbb0d81828f7f784b55b8e336434a7d0a22345d0b35a6430",
+    "tools/run_boss_candidate_milestone.py": "fc9c7afffc8e8b21a00e25ee210d383f83b9b3161410f49e56ccfb467ce43a4d",
+    "tools/collect_boss_candidate_acceptance.py": "a607fee936ef58f627540918ab1297970651a4dc86e52067e29c7794d0fbc122",
+    "tests/test_boss_developer_bundle.py": "23cee423addfefefaaeeff7e0d37a8e7c582e6108f67630c26f1e2dd42e00bc7",
+    "tests/test_boss_developer_candidate.lua": "68d739e0fc34f538109a459c25acf7aa3526d1212e3ee3e1e624499f8ad5fceb",
+    "tools/candidate_effect_scope.py": "776a956d1fd77b18e3419fe943080f936d4d037f5f1d23f98433ac65bafd840a",
+    "tests/test_candidate_effect_scope.py": "fcc523f42f20437fdcc4e19fba17ea41ae68ca5f8b927d2ce617d5c88f0edfdd"
+  },
+  "runtime_acceptance_included": false
+}
