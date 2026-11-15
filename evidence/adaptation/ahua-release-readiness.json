@@ -2,45 +2,17 @@
   "gates": {
     "local_checks_current": true,
     "installed_candidate_used_and_closed": true,
-    "all_28_natural_and_restored": false,
-    "all_28_active_cancel_and_restored": false,
-    "all_29_actual_bindings": false,
+    "all_28_natural_and_restored": true,
+    "all_28_active_cancel_and_restored": true,
+    "all_29_actual_bindings": true,
     "full_600_seconds_and_continuous_active": true,
     "ordinary_native_menu_world_cycle": true
   },
-  "ready_for_release": false,
-  "missing_natural": [
-    "attack_01",
-    "dash",
-    "heavy_01",
-    "heavy_02",
-    "homing_flower",
-    "homing_flower_hard",
-    "skill_07_hard",
-    "skill_09",
-    "special_03",
-    "special_03_flower_cd",
-    "special_05_a",
-    "special_07",
-    "special_11",
-    "special_move_01",
-    "special_move_back",
-    "special_move_left",
-    "special_move_right",
-    "teleport_left",
-    "teleport_right"
-  ],
-  "missing_cancel": [
-    "special_move_right"
-  ],
-  "missing_bindings": [
-    {
-      "slot": "special_move_right",
-      "skill": "special_move_right",
-      "key": "G"
-    }
-  ],
-  "at": "2026-11-16T01:28:43.612381+08:00",
+  "ready_for_release": true,
+  "missing_natural": [],
+  "missing_cancel": [],
+  "missing_bindings": [],
+  "at": "2026-11-16T02:20:10.085360+08:00",
   "release_id": "ahua-28-m2-b4afb7fce5a1eb7e",
   "candidate_manifest_sha256": "a16d21af4cecd894d1e62dd7d306eaa036c9ea98561700574b5fd784c74c887f",
   "module_source_sha256": {
@@ -96,13 +68,19 @@
     "20261115-232001",
     "20261116-003054",
     "20261116-005016",
-    "20261116-011040"
+    "20261116-011040",
+    "20261116-012744",
+    "20261116-014513",
+    "20261116-020337"
   ],
   "installed_closed_sessions": [
     "20261115-232001",
     "20261116-003054",
     "20261116-005016",
-    "20261116-011040"
+    "20261116-011040",
+    "20261116-012744",
+    "20261116-014513",
+    "20261116-020337"
   ],
   "expected_bindings": [
     {

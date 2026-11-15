@@ -51,6 +51,20 @@ class DeadTargetRuntimeTests(unittest.TestCase):
             with self.subTest(text=text), self.assertRaises(RuntimeError):
                 runtime.validate_cast(text, 'skill_06', previous)
 
+    def test_delayed_damage_is_preserved_without_being_attributed_to_next_cast(self):
+        _, proof = runtime.validate_cast(self.cast(before=7850, after=7300), 'skill_06', 7950)
+        self.assertEqual(proof['inter_cast_health_drop'], 100)
+        self.assertEqual(proof['health_before']-proof['health_after'], 550)
+        _, miss = runtime.validate_cast(self.cast(before=7850, after=7850), 'skill_06', 7950)
+        self.assertEqual(miss['inter_cast_health_drop'], 100)
+        self.assertFalse(miss['damage_observed'])
+        with self.assertRaisesRegex(RuntimeError, 'health chain'):
+            runtime.validate_cast(self.cast(before=8050, after=7300), 'skill_06', 7950)
+
+    def test_float_text_rounding_does_not_mask_health_changes(self):
+        self.assertTrue(runtime.same_health(1235.6837158203,1235.6837158203125))
+        self.assertFalse(runtime.same_health(1235.6837158203,1235.684))
+
     def test_dead_annotation_preserves_name_but_not_other_targets(self):
         self.assertEqual(runtime.target_health(self.row('新娘阿花（已死亡）'), '新娘阿花'), ('新娘阿花', 0))
         with self.assertRaises(RuntimeError):
@@ -67,9 +81,9 @@ class DeadTargetRuntimeTests(unittest.TestCase):
                 contextlib.redirect_stdout(output):
             self.assertEqual(runtime.main(), 0)
         plan = json.loads(output.getvalue())
-        self.assertEqual(plan['maximum_casts'], 24)
-        self.assertEqual(set(plan['skills']), {'skill_09'})
-        self.assertEqual(plan['attack_seconds'], 215)
+        self.assertEqual(plan['maximum_casts'], 36)
+        self.assertEqual(set(plan['skills']), {'skill_06', 'skill_09'})
+        self.assertEqual(plan['attack_seconds'], 300)
         self.assertEqual(plan['maximum_consecutive_misses'], 3)
         self.assertFalse(plan['game_input_sent'])
         self.assertFalse(plan['stop_on_miss'])
