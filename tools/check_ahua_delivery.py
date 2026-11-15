@@ -69,7 +69,8 @@ def main():
                'tools/collect_multi_boss_switching.py','tests/test_boss_candidate_acceptance.py',
                'tools/release_boss_workbench.py','tools/test_player_stability_tail.py',
                'tests/test_multi_boss_switching_evidence.py','tools/collect_workbench_recovery.py',
-               'tests/test_workbench_recovery_evidence.py','tests/test_workbench_release_runtime.py']
+               'tests/test_workbench_recovery_evidence.py','tests/test_workbench_release_runtime.py',
+               'tools/test_dead_target_recovery_runtime.py','tests/test_dead_target_runtime.py']
     for name in changed:
         ast.parse((ROOT / name).read_text(encoding='utf-8'), filename=name)
     scripts = sorted((ROOT / 'mod/PBZBossControl').rglob('*.lua'))
@@ -116,6 +117,7 @@ def main():
     checks.append(('boss_candidate_acceptance',[sys.executable,str(ROOT/'tests/test_boss_candidate_acceptance.py')]))
     checks.append(('multi_boss_role_evidence',[sys.executable,str(ROOT/'tests/test_multi_boss_switching_evidence.py')]))
     checks.append(('dead_target_recovery_evidence',[sys.executable,str(ROOT/'tests/test_workbench_recovery_evidence.py')]))
+    checks.append(('dead_target_runtime',[sys.executable,str(ROOT/'tests/test_dead_target_runtime.py')]))
     checks.append(('workbench_runtime_release_gate',[sys.executable,str(ROOT/'tests/test_workbench_release_runtime.py')]))
     checks.append(('boss_identity_collection',[sys.executable,str(ROOT/'tests/test_boss_identity_collection.py')]))
     checks.append(('validation_cleanup_lock',[sys.executable,str(ROOT/'tests/test_validation_cleanup_lock.py')]))

@@ -16,9 +16,12 @@ documented in [63-整体优化与工作台收尾.md](63-整体优化与工作台
 The WanJun candidate passed its four ability natural-completion and active
 cancellation checks, movement and camera checks, a 600-second assembly, more
 than eight minutes of continuous takeover, and clean isolated-session
-restoration on 2026-11-15. The full Ahua catalog, ordinary player switching,
-dead-target recovery, and same-process native menu world-cycle gates remain
-separate release requirements.
+restoration on 2026-11-15. Current-source workbench interaction and the ordinary
+Ahua/WanJun/Ahua roundtrip passed in closed session `20261115-232001`, including
+owned-object cleanup, movement, camera control, and character-specific skills.
+The full Ahua catalog, dead-target recovery, and same-process native menu
+world-cycle gates remain separate release requirements. All 79 offline check
+groups passed on 2026-11-16; this does not replace gameplay acceptance.
 
 ## Performance
 

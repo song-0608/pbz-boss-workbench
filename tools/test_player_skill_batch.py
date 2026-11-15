@@ -90,6 +90,10 @@ def main():
             assert restoration_result(tail,'exit')['passed'],'Restoration incomplete'
             assert not args.interrupt or proof['active_cancel_and_restoration'],'Cancellation incomplete'
             row['passed']=True;row['stage']='complete'
+            if not args.interrupt:
+                # 长位移收招后让恢复碰撞的主角站稳，再进行下一次真实F6检查。
+                # 不重试已拒绝的接管，也不改速度、位置或接管保护阈值。
+                time.sleep(2)
         except Exception as error:
             row.update(passed=False,error=str(error),failure_kind=(
                 'target_precondition_not_met'if row['stage']=='target_precondition'else row['stage']+'_failed'))

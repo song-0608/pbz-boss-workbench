@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-15T13:15:16.976091+08:00",
-  "pid": 38132,
+  "at": "2026-11-16T00:36:07.583680+08:00",
+  "pid": 38796,
   "functions": [
     {
       "path": "/Script/Engine.ActorComponent.IsBeingDestroyed",
@@ -8,7 +8,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3ef5c8d00",
+          "descriptor": "0x3eef94a00",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -23,7 +23,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3ef5c8c00",
+          "descriptor": "0x3eef94900",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -38,7 +38,7 @@
       "parameters": [
         {
           "name": "Object",
-          "descriptor": "0x3ef5c8b00",
+          "descriptor": "0x3eef94800",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -53,7 +53,7 @@
       "parameters": [
         {
           "name": "bEnabled",
-          "descriptor": "0x3ef5ca280",
+          "descriptor": "0x3eef97000",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -68,7 +68,7 @@
       "parameters": [
         {
           "name": "Object",
-          "descriptor": "0x3ef766c00",
+          "descriptor": "0x3ef174a00",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -77,7 +77,7 @@
         },
         {
           "name": "ReturnValue",
-          "descriptor": "0x3ef766d00",
+          "descriptor": "0x3ef174b00",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -92,7 +92,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3efc6f500",
+          "descriptor": "0x3ef5fc300",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -107,7 +107,7 @@
       "parameters": [
         {
           "name": "Parent",
-          "descriptor": "0x3efc86f00",
+          "descriptor": "0x3ef603d00",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -116,7 +116,7 @@
         },
         {
           "name": "SocketName",
-          "descriptor": "0x3efa87010",
+          "descriptor": "0x3ef4352c0",
           "type": "NameProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -125,7 +125,7 @@
         },
         {
           "name": "LocationRule",
-          "descriptor": "0x3efc87000",
+          "descriptor": "0x3ef603e00",
           "type": "EnumProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -134,7 +134,7 @@
         },
         {
           "name": "RotationRule",
-          "descriptor": "0x3efc87080",
+          "descriptor": "0x3ef603e80",
           "type": "EnumProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -143,7 +143,7 @@
         },
         {
           "name": "ScaleRule",
-          "descriptor": "0x3efc87180",
+          "descriptor": "0x3ef603f80",
           "type": "EnumProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -152,7 +152,7 @@
         },
         {
           "name": "bWeldSimulatedBodies",
-          "descriptor": "0x3efc87200",
+          "descriptor": "0x3ef604000",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -161,7 +161,7 @@
         },
         {
           "name": "ReturnValue",
-          "descriptor": "0x3efc84300",
+          "descriptor": "0x3ef601100",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -176,7 +176,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3efc86b00",
+          "descriptor": "0x3ef603900",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -191,7 +191,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3efc86a00",
+          "descriptor": "0x3ef603800",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -206,7 +206,7 @@
       "parameters": [
         {
           "name": "NewRotation",
-          "descriptor": "0x3efc88780",
+          "descriptor": "0x3ef605580",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -215,7 +215,7 @@
         },
         {
           "name": "bSweep",
-          "descriptor": "0x3efc88800",
+          "descriptor": "0x3ef605600",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -224,7 +224,7 @@
         },
         {
           "name": "SweepHitResult",
-          "descriptor": "0x3efc88880",
+          "descriptor": "0x3ef605680",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 256,
@@ -233,7 +233,7 @@
         },
         {
           "name": "bTeleport",
-          "descriptor": "0x3efc88b80",
+          "descriptor": "0x3ef605980",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -248,7 +248,7 @@
       "parameters": [
         {
           "name": "bNewAbsoluteLocation",
-          "descriptor": "0x3efc8b500",
+          "descriptor": "0x3ef607280",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -257,7 +257,7 @@
         },
         {
           "name": "bNewAbsoluteRotation",
-          "descriptor": "0x3efc8b580",
+          "descriptor": "0x3ef607300",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -266,7 +266,7 @@
         },
         {
           "name": "bNewAbsoluteScale",
-          "descriptor": "0x3efc82100",
+          "descriptor": "0x3ef5ff700",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -281,7 +281,7 @@
       "parameters": [
         {
           "name": "Class",
-          "descriptor": "0x3f03fe780",
+          "descriptor": "0x3efddc600",
           "type": "ClassProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -290,7 +290,7 @@
         },
         {
           "name": "bManualAttachment",
-          "descriptor": "0x3f03fe800",
+          "descriptor": "0x3efdda580",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -299,7 +299,7 @@
         },
         {
           "name": "RelativeTransform",
-          "descriptor": "0x3f03fe880",
+          "descriptor": "0x3efdda600",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 96,
@@ -308,7 +308,7 @@
         },
         {
           "name": "bDeferredFinish",
-          "descriptor": "0x3f03fe900",
+          "descriptor": "0x3efdda680",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -317,7 +317,7 @@
         },
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f03fec00",
+          "descriptor": "0x3efdda980",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -332,7 +332,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f04a0580",
+          "descriptor": "0x3efddd380",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -347,7 +347,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f04a2d00",
+          "descriptor": "0x3efddda00",
           "type": "ByteProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -362,7 +362,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f04a3c00",
+          "descriptor": "0x3efdde900",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -377,7 +377,7 @@
       "parameters": [
         {
           "name": "InFieldOfView",
-          "descriptor": "0x3f0f54290",
+          "descriptor": "0x3f0982540",
           "type": "FloatProperty",
           "array_dim": 1,
           "element_size": 4,
@@ -392,7 +392,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f10c7320",
+          "descriptor": "0x3f0ac55d0",
           "type": "FloatProperty",
           "array_dim": 1,
           "element_size": 4,
@@ -407,7 +407,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f10c7240",
+          "descriptor": "0x3f0ac54f0",
           "type": "FloatProperty",
           "array_dim": 1,
           "element_size": 4,
@@ -422,7 +422,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f11c6f80",
+          "descriptor": "0x3f0ba2d00",
           "type": "BoolProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -437,7 +437,7 @@
       "parameters": [
         {
           "name": "WorldContextObject",
-          "descriptor": "0x3f11cbc00",
+          "descriptor": "0x3f0ba7980",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -446,7 +446,7 @@
         },
         {
           "name": "ActorClass",
-          "descriptor": "0x3f11cbc80",
+          "descriptor": "0x3f0ba7a00",
           "type": "ClassProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -455,7 +455,7 @@
         },
         {
           "name": "SpawnTransform",
-          "descriptor": "0x3f11cbd00",
+          "descriptor": "0x3f0ba7a80",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 96,
@@ -464,7 +464,7 @@
         },
         {
           "name": "CollisionHandlingOverride",
-          "descriptor": "0x3f11cbd80",
+          "descriptor": "0x3f0ba7b00",
           "type": "EnumProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -473,7 +473,7 @@
         },
         {
           "name": "Owner",
-          "descriptor": "0x3f11cbe00",
+          "descriptor": "0x3f0ba7b80",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -482,7 +482,7 @@
         },
         {
           "name": "TransformScaleMethod",
-          "descriptor": "0x3f11cbf00",
+          "descriptor": "0x3f0ba7c80",
           "type": "EnumProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -491,7 +491,7 @@
         },
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f11cc000",
+          "descriptor": "0x3f0ba7d80",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -506,7 +506,7 @@
       "parameters": [
         {
           "name": "Actor",
-          "descriptor": "0x3f11cf880",
+          "descriptor": "0x3f0babe80",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -515,7 +515,7 @@
         },
         {
           "name": "SpawnTransform",
-          "descriptor": "0x3f11cf900",
+          "descriptor": "0x3f0babf00",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 96,
@@ -524,7 +524,7 @@
         },
         {
           "name": "TransformScaleMethod",
-          "descriptor": "0x3f11cfa00",
+          "descriptor": "0x3f0bac000",
           "type": "EnumProperty",
           "array_dim": 1,
           "element_size": 1,
@@ -533,7 +533,7 @@
         },
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f11cfb00",
+          "descriptor": "0x3f0bac100",
           "type": "ObjectProperty",
           "array_dim": 1,
           "element_size": 8,
@@ -548,7 +548,7 @@
       "parameters": [
         {
           "name": "Location",
-          "descriptor": "0x3f126e000",
+          "descriptor": "0x3f0c49d80",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -557,7 +557,7 @@
         },
         {
           "name": "Rotation",
-          "descriptor": "0x3f126e080",
+          "descriptor": "0x3f0c49e00",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -566,7 +566,7 @@
         },
         {
           "name": "Scale",
-          "descriptor": "0x3f126e100",
+          "descriptor": "0x3f0c49e80",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -575,7 +575,7 @@
         },
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f126e200",
+          "descriptor": "0x3f0c49f80",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 96,
@@ -590,7 +590,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f132b300",
+          "descriptor": "0x3f0d57080",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -605,7 +605,7 @@
       "parameters": [
         {
           "name": "ReturnValue",
-          "descriptor": "0x3f132ad00",
+          "descriptor": "0x3f0d56a80",
           "type": "StructProperty",
           "array_dim": 1,
           "element_size": 24,
@@ -619,7 +619,7 @@
     {
       "owner": "/Script/Engine.Actor",
       "name": "RemoteRole",
-      "descriptor": "0x3f04ab900",
+      "descriptor": "0x3efe87680",
       "type": "ByteProperty",
       "array_dim": 1,
       "element_size": 1,
@@ -629,7 +629,7 @@
     {
       "owner": "/Script/Engine.Actor",
       "name": "Role",
-      "descriptor": "0x3f04ac480",
+      "descriptor": "0x3efe88200",
       "type": "ByteProperty",
       "array_dim": 1,
       "element_size": 1,
@@ -639,7 +639,7 @@
     {
       "owner": "/Script/Engine.Actor",
       "name": "RootComponent",
-      "descriptor": "0x3f04aa900",
+      "descriptor": "0x3efe86680",
       "type": "ObjectProperty",
       "array_dim": 1,
       "element_size": 8,
@@ -649,7 +649,7 @@
     {
       "owner": "/Script/Engine.CameraActor",
       "name": "CameraComponent",
-      "descriptor": "0x3f0fa0f00",
+      "descriptor": "0x3f099bc00",
       "type": "ObjectProperty",
       "array_dim": 1,
       "element_size": 8,
@@ -659,7 +659,7 @@
     {
       "owner": "/Script/Engine.CameraComponent",
       "name": "bConstrainAspectRatio",
-      "descriptor": "0x3f0fa1200",
+      "descriptor": "0x3f099e000",
       "type": "BoolProperty",
       "array_dim": 1,
       "element_size": 1,
@@ -669,7 +669,7 @@
     {
       "owner": "/Script/Engine.CameraComponent",
       "name": "bUsePawnControlRotation",
-      "descriptor": "0x3f0fa1580",
+      "descriptor": "0x3f099e380",
       "type": "BoolProperty",
       "array_dim": 1,
       "element_size": 1,
@@ -679,7 +679,7 @@
     {
       "owner": "/Script/Engine.Character",
       "name": "CapsuleComponent",
-      "descriptor": "0x3f05d4080",
+      "descriptor": "0x3eff1ed80",
       "type": "ObjectProperty",
       "array_dim": 1,
       "element_size": 8,
@@ -689,7 +689,7 @@
     {
       "owner": "/Script/Engine.CapsuleComponent",
       "name": "CapsuleHalfHeight",
-      "descriptor": "0x3f10c6a60",
+      "descriptor": "0x3f0ac4d10",
       "type": "FloatProperty",
       "array_dim": 1,
       "element_size": 4,
@@ -699,7 +699,7 @@
     {
       "owner": "/Script/Engine.CapsuleComponent",
       "name": "CapsuleRadius",
-      "descriptor": "0x3f10c6ad0",
+      "descriptor": "0x3f0ac4d80",
       "type": "FloatProperty",
       "array_dim": 1,
       "element_size": 4,
@@ -709,7 +709,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "TargetArmLength",
-      "descriptor": "0x3f11a6d70",
+      "descriptor": "0x3f0b95020",
       "type": "FloatProperty",
       "array_dim": 1,
       "element_size": 4,
@@ -719,7 +719,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "SocketOffset",
-      "descriptor": "0x3f11c6880",
+      "descriptor": "0x3f0ba2600",
       "type": "StructProperty",
       "array_dim": 1,
       "element_size": 24,
@@ -729,7 +729,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "TargetOffset",
-      "descriptor": "0x3f11c6900",
+      "descriptor": "0x3f0ba2680",
       "type": "StructProperty",
       "array_dim": 1,
       "element_size": 24,
@@ -739,7 +739,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "ProbeSize",
-      "descriptor": "0x3f11a6de0",
+      "descriptor": "0x3f0b95090",
       "type": "FloatProperty",
       "array_dim": 1,
       "element_size": 4,
@@ -749,7 +749,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "ProbeChannel",
-      "descriptor": "0x3f11c6a00",
+      "descriptor": "0x3f0ba2780",
       "type": "ByteProperty",
       "array_dim": 1,
       "element_size": 1,
@@ -759,7 +759,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "bDoCollisionTest",
-      "descriptor": "0x3f11c6a80",
+      "descriptor": "0x3f0ba2800",
       "type": "BoolProperty",
       "array_dim": 1,
       "element_size": 1,
@@ -769,7 +769,7 @@
     {
       "owner": "/Script/Engine.SpringArmComponent",
       "name": "bUsePawnControlRotation",
-      "descriptor": "0x3f11c6b00",
+      "descriptor": "0x3f0ba2880",
       "type": "BoolProperty",
       "array_dim": 1,
       "element_size": 1,
