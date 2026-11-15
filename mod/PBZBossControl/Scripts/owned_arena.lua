@@ -1187,6 +1187,11 @@ wait_for_player=function()
         local identity=player:GetFullName()..'|'..tostring(player:GetAddress())
         local health=player.AttributeSetBase.Health.CurrentValue
         assert(type(health)=='number'and health>0,'living original player required')
+        if readiness_player~=identity then
+            -- 标题等待不占用新主角的稳定观察预算；血量变化不能刷新预算，原签发时限仍由guard限制。
+            if experiment_player_entry and readiness_player then log('WORLD_REASSEMBLY_AWAITING_GAMEPLAY',true)end
+            gate_started,stationary_polls=0,0
+        end
         if readiness_player~=identity or readiness_health~=health then
             log('PLAYER_READY_HEALTH',identity..'|health='..health)
             readiness_player,readiness_health,health_stable_polls=identity,health,0

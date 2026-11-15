@@ -60,6 +60,29 @@ test('title wait stops with cleanup margin and does not extend the lease',functi
     f:drain();assert(f.loads==0 and #f.queue==0)
     assert(table.concat(f.logs):find('PREREQUISITE_RETRY_SAFE=true',1,true))
 end)
+
+test('gameplay arriving near title poll limit receives its full stable observation window',function()
+    local f=fixture(function()return 0 end,100,false,{missing=true,player_entry=true,ttl=600})
+    for _=1,185 do assert(f:step())end
+    f.missing=false
+    for _=1,45 do assert(f:step())end
+    assert(f.loads==0)
+    f.player.AttributeSetBase.Health.CurrentValue=180
+    for _=1,45 do assert(f:step())end
+    assert(f.loads==0)
+    f:drain();assert(f.loads==1)
+    assert(not table.concat(f.logs):find('PREREQUISITE_NOT_READY=',1,true))
+end)
+
+test('health changes on the same player do not renew the bounded readiness budget',function()
+    local f=fixture(function()return 0 end,100,false,{player_entry=true,ttl=600})
+    for n=1,199 do
+        f.player.AttributeSetBase.Health.CurrentValue=100+n
+        assert(f:step())
+    end
+    f:drain();assert(f.loads==0 and #f.queue==0)
+    assert(table.concat(f.logs):find('PREREQUISITE_NOT_READY=',1,true))
+end)
 test('moving player never reaches asset loading and allows same-process retry',function()
     local f=fixture(function()return 10 end);f:drain()
     assert(f.loads==0)

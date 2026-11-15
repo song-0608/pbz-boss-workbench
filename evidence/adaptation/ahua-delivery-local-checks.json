@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-16T02:25:21.397744+08:00",
+  "at": "2026-11-16T03:09:08.191462+08:00",
   "passed": true,
   "python_syntax_files": 132,
   "lua_syntax_files": 54,
@@ -38,7 +38,7 @@
       "name": "combo_tree_contract",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.000s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.001s\r\n\r\nOK\r\n"
     },
     {
       "name": "player_keymap",
@@ -56,7 +56,7 @@
       "name": "retire_preconditions",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "......\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.154s\r\n\r\nOK\r\n"
+      "stderr": "......\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.117s\r\n\r\nOK\r\n"
     },
     {
       "name": "arena_contract",
@@ -92,7 +92,7 @@
       "name": "research_input_dispatch",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "........\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.204s\r\n\r\nOK\r\n"
+      "stderr": "........\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.274s\r\n\r\nOK\r\n"
     },
     {
       "name": "player_skill_wait",
@@ -104,7 +104,7 @@
       "name": "loader_build_record",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.329s\r\n\r\nOK\r\n"
+      "stderr": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.315s\r\n\r\nOK\r\n"
     },
     {
       "name": "practice_lease",
@@ -116,7 +116,7 @@
       "name": "practice_stability",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.033s\r\n\r\nOK\r\n"
+      "stderr": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.031s\r\n\r\nOK\r\n"
     },
     {
       "name": "active_disposal_evidence",
@@ -134,7 +134,7 @@
       "name": "mod_installation",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".........\r\n----------------------------------------------------------------------\r\nRan 9 tests in 1.155s\r\n\r\nOK\r\n"
+      "stderr": ".........\r\n----------------------------------------------------------------------\r\nRan 9 tests in 1.154s\r\n\r\nOK\r\n"
     },
     {
       "name": "mod_manager_smoke",
@@ -164,7 +164,7 @@
       "name": "milestone_batch_gate",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.001s\r\n\r\nOK\r\n"
+      "stderr": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.000s\r\n\r\nOK\r\n"
     },
     {
       "name": "player_target_readiness",
@@ -194,13 +194,13 @@
       "name": "status_stream",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.072s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.067s\r\n\r\nOK\r\n"
     },
     {
       "name": "workbench_capability",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.146s\r\n\r\nOK\r\n"
+      "stderr": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.120s\r\n\r\nOK\r\n"
     },
     {
       "name": "workbench_acceptance",
@@ -212,13 +212,13 @@
       "name": "boss_candidate_acceptance",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.001s\r\n\r\nOK\r\n"
+      "stderr": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.000s\r\n\r\nOK\r\n"
     },
     {
       "name": "multi_boss_role_evidence",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "............\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.104s\r\n\r\nOK\r\n"
+      "stderr": "............\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.068s\r\n\r\nOK\r\n"
     },
     {
       "name": "dead_target_recovery_evidence",
@@ -248,7 +248,7 @@
       "name": "validation_cleanup_lock",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.393s\r\n\r\nOK\r\n"
+      "stderr": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.400s\r\n\r\nOK\r\n"
     },
     {
       "name": "test_player_protection.lua",
@@ -271,7 +271,7 @@
     {
       "name": "test_practice_readiness.lua",
       "exit_code": 0,
-      "stdout": "PASS player entry waits at title beyond the initial twenty second window within the same lease\r\nPASS title wait stops with cleanup margin and does not extend the lease\r\nPASS moving player never reaches asset loading and allows same-process retry\r\nPASS stable interval is required before any asset loading\r\nPASS health restored by loading must settle before any spawn mutation\r\nPASS dead original player does not generate a boss\r\nPASS ambiguous local controller does not generate a boss\r\nPractice readiness fixtures: 7 passed; no game process or save access.\r\n",
+      "stdout": "PASS player entry waits at title beyond the initial twenty second window within the same lease\r\nPASS title wait stops with cleanup margin and does not extend the lease\r\nPASS gameplay arriving near title poll limit receives its full stable observation window\r\nPASS health changes on the same player do not renew the bounded readiness budget\r\nPASS moving player never reaches asset loading and allows same-process retry\r\nPASS stable interval is required before any asset loading\r\nPASS health restored by loading must settle before any spawn mutation\r\nPASS dead original player does not generate a boss\r\nPASS ambiguous local controller does not generate a boss\r\nPractice readiness fixtures: 9 passed; no game process or save access.\r\n",
       "stderr": ""
     },
     {
@@ -506,7 +506,7 @@
     "mod/PBZBossControl/Scripts/map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
     "mod/PBZBossControl/Scripts/object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
     "mod/PBZBossControl/Scripts/observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
-    "mod/PBZBossControl/Scripts/owned_arena.lua": "247a31fe0994f5fb4d03015eb2440ae4e5d831e80a6d701007413e8527ec6d13",
+    "mod/PBZBossControl/Scripts/owned_arena.lua": "aa81e1872d2db9e6efe0bb8a8f7f5cb4780a5f2f3a5b97760fc5fd2e546ae286",
     "mod/PBZBossControl/Scripts/owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
     "mod/PBZBossControl/Scripts/owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
     "mod/PBZBossControl/Scripts/owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
@@ -587,7 +587,7 @@
     "tests/test_player_target_readiness.py": "6005578eec1a2ddfe60508b0df21f10a5e853f0d1416dab28c92fee8fe8f6b2f",
     "tests/test_practice_initialization.lua": "c66b4d74e4ace9b26a5eb26f20d9d375805203a67414c3b8c019820def428b6a",
     "tests/test_practice_lease.py": "b56e19af51127420b1140628ecd31684087f2620eba6ccb93c9e99ff410bab86",
-    "tests/test_practice_readiness.lua": "3453efcf6792579ab4c84ab83300384ac590725be5452f6a4f20c5a606ce333f",
+    "tests/test_practice_readiness.lua": "5c9daef47603525e65585bf96778e7715ec7435953cd8b7a88605e9bfacc40bc",
     "tests/test_practice_stability.py": "178248b3d7147adaaa94a59cf7c8dcd9c37808f1d425da707cb6b5d41178e47b",
     "tests/test_release_readiness.py": "8de51d9f9882cf9d8465a040de132e720ab72ad0fcfef4cf6c258a8724f60b07",
     "tests/test_remote_control.lua": "682c464e31f2213ebcc6d6b3590d5d33fc549b9ee52c2232058c97fec1e5a2b1",
