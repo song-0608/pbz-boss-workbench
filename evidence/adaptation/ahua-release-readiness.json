@@ -6,7 +6,7 @@
     "all_28_active_cancel_and_restored": false,
     "all_29_actual_bindings": false,
     "full_600_seconds_and_continuous_active": true,
-    "ordinary_native_menu_world_cycle": false
+    "ordinary_native_menu_world_cycle": true
   },
   "ready_for_release": false,
   "missing_natural": [
@@ -16,15 +16,9 @@
     "heavy_02",
     "homing_flower",
     "homing_flower_hard",
-    "skill_02",
-    "skill_06",
-    "skill_07",
     "skill_07_hard",
-    "skill_08",
     "skill_09",
-    "special_02_new",
     "special_03",
-    "special_03_flower",
     "special_03_flower_cd",
     "special_05_a",
     "special_07",
@@ -37,88 +31,16 @@
     "teleport_right"
   ],
   "missing_cancel": [
-    "attack_01",
-    "heavy_02",
-    "homing_flower",
-    "skill_02",
-    "skill_06",
-    "skill_07",
-    "special_02_new",
-    "special_03_flower",
-    "special_07",
-    "special_11",
-    "special_move_back",
-    "special_move_right",
-    "teleport_left"
+    "special_move_right"
   ],
   "missing_bindings": [
-    {
-      "slot": "heavy_02",
-      "skill": "heavy_02",
-      "key": "SEVEN"
-    },
-    {
-      "slot": "homing_flower",
-      "skill": "homing_flower",
-      "key": "Z"
-    },
-    {
-      "slot": "native_combo",
-      "skill": "attack_01",
-      "key": "R"
-    },
-    {
-      "slot": "skill_02",
-      "skill": "skill_02",
-      "key": "F3"
-    },
-    {
-      "slot": "skill_06",
-      "skill": "skill_06",
-      "key": "F5"
-    },
-    {
-      "slot": "skill_07",
-      "skill": "skill_07",
-      "key": "F9"
-    },
-    {
-      "slot": "special_02_new",
-      "skill": "special_02_new",
-      "key": "FIVE"
-    },
-    {
-      "slot": "special_03_flower",
-      "skill": "special_03_flower",
-      "key": "THREE"
-    },
-    {
-      "slot": "special_07",
-      "skill": "special_07",
-      "key": "SIX"
-    },
-    {
-      "slot": "special_11",
-      "skill": "special_11",
-      "key": "SPACE"
-    },
-    {
-      "slot": "special_move_back",
-      "skill": "special_move_back",
-      "key": "V"
-    },
     {
       "slot": "special_move_right",
       "skill": "special_move_right",
       "key": "G"
-    },
-    {
-      "slot": "teleport_left",
-      "skill": "teleport_left",
-      "key": "Q"
     }
   ],
-  "at": "2026-11-16T00:49:02.786967+08:00",
+  "at": "2026-11-16T01:28:43.612381+08:00",
   "release_id": "ahua-28-m2-b4afb7fce5a1eb7e",
   "candidate_manifest_sha256": "a16d21af4cecd894d1e62dd7d306eaa036c9ea98561700574b5fd784c74c887f",
   "module_source_sha256": {
@@ -172,11 +94,15 @@
   },
   "exact_source_closed_sessions": [
     "20261115-232001",
-    "20261116-003054"
+    "20261116-003054",
+    "20261116-005016",
+    "20261116-011040"
   ],
   "installed_closed_sessions": [
     "20261115-232001",
-    "20261116-003054"
+    "20261116-003054",
+    "20261116-005016",
+    "20261116-011040"
   ],
   "expected_bindings": [
     {
@@ -352,7 +278,12 @@
       "log_sha256": "383264e186f2cd3680b4c30f0de91d6215ff64ac9c30e8293b0cf37c2ce222b0"
     }
   ],
-  "native_menu_reloads": [],
+  "native_menu_reloads": [
+    {
+      "session": "20261116-005016",
+      "evidence": "evidence\\official-validation\\20261116-005016\\auto-world-reassembly-evidence.json"
+    }
+  ],
   "complete_mod": false,
   "game_started": false,
   "scope": "current fixed build, local protected offline launcher"

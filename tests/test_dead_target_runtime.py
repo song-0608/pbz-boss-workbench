@@ -26,8 +26,14 @@ class DeadTargetRuntimeTests(unittest.TestCase):
         self.assertEqual(actor, 'BP_AHua_C /World.OwnedTarget')
         self.assertEqual(proof['health_after'], 0)
 
-    def test_miss_and_incomplete_lifecycle_fail(self):
-        for text in (self.cast(after=9000), self.cast().replace('SKILL_INSTANCE=', 'MISSING='),
+    def test_miss_preserves_health_and_is_not_damage(self):
+        actor, proof = runtime.validate_cast(self.cast(after=9000), 'skill_06', 9000)
+        self.assertEqual(actor, 'BP_AHua_C /World.OwnedTarget')
+        self.assertFalse(proof['damage_observed'])
+        self.assertEqual(proof['health_before'], proof['health_after'])
+
+    def test_health_increase_and_incomplete_lifecycle_fail(self):
+        for text in (self.cast(after=9100), self.cast().replace('SKILL_INSTANCE=', 'MISSING='),
                      self.cast().replace('natural=true', 'natural=false')):
             with self.subTest(text=text), self.assertRaises(RuntimeError):
                 runtime.validate_cast(text, 'skill_06', 9000)
@@ -61,10 +67,13 @@ class DeadTargetRuntimeTests(unittest.TestCase):
                 contextlib.redirect_stdout(output):
             self.assertEqual(runtime.main(), 0)
         plan = json.loads(output.getvalue())
-        self.assertEqual(plan['maximum_casts'], 8)
-        self.assertEqual(set(plan['skills']), {'skill_06', 'skill_09'})
+        self.assertEqual(plan['maximum_casts'], 24)
+        self.assertEqual(set(plan['skills']), {'skill_09'})
+        self.assertEqual(plan['attack_seconds'], 215)
+        self.assertEqual(plan['maximum_consecutive_misses'], 3)
         self.assertFalse(plan['game_input_sent'])
-        self.assertTrue(plan['stop_on_miss'])
+        self.assertFalse(plan['stop_on_miss'])
+        self.assertTrue(plan['real_death_required'])
 
 
 if __name__ == '__main__':

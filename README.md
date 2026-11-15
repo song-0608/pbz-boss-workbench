@@ -19,8 +19,10 @@ than eight minutes of continuous takeover, and clean isolated-session
 restoration on 2026-11-15. Current-source workbench interaction and the ordinary
 Ahua/WanJun/Ahua roundtrip passed in closed session `20261115-232001`, including
 owned-object cleanup, movement, camera control, and character-specific skills.
-The full Ahua catalog, dead-target recovery, and same-process native menu
-world-cycle gates remain separate release requirements. All 79 offline check
+The same-process native menu world cycle passed in closed session
+`20261116-005016`: automatic reassembly, ordinary skill damage, and full player
+restoration. The full Ahua catalog and dead-target recovery remain release
+requirements. All 79 offline check
 groups passed on 2026-11-16; this does not replace gameplay acceptance.
 
 ## Performance

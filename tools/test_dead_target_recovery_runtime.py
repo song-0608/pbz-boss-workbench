@@ -14,8 +14,11 @@ from player_target_readiness import ensure_visible_target, latest_target_status
 from test_player_skill_batch import action_proof, resolve_binding, wait_for
 
 
-ATTACK_SEQUENCE = ('skill_06', 'skill_09') * 4
+# 技能09已观察到单次650伤害；旧8次06/09计划即使全中也不足9000生命。
+# 每次仍经普通注册键、自然收招和新鲜HUD检查，不补授能力或改冷却。
+ATTACK_SEQUENCE = ('skill_09',) * 24
 ATTACK_SECONDS = 215
+MAX_CONSECUTIVE_MISSES = 3
 
 
 def target_health(row, expected_name=None):
@@ -42,12 +45,12 @@ def validate_cast(text, skill, previous_health, expected_actor=None):
     if expected_actor is not None and actor != expected_actor:
         raise RuntimeError('Training target instance changed')
     natural = action_proof(text, skill)['natural_completion']
-    if not natural or not natural['damage_observed']:
-        raise RuntimeError('Actual ordinary skill damage required')
+    if not natural:
+        raise RuntimeError('Actual ordinary skill natural completion required')
     before, after = natural['health_before'], natural['health_after']
     values = (previous_health, float(begins[0][1]), before, after)
     if not all(math.isfinite(v) for v in values) or not (
-            previous_health == float(begins[0][1]) == before and 0 <= after < before):
+            previous_health == float(begins[0][1]) == before and 0 <= after <= before):
         raise RuntimeError('Unbroken actual target health chain required')
     return actor, natural
 
@@ -58,7 +61,9 @@ def main():
     args = parser.parse_args()
     if args.plan_only:
         print(json.dumps({'skills': ATTACK_SEQUENCE, 'maximum_casts': len(ATTACK_SEQUENCE),
-            'attack_seconds': ATTACK_SECONDS, 'stop_on_miss': True,
+            'attack_seconds': ATTACK_SECONDS, 'stop_on_miss': False,
+            'maximum_consecutive_misses': MAX_CONSECUTIVE_MISSES,
+            'real_death_required': True,
             'exact_target_instance_required': True, 'game_started': False,
             'game_input_sent': False}, ensure_ascii=False))
         return 0
@@ -80,7 +85,8 @@ def main():
     start = len(path.read_text(encoding='utf-8', errors='replace'))
     report = {'state_file': state['state_file'], 'log_offset': start,
               'bindings': bindings, 'attack_sequence': ATTACK_SEQUENCE,
-              'attack_seconds': ATTACK_SECONDS, 'casts': [], 'passed': False}
+              'attack_seconds': ATTACK_SECONDS, 'maximum_consecutive_misses': MAX_CONSECUTIVE_MISSES,
+              'damage_casts': 0, 'missed_casts': 0, 'casts': [], 'passed': False}
 
     def save():
         target.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -96,7 +102,8 @@ def main():
         return latest_target_status(text, session, time.time(), allow_unavailable=True)
 
     try:
-        assert min(state['deadline_unix'], state['control_probe_expires_at'] - 20) - time.time() > 230
+        assert min(state['deadline_unix'], state['control_probe_expires_at'] - 20) - time.time() > 230, \
+            'Insufficient fixed session budget; no takeover or attack input sent'
         menu.click(0, 0, 2560, 1600, 'control_enter')
         entered = wait_for(path, start, lambda t: 'enter success=true state=ACTIVE' in t, 8, True)
         assert 'enter success=true state=ACTIVE' in entered
@@ -105,6 +112,7 @@ def main():
         assert initial and initial['visibility'] == 'visible'
         original_target, previous_health = target_health(initial)
         original_actor = None
+        consecutive_misses = 0
         assert previous_health > 0
         deadline = min(time.monotonic() + ATTACK_SECONDS, time.monotonic()
             + min(state['deadline_unix'], state['control_probe_expires_at'] - 20) - time.time() - 40)
@@ -130,9 +138,14 @@ def main():
             healthy(tail)
             original_actor, natural = validate_cast(tail, skill, previous_health, original_actor)
             after_health = natural['health_after']
-            cast.update(passed=True, target_actor=original_actor)
+            damage = after_health < previous_health
+            consecutive_misses = 0 if damage else consecutive_misses + 1
+            report['damage_casts' if damage else 'missed_casts'] += 1
+            cast.update(passed=True, target_actor=original_actor,
+                        damage_observed=damage, outcome='damage' if damage else 'miss')
             save()
-            print('训练目标普通技能伤害：' + str(previous_health) + ' → ' + str(after_health), flush=True)
+            print(('训练目标普通技能伤害：' if damage else '普通技能自然挥空：')
+                  + str(previous_health) + ' → ' + str(after_health), flush=True)
             previous_health = after_health
             if after_health == 0:
                 dead = wait_for(path, start,
@@ -140,6 +153,7 @@ def main():
                         and target_health(status(t), original_target)[1] == 0), 5)
                 assert status(dead) and target_health(status(dead), original_target)[1] == 0, 'Fresh actual dead-target HUD required'
                 break
+            assert consecutive_misses < MAX_CONSECUTIVE_MISSES, 'Repeated natural misses; preserve attempt and restore'
             refreshed = wait_for(path, cast_offset, lambda t: bool(status(t)
                 and target_health(status(t), original_target)[1] == after_health), 4)
             assert status(refreshed) and target_health(status(refreshed), original_target)[1] == after_health
