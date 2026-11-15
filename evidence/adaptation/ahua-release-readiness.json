@@ -2,30 +2,17 @@
   "gates": {
     "local_checks_current": true,
     "installed_candidate_used_and_closed": true,
-    "all_28_natural_and_restored": false,
+    "all_28_natural_and_restored": true,
     "all_28_active_cancel_and_restored": true,
     "all_29_actual_bindings": true,
     "full_600_seconds_and_continuous_active": true,
     "ordinary_native_menu_world_cycle": true
   },
-  "ready_for_release": false,
-  "missing_natural": [
-    "attack_01",
-    "dash",
-    "homing_flower",
-    "homing_flower_hard",
-    "special_05_a",
-    "special_11",
-    "special_move_01",
-    "special_move_back",
-    "special_move_left",
-    "special_move_right",
-    "teleport_left",
-    "teleport_right"
-  ],
+  "ready_for_release": true,
+  "missing_natural": [],
   "missing_cancel": [],
   "missing_bindings": [],
-  "at": "2026-11-16T04:00:35.348703+08:00",
+  "at": "2026-11-16T04:12:42.949842+08:00",
   "release_id": "ahua-28-m2-3524e745dc21da3c",
   "candidate_manifest_sha256": "f86b6776d7943415165fcb4e80c1eab192a03b87c83477de1ee333618e83ec7d",
   "module_source_sha256": {
@@ -80,12 +67,14 @@
   "exact_source_closed_sessions": [
     "20261116-031001",
     "20261116-032731",
-    "20261116-034418"
+    "20261116-034418",
+    "20261116-040040"
   ],
   "installed_closed_sessions": [
     "20261116-031001",
     "20261116-032731",
-    "20261116-034418"
+    "20261116-034418",
+    "20261116-040040"
   ],
   "expected_bindings": [
     {
