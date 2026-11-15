@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "candidate": "runtime/release-candidates/ahua-boss-workbench-v2-dev-c5149d9c33223138",
+  "manifest_sha256": "7c581fe517e7c73dd7d4132ab5e32884b997e385bc7cca77fa7cc39d49314a52",
+  "checks": [
+    {
+      "name": "four_native_profiles",
+      "passed": true,
+      "output": "PASS four-Boss candidate: exact profiles, 40 abilities/41 bindings, native YouLong actions, no duplicate previews"
+    },
+    {
+      "name": "selection_refusal_preserves_current",
+      "passed": true,
+      "output": "PASS preflight: rejected/error selection preserves current assembly and input owner; valid choice switches once"
+    },
+    {
+      "name": "test_youlong_attempt.py",
+      "passed": true,
+      "output": "test_eight_real_native_actions_reparse (test_youlong_attempt.YouLongActionProofTests.test_eight_real_native_actions_reparse) ... ok\ntest_omitted_duplicate_or_changed_action_refused (test_youlong_attempt.YouLongActionProofTests.test_omitted_duplicate_or_changed_action_refused) ... ok\ntest_wrong_native_class_or_registered_key_refused (test_youlong_attempt.YouLongActionProofTests.test_wrong_native_class_or_registered_key_refused) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.019s\n\nOK"
+    },
+    {
+      "name": "test_youlong_profile.py",
+      "passed": true,
+      "output": "test_four_independent_native_actions_required (test_youlong_profile.YouLongProfileTests.test_four_independent_native_actions_required) ... ok\ntest_stability_cleanup_motion_and_scope_required (test_youlong_profile.YouLongProfileTests.test_stability_cleanup_motion_and_scope_required) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK"
+    },
+    {
+      "name": "all_lua_syntax",
+      "passed": true,
+      "output": "PASS 60 Lua syntax files"
+    }
+  ],
+  "lua_files_checked": 60,
+  "sources": {
+    "tools/collect_youlong_attempt.py": "b2e9027419c114fdd13f112fb787400bc517d2c63bb4e3ce6eb0daecb639fc30",
+    "tools/build_youlong_profile.py": "ed11c2d0135b2a986c7e0c3508e24004cff5bbaf90713b204409cfe9615b8f47",
+    "tools/build_four_boss_candidate.py": "4911d8afc84726868d6fd15eec2790609f0fa389a127a4b94d6c1175f39684df",
+    "tools/verify_four_boss_candidate.py": "73515c71b3b89647769e4d5a9468453bd1b7f3f924fd4c05e0a51fdc35edaa13",
+    "tests/test_youlong_attempt.py": "f1ad0ffe268dbac0fb848ff233162aef46849a5eaad1c24914b3430bb37b0fb1",
+    "tests/test_youlong_profile.py": "fad51f6f7531bf82dab33ec6921b9f644bf11e5d1717cca0890fd059b7c75402",
+    "tests/test_four_boss_candidate.lua": "3bebe164c54918c744f829ac5a9cb92a0dff2188ab086c0445d2af59546dc73c"
+  },
+  "youlong_base_control_accepted": true,
+  "ordinary_switching_accepted": false,
+  "world_cycle_verified": false,
+  "ability_count": 40,
+  "binding_count": 41,
+  "game_started": false,
+  "candidate_installed": false,
+  "installed_release": "ahua-boss-workbench-v1-f0bcf1323e641e03",
+  "complete_mod": false
+}

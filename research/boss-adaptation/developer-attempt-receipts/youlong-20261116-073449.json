@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "session": "20261116-073449",
+  "id": "056_youlong",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "base_control_accepted": true,
+  "live_grants_verified": true,
+  "ordinary_switching_accepted": false,
+  "world_cycle_verified": false,
+  "playable": false,
+  "complete_mod": false,
+  "formal_postcheck_passed": true,
+  "module_source_sha256": {
+    "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+    "boss_candidate.lua": "8bb41269f5cfbb1a5426a2501f11a70d7d8618062f91849958a7b92ba8b5ae93",
+    "boss_catalog.lua": "ca1135403634123d9947c5883217d9c13df421856feaefc59035c28c428d1f32",
+    "boss_workbench.lua": "ad710314627467e09fe8cb84a42ba7e8650e750234bf9ebb6d1ba05e92b7c4c2",
+    "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+    "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+    "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+    "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+    "control_bridge.lua": "cc67e503ce4c42dc4b09f5c8c3e9e8ddc6f8b05fe7fa773249d89b2109c70658",
+    "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+    "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+    "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+    "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+    "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+    "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+    "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+    "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+    "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+    "owned_arena.lua": "aa81e1872d2db9e6efe0bb8a8f7f5cb4780a5f2f3a5b97760fc5fd2e546ae286",
+    "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+    "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+    "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+    "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+    "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+    "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
+    "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+    "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+    "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
+    "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138",
+    "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+    "runtime.lua": "97a458ee2be9996e352a66fdff17b4c4359ea81794f1d64c262585213202010f",
+    "session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+    "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+    "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+    "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+    "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+    "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+    "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+    "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
+    "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
+    "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+    "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+    "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+    "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+    "workbench_catalog.lua": "fe1c7d89473d47846cda2402d872fd30397fb4c7836e40bded6aa13b6575c7e2",
+    "workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+    "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3"
+  },
+  "bindings": {
+    "skill_01": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_01.GA_YouLong_MiddleAttack_01_C",
+    "heavy_01": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_01.GA_YouLong_HeavyAttack_01_C",
+    "skill_02": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_L.GA_YouLong_DodgeAttack_L_C",
+    "dash": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_R.GA_YouLong_DodgeAttack_R_C"
+  },
+  "actions": [
+    {
+      "natural_completion": {
+        "health_before": 9000.0,
+        "health_after": 8900.0,
+        "distance": 184.55029912958,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_MiddleAttack_01_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        184.55029912958,
+        184.55029912958
+      ],
+      "skill": "skill_01",
+      "interrupt": false,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_01.GA_YouLong_MiddleAttack_01_C",
+      "class_matches_live_binding": true,
+      "log_offset": 117621,
+      "log_end": 135270
+    },
+    {
+      "natural_completion": {
+        "health_before": 8900.0,
+        "health_after": 8800.0,
+        "distance": 354.67872573475,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_HeavyAttack_01_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        354.67872573475,
+        354.67872573475
+      ],
+      "skill": "heavy_01",
+      "interrupt": false,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_01.GA_YouLong_HeavyAttack_01_C",
+      "class_matches_live_binding": true,
+      "log_offset": 135270,
+      "log_end": 152872
+    },
+    {
+      "natural_completion": {
+        "health_before": 8800.0,
+        "health_after": 8770.0,
+        "distance": 919.43666053741,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_DodgeAttack_L_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        919.43666053741,
+        919.43666053741
+      ],
+      "skill": "skill_02",
+      "interrupt": false,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_L.GA_YouLong_DodgeAttack_L_C",
+      "class_matches_live_binding": true,
+      "log_offset": 152872,
+      "log_end": 171046
+    },
+    {
+      "natural_completion": {
+        "health_before": 8770.0,
+        "health_after": 8690.0,
+        "distance": 733.80933449899,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "active_cancel_and_restoration": false,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_DodgeAttack_R_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        733.80933449899,
+        733.80933449899
+      ],
+      "skill": "dash",
+      "interrupt": false,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_R.GA_YouLong_DodgeAttack_R_C",
+      "class_matches_live_binding": true,
+      "log_offset": 171046,
+      "log_end": 190150
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_MiddleAttack_01_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        4.7045364380023
+      ],
+      "skill": "skill_01",
+      "interrupt": true,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_01.GA_YouLong_MiddleAttack_01_C",
+      "class_matches_live_binding": true,
+      "log_offset": 190150,
+      "log_end": 202182
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_HeavyAttack_01_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        17.403806426919
+      ],
+      "skill": "heavy_01",
+      "interrupt": true,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_01.GA_YouLong_HeavyAttack_01_C",
+      "class_matches_live_binding": true,
+      "log_offset": 202182,
+      "log_end": 214787
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_DodgeAttack_L_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        32.00424867656
+      ],
+      "skill": "skill_02",
+      "interrupt": true,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_L.GA_YouLong_DodgeAttack_L_C",
+      "class_matches_live_binding": true,
+      "log_offset": 214787,
+      "log_end": 227381
+    },
+    {
+      "natural_completion": null,
+      "active_cancel_and_restoration": true,
+      "activation_instance_verified": true,
+      "ability_class_short": "GA_YouLong_DodgeAttack_R_C",
+      "restoration": {
+        "label": "exit",
+        "reason": "",
+        "player_position_delta": 0.0,
+        "player_new_active_count": 0,
+        "camera_cleanup_verified": true,
+        "passed": true
+      },
+      "foreign_keyed_activations": [],
+      "local_displacement_verified": true,
+      "local_displacement_limit_cm": 3000,
+      "observed_displacements_cm": [
+        27.704136111137
+      ],
+      "skill": "dash",
+      "interrupt": true,
+      "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_R.GA_YouLong_DodgeAttack_R_C",
+      "class_matches_live_binding": true,
+      "log_offset": 227381,
+      "log_end": 239432
+    }
+  ],
+  "movement_camera": {
+    "movement_delta": 53.289339650308,
+    "control_yaws": [
+      68.615709838044,
+      68.615709838044,
+      69.03566784538
+    ],
+    "arm_yaws": [
+      68.615709838044,
+      68.615709838044,
+      69.03566784538
+    ],
+    "passed": true
+  },
+  "stability": {
+    "elapsed_seconds": 600.010254,
+    "declared_600_seconds": true,
+    "heartbeat_count": 624,
+    "heartbeat_span_seconds": 599,
+    "maximum_heartbeat_gap": 1,
+    "heartbeat_ordered": true,
+    "active_span_seconds": 541,
+    "longest_continuous_active_seconds": 441,
+    "statuses_valid": true,
+    "restoration": {
+      "label": "exit",
+      "reason": "",
+      "player_position_delta": 0.0,
+      "player_new_active_count": 0,
+      "camera_cleanup_verified": true,
+      "passed": true
+    },
+    "fault_absent": true,
+    "passed": true
+  },
+  "rejected_layout_attempts": [
+    {
+      "attempt": 1,
+      "log_offset": 64434,
+      "log_end": 77931,
+      "cleanup_labels": [
+        "boss",
+        "boss_controller",
+        "extra_target",
+        "extra_target_controller",
+        "target",
+        "target_controller"
+      ]
+    }
+  ],
+  "sources": {
+    "runtime/official-validation-20261116-073449/state.json": "2128c1d6d38e9999b281a4b8025efcf07993aca66cd5feced7a6adf5677e9bf9",
+    "evidence/official-validation/20261116-073449/postcheck.json": "49dbbd545f3c20f7ceb206915c3eb1193cb41e012b69ee94ff4462c497d23187",
+    "evidence/official-validation/20261116-073449/UE4SS.log": "ee914b20ba6733aa2801e3b1840728f18b66502c6ca1f0811966b636ec7a55f8",
+    "evidence/official-validation/20261116-073449/player-extra-skill-actions.json": "2f07ee88f15284e0ae58862f7d9a541c28372fdd2978dc74e97cf8087b41ca44",
+    "evidence/official-validation/20261116-073449/boss-candidate-milestone.json": "27c28e6f63ce4690c3b0f7d79a879b491bf0850a77dc3f9f0c9031c19888e47e",
+    "evidence/official-validation/20261116-073449/boss-candidate-acceptance.json": "9a91c161b5393eb2b9972d26e16f5b255978ae66aace8085a3604a5cc29033a2",
+    "evidence/official-validation/20261116-073449/control-lifecycle-deployment-1794785994938375200.json": "0c5b739f1acffdd915782555eb9e5de1fe0953f1197828751ba85cd6e98ac8c8",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/manifest.json": "70257a6a7f39f60c150011e859cc45c032278202b5857113641747301999d86b",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/ahua_practice.py": "c09576c2169c243904d3eebb7dc5d9182fe22d0e126523e23ee2321826c8b112",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/run_control_lifecycle_probe.py": "0ecd4363c243cc59ea42461a7cc732c92ce3ac161def94a09204e124778b7027",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/test_player_skill_batch.py": "63f8333cc6b18895374127e612553e6949dc1909ef500940b000725b54c3b608",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/run_boss_candidate_milestone.py": "144ccc396c0738f2ed9fed970855d8519fe3240dfac3d39dfd508ac1091a9ded",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/collect_boss_candidate_acceptance.py": "459f06285f022f79c340128845e30b37eed9462a3cb82c8aad88a14eee852e6d",
+    "runtime/developer-workflows/youlong-99322df6dec326cf/boss_candidate_gate.py": "fadd717869423ce8570588ba2e378aba2a62d56228dd5e487d3797441dc9b453",
+    "research/boss-adaptation/developer-bundles/056_youlong-4d2c3309253bb881/manifest.json": "b82120aa685718872a3ae3e76a276ba73cd8084053c3c76b53d822da81db9227",
+    "research/boss-adaptation/developer-bundles/056_youlong-4d2c3309253bb881/boss_candidate.lua": "8bb41269f5cfbb1a5426a2501f11a70d7d8618062f91849958a7b92ba8b5ae93",
+    "tools/collect_youlong_attempt.py": "b2e9027419c114fdd13f112fb787400bc517d2c63bb4e3ce6eb0daecb639fc30",
+    "research/boss-adaptation/identity-receipts/20261116-051216.json": "61afffb5d9cff156e8fafa50c16f9f70c2c551bed83868dc5e7c260bb9a8e591",
+    "research/boss-adaptation/ability-metadata-receipts/youlong-20261116-061722.json": "da4e83556d470edea3d0073e9d73854a3f0257e88023a8961bdad1f442422aab",
+    "research/boss-adaptation/dossiers/056_youlong.json": "49cd28683d84070927b922721785dd9e1ff81cfb47fdfdb2e6baab17e63782f3",
+    "tools/youlong_developer_bundle.py": "95030f0c0eb32df112bc4a50919fee7ce9bdafd3b92a2c98a65cf46414efc000",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/build_boss_profile_candidate.py": "71016a704b8804545823df72a85833e77c2fc700b0945b2f86ce085cbe979522",
+    "tests/test_youlong_developer_bundle.py": "9343d7b036ce8fb1c51508be689b6101cad186cc97acf2c3cb9735ccb5d5a5b5",
+    "tests/test_youlong_developer_candidate.lua": "f275b2bee013b7c38e169546fec763b792215e33d4cd8300fcc8ba069d2c7998",
+    "tools/youlong_developer_workflow.py": "df0c492bcd8e7a8ceb44b0d97eec0305b1c3b1a688bad69fae756f85f66b92df",
+    "tests/test_youlong_developer_workflow.py": "b37f09efea3ed0a1b3d39af3ff3c63e41fc2865ca2688ed99628d5518a42bc3c"
+  }
+}
