@@ -20,7 +20,9 @@ def show_status():
             print('本人登录准备截止：'+lease['deadline_at'])
     print('\n实际状态：'+status['status_summary'])
     print('当前阻塞：'+status['blocked_reason'])
-    if status.get('protected_interactive_controls_verified'):
+    if status.get('multi_boss_release_complete') and status.get('complete_mod'):
+        print('Boss工作台：阿花28项能力、万钧4项能力已发布。双击 开始Boss工作台.cmd；Insert选择角色，F6接管，F10恢复。适用于当前本机离线训练环境。')
+    elif status.get('protected_interactive_controls_verified'):
         print('Boss控制：阿花操控、技能和目标切换已有实机证据。双击 开始阿花训练.cmd 查看本轮实际技能键；完整Boss系统仍在开发，旧归档不代表当前源码。')
     elif status.get('boss_minimal_control_loop_verified'):
         print('Boss控制：阿花最小控制链已实机通过；'+('第三人称镜头、F10及首招中断通过。' if status.get('boss_camera_visual_verified') else '镜头待修。')+'正式入口禁用，限时实验键位不作用于正常游戏。')

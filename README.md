@@ -6,26 +6,20 @@ for the verified local Phantom Blade Zero build.
 
 ## Current status
 
-The working tree is archived as an acceptance candidate, not a complete public
-release. The in-game companion overlay can select Bride Ahua or WanJun. Other
-Boss entries remain locked previews until their identity and combat lifecycle
-are verified. Current-source acceptance and supported machine setup are
-documented in [63-整体优化与工作台收尾.md](63-整体优化与工作台收尾.md) and
-[64-双Boss工作台操作说明.md](64-双Boss工作台操作说明.md).
+Version `ahua-boss-workbench-v1-f0bcf1323e641e03` is released, installed, enabled, and verified in the supported
+local offline setup. Bride Ahua has 28 abilities and 29 bindings; WanJun has
+four independent abilities and four bindings. Other Boss entries remain
+locked previews.
 
-The frozen candidate is `ahua-28-m2-3524e745dc21da3c`. Its workbench interaction,
-ordinary Ahua/WanJun/Ahua roundtrip, and same-process native menu world cycle
-passed in closed session `20261116-031001`. These checks include owned-object
-cleanup, movement, camera control, character-specific skills, automatic world
-reassembly, ordinary skill damage, and full player restoration.
+All 79 offline check groups and current-source gameplay gates passed:
+ability natural completion and active cancellation with full restoration,
+600-second stability for both Bosses, ordinary workbench roundtrip, native
+menu world reassembly, real target death and lock cleanup, and guarded reentry
+after target collection. Formal files and host configuration remained unchanged.
 
-The candidate skips expired or dead initial targets, retains camera restoration
-records before target handling, and gives each newly loaded player its full
-stability-observation window. Current-source ability, continuous-takeover,
-independent WanJun baseline, and dead-target recovery acceptance are being
-completed. Earlier candidates' gameplay results remain historical evidence.
-All 79 offline check groups passed on 2026-11-16; this does not replace gameplay
-acceptance.
+Start with `开始Boss工作台.cmd`. Controls and acceptance details are in
+[the delivery note](65-双Boss工作台v1交付说明.md) and
+[the player guide](64-双Boss工作台操作说明.md).
 
 ## Performance
 

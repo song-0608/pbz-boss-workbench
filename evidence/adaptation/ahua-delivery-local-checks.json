@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-16T03:09:08.191462+08:00",
+  "at": "2026-11-16T04:40:05.664810+08:00",
   "passed": true,
   "python_syntax_files": 132,
   "lua_syntax_files": 54,
@@ -38,13 +38,13 @@
       "name": "combo_tree_contract",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.001s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.000s\r\n\r\nOK\r\n"
     },
     {
       "name": "player_keymap",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "........\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.002s\r\n\r\nOK\r\n"
+      "stderr": "........\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.004s\r\n\r\nOK\r\n"
     },
     {
       "name": "control_action_evidence",
@@ -56,7 +56,7 @@
       "name": "retire_preconditions",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "......\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.117s\r\n\r\nOK\r\n"
+      "stderr": "......\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.161s\r\n\r\nOK\r\n"
     },
     {
       "name": "arena_contract",
@@ -74,7 +74,7 @@
       "name": "auto_world_evidence",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.002s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.031s\r\n\r\nOK\r\n"
     },
     {
       "name": "incoming_combat_evidence",
@@ -92,7 +92,7 @@
       "name": "research_input_dispatch",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "........\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.274s\r\n\r\nOK\r\n"
+      "stderr": "........\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.244s\r\n\r\nOK\r\n"
     },
     {
       "name": "player_skill_wait",
@@ -104,7 +104,7 @@
       "name": "loader_build_record",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.315s\r\n\r\nOK\r\n"
+      "stderr": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.329s\r\n\r\nOK\r\n"
     },
     {
       "name": "practice_lease",
@@ -116,7 +116,7 @@
       "name": "practice_stability",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.031s\r\n\r\nOK\r\n"
+      "stderr": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.032s\r\n\r\nOK\r\n"
     },
     {
       "name": "active_disposal_evidence",
@@ -134,7 +134,7 @@
       "name": "mod_installation",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".........\r\n----------------------------------------------------------------------\r\nRan 9 tests in 1.154s\r\n\r\nOK\r\n"
+      "stderr": ".........\r\n----------------------------------------------------------------------\r\nRan 9 tests in 1.336s\r\n\r\nOK\r\n"
     },
     {
       "name": "mod_manager_smoke",
@@ -146,7 +146,7 @@
       "name": "map_travel_evidence",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.002s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.052s\r\n\r\nOK\r\n"
     },
     {
       "name": "navigation_evidence",
@@ -194,19 +194,19 @@
       "name": "status_stream",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.067s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.147s\r\n\r\nOK\r\n"
     },
     {
       "name": "workbench_capability",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.120s\r\n\r\nOK\r\n"
+      "stderr": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.143s\r\n\r\nOK\r\n"
     },
     {
       "name": "workbench_acceptance",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.002s\r\n\r\nOK\r\n"
+      "stderr": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.020s\r\n\r\nOK\r\n"
     },
     {
       "name": "boss_candidate_acceptance",
@@ -218,7 +218,7 @@
       "name": "multi_boss_role_evidence",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "............\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.068s\r\n\r\nOK\r\n"
+      "stderr": "............\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.129s\r\n\r\nOK\r\n"
     },
     {
       "name": "dead_target_recovery_evidence",
@@ -230,7 +230,7 @@
       "name": "dead_target_runtime",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".........\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.002s\r\n\r\nOK\r\n"
+      "stderr": ".........\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.003s\r\n\r\nOK\r\n"
     },
     {
       "name": "workbench_runtime_release_gate",
@@ -248,7 +248,7 @@
       "name": "validation_cleanup_lock",
       "exit_code": 0,
       "stdout": "",
-      "stderr": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.400s\r\n\r\nOK\r\n"
+      "stderr": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.424s\r\n\r\nOK\r\n"
     },
     {
       "name": "test_player_protection.lua",
@@ -705,7 +705,7 @@
     "tools/test_player_skill_batch.py": "896f651bc78911046d43a2605e01f51b8d3a93591614870f227866a8b047ab86",
     "tools/test_player_stability_tail.py": "21f83b6776162208737b572225c09cac41a599734f94a849e996e07fdcaccfb7",
     "tools/validation_cleanup_lock.py": "22b65f147ce0af5531937d052c8f32b00afb50c792118cd9d68652e66416092f",
-    "tools/workbench.py": "35022cf3e9ed59435f8c3c236f4e97a3b2017b0cedf8548e11025fc07729d9c4",
+    "tools/workbench.py": "7dff2e286137827b07bf05f2dace13e3e960fe73d67601651c42d378bc0a0efb",
     "tools/workbench_support.py": "a84ab8cb6c90c03bc47f1a411efb77e5039538e7dda0ff13bab3f0dd29b73713"
   }
 }
