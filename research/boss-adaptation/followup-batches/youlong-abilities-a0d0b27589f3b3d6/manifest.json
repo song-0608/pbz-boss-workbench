@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "id": "056_youlong",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "metadata_only": true,
+  "playable": false,
+  "auto_deploy": false,
+  "ability_requests": [
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Skill_05_Jump_R",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Skill_05_Jump_R.GA_AquaKiller_Skill_05_Jump_R_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special.GA_AquaKiller_Special_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_02",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_02.GA_AquaKiller_Special_02_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_09",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_09.GA_AquaKiller_Special_09_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/YuCha/GA_AquaKiller_Skill_04_02",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/YuCha/GA_AquaKiller_Skill_04_02.GA_AquaKiller_Skill_04_02_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01.GA_YouLong_CACombo_01_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01_Mad",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01_Mad.GA_YouLong_CACombo_01_Mad_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_L",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_L.GA_YouLong_DodgeAttack_L_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_R",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_DodgeAttack_R.GA_YouLong_DodgeAttack_R_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B.GA_YouLong_Dodge_B_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B_Hard",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B_Hard.GA_YouLong_Dodge_B_Hard_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F.GA_YouLong_Dodge_F_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_R",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_R.GA_YouLong_Dodge_R_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_01",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_01.GA_YouLong_HeavyAttack_01_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02.GA_YouLong_HeavyAttack_02_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_01",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_01.GA_YouLong_MiddleAttack_01_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02.GA_YouLong_MiddleAttack_02_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03.GA_YouLong_Skill_03_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04.GA_YouLong_Skill_04_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04_Hard",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04_Hard.GA_YouLong_Skill_04_Hard_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_B",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_B.GA_YouLong_Skill_05_B_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_C",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_C.GA_YouLong_Skill_05_C_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01_Normal",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01_Normal.GA_YouLong_SpecialAttack_01_Normal_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad_Hard",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad_Hard.GA_YouLong_SpecialAttack_02_Mad_Hard_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_03",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_03.GA_YouLong_SpecialAttack_03_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_A",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_A.GA_YouLong_SpecialAttack_05_A_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_C",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_C.GA_YouLong_SpecialAttack_05_C_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/Summon/GA_BaiheDisciple_FishingNet_Skill_03",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/Summon/GA_BaiheDisciple_FishingNet_Skill_03.GA_BaiheDisciple_FishingNet_Skill_03_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/Summon/GA_BaiheDisciple_FishingNet_Skill_03_Child",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/Summon/GA_BaiheDisciple_FishingNet_Skill_03_Child.GA_BaiheDisciple_FishingNet_Skill_03_Child_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/TakeSpear/GA_Hun_BDEd_YouLong_TakeSpear_M_01",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/TakeSpear/GA_Hun_BDEd_YouLong_TakeSpear_M_01.GA_Hun_BDEd_YouLong_TakeSpear_M_01_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/TakeSpear/GA_YouLong_TakeSpear",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/TakeSpear/GA_YouLong_TakeSpear.GA_YouLong_TakeSpear_C",
+      "playable": false,
+      "granted_to_actor": false
+    },
+    {
+      "id": "056_youlong",
+      "role": "ability",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/GA_YouLong_SummonPassive_General",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/GA_YouLong_SummonPassive_General.GA_YouLong_SummonPassive_General_C",
+      "playable": false,
+      "granted_to_actor": false
+    }
+  ],
+  "requests": [],
+  "evidence": {
+    "research/boss-adaptation/identity-receipts/20261116-051216.json": "61afffb5d9cff156e8fafa50c16f9f70c2c551bed83868dc5e7c260bb9a8e591",
+    "research/boss-adaptation/dossiers/056_youlong.json": "49cd28683d84070927b922721785dd9e1ff81cfb47fdfdb2e6baab17e63782f3"
+  },
+  "source_files": {
+    "tools/youlong_metadata.py": "88213da834156264c625ab30021ac3780731f9e26baed5021905e81858a1db37",
+    "tools/build_boss_followup_batch.py": "cb7e2c2d4528659f8214c4cdec3f86e260721f464e7a0fe7f43815fdbd613f31",
+    "tools/collect_boss_followup.py": "bc982f55e0a48b1366d0f557cbbe678fc2770a46a7a8af22122a2157e7dd8ae6",
+    "tests/test_youlong_metadata.py": "25f2513f3392ddd6b0243fee17708deadf4e127d1f7200dab69ae01c7d98675f"
+  },
+  "repeat_name_scan": false,
+  "repeat_verified_identity": false,
+  "ability_activation_allowed": false,
+  "max_seconds": 90
+}
