@@ -1,0 +1,50 @@
+# Local research runs and game/client copies
+runtime/
+sandbox/
+dependencies/
+build/
+upstream/
+downloads/
+tools/external/
+.vs/
+
+# Generated output and native game material
+__pycache__/
+*.py[cod]
+*.pdb
+*.dmp
+*.sav
+*.pak
+*.utoc
+*.ucas
+*.exe
+*.dll
+*.log
+*.zip
+
+# Machine-specific user state and bundled third-party materials
+项目状态.json
+玩家设置.json
+玩家键位.json
+参考资料/
+归档包/
+18-个人账户关联Epic与GitHub.md
+34-简历与面试素材-开发中.md
+research/boss-adaptation/batches/*/catalog.json
+evidence/*
+!evidence/adaptation/
+!evidence/releases/
+
+# Raw machine-specific evidence; curated source-matched summaries are retained
+evidence/official-validation/
+evidence/raw/
+evidence/simulation-runs/
+evidence/isolation-probe/
+evidence/offline-steam/
+evidence/rendered-startup/
+evidence/sandbox-baseline/
+evidence/sandboxie-docs/
+evidence/network-diagnostic/
+evidence/status-history/
+evidence/source-history/
+evidence/20261112-101817-516916/

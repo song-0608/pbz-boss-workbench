@@ -1,0 +1,10 @@
+﻿类型,对象或技能名称,实际类名或路径,实例有效期,接口或属性,来源证据,前置条件,结果,状态
+玩家,BP_Renewal_Hun_C实例,/Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C,仅本轮已结束进程；不复用地址,,evidence/official-validation/20261113-000102/live-character-observation.json,,类身份已观测；控制器/移动/能力引用未验收,只读观测，未接管
+Boss,,,,,,,,未观测
+Boss控制器,,,,,,,,未观测
+镜头,,,,,,,,未观测
+移动,,,,,,,,未观测
+基础攻击,,,,,,,,未观测
+技能1,,,,,,,,未观测
+技能2,,,,,,,,未观测
+退出与恢复,,,,,,,,未观测

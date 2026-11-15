@@ -1,0 +1,237 @@
+{
+  "at": "2026-11-13T15:20:09.899300+08:00",
+  "tree": "/PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01",
+  "weight": 100.0,
+  "nodes": [
+    "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_1",
+    "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_1",
+    "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_0",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_2",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_41",
+    "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_2",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_5",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_6",
+    "BTComposite_Selector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Selector_0",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_7",
+    "BTTask_FinishWithResult /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_FinishWithResult_0",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_0",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_1",
+    "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_0",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_4",
+    "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_3"
+  ],
+  "references": [
+    {
+      "node": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_1",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_1",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_1",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_1"
+    },
+    {
+      "node": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_0",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_0",
+      "property": "ParentNode",
+      "value": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_1"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_2",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Left.GA_AHua_Teleport_Left_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_2",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_2",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_0"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_41",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Right.GA_AHua_Teleport_Right_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_41",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_41",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_0"
+    },
+    {
+      "node": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_2",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_2",
+      "property": "ParentNode",
+      "value": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_1"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_5",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Right.GA_AHua_Teleport_Right_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_5",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_5",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_2"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_6",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Left.GA_AHua_Teleport_Left_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_6",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_6",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_2"
+    },
+    {
+      "node": "BTComposite_Selector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Selector_0",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTComposite_Selector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Selector_0",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_2"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_7",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Right.GA_AHua_Teleport_Right_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_7",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_7",
+      "property": "ParentNode",
+      "value": "BTComposite_Selector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Selector_0"
+    },
+    {
+      "node": "BTTask_FinishWithResult /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_FinishWithResult_0",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_FinishWithResult /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_FinishWithResult_0",
+      "property": "ParentNode",
+      "value": "BTComposite_Selector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Selector_0"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_0",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_08.GA_AHua_Skill_08_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_0",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_0",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_1"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_1",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05_Hard.GA_AHua_Skill_05_Hard_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_1",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_1",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_1"
+    },
+    {
+      "node": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_0",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_0",
+      "property": "ParentNode",
+      "value": "BTComposite_Sequence /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_Sequence_1"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_4",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_CA_01_GEx_Teleport_RedEye.GA_AHua_CA_01_GEx_Teleport_RedEye_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_4",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_4",
+      "property": "ParentNode",
+      "value": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_0"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_3",
+      "property": "AbilityToActivate",
+      "value": "LegoAbilityBlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Skill_03.GA_AHua_Skill_03_C"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_3",
+      "property": "TreeAsset",
+      "value": "BehaviorTree /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01"
+    },
+    {
+      "node": "BTTask_ActivateAbility /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTTask_ActivateAbility_3",
+      "property": "ParentNode",
+      "value": "BTComposite_WeightedSelector /PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_TeleportAttack_01.BT_AHua_TeleportAttack_01:BTComposite_WeightedSelector_0"
+    }
+  ],
+  "leaf_abilities": [
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Skill_03.GA_AHua_Skill_03_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_CA_01_GEx_Teleport_RedEye.GA_AHua_CA_01_GEx_Teleport_RedEye_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05_Hard.GA_AHua_Skill_05_Hard_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_08.GA_AHua_Skill_08_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Left.GA_AHua_Teleport_Left_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Right.GA_AHua_Teleport_Right_C"
+  ],
+  "execution_order_proven": false,
+  "ability_activation_performed": false,
+  "source_log_sha256": "fccbc43dcf8f4a19426b310570a5e50468dce998c41a3b4477023009447cd359",
+  "scope": "same-thread reflected CDO map and tree node references; no gameplay activation"
+}

@@ -1,0 +1,50 @@
+{
+  "at": "2026-11-13T13:04:17.966102+08:00",
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-125644\\state.json",
+  "checks": {
+    "practice_ready": true,
+    "practice_enter": true,
+    "practice_exit": true,
+    "input_barrier": true,
+    "original_player_position_unchanged": true,
+    "original_player_no_new_active_ability": true,
+    "formal_files_unchanged": true,
+    "research_box_empty": true,
+    "research_loader_removed": true
+  },
+  "passed": true,
+  "scheduled_practice_seconds": 596,
+  "full_ten_minute_stability_tested": false,
+  "game_launches_for_this_delivery": 3,
+  "attempts": [
+    {
+      "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-124054\\state.json",
+      "launch_requested": true,
+      "restored": true,
+      "formal_files_changed_count": 0,
+      "stopped_before_spawn_for_player_velocity": true,
+      "temporary_actor_initialization_expired": false
+    },
+    {
+      "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-124858\\state.json",
+      "launch_requested": true,
+      "restored": true,
+      "formal_files_changed_count": 0,
+      "stopped_before_spawn_for_player_velocity": false,
+      "temporary_actor_initialization_expired": true
+    },
+    {
+      "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-125644\\state.json",
+      "launch_requested": true,
+      "restored": true,
+      "formal_files_changed_count": 0,
+      "stopped_before_spawn_for_player_velocity": false,
+      "temporary_actor_initialization_expired": false
+    }
+  ],
+  "four_skill_key_evidence": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\adaptation\\ahua-protected-interactive-milestone.json",
+  "source_check_report": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\adaptation\\ahua-delivery-local-checks.json",
+  "log_sha256": "0dafe289d8b924694e76f23d767566db40bd00cb0e878c8d7889e03439468452",
+  "formal_file_count": 56,
+  "complete_all_boss_mod": false
+}

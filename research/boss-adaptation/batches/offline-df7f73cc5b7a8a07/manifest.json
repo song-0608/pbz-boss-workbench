@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "at": "2026-11-15T00:36:36.164617+08:00",
+  "fingerprint": "df7f73cc5b7a8a07",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "catalog_sha256": "5a49a9c434e44f39b16dd1197d929b5e09023d83c430b0d2bb7e8eb96f1e6028",
+  "source_files": {
+    "tools/boss_adaptation_workflow.py": "4fa8981c1f54b6c09574c41377e987d94d2204b4620277deb2f810be8a97cc5e",
+    "tools/collect_boss_resource_names.py": "65edc88861831ae35f8847dc1cdc8a7cbf83ed939a765daaab0da69037c2d4c0",
+    "tools/build_boss_adaptation_batch.py": "d2f7fde6a4effaae8a464304d9bc6286bb30a9c663ad511dcac9c27cb8e7aaee",
+    "tests/test_boss_adaptation_workflow.py": "f5d305c0aa1ba772acb900783caacff599c14f8b8ca91e5cf2ae104bf1ce43d0"
+  },
+  "historical_evidence": [
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    }
+  ],
+  "candidate_order": [
+    "luanshi",
+    "054_zuoshang",
+    "012_mboss",
+    "044_pengmeng",
+    "060_guichai_yellow",
+    "067_motian",
+    "078_menghua",
+    "qishu"
+  ],
+  "candidate_count": 8,
+  "offline_only": true,
+  "game_started": false,
+  "playable_bosses_added": 0,
+  "next_batch": {
+    "kind": "read_only_resource_discovery",
+    "candidate_ids": [
+      "054_zuoshang",
+      "012_mboss",
+      "044_pengmeng",
+      "060_guichai_yellow",
+      "067_motian",
+      "078_menghua",
+      "qishu"
+    ],
+    "gameplay_input_allowed": false,
+    "ability_activation_allowed": false,
+    "collect_once_then_continue_offline": true,
+    "max_seconds": 90
+  },
+  "candidate_files": {
+    "candidates/012_mboss.json": "0e3a8b1e3f48f29bac33f066e8f608100b7681d40ca2a9e32735f3dd5a3c6c97",
+    "candidates/044_pengmeng.json": "c7450e7a964aff20063c8df5dccf715dca9f1668b640509a4b8bf3ed2901b345",
+    "candidates/054_zuoshang.json": "898dc4d654b9bd08e79a9a7864cd2134f448de9f737b5c15164fbe7c517dbe90",
+    "candidates/060_guichai_yellow.json": "3a0d94fcc6fc07eef4d4647820d4376402a2c62e03c05803d4b03031083a02ee",
+    "candidates/067_motian.json": "0df9bedeec9ee972dab6113b43afefc3b89faeb2076e4340e573aeb370e985d0",
+    "candidates/078_menghua.json": "6fdf9636ba4a90fc5ae9cf8b813a6fb54d0e46c4537e45a35d729b6780d6d81b",
+    "candidates/luanshi.json": "c41413116c05f1ba7aca71fb2c8289a383ccbd7209136010a7f0b248b24e833e",
+    "candidates/qishu.json": "a62b5abb47da458c2ba122da50582415f26b3328df094c15592f3525fcaa2b11"
+  }
+}

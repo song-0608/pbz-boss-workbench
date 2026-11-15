@@ -1,0 +1,189 @@
+{
+  "at": "2026-11-13T14:01:09.695474+08:00",
+  "passed": true,
+  "version": "v0.2",
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-133947\\state.json",
+  "checks": {
+    "default_ready_with_f7": true,
+    "unverified_skill_keys_disabled": true,
+    "entered_control": true,
+    "two_different_target_queries_observed": true,
+    "target_cycle_returned_to_initial": true,
+    "skill01_natural_finish_and_damage": true,
+    "exit_restoration": true,
+    "original_player_position_unchanged": true,
+    "original_player_no_new_active_ability": true,
+    "input_barrier": true
+  },
+  "initial_target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147466900",
+  "verified_target_queries": [
+    "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147466638",
+    "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147466900"
+  ],
+  "live_module_sha256": {
+    "config.lua": "c231ba547085558c6b38631d27122129597e22d38d236886f5adc3a7766e79b6",
+    "session.lua": "ee4f91677e68784c823e3e259bfb4afba036aa6075582d92cdc508253d435f21",
+    "pbz_bridge.lua": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49",
+    "ue_calls.lua": "c2b5431a43bbfad4843db22fa78ee814649e8b7b0730f0021c1c14f88cb046c1",
+    "control_bridge.lua": "46a0375da08501a9132edef685dc45fca000641eb7006449b59d7ceba9d4a97d",
+    "input_driver.lua": "90186583a5360edd2f1c63f620e7c541d880afdf524974f646d5648e77376020",
+    "ue_input.lua": "2a4839e84ebdcbe926ad05d153a0ec8e15432dd627c666931dbd846676f061f0",
+    "runtime.lua": "888314e27886ab05ea2a1c10658225bb91f150bc7bdfc22b99f9af1edf4e105f",
+    "ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+    "camera_rig.lua": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100",
+    "ue_camera.lua": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1",
+    "combat_identity.lua": "855c900bd3169449b652aa6e1e8fc07f24721d8c88422fea7e8fca70b1c75092",
+    "ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+    "remote_control.lua": "e86c3fd6f27d96d01608379996531bdbaaa3b2467430267989c3af4af1ed66c0",
+    "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+    "input_barrier.lua": "5c3ca8d5bbdafbeb69ccf2d3a8978990fab953138ce885f4ae7ed3537235eb8c",
+    "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+    "player_protection.lua": "a4bdfa314737b5da8f719c753da1504dab676e77eef5170af1aa26765bfdd118",
+    "target_selector.lua": "094884f8651423389723e107f8e592c92c77f951a1c65969c67db24e9f634c1c",
+    "profiles/ahua.lua": "1a08d69cf57f8069fc786c97564e7ff525cfb9da953d435fe7f78d4af04ff839"
+  },
+  "post_runtime_cosmetic_label_comment_changes": [
+    "config.lua",
+    "profiles/ahua.lua"
+  ],
+  "current_skill_samples": [
+    {
+      "id": "skill_01",
+      "peak": 1,
+      "active_after": 0,
+      "natural_finish": true,
+      "health_before": 9000.0,
+      "health_after": 8850.0,
+      "position_delta": 661.42391272313,
+      "damage_observed_in_window": true
+    }
+  ],
+  "formal_file_count": 56,
+  "scheduled_practice_seconds": 218,
+  "formal_files_changed": [],
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "full_ten_minutes_tested": false,
+  "game_sessions_this_iteration": 3,
+  "failed_release_session": {
+    "work": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-133045",
+    "formal_files_changed": [],
+    "initialization_errors": [
+      "[2026-11-13 13:35:13.6755281] [Lua] PBZ_CONTROL_LIFECYCLE:INITIALIZATION_ATTEMPT_REJECTED=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:56: temporary actor expired during initialization",
+      "[2026-11-13 13:36:14.8347306] [Lua] PBZ_CONTROL_LIFECYCLE:INITIALIZATION_ATTEMPT_REJECTED=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:56: temporary actor expired during initialization"
+    ],
+    "result": "initialization timeout; isolated process closed; no control entered"
+  },
+  "current_initialization_errors": [
+    "[2026-11-13 13:45:15.2197513] [Lua] PBZ_CONTROL_LIFECYCLE:INITIALIZATION_ATTEMPT_REJECTED=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:62: actor/controller initialization did not settle within 16 seconds",
+    "[2026-11-13 13:45:41.7732087] [Lua] PBZ_CONTROL_LIFECYCLE:INITIALIZATION_ATTEMPT_REJECTED=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:62: actor/controller initialization did not settle within 16 seconds",
+    "[2026-11-13 13:45:57.1262303] [Lua] PBZ_CONTROL_LIFECYCLE:INITIALIZATION_ATTEMPT_REJECTED=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:67: owned training actor expired"
+  ],
+  "development_session": {
+    "work": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-131356",
+    "game_process_restarted_during_hot_reloads": false,
+    "spawns": 4,
+    "same_process_retirements": 2,
+    "initialization_errors": [
+      "[2026-11-13 13:28:31.0635096] [Lua] PBZ_CONTROL_LIFECYCLE:INITIALIZATION_ATTEMPT_REJECTED=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:62: owned training actor expired",
+      "[2026-11-13 13:28:32.1449060] [Lua] PBZ_CONTROL_LIFECYCLE:ISSUE_START=...am/ue4ss/Mods/PBZObserveAI/Scripts/player_protection.lua:11: stop moving before entering boss control; velocity=3.126092,-6.733373,0.000000"
+    ],
+    "skill_samples": [
+      {
+        "id": "heavy_02",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 9000.0,
+        "health_after": 9000.0,
+        "position_delta": 484.66401264333,
+        "damage_observed_in_window": false
+      },
+      {
+        "id": "special_03",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 9000.0,
+        "health_after": 9000.0,
+        "position_delta": 155.89938589456,
+        "damage_observed_in_window": false
+      },
+      {
+        "id": "heavy_02",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 8900.0,
+        "health_after": 8900.0,
+        "position_delta": 385.19471893508,
+        "damage_observed_in_window": false
+      },
+      {
+        "id": "skill_01",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 8900.0,
+        "health_after": 8900.0,
+        "position_delta": 275.35659049053,
+        "damage_observed_in_window": false
+      },
+      {
+        "id": "heavy_02",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 9000.0,
+        "health_after": 9000.0,
+        "position_delta": 410.63925423658,
+        "damage_observed_in_window": false
+      },
+      {
+        "id": "special_03",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 9000.0,
+        "health_after": 9000.0,
+        "position_delta": 364.65927645057,
+        "damage_observed_in_window": false
+      },
+      {
+        "id": "skill_01",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 9000.0,
+        "health_after": 8900.0,
+        "position_delta": 353.73693287122,
+        "damage_observed_in_window": true
+      },
+      {
+        "id": "skill_01",
+        "peak": 1,
+        "active_after": 0,
+        "natural_finish": true,
+        "health_before": 9000.0,
+        "health_after": 9000.0,
+        "position_delta": 29.100035806258,
+        "damage_observed_in_window": false
+      }
+    ],
+    "formal_files_changed": []
+  },
+  "unverified_candidates": [
+    "heavy_02",
+    "special_03"
+  ],
+  "candidate_conclusion": "activation and natural finish observed; no damage seen during sampled windows; disabled by default",
+  "remaining": [
+    "target HUD and line-of-sight filtering",
+    "more skills and phase dependencies",
+    "death/map transition restoration",
+    "camera component unregistration and long-term stability",
+    "additional bosses"
+  ],
+  "complete_all_boss_mod": false,
+  "log_sha256": "a0dd7de0276f241b0bf0b38a77b2a3bae9ce4f9c6366e958c92c81d128f3f185"
+}

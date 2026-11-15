@@ -1,0 +1,131 @@
+{
+  "id": "021_vessel_man",
+  "resource_folder": "021_Vessel_Man",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/ActorData/ActorC_Vessel_Man"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "09b6c28c63e51e8e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/CA/GA_Vessel_Common_CA_01_GEd",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8bbb53aa6b770170",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/CA/GA_Vessel_Common_CA_01_GEx",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d84aeb60725858d9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/GA_Vessel_Man_AutoCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "727002aafda65762",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/GA_Vessel_Man_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "72e7b15e94c330b6",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/GA_Vessel_Man_Idle_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e355b8eab2ec4f08",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/GA_Vessel_Man_LightAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9f931d7432f265d2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/GA_Vessel_Man_LightAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d177201d3a611d52",
+      "package": "/PBZCombatAsset/ActorData/Mobs/021_Vessel_Man/Ability/Abilities/Story/GA_Vessel_Man_Intro_07",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

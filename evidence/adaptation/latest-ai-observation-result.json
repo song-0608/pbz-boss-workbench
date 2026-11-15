@@ -1,0 +1,88 @@
+{
+  "at": "2026-11-13T02:30:39.895561+08:00",
+  "state_file": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-020804\\state.json",
+  "work": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-020804",
+  "query_pawn_verified": true,
+  "query_controller_verified": true,
+  "npc_lua_observed": true,
+  "brain_running_query_verified": true,
+  "running_behavior_tree_query_verified": true,
+  "player_140_specs_read": true,
+  "npc_46_specs_read": true,
+  "runtime_issues": [
+    "ISSUE_NPC_1_CONFIG_NAME=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:9: invalid object reference",
+    "ISSUE_NPC_1_AI=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:9: invalid object reference",
+    "ISSUE_NPC_1_ABILITIES=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:33: no granted abilities; observation is not a pass",
+    "ISSUE_NPC_2_CONFIG_NAME=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:9: invalid object reference",
+    "ISSUE_NPC_2_AI=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:9: invalid object reference",
+    "ISSUE_NPC_2_ABILITIES=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:33: no granted abilities; observation is not a pass",
+    "ISSUE_NPC_3_CONFIG_NAME=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:9: invalid object reference",
+    "ISSUE_NPC_3_AI=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:9: invalid object reference",
+    "ISSUE_NPC_3_ABILITIES=...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:33: no granted abilities; observation is not a pass"
+  ],
+  "collected_counts": {
+    "PLAYER_ABILITY_COLLECTED": 131,
+    "NPC_1_ABILITY_COLLECTED": 0,
+    "NPC_2_ABILITY_COLLECTED": 0,
+    "NPC_3_ABILITY_COLLECTED": 0
+  },
+  "csv_rows": 410,
+  "per_instance": {
+    "BP_Renewal_Hun_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Renewal_Hun_C_2147479626": {
+      "last_counts": {
+        "abilities": 140
+      },
+      "queries": {},
+      "issues": []
+    },
+    "BP_Monster_LuanShi_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_LuanShi_C_2147474802": {
+      "last_counts": {
+        "abilities": 46
+      },
+      "queries": {
+        "CONFIG_NAME": "",
+        "CONFIG_NAME_KEY": "BossName_008",
+        "BRAIN_RUNNING": "true",
+        "TREE": "BehaviorTree /PBZCombatAsset/Prototypes/AI/Template/Tactic/BT_SharedTactic_Idle.BT_SharedTactic_Idle"
+      },
+      "issues": []
+    },
+    "BP_Renewal_Hun_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Renewal_Hun_C_2147468070": {
+      "last_counts": {
+        "abilities": 131
+      },
+      "queries": {},
+      "issues": []
+    },
+    "BP_NPC_JiangHuRenShi_ShaQiTaBottom_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_NPC_JiangHuRenShi_ShaQiTaBottom_C_2147460067": {
+      "last_counts": {
+        "abilities": 0
+      },
+      "queries": {},
+      "issues": []
+    },
+    "BP_NPC_GuiFengKe_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_NPC_GuiFengKe_C_2147460081": {
+      "last_counts": {
+        "abilities": 0
+      },
+      "queries": {},
+      "issues": []
+    },
+    "BP_NPC_ZhengDaoDiZi_YanYan_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_NPC_ZhengDaoDiZi_YanYan_C_2147460097": {
+      "last_counts": {
+        "abilities": 0
+      },
+      "queries": {},
+      "issues": []
+    }
+  },
+  "hot_reload_observed": true,
+  "script_sha256": "65ca1faed83df2578b0bea992efa70bde7fe8c4cc088dd226b60d9b67c116f2d",
+  "localization_name_resolved": false,
+  "localization_note": "FlowLocText.ValueCache read successfully but was empty; Key is evidence only, not resolved name",
+  "boss_identity_verified": false,
+  "boss_control_verified": false,
+  "skill_activation_verified": false,
+  "scope": "Actual read-only UE4SS Lua queries and granted ability reads. Core pass covers the original player and Luanshi sample only; later unready NPCs still have recorded issues. CSV is not a playable key map.",
+  "core_observation_passed": true
+}

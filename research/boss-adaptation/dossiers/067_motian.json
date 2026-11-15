@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "id": "067_motian",
+  "resource_folder": "067_MoTian",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/ExE/GA_Hun_BEd_MoYuan",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_Hun_BDEx_MoYuan_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02_Short",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01_Endure",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Init_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_LightAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02_Endure",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_07",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_09_Endure",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_03_Endure",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_06",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_07",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive/GA_MoYuan_Passive_LongZhu_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_06",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Stance"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_03"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian_LongZhu_02"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/AIConfig_MoTian",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/AIStrategyConfig_MoTian",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/AbilityPool_MoYuan",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/AIConfig_MoTian_LongZhu_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/AIConfig_MoTian_LongZhu_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/AIConfig_MoTian_LongZhu_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/AIStrategyConfig_MoTian_LongZhu_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/AIStrategyConfig_MoTian_LongZhu_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/CT_RecoveryWeight_MoYuan_LongZhu_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/AIConfig/LongZhu/StateTreeConfig_MoTian_LongZhu_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/Hit_MoTian_LongZhu_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/Hit_MoTian_LongZhu_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_AntiMelee_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_Attack_Quick_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_Attack_Quick_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_Attack_Short_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_Attack_Short_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_FrontRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_FrontRecovery_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/LongZhu/LongZhu01/BT_MoTian_LongZhu01_RangeAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_AllInAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_AntiCharge",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_AntiMelee_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_AntiMelee_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_AntiMelee_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_AntiProjectile",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_Attack_Long_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_Attack_P2",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_Attack_Quick_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_Attack_Short_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_CommonRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_FrontRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_Init",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_LuckyDraw_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_PunishCounter_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_PunishCounter_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_PunishCounter_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_PunishCounter_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_RangeAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_RangeAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_SwitchPhase",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Normal/BT_MoTian_WhiffPunish_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/SubTree/BT_MoTian_DodgeBack",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/SubTree/BT_MoTian_DodgeCounter_Combo",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/SubTree/BT_MoTian_DodgeCounter_Escape",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/SubTree/BT_MoTian_KickBack",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/SubTree/BT_MoTian_MixUp_Fast",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/SubTree/BT_MoTian_Taunt_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_AntiMelee_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_AntiMelee_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_Attack_Long_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_Attack_Quick_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_Attack_Short_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_Attack_Short_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_Attack_Short_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_BackRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_CommonRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_FrontRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_FrontRecovery_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_PunishCounter_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_PunishCounter_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BehaviorTree/Tutorial/BT_MoYuan_Tutorial_RangeAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Bullet",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Bullet/BP_MoTian_Wave",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Bullet/BP_MoYuan_PillarDrop",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Archvie/BD_MoTian_Tang_Skill_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Archvie/BD_MoTian_Tang_Skill_05_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Archvie/BD_MoTian_Tang_Skill_05_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Archvie/BD_MoTian_Tang_Skill_07_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Archvie/BD_MoTian_Tang_Skill_08_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Archvie/BD_MoTian_Tang_SpecialAttack_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_01_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_02_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_03_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_08_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_08_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_09_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_12_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_14_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Skill_14_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_04_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_06_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_09_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_09_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_10_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_10_03",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_11_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_12_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_14_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_17_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_SpecialAttack_17_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Tang_HeavyAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Tang_LightAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Tang_LightAttack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/BD_MoTian_Tang_MiddleAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/ExE/EB_MoYuan_BEx",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/ExE/EB_MoYuan_GEx_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/ExE/EB_MoYuan_GEx_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/ExE/EB_MoYuan_GEx_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Grab",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Grab/BD_MoYuan_GEx_02_Short",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Grab/BD_MoYuan_GEx_04",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Grab/BD_MoYuan_GEx_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Pillar/BD_MoYuan_CA_PillarDrop",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Pillar/BD_MoYuan_CA_PillarDrop_Explode",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Pillar/BD_MoYuan_GroundPillar_Base",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Pillar/BD_MoYuan_GroundPillar_Explosion",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Pillar/BD_MoYuan_Skill_07_Pillar",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BulletData/Pillar/BD_MoYuan_Skill_11_Pillar",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Camera",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Camera/CameraShake_MoYuan_CA_Charge",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Camera/CameraShake_MoYuan_GEx_05",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/GameplayEffects",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/GameplayEffects/GE_LongZhu_01_ReflectResistance",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/GameplayEffects/GE_MoYuan_ChargedHeal",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/GameplayEffects/GE_MoYuan_LongZhu_01_Debuff",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/GameplayEffects/GE_MoYuan_LongZhu_04_StatusBonus",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/Hun_MoYuan_SpecialExE_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoTian_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoTian_SpecialAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoTian_SpecialAttack_02_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoTian_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_AAAA_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_AAABB_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_AAAB_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_AA_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Battle_Idle_Break_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Battle_Walk_Fwd_Stop_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_CriticalArt_01_Miss_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_CriticalArt_01_MoYuan_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_CriticalArt_02_Miss_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_CriticalArt_02_MoYuan_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Dodge_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_GEd_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_07_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_09_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_10_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_11_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_12_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_Skill_13_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/MoYuan_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/Retarget",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/Retarget/AM_MoTian_Tang_AA_Placeholder",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/Retarget/MoTian_SpecialAttack_01_Placeholder_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Montage/Retarget/MoTian_SpecialAttack_03_Placeholder",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Weapon",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Weapon/BP_Bullet_MoYuan_Pillar_Skill_09",
+      "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Weapon/Weapon_MoTian_Tang"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

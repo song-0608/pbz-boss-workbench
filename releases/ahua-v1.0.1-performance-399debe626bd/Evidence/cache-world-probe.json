@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "at": "2026-11-14T23:19:50.274872+08:00",
+  "state_file": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261114-230249\\state.json",
+  "old_identity": {
+    "world_id": "official-validation-20261114-230249|World /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP|74424909888",
+    "participants": {
+      "player_controller": {
+        "name": "BP_PlayerController_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_PlayerController_C_2147479670",
+        "address": 77553223840,
+        "class": "BlueprintGeneratedClass /Game/PBZContent/Blueprint/Character/Player/BP_PlayerController.BP_PlayerController_C"
+      },
+      "player": {
+        "name": "BP_Renewal_Hun_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Renewal_Hun_C_2147479626",
+        "address": 74047040224,
+        "class": "BlueprintGeneratedClass /Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C"
+      },
+      "boss": {
+        "name": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147468260",
+        "address": 16993300688,
+        "class": "BlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/042_AHua/BP_Monster_AHua_GuiTouDao.BP_Monster_AHua_GuiTouDao_C"
+      }
+    }
+  },
+  "script_sha256": "ba9c6494c016d032be7ba14e374c3e978e600c80aeb03a93794879ed4af06b65",
+  "log_offset": 335406,
+  "log_end": 1250,
+  "read_only": true,
+  "reassembly_blocked_by_visibility": true
+}

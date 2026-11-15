@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-12T23:18:58.581186+08:00",
+  "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "passed": true,
+  "hits": [
+    {
+      "rva": "0x1584aa5",
+      "targets": [
+        "0xde28c70",
+        "0xde28cb8",
+        "0xde28c50"
+      ],
+      "layout_matches": true
+    }
+  ],
+  "files": {
+    "UE4SS_Signatures/GUObjectArray.lua": "3740c699d5f49fefd02b303533af0336d5886af2183d88cc3d7ba52767cef8e1",
+    "MemberVariableLayout.ini": "105dcd3a6fb0b75e258b5d19e23d2671ddac4df326a9e580775aaea75162b830"
+  },
+  "pbz_ue4ss_initialization_verified": false
+}

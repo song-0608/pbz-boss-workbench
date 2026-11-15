@@ -1,0 +1,32 @@
+{
+  "id": "060_guichai_yellow",
+  "resource_folder": "060_GuiChai_Yellow",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [],
+  "config_candidates": [],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

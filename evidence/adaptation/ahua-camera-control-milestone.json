@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-13T11:22:45.955900+08:00",
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-105805",
+  "checks": {
+    "native_camera_contract": true,
+    "camera_binding_recorded": true,
+    "f6_possession": true,
+    "first_skill_keyboard_activation": true,
+    "first_skill_cancel_during_active": true,
+    "f10_keyboard_restoration": true,
+    "look_and_w_exercise": true,
+    "collision_retraction_observed": true,
+    "bounded_experiment_finished": true,
+    "rendered_camera_matches_component": true
+  },
+  "camera_visual_reviewed": true,
+  "camera_visual_verified": true,
+  "f10_physical_key_verified": true,
+  "first_skill_cancellation_runtime_verified": true,
+  "skill_damage_targeting_verified": false,
+  "camera_component_unregister_verified": false,
+  "full_player_release_ready": false,
+  "cleanup_note": "Destroy calls completed; camera and boom still queryable after 0.5s. Unregistration/GC remains unverified. Research process has ended.",
+  "screenshot_sha256": {
+    "camera-active-preview.png": "3e2260eb1050160ac04749b0be44608c19eba51a9f15f07a4c58b2a142c2823d",
+    "camera-after-look-move-preview.png": "ba538fe9e1db140436fe95bb424a73276f1b597e8d6b67dab5bba84354a62339",
+    "camera-after-exit-preview.png": "d7ebdf400d412b7892bf49fb05c09a0a6e5c58d020f4b3467e46e3156745a332"
+  },
+  "source_log_sha256": "1d07f05ab2024731ef54b59aee535d85250b41d94adec4e73eaadd399a8b280a",
+  "granted_counts_observed": [
+    0,
+    37,
+    38
+  ],
+  "formal_files_checked": 56,
+  "formal_changed_count": 0,
+  "research_box_empty": true,
+  "local_fixture_report": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\adaptation\\control-runtime-local-checks.json"
+}

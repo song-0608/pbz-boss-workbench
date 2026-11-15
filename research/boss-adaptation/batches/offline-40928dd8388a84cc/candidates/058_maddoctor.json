@@ -1,0 +1,217 @@
+{
+  "id": "058_maddoctor",
+  "resource_folder": "058_MadDoctor",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_MadDoctor",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite",
+    "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Sacrifice/Data/ActorC_EMei_Sacrifice"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "ec7cd77cec3753d3",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/Ceremony/GA_SacrificeBase",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1df8e5243cb0e97e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctorBoss_Extract",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "74ecfb9afdfcf93b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e358ee2b182bb6d9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "72915c70b2ab3b9b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "748d890ec50e01f4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3745f786805cdcec",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HealingBase",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6e18d878bdc9fa5f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HeavyAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8301261ea50756bd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_LightAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f2b0021a07329048",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistResurrect",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "029101d11f060235",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "074cc4ccac675f77",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_GroupResurrect",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "380acb25d1c49bfc",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "0507c7101ba24de6",
+      "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "id": "006_goldmaskman",
+  "resource_folder": "006_GoldMaskMan",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/ActorC_FemaleVessel_YuBi",
+    "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/ActorC_GoldMaskMan_Dummy_DeflectAndHit"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "1e82f29f432e0317",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/AllOutAttack/GA_GoldMaskMan_Dodge_Disappear",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "81d703e20579c57b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_AutoCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5a738e2052ff75ab",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Dodge_R_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "0ddb99b94b917e46",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Dodge_R_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "70973f8cfe9fc2e0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Frightened",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3795936e8cf73b72",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_HeavyAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "928de74d19299e76",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_MidAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "092f024fbb3296aa",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5593e47a6c1dded6",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "2f0e6c42275735b4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_09",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "673f4732d7d08054",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Sp_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "cff3d5058eeaac35",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/Retarget/GA_GoldMask_Special_01_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "2093f0d73ba509fd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/Retarget/GA_GoldMask_Special_01_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

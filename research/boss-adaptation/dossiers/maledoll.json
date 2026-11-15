@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "id": "maledoll",
+  "resource_folder": "MaleDoll",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Attack_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_AutoCombo_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_AutoCombo_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_GuiQiangDun/Abilities/GA_MaleDoll_QiangDun_IdleSpawnFire",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Down/Abilities/GA_MaleDoll_Half_Down_Attack_04",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Down/Abilities/GA_MaleDoll_Half_Down_HeavyAttack_PunchDown",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Abilities/GA_MaleDoll_Half_Up_Attack_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Abilities/GA_MaleDoll_Half_Up_Attack_04",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Abilities/GA_MaleDoll_Half_Up_Attack_05",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Abilities/GA_MaleDoll_Half_Up_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/Dodge/GA_MaleDoll_Ice_Dodge_F",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/Dodge/GA_MaleDoll_Ice_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/Dodge/GA_MaleDoll_Ice_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/GA_MaleDoll_ICE_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Common_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Weaponless_Attack_FlyKick",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Weaponless_PunchCombo",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Weaponless_StartGolden",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/GA_MaleDoll_Common_Intro",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/GA_MaleDoll_QiangDun_MiddleAttack",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/GA_MaleDoll_QiangDun_Skill",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/GA_MaleDoll_QiangDun_Skill_FlyDown",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/GA_MaleDoll_QiangDun_SpecialAttack",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/GA_MaleDoll_Shield_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Passive/GA_MaleDoll_QiangDun_MonsterShield_Summon_Passive",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Spear/GA_MaleDoll_QiangDun_ShieldBroken_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Spear/GA_MaleDoll_QiangDun_ShieldBroken_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Spear/GA_MaleDoll_Spear_Attack_02_L",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Spear/GA_MaleDoll_Spear_Attack_04",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Spear/GA_MaleDoll_Spear_Attack_05",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/Story/GA_MaleDoll_Half_Up_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/Story/GA_MaleDoll_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/Story/GA_MaleDoll_QiangDun_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Attack_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_DodgeAttack_L",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_04",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_06",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_07",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_08",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_09",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_StartGolden",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_YuGu_Skill_01_Combo"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/ActorData/ActorC_MaleDoll_Cannon_AutoGolden",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/ActorData/ActorC_MaleDoll_Cannon_ForDangHui",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/ActorData/ActorC_MaleDoll_Cannon_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/ActorData/ActorC_MaleDoll_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/ActorData/ActorC_MaleDoll_QiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/ActorData/ActorC_MaleDoll_QiangDun_Summon"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Cannon_AutoIron",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Cannon_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_GuiQiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Half_Down",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Half_Up_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_QiangDun_ForDangHui",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_QiangDun_ForDangHuiSummon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_QiangDun_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Weaponless_AutoGolden",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Weaponless_AutoIron",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_Weaponless_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BP_Monster_MaleDoll_YuGu_Golden"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/ActivityConfig_MaleDoll_Common",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Cannon/AIConfig_MaleDoll_Cannon_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Cannon/AbilityPool_MaleDoll_Cannon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Cannon/AbilityPool_MaleDoll_Cannon_AutoGoldenIron",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Cannon/AbilityPool_MaleDoll_Common_AutoGoldenIron",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Half_Down",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Half_Down/AbilityPool_MaleDoll_Half_Down",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Half_Up",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Half_Up/AbilityPool_MaleDoll_Half_Up",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Ice/AIConfig_MaleDoll_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Ice/AbilityPool_MaleDoll_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_QiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_QiangDun/AIConfig_MaleDoll_GuiQiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_QiangDun/AbilityPool_MaleDoll_GuiQiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_QiangDun/AbilityPool_MaleDoll_QiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_QiangDun/AbilityPool_MaleDoll_QiangDun_ShieldBroken",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/MaleDoll_Weaponless/AIConfig_MaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/AIConfig/YuGu",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/BulletData/BulletData_MaleDoll_Cannon_Attack_01_Bomb",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/BulletData/BulletData_MaleDoll_Cannon_Attack_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/BulletData/BulletData_MaleDoll_Cannon_Attack_04_02_Bomb",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/BulletData/BulletData_MaleDoll_Cannon_TigerCannon_Explosion",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/BulletData/BulletData_MaleDoll_Cannon_TigerCannon_ReflectExplosion",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Montage/MaleDoll_Cannon_Attack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Montage/MaleDoll_Cannon_Attack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Montage/MaleDoll_Cannon_SpecialSkill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Montage/MaleDoll_Cannon_StartGolden_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_GuiQiangDun/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Down/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Down/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Down/BulletData/BulletData_MaleDoll_Half_Down_Attack_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData/BulletData_MaleDoll_Half_Up_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData/BulletData_MaleDoll_Half_Up_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData/BulletData_MaleDoll_Half_Up_Attack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData/BulletData_MaleDoll_Half_Up_Attack_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData/BulletData_MaleDoll_Half_Up_Attack_04_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/BulletData/BulletData_MaleDoll_Half_Up_Attack_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Montage/MaleDoll_Half_Up_Attack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Montage/MaleDoll_Half_Up_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/MaleDoll_Ice_Attack_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/MaleDoll_Ice_Skill",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/MaleDoll_Ice_Skill_03_A",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/MaleDoll_Ice_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/MaleDoll_Ice_Skill_07",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Abilities/Story/MaleDoll_Ice_Story_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Attack_5_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_03_A_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_03_A_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_03_A_05",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_04_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_07_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_08_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_09_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_09_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_11_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/BulletData/MaleDoll_Ice_Skill_11_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Attack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Attack_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Attack_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Deflect_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Skill_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Skill_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Skill_07_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Ice/Montage/MaleDoll_Metal_Skill_08_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Abilities/Spear",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Skill_20_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Skill_22_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Skill_23_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Skill_23_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Skill_23_04",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_SpecialAttack_20_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_SpecialAttack_20_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Stab_Heavy",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/QiangDun/BulletData_MaleDoll_QiangDun_Stab_Light",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/Spear",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/Spear/BulletData_MaleDoll_Spear_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/Spear/BulletData_MaleDoll_Spear_Attack_04_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/BulletData/Spear/BulletData_MaleDoll_Spear_Attack_05_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Montage/QiangDun/MaleDoll_Spear_Shield_Skill_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Montage/QiangDun/MaleDoll_Spear_Shield_Skill_07_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Montage/QiangDun/MaleDoll_Spear_Shield_Skill_08_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Montage/QiangDun/MaleDoll_Spear_Shield_SpecialAttack_03_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Montage/QiangDun/MaleDoll_Spear_Shield_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/QiangDun/Montage/Spear/MaleDoll_Spear_SpecialAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/Story",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/Story/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Attack_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Attack_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Attack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_DodgeAttack_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Skill_01_B_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Skill_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Skill_04_02",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/BulletData/YuGu/BD_GA_MaleDoll_YuGu_Skill_04_03",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BehaviorTree/MaleDoll_Cannon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BehaviorTree/MaleDoll_YuGu/BT_YuGu_Skill_01_Combo",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Bullets",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Bullets/BP_MaleDoll_Cannon_GroundBullet",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Montage/StaticAnimSeq",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/Hit_MaleDoll_QiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/Hit_MaleDoll_QiangDun_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/Hit_MaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Cannon/BP_Weapon_MaleDoll_Cannon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Cannon/PBZ_ABP_Item_MaleDoll_Cannon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Cannon/Weapon_MaleDoll_Cannon",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_GuiQiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_GuiQiangDun/BP_Weapon_MaleDoll_GuiQiangDun_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Half_Down/BP_Weapon_MaleDoll_Half_Down",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Half_Down/PBZ_ABP_Item_Template_Doll_Half_Down",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Half_Down/Weapon_MaleDoll_Half_Down",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Half_Up/BP_Weapon_MaleDoll_Half_Up",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Half_Up/Hit_MaleDoll_Half_Up",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Half_Up/Weapon_MaleDoll_Half_Up",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Ice/Hit_MaleDoll_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_Ice/PBZ_ABP_Item_MaleDoll_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_QiangDun",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/MaleDoll_QiangDun/BP_Weapon_MaleDoll_QiangDun_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/YuGu/BP_Weapon_MaleDoll_YuGu",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/YuGu/BP_Weapon_YuGu_IceWave",
+      "/PBZCombatAsset/ActorData/Mobs/MaleDoll/WeaponData/YuGu/PBZ_ABP_Item_MaleDoll_YuGu"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

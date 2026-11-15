@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "id": "huotongren",
+  "resource_folder": "HuoTongRen",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_AutoCombo",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Dodge_F_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_01_Combo01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_01_Combo1",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_04",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Troop_04",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Skill_01_Child",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_SpecialAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_SpecialAttack_06",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/Dodge/GA_HuoTongRen_TongGun_Dodge_B_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/Dodge/GA_HuoTongRen_TongGun_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_04_Child",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_06",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_06_Child",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Intro/GA_HuoTongRen_CommonSummon_Intro",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Passive/GA_HuoTongRen_ShieldPassive",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Passive/GA_HuoTongRen_ShieldPassive_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Summon/GA_Monster_HuoTongRen_Summon_Init_AutoCombo",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/GA_HuoTongRen_Troops_01_NotUse",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Knife",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Stick",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_End_R",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_Start_L",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_Start_R"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_Fist_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_JiuHuanDao",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_TongGun",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan/ActorC_HuoTongRen_Gold_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/IronMan/ActorC_HuoTongRen_Iron_Fist"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BP_Monster_HuoJinRen_JiuHuanDao_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BP_Monster_HuoJinRen_TongGun_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BP_Monster_HuoTongRen",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoJinRen_Fist_ForBiHai",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoJinRen_JiuHuanDao_ForBiHai",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoJinRen_TongGun_ForBiHai",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoTieRen_Fist_ForBiHai",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoTieRen_JiuHuanDao_ForBiHai",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoJinRen_BP/BP_Monster_HuoJinRen_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoJinRen_BP/BP_Monster_HuoJinRen_TongGun",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTieRen_BP/BP_Monster_HuoTieRen_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTieRen_BP/BP_Monster_HuoTieRen_TongGun",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTongRen_BP/BP_Monster_HuoTongRen_Fist"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/ActivityConfig_HuoTongRen_Common",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/Fist/AIConfig_HuoTongRen_Fist_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/Fist/AIStrategyConfig_HuoTongRen_Fist_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/Fist/AbilityPool_HuoTongRen_Fist_Commom",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/JiuHuanDao",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/JiuHuanDao/AbilityPool_HuoTongRen_JiuHuanDao_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/TongGun",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/AIConfig/TongGun/AIConfig_HuoTongRen_TongGun_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_Skill_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_SpecialAttack_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/BulletData/BulletData_HuoTongRen_Fist_SpecialAttack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage/HuoTongRen_Fist_Deflcet_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage/HuoTongRen_Fist_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage/HuoTongRen_Fist_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage/HuoTongRen_Fist_Skill_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage/HuoTongRen_Fist_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Montage/HuoTongRen_Fist_SpecialAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData/BulletData_HuoTongRen_JiuHuanDao_Skill_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData/BulletData_HuoTongRen_JiuHuanDao_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData/BulletData_HuoTongRen_JiuHuanDao_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData/BulletData_HuoTongRen_JiuHuanDao_SpecialAttack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData/BulletData_HuoTongRen_JiuHuanDao_SpecialAttack_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/BulletData/BulletData_HuoTongRen_JiuHuanDao_SpecialAttack_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage/HuoTongRen_Knife_SpecialAttack_04_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage/HuoTongRen_Knife_SpecialAttack_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage/HuoTongRen_Knife_StartMetal",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage/HuoTongRen_knife_Battle_Dodge_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage/HuoTongRen_knife_Battle_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Montage/HuoTongRen_knife_Battle_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/Dodge",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Attack_01_A_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Attack_01_A_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Attack_01_B_01",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Skill_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Skill_05_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/BulletData/BulletData_HuoTongRen_TongGun_Skill_06_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Deflect_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Dodge_B_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Dodge_F_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Skill_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Montage/HuoTongRen_Stick_Skill_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Intro/IronMan",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Passive",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/HuoTongRen_Troops_01_Release_Fist_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Split/HuoTongRen_Troops_01_Release_Fist_Split_End_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Split/HuoTongRen_Troops_01_Release_Fist_Split_Start_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Split/HuoTongRen_Troops_01_Release_Knife_Split_End_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Split/HuoTongRen_Troops_01_Release_SplitEnd_Stick_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Split/HuoTongRen_Troops_01_Release_SplitStart_Stick_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Troop02/HuoTongRen_Troops_02_Release_Fist_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Troop04/HuoTongRen_Troops_01_Release_Fish_L_End_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Montage/Troop04/HuoTongRen_Troops_01_Release_Fish_L_Start_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan/Hit_HuoJinRen_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan/Hit_HuoJinRen_Fist_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan/Hit_HuoJinRen_JiuHuanDao_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan/Hit_HuoJinRen_TongGun_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/IronMan",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/BT_Monster_HuoTongRen_Summon_Init",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Common",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Common/BT_Monster_HuoTongen_Common_StartMetal",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Common/BT_Tactic_HuoTongRen_Common_Attack_Minion",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Intro",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop01/BT_Monster_HuoTongen_Fist_Troop_01_Call",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop01/BT_Monster_HuoTongen_Fist_Troop_02_End",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop01/BT_Monster_HuoTongen_Fist_Troop_03",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop02/BT_Monster_HuoTongen_JiuHuanDao_Troop_02",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop04/BT_Monster_HuoTongen_Fist_Troop_04_Call",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop04/BT_Monster_HuoTongen_Fist_Troop_04_L",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop04/BT_Monster_HuoTongen_Fist_Troop_04_Start_L",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Weapon_JiuHuanDao",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Weapon_JiuHuanDao/BT_Monster_HuoTongen_JiuHuanDao_BackJump",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Weapon_TongGun/Tactic",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Weapon_TongGun/Tactic/BT_Monster_HuoTongen_TongGun_Attack_ForShaQiTa",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/GameplayEffects/GE_HuoTongRen_ForBiHai_CanNotTroop",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/GameplayEffects/GE_HuoTongRen_Reinforced_TickShachi",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTieRen_BP",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTongRen_BP",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTongRen_BP/NotUse",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Hit_HuoTongRen_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Hit_HuoTongRen_Fist_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/PBZ_ABP_Item_HuoTongRen",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Weapon_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Weapon_Fist/Hit_HuoTongRen_Fist",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Weapon_JiuHuanDao/Hit_HuoTongRen_JiuHuanDao",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Weapon_JiuHuanDao/Weapon_HuoTongRen_JiuHuanDao",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Weapon_TongGun/BP_Weapon_HuoTongRen_TongGun",
+      "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/WeaponData/Weapon_TongGun/PBZ_ABP_Item_HuoTongRen_TongGun"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

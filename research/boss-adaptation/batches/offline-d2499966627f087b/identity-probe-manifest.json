@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "batch_manifest_sha256": "743f956d37adc38e18728a2f5dac6c1ff08ddd9916942a591bb2deba7797cef3",
+  "script_sha256": "fa21e21a9951d99e48d4cffad95460bc39c19b95a6f83ca2900ef0816f65e1a5",
+  "requests": [
+    {
+      "id": "057_wanjun",
+      "role": "character",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+      "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+      "expected_config": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua"
+    },
+    {
+      "id": "057_wanjun",
+      "role": "config",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua",
+      "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+      "expected_config": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua"
+    },
+    {
+      "id": "073_yanqiansui",
+      "role": "character",
+      "package": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+      "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+      "expected_config": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui"
+    },
+    {
+      "id": "073_yanqiansui",
+      "role": "config",
+      "package": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui",
+      "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+      "expected_config": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui"
+    },
+    {
+      "id": "056_youlong",
+      "role": "character",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+      "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+      "expected_config": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother"
+    },
+    {
+      "id": "056_youlong",
+      "role": "config",
+      "package": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother.ActorC_YouLong_SecondBrother",
+      "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+      "expected_config": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother"
+    }
+  ],
+  "auto_deploy": false,
+  "runtime_verified": false,
+  "runtime_preconditions": [
+    "Existing protected strictly offline research session, fixed build and active lease.",
+    "Idle carrier only; never replace ACTIVE gameplay scripts.",
+    "Keep ordinary identity, isolation, input and restoration guards."
+  ],
+  "scope": "Six metadata lookups maximum, one scheduled request at a time; no actor creation or gameplay input."
+}

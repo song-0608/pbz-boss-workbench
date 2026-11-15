@@ -1,0 +1,375 @@
+[
+  {
+    "path": "/Script/Engine.Actor",
+    "candidate_properties_size": 688,
+    "field_chain": [
+      {
+        "name": "PrimaryActorTick",
+        "class": "StructProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 48,
+        "offset_internal": 40,
+        "property_flags": "0x10000000010001"
+      },
+      {
+        "name": "bNetTemporary",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x18001000000000"
+      },
+      {
+        "name": "bOnlyRelevantToOwner",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x18001000010015"
+      },
+      {
+        "name": "bAlwaysRelevant",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x18001000010005"
+      },
+      {
+        "name": "bReplicateMovement",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x48001100010021"
+      },
+      {
+        "name": "bCallPreReplication",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x48041000010001"
+      },
+      {
+        "name": "bCallPreReplicationForReplay",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x48041000010001"
+      },
+      {
+        "name": "bHidden",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 88,
+        "property_flags": "0x48001200000035"
+      },
+      {
+        "name": "bTearOff",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 89,
+        "property_flags": "0x48001000000020"
+      },
+      {
+        "name": "bForceNetAddressable",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 89,
+        "property_flags": "0x48001000000000"
+      },
+      {
+        "name": "bExchangedRoles",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 89,
+        "property_flags": "0x18001000002000"
+      },
+      {
+        "name": "bNetLoadOnClient",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 89,
+        "property_flags": "0x18001000000001"
+      }
+    ]
+  },
+  {
+    "path": "/Script/Engine.Pawn",
+    "candidate_properties_size": 816,
+    "field_chain": [
+      {
+        "name": "bUseControllerRotationPitch",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 696,
+        "property_flags": "0x18001000000005"
+      },
+      {
+        "name": "bUseControllerRotationYaw",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 696,
+        "property_flags": "0x18001000000005"
+      },
+      {
+        "name": "bUseControllerRotationRoll",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 696,
+        "property_flags": "0x18001000000005"
+      },
+      {
+        "name": "bCanAffectNavigationGeneration",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 696,
+        "property_flags": "0x18001000000015"
+      },
+      {
+        "name": "bIsLocalViewTarget",
+        "class": "BoolProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 696,
+        "property_flags": "0x28081000002000"
+      },
+      {
+        "name": "BaseEyeHeight",
+        "class": "FloatProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 4,
+        "offset_internal": 700,
+        "property_flags": "0x18001040000205"
+      },
+      {
+        "name": "AutoPossessPlayer",
+        "class": "ByteProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 704,
+        "property_flags": "0x18001040000201"
+      },
+      {
+        "name": "AutoPossessAI",
+        "class": "EnumProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 705,
+        "property_flags": "0x18001040000201"
+      },
+      {
+        "name": "RemoteViewPitch16",
+        "class": "UInt16Property",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 2,
+        "offset_internal": 706,
+        "property_flags": "0x28081040000220"
+      },
+      {
+        "name": "RemoteViewPitch",
+        "class": "ByteProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 1,
+        "offset_internal": 708,
+        "property_flags": "0x18001040000220"
+      },
+      {
+        "name": "AIControllerClass",
+        "class": "ClassProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 8,
+        "offset_internal": 712,
+        "property_flags": "0x1c001000000205"
+      },
+      {
+        "name": "PlayerState",
+        "class": "ObjectProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 8,
+        "offset_internal": 720,
+        "property_flags": "0x14c001100000234"
+      }
+    ]
+  },
+  {
+    "path": "/Script/Engine.Character",
+    "candidate_properties_size": 1616,
+    "field_chain": [
+      {
+        "name": "Mesh",
+        "class": "ObjectProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 8,
+        "offset_internal": 816,
+        "property_flags": "0x14c0010000a021d"
+      },
+      {
+        "name": "CharacterMovement",
+        "class": "ObjectProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 8,
+        "offset_internal": 824,
+        "property_flags": "0x14c0010000a021d"
+      },
+      {
+        "name": "CapsuleComponent",
+        "class": "ObjectProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 8,
+        "offset_internal": 832,
+        "property_flags": "0x14c0010000a021d"
+      },
+      {
+        "name": "BasedMovement",
+        "class": "StructProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 72,
+        "offset_internal": 840,
+        "property_flags": "0x20089000000000"
+      },
+      {
+        "name": "ReplicatedBasedMovement",
+        "class": "StructProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 72,
+        "offset_internal": 912,
+        "property_flags": "0x20089100000020"
+      },
+      {
+        "name": "ReplicatedServerLastTransformUpdateTimeStamp",
+        "class": "FloatProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 4,
+        "offset_internal": 984,
+        "property_flags": "0x28081040000220"
+      },
+      {
+        "name": "ReplayLastTransformUpdateTimeStamp",
+        "class": "FloatProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 4,
+        "offset_internal": 988,
+        "property_flags": "0x28081140000220"
+      },
+      {
+        "name": "BaseRotationOffset",
+        "class": "StructProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 32,
+        "offset_internal": 992,
+        "property_flags": "0x28081040000000"
+      },
+      {
+        "name": "BaseTranslationOffset",
+        "class": "StructProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 24,
+        "offset_internal": 1024,
+        "property_flags": "0x28081040000200"
+      },
+      {
+        "name": "ReplicatedGravityDirection",
+        "class": "StructProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 24,
+        "offset_internal": 1048,
+        "property_flags": "0x28081040000220"
+      },
+      {
+        "name": "AnimRootMotionTranslationScale",
+        "class": "FloatProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 4,
+        "offset_internal": 1096,
+        "property_flags": "0x28081040000220"
+      },
+      {
+        "name": "CrouchedEyeHeight",
+        "class": "FloatProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 4,
+        "offset_internal": 1100,
+        "property_flags": "0x18001040000205"
+      }
+    ]
+  },
+  {
+    "path": "/Script/Engine.KismetStringLibrary.Conv_NameToString",
+    "candidate_properties_size": 24,
+    "field_chain": [
+      {
+        "name": "InName",
+        "class": "NameProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 8,
+        "offset_internal": 0,
+        "property_flags": "0x18001040000280"
+      },
+      {
+        "name": "ReturnValue",
+        "class": "StrProperty",
+        "owner_matches": true,
+        "array_dim": 1,
+        "element_size": 16,
+        "offset_internal": 8,
+        "property_flags": "0x18000000000780"
+      }
+    ],
+    "function_candidate": {
+      "flags": "0x14022403",
+      "num_parms": 2,
+      "parms_size": 24,
+      "return_offset": 8,
+      "native_rva": "0x4097a10"
+    }
+  }
+]

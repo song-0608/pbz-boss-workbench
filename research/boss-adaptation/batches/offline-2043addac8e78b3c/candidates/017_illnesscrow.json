@@ -1,0 +1,82 @@
+{
+  "id": "017_illnesscrow",
+  "resource_folder": "017_IllnessCrow",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/017_IllnessCrow/BP_Monster_Eagle",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/017_IllnessCrow/BP_Monster_IllnessCrow_Claw",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "8135ae51db20ff16",
+      "package": "/PBZCombatAsset/ActorData/Mobs/017_IllnessCrow/Ability/Claw/Abilities/NewGA/GA_IllnessCrow_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "b6e4538279b4afbc",
+      "package": "/PBZCombatAsset/ActorData/Mobs/017_IllnessCrow/Ability/Claw/Abilities/NewGA/GA_IllnessCrow_Special_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f63dcca057e6adc5",
+      "package": "/PBZCombatAsset/ActorData/Mobs/017_IllnessCrow/Ability/Claw/Abilities/NewGA/GA_IllnessCrow_Special_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

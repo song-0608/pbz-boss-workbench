@@ -1,0 +1,217 @@
+{
+  "id": "yuding_00",
+  "resource_folder": "YuDing_00",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/BP_Monster_FemaleVessel_YuDing",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/BP_Monster_FemaleVessel_YuDing_LengTu",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/YuDing_00/ActorData/ActorC_YuDing",
+    "/PBZCombatAsset/ActorData/Mobs/YuDing_00/ActorData/ActorC_YuDing_LengTu"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "f19f89c96d5c4b53",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/CA/GA_YuDing_CA_Combo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d503e9b91369376a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/CA/GA_YuDing_PreCut_GEd",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "75519c6f63cd88e1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Attack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "10b60d092b85143d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Attack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a39b5beb540f154b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Dodge_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "623d500606d46c42",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7cd454b71fa61105",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Skill",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "af7145d7060ca32f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Skill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9ebc16994c26c11f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Skill_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5f7000b431793d78",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Skill_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9dc0778eef5ab377",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Skill_09",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9b50e76a6f745945",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/GA_YuDing_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5d74110154f30126",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/Grab/GA_YuDing_GEd_01",
+      "observed_class_path": null,
+      "role": "ability_dependency_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "33f8fc06e8726552",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/Passive/GA_Passive_YuDing",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

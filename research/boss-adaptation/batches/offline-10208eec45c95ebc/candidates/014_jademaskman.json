@@ -1,0 +1,203 @@
+{
+  "id": "014_jademaskman",
+  "resource_folder": "014_JadeMaskMan",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/ActorC_JadeMaskMan"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "647ee80c10bb9903",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/AllOutAttack/GA_JadeMaskMan_Attack_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "baa409895655c3bf",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/AllOutAttack/GA_JadeMaskMan_AutoCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "603a5c390f4df07a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/AllOutAttack/GA_JadeMaskMan_DodgeAttack_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d04ca916a92ca561",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Attack_09_DodgeAttack_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "b71d9a8817342c1a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Attack_74_DodgeAttack_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "df7fbbd67875e16e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Attack_75_DodgeAttack_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8099841d3b9f4e56",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Dodge",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "dad47b6fb2e39c97",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Dodge_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f71b13adac6d39aa",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "51db8332a89c4afb",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fdbb53bfd8e7fbd9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_HeavyAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8f60589c268b73b0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_LightAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "40ebcff077ce6152",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "65fddac4ff611b88",
+      "package": "/PBZCombatAsset/ActorData/Mobs/014_JadeMaskMan/Abilities/GA_JadeMaskMan_SpecialSkill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

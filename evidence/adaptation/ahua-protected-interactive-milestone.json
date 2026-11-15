@@ -1,0 +1,33 @@
+{
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-121801\\state.json",
+  "log_sha256": "6742757aa16a0cfdd6a942d225768a653ccf9ecbd7c170669453bbbf1ee3c293",
+  "passed": true,
+  "actions": {
+    "enter": true,
+    "slot1": true,
+    "heavy_01": true,
+    "skill_02": true,
+    "dash": true,
+    "exit": true,
+    "stop": true
+  },
+  "checks": {
+    "input_barrier": true,
+    "player_position_unchanged": true,
+    "player_no_new_active_ability": true,
+    "bounded_cleanup_reached": true
+  },
+  "formal_file_count": 56,
+  "formal_files_changed": [],
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "health_evidence": "player protection restoration verifies captured health; no standalone health value in interactive log",
+  "skill_damage_evidence": "See earlier paired per-skill remote-control milestone; interactive key success alone is not a damage measurement",
+  "remaining": [
+    "camera component unregistration / garbage collection",
+    "death and map transition full runtime acceptance",
+    "all Ahua skills and additional bosses",
+    "new practice launcher runtime acceptance"
+  ],
+  "complete_all_boss_mod": false
+}

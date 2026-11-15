@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-12T23:40:09.009683+08:00",
+  "menu_verified": true,
+  "offline_cold_start_verified": true,
+  "ue4ss_event_loop_started": true,
+  "lua_mods_tested": false,
+  "screenshot": "adapted-menu-review.png",
+  "custom_profile_sha256": "08d9cfa5fef5d0deef92a5c3256f52c3cac9e6d613bcd8ad251116c38f72872f",
+  "scope": "Source-built UE4SS with own AOB and offsets, optional hooks all disabled; menu only",
+  "work": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261112-233743"
+}

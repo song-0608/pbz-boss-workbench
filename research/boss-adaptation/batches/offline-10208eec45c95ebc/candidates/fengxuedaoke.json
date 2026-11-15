@@ -1,0 +1,271 @@
+{
+  "id": "fengxuedaoke",
+  "resource_folder": "FengXueDaoKe",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/BP_Monster_FengXueDaoKe_NPC",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/ActorConfig/ActorC_FengXueDaoKe",
+    "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/ActorConfig/ActorC_FengXueDaoKe_NPC"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "576f6ca517ade7fb",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Attack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "646263c284d7569a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Attack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "806c567d7377d533",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Attack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8eda0ff1c8acd8c9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Attack_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "db06a4b3d13fe94c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_BuffAtk",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "69e4cfc77bbb7588",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Dodge_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "4829448ba2c5f788",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Dodge_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d06e34cb948324da",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_01_Short",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f000f8c6a95ba823",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "692815fc49e78874",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_02_Short",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f000b709611b4b58",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "009112e7603d6464",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_07_Combo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "4508b32fcdfb4023",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_08",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "612ac1f193bd6759",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_SpecialAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "28fd7fab94199740",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d3cdad190a165dd2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_SpecialAttack_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "ff73e09994bd9a64",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_SpecialAttack_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "cd39334d68fda7a7",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_taunt_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "70b29c964982904b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_Passive_FengXueDaoKe",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

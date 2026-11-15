@@ -1,0 +1,217 @@
+{
+  "at": "2026-11-13T14:50:57.264462+08:00",
+  "sessions": [
+    {
+      "directory": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-141128",
+      "log_sha256": "7431ef22b7537d9bb2e15fa539d00ff76bf9c70da178e7b801e50de715fe39d1",
+      "samples": [],
+      "attempted": [
+        "attack_01"
+      ],
+      "brain_pause_reassertions": [],
+      "entered": true,
+      "exited": false,
+      "original_player_stationary_at_exit": false,
+      "original_player_no_new_active_at_exit": false,
+      "skill06_active_cancel_verified": false,
+      "issues": [
+        "[2026-11-13 14:16:21.0340792] [Lua] PBZ_REMOTE_VERIFY:FAILED=brain_tick_disabled[2026-11-13 14:16:21.1055508] [Lua] PBZ_CONTROL_VERIFY:FAILED=owned[2026-11-13 14:16:21.1415743] [Lua] PBZ_CONTROL_LIFECYCLE:CANCEL_ACTIVE_BEFORE=1",
+        "[2026-11-13 14:16:21.1416703] [Lua] PBZ_CONTROL_LIFECYCLE:CANCEL_RESULT=false|active=1",
+        "[2026-11-13 14:16:21.4646129] [Lua] [PBZBossControl] frame success=false state=FAULTED reason=possession lost",
+        "[2026-11-13 14:16:25.3441177] [Lua] PBZ_CONTROL_LIFECYCLE:ISSUE_CAMERA_OBSERVATION=...tform/steam/ue4ss/Mods/PBZObserveAI/Scripts/ue_calls.lua:8: resolved object is invalid"
+      ],
+      "formal_file_count": 56,
+      "formal_changed_count": 0,
+      "research_box_empty": true,
+      "research_loader_removed": true
+    },
+    {
+      "directory": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-141748",
+      "log_sha256": "a049aa980847951bd512506f167c512ec334e9b641c94edd57a41f0285494a31",
+      "samples": [
+        {
+          "id": "skill_04",
+          "peak": 1,
+          "active_after": 0,
+          "natural_finish": true,
+          "health_before": 9000.0,
+          "health_after": 9000.0,
+          "position_delta": 1035.7132509291,
+          "damage_observed_in_window": false
+        },
+        {
+          "id": "skill_06",
+          "peak": 1,
+          "active_after": 0,
+          "natural_finish": true,
+          "health_before": 9000.0,
+          "health_after": 8350.0,
+          "position_delta": 250.68210623093,
+          "damage_observed_in_window": true
+        },
+        {
+          "id": "special_05_a",
+          "peak": 1,
+          "active_after": 0,
+          "natural_finish": true,
+          "health_before": 8350.0,
+          "health_after": 8350.0,
+          "position_delta": 416.72955765481,
+          "damage_observed_in_window": false
+        }
+      ],
+      "attempted": [
+        "skill_04",
+        "skill_06",
+        "special_05_a",
+        "attack_01"
+      ],
+      "brain_pause_reassertions": [
+        "1"
+      ],
+      "entered": true,
+      "exited": false,
+      "original_player_stationary_at_exit": false,
+      "original_player_no_new_active_at_exit": false,
+      "skill06_active_cancel_verified": false,
+      "issues": [
+        "[2026-11-13 14:28:33.5442562] [Lua] PBZ_CONTROL_LIFECYCLE:CANCEL_RESULT=false|active=1",
+        "[2026-11-13 14:28:33.8207454] [Lua] [PBZBossControl] exit success=false state=FAULTED reason=restore not verified"
+      ],
+      "formal_file_count": 56,
+      "formal_changed_count": 0,
+      "research_box_empty": true,
+      "research_loader_removed": true
+    },
+    {
+      "directory": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-143058",
+      "log_sha256": "b3b6b3ac95b8b9abab05b5ea5278bdcd6697d8528a36c28118e1d340b3e9b4ef",
+      "samples": [
+        {
+          "id": "skill_06",
+          "peak": 1,
+          "active_after": 0,
+          "natural_finish": true,
+          "health_before": 9000.0,
+          "health_after": 8350.0,
+          "position_delta": 639.02599639172,
+          "damage_observed_in_window": true
+        },
+        {
+          "id": "skill_06",
+          "peak": 1,
+          "active_after": 0,
+          "natural_finish": false,
+          "health_before": 8350.0,
+          "health_after": 8350.0,
+          "position_delta": 458.32245386477,
+          "damage_observed_in_window": false
+        }
+      ],
+      "attempted": [
+        "skill_06",
+        "skill_06"
+      ],
+      "brain_pause_reassertions": [],
+      "entered": true,
+      "exited": true,
+      "original_player_stationary_at_exit": true,
+      "original_player_no_new_active_at_exit": true,
+      "skill06_active_cancel_verified": true,
+      "issues": [],
+      "formal_file_count": 56,
+      "formal_changed_count": 0,
+      "research_box_empty": true,
+      "research_loader_removed": true
+    }
+  ],
+  "candidates": {
+    "attack_01": {
+      "attempted": true,
+      "sample_count": 0,
+      "natural_finish_observed": false,
+      "damage_observed_in_window": false,
+      "automatically_released": false
+    },
+    "skill_04": {
+      "attempted": true,
+      "sample_count": 1,
+      "natural_finish_observed": true,
+      "damage_observed_in_window": false,
+      "automatically_released": false
+    },
+    "skill_06": {
+      "attempted": true,
+      "sample_count": 3,
+      "natural_finish_observed": true,
+      "damage_observed_in_window": true,
+      "automatically_released": false
+    },
+    "special_05_a": {
+      "attempted": true,
+      "sample_count": 1,
+      "natural_finish_observed": true,
+      "damage_observed_in_window": false,
+      "automatically_released": false
+    }
+  },
+  "collection_complete": true,
+  "complete_all_boss_mod": false,
+  "candidate_release_requires_separate_review": true,
+  "current_assembly_deployment": {
+    "at": "2026-11-13T14:41:54.289939+08:00",
+    "grant": {
+      "isolated": true,
+      "offline": true,
+      "expires_at": 1794552628,
+      "session_id": "official-validation-20261113-143058",
+      "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423"
+    },
+    "formal_install_modified": false,
+    "temporary_actor_owned_by_probe": true,
+    "skill_lab": false,
+    "expanded": false,
+    "assembly_source_sha256": "bcfc13044e8cab43f224814beff1da05874c4ea328e5089b6f0f8fcc55f09829",
+    "module_source_sha256": {
+      "config.lua": "9d6a986653762d0ff151879f9fc6f9841d172159cb4e06bd6f6f9197e5afaab0",
+      "session.lua": "ee4f91677e68784c823e3e259bfb4afba036aa6075582d92cdc508253d435f21",
+      "pbz_bridge.lua": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49",
+      "ue_calls.lua": "c2b5431a43bbfad4843db22fa78ee814649e8b7b0730f0021c1c14f88cb046c1",
+      "control_bridge.lua": "adb3cc638917242f6bf48f6795d07561e6e8aa2fd558d7e3dedbc2beae7e1f7f",
+      "input_driver.lua": "7d5c2b6136d331023533b75fc23f2f16c1cb4540b6029170fa11a6a6fc46d730",
+      "ue_input.lua": "2a4839e84ebdcbe926ad05d153a0ec8e15432dd627c666931dbd846676f061f0",
+      "runtime.lua": "864ea43de6bd630214c03718d3df166420a4d8cd4b368646e1eedec8c45066d2",
+      "ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+      "camera_rig.lua": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100",
+      "ue_camera.lua": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1",
+      "combat_identity.lua": "855c900bd3169449b652aa6e1e8fc07f24721d8c88422fea7e8fca70b1c75092",
+      "ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+      "remote_control.lua": "cb6f7f4d5eedde12ce2b0a97f549a09a326bfa9a72d2eafc5566bdb4c7b2d7aa",
+      "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+      "input_barrier.lua": "5c3ca8d5bbdafbeb69ccf2d3a8978990fab953138ce885f4ae7ed3537235eb8c",
+      "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+      "player_protection.lua": "a4bdfa314737b5da8f719c753da1504dab676e77eef5170af1aa26765bfdd118",
+      "target_selector.lua": "094884f8651423389723e107f8e592c92c77f951a1c65969c67db24e9f634c1c",
+      "skill_lab.lua": "d80e3b80c69bba9607de10d57bd973c9356a32af1df519d022c1cb6b333942a4",
+      "profiles/ahua.lua": "6ac06909f916b955a8e8ce185e6ff1d10fe4d2686f75524e251bae8f13032ad1"
+    }
+  },
+  "local_checks": "evidence/adaptation/ahua-delivery-local-checks.json",
+  "version": "v0.3",
+  "default_player_checks": {
+    "five_key_default_ready": true,
+    "skill06_natural_finish": true,
+    "skill06_default_damage": true,
+    "skill06_active_cancel_verified": true,
+    "entered": true,
+    "exited": true,
+    "no_runtime_fault": true,
+    "player_stationary": true,
+    "player_no_new_ability": true,
+    "damage_evidence": true
+  },
+  "default_skill06_key": "F5",
+  "skill06_released_to_bounded_player_practice": true,
+  "unsafe_attack01_quarantined": true,
+  "full_ten_minutes_tested": false
+}

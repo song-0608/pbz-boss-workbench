@@ -1,0 +1,232 @@
+{
+  "id": "051_hookman_p2",
+  "resource_folder": "051_HookMan_P2",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/BP_Monster_HookMan_P2",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "037ff62a44c06dfe",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Dodge_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "73db2522d4ff6ed0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3ebb6158c0985eb4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_LightAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "bc2e0508ab84c32b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_LightAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "01e7ddc804fad093",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_MiddleAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "91e5aac38d01b6d4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Skill_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "785b0bc1a53b0878",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Skill_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3a50ae8c521458f0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Skill_07_Combined",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "442c03013d9e1b8c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e56bca28d5368b22",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_04_Hard",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "44e690d36dc2f900",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "b7a087aa7aedcae7",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_05_DirectAttack",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "734c4ca5c4f85bb8",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "83979a7f3178cb72",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_06_Combined",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e9c80ccfb5c1f28a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_07",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "32d0603758f0a067",
+      "package": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Subtitles",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

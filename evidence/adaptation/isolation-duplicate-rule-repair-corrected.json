@@ -1,0 +1,65 @@
+{
+  "at": "2026-11-15T09:16:35.073691+08:00",
+  "before": [
+    "\\Device\\RawIp",
+    "\\Device\\Ip*",
+    "\\Device\\Tcp*",
+    "\\Device\\HarddiskVolume4\\steam\\*",
+    "\\Device\\HarddiskVolume3\\Users\\xuesong\\AppData\\Local\\PBZBossLabProbe\\*",
+    "\\Device\\HarddiskVolume3\\Users\\xuesong\\AppData\\Local\\ProjectPBZ\\*",
+    "\\Device\\HarddiskVolume3\\Users\\xuesong\\AppData\\Local\\ProjectPBZ\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\steamapps\\common\\PBZ\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\steamapps\\common\\PBZ\\*",
+    "\\Device\\HarddiskVolume3\\Users\\xuesong\\AppData\\Local\\ProjectPBZ\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\steamapps\\common\\PBZ\\*",
+    "vmnetcfg.exe,\\Device\\VMnetUserif",
+    "|C:\\WINDOWS\\Sys*\\wsmsvc.dll",
+    "|C:\\WINDOWS\\Sys*\\wsmauto.dll",
+    "|C:\\WINDOWS\\Sys*\\winrs.exe",
+    "msiexec.exe,*\\ie4uinit.exe"
+  ],
+  "after": [
+    "\\Device\\RawIp",
+    "\\Device\\Ip*",
+    "\\Device\\Tcp*",
+    "\\Device\\HarddiskVolume4\\steam\\*",
+    "\\Device\\HarddiskVolume3\\Users\\xuesong\\AppData\\Local\\PBZBossLabProbe\\*",
+    "\\Device\\HarddiskVolume3\\Users\\xuesong\\AppData\\Local\\ProjectPBZ\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\*",
+    "\\Device\\HarddiskVolume6\\SteamLibrary\\steamapps\\common\\PBZ\\*",
+    "vmnetcfg.exe,\\Device\\VMnetUserif",
+    "|C:\\WINDOWS\\Sys*\\wsmsvc.dll",
+    "|C:\\WINDOWS\\Sys*\\wsmauto.dll",
+    "|C:\\WINDOWS\\Sys*\\winrs.exe",
+    "msiexec.exe,*\\ie4uinit.exe"
+  ],
+  "same_effective_denials": true,
+  "counts_verified": true,
+  "changes": [
+    {
+      "before_count": 3,
+      "after_count": 1,
+      "canonical_rule": "C:\\Users\\xuesong\\AppData\\Local\\ProjectPBZ\\*"
+    },
+    {
+      "before_count": 9,
+      "after_count": 1,
+      "canonical_rule": "E:\\SteamLibrary\\*"
+    },
+    {
+      "before_count": 3,
+      "after_count": 1,
+      "canonical_rule": "E:\\SteamLibrary\\steamapps\\common\\PBZ\\*"
+    }
+  ],
+  "game_started": false
+}

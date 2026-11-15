@@ -1,0 +1,301 @@
+{
+  "id": "feizei",
+  "resource_folder": "FeiZei",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/BP_Monster_FeiZei_Base",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/BP_Monster_FeiZei_NiShuiZei",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/BP_Monster_FeiZei_Normal",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/BP_Monster_FeiZei_ZongHuoZei",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/FeiZei/ActorData/ActorC_FeiZei_Normal",
+    "/PBZCombatAsset/ActorData/Mobs/FeiZei/ActorData/ActorC_FeiZei_ZongHuoZei"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "34113ad18ef7ec4d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_NiShuiZei/Abilities/GA_FeiZei_NiShuiZei_Attack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fbfd52d475eb7a66",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_NiShuiZei/Abilities/GA_FeiZei_NiShuiZei_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "70dbb4497781fe94",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_NiShuiZei/Abilities/GA_FeiZei_NiShuiZei_Skill_01_End",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f97a4adb5729e80d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_NiShuiZei/Abilities/GA_FeiZei_NiShuiZei_SpecialAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "31d8083253792738",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_NiShuiZei/Abilities/GA_FeiZei_NiShuiZei_SpecialAttack_03_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7a16bf77418655a1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Dodge_F_Invisibility_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f9a84c5617f2bcec",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "640ef1c02cd6d686",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8ccf269a15bfddc4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Invisibility_Start",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7c9c95e8d16fedae",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_Fire_AutoCombo_Invisibility",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6d65893b89663f1b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_Noraml_Attack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6f2027cddabc1c33",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_SpecialAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "0e1f12e662045a7f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_SpecialAttack_03_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f9165da7947c2e7e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_SpecialAttack_08",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3118a3fbd23c5422",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_SpecialAttack_08_OutAttack",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6b979bcd73f0d21e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_ZongHuoZei/Abilities/Dodge/GA_FeiZei_ZongHuoZei_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "58d1d66b8daf7df1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_ZongHuoZei/Abilities/GA_FeiZei_ZongHuoZei_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a349f1024e76afb1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_ZongHuoZei/Abilities/GA_FeiZei_ZongHuoZei_SpecialAttack_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "eadda6e68995b8e5",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_ZongHuoZei/Abilities/GA_FeiZei_ZongHuoZei_SpecialAttack_07_RedEye",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "ab163a39bd2b2681",
+      "package": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/Story/GA_FeiZei_Noraml_Story_Intro_Attack",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

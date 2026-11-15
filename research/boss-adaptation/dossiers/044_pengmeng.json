@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "id": "044_pengmeng",
+  "resource_folder": "044_PengMeng",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/CA/GA_Hun_BEd_Common_PengMeng",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/CA/GA_PengMeng_CA_02_GEd",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/CA/GA_PengMeng_CA_02_GEx",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_AutoCombo_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_04",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_06_Child",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_07",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special05_Combo",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_02",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_03",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_03_fast",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_03_hard",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_05",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_06_hard",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_08",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_08_hard",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_09",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_09_BlueEye",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_B_Back",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_B_LeftAttack",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_B_RightAttack",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Passive/GA_PengMeng_LowHealthBerserk",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Passive/GA_PengMeng_Subtitles_Once"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/ActorData/ActorC_PengMeng_Axe_NPC"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BP_Monster_PengMeng_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BP_Monster_PengMeng_Base"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/AIConfig",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/AIConfig/AIConfig_PengMeng_Axe_NPC",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/AIConfig/AbilityPool_PengMeng_Axe_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_CA_01_GEx",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_CA_02_GEx",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_04_03",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_04_04",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_05_05",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_06_02",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_06_04",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Skill_07_05",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_03_02_hard",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_08_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_09_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_09_02",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_11_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/BD_GA_PengMeng_Special_12_A_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/EB_PengMeng_CA_01_GEb_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/EB_PengMeng_CA_01_GEb_02",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/EB_PengMeng_CA_01_GEb_03",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/EB_PengMeng_CA_02_GEb_01",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/BulletData/EB_PengMeng_CA_02_GEb_03",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/CA",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/CA/Hun_PengMeng_BeKilled_By_Hun_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/CA/Hun_PengMeng_CriticalArt_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/CA/PengMeng_BeKilled_By_Hun_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/CA/PengMeng_CriticalArt_01_Fail_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/CA/PengMeng_CriticalArt_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_Hit_B_LightBreak_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_Hit_Light_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_Hit_Special_Loop_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_07_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_11_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_12_B_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialAttack_12_B_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialSkill_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_SpecialSkill_07_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Montage/PengMeng_Stroy_Idle_End_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/ActorData",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BPI_ControlRigHitV1",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_03",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_05",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_Solo",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_Special_05_Combo",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/GameplayEffect",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/GameplayEffect/GE_PengMeng_CanSpeakTag",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/WeaponData",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/WeaponData/Axe",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/WeaponData/Axe/Hit_PengMeng_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/WeaponData/Axe/PBZ_ABP_Item_PengMeng_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/WeaponData/Axe/Weapon_PengMeng_Axe"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

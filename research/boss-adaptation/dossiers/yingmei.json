@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "id": "yingmei",
+  "resource_folder": "YingMei",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/Story/GA_YingMei_Story_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/Story/GA_YingMei_Story_Intro_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/Story/GA_YingMei_Story_Intro_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Common_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_2Hit",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_2Hit_A",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_2Hit_R",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_L_5Wave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_MaskBuff",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_RR_Wave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Attack_Rotate",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Cyan_Skill_Punch",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities/GA_YingMei_Dodge_F_Teleport",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_Common_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_Common_Dodge_L_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_Common_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_RedShadowBoneBlade_StraightDash",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_AutoCombo_Hard",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_3Hit_L",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_4Hit_Punch",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_5Hit",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch_A",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_MaskBuff",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_Poke_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_Run1Hit_R",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Skill_Poke_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Skill_PushPunch",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Intro/GA_YingMei_Intro_Idle",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Summon/GA_YingMei_Dodge_B_KillSelf",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Sword/GA_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_FoolDraw",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Sword/GA_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_Slam4Hit",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Sword/GA_YingMei_RedShadowBoneBlade_Skill_Sword_2Hit_A",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Sword/GA_YingMei_RedShadowBoneBlade_Skill_Sword_2Hit_B",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_2Wave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_2Wave_Fast",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_R_Wave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Passive/GA_PhantomPassive_YingMei",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Passive/GA_YingMei_RedShadowBoneBlade_SummonPassive",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Passive/GA_YingMei_RedShadowBoneBlade_WeaponPassive"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/ActorData/ActorC_YingMei_Red_Summon"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/BP_Monster_YingMei_Cyan"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/AIConfig",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/AIConfig/AIConfig_RedShadowBoneBlade",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/AIConfig/AIConfig_YingMei_Cyan",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/AIConfig/AbilityPool_YingMei_Dodge",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/AIConfig/ActivityConfig_YingMei",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_2Hit_A_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_2Hit_R_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_3Hit_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_3Hit_L_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_3Hit_L_05",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_L_5Wave_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_L_5Wave_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_L_5Wave_07",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_MaskBuff_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_Rotate_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_Rotate_04",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Attack_Run1Hit_R_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Skill_Sword_Slam4Hit_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Skill_Sword_Slam4Hit_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_Cyan/BulletData/BulletData_YingMei_Cyan_Skill_Sword_Slam4Hit_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Summon",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodHead/BD_YingMei_RedShadowBoneBlade_Skill_BloodHead",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodHead/BD_YingMei_RedShadowBoneBlade_Skill_BloodHead_HitBox",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodHead/BD_YingMei_RedShadowBoneBlade_Skill_BloodHead_Stab",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodLine/BD_YingMei_GA_YingMei_Skill_Sword_2Hit_A_BloodLine1",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodLine/BD_YingMei_GA_YingMei_Skill_Sword_2Hit_A_BloodLine2",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodLine/BD_YingMei_GA_YingMei_Skill_Sword_2Hit_A_BloodLine3",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodLine/BD_YingMei_GA_YingMei_Skill_Sword_Small_02_BloodLine",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodLine/BD_YingMei_RedShadowBoneBlade_LongCombo_BloodLine_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BloodLine/BD_YingMei_RedShadowBoneBlade_Skill_BloodLine_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_2Hit_A_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_2Hit_A_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_2Hit_R_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_3Hit_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_3Hit_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_3Hit_L_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_3Hit_L_04",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_3Hit_L_05",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_4Hit_Punch_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_4Hit_Punch_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_5Hit_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_5Hit_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_5Hit_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_5Hit_04",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch_05",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack_01_L",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack_01_R",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack_02_L",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack_02_R",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Attack_Rotate_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/BulletData_YingMei_RedShadowBoneBlade_Skill_PushPunch_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Mask",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Mask/BD_YingMei_RedShadowBoneBlade_Skill_Buff",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Sword/BulletData_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_LongCombo_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Sword/BulletData_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_Small4Hit_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Sword/BulletData_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_Small4Hit_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Sword/BulletData_YingMei_RedShadowBoneBlade_Skill_Sword_2Hit_A_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Sword/BulletData_YingMei_RedShadowBoneBlade_Skill_Sword_2Hit_A_Explode",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Sword/BulletData_YingMei_RedShadowBoneBlade_Skill_Sword_2Hit_B_04",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_KnifeWave_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_2Wave_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_2Wave_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_2Wave_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_5Wave_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_5Wave_03New",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_5Wave_04",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_L_5Wave_07",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Attack_R_Wave_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/BulletData/Wave/BulletData_YingMei_RedShadowBoneBlade_Skill_Back6Wave_03",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/Deflect",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Battle_Dodge_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Battle_Dodge_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_03_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_03_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_08_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_10_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_11_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_12_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_14_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_16_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_17_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_18_Short_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Montage/YingMei_Chi_Skill_19_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Passive",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/ActorData",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/BehaviorTree/BT_Monster_YingMei_AutoCombo_01",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/BehaviorTree/BT_Monster_YingMei_AutoCombo_02",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Bullets/BP_YingMei_Cyan_KnifeWave",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/Bullets/BP_YingMei_RedShadowBoneBlade_KnifeWave_Big",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects/GE_YingMei_CanNotSword",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects/GE_YingMei_DamageSelf",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects/GE_YingMei_HealSelf",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects/GE_YingMei_RedShadowBoneBlade_SwordDamage",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects/GE_YingMei_ShaChiReduction",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/GameplayEffects/GE_YingMei_SummonTag",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/WeaponData/YingMei_RedShadowBoneBlade",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/WeaponData/YingMei_RedShadowBoneBlade/Hit_YingMei_RedShadowBoneBlade",
+      "/PBZCombatAsset/ActorData/Mobs/YingMei/WeaponData/YingMei_RedShadowBoneBlade/PBZ_ABP_Item_YingMei_Common"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

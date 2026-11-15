@@ -1,0 +1,94 @@
+{
+  "at": "2026-11-13T11:52:29.657561+08:00",
+  "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "scope": "read-only on-disk PE; preferred image addresses, not verified live objects",
+  "image_base": "0x140000000",
+  "strings": [
+    {
+      "text": "PBZCharacter_NPC",
+      "matches": [
+        {
+          "encoding": "utf-16le",
+          "rva": "0xc023ffa",
+          "file_offset": "0xc0233fa"
+        },
+        {
+          "encoding": "utf-16le",
+          "rva": "0xc029280",
+          "file_offset": "0xc028680"
+        },
+        {
+          "encoding": "utf-16le",
+          "rva": "0xc1eb2cc",
+          "file_offset": "0xc1ea6cc"
+        },
+        {
+          "encoding": "utf-16le",
+          "rva": "0xc761556",
+          "file_offset": "0xc760956"
+        },
+        {
+          "encoding": "ascii",
+          "rva": "0xc1ec1d5",
+          "file_offset": "0xc1eb5d5"
+        }
+      ],
+      "xrefs": [
+        {
+          "instruction_rva": "0x6563486",
+          "target_rva": "0xc029280",
+          "function": {
+            "start_rva": "0x6563440",
+            "end_rva": "0x65634ee",
+            "unwind_rva": "0xd28c848"
+          },
+          "rva": "0x6563486",
+          "bytes": "48 8d 15 f3 5d ac 05",
+          "instruction": "lea rdx, [rip + 0x5ac5df3]",
+          "rip_target_rvas": [
+            "0xc029280"
+          ]
+        }
+      ]
+    },
+    {
+      "text": "PBZCharacter_Player",
+      "matches": [
+        {
+          "encoding": "utf-16le",
+          "rva": "0xc02ad72",
+          "file_offset": "0xc02a172"
+        },
+        {
+          "encoding": "utf-16le",
+          "rva": "0xc02cfd8",
+          "file_offset": "0xc02c3d8"
+        },
+        {
+          "encoding": "ascii",
+          "rva": "0xc1ec6e5",
+          "file_offset": "0xc1ebae5"
+        }
+      ],
+      "xrefs": [
+        {
+          "instruction_rva": "0x65684c6",
+          "target_rva": "0xc02cfd8",
+          "function": {
+            "start_rva": "0x6568480",
+            "end_rva": "0x656852e",
+            "unwind_rva": "0xd28c848"
+          },
+          "rva": "0x65684c6",
+          "bytes": "48 8d 15 0b 4b ac 05",
+          "instruction": "lea rdx, [rip + 0x5ac4b0b]",
+          "rip_target_rvas": [
+            "0xc02cfd8"
+          ]
+        }
+      ]
+    }
+  ],
+  "disassembly": [],
+  "xrefs": []
+}

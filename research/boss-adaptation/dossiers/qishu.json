@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "id": "qishu",
+  "resource_folder": "QiShu",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/Air/GA_Qishu_Bing_RoundSkill_ForAirCA",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/Common/GA_Qishu_Common_Attack_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/Common/GA_Qishu_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/Common/GA_Qishu_Dodge_F",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/GA_QiShu_Bing_DodgeAttack_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/GA_QiShu_Bing_DodgeAttack_R_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/GA_QiShu_Bing_RangeAttack_02_BluePuck",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/GA_QiShu_Bing_RangeAttack_03_IcicleAndStorm",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/GA_Qishu_Bing_FrostStorm",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/GA_SummonPassive_QiShu_Bing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Common/GA_Qishu_Common_Attack_02",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Du/GA_Qishu_Du_Reset_Hard",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Du/GA_Qishu_Du_Scence_Fog",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Du/GA_Qishu_Du_ShotBall",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Du/GA_Qishu_Du_Summon_Call",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Du/GA_Stand_Passive_Qishu_Du_Phantom",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/GA_Qishu_Huo_DodgeAttack_B_TrapStand",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/GA_Qishu_Huo_DodgeAttack_F",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/GA_Qishu_Huo_StandMagic_Explosion",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/GA_Qishu_Huo_StandMagic_FireBallShoter",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/ca/GA_Qishu_Huo_RoundSkill_ForAirCA",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/ca/GA_Qishu_Skill05_Air_Start",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/GA_Qishu_Lei_BulletAttack_01_Easy",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/GA_Qishu_Lei_BulletAttack_01_Hard",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/GA_Qishu_Lei_SplitAttack_01_Easy",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/GA_Qishu_Lei_SplitAttack_Reset",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/GA_SummonPassive_QiShu_Lei_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Black",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_F",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_R",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_L",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_L_Easy",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_R",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_R_Easy"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData/ActorC_QiShu_Du_Phantom"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Bing_Phantom",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Du",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Du_Phantom",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Lei",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Lei_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/ShowUp/BP_Monster_QiShu_SnapPoint_01"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Bing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Bing/AIConfig_Qishu_Bing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Bing/ActivityConfig_Qishu_Bing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Du",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Du/AIConfig_Qishu_Du",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Du/AbilityPool_Qishu_Du",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Du/AbilityPool_Qishu_Du_Phantom",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Huo/AIConfig_Qishu_Huo",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Lei",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Lei/AIConfig_Qishu_Lei",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AIConfig/Lei/AbilityPool_Qishu_Lei",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Bing/Air",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Common",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Du",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/GE_Qishu_Huo_Ca_AirCombo_01_CD",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/ca",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Huo/ca/SubGA_Qishu_Huo_Skill05_AirMoving_R",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Passive",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Passive/EQS_QiShu_Bing_Reset_Close",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Passive/EQS_QiShu_Reset_AroundTarget",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Passive/EQS_QiShu_Reset_Short",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_GA_Qishu_Common_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_Qishu_Bing_FrostStorm",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_Qishu_Bing_IceSpear_Range_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_Qishu_Bing_IceSpear_Range_02",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_Qishu_Bing_IceSpear_Range_04",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_Qishu_Bing_IcicleWarning",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Bing/BD_Qishu_Bing_SnowStorm",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/BulletData_QishuCommon_WeaponTaril",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du/BulletData_Qishu_Du_CounterExplosion",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du/bullet",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du/bullet/BD_Qishu_Du_VenomBolt",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du/bullet/BD_Qishu_Du_VenomBolt_CounterReflect",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du/bullet/BulletData_Qishu_Du_PoisonExplosion_LockTarget",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Du/bullet/SubBD_Qishu_Du_GroungPoison",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_FanFire",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_FireBall",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_FireBall_Refelct",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_FireBall_Slow",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_InplaceDelayExplosion",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_KeepShotFireBall_Forward",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_StandTrap",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BD_Qishu_Huo_SuperAirFireBall",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BP_Qishu_Huo_FireBall",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BP_Qishu_Huo_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/BP_Qishu_Huo_StandAssault",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/SubBD_Qishu_Huo_ExplosionFlame",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/Bullet/SubBD_Qishu_Huo_Gorundflame_FireBall",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/BulletData_Qishu_Huo_Around",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Huo/BulletData_Qishu_Huo_Around_02",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Bullet",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Bullet/BD_Qishu_Lei_GounrdRing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Bullet/BD_Qishu_Lei_LightLazer_Alert_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Bullet/BD_Qishu_Lei_LightLazer_Alert_PowerAttack",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Bullet/BD_Qishu_Lei_Lightning",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Bullet/BP_Bullet_Qishu_Lei_Lazer",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Stand",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/BulletData/Lei/Stand/BulletData_Qishu_Lei_MoveAttack_F_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AiScript",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/AiScript/AiScript_ResetOnPlayerDead",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Bing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Bing/BT_QiShu_Bing_Melee",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Bing/BT_QiShu_Bing_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Huo/Combo",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Huo/Combo/BT_Qishu_Huo_CA_AirCombo_01",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_CloseAttack",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_L1",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_L2",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_R",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_R2",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/Bullets",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/Bing/GAA_ForceLockScavenger",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/Bing/GE_FrostDebuff",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/Bing/GE_Frost_Bing_Permanent",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/GE_Qishu_Du_HasPhantom",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/GE_Qishu_Du_PhantomCoolDown",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/GE_Qishu_Phantom_Disable",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/GameplayEffect/GE_Qishu_Phantom_Enable",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/ShowUp",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/BP_Weapon_QiShu_Huo",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/BP_Weapon_QiShu_Lei",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_QiShu_Bing_Icicle",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_QiShu_Bing_IcicleSpawner",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_Qishu_Bing_BluePuck",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_Qishu_Bing_IceShard",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_Qishu_Bing_RedSpear",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_Qishu_Bing_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Bing/BP_Qishu_Bing_TakeSpear",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Hit_QiShu_Du_Phantom",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Hit_QiShu_Huo",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Weapon_Qishu_Huo",
+      "/PBZCombatAsset/ActorData/Mobs/QiShu/WeaponData/Weapon_Qishu_Lei"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

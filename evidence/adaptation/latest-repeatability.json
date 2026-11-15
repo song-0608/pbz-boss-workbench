@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-12T23:57:56.889657+08:00",
+  "passed": true,
+  "game_pids": [
+    47180,
+    42900
+  ],
+  "same_research_steam_client": true,
+  "two_separate_game_processes": true,
+  "two_separate_client_cold_starts": false,
+  "cross_game_version_verified": false,
+  "profile_sha256": "b4578a4890126aff4f7af246675085e007319f3a43e9fb02f52dd6c320ab15d1",
+  "lua_sha256": "b9cc498e7ccaf5014f2e63f85c454562c45ecca3b9f3bb629e6c3bb7dbb94fb9",
+  "ue4ss_dll_sha256": "27ca1098104e231ab40e89cc9f87643647fcb3937a8aa832b57e180df96bcff7",
+  "screenshots": [
+    "lua-pass-menu-review.png",
+    "lua-second-pass-menu-review.png"
+  ],
+  "work": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261112-234911"
+}

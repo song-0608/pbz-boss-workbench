@@ -1,0 +1,3547 @@
+{
+  "passed": true,
+  "callback_cost_reduction_percent": 99.3147608705963,
+  "tick_rate_ratio": 31.204610664758967,
+  "metric": "one callback per game-thread EngineTick; not GPU presentation/FPS telemetry",
+  "baseline": {
+    "session": "20261114-224155",
+    "log_sha256": "b68ef7ba602e93e8aa91d7afab013658664ef6f6b31dc25ecc98a9458f0babb2",
+    "loader_settings_sha256": "508bc4635d1553ab5905665dc74cb6c42abb64a1658f2af2361223c6dd2c5e35",
+    "loader_settings": "[Overrides]\n; Path to the 'Mods' folder\n; Default: <dll_directory>/Mods\nModsFolderPath =\n\n; Additional mods directories to load mods from.\n; Use + prefix to add a directory, - prefix to remove.\n; Can be relative to working directory or absolute paths.\n; Note: If multiple directories contain mods with the same name, the last one found will be loaded.\n; Example:\n;   +ModsFolderPaths = ../SharedMods\n;   +ModsFolderPaths = C:/MyMods\n;   -ModsFolderPaths = ../SharedMods\n; Default: None\n\n; Path to a specific mods.txt file to use as the controlling mod list.\n; If set, ONLY this mods.txt will be parsed instead of mods.txt from all mod directories.\n; Can be relative to working directory or an absolute path.\n; Example: ControllingModsTxt = ../MyMods/mods.txt\n; Default: Empty (parse mods.txt from all mod directories)\nControllingModsTxt =\n\n[General]\n; Whether to reload all mods when the key defined by HotReloadKey is hit.\n; Default: 1\nEnableHotReloadSystem = 1\n\n; The key that will trigger a reload of all mods.\n; The CTRL key is always required.\n; Valid values (case-insensitive): Anything from Mods/Keybinds/Scripts/main.lua\n; Default: R\nHotReloadKey = R\n\n; Whether to automatically reload mods when a change is detected.\n; The reload triggers when any file is edited or a new file is added to the 'Scripts' directory.\n; Default: 0\nEnableAutoReloadingLuaMods = 0\n\n; Whether the cache system for AOBs will be used.\n; Default: 1\nUseCache = 0\n\n; Whether caches will be invalidated if ue4ss.dll has changed\n; Default: 1\nInvalidateCacheIfDLLDiffers = 1\n\n; The number of seconds the scanner will scan for before giving up\n; Default: 120\nSecondsToScanBeforeGivingUp = 40\n\n; Whether to create UObject listeners in GUObjectArray to create a fast cache for use instead of iterating GUObjectArray.\n; Setting this to false can help if you're experiencing a crash on startup.\n; The cache is dropped at runtime once FUObjectHashTables passes its self test, since the tables replace it.\n; Default: true\nbUseUObjectArrayCache = false\n\n; Force slow GUObjectArray iteration even if FUObjectHashTables is available.\n; Set to true if hash table iteration is causing crashes or returning incorrect results.\n; Default: false\nbForceGUObjectArrayForIteration = true\n\n; Whether to perform a single AOB scan as soon as possible after the game starts.\n; Default: 0\nDoEarlyScan = 0\n\n; When the search query in the Live View tab is a hex number, try to find the UObject that contains that memory address.\n; Default: false\nbEnableSeachByMemoryAddress = false\n\n; The default execution method for ExecuteInGameThread Lua function.\n; Valid values (case-insensitive): EngineTick, ProcessEvent\n; EngineTick: Execute once per engine tick (once per frame, more predictable timing)\n; ProcessEvent: Execute on next ProcessEvent call (more frequent, lower latency)\n; Default: EngineTick\nDefaultExecuteInGameThreadMethod = EngineTick\n\n; The default method for converting FName to string.\n; Valid values (case-insensitive): Scan, Conv_NameToString\n; Default: Scan\nDefaultFNameToStringMethod = Scan\n\n[EngineVersionOverride]\nMajorVersion = \nMinorVersion = \n; Which build configuration the game's object layouts are read as.\n; Leave empty to detect it from the game. true forces DebugGame/Development, test forces Test,\n; false forces Shipping. Test differs from Development in that it has no STATS member.\n; Default: empty (detect)\nDebugBuild =\n\n; Whether the game was compiled with STATS, which adds the member the debug offsets account for.\n; Any target can force STATS on regardless of its configuration, so this is detected separately.\n; Leave empty to detect it from the game, or set true or false to force it. Only needed when the\n; scan gets it wrong, since forcing DebugBuild above already carries that configuration's default.\n; Default: empty (detect)\nStats =\n\n; Auto detects pointer hashing in the object hash tables.\n; Override: HashCombine, Murmur32, or Murmur64.\nPointerHash = Auto\n\n[ObjectDumper]\n; Whether to force all assets to be loaded before dumping objects\n; WARNING: Can require multiple gigabytes of extra memory\n; WARNING: Is not stable & will crash the game if you load past the main menu after dumping\n; Default: 0\nLoadAllAssetsBeforeDumpingObjects = 0\n\n; Whether to display the offset from the main executable for functions instead of the function pointer\n; Default: 0\nUseModuleOffsets = 0\n\n[CXXHeaderGenerator]\n; Whether to property offsets and sizes\n; Default: 1\nDumpOffsetsAndSizes = 1\n\n; Whether memory layouts of classes and structs should be accurate\n; This must be set to 1, if you want to use the generated headers in an actual C++ project\n; When set to 0, padding member variables will not be generated\n; NOTE: A VALUE OF 1 HAS NO PURPOSE YET! MEMORY LAYOUT IS NOT ACCURATE EITHER WAY!\n; Default: 0\nKeepMemoryLayout = 0\n\n; Whether to force all assets to be loaded before generating headers\n; WARNING: Can require multiple gigabytes of extra memory\n; WARNING: Is not stable & will crash the game if you load past the main menu after dumping\n; Default: 0\nLoadAllAssetsBeforeGeneratingCXXHeaders = 0\n\n[UHTHeaderGenerator]\n; Whether to skip generating packages that belong to the engine\n; Some games make alterations to the engine and for those games you might want to set this to 0\n; Default: 0\nIgnoreAllCoreEngineModules = 0\n\n; Whether to skip generating the \"Engine\" and \"CoreUObject\" packages\n; Default: 0\nIgnoreEngineAndCoreUObject = 0\n\n; Whether to force all UFUNCTION macros to have \"BlueprintCallable\"\n; Note: This will cause some errors in the generated headers that you will need to manually fix\n; Default: 1\nMakeAllFunctionsBlueprintCallable = 1\n\n; Whether to force all UPROPERTY macros to have \"BlueprintReadWrite\"\n; Also forces all UPROPERTY macros to have \"meta=(AllowPrivateAccess=true)\"\n; Default: 1\nMakeAllPropertyBlueprintsReadWrite = 1\n\n; Whether to force UENUM macros on enums to have 'BlueprintType' if the underlying type was implicit or uint8\n; Note: This also forces the underlying type to be uint8 where the type would otherwise be implicit\n; Default: 1\nMakeEnumClassesBlueprintType = 1\n\n; Whether to force \"Config = Engine\" on all UCLASS macros that use either one of:\n; \"DefaultConfig\", \"GlobalUserConfig\" or \"ProjectUserConfig\"\n; Default: 1\nMakeAllConfigsEngineConfig = 1\n\n[SDKGenerator]\n; Where the generator will write the generated files to.\n; A 'UE4SS_SDK' directory is always created at this path.\n; If empty, it will write the files to Binaries/Win64/UE4SS_SDK.\nOutputPath =\n\n[Debug]\n; Whether to enable the external UE4SS debug console.\nConsoleEnabled = 0\nGuiConsoleEnabled = 0\nGuiConsoleVisible = 0\n\n; Multiplier for Font Size within the Debug Gui\n; Default: 1\nGuiConsoleFontScaling = 1\n\n; Use monospace font for some text boxes in the debug GUI, e.g. output console, watchers, debugger editors.\n; Default: 0\nGuiConsoleMonospaceTextEditors = 0\n\n; The API that will be used to render the GUI debug window.\n; Valid values (case-insensitive): dx11, d3d11, opengl\n; Default: opengl\nGraphicsAPI = opengl\n\n; The method with which the GUI will be rendered.\n; Valid values (case-insensitive):\n; ExternalThread: A separate thread will be used.\n; EngineTick: The UEngine::Tick function will be used.\n; GameViewportClientTick: The UGameViewportClient::Tick function will be used.\n; Default: ExternalThread\nRenderMode = ExternalThread\n\n; The key that will toggle the GUI on/off if GuiConsoleEnabled is set to 1.\n; The CTRL key is always required.\n; Valid values (case-insensitive): Anything from Mods/Keybinds/Scripts/main.lua\n; Default: O\nToggleGuiKey = O\n\n[Threads]\n; The number of threads that the sig scanner will use (not real cpu threads, can be over your physical & hyperthreading max)\n; If the game is modular then multi-threading will always be off regardless of the settings in this file\n; Min: 1\n; Max: 4294967295\n; Default: 8\nSigScannerNumThreads = 8\n\n; The minimum size that a module has to be in order for multi-threading to be enabled\n; This should be large enough so that the cost of creating threads won't out-weigh the speed gained from scanning in multiple threads\n; Min: 0\n; Max: 4294967295\n; Default: 16777216\nSigScannerMultithreadingModuleSizeThreshold = 16777216\n\n[Memory]\n; The maximum memory usage (in percentage, see Task Manager %) allowed before asset loading (when LoadAllAssetsBefore* is 1) cannot happen.\n; Once this percentage is reached, the asset loader will stop loading and whatever operation was in progress (object dump, or cxx generator) will continue.\n; Default: 85\nMaxMemoryUsageDuringAssetLoading = 85\n\n[Hooks]\nHookProcessInternal = 0\nHookProcessLocalScriptFunction = 0\nHookInitGameState = 0\nHookLoadMap = 1\nHookCallFunctionByNameWithArguments = 0\nHookBeginPlay = 0\nHookEndPlay = 0\nHookLocalPlayerExec = 0\nHookAActorTick = 0\nHookEngineTick = 1\n; Method for resolving GameEngine::Tick address\n; Valid values (case-insensitive): Scan, VTable\n; Scan: Use PatternSleuth AOB scan (fallback to VTable if scan fails)\n; VTable: Use vtable lookup (fallback to Scan if vtable lookup fails)\n; Default: Scan\nEngineTickResolveMethod = Scan\nHookGameViewportClientTick = 0\nHookUObjectProcessEvent = 0\nHookProcessConsoleExec = 0\nHookUStructLink = 0\nFExecVTableOffsetInLocalPlayer = 0x28\n\n[CrashDump]\nEnableDumping = 1\nFullMemoryDump = 0\n\n[ExperimentalFeatures]\n",
+    "module_source_sha256": {
+      "arena_layout.lua": "cb59ea8ea14dc77befcabe048ab977815093401e8f19ab7ebc9abd3630cb4aca",
+      "boss_catalog.lua": "198a9a4a5f0fbb5a4fd41de1ffccd0d4ec3e4f565ef3bbbd752421fba2de5e72",
+      "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+      "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+      "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+      "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+      "control_bridge.lua": "0d185f5697e52c8868ceded9b892cddc68e647f024b71611d9699958703dccf8",
+      "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+      "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+      "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+      "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+      "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+      "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+      "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+      "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+      "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+      "owned_arena.lua": "7ceb79fe493a98e0603fcfe24677c384d57dc5472b2720115f9391de81ba7a15",
+      "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+      "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+      "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+      "player_hud.lua": "34bf49a040635b7e4865c346c52c6df7e636247a3d8f03774ac8b3e46f781dc4",
+      "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+      "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+      "runtime.lua": "8f0321e5eeac5e6c379da63f02d76fb3ee903e14d3b7718112f3d94f8dc18403",
+      "session.lua": "3c439a489cdcafa64a530f5619508f05947c326bc051a5db04754045d66a400d",
+      "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+      "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+      "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+      "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+      "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+      "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+      "ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+      "ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+      "ue_input.lua": "1b4a03dc2bb6bf1e0d1258e7e1382bec10794a7beaf1beebca7af4df23211d1e",
+      "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+      "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+      "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+      "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+      "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab"
+    },
+    "assembly_source_sha256": "76f0fa3f97b9a9302e8e251951515d358622a1092d13dedfdcc5552de9775d76",
+    "summary": {
+      "windows": 8,
+      "seconds": 41.626,
+      "frames": 110,
+      "game_thread_ticks_per_second": 2.6425791572574835,
+      "callback_mean_ms": 364.9727272727273,
+      "callback_worst_ms": 624.0,
+      "lookup_ms_per_frame": 362.2,
+      "median_window_ticks_per_second": 2.691791632540535,
+      "selected_windows": [
+        {
+          "state": "ACTIVE",
+          "wall": 5.205,
+          "frames": 14,
+          "callback_ms": 356.428571,
+          "max_ms": 431.0,
+          "at": 1794667541,
+          "costs": {
+            "bridge.context": {
+              "calls": 14,
+              "ms": 244.0
+            },
+            "bridge.control_health": {
+              "calls": 14,
+              "ms": 363.0
+            },
+            "bridge.maintain_control": {
+              "calls": 14,
+              "ms": 1175.0
+            },
+            "bridge.update_camera": {
+              "calls": 14,
+              "ms": 312.0
+            },
+            "bridge.verify_control": {
+              "calls": 14,
+              "ms": 1829.0
+            },
+            "bridge.world_boundary": {
+              "calls": 14,
+              "ms": 237.0
+            },
+            "find_exact": {
+              "calls": 607,
+              "ms": 4975.0
+            },
+            "read_input": {
+              "calls": 14,
+              "ms": 702.0
+            },
+            "status": {
+              "calls": 14,
+              "ms": 128.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.164,
+          "frames": 14,
+          "callback_ms": 355.571429,
+          "max_ms": 416.0,
+          "at": 1794667546,
+          "costs": {
+            "bridge.context": {
+              "calls": 14,
+              "ms": 241.0
+            },
+            "bridge.control_health": {
+              "calls": 14,
+              "ms": 372.0
+            },
+            "bridge.maintain_control": {
+              "calls": 14,
+              "ms": 1185.0
+            },
+            "bridge.update_camera": {
+              "calls": 14,
+              "ms": 312.0
+            },
+            "bridge.verify_control": {
+              "calls": 14,
+              "ms": 1791.0
+            },
+            "bridge.world_boundary": {
+              "calls": 14,
+              "ms": 228.0
+            },
+            "find_exact": {
+              "calls": 603,
+              "ms": 4936.0
+            },
+            "read_input": {
+              "calls": 14,
+              "ms": 720.0
+            },
+            "status": {
+              "calls": 14,
+              "ms": 129.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.027,
+          "frames": 14,
+          "callback_ms": 344.214286,
+          "max_ms": 399.0,
+          "at": 1794667551,
+          "costs": {
+            "bridge.context": {
+              "calls": 14,
+              "ms": 233.0
+            },
+            "bridge.control_health": {
+              "calls": 14,
+              "ms": 351.0
+            },
+            "bridge.maintain_control": {
+              "calls": 14,
+              "ms": 1130.0
+            },
+            "bridge.update_camera": {
+              "calls": 14,
+              "ms": 299.0
+            },
+            "bridge.verify_control": {
+              "calls": 14,
+              "ms": 1764.0
+            },
+            "bridge.world_boundary": {
+              "calls": 14,
+              "ms": 218.0
+            },
+            "find_exact": {
+              "calls": 603,
+              "ms": 4774.0
+            },
+            "read_input": {
+              "calls": 14,
+              "ms": 689.0
+            },
+            "status": {
+              "calls": 14,
+              "ms": 134.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.182,
+          "frames": 14,
+          "callback_ms": 356.285714,
+          "max_ms": 395.0,
+          "at": 1794667556,
+          "costs": {
+            "bridge.context": {
+              "calls": 14,
+              "ms": 249.0
+            },
+            "bridge.control_health": {
+              "calls": 14,
+              "ms": 382.0
+            },
+            "bridge.maintain_control": {
+              "calls": 14,
+              "ms": 1173.0
+            },
+            "bridge.update_camera": {
+              "calls": 14,
+              "ms": 316.0
+            },
+            "bridge.verify_control": {
+              "calls": 14,
+              "ms": 1793.0
+            },
+            "bridge.world_boundary": {
+              "calls": 14,
+              "ms": 224.0
+            },
+            "find_exact": {
+              "calls": 603,
+              "ms": 4942.0
+            },
+            "read_input": {
+              "calls": 14,
+              "ms": 725.0
+            },
+            "status": {
+              "calls": 14,
+              "ms": 125.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.094,
+          "frames": 13,
+          "callback_ms": 379.076923,
+          "max_ms": 407.0,
+          "at": 1794667562,
+          "costs": {
+            "bridge.context": {
+              "calls": 13,
+              "ms": 244.0
+            },
+            "bridge.control_health": {
+              "calls": 13,
+              "ms": 363.0
+            },
+            "bridge.maintain_control": {
+              "calls": 13,
+              "ms": 1167.0
+            },
+            "bridge.update_camera": {
+              "calls": 13,
+              "ms": 304.0
+            },
+            "bridge.verify_control": {
+              "calls": 13,
+              "ms": 1769.0
+            },
+            "bridge.world_boundary": {
+              "calls": 13,
+              "ms": 217.0
+            },
+            "find_exact": {
+              "calls": 564,
+              "ms": 4889.0
+            },
+            "read_input": {
+              "calls": 13,
+              "ms": 697.0
+            },
+            "status": {
+              "calls": 13,
+              "ms": 165.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.262,
+          "frames": 14,
+          "callback_ms": 364.214286,
+          "max_ms": 394.0,
+          "at": 1794667567,
+          "costs": {
+            "bridge.context": {
+              "calls": 14,
+              "ms": 252.0
+            },
+            "bridge.control_health": {
+              "calls": 14,
+              "ms": 387.0
+            },
+            "bridge.maintain_control": {
+              "calls": 14,
+              "ms": 1257.0
+            },
+            "bridge.update_camera": {
+              "calls": 14,
+              "ms": 302.0
+            },
+            "bridge.verify_control": {
+              "calls": 14,
+              "ms": 1847.0
+            },
+            "bridge.world_boundary": {
+              "calls": 14,
+              "ms": 237.0
+            },
+            "find_exact": {
+              "calls": 603,
+              "ms": 5060.0
+            },
+            "read_input": {
+              "calls": 14,
+              "ms": 690.0
+            },
+            "status": {
+              "calls": 14,
+              "ms": 127.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.197,
+          "frames": 14,
+          "callback_ms": 358.285714,
+          "max_ms": 405.0,
+          "at": 1794667572,
+          "costs": {
+            "bridge.context": {
+              "calls": 14,
+              "ms": 250.0
+            },
+            "bridge.control_health": {
+              "calls": 14,
+              "ms": 375.0
+            },
+            "bridge.maintain_control": {
+              "calls": 14,
+              "ms": 1161.0
+            },
+            "bridge.update_camera": {
+              "calls": 14,
+              "ms": 320.0
+            },
+            "bridge.verify_control": {
+              "calls": 14,
+              "ms": 1812.0
+            },
+            "bridge.world_boundary": {
+              "calls": 14,
+              "ms": 234.0
+            },
+            "find_exact": {
+              "calls": 603,
+              "ms": 4976.0
+            },
+            "read_input": {
+              "calls": 14,
+              "ms": 723.0
+            },
+            "status": {
+              "calls": 14,
+              "ms": 141.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.495,
+          "frames": 13,
+          "callback_ms": 409.923077,
+          "max_ms": 624.0,
+          "at": 1794667578,
+          "costs": {
+            "bridge.context": {
+              "calls": 13,
+              "ms": 239.0
+            },
+            "bridge.control_health": {
+              "calls": 13,
+              "ms": 373.0
+            },
+            "bridge.look": {
+              "calls": 1,
+              "ms": 211.0
+            },
+            "bridge.maintain_control": {
+              "calls": 13,
+              "ms": 1149.0
+            },
+            "bridge.move": {
+              "calls": 1,
+              "ms": 206.0
+            },
+            "bridge.update_camera": {
+              "calls": 13,
+              "ms": 302.0
+            },
+            "bridge.verify_control": {
+              "calls": 15,
+              "ms": 2080.0
+            },
+            "bridge.world_boundary": {
+              "calls": 13,
+              "ms": 213.0
+            },
+            "find_exact": {
+              "calls": 610,
+              "ms": 5290.0
+            },
+            "read_input": {
+              "calls": 13,
+              "ms": 688.0
+            },
+            "status": {
+              "calls": 13,
+              "ms": 159.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "fixed": {
+    "session": "20261114-224804",
+    "log_sha256": "55b1284a814578afc27e8b76df1bbaa12b0786850893497852730f9c1c4796c4",
+    "loader_settings_sha256": "6dce8269549c5ca2770f8de21d64c44bedbdb10f645c7ab5e5a3a5e19a24d289",
+    "loader_settings": "[Overrides]\n; Path to the 'Mods' folder\n; Default: <dll_directory>/Mods\nModsFolderPath =\n\n; Additional mods directories to load mods from.\n; Use + prefix to add a directory, - prefix to remove.\n; Can be relative to working directory or absolute paths.\n; Note: If multiple directories contain mods with the same name, the last one found will be loaded.\n; Example:\n;   +ModsFolderPaths = ../SharedMods\n;   +ModsFolderPaths = C:/MyMods\n;   -ModsFolderPaths = ../SharedMods\n; Default: None\n\n; Path to a specific mods.txt file to use as the controlling mod list.\n; If set, ONLY this mods.txt will be parsed instead of mods.txt from all mod directories.\n; Can be relative to working directory or an absolute path.\n; Example: ControllingModsTxt = ../MyMods/mods.txt\n; Default: Empty (parse mods.txt from all mod directories)\nControllingModsTxt =\n\n[General]\n; Whether to reload all mods when the key defined by HotReloadKey is hit.\n; Default: 1\nEnableHotReloadSystem = 1\n\n; The key that will trigger a reload of all mods.\n; The CTRL key is always required.\n; Valid values (case-insensitive): Anything from Mods/Keybinds/Scripts/main.lua\n; Default: R\nHotReloadKey = R\n\n; Whether to automatically reload mods when a change is detected.\n; The reload triggers when any file is edited or a new file is added to the 'Scripts' directory.\n; Default: 0\nEnableAutoReloadingLuaMods = 0\n\n; Whether the cache system for AOBs will be used.\n; Default: 1\nUseCache = 0\n\n; Whether caches will be invalidated if ue4ss.dll has changed\n; Default: 1\nInvalidateCacheIfDLLDiffers = 1\n\n; The number of seconds the scanner will scan for before giving up\n; Default: 120\nSecondsToScanBeforeGivingUp = 40\n\n; Whether to create UObject listeners in GUObjectArray to create a fast cache for use instead of iterating GUObjectArray.\n; Setting this to false can help if you're experiencing a crash on startup.\n; The cache is dropped at runtime once FUObjectHashTables passes its self test, since the tables replace it.\n; Default: true\nbUseUObjectArrayCache = true\n\n; Force slow GUObjectArray iteration even if FUObjectHashTables is available.\n; Set to true if hash table iteration is causing crashes or returning incorrect results.\n; Default: false\nbForceGUObjectArrayForIteration = true\n\n; Whether to perform a single AOB scan as soon as possible after the game starts.\n; Default: 0\nDoEarlyScan = 0\n\n; When the search query in the Live View tab is a hex number, try to find the UObject that contains that memory address.\n; Default: false\nbEnableSeachByMemoryAddress = false\n\n; The default execution method for ExecuteInGameThread Lua function.\n; Valid values (case-insensitive): EngineTick, ProcessEvent\n; EngineTick: Execute once per engine tick (once per frame, more predictable timing)\n; ProcessEvent: Execute on next ProcessEvent call (more frequent, lower latency)\n; Default: EngineTick\nDefaultExecuteInGameThreadMethod = EngineTick\n\n; The default method for converting FName to string.\n; Valid values (case-insensitive): Scan, Conv_NameToString\n; Default: Scan\nDefaultFNameToStringMethod = Scan\n\n[EngineVersionOverride]\nMajorVersion = \nMinorVersion = \n; Which build configuration the game's object layouts are read as.\n; Leave empty to detect it from the game. true forces DebugGame/Development, test forces Test,\n; false forces Shipping. Test differs from Development in that it has no STATS member.\n; Default: empty (detect)\nDebugBuild =\n\n; Whether the game was compiled with STATS, which adds the member the debug offsets account for.\n; Any target can force STATS on regardless of its configuration, so this is detected separately.\n; Leave empty to detect it from the game, or set true or false to force it. Only needed when the\n; scan gets it wrong, since forcing DebugBuild above already carries that configuration's default.\n; Default: empty (detect)\nStats =\n\n; Auto detects pointer hashing in the object hash tables.\n; Override: HashCombine, Murmur32, or Murmur64.\nPointerHash = Auto\n\n[ObjectDumper]\n; Whether to force all assets to be loaded before dumping objects\n; WARNING: Can require multiple gigabytes of extra memory\n; WARNING: Is not stable & will crash the game if you load past the main menu after dumping\n; Default: 0\nLoadAllAssetsBeforeDumpingObjects = 0\n\n; Whether to display the offset from the main executable for functions instead of the function pointer\n; Default: 0\nUseModuleOffsets = 0\n\n[CXXHeaderGenerator]\n; Whether to property offsets and sizes\n; Default: 1\nDumpOffsetsAndSizes = 1\n\n; Whether memory layouts of classes and structs should be accurate\n; This must be set to 1, if you want to use the generated headers in an actual C++ project\n; When set to 0, padding member variables will not be generated\n; NOTE: A VALUE OF 1 HAS NO PURPOSE YET! MEMORY LAYOUT IS NOT ACCURATE EITHER WAY!\n; Default: 0\nKeepMemoryLayout = 0\n\n; Whether to force all assets to be loaded before generating headers\n; WARNING: Can require multiple gigabytes of extra memory\n; WARNING: Is not stable & will crash the game if you load past the main menu after dumping\n; Default: 0\nLoadAllAssetsBeforeGeneratingCXXHeaders = 0\n\n[UHTHeaderGenerator]\n; Whether to skip generating packages that belong to the engine\n; Some games make alterations to the engine and for those games you might want to set this to 0\n; Default: 0\nIgnoreAllCoreEngineModules = 0\n\n; Whether to skip generating the \"Engine\" and \"CoreUObject\" packages\n; Default: 0\nIgnoreEngineAndCoreUObject = 0\n\n; Whether to force all UFUNCTION macros to have \"BlueprintCallable\"\n; Note: This will cause some errors in the generated headers that you will need to manually fix\n; Default: 1\nMakeAllFunctionsBlueprintCallable = 1\n\n; Whether to force all UPROPERTY macros to have \"BlueprintReadWrite\"\n; Also forces all UPROPERTY macros to have \"meta=(AllowPrivateAccess=true)\"\n; Default: 1\nMakeAllPropertyBlueprintsReadWrite = 1\n\n; Whether to force UENUM macros on enums to have 'BlueprintType' if the underlying type was implicit or uint8\n; Note: This also forces the underlying type to be uint8 where the type would otherwise be implicit\n; Default: 1\nMakeEnumClassesBlueprintType = 1\n\n; Whether to force \"Config = Engine\" on all UCLASS macros that use either one of:\n; \"DefaultConfig\", \"GlobalUserConfig\" or \"ProjectUserConfig\"\n; Default: 1\nMakeAllConfigsEngineConfig = 1\n\n[SDKGenerator]\n; Where the generator will write the generated files to.\n; A 'UE4SS_SDK' directory is always created at this path.\n; If empty, it will write the files to Binaries/Win64/UE4SS_SDK.\nOutputPath =\n\n[Debug]\n; Whether to enable the external UE4SS debug console.\nConsoleEnabled = 0\nGuiConsoleEnabled = 0\nGuiConsoleVisible = 0\n\n; Multiplier for Font Size within the Debug Gui\n; Default: 1\nGuiConsoleFontScaling = 1\n\n; Use monospace font for some text boxes in the debug GUI, e.g. output console, watchers, debugger editors.\n; Default: 0\nGuiConsoleMonospaceTextEditors = 0\n\n; The API that will be used to render the GUI debug window.\n; Valid values (case-insensitive): dx11, d3d11, opengl\n; Default: opengl\nGraphicsAPI = opengl\n\n; The method with which the GUI will be rendered.\n; Valid values (case-insensitive):\n; ExternalThread: A separate thread will be used.\n; EngineTick: The UEngine::Tick function will be used.\n; GameViewportClientTick: The UGameViewportClient::Tick function will be used.\n; Default: ExternalThread\nRenderMode = ExternalThread\n\n; The key that will toggle the GUI on/off if GuiConsoleEnabled is set to 1.\n; The CTRL key is always required.\n; Valid values (case-insensitive): Anything from Mods/Keybinds/Scripts/main.lua\n; Default: O\nToggleGuiKey = O\n\n[Threads]\n; The number of threads that the sig scanner will use (not real cpu threads, can be over your physical & hyperthreading max)\n; If the game is modular then multi-threading will always be off regardless of the settings in this file\n; Min: 1\n; Max: 4294967295\n; Default: 8\nSigScannerNumThreads = 8\n\n; The minimum size that a module has to be in order for multi-threading to be enabled\n; This should be large enough so that the cost of creating threads won't out-weigh the speed gained from scanning in multiple threads\n; Min: 0\n; Max: 4294967295\n; Default: 16777216\nSigScannerMultithreadingModuleSizeThreshold = 16777216\n\n[Memory]\n; The maximum memory usage (in percentage, see Task Manager %) allowed before asset loading (when LoadAllAssetsBefore* is 1) cannot happen.\n; Once this percentage is reached, the asset loader will stop loading and whatever operation was in progress (object dump, or cxx generator) will continue.\n; Default: 85\nMaxMemoryUsageDuringAssetLoading = 85\n\n[Hooks]\nHookProcessInternal = 0\nHookProcessLocalScriptFunction = 0\nHookInitGameState = 0\nHookLoadMap = 1\nHookCallFunctionByNameWithArguments = 0\nHookBeginPlay = 0\nHookEndPlay = 0\nHookLocalPlayerExec = 0\nHookAActorTick = 0\nHookEngineTick = 1\n; Method for resolving GameEngine::Tick address\n; Valid values (case-insensitive): Scan, VTable\n; Scan: Use PatternSleuth AOB scan (fallback to VTable if scan fails)\n; VTable: Use vtable lookup (fallback to Scan if vtable lookup fails)\n; Default: Scan\nEngineTickResolveMethod = Scan\nHookGameViewportClientTick = 0\nHookUObjectProcessEvent = 0\nHookProcessConsoleExec = 0\nHookUStructLink = 0\nFExecVTableOffsetInLocalPlayer = 0x28\n\n[CrashDump]\nEnableDumping = 1\nFullMemoryDump = 0\n\n[ExperimentalFeatures]\n",
+    "module_source_sha256": {
+      "arena_layout.lua": "cb59ea8ea14dc77befcabe048ab977815093401e8f19ab7ebc9abd3630cb4aca",
+      "boss_catalog.lua": "198a9a4a5f0fbb5a4fd41de1ffccd0d4ec3e4f565ef3bbbd752421fba2de5e72",
+      "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+      "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+      "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+      "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+      "control_bridge.lua": "0d185f5697e52c8868ceded9b892cddc68e647f024b71611d9699958703dccf8",
+      "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+      "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+      "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+      "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+      "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+      "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+      "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+      "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+      "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+      "owned_arena.lua": "7ceb79fe493a98e0603fcfe24677c384d57dc5472b2720115f9391de81ba7a15",
+      "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+      "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+      "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+      "player_hud.lua": "34bf49a040635b7e4865c346c52c6df7e636247a3d8f03774ac8b3e46f781dc4",
+      "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+      "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+      "runtime.lua": "8f0321e5eeac5e6c379da63f02d76fb3ee903e14d3b7718112f3d94f8dc18403",
+      "session.lua": "3c439a489cdcafa64a530f5619508f05947c326bc051a5db04754045d66a400d",
+      "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+      "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+      "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+      "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+      "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+      "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+      "ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+      "ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+      "ue_input.lua": "1b4a03dc2bb6bf1e0d1258e7e1382bec10794a7beaf1beebca7af4df23211d1e",
+      "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+      "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+      "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+      "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+      "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab"
+    },
+    "assembly_source_sha256": "76f0fa3f97b9a9302e8e251951515d358622a1092d13dedfdcc5552de9775d76",
+    "summary": {
+      "windows": 66,
+      "seconds": 330.4,
+      "frames": 27245,
+      "game_thread_ticks_per_second": 82.46065375302663,
+      "callback_mean_ms": 2.5009359389245733,
+      "callback_worst_ms": 7.0,
+      "lookup_ms_per_frame": 0.16645256010277115,
+      "median_window_ticks_per_second": 83.31676646706588,
+      "selected_windows": [
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 426,
+          "callback_ms": 2.471831,
+          "max_ms": 5.0,
+          "at": 1794667940,
+          "costs": {
+            "bridge.context": {
+              "calls": 426,
+              "ms": 26.0
+            },
+            "bridge.control_health": {
+              "calls": 426,
+              "ms": 39.0
+            },
+            "bridge.maintain_control": {
+              "calls": 426,
+              "ms": 145.0
+            },
+            "bridge.update_camera": {
+              "calls": 426,
+              "ms": 59.0
+            },
+            "bridge.verify_control": {
+              "calls": 426,
+              "ms": 182.0
+            },
+            "bridge.world_boundary": {
+              "calls": 426,
+              "ms": 45.0
+            },
+            "find_exact": {
+              "calls": 17911,
+              "ms": 74.0
+            },
+            "read_input": {
+              "calls": 426,
+              "ms": 534.0
+            },
+            "status": {
+              "calls": 426,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.008,
+          "frames": 423,
+          "callback_ms": 2.486998,
+          "max_ms": 5.0,
+          "at": 1794667945,
+          "costs": {
+            "bridge.context": {
+              "calls": 423,
+              "ms": 18.0
+            },
+            "bridge.control_health": {
+              "calls": 423,
+              "ms": 34.0
+            },
+            "bridge.maintain_control": {
+              "calls": 423,
+              "ms": 165.0
+            },
+            "bridge.update_camera": {
+              "calls": 423,
+              "ms": 62.0
+            },
+            "bridge.verify_control": {
+              "calls": 423,
+              "ms": 162.0
+            },
+            "bridge.world_boundary": {
+              "calls": 423,
+              "ms": 56.0
+            },
+            "find_exact": {
+              "calls": 17781,
+              "ms": 85.0
+            },
+            "read_input": {
+              "calls": 423,
+              "ms": 541.0
+            },
+            "status": {
+              "calls": 423,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.004,
+          "frames": 418,
+          "callback_ms": 2.478469,
+          "max_ms": 6.0,
+          "at": 1794667950,
+          "costs": {
+            "bridge.context": {
+              "calls": 418,
+              "ms": 26.0
+            },
+            "bridge.control_health": {
+              "calls": 418,
+              "ms": 43.0
+            },
+            "bridge.maintain_control": {
+              "calls": 418,
+              "ms": 143.0
+            },
+            "bridge.update_camera": {
+              "calls": 418,
+              "ms": 51.0
+            },
+            "bridge.verify_control": {
+              "calls": 418,
+              "ms": 176.0
+            },
+            "bridge.world_boundary": {
+              "calls": 418,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 17571,
+              "ms": 74.0
+            },
+            "read_input": {
+              "calls": 418,
+              "ms": 532.0
+            },
+            "status": {
+              "calls": 418,
+              "ms": 6.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 420,
+          "callback_ms": 2.447619,
+          "max_ms": 5.0,
+          "at": 1794667955,
+          "costs": {
+            "bridge.context": {
+              "calls": 420,
+              "ms": 27.0
+            },
+            "bridge.control_health": {
+              "calls": 420,
+              "ms": 33.0
+            },
+            "bridge.maintain_control": {
+              "calls": 420,
+              "ms": 165.0
+            },
+            "bridge.update_camera": {
+              "calls": 420,
+              "ms": 44.0
+            },
+            "bridge.verify_control": {
+              "calls": 420,
+              "ms": 170.0
+            },
+            "bridge.world_boundary": {
+              "calls": 420,
+              "ms": 44.0
+            },
+            "find_exact": {
+              "calls": 17655,
+              "ms": 91.0
+            },
+            "read_input": {
+              "calls": 420,
+              "ms": 533.0
+            },
+            "status": {
+              "calls": 420,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.008,
+          "frames": 427,
+          "callback_ms": 2.428571,
+          "max_ms": 6.0,
+          "at": 1794667960,
+          "costs": {
+            "bridge.context": {
+              "calls": 427,
+              "ms": 26.0
+            },
+            "bridge.control_health": {
+              "calls": 427,
+              "ms": 26.0
+            },
+            "bridge.maintain_control": {
+              "calls": 427,
+              "ms": 155.0
+            },
+            "bridge.update_camera": {
+              "calls": 427,
+              "ms": 61.0
+            },
+            "bridge.verify_control": {
+              "calls": 427,
+              "ms": 182.0
+            },
+            "bridge.world_boundary": {
+              "calls": 427,
+              "ms": 40.0
+            },
+            "find_exact": {
+              "calls": 17949,
+              "ms": 84.0
+            },
+            "read_input": {
+              "calls": 427,
+              "ms": 523.0
+            },
+            "status": {
+              "calls": 427,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.008,
+          "frames": 425,
+          "callback_ms": 2.411765,
+          "max_ms": 6.0,
+          "at": 1794667965,
+          "costs": {
+            "bridge.context": {
+              "calls": 425,
+              "ms": 18.0
+            },
+            "bridge.control_health": {
+              "calls": 425,
+              "ms": 25.0
+            },
+            "bridge.maintain_control": {
+              "calls": 425,
+              "ms": 183.0
+            },
+            "bridge.update_camera": {
+              "calls": 425,
+              "ms": 52.0
+            },
+            "bridge.verify_control": {
+              "calls": 425,
+              "ms": 172.0
+            },
+            "bridge.world_boundary": {
+              "calls": 425,
+              "ms": 47.0
+            },
+            "find_exact": {
+              "calls": 17865,
+              "ms": 71.0
+            },
+            "read_input": {
+              "calls": 425,
+              "ms": 516.0
+            },
+            "status": {
+              "calls": 425,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 421,
+          "callback_ms": 2.477435,
+          "max_ms": 5.0,
+          "at": 1794667970,
+          "costs": {
+            "bridge.context": {
+              "calls": 421,
+              "ms": 28.0
+            },
+            "bridge.control_health": {
+              "calls": 421,
+              "ms": 38.0
+            },
+            "bridge.maintain_control": {
+              "calls": 421,
+              "ms": 148.0
+            },
+            "bridge.update_camera": {
+              "calls": 421,
+              "ms": 56.0
+            },
+            "bridge.verify_control": {
+              "calls": 421,
+              "ms": 164.0
+            },
+            "bridge.world_boundary": {
+              "calls": 421,
+              "ms": 47.0
+            },
+            "find_exact": {
+              "calls": 17697,
+              "ms": 59.0
+            },
+            "read_input": {
+              "calls": 421,
+              "ms": 538.0
+            },
+            "status": {
+              "calls": 421,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 418,
+          "callback_ms": 2.490431,
+          "max_ms": 5.0,
+          "at": 1794667975,
+          "costs": {
+            "bridge.context": {
+              "calls": 418,
+              "ms": 28.0
+            },
+            "bridge.control_health": {
+              "calls": 418,
+              "ms": 40.0
+            },
+            "bridge.maintain_control": {
+              "calls": 418,
+              "ms": 163.0
+            },
+            "bridge.update_camera": {
+              "calls": 418,
+              "ms": 41.0
+            },
+            "bridge.verify_control": {
+              "calls": 418,
+              "ms": 168.0
+            },
+            "bridge.world_boundary": {
+              "calls": 418,
+              "ms": 37.0
+            },
+            "find_exact": {
+              "calls": 17571,
+              "ms": 75.0
+            },
+            "read_input": {
+              "calls": 418,
+              "ms": 537.0
+            },
+            "status": {
+              "calls": 418,
+              "ms": 7.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.012,
+          "frames": 419,
+          "callback_ms": 2.460621,
+          "max_ms": 7.0,
+          "at": 1794667980,
+          "costs": {
+            "bridge.context": {
+              "calls": 419,
+              "ms": 17.0
+            },
+            "bridge.control_health": {
+              "calls": 419,
+              "ms": 37.0
+            },
+            "bridge.maintain_control": {
+              "calls": 419,
+              "ms": 164.0
+            },
+            "bridge.update_camera": {
+              "calls": 419,
+              "ms": 57.0
+            },
+            "bridge.verify_control": {
+              "calls": 419,
+              "ms": 189.0
+            },
+            "bridge.world_boundary": {
+              "calls": 419,
+              "ms": 42.0
+            },
+            "find_exact": {
+              "calls": 17613,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 419,
+              "ms": 510.0
+            },
+            "status": {
+              "calls": 419,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.011,
+          "frames": 417,
+          "callback_ms": 2.486811,
+          "max_ms": 5.0,
+          "at": 1794667985,
+          "costs": {
+            "bridge.context": {
+              "calls": 417,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 417,
+              "ms": 41.0
+            },
+            "bridge.maintain_control": {
+              "calls": 417,
+              "ms": 166.0
+            },
+            "bridge.update_camera": {
+              "calls": 417,
+              "ms": 50.0
+            },
+            "bridge.verify_control": {
+              "calls": 417,
+              "ms": 161.0
+            },
+            "bridge.world_boundary": {
+              "calls": 417,
+              "ms": 49.0
+            },
+            "find_exact": {
+              "calls": 17529,
+              "ms": 60.0
+            },
+            "read_input": {
+              "calls": 417,
+              "ms": 532.0
+            },
+            "status": {
+              "calls": 417,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 417,
+          "callback_ms": 2.455635,
+          "max_ms": 5.0,
+          "at": 1794667990,
+          "costs": {
+            "bridge.context": {
+              "calls": 417,
+              "ms": 25.0
+            },
+            "bridge.control_health": {
+              "calls": 417,
+              "ms": 36.0
+            },
+            "bridge.maintain_control": {
+              "calls": 417,
+              "ms": 154.0
+            },
+            "bridge.update_camera": {
+              "calls": 417,
+              "ms": 45.0
+            },
+            "bridge.verify_control": {
+              "calls": 417,
+              "ms": 184.0
+            },
+            "bridge.world_boundary": {
+              "calls": 417,
+              "ms": 39.0
+            },
+            "find_exact": {
+              "calls": 17529,
+              "ms": 57.0
+            },
+            "read_input": {
+              "calls": 417,
+              "ms": 523.0
+            },
+            "status": {
+              "calls": 417,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 417,
+          "callback_ms": 2.465228,
+          "max_ms": 6.0,
+          "at": 1794667995,
+          "costs": {
+            "bridge.context": {
+              "calls": 417,
+              "ms": 25.0
+            },
+            "bridge.control_health": {
+              "calls": 417,
+              "ms": 41.0
+            },
+            "bridge.maintain_control": {
+              "calls": 417,
+              "ms": 144.0
+            },
+            "bridge.update_camera": {
+              "calls": 417,
+              "ms": 55.0
+            },
+            "bridge.verify_control": {
+              "calls": 417,
+              "ms": 181.0
+            },
+            "bridge.world_boundary": {
+              "calls": 417,
+              "ms": 49.0
+            },
+            "find_exact": {
+              "calls": 17529,
+              "ms": 72.0
+            },
+            "read_input": {
+              "calls": 417,
+              "ms": 517.0
+            },
+            "status": {
+              "calls": 417,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.006,
+          "frames": 416,
+          "callback_ms": 2.524038,
+          "max_ms": 5.0,
+          "at": 1794668000,
+          "costs": {
+            "bridge.context": {
+              "calls": 416,
+              "ms": 25.0
+            },
+            "bridge.control_health": {
+              "calls": 416,
+              "ms": 30.0
+            },
+            "bridge.maintain_control": {
+              "calls": 416,
+              "ms": 153.0
+            },
+            "bridge.update_camera": {
+              "calls": 416,
+              "ms": 67.0
+            },
+            "bridge.verify_control": {
+              "calls": 416,
+              "ms": 165.0
+            },
+            "bridge.world_boundary": {
+              "calls": 416,
+              "ms": 61.0
+            },
+            "find_exact": {
+              "calls": 17487,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 416,
+              "ms": 531.0
+            },
+            "status": {
+              "calls": 416,
+              "ms": 7.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.011,
+          "frames": 420,
+          "callback_ms": 2.504762,
+          "max_ms": 5.0,
+          "at": 1794668005,
+          "costs": {
+            "bridge.context": {
+              "calls": 420,
+              "ms": 17.0
+            },
+            "bridge.control_health": {
+              "calls": 420,
+              "ms": 36.0
+            },
+            "bridge.maintain_control": {
+              "calls": 420,
+              "ms": 148.0
+            },
+            "bridge.update_camera": {
+              "calls": 420,
+              "ms": 54.0
+            },
+            "bridge.verify_control": {
+              "calls": 420,
+              "ms": 184.0
+            },
+            "bridge.world_boundary": {
+              "calls": 420,
+              "ms": 54.0
+            },
+            "find_exact": {
+              "calls": 17655,
+              "ms": 79.0
+            },
+            "read_input": {
+              "calls": 420,
+              "ms": 539.0
+            },
+            "status": {
+              "calls": 420,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.005,
+          "frames": 416,
+          "callback_ms": 2.454327,
+          "max_ms": 5.0,
+          "at": 1794668010,
+          "costs": {
+            "bridge.context": {
+              "calls": 416,
+              "ms": 17.0
+            },
+            "bridge.control_health": {
+              "calls": 416,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 416,
+              "ms": 170.0
+            },
+            "bridge.update_camera": {
+              "calls": 416,
+              "ms": 33.0
+            },
+            "bridge.verify_control": {
+              "calls": 416,
+              "ms": 184.0
+            },
+            "bridge.world_boundary": {
+              "calls": 416,
+              "ms": 35.0
+            },
+            "find_exact": {
+              "calls": 17487,
+              "ms": 74.0
+            },
+            "read_input": {
+              "calls": 416,
+              "ms": 538.0
+            },
+            "status": {
+              "calls": 416,
+              "ms": 1.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 415,
+          "callback_ms": 2.491566,
+          "max_ms": 5.0,
+          "at": 1794668015,
+          "costs": {
+            "bridge.context": {
+              "calls": 415,
+              "ms": 19.0
+            },
+            "bridge.control_health": {
+              "calls": 415,
+              "ms": 40.0
+            },
+            "bridge.maintain_control": {
+              "calls": 415,
+              "ms": 145.0
+            },
+            "bridge.update_camera": {
+              "calls": 415,
+              "ms": 63.0
+            },
+            "bridge.verify_control": {
+              "calls": 415,
+              "ms": 174.0
+            },
+            "bridge.world_boundary": {
+              "calls": 415,
+              "ms": 54.0
+            },
+            "find_exact": {
+              "calls": 17445,
+              "ms": 76.0
+            },
+            "read_input": {
+              "calls": 415,
+              "ms": 520.0
+            },
+            "status": {
+              "calls": 415,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.004,
+          "frames": 421,
+          "callback_ms": 2.501188,
+          "max_ms": 5.0,
+          "at": 1794668020,
+          "costs": {
+            "bridge.context": {
+              "calls": 421,
+              "ms": 29.0
+            },
+            "bridge.control_health": {
+              "calls": 421,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 421,
+              "ms": 174.0
+            },
+            "bridge.update_camera": {
+              "calls": 421,
+              "ms": 45.0
+            },
+            "bridge.verify_control": {
+              "calls": 421,
+              "ms": 174.0
+            },
+            "bridge.world_boundary": {
+              "calls": 421,
+              "ms": 47.0
+            },
+            "find_exact": {
+              "calls": 17697,
+              "ms": 75.0
+            },
+            "read_input": {
+              "calls": 421,
+              "ms": 539.0
+            },
+            "status": {
+              "calls": 421,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 420,
+          "callback_ms": 2.483333,
+          "max_ms": 5.0,
+          "at": 1794668025,
+          "costs": {
+            "bridge.context": {
+              "calls": 420,
+              "ms": 30.0
+            },
+            "bridge.control_health": {
+              "calls": 420,
+              "ms": 39.0
+            },
+            "bridge.maintain_control": {
+              "calls": 420,
+              "ms": 155.0
+            },
+            "bridge.update_camera": {
+              "calls": 420,
+              "ms": 44.0
+            },
+            "bridge.verify_control": {
+              "calls": 420,
+              "ms": 181.0
+            },
+            "bridge.world_boundary": {
+              "calls": 420,
+              "ms": 41.0
+            },
+            "find_exact": {
+              "calls": 17655,
+              "ms": 61.0
+            },
+            "read_input": {
+              "calls": 420,
+              "ms": 539.0
+            },
+            "status": {
+              "calls": 420,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 418,
+          "callback_ms": 2.488038,
+          "max_ms": 5.0,
+          "at": 1794668030,
+          "costs": {
+            "bridge.context": {
+              "calls": 418,
+              "ms": 17.0
+            },
+            "bridge.control_health": {
+              "calls": 418,
+              "ms": 35.0
+            },
+            "bridge.maintain_control": {
+              "calls": 418,
+              "ms": 167.0
+            },
+            "bridge.update_camera": {
+              "calls": 418,
+              "ms": 51.0
+            },
+            "bridge.verify_control": {
+              "calls": 418,
+              "ms": 164.0
+            },
+            "bridge.world_boundary": {
+              "calls": 418,
+              "ms": 57.0
+            },
+            "find_exact": {
+              "calls": 17571,
+              "ms": 71.0
+            },
+            "read_input": {
+              "calls": 418,
+              "ms": 525.0
+            },
+            "status": {
+              "calls": 418,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 385,
+          "callback_ms": 2.672727,
+          "max_ms": 6.0,
+          "at": 1794668035,
+          "costs": {
+            "bridge.context": {
+              "calls": 385,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 385,
+              "ms": 46.0
+            },
+            "bridge.maintain_control": {
+              "calls": 385,
+              "ms": 161.0
+            },
+            "bridge.move": {
+              "calls": 27,
+              "ms": 17.0
+            },
+            "bridge.update_camera": {
+              "calls": 385,
+              "ms": 48.0
+            },
+            "bridge.verify_control": {
+              "calls": 412,
+              "ms": 154.0
+            },
+            "bridge.world_boundary": {
+              "calls": 385,
+              "ms": 39.0
+            },
+            "find_exact": {
+              "calls": 16806,
+              "ms": 55.0
+            },
+            "read_input": {
+              "calls": 385,
+              "ms": 530.0
+            },
+            "status": {
+              "calls": 385,
+              "ms": 7.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.002,
+          "frames": 384,
+          "callback_ms": 2.572917,
+          "max_ms": 5.0,
+          "at": 1794668040,
+          "costs": {
+            "bridge.context": {
+              "calls": 384,
+              "ms": 24.0
+            },
+            "bridge.control_health": {
+              "calls": 384,
+              "ms": 38.0
+            },
+            "bridge.look": {
+              "calls": 6,
+              "ms": 4.0
+            },
+            "bridge.maintain_control": {
+              "calls": 384,
+              "ms": 145.0
+            },
+            "bridge.update_camera": {
+              "calls": 384,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 390,
+              "ms": 175.0
+            },
+            "bridge.world_boundary": {
+              "calls": 384,
+              "ms": 42.0
+            },
+            "find_exact": {
+              "calls": 16281,
+              "ms": 75.0
+            },
+            "read_input": {
+              "calls": 384,
+              "ms": 492.0
+            },
+            "status": {
+              "calls": 384,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.008,
+          "frames": 403,
+          "callback_ms": 2.558313,
+          "max_ms": 5.0,
+          "at": 1794668045,
+          "costs": {
+            "bridge.context": {
+              "calls": 403,
+              "ms": 26.0
+            },
+            "bridge.control_health": {
+              "calls": 403,
+              "ms": 38.0
+            },
+            "bridge.maintain_control": {
+              "calls": 403,
+              "ms": 148.0
+            },
+            "bridge.update_camera": {
+              "calls": 403,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 403,
+              "ms": 183.0
+            },
+            "bridge.world_boundary": {
+              "calls": 403,
+              "ms": 41.0
+            },
+            "find_exact": {
+              "calls": 16941,
+              "ms": 63.0
+            },
+            "read_input": {
+              "calls": 403,
+              "ms": 525.0
+            },
+            "status": {
+              "calls": 403,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.001,
+          "frames": 412,
+          "callback_ms": 2.529126,
+          "max_ms": 6.0,
+          "at": 1794668050,
+          "costs": {
+            "bridge.context": {
+              "calls": 412,
+              "ms": 28.0
+            },
+            "bridge.control_health": {
+              "calls": 412,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 412,
+              "ms": 175.0
+            },
+            "bridge.update_camera": {
+              "calls": 412,
+              "ms": 54.0
+            },
+            "bridge.verify_control": {
+              "calls": 412,
+              "ms": 159.0
+            },
+            "bridge.world_boundary": {
+              "calls": 412,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 17319,
+              "ms": 80.0
+            },
+            "read_input": {
+              "calls": 412,
+              "ms": 537.0
+            },
+            "status": {
+              "calls": 412,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.001,
+          "frames": 413,
+          "callback_ms": 2.493947,
+          "max_ms": 5.0,
+          "at": 1794668055,
+          "costs": {
+            "bridge.context": {
+              "calls": 413,
+              "ms": 28.0
+            },
+            "bridge.control_health": {
+              "calls": 413,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 413,
+              "ms": 156.0
+            },
+            "bridge.update_camera": {
+              "calls": 413,
+              "ms": 43.0
+            },
+            "bridge.verify_control": {
+              "calls": 413,
+              "ms": 186.0
+            },
+            "bridge.world_boundary": {
+              "calls": 413,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 17361,
+              "ms": 58.0
+            },
+            "read_input": {
+              "calls": 413,
+              "ms": 526.0
+            },
+            "status": {
+              "calls": 413,
+              "ms": 1.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.013,
+          "frames": 412,
+          "callback_ms": 2.524272,
+          "max_ms": 5.0,
+          "at": 1794668060,
+          "costs": {
+            "bridge.context": {
+              "calls": 412,
+              "ms": 29.0
+            },
+            "bridge.control_health": {
+              "calls": 412,
+              "ms": 47.0
+            },
+            "bridge.maintain_control": {
+              "calls": 412,
+              "ms": 140.0
+            },
+            "bridge.update_camera": {
+              "calls": 412,
+              "ms": 58.0
+            },
+            "bridge.verify_control": {
+              "calls": 412,
+              "ms": 176.0
+            },
+            "bridge.world_boundary": {
+              "calls": 412,
+              "ms": 42.0
+            },
+            "find_exact": {
+              "calls": 17319,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 412,
+              "ms": 530.0
+            },
+            "status": {
+              "calls": 412,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.011,
+          "frames": 411,
+          "callback_ms": 2.515815,
+          "max_ms": 5.0,
+          "at": 1794668065,
+          "costs": {
+            "bridge.context": {
+              "calls": 411,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 411,
+              "ms": 36.0
+            },
+            "bridge.maintain_control": {
+              "calls": 411,
+              "ms": 163.0
+            },
+            "bridge.update_camera": {
+              "calls": 411,
+              "ms": 50.0
+            },
+            "bridge.verify_control": {
+              "calls": 411,
+              "ms": 169.0
+            },
+            "bridge.world_boundary": {
+              "calls": 411,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 17277,
+              "ms": 68.0
+            },
+            "read_input": {
+              "calls": 411,
+              "ms": 540.0
+            },
+            "status": {
+              "calls": 411,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 421,
+          "callback_ms": 2.427553,
+          "max_ms": 5.0,
+          "at": 1794668070,
+          "costs": {
+            "bridge.context": {
+              "calls": 421,
+              "ms": 13.0
+            },
+            "bridge.control_health": {
+              "calls": 421,
+              "ms": 39.0
+            },
+            "bridge.maintain_control": {
+              "calls": 421,
+              "ms": 181.0
+            },
+            "bridge.update_camera": {
+              "calls": 421,
+              "ms": 52.0
+            },
+            "bridge.verify_control": {
+              "calls": 421,
+              "ms": 161.0
+            },
+            "bridge.world_boundary": {
+              "calls": 421,
+              "ms": 32.0
+            },
+            "find_exact": {
+              "calls": 17697,
+              "ms": 60.0
+            },
+            "read_input": {
+              "calls": 421,
+              "ms": 528.0
+            },
+            "status": {
+              "calls": 421,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.001,
+          "frames": 389,
+          "callback_ms": 2.511568,
+          "max_ms": 5.0,
+          "at": 1794668075,
+          "costs": {
+            "bridge.context": {
+              "calls": 389,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 389,
+              "ms": 29.0
+            },
+            "bridge.maintain_control": {
+              "calls": 389,
+              "ms": 161.0
+            },
+            "bridge.update_camera": {
+              "calls": 389,
+              "ms": 35.0
+            },
+            "bridge.verify_control": {
+              "calls": 389,
+              "ms": 179.0
+            },
+            "bridge.world_boundary": {
+              "calls": 389,
+              "ms": 31.0
+            },
+            "find_exact": {
+              "calls": 16353,
+              "ms": 59.0
+            },
+            "read_input": {
+              "calls": 389,
+              "ms": 508.0
+            },
+            "status": {
+              "calls": 389,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 400,
+          "callback_ms": 2.515,
+          "max_ms": 5.0,
+          "at": 1794668080,
+          "costs": {
+            "bridge.context": {
+              "calls": 400,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 400,
+              "ms": 28.0
+            },
+            "bridge.maintain_control": {
+              "calls": 400,
+              "ms": 149.0
+            },
+            "bridge.update_camera": {
+              "calls": 400,
+              "ms": 55.0
+            },
+            "bridge.verify_control": {
+              "calls": 400,
+              "ms": 185.0
+            },
+            "bridge.world_boundary": {
+              "calls": 400,
+              "ms": 46.0
+            },
+            "find_exact": {
+              "calls": 16815,
+              "ms": 68.0
+            },
+            "read_input": {
+              "calls": 400,
+              "ms": 501.0
+            },
+            "status": {
+              "calls": 400,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 416,
+          "callback_ms": 2.504808,
+          "max_ms": 6.0,
+          "at": 1794668085,
+          "costs": {
+            "bridge.context": {
+              "calls": 416,
+              "ms": 15.0
+            },
+            "bridge.control_health": {
+              "calls": 416,
+              "ms": 42.0
+            },
+            "bridge.maintain_control": {
+              "calls": 416,
+              "ms": 156.0
+            },
+            "bridge.update_camera": {
+              "calls": 416,
+              "ms": 57.0
+            },
+            "bridge.verify_control": {
+              "calls": 416,
+              "ms": 169.0
+            },
+            "bridge.world_boundary": {
+              "calls": 416,
+              "ms": 53.0
+            },
+            "find_exact": {
+              "calls": 17487,
+              "ms": 69.0
+            },
+            "read_input": {
+              "calls": 416,
+              "ms": 524.0
+            },
+            "status": {
+              "calls": 416,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.005,
+          "frames": 407,
+          "callback_ms": 2.574939,
+          "max_ms": 5.0,
+          "at": 1794668090,
+          "costs": {
+            "bridge.context": {
+              "calls": 407,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 407,
+              "ms": 40.0
+            },
+            "bridge.maintain_control": {
+              "calls": 407,
+              "ms": 148.0
+            },
+            "bridge.update_camera": {
+              "calls": 407,
+              "ms": 68.0
+            },
+            "bridge.verify_control": {
+              "calls": 407,
+              "ms": 167.0
+            },
+            "bridge.world_boundary": {
+              "calls": 407,
+              "ms": 60.0
+            },
+            "find_exact": {
+              "calls": 17109,
+              "ms": 82.0
+            },
+            "read_input": {
+              "calls": 407,
+              "ms": 525.0
+            },
+            "status": {
+              "calls": 407,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.004,
+          "frames": 429,
+          "callback_ms": 2.484848,
+          "max_ms": 5.0,
+          "at": 1794668095,
+          "costs": {
+            "bridge.context": {
+              "calls": 429,
+              "ms": 29.0
+            },
+            "bridge.control_health": {
+              "calls": 429,
+              "ms": 29.0
+            },
+            "bridge.maintain_control": {
+              "calls": 429,
+              "ms": 155.0
+            },
+            "bridge.update_camera": {
+              "calls": 429,
+              "ms": 63.0
+            },
+            "bridge.verify_control": {
+              "calls": 429,
+              "ms": 187.0
+            },
+            "bridge.world_boundary": {
+              "calls": 429,
+              "ms": 53.0
+            },
+            "find_exact": {
+              "calls": 18033,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 429,
+              "ms": 534.0
+            },
+            "status": {
+              "calls": 429,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.011,
+          "frames": 426,
+          "callback_ms": 2.469484,
+          "max_ms": 5.0,
+          "at": 1794668100,
+          "costs": {
+            "bridge.context": {
+              "calls": 426,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 426,
+              "ms": 45.0
+            },
+            "bridge.maintain_control": {
+              "calls": 426,
+              "ms": 154.0
+            },
+            "bridge.update_camera": {
+              "calls": 426,
+              "ms": 55.0
+            },
+            "bridge.verify_control": {
+              "calls": 426,
+              "ms": 174.0
+            },
+            "bridge.world_boundary": {
+              "calls": 426,
+              "ms": 45.0
+            },
+            "find_exact": {
+              "calls": 17907,
+              "ms": 62.0
+            },
+            "read_input": {
+              "calls": 426,
+              "ms": 540.0
+            },
+            "status": {
+              "calls": 426,
+              "ms": 1.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.007,
+          "frames": 424,
+          "callback_ms": 2.450472,
+          "max_ms": 5.0,
+          "at": 1794668105,
+          "costs": {
+            "bridge.context": {
+              "calls": 424,
+              "ms": 25.0
+            },
+            "bridge.control_health": {
+              "calls": 424,
+              "ms": 30.0
+            },
+            "bridge.maintain_control": {
+              "calls": 424,
+              "ms": 151.0
+            },
+            "bridge.update_camera": {
+              "calls": 424,
+              "ms": 60.0
+            },
+            "bridge.verify_control": {
+              "calls": 424,
+              "ms": 188.0
+            },
+            "bridge.world_boundary": {
+              "calls": 424,
+              "ms": 54.0
+            },
+            "find_exact": {
+              "calls": 17823,
+              "ms": 65.0
+            },
+            "read_input": {
+              "calls": 424,
+              "ms": 515.0
+            },
+            "status": {
+              "calls": 424,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 413,
+          "callback_ms": 2.476998,
+          "max_ms": 5.0,
+          "at": 1794668110,
+          "costs": {
+            "bridge.context": {
+              "calls": 413,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 413,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 413,
+              "ms": 162.0
+            },
+            "bridge.update_camera": {
+              "calls": 413,
+              "ms": 53.0
+            },
+            "bridge.verify_control": {
+              "calls": 413,
+              "ms": 173.0
+            },
+            "bridge.world_boundary": {
+              "calls": 413,
+              "ms": 45.0
+            },
+            "find_exact": {
+              "calls": 17361,
+              "ms": 69.0
+            },
+            "read_input": {
+              "calls": 413,
+              "ms": 521.0
+            },
+            "status": {
+              "calls": 413,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 416,
+          "callback_ms": 2.439904,
+          "max_ms": 6.0,
+          "at": 1794668115,
+          "costs": {
+            "bridge.context": {
+              "calls": 416,
+              "ms": 13.0
+            },
+            "bridge.control_health": {
+              "calls": 416,
+              "ms": 35.0
+            },
+            "bridge.maintain_control": {
+              "calls": 416,
+              "ms": 148.0
+            },
+            "bridge.update_camera": {
+              "calls": 416,
+              "ms": 47.0
+            },
+            "bridge.verify_control": {
+              "calls": 416,
+              "ms": 191.0
+            },
+            "bridge.world_boundary": {
+              "calls": 416,
+              "ms": 48.0
+            },
+            "find_exact": {
+              "calls": 17487,
+              "ms": 54.0
+            },
+            "read_input": {
+              "calls": 416,
+              "ms": 521.0
+            },
+            "status": {
+              "calls": 416,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 429,
+          "callback_ms": 2.447552,
+          "max_ms": 6.0,
+          "at": 1794668120,
+          "costs": {
+            "bridge.context": {
+              "calls": 429,
+              "ms": 23.0
+            },
+            "bridge.control_health": {
+              "calls": 429,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 429,
+              "ms": 171.0
+            },
+            "bridge.update_camera": {
+              "calls": 429,
+              "ms": 50.0
+            },
+            "bridge.verify_control": {
+              "calls": 429,
+              "ms": 177.0
+            },
+            "bridge.world_boundary": {
+              "calls": 429,
+              "ms": 59.0
+            },
+            "find_exact": {
+              "calls": 18033,
+              "ms": 69.0
+            },
+            "read_input": {
+              "calls": 429,
+              "ms": 522.0
+            },
+            "status": {
+              "calls": 429,
+              "ms": 6.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.008,
+          "frames": 418,
+          "callback_ms": 2.5311,
+          "max_ms": 5.0,
+          "at": 1794668125,
+          "costs": {
+            "bridge.context": {
+              "calls": 418,
+              "ms": 24.0
+            },
+            "bridge.control_health": {
+              "calls": 418,
+              "ms": 44.0
+            },
+            "bridge.maintain_control": {
+              "calls": 418,
+              "ms": 159.0
+            },
+            "bridge.update_camera": {
+              "calls": 418,
+              "ms": 52.0
+            },
+            "bridge.verify_control": {
+              "calls": 418,
+              "ms": 171.0
+            },
+            "bridge.world_boundary": {
+              "calls": 418,
+              "ms": 56.0
+            },
+            "find_exact": {
+              "calls": 17571,
+              "ms": 80.0
+            },
+            "read_input": {
+              "calls": 418,
+              "ms": 533.0
+            },
+            "status": {
+              "calls": 418,
+              "ms": 6.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.001,
+          "frames": 385,
+          "callback_ms": 2.58961,
+          "max_ms": 5.0,
+          "at": 1794668130,
+          "costs": {
+            "bridge.context": {
+              "calls": 385,
+              "ms": 28.0
+            },
+            "bridge.control_health": {
+              "calls": 385,
+              "ms": 24.0
+            },
+            "bridge.maintain_control": {
+              "calls": 385,
+              "ms": 153.0
+            },
+            "bridge.update_camera": {
+              "calls": 385,
+              "ms": 57.0
+            },
+            "bridge.verify_control": {
+              "calls": 385,
+              "ms": 171.0
+            },
+            "bridge.world_boundary": {
+              "calls": 385,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 16185,
+              "ms": 76.0
+            },
+            "read_input": {
+              "calls": 385,
+              "ms": 508.0
+            },
+            "status": {
+              "calls": 385,
+              "ms": 0.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.011,
+          "frames": 375,
+          "callback_ms": 2.589333,
+          "max_ms": 6.0,
+          "at": 1794668135,
+          "costs": {
+            "bridge.context": {
+              "calls": 375,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 375,
+              "ms": 26.0
+            },
+            "bridge.maintain_control": {
+              "calls": 375,
+              "ms": 157.0
+            },
+            "bridge.update_camera": {
+              "calls": 375,
+              "ms": 46.0
+            },
+            "bridge.verify_control": {
+              "calls": 375,
+              "ms": 176.0
+            },
+            "bridge.world_boundary": {
+              "calls": 375,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 15765,
+              "ms": 50.0
+            },
+            "read_input": {
+              "calls": 375,
+              "ms": 489.0
+            },
+            "status": {
+              "calls": 375,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 386,
+          "callback_ms": 2.624352,
+          "max_ms": 6.0,
+          "at": 1794668140,
+          "costs": {
+            "bridge.context": {
+              "calls": 386,
+              "ms": 20.0
+            },
+            "bridge.control_health": {
+              "calls": 386,
+              "ms": 35.0
+            },
+            "bridge.maintain_control": {
+              "calls": 386,
+              "ms": 147.0
+            },
+            "bridge.update_camera": {
+              "calls": 386,
+              "ms": 50.0
+            },
+            "bridge.verify_control": {
+              "calls": 386,
+              "ms": 183.0
+            },
+            "bridge.world_boundary": {
+              "calls": 386,
+              "ms": 43.0
+            },
+            "find_exact": {
+              "calls": 16227,
+              "ms": 54.0
+            },
+            "read_input": {
+              "calls": 386,
+              "ms": 517.0
+            },
+            "status": {
+              "calls": 386,
+              "ms": 1.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.006,
+          "frames": 401,
+          "callback_ms": 2.528678,
+          "max_ms": 5.0,
+          "at": 1794668145,
+          "costs": {
+            "bridge.context": {
+              "calls": 401,
+              "ms": 28.0
+            },
+            "bridge.control_health": {
+              "calls": 401,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 401,
+              "ms": 153.0
+            },
+            "bridge.update_camera": {
+              "calls": 401,
+              "ms": 41.0
+            },
+            "bridge.verify_control": {
+              "calls": 401,
+              "ms": 179.0
+            },
+            "bridge.world_boundary": {
+              "calls": 401,
+              "ms": 39.0
+            },
+            "find_exact": {
+              "calls": 16857,
+              "ms": 55.0
+            },
+            "read_input": {
+              "calls": 401,
+              "ms": 532.0
+            },
+            "status": {
+              "calls": 401,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 409,
+          "callback_ms": 2.513447,
+          "max_ms": 5.0,
+          "at": 1794668150,
+          "costs": {
+            "bridge.context": {
+              "calls": 409,
+              "ms": 20.0
+            },
+            "bridge.control_health": {
+              "calls": 409,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 409,
+              "ms": 155.0
+            },
+            "bridge.update_camera": {
+              "calls": 409,
+              "ms": 62.0
+            },
+            "bridge.verify_control": {
+              "calls": 409,
+              "ms": 172.0
+            },
+            "bridge.world_boundary": {
+              "calls": 409,
+              "ms": 48.0
+            },
+            "find_exact": {
+              "calls": 17193,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 409,
+              "ms": 521.0
+            },
+            "status": {
+              "calls": 409,
+              "ms": 1.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 427,
+          "callback_ms": 2.477752,
+          "max_ms": 5.0,
+          "at": 1794668155,
+          "costs": {
+            "bridge.context": {
+              "calls": 427,
+              "ms": 26.0
+            },
+            "bridge.control_health": {
+              "calls": 427,
+              "ms": 34.0
+            },
+            "bridge.maintain_control": {
+              "calls": 427,
+              "ms": 177.0
+            },
+            "bridge.update_camera": {
+              "calls": 427,
+              "ms": 58.0
+            },
+            "bridge.verify_control": {
+              "calls": 427,
+              "ms": 163.0
+            },
+            "bridge.world_boundary": {
+              "calls": 427,
+              "ms": 46.0
+            },
+            "find_exact": {
+              "calls": 17949,
+              "ms": 78.0
+            },
+            "read_input": {
+              "calls": 427,
+              "ms": 538.0
+            },
+            "status": {
+              "calls": 427,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.007,
+          "frames": 416,
+          "callback_ms": 2.451923,
+          "max_ms": 6.0,
+          "at": 1794668160,
+          "costs": {
+            "bridge.context": {
+              "calls": 416,
+              "ms": 20.0
+            },
+            "bridge.control_health": {
+              "calls": 416,
+              "ms": 34.0
+            },
+            "bridge.maintain_control": {
+              "calls": 416,
+              "ms": 148.0
+            },
+            "bridge.update_camera": {
+              "calls": 416,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 416,
+              "ms": 178.0
+            },
+            "bridge.world_boundary": {
+              "calls": 416,
+              "ms": 45.0
+            },
+            "find_exact": {
+              "calls": 17487,
+              "ms": 54.0
+            },
+            "read_input": {
+              "calls": 416,
+              "ms": 527.0
+            },
+            "status": {
+              "calls": 416,
+              "ms": 7.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.001,
+          "frames": 388,
+          "callback_ms": 2.600515,
+          "max_ms": 5.0,
+          "at": 1794668165,
+          "costs": {
+            "bridge.context": {
+              "calls": 388,
+              "ms": 19.0
+            },
+            "bridge.control_health": {
+              "calls": 388,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 388,
+              "ms": 152.0
+            },
+            "bridge.update_camera": {
+              "calls": 388,
+              "ms": 61.0
+            },
+            "bridge.verify_control": {
+              "calls": 388,
+              "ms": 163.0
+            },
+            "bridge.world_boundary": {
+              "calls": 388,
+              "ms": 54.0
+            },
+            "find_exact": {
+              "calls": 16311,
+              "ms": 67.0
+            },
+            "read_input": {
+              "calls": 388,
+              "ms": 511.0
+            },
+            "status": {
+              "calls": 388,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.013,
+          "frames": 376,
+          "callback_ms": 2.595745,
+          "max_ms": 5.0,
+          "at": 1794668170,
+          "costs": {
+            "bridge.context": {
+              "calls": 376,
+              "ms": 24.0
+            },
+            "bridge.control_health": {
+              "calls": 376,
+              "ms": 43.0
+            },
+            "bridge.maintain_control": {
+              "calls": 376,
+              "ms": 141.0
+            },
+            "bridge.update_camera": {
+              "calls": 376,
+              "ms": 46.0
+            },
+            "bridge.verify_control": {
+              "calls": 376,
+              "ms": 171.0
+            },
+            "bridge.world_boundary": {
+              "calls": 376,
+              "ms": 36.0
+            },
+            "find_exact": {
+              "calls": 15807,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 376,
+              "ms": 499.0
+            },
+            "status": {
+              "calls": 376,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 374,
+          "callback_ms": 2.622995,
+          "max_ms": 5.0,
+          "at": 1794668175,
+          "costs": {
+            "bridge.context": {
+              "calls": 374,
+              "ms": 23.0
+            },
+            "bridge.control_health": {
+              "calls": 374,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 374,
+              "ms": 153.0
+            },
+            "bridge.update_camera": {
+              "calls": 374,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 374,
+              "ms": 165.0
+            },
+            "bridge.world_boundary": {
+              "calls": 374,
+              "ms": 42.0
+            },
+            "find_exact": {
+              "calls": 15723,
+              "ms": 72.0
+            },
+            "read_input": {
+              "calls": 374,
+              "ms": 494.0
+            },
+            "status": {
+              "calls": 374,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.002,
+          "frames": 399,
+          "callback_ms": 2.556391,
+          "max_ms": 5.0,
+          "at": 1794668180,
+          "costs": {
+            "bridge.context": {
+              "calls": 399,
+              "ms": 30.0
+            },
+            "bridge.control_health": {
+              "calls": 399,
+              "ms": 41.0
+            },
+            "bridge.maintain_control": {
+              "calls": 399,
+              "ms": 147.0
+            },
+            "bridge.update_camera": {
+              "calls": 399,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 399,
+              "ms": 166.0
+            },
+            "bridge.world_boundary": {
+              "calls": 399,
+              "ms": 38.0
+            },
+            "find_exact": {
+              "calls": 16773,
+              "ms": 63.0
+            },
+            "read_input": {
+              "calls": 399,
+              "ms": 535.0
+            },
+            "status": {
+              "calls": 399,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 419,
+          "callback_ms": 2.479714,
+          "max_ms": 5.0,
+          "at": 1794668185,
+          "costs": {
+            "bridge.context": {
+              "calls": 419,
+              "ms": 20.0
+            },
+            "bridge.control_health": {
+              "calls": 419,
+              "ms": 37.0
+            },
+            "bridge.maintain_control": {
+              "calls": 419,
+              "ms": 139.0
+            },
+            "bridge.update_camera": {
+              "calls": 419,
+              "ms": 54.0
+            },
+            "bridge.verify_control": {
+              "calls": 419,
+              "ms": 190.0
+            },
+            "bridge.world_boundary": {
+              "calls": 419,
+              "ms": 46.0
+            },
+            "find_exact": {
+              "calls": 17613,
+              "ms": 69.0
+            },
+            "read_input": {
+              "calls": 419,
+              "ms": 527.0
+            },
+            "status": {
+              "calls": 419,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.007,
+          "frames": 399,
+          "callback_ms": 2.54386,
+          "max_ms": 5.0,
+          "at": 1794668190,
+          "costs": {
+            "bridge.context": {
+              "calls": 399,
+              "ms": 24.0
+            },
+            "bridge.control_health": {
+              "calls": 399,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 399,
+              "ms": 163.0
+            },
+            "bridge.update_camera": {
+              "calls": 399,
+              "ms": 56.0
+            },
+            "bridge.verify_control": {
+              "calls": 399,
+              "ms": 161.0
+            },
+            "bridge.world_boundary": {
+              "calls": 399,
+              "ms": 52.0
+            },
+            "find_exact": {
+              "calls": 16773,
+              "ms": 71.0
+            },
+            "read_input": {
+              "calls": 399,
+              "ms": 516.0
+            },
+            "status": {
+              "calls": 399,
+              "ms": 1.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 408,
+          "callback_ms": 2.487745,
+          "max_ms": 5.0,
+          "at": 1794668195,
+          "costs": {
+            "bridge.context": {
+              "calls": 408,
+              "ms": 30.0
+            },
+            "bridge.control_health": {
+              "calls": 408,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 408,
+              "ms": 169.0
+            },
+            "bridge.update_camera": {
+              "calls": 408,
+              "ms": 46.0
+            },
+            "bridge.verify_control": {
+              "calls": 408,
+              "ms": 164.0
+            },
+            "bridge.world_boundary": {
+              "calls": 408,
+              "ms": 39.0
+            },
+            "find_exact": {
+              "calls": 17151,
+              "ms": 66.0
+            },
+            "read_input": {
+              "calls": 408,
+              "ms": 522.0
+            },
+            "status": {
+              "calls": 408,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.011,
+          "frames": 409,
+          "callback_ms": 2.518337,
+          "max_ms": 5.0,
+          "at": 1794668200,
+          "costs": {
+            "bridge.context": {
+              "calls": 409,
+              "ms": 24.0
+            },
+            "bridge.control_health": {
+              "calls": 409,
+              "ms": 48.0
+            },
+            "bridge.maintain_control": {
+              "calls": 409,
+              "ms": 144.0
+            },
+            "bridge.update_camera": {
+              "calls": 409,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 409,
+              "ms": 174.0
+            },
+            "bridge.world_boundary": {
+              "calls": 409,
+              "ms": 40.0
+            },
+            "find_exact": {
+              "calls": 17193,
+              "ms": 66.0
+            },
+            "read_input": {
+              "calls": 409,
+              "ms": 534.0
+            },
+            "status": {
+              "calls": 409,
+              "ms": 6.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 417,
+          "callback_ms": 2.484412,
+          "max_ms": 6.0,
+          "at": 1794668205,
+          "costs": {
+            "bridge.context": {
+              "calls": 417,
+              "ms": 27.0
+            },
+            "bridge.control_health": {
+              "calls": 417,
+              "ms": 32.0
+            },
+            "bridge.maintain_control": {
+              "calls": 417,
+              "ms": 155.0
+            },
+            "bridge.update_camera": {
+              "calls": 417,
+              "ms": 61.0
+            },
+            "bridge.verify_control": {
+              "calls": 417,
+              "ms": 161.0
+            },
+            "bridge.world_boundary": {
+              "calls": 417,
+              "ms": 55.0
+            },
+            "find_exact": {
+              "calls": 17529,
+              "ms": 81.0
+            },
+            "read_input": {
+              "calls": 417,
+              "ms": 525.0
+            },
+            "status": {
+              "calls": 417,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 428,
+          "callback_ms": 2.462617,
+          "max_ms": 6.0,
+          "at": 1794668210,
+          "costs": {
+            "bridge.context": {
+              "calls": 428,
+              "ms": 29.0
+            },
+            "bridge.control_health": {
+              "calls": 428,
+              "ms": 31.0
+            },
+            "bridge.maintain_control": {
+              "calls": 428,
+              "ms": 156.0
+            },
+            "bridge.update_camera": {
+              "calls": 428,
+              "ms": 62.0
+            },
+            "bridge.verify_control": {
+              "calls": 428,
+              "ms": 175.0
+            },
+            "bridge.world_boundary": {
+              "calls": 428,
+              "ms": 47.0
+            },
+            "find_exact": {
+              "calls": 17991,
+              "ms": 73.0
+            },
+            "read_input": {
+              "calls": 428,
+              "ms": 530.0
+            },
+            "status": {
+              "calls": 428,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.009,
+          "frames": 428,
+          "callback_ms": 2.441589,
+          "max_ms": 5.0,
+          "at": 1794668215,
+          "costs": {
+            "bridge.context": {
+              "calls": 428,
+              "ms": 12.0
+            },
+            "bridge.control_health": {
+              "calls": 428,
+              "ms": 38.0
+            },
+            "bridge.maintain_control": {
+              "calls": 428,
+              "ms": 166.0
+            },
+            "bridge.update_camera": {
+              "calls": 428,
+              "ms": 55.0
+            },
+            "bridge.verify_control": {
+              "calls": 428,
+              "ms": 182.0
+            },
+            "bridge.world_boundary": {
+              "calls": 428,
+              "ms": 49.0
+            },
+            "find_exact": {
+              "calls": 17991,
+              "ms": 52.0
+            },
+            "read_input": {
+              "calls": 428,
+              "ms": 525.0
+            },
+            "status": {
+              "calls": 428,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 429,
+          "callback_ms": 2.438228,
+          "max_ms": 5.0,
+          "at": 1794668220,
+          "costs": {
+            "bridge.context": {
+              "calls": 429,
+              "ms": 15.0
+            },
+            "bridge.control_health": {
+              "calls": 429,
+              "ms": 28.0
+            },
+            "bridge.maintain_control": {
+              "calls": 429,
+              "ms": 172.0
+            },
+            "bridge.update_camera": {
+              "calls": 429,
+              "ms": 53.0
+            },
+            "bridge.verify_control": {
+              "calls": 429,
+              "ms": 178.0
+            },
+            "bridge.world_boundary": {
+              "calls": 429,
+              "ms": 45.0
+            },
+            "find_exact": {
+              "calls": 18033,
+              "ms": 67.0
+            },
+            "read_input": {
+              "calls": 429,
+              "ms": 532.0
+            },
+            "status": {
+              "calls": 429,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.006,
+          "frames": 432,
+          "callback_ms": 2.444444,
+          "max_ms": 5.0,
+          "at": 1794668225,
+          "costs": {
+            "bridge.context": {
+              "calls": 432,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 432,
+              "ms": 29.0
+            },
+            "bridge.maintain_control": {
+              "calls": 432,
+              "ms": 161.0
+            },
+            "bridge.update_camera": {
+              "calls": 432,
+              "ms": 54.0
+            },
+            "bridge.verify_control": {
+              "calls": 432,
+              "ms": 191.0
+            },
+            "bridge.world_boundary": {
+              "calls": 432,
+              "ms": 44.0
+            },
+            "find_exact": {
+              "calls": 18159,
+              "ms": 71.0
+            },
+            "read_input": {
+              "calls": 432,
+              "ms": 543.0
+            },
+            "status": {
+              "calls": 432,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 403,
+          "callback_ms": 2.595533,
+          "max_ms": 6.0,
+          "at": 1794668230,
+          "costs": {
+            "bridge.context": {
+              "calls": 403,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 403,
+              "ms": 41.0
+            },
+            "bridge.maintain_control": {
+              "calls": 403,
+              "ms": 156.0
+            },
+            "bridge.update_camera": {
+              "calls": 403,
+              "ms": 53.0
+            },
+            "bridge.verify_control": {
+              "calls": 403,
+              "ms": 162.0
+            },
+            "bridge.world_boundary": {
+              "calls": 403,
+              "ms": 53.0
+            },
+            "find_exact": {
+              "calls": 16941,
+              "ms": 65.0
+            },
+            "read_input": {
+              "calls": 403,
+              "ms": 543.0
+            },
+            "status": {
+              "calls": 403,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 430,
+          "callback_ms": 2.474419,
+          "max_ms": 7.0,
+          "at": 1794668235,
+          "costs": {
+            "bridge.context": {
+              "calls": 430,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 430,
+              "ms": 43.0
+            },
+            "bridge.maintain_control": {
+              "calls": 430,
+              "ms": 162.0
+            },
+            "bridge.update_camera": {
+              "calls": 430,
+              "ms": 53.0
+            },
+            "bridge.verify_control": {
+              "calls": 430,
+              "ms": 175.0
+            },
+            "bridge.world_boundary": {
+              "calls": 430,
+              "ms": 51.0
+            },
+            "find_exact": {
+              "calls": 18075,
+              "ms": 74.0
+            },
+            "read_input": {
+              "calls": 430,
+              "ms": 541.0
+            },
+            "status": {
+              "calls": 430,
+              "ms": 5.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.007,
+          "frames": 431,
+          "callback_ms": 2.466357,
+          "max_ms": 5.0,
+          "at": 1794668240,
+          "costs": {
+            "bridge.context": {
+              "calls": 431,
+              "ms": 25.0
+            },
+            "bridge.control_health": {
+              "calls": 431,
+              "ms": 44.0
+            },
+            "bridge.maintain_control": {
+              "calls": 431,
+              "ms": 164.0
+            },
+            "bridge.update_camera": {
+              "calls": 431,
+              "ms": 49.0
+            },
+            "bridge.verify_control": {
+              "calls": 431,
+              "ms": 174.0
+            },
+            "bridge.world_boundary": {
+              "calls": 431,
+              "ms": 47.0
+            },
+            "find_exact": {
+              "calls": 18117,
+              "ms": 77.0
+            },
+            "read_input": {
+              "calls": 431,
+              "ms": 551.0
+            },
+            "status": {
+              "calls": 431,
+              "ms": 3.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.005,
+          "frames": 419,
+          "callback_ms": 2.48926,
+          "max_ms": 6.0,
+          "at": 1794668245,
+          "costs": {
+            "bridge.context": {
+              "calls": 419,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 419,
+              "ms": 42.0
+            },
+            "bridge.maintain_control": {
+              "calls": 419,
+              "ms": 160.0
+            },
+            "bridge.update_camera": {
+              "calls": 419,
+              "ms": 62.0
+            },
+            "bridge.verify_control": {
+              "calls": 419,
+              "ms": 172.0
+            },
+            "bridge.world_boundary": {
+              "calls": 419,
+              "ms": 44.0
+            },
+            "find_exact": {
+              "calls": 17613,
+              "ms": 74.0
+            },
+            "read_input": {
+              "calls": 419,
+              "ms": 526.0
+            },
+            "status": {
+              "calls": 419,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.004,
+          "frames": 435,
+          "callback_ms": 2.411494,
+          "max_ms": 5.0,
+          "at": 1794668250,
+          "costs": {
+            "bridge.context": {
+              "calls": 435,
+              "ms": 18.0
+            },
+            "bridge.control_health": {
+              "calls": 435,
+              "ms": 36.0
+            },
+            "bridge.maintain_control": {
+              "calls": 435,
+              "ms": 168.0
+            },
+            "bridge.update_camera": {
+              "calls": 435,
+              "ms": 45.0
+            },
+            "bridge.verify_control": {
+              "calls": 435,
+              "ms": 188.0
+            },
+            "bridge.world_boundary": {
+              "calls": 435,
+              "ms": 39.0
+            },
+            "find_exact": {
+              "calls": 18285,
+              "ms": 64.0
+            },
+            "read_input": {
+              "calls": 435,
+              "ms": 541.0
+            },
+            "status": {
+              "calls": 435,
+              "ms": 2.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.003,
+          "frames": 427,
+          "callback_ms": 2.510539,
+          "max_ms": 5.0,
+          "at": 1794668255,
+          "costs": {
+            "bridge.context": {
+              "calls": 427,
+              "ms": 19.0
+            },
+            "bridge.control_health": {
+              "calls": 427,
+              "ms": 56.0
+            },
+            "bridge.maintain_control": {
+              "calls": 427,
+              "ms": 159.0
+            },
+            "bridge.update_camera": {
+              "calls": 427,
+              "ms": 51.0
+            },
+            "bridge.verify_control": {
+              "calls": 427,
+              "ms": 164.0
+            },
+            "bridge.world_boundary": {
+              "calls": 427,
+              "ms": 50.0
+            },
+            "find_exact": {
+              "calls": 17949,
+              "ms": 70.0
+            },
+            "read_input": {
+              "calls": 427,
+              "ms": 557.0
+            },
+            "status": {
+              "calls": 427,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.0,
+          "frames": 433,
+          "callback_ms": 2.406467,
+          "max_ms": 5.0,
+          "at": 1794668260,
+          "costs": {
+            "bridge.context": {
+              "calls": 433,
+              "ms": 22.0
+            },
+            "bridge.control_health": {
+              "calls": 433,
+              "ms": 42.0
+            },
+            "bridge.maintain_control": {
+              "calls": 433,
+              "ms": 178.0
+            },
+            "bridge.update_camera": {
+              "calls": 433,
+              "ms": 44.0
+            },
+            "bridge.verify_control": {
+              "calls": 433,
+              "ms": 171.0
+            },
+            "bridge.world_boundary": {
+              "calls": 433,
+              "ms": 26.0
+            },
+            "find_exact": {
+              "calls": 18201,
+              "ms": 66.0
+            },
+            "read_input": {
+              "calls": 433,
+              "ms": 540.0
+            },
+            "status": {
+              "calls": 433,
+              "ms": 4.0
+            }
+          }
+        },
+        {
+          "state": "ACTIVE",
+          "wall": 5.01,
+          "frames": 380,
+          "callback_ms": 2.673684,
+          "max_ms": 7.0,
+          "at": 1794668275,
+          "costs": {
+            "bridge.context": {
+              "calls": 380,
+              "ms": 21.0
+            },
+            "bridge.control_health": {
+              "calls": 380,
+              "ms": 30.0
+            },
+            "bridge.maintain_control": {
+              "calls": 380,
+              "ms": 153.0
+            },
+            "bridge.update_camera": {
+              "calls": 380,
+              "ms": 35.0
+            },
+            "bridge.verify_control": {
+              "calls": 380,
+              "ms": 150.0
+            },
+            "bridge.world_boundary": {
+              "calls": 380,
+              "ms": 42.0
+            },
+            "find_exact": {
+              "calls": 16449,
+              "ms": 66.0
+            },
+            "read_input": {
+              "calls": 380,
+              "ms": 480.0
+            },
+            "status": {
+              "calls": 380,
+              "ms": 2.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "at": "2026-11-14T23:02:48.465146+08:00"
+}

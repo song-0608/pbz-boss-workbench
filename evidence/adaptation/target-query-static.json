@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-13T11:50:09.397999+08:00",
+  "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "scope": "read-only on-disk PE; preferred image addresses, not verified live objects",
+  "image_base": "0x140000000",
+  "strings": [
+    {
+      "text": "GetLockingTarget",
+      "matches": [
+        {
+          "encoding": "utf-16le",
+          "rva": "0xbe96498",
+          "file_offset": "0xbe95898"
+        },
+        {
+          "encoding": "ascii",
+          "rva": "0xc024e78",
+          "file_offset": "0xc024278"
+        }
+      ],
+      "xrefs": [
+        {
+          "instruction_rva": "0x106c1d0",
+          "target_rva": "0xbe96498",
+          "function": null,
+          "rva": "0x106c1d0",
+          "bytes": "48 8d 15 c1 a2 e2 0a",
+          "instruction": "lea rdx, [rip + 0xae2a2c1]",
+          "rip_target_rvas": [
+            "0xbe96498"
+          ]
+        },
+        {
+          "instruction_rva": "0x620e80a",
+          "target_rva": "0xbe96498",
+          "function": {
+            "start_rva": "0x62093b0",
+            "end_rva": "0x62c2877",
+            "unwind_rva": "0xd6a7848"
+          },
+          "rva": "0x620e80a",
+          "bytes": "48 8d 15 87 7c c8 05",
+          "instruction": "lea rdx, [rip + 0x5c87c87]",
+          "rip_target_rvas": [
+            "0xbe96498"
+          ]
+        }
+      ]
+    },
+    {
+      "text": "GetTargetingComponent",
+      "matches": [
+        {
+          "encoding": "utf-16le",
+          "rva": "0xbd52128",
+          "file_offset": "0xbd51528"
+        },
+        {
+          "encoding": "ascii",
+          "rva": "0xbd52258",
+          "file_offset": "0xbd51658"
+        }
+      ],
+      "xrefs": [
+        {
+          "instruction_rva": "0x10524a0",
+          "target_rva": "0xbd52128",
+          "function": null,
+          "rva": "0x10524a0",
+          "bytes": "48 8d 15 81 fc cf 0a",
+          "instruction": "lea rdx, [rip + 0xacffc81]",
+          "rip_target_rvas": [
+            "0xbd52128"
+          ]
+        }
+      ]
+    }
+  ],
+  "disassembly": [],
+  "xrefs": []
+}

@@ -1,0 +1,224 @@
+{
+  "id": "005_moddog",
+  "resource_folder": "005_ModDog",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/BP_Monster_Dog_Summon",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/BP_Monster_FlameDog",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/BP_Monster_GoldenDog_Summon",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/005_ModDog/ActorData/ActorC_Flame_Dog",
+    "/PBZCombatAsset/ActorData/Mobs/005_ModDog/ActorData/ActorC_Flame_Dog_Summon",
+    "/PBZCombatAsset/ActorData/Mobs/005_ModDog/ActorData/ActorC_Sick_Dog"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "3ecc879c9a9daf0d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/FlameDog/Abilities/GA_FlameDog_IgnitPassive",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "544424ca81825a79",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_AutoCombo_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "818623f985097e47",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_Bark_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "18e633ff38008dce",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_Dodge_R_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a830319a694dad4e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_LightAttack_05_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "bedf35bb081df67d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_LightAttack_06_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a7a7a1131e7cb43f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_LightRun",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "359d9a8ff14a7f03",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_Rush_Bwd",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "c178a06b4eec9a25",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_Rush_Fwd",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7d8ef62071a0ffed",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_Rush_Right",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "cd7936d20445bd71",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Sick_Dog/Abilities/GA_Sick_Dog_Dodge_R_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3b1c8f747f25824f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Sick_Dog/Abilities/GA_Sick_Dog_LightAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e8dd0a95efcaddf5",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Sick_Dog/Abilities/GA_Sick_Dog_LightAttack_06_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "720947075ad907ef",
+      "package": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Sick_Dog/BulletData/GA_Sick_Dog_LightAttack_02_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

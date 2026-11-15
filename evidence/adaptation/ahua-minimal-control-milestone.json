@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-13T10:36:18.649362+08:00",
+  "checks": {
+    "identity_name_from_asset": true,
+    "temporary_actor_spawned": true,
+    "native_possession_and_restore": true,
+    "position_changed": true,
+    "first_skill_activated_and_finished": true,
+    "f6_enter": true,
+    "w_observed_by_input_driver": true,
+    "f1_skill": true,
+    "automatic_restore_and_cleanup": true
+  },
+  "minimal_control_loop_verified": true,
+  "boss_control_verified": false,
+  "full_player_release_ready": false,
+  "movement_delta_xy_game_units": 118.07452163433,
+  "granted_ability_count_observed": 37,
+  "camera_visual_verified": false,
+  "camera_issue": "Camera clips inside the boss model; third-person camera not accepted",
+  "f10_physical_key_verified": false,
+  "skill_damage_targeting_verified": false,
+  "skill_cancellation_runtime_verified": false,
+  "source_log": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-101145\\UE4SS.log",
+  "postcheck": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\latest-native-diagnostic-postcheck.json",
+  "formal_changed_count": 0,
+  "formal_files_checked": 56,
+  "readme": "D:\\mod文档\\PBZ-Boss操控研究\\31-阿花最小控制原型实测.md"
+}

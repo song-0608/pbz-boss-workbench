@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-12T23:57:23.452935+08:00",
+  "passed": true,
+  "checks": {
+    "event_loop": true,
+    "lua_started": true,
+    "actor_name": true,
+    "property_chain": true,
+    "integer_property": true,
+    "object_property": true,
+    "world": true,
+    "pass_marker": true,
+    "no_failure_marker": true,
+    "formal_files_unchanged": true
+  },
+  "markers": [
+    "START",
+    "ACTOR=Class /Script/Engine.Actor",
+    "PROPERTY=StructProperty /Script/Engine.Actor:PrimaryActorTick",
+    "PROPERTY=BoolProperty /Script/Engine.Actor:bNetTemporary",
+    "PROPERTY=BoolProperty /Script/Engine.Actor:bOnlyRelevantToOwner",
+    "PROPERTY_COUNT=80",
+    "JUMP_MAX_COUNT=1",
+    "MOVEMENT=CharacterMovementComponent /Script/Engine.Default__Character:CharMoveComp",
+    "WORLD=World /Game/Maps/ServerCheck.ServerCheck",
+    "PASS"
+  ],
+  "property_count": 80,
+  "formal_changed_count": 0,
+  "gameplay_entered": false,
+  "all_pbz_network_blocked": true,
+  "boss_control_verified": false,
+  "profile_sha256": "b4578a4890126aff4f7af246675085e007319f3a43e9fb02f52dd6c320ab15d1",
+  "lua_sha256": "b9cc498e7ccaf5014f2e63f85c454562c45ecca3b9f3bb629e6c3bb7dbb94fb9",
+  "ue4ss_dll_sha256": "27ca1098104e231ab40e89cc9f87643647fcb3937a8aa832b57e180df96bcff7",
+  "work": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261112-234911",
+  "scope": "Only verified checks above; does not certify full hooks, GUI or boss gameplay"
+}

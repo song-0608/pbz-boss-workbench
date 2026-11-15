@@ -1,0 +1,320 @@
+{
+  "at": "2026-11-12T23:45:02.922000+08:00",
+  "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "passed": true,
+  "hits": [
+    {
+      "rva": "0x1584aa5",
+      "targets": [
+        "0xde28c70",
+        "0xde28cb8",
+        "0xde28c50"
+      ],
+      "layout_matches": true
+    }
+  ],
+  "unknown_keys": [],
+  "members": [
+    {
+      "section": "TUObjectArray",
+      "member": "MaxChunks",
+      "offset": "0x0"
+    },
+    {
+      "section": "TUObjectArray",
+      "member": "NumChunks",
+      "offset": "0x4"
+    },
+    {
+      "section": "TUObjectArray",
+      "member": "Objects",
+      "offset": "0x8"
+    },
+    {
+      "section": "TUObjectArray",
+      "member": "NumElements",
+      "offset": "0x10"
+    },
+    {
+      "section": "TUObjectArray",
+      "member": "MaxElements",
+      "offset": "0x14"
+    },
+    {
+      "section": "TUObjectArray",
+      "member": "PreAllocatedObjects",
+      "offset": "0x18"
+    },
+    {
+      "section": "TUObjectArray",
+      "member": "UEP_TotalSize",
+      "offset": "0x20"
+    },
+    {
+      "section": "FUObjectArray",
+      "member": "UObjectDeleteListeners",
+      "offset": "0xA8"
+    },
+    {
+      "section": "FField",
+      "member": "Next",
+      "offset": "0x10"
+    },
+    {
+      "section": "FField",
+      "member": "Owner",
+      "offset": "0x18"
+    },
+    {
+      "section": "FFieldClass",
+      "member": "FName",
+      "offset": "0x30"
+    },
+    {
+      "section": "FFieldClass",
+      "member": "ConstructFn",
+      "offset": "0x0"
+    },
+    {
+      "section": "FFieldClass",
+      "member": "CastFlags",
+      "offset": "0x10"
+    },
+    {
+      "section": "FFieldClass",
+      "member": "Id",
+      "offset": "0x18"
+    },
+    {
+      "section": "UStruct",
+      "member": "PropertiesSize",
+      "offset": "0xA8"
+    },
+    {
+      "section": "UStruct",
+      "member": "MinAlignment",
+      "offset": "0xAC"
+    },
+    {
+      "section": "UStruct",
+      "member": "StructStateFlags",
+      "offset": "0xAE"
+    },
+    {
+      "section": "UStruct",
+      "member": "Script",
+      "offset": "0xB0"
+    },
+    {
+      "section": "UStruct",
+      "member": "PropertyLink",
+      "offset": "0xC0"
+    },
+    {
+      "section": "UStruct",
+      "member": "RefLink",
+      "offset": "0xC8"
+    },
+    {
+      "section": "UStruct",
+      "member": "DestructorLink",
+      "offset": "0xD0"
+    },
+    {
+      "section": "UStruct",
+      "member": "PostConstructLink",
+      "offset": "0xD8"
+    },
+    {
+      "section": "UStruct",
+      "member": "ScriptAndPropertyObjectReferences",
+      "offset": "0xE0"
+    },
+    {
+      "section": "UStruct",
+      "member": "UnresolvedScriptProperties",
+      "offset": "0xF0"
+    },
+    {
+      "section": "UStruct",
+      "member": "UEP_TotalSize",
+      "offset": "0x100"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassConstructor",
+      "offset": "0x100"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassVTableHelperCtorCaller",
+      "offset": "0x108"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassUnique",
+      "offset": "0x118"
+    },
+    {
+      "section": "UClass",
+      "member": "FirstOwnedClassRep",
+      "offset": "0x11C"
+    },
+    {
+      "section": "UClass",
+      "member": "bCooked",
+      "offset": "0x120"
+    },
+    {
+      "section": "UClass",
+      "member": "bLayoutChanging",
+      "offset": "0x121"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassFlags",
+      "offset": "0x124"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassCastFlags",
+      "offset": "0x128"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassWithin",
+      "offset": "0x130"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassConfigName",
+      "offset": "0x138"
+    },
+    {
+      "section": "UClass",
+      "member": "NetFields",
+      "offset": "0x150"
+    },
+    {
+      "section": "UClass",
+      "member": "ClassDefaultObject",
+      "offset": "0x160"
+    },
+    {
+      "section": "UClass",
+      "member": "SparseClassData",
+      "offset": "0x168"
+    },
+    {
+      "section": "UClass",
+      "member": "SparseClassDataStruct",
+      "offset": "0x170"
+    },
+    {
+      "section": "UClass",
+      "member": "bNeedsDynamicSubobjectInstancing",
+      "offset": "0x178"
+    },
+    {
+      "section": "UClass",
+      "member": "FuncMap",
+      "offset": "0x180"
+    },
+    {
+      "section": "UClass",
+      "member": "FuncMapLock",
+      "offset": "0x1D0"
+    },
+    {
+      "section": "UClass",
+      "member": "AllFunctionsCache",
+      "offset": "0x1D8"
+    },
+    {
+      "section": "UClass",
+      "member": "AllFunctionsCacheLock",
+      "offset": "0x228"
+    },
+    {
+      "section": "UClass",
+      "member": "Interfaces",
+      "offset": "0x230"
+    },
+    {
+      "section": "UClass",
+      "member": "ReferenceSchema",
+      "offset": "0x240"
+    },
+    {
+      "section": "UClass",
+      "member": "NativeFunctionLookupTable",
+      "offset": "0x248"
+    },
+    {
+      "section": "UClass",
+      "member": "UEP_TotalSize",
+      "offset": "0x258"
+    },
+    {
+      "section": "UFunction",
+      "member": "FunctionFlags",
+      "offset": "0x100"
+    },
+    {
+      "section": "UFunction",
+      "member": "NumParms",
+      "offset": "0x104"
+    },
+    {
+      "section": "UFunction",
+      "member": "ParmsSize",
+      "offset": "0x106"
+    },
+    {
+      "section": "UFunction",
+      "member": "ReturnValueOffset",
+      "offset": "0x108"
+    },
+    {
+      "section": "UFunction",
+      "member": "RPCId",
+      "offset": "0x10A"
+    },
+    {
+      "section": "UFunction",
+      "member": "RPCResponseId",
+      "offset": "0x10C"
+    },
+    {
+      "section": "UFunction",
+      "member": "FirstPropertyToInit",
+      "offset": "0x110"
+    },
+    {
+      "section": "UFunction",
+      "member": "EventGraphFunction",
+      "offset": "0x118"
+    },
+    {
+      "section": "UFunction",
+      "member": "EventGraphCallOffset",
+      "offset": "0x120"
+    },
+    {
+      "section": "UFunction",
+      "member": "Func",
+      "offset": "0x128"
+    },
+    {
+      "section": "UFunction",
+      "member": "UEP_TotalSize",
+      "offset": "0x130"
+    }
+  ],
+  "files": {
+    "UE4SS_Signatures/GUObjectArray.lua": "3740c699d5f49fefd02b303533af0336d5886af2183d88cc3d7ba52767cef8e1",
+    "MemberVariableLayout.ini": "b4578a4890126aff4f7af246675085e007319f3a43e9fb02f52dd6c320ab15d1"
+  },
+  "pbz_ue4ss_initialization_verified": false,
+  "scope": "Static verification and manifest only; does not prove all inferred member offsets functionally correct"
+}

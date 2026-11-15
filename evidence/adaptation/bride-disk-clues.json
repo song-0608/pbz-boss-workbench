@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-13T09:22:12.223582+08:00",
+  "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "containers": [
+    {
+      "file": "E:\\SteamLibrary\\steamapps\\common\\PBZ\\ProjectPBZ\\Content\\Paks\\ProjectPBZ-Windows.utoc",
+      "bytes": 47487278,
+      "plaintext_match_count": 0,
+      "matches": [],
+      "truncated": false
+    },
+    {
+      "file": "E:\\SteamLibrary\\steamapps\\common\\PBZ\\ProjectPBZ\\Content\\Paks\\ProjectPBZ-Windows.pak",
+      "bytes": 223726270,
+      "plaintext_match_count": 0,
+      "matches": [],
+      "truncated": false
+    }
+  ],
+  "boss_identity_verified": false,
+  "boss_control_verified": false,
+  "scope": "Read-only existing plaintext container bytes; no decompression, decryption, game process, account or save access"
+}

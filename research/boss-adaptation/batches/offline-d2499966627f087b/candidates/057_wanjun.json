@@ -1,0 +1,198 @@
+{
+  "id": "057_wanjun",
+  "resource_folder": "057_WanJun",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "bc7c0d9ca4fa66b2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Attack_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a3a788b46d7ccdb8",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_DodgeAttack_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1e85a42313015201",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_DodgeAttack_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7e7dc308bc5b70c8",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_HeavyAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "83ac88b6362253f6",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_NightMareCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "c7de725b5adcda32",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_01_End",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5291fce34b5108a7",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_01_Loop",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "af8844e564b7a9bd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_01_Start",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1354e44d150d20f1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_02_B_Loop",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3c57439b9773e00a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_03_Combo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "ef771445dd21fdad",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_08",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f93a0713a3f62bbf",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_03_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f5873a1a835b7c91",
+      "package": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

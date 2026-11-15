@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "session": "20261115-090045",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "metadata_only": true,
+  "playable": false,
+  "candidates": [
+    {
+      "id": "056_youlong",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_SecondBrother.ActorC_YouLong_SecondBrother",
+      "observed_cdo_config": [
+        "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+      ],
+      "display_name": "水行帮主：游龙",
+      "checks": {
+        "exact_class": true,
+        "npc_lineage": true,
+        "complete_lineage": true,
+        "exact_config": true,
+        "cdo_config_binding": false,
+        "declared_config_match": false,
+        "display_name": true,
+        "no_rejection": false
+      },
+      "identity_verified": false,
+      "rejections": [
+        "character|...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:45: default config differs from candidate"
+      ],
+      "playable": false,
+      "control_verified": false
+    },
+    {
+      "id": "057_wanjun",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua",
+      "observed_cdo_config": [
+        "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+      ],
+      "display_name": "巨锤客：万钧",
+      "checks": {
+        "exact_class": true,
+        "npc_lineage": true,
+        "complete_lineage": true,
+        "exact_config": true,
+        "cdo_config_binding": true,
+        "declared_config_match": true,
+        "display_name": true,
+        "no_rejection": true
+      },
+      "identity_verified": true,
+      "rejections": [],
+      "playable": false,
+      "control_verified": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui",
+      "observed_cdo_config": [
+        "PDA_ActorConfig_C /PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+      ],
+      "display_name": "琴女烟千岁",
+      "checks": {
+        "exact_class": true,
+        "npc_lineage": true,
+        "complete_lineage": true,
+        "exact_config": true,
+        "cdo_config_binding": true,
+        "declared_config_match": true,
+        "display_name": true,
+        "no_rejection": true
+      },
+      "identity_verified": true,
+      "rejections": [],
+      "playable": false,
+      "control_verified": false
+    }
+  ],
+  "sources": {
+    "runtime\\official-validation-20261115-090045\\state.json": "f20605a4dbb980ce20e9297bde797c9d0ef751d0358168cfccc5d2b8613ca39d",
+    "evidence\\official-validation\\20261115-090045\\postcheck.json": "71f4778eb5d2d0313f155528f2b97b2c9a3b4425887115658c757c39c13a7dfe",
+    "evidence\\official-validation\\20261115-090045\\UE4SS.log": "6f50e17508997c8ae7841b1c1c325601bb885475f5ef7fa2acf9d803af8335e8",
+    "evidence\\official-validation\\20261115-090045\\multi-boss-identity-results.json": "07e27a41e679942df29ee6ea173d042311ce232edaac57ffc8c827702ab2a72d",
+    "research\\boss-adaptation\\batches\\offline-10208eec45c95ebc\\identity-probe-manifest.json": "78bf6d4fc8b42aa65b0716db383d01c87df4e95dffff347cf5ed6f5e5acf0a90",
+    "research\\boss-adaptation\\batches\\offline-10208eec45c95ebc\\manifest.json": "340c7c96dba4048bf98e4ae9ea1789ff511782afc7576b63f8c411f7c2b56517",
+    "research\\boss-adaptation\\batches\\offline-10208eec45c95ebc\\identity-probe.lua": "e1ea949c56747cf7782753f13e67b586cbefae3989f5e7a7c8f5eafac4cadb29"
+  }
+}

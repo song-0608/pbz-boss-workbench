@@ -1,0 +1,470 @@
+{
+  "at": "2026-11-13T01:23:23.791368+08:00",
+  "pid": 52868,
+  "characters": [
+    {
+      "path": "/Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP.PersistentLevel.BP_Renewal_Hun_C_2147479626",
+      "class": "/Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C",
+      "character_name": "None",
+      "character_tags": [],
+      "granted_ability_count": 140,
+      "ability_spec_stride": 240,
+      "abilities": [
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/GA_Hun_Jump.Default__GA_Hun_Jump_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/GA_Hun_Jump.GA_Hun_Jump_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_SideRunning.Default__GA_ASM_SideRunning_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_SideRunning.GA_ASM_SideRunning_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_SideRunning_JumpInFromSideRunning.Default__GA_ASM_SideRunning_JumpInFromSideRunning_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_SideRunning_JumpInFromSideRunning.GA_ASM_SideRunning_JumpInFromSideRunning_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_UpRunning.Default__GA_ASM_UpRunning_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_UpRunning.GA_ASM_UpRunning_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_DownSliding.Default__GA_ASM_DownSliding_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_DownSliding.GA_ASM_DownSliding_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_Sliding.Default__GA_ASM_Sliding_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_Sliding.GA_ASM_Sliding_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_RopeSwing.Default__GA_ASM_RopeSwing_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_RopeSwing.GA_ASM_RopeSwing_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_ClimLadder_2.Default__GA_ASM_ClimLadder_2_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_ClimLadder_2.GA_ASM_ClimLadder_2_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Unarm/GA_Hun_AdvancedDash_Unarmed.Default__GA_Hun_AdvancedDash_Unarmed_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Unarm/GA_Hun_AdvancedDash_Unarmed.GA_Hun_AdvancedDash_Unarmed_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_PerformExecution.Default__GA_PerformExecution_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_PerformExecution.GA_PerformExecution_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_UpRunExecution.Default__GA_ASM_UpRunExecution_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/SpecialMove/GA_ASM_UpRunExecution.GA_ASM_UpRunExecution_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Unarm/GA_Hun_AdvancedDash_Continuous_02_Unarm.Default__GA_Hun_AdvancedDash_Continuous_02_Unarm_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Unarm/GA_Hun_AdvancedDash_Continuous_02_Unarm.GA_Hun_AdvancedDash_Continuous_02_Unarm_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Unarm/GA_Hun_AdvancedDash_Continuous_03_Unarm.Default__GA_Hun_AdvancedDash_Continuous_03_Unarm_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Unarm/GA_Hun_AdvancedDash_Continuous_03_Unarm.GA_Hun_AdvancedDash_Continuous_03_Unarm_C"
+        },
+        {
+          "ability": "/Game/PBZContent/UI/InGame/Dead/GA_PlayerRespawn.Default__GA_PlayerRespawn_C",
+          "class": "/Game/PBZContent/UI/InGame/Dead/GA_PlayerRespawn.GA_PlayerRespawn_C"
+        },
+        {
+          "ability": "/Game/PBZContent/UI/InGame/Dead/GA_PlayerResetAttribute_Dead.Default__GA_PlayerResetAttribute_Dead_C",
+          "class": "/Game/PBZContent/UI/InGame/Dead/GA_PlayerResetAttribute_Dead.GA_PlayerResetAttribute_Dead_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/BP_Hun_PerfectDodge_ForProjectile.Default__BP_Hun_PerfectDodge_ForProjectile_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/BP_Hun_PerfectDodge_ForProjectile.BP_Hun_PerfectDodge_ForProjectile_C"
+        },
+        {
+          "ability": "/Game/PBZContent/Blueprint/Ability/Ability/GA_Player_Sense.Default__GA_Player_Sense_C",
+          "class": "/Game/PBZContent/Blueprint/Ability/Ability/GA_Player_Sense.GA_Player_Sense_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_PerformShachiWeaponExecution.Default__GA_PerformShachiWeaponExecution_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_PerformShachiWeaponExecution.GA_PerformShachiWeaponExecution_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_PerformSpecialAttack.Default__GA_PerformSpecialAttack_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_PerformSpecialAttack.GA_PerformSpecialAttack_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03_QTE.Default__GA_ZuoShang_CA_03_QTE_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03_QTE.GA_ZuoShang_CA_03_QTE_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Common/GA_Hun_DeflectEscape.Default__GA_Hun_DeflectEscape_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Common/GA_Hun_DeflectEscape.GA_Hun_DeflectEscape_C"
+        },
+        {
+          "ability": "/AdvancedSpecialMove/GA/Manager/GA_ASM_CallBackCommon.Default__GA_ASM_CallBackCommon_C",
+          "class": "/AdvancedSpecialMove/GA/Manager/GA_ASM_CallBackCommon.GA_ASM_CallBackCommon_C"
+        },
+        {
+          "ability": "/PBZDeflectSystem/Abilities/BP_PlayerDeflectPassive.Default__BP_PlayerDeflectPassive_C",
+          "class": "/PBZDeflectSystem/Abilities/BP_PlayerDeflectPassive.BP_PlayerDeflectPassive_C"
+        },
+        {
+          "ability": "/PBZDeflectSystem/Abilities/BP_PerfectDodgePassive.Default__BP_PerfectDodgePassive_C",
+          "class": "/PBZDeflectSystem/Abilities/BP_PerfectDodgePassive.BP_PerfectDodgePassive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_ChangeShachiWeapon.Default__GA_ChangeShachiWeapon_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_ChangeShachiWeapon.GA_ChangeShachiWeapon_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_CloseFocus_Passive.Default__GA_CloseFocus_Passive_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_CloseFocus_Passive.GA_CloseFocus_Passive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_SoftLockNext_Passive.Default__GA_SoftLockNext_Passive_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_SoftLockNext_Passive.GA_SoftLockNext_Passive_C"
+        },
+        {
+          "ability": "/Script/SGameLocomotionDriver.Default__GA_SpaceState",
+          "class": "/Script/SGameLocomotionDriver.GA_SpaceState"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_FocusControl_Passive.Default__GA_FocusControl_Passive_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_FocusControl_Passive.GA_FocusControl_Passive_C"
+        },
+        {
+          "ability": "/Script/SGameCombatSystem.Default__GA_CombatAimPassive",
+          "class": "/Script/SGameCombatSystem.GA_CombatAimPassive"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_LockCameraPassive.Default__GA_LockCameraPassive_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/Passive/GA_LockCameraPassive.GA_LockCameraPassive_C"
+        },
+        {
+          "ability": "/Game/PBZContent/Blueprint/Ability/Ability/GA_ResotreHealth_Passive.Default__GA_ResotreHealth_Passive_C",
+          "class": "/Game/PBZContent/Blueprint/Ability/Ability/GA_ResotreHealth_Passive.GA_ResotreHealth_Passive_C"
+        },
+        {
+          "ability": "/Game/PBZContent/Blueprint/Ability/Ability/GA_Player_BuffTracker.Default__GA_Player_BuffTracker_C",
+          "class": "/Game/PBZContent/Blueprint/Ability/Ability/GA_Player_BuffTracker.GA_Player_BuffTracker_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_PhantomPassive.Default__GA_PhantomPassive_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_PhantomPassive.GA_PhantomPassive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/GameplayEffects/Medicine/GA_Medicine_BuJinShui_Passive.Default__GA_Medicine_BuJinShui_Passive_C",
+          "class": "/PBZCombatAsset/Prototypes/GameplayEffects/Medicine/GA_Medicine_BuJinShui_Passive.GA_Medicine_BuJinShui_Passive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.Default__GA_CommonUtilitiesPassive_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.GA_CommonUtilitiesPassive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_PlayerUtilitiesPassive.Default__GA_PlayerUtilitiesPassive_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_PlayerUtilitiesPassive.GA_PlayerUtilitiesPassive_C"
+        },
+        {
+          "ability": "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.Default__GA_LocomotionDriver_3DDefault_C",
+          "class": "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.GA_LocomotionDriver_3DDefault_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ShachiAbility/BrutalAxe/GA_BrutalAxe_Normal.Default__GA_BrutalAxe_Normal_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ShachiAbility/BrutalAxe/GA_BrutalAxe_Normal.GA_BrutalAxe_Normal_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ShachiAbility/BrutalAxe/Archive/GA_BrutalAxe_Combo.Default__GA_BrutalAxe_Combo_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ShachiAbility/BrutalAxe/Archive/GA_BrutalAxe_Combo.GA_BrutalAxe_Combo_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ShachiAbility/BrutalAxe/GA_BrutalAxe_Sprint.Default__GA_BrutalAxe_Sprint_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ShachiAbility/BrutalAxe/GA_BrutalAxe_Sprint.GA_BrutalAxe_Sprint_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/ShaqiWeapon/ShachiHook/UpgradeData/GA_ShachiWeapon_ShachiHook_DamageModification_Passive.Default__GA_ShachiWeapon_ShachiHook_DamageModification_Passive_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/ShaqiWeapon/ShachiHook/UpgradeData/GA_ShachiWeapon_ShachiHook_DamageModification_Passive.GA_ShachiWeapon_ShachiHook_DamageModification_Passive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/GameplayEffects/Accessories/New/GA_Accessory_Counter_Lv1.Default__GA_Accessory_Counter_Lv1_C",
+          "class": "/PBZCombatAsset/Prototypes/GameplayEffects/Accessories/New/GA_Accessory_Counter_Lv1.GA_Accessory_Counter_Lv1_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/Passive/GA_ZhanMa_Passive.Default__GA_ZhanMa_Passive_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/Passive/GA_ZhanMa_Passive.GA_ZhanMa_Passive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A_Draw.Default__GA_Hun_ZhanMa_A_Draw_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A_Draw.GA_Hun_ZhanMa_A_Draw_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A.Default__GA_Hun_ZhanMa_A_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A.GA_Hun_ZhanMa_A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AA.Default__GA_Hun_ZhanMa_AA_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AA.GA_Hun_ZhanMa_AA_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAA.Default__GA_Hun_ZhanMa_AAA_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAA.GA_Hun_ZhanMa_AAA_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAAA.Default__GA_Hun_ZhanMa_AAAA_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAAA.GA_Hun_ZhanMa_AAAA_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B_Draw.Default__GA_Hun_ZhanMa_B_Draw_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B_Draw.GA_Hun_ZhanMa_B_Draw_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B.Default__GA_Hun_ZhanMa_B_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B.GA_Hun_ZhanMa_B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_BB.Default__GA_Hun_ZhanMa_BB_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_BB.GA_Hun_ZhanMa_BB_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A_DashDraw.Default__GA_Hun_ZhanMa_A_DashDraw_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A_DashDraw.GA_Hun_ZhanMa_A_DashDraw_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A_Dash.Default__GA_Hun_ZhanMa_A_Dash_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_A_Dash.GA_Hun_ZhanMa_A_Dash_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B_DashDraw.Default__GA_Hun_ZhanMa_B_DashDraw_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B_DashDraw.GA_Hun_ZhanMa_B_DashDraw_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B_Dash.Default__GA_Hun_ZhanMa_B_Dash_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_B_Dash.GA_Hun_ZhanMa_B_Dash_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_B_Draw.Default__GA_Hun_ZhanMa_Air_B_Draw_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_B_Draw.GA_Hun_ZhanMa_Air_B_Draw_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_B.Default__GA_Hun_ZhanMa_Air_B_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_B.GA_Hun_ZhanMa_Air_B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_A_Draw.Default__GA_Hun_ZhanMa_Air_A_Draw_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_A_Draw.GA_Hun_ZhanMa_Air_A_Draw_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_A.Default__GA_Hun_ZhanMa_Air_A_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_Air_A.GA_Hun_ZhanMa_Air_A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AB.Default__GA_Hun_ZhanMa_AB_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AB.GA_Hun_ZhanMa_AB_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAB.Default__GA_Hun_ZhanMa_AAB_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAB.GA_Hun_ZhanMa_AAB_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAAB.Default__GA_Hun_ZhanMa_AAAB_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/ZhanMaBlade/GA_Hun_ZhanMa_AAAB.GA_Hun_ZhanMa_AAAB_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/LongBlade/GA_Hun_Long_Stance.Default__GA_Hun_Long_Stance_C",
+          "class": "/PBZCombatAsset/ActorData/Players/Hun/Abilities/LongBlade/GA_Hun_Long_Stance.GA_Hun_Long_Stance_C"
+        }
+      ]
+    },
+    {
+      "path": "/Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP.PersistentLevel.BP_Monster_LuanShi_C_2147474800",
+      "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BP_Monster_LuanShi.BP_Monster_LuanShi_C",
+      "character_name": "None",
+      "character_tags": [],
+      "granted_ability_count": 46,
+      "ability_spec_stride": 240,
+      "abilities": [
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01_A.Default__GA_TieGui_Attack_01_A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01_A.GA_TieGui_Attack_01_A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_GhostTrailPassive.Default__GA_GhostTrailPassive_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_GhostTrailPassive.GA_GhostTrailPassive_C"
+        },
+        {
+          "ability": "/Script/SGameLocomotionDriver.Default__GA_SpaceState",
+          "class": "/Script/SGameLocomotionDriver.GA_SpaceState"
+        },
+        {
+          "ability": "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.Default__GA_LocomotionDriver_3DDefault_C",
+          "class": "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.GA_LocomotionDriver_3DDefault_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/Passive/GA_Luanshi_Passive.Default__GA_Luanshi_Passive_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/Passive/GA_Luanshi_Passive.GA_Luanshi_Passive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SubTitles.Default__GA_Luanshi_SubTitles_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SubTitles.GA_Luanshi_SubTitles_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_MobUtilitiesPassive.Default__GA_MobUtilitiesPassive_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_MobUtilitiesPassive.GA_MobUtilitiesPassive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.Default__GA_CommonUtilitiesPassive_C",
+          "class": "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.GA_CommonUtilitiesPassive_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Stance.Default__GA_Luanshi_Stance_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Stance.GA_Luanshi_Stance_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02.Default__GA_TieGui_Attack_02_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02.GA_TieGui_Attack_02_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_03_A.Default__GA_TieGui_Attack_03_A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_03_A.GA_TieGui_Attack_03_A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02_A.Default__GA_TieGui_Attack_02_A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02_A.GA_TieGui_Attack_02_A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_03.Default__GA_TieGui_Attack_03_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_03.GA_TieGui_Attack_03_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Attack_Ying_01A.Default__GA_Luanshi_Attack_Ying_01A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Attack_Ying_01A.GA_Luanshi_Attack_Ying_01A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_Ying_01B.Default__GA_Luanshi_SpecialAttack_Ying_01B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_Ying_01B.GA_Luanshi_SpecialAttack_Ying_01B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_Hu_04B.Default__GA_LuanShi_SpecialAttack_Hu_04B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_Hu_04B.GA_LuanShi_SpecialAttack_Hu_04B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01_B.Default__GA_TieGui_Attack_01_B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01_B.GA_TieGui_Attack_01_B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01.Default__GA_TieGui_Attack_01_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01.GA_TieGui_Attack_01_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02_B.Default__GA_TieGui_Attack_02_B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02_B.GA_TieGui_Attack_02_B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_Attack_Hu_04A.Default__GA_LuanShi_Attack_Hu_04A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_Attack_Hu_04A.GA_LuanShi_Attack_Hu_04A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05C.Default__GA_LuanShi_SpecialAttack_He_05C_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05C.GA_LuanShi_SpecialAttack_He_05C_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_She_03B.Default__GA_LuanShi_SpecialAttack_She_03B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_She_03B.GA_LuanShi_SpecialAttack_She_03B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_05.Default__GA_TieGui_SpecialAttack_05_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_05.GA_TieGui_SpecialAttack_05_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05B.Default__GA_LuanShi_SpecialAttack_He_05B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05B.GA_LuanShi_SpecialAttack_He_05B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_BackTaunt_Combo.Default__GA_TieGui_BackTaunt_Combo_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_BackTaunt_Combo.GA_TieGui_BackTaunt_Combo_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_She_03A.Default__GA_LuanShi_SpecialAttack_She_03A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_She_03A.GA_LuanShi_SpecialAttack_She_03A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_08.Default__GA_Luanshi_SpecialAttack_08_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_08.GA_Luanshi_SpecialAttack_08_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_07.Default__GA_TieGui_SpecialAttack_07_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_07.GA_TieGui_SpecialAttack_07_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_03.Default__GA_TieGui_SpecialAttack_03_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_03.GA_TieGui_SpecialAttack_03_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_06_DirectJump.Default__GA_TieGui_SpecialAttack_06_DirectJump_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_06_DirectJump.GA_TieGui_SpecialAttack_06_DirectJump_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Attack_Tanglang_02A.Default__GA_Luanshi_Attack_Tanglang_02A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Attack_Tanglang_02A.GA_Luanshi_Attack_Tanglang_02A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_L.Default__GA_Luanshi_Dodge_L_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_L.GA_Luanshi_Dodge_L_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_R.Default__GA_Luanshi_Dodge_R_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_R.GA_Luanshi_Dodge_R_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_F.Default__GA_Luanshi_Dodge_F_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_F.GA_Luanshi_Dodge_F_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_B.Default__GA_Luanshi_Dodge_B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Dodge_B.GA_Luanshi_Dodge_B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_Tanglang_02B.Default__GA_Luanshi_SpecialAttack_Tanglang_02B_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_Tanglang_02B.GA_Luanshi_SpecialAttack_Tanglang_02B_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Skill_01.Default__GA_Luanshi_Skill_01_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Skill_01.GA_Luanshi_Skill_01_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_07_L_He.Default__GA_LuanShi_SpecialAttack_07_L_He_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_07_L_He.GA_LuanShi_SpecialAttack_07_L_He_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_Skill_06_Ying.Default__GA_LuanShi_Skill_06_Ying_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_Skill_06_Ying.GA_LuanShi_Skill_06_Ying_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_Hu_04C.Default__GA_LuanShi_SpecialAttack_Hu_04C_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_Hu_04C.GA_LuanShi_SpecialAttack_Hu_04C_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_InBuff_Combo.Default__GA_Luanshi_InBuff_Combo_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_InBuff_Combo.GA_Luanshi_InBuff_Combo_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05A.Default__GA_LuanShi_SpecialAttack_He_05A_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05A.GA_LuanShi_SpecialAttack_He_05A_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_07_R_Hu_JumpTimeline.Default__GA_LuanShi_SpecialAttack_07_R_Hu_JumpTimeline_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_07_R_Hu_JumpTimeline.GA_LuanShi_SpecialAttack_07_R_Hu_JumpTimeline_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/Grab/GA_LuanShi_GEx_01.Default__GA_LuanShi_GEx_01_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/Grab/GA_LuanShi_GEx_01.GA_LuanShi_GEx_01_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_AutoCombo.Default__GA_Luanshi_AutoCombo_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_AutoCombo.GA_Luanshi_AutoCombo_C"
+        },
+        {
+          "ability": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_OutBuff.Default__GA_Luanshi_OutBuff_C",
+          "class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_OutBuff.GA_Luanshi_OutBuff_C"
+        }
+      ]
+    }
+  ],
+  "issues": [],
+  "scope": "Read reflected existing gameplay tags and granted ability specs; no activation, spawning or writes",
+  "boss_identity_verified": false,
+  "boss_control_verified": false
+}

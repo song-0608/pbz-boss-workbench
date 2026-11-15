@@ -1,0 +1,2715 @@
+{
+  "at": "2026-11-13T10:03:38.824713+08:00",
+  "pid": 24372,
+  "objects": [
+    {
+      "path": "/Script/Engine.Pawn",
+      "index": 1804,
+      "kind": "Class",
+      "super": "/Script/Engine.Actor",
+      "properties": [
+        {
+          "name": "bUseControllerRotationPitch",
+          "descriptor": "0x4d021dd00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x2b8"
+        },
+        {
+          "name": "bUseControllerRotationYaw",
+          "descriptor": "0x4d021dd80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x2b8"
+        },
+        {
+          "name": "bUseControllerRotationRoll",
+          "descriptor": "0x4d021de00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x2b8"
+        },
+        {
+          "name": "bCanAffectNavigationGeneration",
+          "descriptor": "0x4d021d200",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000015",
+          "offset": "0x2b8"
+        },
+        {
+          "name": "bIsLocalViewTarget",
+          "descriptor": "0x4d021de80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081000002000",
+          "offset": "0x2b8"
+        },
+        {
+          "name": "BaseEyeHeight",
+          "descriptor": "0x4d01cbca0",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000205",
+          "offset": "0x2bc"
+        },
+        {
+          "name": "AutoPossessPlayer",
+          "descriptor": "0x4d021df00",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000201",
+          "offset": "0x2c0"
+        },
+        {
+          "name": "AutoPossessAI",
+          "descriptor": "0x4d021e000",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000201",
+          "offset": "0x2c1"
+        },
+        {
+          "name": "RemoteViewPitch16",
+          "descriptor": "0x4d01cbd10",
+          "type": "UInt16Property",
+          "array_dim": 1,
+          "element_size": 2,
+          "property_flags": "0x28081040000220",
+          "offset": "0x2c2"
+        },
+        {
+          "name": "RemoteViewPitch",
+          "descriptor": "0x4d021e080",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000220",
+          "offset": "0x2c4"
+        },
+        {
+          "name": "AIControllerClass",
+          "descriptor": "0x4d021e100",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x1c001000000205",
+          "offset": "0x2c8"
+        },
+        {
+          "name": "PlayerState",
+          "descriptor": "0x4d021e180",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x14c001100000234",
+          "offset": "0x2d0"
+        },
+        {
+          "name": "LastHitBy",
+          "descriptor": "0x4d021e200",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000002214",
+          "offset": "0x2d8"
+        },
+        {
+          "name": "Controller",
+          "descriptor": "0x4d021e280",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001100000220",
+          "offset": "0x2e0"
+        },
+        {
+          "name": "PreviousController",
+          "descriptor": "0x4d021e300",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000002200",
+          "offset": "0x2e8"
+        },
+        {
+          "name": "ReceiveControllerChangedDelegate",
+          "descriptor": "0x4d021e380",
+          "type": "MulticastSparseDelegateProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x10001010080000",
+          "offset": "0x2f4"
+        },
+        {
+          "name": "ReceiveRestartedDelegate",
+          "descriptor": "0x4d021e400",
+          "type": "MulticastSparseDelegateProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x10001010080000",
+          "offset": "0x2f5"
+        },
+        {
+          "name": "ControlInputVector",
+          "descriptor": "0x4d021e480",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x28081040002200",
+          "offset": "0x2f8"
+        },
+        {
+          "name": "LastControlInputVector",
+          "descriptor": "0x4d021e500",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x28081040002200",
+          "offset": "0x310"
+        },
+        {
+          "name": "OverrideInputComponentClass",
+          "descriptor": "0x4d021e580",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x2c081000010201",
+          "offset": "0x328"
+        }
+      ],
+      "functions": [
+        {
+          "name": "SpawnDefaultController",
+          "flags": "0x4020402",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        },
+        {
+          "name": "ReceivePossessed",
+          "flags": "0x8020806",
+          "parameter_count": 1,
+          "parameter_bytes": 8,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "NewController",
+              "descriptor": "0x4d021c800",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetPendingMovementInputVector",
+          "flags": "0x54820403",
+          "parameter_count": 1,
+          "parameter_bytes": 24,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d021d600",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetMovementComponent",
+          "flags": "0x54020402",
+          "parameter_count": 1,
+          "parameter_bytes": 8,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d021b800",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetMovementBaseActor",
+          "flags": "0x14022403",
+          "parameter_count": 2,
+          "parameter_bytes": 16,
+          "return_offset": 8,
+          "parameters": [
+            {
+              "name": "Pawn",
+              "descriptor": "0x4d021b880",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d021b980",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x8"
+            }
+          ]
+        },
+        {
+          "name": "GetLastMovementInputVector",
+          "flags": "0x54820403",
+          "parameter_count": 1,
+          "parameter_bytes": 24,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d021bb80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "DetachFromControllerPendingDestroy",
+          "flags": "0x4020402",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        },
+        {
+          "name": "ConsumeMovementInputVector",
+          "flags": "0x4820402",
+          "parameter_count": 1,
+          "parameter_bytes": 24,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d021bf00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "AddMovementInput",
+          "flags": "0x4820402",
+          "parameter_count": 3,
+          "parameter_bytes": 29,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "WorldDirection",
+              "descriptor": "0x4d021bf80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "ScaleValue",
+              "descriptor": "0x4d01cbed0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18001040000280",
+              "offset": "0x18"
+            },
+            {
+              "name": "bForce",
+              "descriptor": "0x4d021c080",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x1c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.GameplayStatics",
+      "index": 1983,
+      "kind": "Class",
+      "super": "/Script/Engine.BlueprintFunctionLibrary",
+      "properties": [],
+      "functions": [
+        {
+          "name": "SpawnSoundAttached",
+          "flags": "0x4822403",
+          "parameter_count": 14,
+          "parameter_bytes": 120,
+          "return_offset": 112,
+          "parameters": [
+            {
+              "name": "Sound",
+              "descriptor": "0x4d0ead380",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "AttachToComponent",
+              "descriptor": "0x4d0ead400",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080280",
+              "offset": "0x8"
+            },
+            {
+              "name": "AttachPointName",
+              "descriptor": "0x4d0e3ea90",
+              "type": "NameProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0ead480",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18041040000280",
+              "offset": "0x18"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0ead500",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10041040000280",
+              "offset": "0x30"
+            },
+            {
+              "name": "LocationType",
+              "descriptor": "0x4d0ead580",
+              "type": "ByteProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "bStopWhenAttachedToDestroyed",
+              "descriptor": "0x4d0eab680",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x49"
+            },
+            {
+              "name": "VolumeMultiplier",
+              "descriptor": "0x4d0e3eb00",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x4c"
+            },
+            {
+              "name": "PitchMultiplier",
+              "descriptor": "0x4d0e3eb70",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x50"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3ebe0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x54"
+            },
+            {
+              "name": "AttenuationSettings",
+              "descriptor": "0x4d0ead600",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "ConcurrencySettings",
+              "descriptor": "0x4d0ead680",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eab600",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x68"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eab700",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x70"
+            }
+          ]
+        },
+        {
+          "name": "SpawnSoundAtLocation",
+          "flags": "0x4822403",
+          "parameter_count": 11,
+          "parameter_bytes": 112,
+          "return_offset": 104,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0eab780",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "Sound",
+              "descriptor": "0x4d0eab800",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eab880",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eaba80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10041040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "VolumeMultiplier",
+              "descriptor": "0x4d0e3ec50",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x40"
+            },
+            {
+              "name": "PitchMultiplier",
+              "descriptor": "0x4d0e3ecc0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x44"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3ed30",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "AttenuationSettings",
+              "descriptor": "0x4d0eab900",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x50"
+            },
+            {
+              "name": "ConcurrencySettings",
+              "descriptor": "0x4d0eab980",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eaba00",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eabb00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x68"
+            }
+          ]
+        },
+        {
+          "name": "SpawnSound2D",
+          "flags": "0x402240b",
+          "parameter_count": 9,
+          "parameter_bytes": 56,
+          "return_offset": 48,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0eabb80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "Sound",
+              "descriptor": "0x4d0eabd80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "VolumeMultiplier",
+              "descriptor": "0x4d0e3eda0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "PitchMultiplier",
+              "descriptor": "0x4d0e3ee10",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x14"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3ee80",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x18"
+            },
+            {
+              "name": "ConcurrencySettings",
+              "descriptor": "0x4d0eabc00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x20"
+            },
+            {
+              "name": "bPersistAcrossLevelTransition",
+              "descriptor": "0x4d0eabc80",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eabd00",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x29"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eabe00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x30"
+            }
+          ]
+        },
+        {
+          "name": "SpawnObject",
+          "flags": "0x4022403",
+          "parameter_count": 3,
+          "parameter_bytes": 24,
+          "return_offset": 16,
+          "parameters": [
+            {
+              "name": "ObjectClass",
+              "descriptor": "0x4d0eabe80",
+              "type": "ClassProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x1c001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "Outer",
+              "descriptor": "0x4d0eabf00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eac000",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x10"
+            }
+          ]
+        },
+        {
+          "name": "SpawnForceFeedbackAttached",
+          "flags": "0x4822403",
+          "parameter_count": 13,
+          "parameter_bytes": 112,
+          "return_offset": 104,
+          "parameters": [
+            {
+              "name": "ForceFeedbackEffect",
+              "descriptor": "0x4d0eac080",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "AttachToComponent",
+              "descriptor": "0x4d0eac100",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080280",
+              "offset": "0x8"
+            },
+            {
+              "name": "AttachPointName",
+              "descriptor": "0x4d0e3eef0",
+              "type": "NameProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eac180",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18041040000280",
+              "offset": "0x18"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eac200",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10041040000280",
+              "offset": "0x30"
+            },
+            {
+              "name": "LocationType",
+              "descriptor": "0x4d0eac280",
+              "type": "ByteProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "bStopWhenAttachedToDestroyed",
+              "descriptor": "0x4d0eac300",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x49"
+            },
+            {
+              "name": "bLooping",
+              "descriptor": "0x4d0eac480",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x4a"
+            },
+            {
+              "name": "IntensityMultiplier",
+              "descriptor": "0x4d0e3ef60",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x4c"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3efd0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x50"
+            },
+            {
+              "name": "AttenuationSettings",
+              "descriptor": "0x4d0eac380",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eac400",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eac500",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x68"
+            }
+          ]
+        },
+        {
+          "name": "SpawnForceFeedbackAtLocation",
+          "flags": "0x4822403",
+          "parameter_count": 10,
+          "parameter_bytes": 104,
+          "return_offset": 96,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0eac580",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "ForceFeedbackEffect",
+              "descriptor": "0x4d0eac600",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eaa580",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eaa600",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10041040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "bLooping",
+              "descriptor": "0x4d0eaa780",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x40"
+            },
+            {
+              "name": "IntensityMultiplier",
+              "descriptor": "0x4d0e3f040",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x44"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3f0b0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "AttenuationSettings",
+              "descriptor": "0x4d0eaa680",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x50"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eaa700",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eaa800",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x60"
+            }
+          ]
+        },
+        {
+          "name": "SpawnEmitterAttached",
+          "flags": "0x4822403",
+          "parameter_count": 11,
+          "parameter_bytes": 112,
+          "return_offset": 104,
+          "parameters": [
+            {
+              "name": "EmitterTemplate",
+              "descriptor": "0x4d0eaa880",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "AttachToComponent",
+              "descriptor": "0x4d0eaa900",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080280",
+              "offset": "0x8"
+            },
+            {
+              "name": "AttachPointName",
+              "descriptor": "0x4d0e3f120",
+              "type": "NameProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eaa980",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x18"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eaaa00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10001040000280",
+              "offset": "0x30"
+            },
+            {
+              "name": "Scale",
+              "descriptor": "0x4d0eaaa80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "LocationType",
+              "descriptor": "0x4d0eaad00",
+              "type": "ByteProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eaab00",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x61"
+            },
+            {
+              "name": "PoolingMethod",
+              "descriptor": "0x4d0eaac00",
+              "type": "EnumProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x62"
+            },
+            {
+              "name": "bAutoActivate",
+              "descriptor": "0x4d0eaac80",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x63"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eaad80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x68"
+            }
+          ]
+        },
+        {
+          "name": "SpawnEmitterAtLocation",
+          "flags": "0x4822403",
+          "parameter_count": 9,
+          "parameter_bytes": 104,
+          "return_offset": 96,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0eaae00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "EmitterTemplate",
+              "descriptor": "0x4d0eaae80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eaaf00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eaaf80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10001040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "Scale",
+              "descriptor": "0x4d0eab200",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x40"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0eab000",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "PoolingMethod",
+              "descriptor": "0x4d0eab100",
+              "type": "EnumProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x59"
+            },
+            {
+              "name": "bAutoActivateSystem",
+              "descriptor": "0x4d0eab180",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x5a"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eab280",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x60"
+            }
+          ]
+        },
+        {
+          "name": "SpawnDialogueAttached",
+          "flags": "0x4c22403",
+          "parameter_count": 14,
+          "parameter_bytes": 136,
+          "return_offset": 128,
+          "parameters": [
+            {
+              "name": "Dialogue",
+              "descriptor": "0x4d0eab300",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "Context",
+              "descriptor": "0x4d0eab380",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10000008000182",
+              "offset": "0x8"
+            },
+            {
+              "name": "AttachToComponent",
+              "descriptor": "0x4d0eab400",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000080280",
+              "offset": "0x20"
+            },
+            {
+              "name": "AttachPointName",
+              "descriptor": "0x4d0e3f190",
+              "type": "NameProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eab480",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18041040000280",
+              "offset": "0x30"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eab500",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10041040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "LocationType",
+              "descriptor": "0x4d0eab580",
+              "type": "ByteProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "bStopWhenAttachedToDestroyed",
+              "descriptor": "0x4d0ea9600",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x61"
+            },
+            {
+              "name": "VolumeMultiplier",
+              "descriptor": "0x4d0e3f200",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x64"
+            },
+            {
+              "name": "PitchMultiplier",
+              "descriptor": "0x4d0e3f270",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x68"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3f2e0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x6c"
+            },
+            {
+              "name": "AttenuationSettings",
+              "descriptor": "0x4d0ea9500",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x70"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0ea9580",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x78"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0ea9680",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x80"
+            }
+          ]
+        },
+        {
+          "name": "SpawnDialogueAtLocation",
+          "flags": "0x4c22403",
+          "parameter_count": 11,
+          "parameter_bytes": 128,
+          "return_offset": 120,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0ea9700",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "Dialogue",
+              "descriptor": "0x4d0ea9780",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "Context",
+              "descriptor": "0x4d0ea9800",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10000008000182",
+              "offset": "0x10"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0ea9880",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0ea9a00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10041040000280",
+              "offset": "0x40"
+            },
+            {
+              "name": "VolumeMultiplier",
+              "descriptor": "0x4d0e3f350",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "PitchMultiplier",
+              "descriptor": "0x4d0e3f3c0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x5c"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3f430",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "AttenuationSettings",
+              "descriptor": "0x4d0ea9900",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18041000000280",
+              "offset": "0x68"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0ea9980",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x70"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0ea9a80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x78"
+            }
+          ]
+        },
+        {
+          "name": "SpawnDialogue2D",
+          "flags": "0x442240b",
+          "parameter_count": 8,
+          "parameter_bytes": 64,
+          "return_offset": 56,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0ea9b00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "Dialogue",
+              "descriptor": "0x4d0ea9b80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "Context",
+              "descriptor": "0x4d0ea9c80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10000008000182",
+              "offset": "0x10"
+            },
+            {
+              "name": "VolumeMultiplier",
+              "descriptor": "0x4d0e3f4a0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "PitchMultiplier",
+              "descriptor": "0x4d0e3f510",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x2c"
+            },
+            {
+              "name": "StartTime",
+              "descriptor": "0x4d0e3d8a0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18041040000280",
+              "offset": "0x30"
+            },
+            {
+              "name": "bAutoDestroy",
+              "descriptor": "0x4d0ea9c00",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18041040000280",
+              "offset": "0x34"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0ea9d00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x38"
+            }
+          ]
+        },
+        {
+          "name": "SpawnDecalAttached",
+          "flags": "0x482240b",
+          "parameter_count": 9,
+          "parameter_bytes": 112,
+          "return_offset": 104,
+          "parameters": [
+            {
+              "name": "DecalMaterial",
+              "descriptor": "0x4d0ea9d80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "DecalSize",
+              "descriptor": "0x4d0ea9e00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "AttachToComponent",
+              "descriptor": "0x4d0eaa000",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080280",
+              "offset": "0x20"
+            },
+            {
+              "name": "AttachPointName",
+              "descriptor": "0x4d0e3d910",
+              "type": "NameProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0ea9e80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x30"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0ea9f00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10001040000280",
+              "offset": "0x48"
+            },
+            {
+              "name": "LocationType",
+              "descriptor": "0x4d0ea9f80",
+              "type": "ByteProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x60"
+            },
+            {
+              "name": "LifeSpan",
+              "descriptor": "0x4d0e3d980",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18001040000280",
+              "offset": "0x64"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eaa080",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x68"
+            }
+          ]
+        },
+        {
+          "name": "SpawnDecalAtLocation",
+          "flags": "0x482240b",
+          "parameter_count": 7,
+          "parameter_bytes": 104,
+          "return_offset": 96,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0eaa100",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "DecalMaterial",
+              "descriptor": "0x4d0eaa300",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "DecalSize",
+              "descriptor": "0x4d0eaa180",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x10"
+            },
+            {
+              "name": "Location",
+              "descriptor": "0x4d0eaa200",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18001040000280",
+              "offset": "0x28"
+            },
+            {
+              "name": "Rotation",
+              "descriptor": "0x4d0eaa280",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10001040000280",
+              "offset": "0x40"
+            },
+            {
+              "name": "LifeSpan",
+              "descriptor": "0x4d0e3d9f0",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18001040000280",
+              "offset": "0x58"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0eaa380",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000080788",
+              "offset": "0x60"
+            }
+          ]
+        },
+        {
+          "name": "FinishSpawningActor",
+          "flags": "0x4c22403",
+          "parameter_count": 4,
+          "parameter_bytes": 128,
+          "return_offset": 120,
+          "parameters": [
+            {
+              "name": "Actor",
+              "descriptor": "0x4d0ea0900",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            },
+            {
+              "name": "SpawnTransform",
+              "descriptor": "0x4d0ea0980",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 96,
+              "property_flags": "0x18001048000182",
+              "offset": "0x10"
+            },
+            {
+              "name": "TransformScaleMethod",
+              "descriptor": "0x4d0ea0a80",
+              "type": "EnumProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x70"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0ea0b80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x78"
+            }
+          ]
+        },
+        {
+          "name": "BeginSpawningActorFromBlueprint",
+          "flags": "0x4c22403",
+          "parameter_count": 5,
+          "parameter_bytes": 128,
+          "return_offset": 120,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0e8d180",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "Blueprint",
+              "descriptor": "0x4d0e8d200",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x8"
+            },
+            {
+              "name": "SpawnTransform",
+              "descriptor": "0x4d0e8d280",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 96,
+              "property_flags": "0x18001048000182",
+              "offset": "0x10"
+            },
+            {
+              "name": "bNoCollisionFail",
+              "descriptor": "0x4d0e8d300",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x70"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e8d400",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x78"
+            }
+          ]
+        },
+        {
+          "name": "BeginDeferredActorSpawnFromClass",
+          "flags": "0x4c22403",
+          "parameter_count": 7,
+          "parameter_bytes": 144,
+          "return_offset": 136,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0e8d480",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "ActorClass",
+              "descriptor": "0x4d0e8d500",
+              "type": "ClassProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x1c001000000280",
+              "offset": "0x8"
+            },
+            {
+              "name": "SpawnTransform",
+              "descriptor": "0x4d0e8d580",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 96,
+              "property_flags": "0x18001048000182",
+              "offset": "0x10"
+            },
+            {
+              "name": "CollisionHandlingOverride",
+              "descriptor": "0x4d0e8d600",
+              "type": "EnumProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x70"
+            },
+            {
+              "name": "Owner",
+              "descriptor": "0x4d0e8d680",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x78"
+            },
+            {
+              "name": "TransformScaleMethod",
+              "descriptor": "0x4d0e8b680",
+              "type": "EnumProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x80"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e8b780",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x88"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/ProjectPBZ.PBZCharacter",
+      "index": 5471,
+      "kind": "Class",
+      "super": "/Script/ProjectPBZ.PBZModularCharacter",
+      "properties": [
+        {
+          "name": "bInjectsForceField",
+          "descriptor": "0x4d1905d00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000205",
+          "offset": "0x6d0"
+        },
+        {
+          "name": "ForceFieldShapes",
+          "descriptor": "0x4d1905e00",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x20080000000205",
+          "offset": "0x6d8"
+        },
+        {
+          "name": "CharacterName",
+          "descriptor": "0x4d189ad50",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x19001040000215",
+          "offset": "0x6e8"
+        },
+        {
+          "name": "CharacterTags",
+          "descriptor": "0x4d1905e80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x10000000000004",
+          "offset": "0x6f0"
+        },
+        {
+          "name": "OnCharacterDie",
+          "descriptor": "0x4d1905f00",
+          "type": "MulticastInlineDelegateProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000010080200",
+          "offset": "0x710"
+        },
+        {
+          "name": "CurrentDieContextHandle",
+          "descriptor": "0x4d1905f80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10000000000000",
+          "offset": "0x720"
+        },
+        {
+          "name": "OnTeleportSucceededDelegate",
+          "descriptor": "0x4d1906000",
+          "type": "MulticastInlineDelegateProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000010080200",
+          "offset": "0x738"
+        },
+        {
+          "name": "GEReplicationMode",
+          "descriptor": "0x4d1906100",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040010201",
+          "offset": "0x748"
+        },
+        {
+          "name": "AbilitySystemComponent",
+          "descriptor": "0x4d1906180",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000082208",
+          "offset": "0x750"
+        },
+        {
+          "name": "AttributeSetBase",
+          "descriptor": "0x4d1906200",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000082208",
+          "offset": "0x758"
+        },
+        {
+          "name": "DefaultEffects",
+          "descriptor": "0x4d1906300",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x24080000000204",
+          "offset": "0x760"
+        },
+        {
+          "name": "DefaultAbilities",
+          "descriptor": "0x4d1904300",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x24080000000204",
+          "offset": "0x770"
+        },
+        {
+          "name": "DisableCollision",
+          "descriptor": "0x4d0bf9be0",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001240000215",
+          "offset": "0x908"
+        },
+        {
+          "name": "DisableMovement",
+          "descriptor": "0x4d0bf9c70",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001240000215",
+          "offset": "0x909"
+        },
+        {
+          "name": "bUsePoseSharing",
+          "descriptor": "0x4d1904400",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000215",
+          "offset": "0x90a"
+        },
+        {
+          "name": "HeadAnimTags",
+          "descriptor": "0x4d1904480",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x10000000000015",
+          "offset": "0x910"
+        }
+      ],
+      "functions": [
+        {
+          "name": "SetDisableMovement",
+          "flags": "0xc020c00",
+          "parameter_count": 1,
+          "parameter_bytes": 1,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "Value",
+              "descriptor": "0x4d1904680",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000280",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "Receive_InitializeCharacterData",
+          "flags": "0x8020800",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        },
+        {
+          "name": "PostInitializeCharacterData",
+          "flags": "0x8020c00",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "path": "/Script/ProjectPBZ.PBZCharacter_NPC",
+      "index": 5475,
+      "kind": "Class",
+      "super": "/Script/ProjectPBZ.PBZCharacter",
+      "properties": [
+        {
+          "name": "AuxiliaryAttrSetClass",
+          "descriptor": "0x4d1909b80",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x24080000010201",
+          "offset": "0x938"
+        },
+        {
+          "name": "CanEditComponent",
+          "descriptor": "0x4d1909c00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0x948"
+        },
+        {
+          "name": "AuxiliaryAttributeSets",
+          "descriptor": "0x4d1908d80",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x20088000000208",
+          "offset": "0x950"
+        },
+        {
+          "name": "FocusRotationHandle",
+          "descriptor": "0x4d189d590",
+          "type": "IntProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x28081040000204",
+          "offset": "0x960"
+        },
+        {
+          "name": "IsStartFade",
+          "descriptor": "0x4d1909d00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000204",
+          "offset": "0x964"
+        },
+        {
+          "name": "bFollowDeferKinematicBoneUpdateCVar",
+          "descriptor": "0x4d1909d80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010215",
+          "offset": "0x965"
+        },
+        {
+          "name": "CodexName",
+          "descriptor": "0x4d189d600",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040000205",
+          "offset": "0x968"
+        },
+        {
+          "name": "BIsMonster",
+          "descriptor": "0x4d1909e00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000205",
+          "offset": "0x970"
+        },
+        {
+          "name": "bExcludeFromCodex",
+          "descriptor": "0x4d1909e80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040010215",
+          "offset": "0x971"
+        },
+        {
+          "name": "bFaceToPlayer",
+          "descriptor": "0x4d1909f00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000205",
+          "offset": "0x972"
+        },
+        {
+          "name": "IdleTag",
+          "descriptor": "0x4d1909f80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000014",
+          "offset": "0x974"
+        },
+        {
+          "name": "bNotStartDialogue",
+          "descriptor": "0x4d190a000",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000214",
+          "offset": "0x97c"
+        },
+        {
+          "name": "bIsSpawnNPC",
+          "descriptor": "0x4d190a080",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000215",
+          "offset": "0x988"
+        },
+        {
+          "name": "bDisableAllOptimizationsOnBeginPlay",
+          "descriptor": "0x4d190a100",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000204",
+          "offset": "0x989"
+        },
+        {
+          "name": "StateId",
+          "descriptor": "0x4d189d670",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x48001040000214",
+          "offset": "0x98c"
+        },
+        {
+          "name": "MoveToNPCLocation",
+          "descriptor": "0x4d190a180",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040000204",
+          "offset": "0x998"
+        },
+        {
+          "name": "SaveCodexListenItem",
+          "descriptor": "0x4d190a200",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x28081000000200",
+          "offset": "0x9b0"
+        },
+        {
+          "name": "FaceControlRotationInterpSpeed",
+          "descriptor": "0x4d189d6e0",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x28081040000201",
+          "offset": "0x9c0"
+        }
+      ],
+      "functions": [
+        {
+          "name": "NarrativeDestroyed",
+          "flags": "0xc020c00",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        },
+        {
+          "name": "InitMonsterNarrativeNPC",
+          "flags": "0xc020800",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        },
+        {
+          "name": "ApplySpawnParameters",
+          "flags": "0xc420800",
+          "parameter_count": 1,
+          "parameter_bytes": 16,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "SpawnParameters",
+              "descriptor": "0x4d1907d80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 16,
+              "property_flags": "0x10001008000182",
+              "offset": "0x0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/CoreUObject.Transform",
+      "index": 8584,
+      "kind": "ScriptStruct",
+      "super": "",
+      "properties": [
+        {
+          "name": "Rotation",
+          "descriptor": "0x524a1480",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x18001041000005",
+          "offset": "0x0"
+        },
+        {
+          "name": "Translation",
+          "descriptor": "0x524a1500",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001041000205",
+          "offset": "0x20"
+        },
+        {
+          "name": "Scale3D",
+          "descriptor": "0x524a1600",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001041000205",
+          "offset": "0x40"
+        }
+      ],
+      "functions": []
+    },
+    {
+      "path": "/PBZCombatAsset/Prototypes/Config/PDA_ActorConfig.PDA_ActorConfig_C",
+      "index": 90007,
+      "kind": "BlueprintGeneratedClass",
+      "super": "/Script/PBZCombatAsset.PBZActorConfigBase",
+      "properties": [
+        {
+          "name": "Character Name",
+          "descriptor": "0x122545cc80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 48,
+          "property_flags": "0x8000000010005",
+          "offset": "0x60"
+        },
+        {
+          "name": "Attribute Data",
+          "descriptor": "0x122545cc00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 200,
+          "property_flags": "0x9000010005",
+          "offset": "0x90"
+        },
+        {
+          "name": "Stance Shaqi Cost Data",
+          "descriptor": "0x122545cb80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x8001040010205",
+          "offset": "0x158"
+        },
+        {
+          "name": "Normal Parameters",
+          "descriptor": "0x122545cb00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 384,
+          "property_flags": "0x10005",
+          "offset": "0x170"
+        },
+        {
+          "name": "Walk Parameters",
+          "descriptor": "0x122545ca80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 384,
+          "property_flags": "0x10005",
+          "offset": "0x2f0"
+        },
+        {
+          "name": "Sprint Parameters",
+          "descriptor": "0x122545ca00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 384,
+          "property_flags": "0x10005",
+          "offset": "0x470"
+        },
+        {
+          "name": "Crouch Parameters",
+          "descriptor": "0x122545c980",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 384,
+          "property_flags": "0x10005",
+          "offset": "0x5f0"
+        },
+        {
+          "name": "Crouch Slow Parameters",
+          "descriptor": "0x122545c900",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 384,
+          "property_flags": "0x10005",
+          "offset": "0x770"
+        },
+        {
+          "name": "Input Config",
+          "descriptor": "0x122545c880",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0x8f0"
+        },
+        {
+          "name": "Default Linked Animation Layers",
+          "descriptor": "0x122545c800",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x8f8"
+        },
+        {
+          "name": "InitialTags",
+          "descriptor": "0x122545c700",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x10005",
+          "offset": "0x908"
+        },
+        {
+          "name": "Abilities",
+          "descriptor": "0x122545c680",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x928"
+        },
+        {
+          "name": "Passive Abilities",
+          "descriptor": "0x122545e680",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x938"
+        },
+        {
+          "name": "Passive GameplayEffects",
+          "descriptor": "0x122545e580",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x948"
+        },
+        {
+          "name": "Abstract Endure Config",
+          "descriptor": "0x122545e480",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0x958"
+        },
+        {
+          "name": "Ability Break Endure Levels",
+          "descriptor": "0x122545e400",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x960"
+        },
+        {
+          "name": "Bullet Skill Type Data Config",
+          "descriptor": "0x122545e300",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0x970"
+        },
+        {
+          "name": "Difficulty Tag",
+          "descriptor": "0x122545e280",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010005",
+          "offset": "0x978"
+        },
+        {
+          "name": "Body Attack Multipliers",
+          "descriptor": "0x12158f5a60",
+          "type": "MapProperty",
+          "array_dim": 1,
+          "element_size": 80,
+          "property_flags": "0x10005",
+          "offset": "0x980"
+        },
+        {
+          "name": "Main Weapons",
+          "descriptor": "0x122545e180",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x9d0"
+        },
+        {
+          "name": "Shaqi Weapons",
+          "descriptor": "0x122545e080",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0x9e0"
+        },
+        {
+          "name": "Switch Main Weapon Cooldown",
+          "descriptor": "0x122399cb10",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001040010205",
+          "offset": "0x9f0"
+        },
+        {
+          "name": "Switch Shachi Weapon Cooldown",
+          "descriptor": "0x122399caa0",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001040010205",
+          "offset": "0x9f8"
+        },
+        {
+          "name": "Lock Sockets",
+          "descriptor": "0x122545df80",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10005",
+          "offset": "0xa00"
+        },
+        {
+          "name": "Hitreact Body Parts",
+          "descriptor": "0x122545df00",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x8000010005",
+          "offset": "0xa10"
+        },
+        {
+          "name": "Hitreact Knockback Multiplier",
+          "descriptor": "0x122399e6a0",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x8001040010205",
+          "offset": "0xa20"
+        },
+        {
+          "name": "Hitreat Anim Set",
+          "descriptor": "0x122545de00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa28"
+        },
+        {
+          "name": "Execution Target Points",
+          "descriptor": "0x122545dd80",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x8000010005",
+          "offset": "0xa30"
+        },
+        {
+          "name": "Execution Anim Set",
+          "descriptor": "0x122545dc80",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa40"
+        },
+        {
+          "name": "AIConfig  Default",
+          "descriptor": "0x122545dc00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa48"
+        },
+        {
+          "name": "Default Push Level",
+          "descriptor": "0x122399e630",
+          "type": "IntProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x8001040010205",
+          "offset": "0xa50"
+        },
+        {
+          "name": "Faction",
+          "descriptor": "0x122545db80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010005",
+          "offset": "0xa54"
+        },
+        {
+          "name": "Lock Weight",
+          "descriptor": "0x122399e5c0",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001040010205",
+          "offset": "0xa60"
+        },
+        {
+          "name": "Off Combat State",
+          "descriptor": "0x122545db00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa68"
+        },
+        {
+          "name": "In Combat State",
+          "descriptor": "0x122545da80",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa70"
+        },
+        {
+          "name": "Music Event",
+          "descriptor": "0x122545da00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa78"
+        },
+        {
+          "name": "AIConfig Nightmare",
+          "descriptor": "0x122545d980",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa80"
+        },
+        {
+          "name": "DriverConfig",
+          "descriptor": "0x122545d900",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa88"
+        },
+        {
+          "name": "VehicleConfig",
+          "descriptor": "0x122545d880",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa90"
+        },
+        {
+          "name": "VaultAbilityForAI",
+          "descriptor": "0x122545d800",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x8001000010205",
+          "offset": "0xa98"
+        }
+      ],
+      "functions": [
+        {
+          "name": "GetAbilityBreakEndureData",
+          "flags": "0x5c420800",
+          "parameter_count": 1,
+          "parameter_bytes": 16,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "Data",
+              "descriptor": "0x123db14f80",
+              "type": "ArrayProperty",
+              "array_dim": 1,
+              "element_size": 16,
+              "property_flags": "0x180",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetCharacterName",
+          "flags": "0x5cc20800",
+          "parameter_count": 1,
+          "parameter_bytes": 16,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x123972e320",
+              "type": "TextProperty",
+              "array_dim": 1,
+              "element_size": 16,
+              "property_flags": "0x580",
+              "offset": "0x0"
+            },
+            {
+              "name": "CallFunc_Conv_LocTextToText_ReturnValue",
+              "descriptor": "0x123972e2b0",
+              "type": "TextProperty",
+              "array_dim": 1,
+              "element_size": 16,
+              "property_flags": "0x0",
+              "offset": "0x10"
+            }
+          ]
+        },
+        {
+          "name": "GetInitialTags",
+          "flags": "0x5cc20800",
+          "parameter_count": 1,
+          "parameter_bytes": 32,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "Tags",
+              "descriptor": "0x123db17b00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 32,
+              "property_flags": "0x180",
+              "offset": "0x0"
+            },
+            {
+              "name": "Temp Tags",
+              "descriptor": "0x123db17a80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 32,
+              "property_flags": "0x5",
+              "offset": "0x20"
+            }
+          ]
+        },
+        {
+          "name": "GetInitialFaction",
+          "flags": "0x5c420800",
+          "parameter_count": 1,
+          "parameter_bytes": 8,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x123db17b80",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x8001000000580",
+              "offset": "0x0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Loaded Ahua defaults and specific initialization/control declarations only; no gameplay calls"
+}

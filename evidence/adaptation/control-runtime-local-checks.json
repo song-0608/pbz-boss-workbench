@@ -1,0 +1,115 @@
+{
+  "at": "2026-11-13T12:33:18.136655+08:00",
+  "passed": true,
+  "checks": [
+    {
+      "name": "observer_lua_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS: late NPC discovery and bounded 140+46 reads (fixture only)\r\nPASS: unready NPC retries each failed stage (fixture only)\r\nPASS: ninth NPC receives the next scan budget (fixture only)\r\nPASS: player and NPC ability growth triggers resampling (fixture only)\r\nPASS: shrinking array is checked before indexed access (fixture only)\r\nPASS: unready NPC exhausts retries without false pass (fixture only)\r\nPASS: bounded cache reaches late actors among 300 NPCs (fixture only)\r\nTOTAL: 7 observer fixtures passed; no game control or runtime validation.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "candidate_and_log_parser",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_character_assets_before_camera_and_abilities (test_candidate_rules.CandidateRulesTests.test_character_assets_before_camera_and_abilities) ... ok\r\ntest_explicit_tokens (test_candidate_rules.CandidateRulesTests.test_explicit_tokens) ... ok\r\ntest_true_npc_ancestry (test_candidate_rules.CandidateRulesTests.test_true_npc_ancestry) ... ok\r\ntest_unrelated_substrings (test_candidate_rules.CandidateRulesTests.test_unrelated_substrings) ... ok\r\ntest_exhausted_is_unresolved (test_observer_log_parser.LogParserTests.test_exhausted_is_unresolved) ... ok\r\ntest_latest_version_does_not_borrow_previous_pass (test_observer_log_parser.LogParserTests.test_latest_version_does_not_borrow_previous_pass) ... ok\r\ntest_legacy_v2_and_unsupported_logs (test_observer_log_parser.LogParserTests.test_legacy_v2_and_unsupported_logs) ... ok\r\ntest_ninth_npc_and_issues_link_to_instance (test_observer_log_parser.LogParserTests.test_ninth_npc_and_issues_link_to_instance) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.001s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "control_session_mocks",
+      "exit_code": 0,
+      "stdout": "PASS missing isolation performs no mutation\r\nPASS online context performs no mutation\r\nPASS wrong build rejected\r\nPASS unknown boss rejected\r\nPASS capture failure cannot mutate\r\nPASS partial takeover failure restores\r\nPASS takeover verification failure restores\r\nPASS enter and repeated enter are deterministic\r\nPASS unverified skill blocked\r\nPASS game cooldown rules respected\r\nPASS native activation rejection does not discard possession\r\nPASS skill reentry blocked until actual finish\r\nPASS world change rejects stale restoration\r\nPASS skill start error triggers restoration\r\nPASS failed restoration remains faulted\r\nPASS exit clears skill and restores once\r\nPASS missing bridge refused\r\n[PBZBossControl] DISABLED: Ahua possession, third-person camera, movement and first-skill cancellation passed in bounded offline probes. Targeting, damage and full lifecycle remain unverified; production entry disabled.\r\n\r\nPASS real entry is disabled and registers no keys\r\nPBZ control-core mock tests: 18 passed; PBZ runtime integration is NOT verified\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "native_control_bridge_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS native possession, camera, input, skill and restoration chain\r\nPASS unverified boss class cannot construct the bridge\r\nPASS absent confirmed boss does not mutate another NPC\r\nPASS ambiguous boss selection performs no mutation\r\nPASS expired or online lease performs no mutation\r\nPASS partial native Possess failure restores player and AI\r\nPASS camera failure still restores possession\r\nPASS originally stopped AI remains stopped after exit\r\nPASS game cooldown rejection retains possession\r\nPASS unverified skill never reaches native activation\r\nPASS activity counter blocks overlapping skill without cancelling it\r\nPASS exit cancels only the tracked Mod skill\r\nPASS cancel failure still restores player and reports FAULTED\r\nPASS destroyed boss cannot prevent best effort player restoration\r\nPASS world change refuses stale movement and possession calls\r\nPASS unbounded movement cannot reach the native call\r\nPASS independent camera rig follows and restores without borrowing player components\r\nPASS failed camera component setup cleans owned camera and restores player\r\nPASS unverified camera contracts fail before a native creation call\r\nPASS camera setup failure after boom creation cleans both owned objects\r\nPASS combat restore failure still restores player AI and brain\r\nPASS remote branch retains AI ownership and restores independent input state\r\nNative bridge fixture tests: 22 passed; no PBZ runtime integration claimed.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "combat_identity_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS capture does not mutate\r\nPASS faction roundtrip and exact mesh snapshot\r\nPASS partial native write remains restorable\r\nPASS self target rejected\r\nPASS saved player rejected\r\nPASS cross world rejected\r\nPASS friendly target rejected\r\nPASS native lock refusal rejected\r\nPASS ability query disagreement blocks target\r\nPASS hostile selected target revalidated\r\nPASS dead target rejected on revalidation\r\nPASS failed target cleanup still attempts faction restoration\r\nPASS asynchronous request alone is not a verified ability target\r\ncombat identity checks passed: 13\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "remote_control_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS AI and player ownership remain unchanged\r\nPASS movement goes to boss while original input is disabled\r\nPASS camera look changes rotation without original player input\r\nPASS exit balances only its own input blocks and restores rotation\r\nPASS repeated restore does not decrement input blocks twice\r\nPBZ_REMOTE_VERIFY:FAILED=boss_controller\r\nPASS lost boss controller blocks movement\r\nPASS unnormalized direction is rejected\r\nPBZ_REMOTE_VERIFY:FAILED=brain_tick_disabled\r\nPASS game reenabled brain scheduling rejects movement\r\nRemote control fixtures: 8 passed; runtime verification separate.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "input_barrier_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS fresh owned layer blocks and restores\r\nPASS existing component preserved\r\nPASS partial enable retains cleanup responsibility\r\nPASS repeated exit removes its own layer once\r\nInput barrier fixtures: 4 passed; runtime input consumption remains separate.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "player_protection_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS protect and restore exact original states\r\nPASS partial protection remains restorable\r\nPASS moving original player rejected before mutation\r\nPASS dead original player rejected\r\nPASS preexisting hidden state preserved\r\nPASS health change rejected without writing health\r\nPlayer protection fixtures: 6 passed; game damage handling requires runtime evidence.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "native_call_cancellation_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS active cancellable instance reaches native cancel\r\nPASS unverified cancel binding cannot call the instance\r\nPASS uncancellable skill remains active and reports failure\r\nPASS class defaults are never treated as active skill instances\r\nPASS cancel must clear the actual activity count\r\nPASS unbounded instance arrays are rejected before native calls\r\nNative call fixtures: 6 passed; cancellation not runtime verified.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "continuous_input_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS diagonal movement remains unit length\r\nPASS camera yaw rotates forward movement\r\nPASS opposite held keys cancel\r\nPASS pause or blocked input submits nothing\r\nPASS inactive control does not sample inputs\r\nPASS input failure restores rather than continuing to move\r\nPASS invalid rotation does not submit movement\r\nPASS look input routes to the controlled pawn\r\nPASS native input uses struct key and named scalar out parameters\r\nPASS unverified FKey binding is rejected\r\nPASS lost possession is detected without movement input\r\nInput driver fixtures: 11 passed; no runtime movement verification claimed.\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime_dispatch_fixtures",
+      "exit_code": 0,
+      "stdout": "PASS only verified skill keys are registered\r\nPASS enter is queued onto the game thread\r\nPASS inactive frame does not read input\r\nPASS active frame polls and drives movement\r\nPASS skill action dispatches configured slot\r\nPASS stop restores and invalidates queued actions\r\nPASS duplicate keys are rejected before registration\r\nPASS frame exception restores and reports failure\r\nRuntime fixtures: 8 passed; no PBZ runtime integration claimed.\r\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "adaptation/pbz-26367565/Mods/PBZObserveAI/Scripts/main.lua": "9da41b9aec00983c0cd6702d080c4b32844120dbb9660ec9942eff73bbfe0990",
+    "tools/pbz_candidate_rules.py": "f62b6be29c43ab5c785ec195879ad51aefc7541e153fcb994b588dff35daca36",
+    "tools/inspect_bride_candidates.py": "3c71f18cdd38e14aed8a0ba104a68404c7ab5b1d15c1e400b572987c246a804f",
+    "tools/observer_log_parser.py": "163992da2628e752288b1e416ec03bdba361be61195f62fe9f3b68976aa9f517",
+    "tools/summarize_ai_observation.py": "4ecd98518253caf7895a6535783e5518e732667fd3c9b64487361a8bb4ef48bc",
+    "tests/test_observer.lua": "0915fce7b93d70fb4d6e97d119038b03f14ea778e47e2674d43071ff76a91120",
+    "tests/test_candidate_rules.py": "b5a945986dc1c917d7bd19aa76cc8dbe65c665988d8b0bc87081a7920e7f8522",
+    "tests/test_observer_log_parser.py": "53d439eba79d4aac9828360f8677d7afc622d4e8df805f6113f24a17eeb67dda",
+    "mod/PBZBossControl/Scripts/camera_rig.lua": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100",
+    "mod/PBZBossControl/Scripts/combat_identity.lua": "855c900bd3169449b652aa6e1e8fc07f24721d8c88422fea7e8fca70b1c75092",
+    "mod/PBZBossControl/Scripts/config.lua": "c231ba547085558c6b38631d27122129597e22d38d236886f5adc3a7766e79b6",
+    "mod/PBZBossControl/Scripts/control_bridge.lua": "109082af5de1dd62875fe29a58903f3b7ab2282f26d8862683334d8876092247",
+    "mod/PBZBossControl/Scripts/input_barrier.lua": "5c3ca8d5bbdafbeb69ccf2d3a8978990fab953138ce885f4ae7ed3537235eb8c",
+    "mod/PBZBossControl/Scripts/input_driver.lua": "90186583a5360edd2f1c63f620e7c541d880afdf524974f646d5648e77376020",
+    "mod/PBZBossControl/Scripts/main.lua": "222eee92fa0856046ed79e203ae3e19a41cefdcf9a23fe33a189ef8b3d6db7bb",
+    "mod/PBZBossControl/Scripts/pbz_bridge.lua": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49",
+    "mod/PBZBossControl/Scripts/player_protection.lua": "f5de6b1093c606e497da9ccd1cf84bcab5cc1baa6af757dee503ea92c176b5e5",
+    "mod/PBZBossControl/Scripts/profiles/ahua.lua": "1a08d69cf57f8069fc786c97564e7ff525cfb9da953d435fe7f78d4af04ff839",
+    "mod/PBZBossControl/Scripts/remote_control.lua": "e86c3fd6f27d96d01608379996531bdbaaa3b2467430267989c3af4af1ed66c0",
+    "mod/PBZBossControl/Scripts/runtime.lua": "99b706d2aefed3726ed1f8f68def1bc1d7818e91c72524c4fd6a1884da2ead2e",
+    "mod/PBZBossControl/Scripts/session.lua": "2359ca9decb7e7b46c99aa537df2c11f328747eaa971c582b614a85642a99711",
+    "mod/PBZBossControl/Scripts/ue_calls.lua": "c2b5431a43bbfad4843db22fa78ee814649e8b7b0730f0021c1c14f88cb046c1",
+    "mod/PBZBossControl/Scripts/ue_camera.lua": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1",
+    "mod/PBZBossControl/Scripts/ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+    "mod/PBZBossControl/Scripts/ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+    "mod/PBZBossControl/Scripts/ue_input.lua": "2a4839e84ebdcbe926ad05d153a0ec8e15432dd627c666931dbd846676f061f0",
+    "mod/PBZBossControl/Scripts/ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+    "mod/PBZBossControl/Scripts/ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+    "tests/test_native_bridge.lua": "4d452a20a91b21ea976981de1d7b717d4fed8f3101a3d2ee1a27c8859a3f3f1f",
+    "tests/test_ue_calls.lua": "d77ae05d7e61a8747800672f09050c93fcbfd6450ac5b8e82932b332923e04a4",
+    "tests/test_input_driver.lua": "ad555a47e8ebbca31dc7195a179b1b0d8553a6aad08e18fa78f47725aff24461",
+    "tests/test_runtime.lua": "6735c4054b30a664df38f3cac754e56eb8e1e02c4521b4e7717ca3acb0ccfc30",
+    "tests/test_combat_identity.lua": "da00e92e5f0eca6be16c092f4628b5557a87e4be08f52bdbf2a552029dcabb08",
+    "tests/test_remote_control.lua": "44d74e53cb2601bfed0f30fb0393089a5f858f7eef5ac24d66c0f484232985a8",
+    "tests/test_input_barrier.lua": "6f7dfb7d49d61039bcab92d55bb8e6c527cc7a8f44548f3e7fccff9336da67b2",
+    "tests/test_player_protection.lua": "3f3711eb662e98682578675995a27fbc0f0137543112e546cfd45d8f1c0088e8"
+  },
+  "candidate_version": 3,
+  "runtime_validation_performed": false,
+  "game_started": false,
+  "boss_control_verified": false,
+  "scope": "Local fixtures and mocks only; no game process, save or Steam access"
+}

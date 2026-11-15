@@ -1,0 +1,33 @@
+{
+  "at": "2026-11-14T16:02:45.780252+08:00",
+  "passed": true,
+  "candidate": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\release-candidates\\ahua-28-m1-675b5f7ddb137e42",
+  "release_id": "ahua-28-m1-675b5f7ddb137e42",
+  "steps": [
+    {
+      "action": "install",
+      "release_id": "ahua-28-m1-675b5f7ddb137e42",
+      "verified": true
+    },
+    {
+      "action": "disable",
+      "blocked_before_game_launch": true,
+      "reason": "Mod is disabled; enable it in the installation manager before assembly"
+    },
+    {
+      "action": "enable",
+      "verified": true
+    },
+    {
+      "action": "uninstall",
+      "declared_directory_absent": true
+    },
+    {
+      "action": "reinstall_for_acceptance",
+      "verified": true
+    }
+  ],
+  "personal_configuration_unchanged": true,
+  "game_launch_requested": false,
+  "complete_mod": false
+}

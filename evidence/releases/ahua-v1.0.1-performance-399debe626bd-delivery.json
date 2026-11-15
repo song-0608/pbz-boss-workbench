@@ -1,0 +1,11 @@
+{
+  "release_id": "ahua-v1.0.1-performance-399debe626bd",
+  "directory": "D:\\mod文档\\PBZ-Boss操控研究\\releases\\ahua-v1.0.1-performance-399debe626bd",
+  "archive": "D:\\mod文档\\PBZ-Boss操控研究\\releases\\ahua-v1.0.1-performance-399debe626bd.zip",
+  "archive_sha256": "3ef4608cb44a0f9ac9824ee0d539593b6300545aeb15c1ed0380ff942644fc69",
+  "verified_payload_files": 66,
+  "complete_mod": true,
+  "performance_fix_verified": true,
+  "formal_install_modified": false,
+  "acceptance_sha256": "62f37c70076a982c5f4142fb98a0c178bd72191f0ce9994421342a092a5226d4"
+}

@@ -1,0 +1,133 @@
+{
+  "id": "022_vessel_elder",
+  "resource_folder": "022_Vessel_Elder",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/BP_Monster_Vessel_Elder",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/BP_Monster_Vessel_Elder_Trash",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/ActorData/ActorC_Vessel_Elder_LaoZhangGui",
+    "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/ActorData/ActorC_Vessel_Elder_Summon"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "44fc5eee60dc8a2e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_HeavyAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "cf92bcacdcb9459a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_Idle_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e3cfc461277ce769",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_Idle_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "0b0de16dd55e3dcd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_MidAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "4b6b92f11a38bfe1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_SpecialSkill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "df5912697955d6ea",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_SpecialSkill_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9c1df08e4fad9b6a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/022_Vessel_Elder/Ability/Elder_Normal/Abilities/GA_Vessel_Elder_SpecialSkill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

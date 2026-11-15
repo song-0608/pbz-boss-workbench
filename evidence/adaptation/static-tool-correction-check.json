@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-13T00:18:16.389116+08:00",
+  "syntax_checked_files": [
+    "tools/research_game_menu.py",
+    "tools/pbz_ue4ss_baseline.py",
+    "tools/official_validation.py",
+    "tools/inspect_pbz_ai_metadata.py",
+    "tools/observe_pbz_characters.py"
+  ],
+  "closed_lease_checks": [
+    {
+      "operation": "menu_input",
+      "closed_lease_rejected": true,
+      "reason": "No active strictly offline validation lease"
+    },
+    {
+      "operation": "loader_deployment",
+      "closed_lease_rejected": true,
+      "reason": "Active offline preparation required"
+    },
+    {
+      "operation": "game_launch",
+      "closed_lease_rejected": true,
+      "reason": "Lease expired"
+    }
+  ],
+  "new_game_started": false,
+  "formal_write_performed": false,
+  "fproperty_static_fixture_passed": true,
+  "fproperty_live_reference_recheck_pending": true,
+  "new_formal_hash_guards": "Source/syntax verified; active-session failure path not executed in this cleanup-only run"
+}

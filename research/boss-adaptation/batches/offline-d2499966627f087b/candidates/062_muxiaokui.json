@@ -1,0 +1,172 @@
+{
+  "id": "062_muxiaokui",
+  "resource_folder": "062_MuXiaoKui",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/BP_Monster_MuXiaoKui",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "cb7db33a8a050298",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_CA_01_Ged",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e0b03760de608d8d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_CA_01_Gex",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6123c128856aff36",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "c14f3cc733d16d35",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_DoubleSword_SpecialAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "df5e736ca2b85ab2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_DoubleSword_SpecialAttack_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "eab2203e1ba7419e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_DoubleSword_SpecialAttack_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "401c7a3ceb94ab41",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8bb5d6af5dc2690c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "64a7f0599b315c7e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_SpecialAttack_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1df1eaff0cd14865",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_SpecialAttack_07",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "b7a7aaeb03267547",
+      "package": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/Ability/Abilities/GA_MuXiaoKui_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

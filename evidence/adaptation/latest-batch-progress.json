@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-13T02:30:39.962451+08:00",
+  "game_save_isolation_verified": true,
+  "reciprocal_references_verified": true,
+  "two_readonly_lua_queries_verified": true,
+  "ability_sample_count": 2,
+  "candidate_observer_v2_core_runtime_verified": true,
+  "all_npc_branches_verified": false,
+  "boss_control_verified": false,
+  "history": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\status-history\\20261113-023039"
+}

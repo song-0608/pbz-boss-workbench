@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "id": "078_menghua",
+  "resource_folder": "078_MengHua",
+  "enabled": false,
+  "playable": false,
+  "stage": "resource_clues_only",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Deflect/GA_MengHua_Deflect_B",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Deflect/GA_MengHua_Deflect_C",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Dodge/GA_MengHua_Teleport_LF",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Dodge/GA_MengHua_Teleport_RF",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/ExE/GA_MengHua_CA_01_GEd_Lethal",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_BDEd_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_CA_01_ForSeq",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_CA_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_CA_05",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_GEd_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_HeavyAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_03_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_04_Fire",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_06",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_07_Lightning",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_08_Fire",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_08_Ice_New",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_Skill_09",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_SpecialAttack_04",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_SpecialAttack_05",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_SpecialAttack_08",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/GA_MengHua_SpecialAttack_12_Lightning",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Passive/GA_MengHua_AutoDodge_Passive",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Passive/GA_MengHua_SummonPassive"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BP_Monster_MengHua"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/AIConfig",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/AIConfig/AIStrategyConfig_MengHua",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Dodge",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Passive",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Ability/Passive/GAA_MengHua_StartIceShield",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BP_MengHua_EnergyData_New",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BP_MengHua_XuKong_SnapPoint",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/BT_MengHua_CA_05",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/BT_MengHua_Deflect_A",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_AntiCharge_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_AntiMelee_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_Attack_Close_04",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_Attack_Fake_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_Attack_Fake_03",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_Attack_Far_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_BackRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_FrontRecovery_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/P1/BT_MengHua_P1_FrontRecovery_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/Tactic",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/Tactic/BT_MengHua_Shimmy_NormalGrab",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BehaviorTree/Tactic/BT_MengHua_TryApproach",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_CA_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_Heavy_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_Heavy_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_LightningDrop_Warning",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_Skill_09_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_07_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_08_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_09_04",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_10_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_11_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_11_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/BD_MengHua_SpecialAttack_12_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/CA/BD_MengHua_CA_01_Grab",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/CA/BD_MengHua_CA_01_Strong",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/CA/BD_MengHua_CA_03",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/EB_MengHua_BDEd_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/EB_MengHua_GEx_02",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_CA_04",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_CA_05_01_New",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_Fire_DelayExplosion",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_Fireball_BlueEye",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_IceBullet",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_IceGroundBlast",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_RedLightningDrop",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_ThunderDrop",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_ThunderDrop_Multi",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_Thunder_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_Thunder_Normal_Alert",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BulletData/Magic/BD_MengHua_Thunder_Normal_Reflect",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Camera/CameraShake_Hun_XieShan_BEx_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Camera/CameraShake_Hun_XieShan_C",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Camera/CameraShake_MengHua_Clash",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Camera/CameraShake_MengHua_GEd_01",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/GameplayEffects",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/GameplayEffects/GE_MengHua_SeqCA",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/GameplayEffects/GE_MengHua_WeaponBuff_Fire",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/GameplayEffects/GE_MengHua_WeaponBuff_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/GameplayEffects/GE_MengHua_WeaponBuff_Lightning",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/GameplayEffects/GE_MengHua_WeaponBuff_Poison",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/Hun_Perfect_Dodge_Attack_MengHua_P2_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Attack_01_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Attack_01_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Attack_02_A_Fake_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Attack_02_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Attack_03_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Attack_03_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_GEd_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_GEx_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Attack_01_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Attack_01_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Attack_02_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_CA_05_ForSeq_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_CriticalArt_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_GEd_01_Dead_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_GEx_01_Success_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Perfect_Dodged_By_Hun_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Skill_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Skill_09_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Skill_11_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Skill_12_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_P2_Skill_19_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Skill_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Skill_13_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/MengHua_Skill_15_Banben_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/P2",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/Montage/P2/MengHua_P2_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/ABP_Item_MengHua",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/ABP_MengHua_PostProcess",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/BP_MengHua_Energy",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/BP_Weapon_MengHua_L",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/BP_Weapon_MengHua_R",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/Bullet",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/Bullet/BP_Bullet_MengHua_ThunderLaser_Big",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/Bullet/BP_Bullet_MengHua_ThunderLaser_Small",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/Bullet/BP_Emitter_MengHua_FireBall_Alert",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/WSC_MengHua",
+      "/PBZCombatAsset/ActorData/Mobs/078_MengHua/WeaponData/Weapon_MengHua"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

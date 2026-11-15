@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "id": "femaledoll",
+  "resource_folder": "FemaleDoll",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_Skill_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_Skill_05_Fast",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_Skill_05_Fast_B",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/GA_FemaleDoll_GeNv_SpcialAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/Story/GA_FemaleDoll_GeNv_Story_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/Story/GA_FemaleDoll_GeNv_Story_Intro_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/Story/GA_FemaleDoll_GeNv_Story_Intro_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/Story/GA_FemaleDoll_GeNv_Story_Intro_05",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge/GA_FemaleDoll_Golden_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge/GA_FemaleDoll_Golden_Dodge_B_Teleport",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge/GA_FemaleDoll_Golden_Dodge_F",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_AutoCombo_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_SpecialAttack_01_FastStab",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Story/GA_FemaleDoll_Golden_Intro_Hidden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/Abilities/GA_FemaleDoll_Head_Scream",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/Abilities/GA_FemaleDoll_Head_Scream_Long",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/Abilities/GA_FelmaleDoll_QinNv_DodgeAttack_B_Fast_B",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/Abilities/GA_FemaleDoll_QinNv_RangeAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/Abilities/GA_FemaleDoll_QinNv_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/Abilities/Story/GA_FemaleDoll_QinNv_Special_Story_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/Abilities/Story/GA_FemaleDoll_QinNv_Special_Story_01_Ambush",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/Abilities/Story/GA_FemaleDoll_QinNv_Story_Intro_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Abilities/GA_FemaleDoll_Sword_GP_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Abilities/GA_FemaleDoll_Sword_GP_02_Teach",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Abilities/GA_FemaleDoll_Sword_ShieldBlock",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Abilities/GA_FemaleDoll_Sword_Skill_ShieldCunter",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_Skill_01_A",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/GA_TieChiSan_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/Story/GA_FemaleDoll_TieChiSan_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/Story/GA_FemaleDoll_TieChiSan_Intro_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Abilities/GA_FemaleDoll_Weaponless_HeavyAttack_PunchDown",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Abilities/GA_FemaleDoll_Weaponless_Intro",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Abilities/GA_FemaleDoll_Weaponless_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Abilities/GA_FemaleDoll_Weaponless_Skill_JumpBack",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Abilities/GA_FemaleDoll_Weaponless_Skill_Punch3Hit_FlyPunch",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/GA_FemaleDoll_Common_Story_Intro_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/GA_FemaleDoll_Common_Story_Intro_End_ForXiGu",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/GA_FemaleDoll_Common_Story_Intro_ForXiGu",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Passive/GA_FemaleDoll_Golden_LowHealthPulsePassive",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Passive/GA_FemaleDoll_Golden_ThunderRagePassive"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_GeNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_GeNv_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_Golden_LengTu",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_Head",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_Sword_ForTeach",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_Sword_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/ActorC_FemaleDoll_TieChiSan_LengTu",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/Golden/ActorC_FemaleDoll_Weaponless_AutoGolden"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_GeNv_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_GeNv_Stand",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Golden_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Head",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_QinNv_Ice_Special",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Sword_ForDangHuiSummon",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Sword_ForTeach",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Sword_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_TieChiSan",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_TieChiSan_LengTu",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_TieChiSan_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BP_Monster_FemaleDoll_Weaponless_ForDangHuiSummon"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/ActivityConfig_FemaleDoll_Common",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/ActivityConfig_FemaleDoll_ForDangHui",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/ActivityConfig_FemaleDoll_WeaponLess_ForDangHui",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_GeNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_GeNv/AbilityPool_GeNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Golden/AIConfig_FemaleDoll_Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_QinNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Sword/AbilityPool_FemaleDoll_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Sword/AbilityPool_FemaleDoll_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Sword/AbilityPool_FemaleDoll_Sword_ForTeach",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Sword/AbilityPool_FemaleDoll_Sword_Summon",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_TieChiSan/AbilityPool_TieChiSan",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_TieChiSan/StrategyConfig_TieChiSan",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Weaponless/AIConfig_FemaleDoll_Weaponless_ForDangHui",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Weaponless/AbilityPool_FemaleDoll_Common_AutoGoldenIron",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/AIConfig/FemaleDoll_Weaponless/AbilityPool_FemaleDoll_Weaponless_AutoGoldenIron",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/Abilities/Story",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_Skill_01_02_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_01_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_GeNv/BulletData/BD_GeNv_SpcialAttack_03_06",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Story",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Attack_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Attack_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Attack_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Attack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_02_Wave1",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_04_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_04_L_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_04_L_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_04_R_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/BulletData/BulletData_FemaleDoll_Golden_Skill_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Montage/FemaleDoll_Golden_Dodge_F_Montage1",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Montage/FemaleDoll_Golden_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Montage/FemaleDoll_Golden_Skill_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Montage/FemaleDoll_Golden_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/BulletData/BulletData_FemaleDoll_Head_Push_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/BulletData/BulletData_FemaleDoll_Head_Scream_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/Montage/FemaleDoll_Normal_Head_Intro_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Head/Montage/FemaleDoll_Normal_Head_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_DodgeAttack_B_01_Blue",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Range_03_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Range_Homing_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Range_Homing_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Range_Ice",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_QinNv/BulletData/BD_QinNv_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData/BulletData_FemaleDoll_Sword_GP_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData/BulletData_FemaleDoll_Weaponless_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData/BulletData_FemaleDoll_Weaponless_Skill_4HitShield_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData/BulletData_FemaleDoll_Weaponless_Skill_4HitShield_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData/BulletData_FemaleDoll_Weaponless_Skill_Puncture_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/BulletData/BulletData_FemaleDoll_Weaponless_Skill_ShieldCunter_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Montage/FemaleDoll_Sword_Shield_Counter_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Montage/FemaleDoll_Sword_Shield_Defense01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Sword/Montage/FemaleDoll_Sword_Shield_Skill_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/Abilities/Story",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_Skill_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_Skill_03_Darts_04",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_Skill_03_Darts_05",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_Skill_03_Darts_06",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_TieChiSan/BulletData/BD_GA_TieChiSan_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/BulletData/BulletData_FemaleDoll_Weaponless_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/BulletData/BulletData_FemaleDoll_Weaponless_SpecialAttack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/BulletData/BulletData_FemaleDoll_Weaponless_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Montage/FemaleDoll_Normal_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Montage/FemaleDoll_Normal_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Montage/FemaleDoll_Normal_Skill_04_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Weaponless/Montage/FemaleDoll_Normal_SpecialAttack_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/Montage/femaledoll_XM_Loop_Test_1_",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/StaticAnimation",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/Story/StaticAnimation/femaledoll_XM_Loop_Test",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/ActorData/Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BehaviorTree/FemaleDoll_Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BehaviorTree/FemaleDoll_Golden/BT_Monster_FemaleDoll_Golden_AutoCombo_02",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BehaviorTree/FemaleDoll_Head/BT_Monster_FemaleDoll_Head_Combo",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BehaviorTree/FemaleDoll_Weaponless/BT_Monster_FemaleDoll_Weaponless_JumpBackAttack",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Bullets",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Bullets/BP_FemaleDoll_Golden_Wave",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/GameplayEffects/GE_FemaleDoll_QinNv_Phantom",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Passive",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Golden/BP_Weapon_FemaleDoll_Golden_R",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Golden/Weapon_FemaleDoll_Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Head",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Head/PBZ_ABP_Item_Doll_Head",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Head/Weapon_FemaleDoll_Head",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_QinNV/BP_Weapon_QinNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_QinNV/PBZ_ABP_Item_GeNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Sword/ABP_Item_FemaleDoll_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Sword/Weapon_FemaleDoll_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_TieChiSan/BP_Weapon_FemaleDoll_San",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_TieChiSan/Weapon_TieChiSan",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Weaponless/Hit_FemaleDoll_Common",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/FemaleDoll_Weaponless/Weapon_FemaleDoll_Weaponless",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/Hit_FemaleDoll_Golden",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/Hit_FemaleDoll_QinNv",
+      "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/WeaponData/Hit_FemaleDoll_Sword_ForTeach"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

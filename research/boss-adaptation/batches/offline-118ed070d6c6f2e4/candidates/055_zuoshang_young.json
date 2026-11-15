@@ -1,0 +1,211 @@
+{
+  "id": "055_zuoshang_young",
+  "resource_folder": "055_ZuoShang_Young",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/BP_Monster_ZuoShang_Young",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/ActorConfig/ActorC_ZuoShang_Young",
+    "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/ActorConfig/ActorC_ZuoShang_Young_Tutorial"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "0d8348a8679da2e2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dash_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "cfa86e43ad5418ea",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dash_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7a3752da4c00888c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dialogue_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1954bd1b0ffd5a40",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dialogue_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "80032cc4492fb12a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dialogue_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f5b36a79d4a73a6f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dodge_L_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1c1d43d42340fbea",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Dodge_R_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "aaa84acd18764671",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_GrabKnockback",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3f687ec17376512e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_HeavyAttack_02_CA",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "30186d8b34d5eb7f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_SpecialAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fb3ccaac3b172ac8",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_SpecialAttack_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6091a46751253e6d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_SpecialAttack_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f647c3e38d59f062",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8643707ba0c0d510",
+      "package": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/Ability/Ability/GA_ZuoShang_Young_Walk_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "at": "2026-11-15T09:00:34.107362+08:00",
+  "passed": true,
+  "milestone": "M0 offline discovery and adaptation preparation",
+  "resource_folders": 104,
+  "unique_observed_package_paths": 8386,
+  "historical_source_files": 15,
+  "candidate_dossiers": 102,
+  "frozen_batch": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\batches\\offline-10208eec45c95ebc",
+  "batch_fingerprint": "10208eec45c95ebc",
+  "batch_manifest_sha256": "340c7c96dba4048bf98e4ae9ea1789ff511782afc7576b63f8c411f7c2b56517",
+  "checks": [
+    {
+      "name": "boss_adaptation_workflow",
+      "passed": true,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.045s\n\nOK"
+    },
+    {
+      "name": "boss_adaptation_batch",
+      "passed": true,
+      "output": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.082s\n\nOK"
+    },
+    {
+      "name": "identity_queue_ok",
+      "passed": true,
+      "output": "PASS generated identity queue: ok"
+    },
+    {
+      "name": "identity_queue_wrong_identity",
+      "passed": true,
+      "output": "PASS generated identity queue: wrong_identity"
+    },
+    {
+      "name": "identity_queue_wrong_config",
+      "passed": true,
+      "output": "PASS generated identity queue: wrong_config"
+    },
+    {
+      "name": "existing_player_catalog",
+      "passed": true,
+      "output": "PASS boss registry, supported bindings, native combo evidence gates and missing-proof quarantine"
+    }
+  ],
+  "first_batch": [
+    {
+      "id": "057_wanjun",
+      "ability_path_candidates": 13,
+      "playable": false,
+      "identity_runtime_verified": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "ability_path_candidates": 24,
+      "playable": false,
+      "identity_runtime_verified": false
+    },
+    {
+      "id": "056_youlong",
+      "ability_path_candidates": 32,
+      "playable": false,
+      "identity_runtime_verified": false
+    }
+  ],
+  "research_postcheck": {
+    "path": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\latest-native-diagnostic-postcheck.json",
+    "sha256": "e9fc508519d94c22d048b61b1e92b4ae9e273b71d39f1d80e9db51625d563426"
+  },
+  "game_started_by_offline_pipeline": false,
+  "new_playable_bosses": 0,
+  "next_action": "Use the frozen three-candidate read-only identity batch at the next consolidated milestone; no repeat name scan.",
+  "pending": "Actual Boss identity, live class/config/grants and all gameplay acceptance are separate future gates."
+}

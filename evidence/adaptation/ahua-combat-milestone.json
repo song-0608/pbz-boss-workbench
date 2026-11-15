@@ -1,0 +1,126 @@
+{
+  "at": "2026-11-13T11:48:04.925702+08:00",
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-112821\\state.json",
+  "evidence_log": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-112821\\UE4SS.log",
+  "player_faction": "Faction.Player",
+  "faction_switch_runtime_verified": true,
+  "faction_restore_runtime_reported": true,
+  "target_component_acceptance_observed": true,
+  "ability_target_query_mismatch_observed": true,
+  "target_runtime_verified": false,
+  "damage_runtime_verified": false,
+  "all_skills_playable": false,
+  "fixed_delay_initialization_verified": false,
+  "settled_target_path_runtime_verified": false,
+  "formal_file_count": 56,
+  "formal_changed_count": 0,
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "local_regression_passed": true,
+  "local_regression_tests": 92,
+  "current_source_sha256": {
+    "mod/PBZBossControl/Scripts/config.lua": "c231ba547085558c6b38631d27122129597e22d38d236886f5adc3a7766e79b6",
+    "mod/PBZBossControl/Scripts/session.lua": "2359ca9decb7e7b46c99aa537df2c11f328747eaa971c582b614a85642a99711",
+    "mod/PBZBossControl/Scripts/pbz_bridge.lua": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49",
+    "mod/PBZBossControl/Scripts/main.lua": "222eee92fa0856046ed79e203ae3e19a41cefdcf9a23fe33a189ef8b3d6db7bb",
+    "mod/PBZBossControl/Scripts/ue_calls.lua": "c2b5431a43bbfad4843db22fa78ee814649e8b7b0730f0021c1c14f88cb046c1",
+    "mod/PBZBossControl/Scripts/control_bridge.lua": "f29fc68b06142a0dcb303b8f6e79016e24e53e4ae3264f5fdc54f4552f8c4ec4",
+    "mod/PBZBossControl/Scripts/input_driver.lua": "90186583a5360edd2f1c63f620e7c541d880afdf524974f646d5648e77376020",
+    "mod/PBZBossControl/Scripts/ue_input.lua": "1968e2af9226adfb2a51e8b4d18a9008bd402c915d4486e86f1c9260dc73d422",
+    "mod/PBZBossControl/Scripts/runtime.lua": "99b706d2aefed3726ed1f8f68def1bc1d7818e91c72524c4fd6a1884da2ead2e",
+    "mod/PBZBossControl/Scripts/ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+    "mod/PBZBossControl/Scripts/camera_rig.lua": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100",
+    "mod/PBZBossControl/Scripts/ue_camera.lua": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1",
+    "mod/PBZBossControl/Scripts/combat_identity.lua": "ed45d30f7597cc67cdf961c9f30fd55d72bbe1156a622a05d28d3f7dca437421",
+    "mod/PBZBossControl/Scripts/ue_combat.lua": "43314d05721322df1cce90e6f27faa1f2f8ef46a6444d700cc4204ce5719dadd",
+    "mod/PBZBossControl/Scripts/profiles/ahua.lua": "539140aa60cd3f4f2aab16844c8279e7c53844bf9feaaaa109450c25cccd28bc"
+  },
+  "runtime_manifest": [
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\dwmapi.dll",
+      "sha256": "3c49d48565a0fb86241c18705728b83420e6fa0ab9dbf6b6cc1750a442ff921f"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\UE4SS.dll",
+      "sha256": "27ca1098104e231ab40e89cc9f87643647fcb3937a8aa832b57e180df96bcff7"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\UE4SS-settings.ini",
+      "sha256": "cd35a10d95100fb0fcaa8a56100602b405989647573c380fb95aa44857b8420e"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\mods.txt",
+      "sha256": "966cf7672252c3fe6c2f39fcebddc8c604895cd7f5c91ebd3f100a7cacd21b26"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua",
+      "sha256": "267029810f6ec5ac4ea0cb21f5b302b249ecf428bcc4d1f33009a9a673ab8096"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\UE4SS_Signatures\\GUObjectArray.lua",
+      "sha256": "3740c699d5f49fefd02b303533af0336d5886af2183d88cc3d7ba52767cef8e1"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\MemberVariableLayout.ini",
+      "sha256": "b4578a4890126aff4f7af246675085e007319f3a43e9fb02f52dd6c320ab15d1"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\config.lua",
+      "sha256": "c231ba547085558c6b38631d27122129597e22d38d236886f5adc3a7766e79b6"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\session.lua",
+      "sha256": "2359ca9decb7e7b46c99aa537df2c11f328747eaa971c582b614a85642a99711"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\pbz_bridge.lua",
+      "sha256": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\ue_calls.lua",
+      "sha256": "c2b5431a43bbfad4843db22fa78ee814649e8b7b0730f0021c1c14f88cb046c1"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\control_bridge.lua",
+      "sha256": "f29fc68b06142a0dcb303b8f6e79016e24e53e4ae3264f5fdc54f4552f8c4ec4"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\input_driver.lua",
+      "sha256": "90186583a5360edd2f1c63f620e7c541d880afdf524974f646d5648e77376020"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\ue_input.lua",
+      "sha256": "1968e2af9226adfb2a51e8b4d18a9008bd402c915d4486e86f1c9260dc73d422"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\runtime.lua",
+      "sha256": "99b706d2aefed3726ed1f8f68def1bc1d7818e91c72524c4fd6a1884da2ead2e"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\ue_host.lua",
+      "sha256": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\camera_rig.lua",
+      "sha256": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\ue_camera.lua",
+      "sha256": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\combat_identity.lua",
+      "sha256": "87b8a7fe5f5eeacb3156e12fb2f274a50416d6cd68dcc42d90647ca798b738b9"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\ue_combat.lua",
+      "sha256": "43314d05721322df1cce90e6f27faa1f2f8ef46a6444d700cc4204ce5719dadd"
+    },
+    {
+      "physical_path": "D:\\mod文档\\PBZ-Boss操控研究\\sandbox\\PBZSteamLab\\drive\\E\\SteamLibrary\\steamapps\\common\\PBZ\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\profiles\\ahua.lua",
+      "sha256": "539140aa60cd3f4f2aab16844c8279e7c53844bf9feaaaa109450c25cccd28bc"
+    }
+  ],
+  "source_revision_note": "Final restoration readback and delayed-target fixtures were checked locally after the last live deployment; they are not claimed as runtime-tested.",
+  "completed_mod": false
+}

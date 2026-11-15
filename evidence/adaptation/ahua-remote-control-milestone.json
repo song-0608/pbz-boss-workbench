@@ -1,0 +1,142 @@
+{
+  "at": "2026-11-13T12:16:22.287048+08:00",
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\official-validation-20261113-115712\\state.json",
+  "runs": [
+    {
+      "skills": [],
+      "restored": false,
+      "ended": true,
+      "target_verified": false
+    },
+    {
+      "skills": [],
+      "restored": true,
+      "ended": true,
+      "target_verified": true
+    },
+    {
+      "skills": [],
+      "restored": true,
+      "ended": true,
+      "target_verified": true
+    },
+    {
+      "skills": [],
+      "restored": true,
+      "ended": true,
+      "target_verified": true
+    },
+    {
+      "skills": [],
+      "restored": true,
+      "ended": true,
+      "target_verified": true,
+      "movement_delta_xy": 232.93231664055
+    },
+    {
+      "skills": [],
+      "restored": true,
+      "ended": true,
+      "target_verified": true
+    },
+    {
+      "skills": [],
+      "restored": true,
+      "ended": true,
+      "target_verified": true
+    },
+    {
+      "skills": [
+        {
+          "id": "skill_01",
+          "activated": true,
+          "natural_finish": true,
+          "health_before": 9000.0,
+          "health_after": 8750.0,
+          "health_delta": 250.0,
+          "damage_observed_during_successful_activation": true
+        },
+        {
+          "id": "heavy_01",
+          "activated": false,
+          "natural_finish": false,
+          "health_before": 8750.0,
+          "health_after": 8700.0,
+          "health_delta": 50.0,
+          "damage_observed_during_successful_activation": false
+        },
+        {
+          "id": "skill_02",
+          "activated": false,
+          "natural_finish": false,
+          "health_before": 8700.0,
+          "health_after": 8700.0,
+          "health_delta": 0.0,
+          "damage_observed_during_successful_activation": false
+        },
+        {
+          "id": "dash",
+          "activated": false,
+          "natural_finish": false,
+          "health_before": 8700.0,
+          "health_after": 8700.0,
+          "health_delta": 0.0,
+          "damage_observed_during_successful_activation": false
+        }
+      ],
+      "restored": true,
+      "ended": true,
+      "target_verified": true,
+      "movement_delta_xy": 353.98684974005
+    },
+    {
+      "skills": [
+        {
+          "id": "skill_01",
+          "activated": true,
+          "natural_finish": true,
+          "health_before": 9000.0,
+          "health_after": 8750.0,
+          "health_delta": 250.0,
+          "damage_observed_during_successful_activation": true
+        },
+        {
+          "id": "heavy_01",
+          "activated": true,
+          "natural_finish": true,
+          "health_before": 8700.0,
+          "health_after": 8600.0,
+          "health_delta": 100.0,
+          "damage_observed_during_successful_activation": true
+        },
+        {
+          "id": "skill_02",
+          "activated": true,
+          "natural_finish": true,
+          "health_before": 8600.0,
+          "health_after": 8350.0,
+          "health_delta": 250.0,
+          "damage_observed_during_successful_activation": true
+        },
+        {
+          "id": "dash",
+          "activated": true,
+          "natural_finish": true,
+          "health_before": 8350.0,
+          "health_after": 8350.0,
+          "health_delta": 0.0,
+          "damage_observed_during_successful_activation": false
+        }
+      ],
+      "restored": true,
+      "ended": true,
+      "target_verified": true,
+      "movement_delta_xy": 461.44513564194
+    }
+  ],
+  "completed_mod": false,
+  "formal_files_changed": 0,
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "scope": "Temporary owned Ahua and owned enemy only; successful health deltas are observations, not a claim of every hit or damage attribution after rejection"
+}

@@ -1,0 +1,1084 @@
+{
+  "catalog": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\catalog.json",
+  "sources": 15,
+  "candidates": [
+    {
+      "id": "000_hun",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 7
+      }
+    },
+    {
+      "id": "001_arrowman",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 14,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 22
+      }
+    },
+    {
+      "id": "003_malethug",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 42,
+        "actor_config_clue": 7,
+        "character_blueprint_clue": 7,
+        "support_resource_clue": 164
+      }
+    },
+    {
+      "id": "004_dogtrainer",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 1,
+        "support_resource_clue": 19
+      }
+    },
+    {
+      "id": "005_moddog",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 14,
+        "actor_config_clue": 3,
+        "character_blueprint_clue": 3,
+        "support_resource_clue": 43
+      }
+    },
+    {
+      "id": "006_goldmaskman",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 13,
+        "actor_config_clue": 2,
+        "support_resource_clue": 75
+      }
+    },
+    {
+      "id": "007_arrowman_bow",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 8,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 26
+      }
+    },
+    {
+      "id": "008_greatblademan",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 39,
+        "actor_config_clue": 2,
+        "support_resource_clue": 125
+      }
+    },
+    {
+      "id": "008_greatblademan_hard",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 18,
+        "support_resource_clue": 13
+      }
+    },
+    {
+      "id": "009_heavycrossbowman",
+      "stage": "resource_clues_only",
+      "counts": {
+        "support_resource_clue": 5
+      }
+    },
+    {
+      "id": "009_heavycrossbowmannew",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 6,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 25
+      }
+    },
+    {
+      "id": "010_bombman",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 14,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 5
+      }
+    },
+    {
+      "id": "011_ironmaskman",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 21,
+        "actor_config_clue": 2,
+        "support_resource_clue": 47
+      }
+    },
+    {
+      "id": "012_mboss",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 25,
+        "support_resource_clue": 66
+      }
+    },
+    {
+      "id": "013_mbossvariants",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 20,
+        "support_resource_clue": 37
+      }
+    },
+    {
+      "id": "014_jademaskman",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 14,
+        "actor_config_clue": 1,
+        "support_resource_clue": 46
+      }
+    },
+    {
+      "id": "015_powerman",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 28,
+        "actor_config_clue": 2,
+        "support_resource_clue": 119
+      }
+    },
+    {
+      "id": "016_mobmanelite",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 18,
+        "support_resource_clue": 50
+      }
+    },
+    {
+      "id": "017_illnesscrow",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 3,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 20
+      }
+    },
+    {
+      "id": "018_zhengdaorenshi",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 1,
+        "support_resource_clue": 6
+      }
+    },
+    {
+      "id": "019_vessel_vagrant",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 5,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 38
+      }
+    },
+    {
+      "id": "020_vessel_woman",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 5,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 3,
+        "support_resource_clue": 15
+      }
+    },
+    {
+      "id": "021_vessel_man",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 8,
+        "actor_config_clue": 1,
+        "support_resource_clue": 29
+      }
+    },
+    {
+      "id": "022_vessel_elder",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 7,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 28
+      }
+    },
+    {
+      "id": "023_vessel_child",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 4,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 15
+      }
+    },
+    {
+      "id": "024_vessel_giant",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 14,
+        "ability_dependency_clue": 2,
+        "actor_config_clue": 2,
+        "support_resource_clue": 28
+      }
+    },
+    {
+      "id": "025_femalethug",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 27,
+        "actor_config_clue": 4,
+        "character_blueprint_clue": 7,
+        "support_resource_clue": 100
+      }
+    },
+    {
+      "id": "027_xiaoxue",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 13,
+        "ability_dependency_clue": 2,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 30
+      }
+    },
+    {
+      "id": "028_yanyan",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 38,
+        "support_resource_clue": 21
+      }
+    },
+    {
+      "id": "034_emei",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 49,
+        "actor_config_clue": 5,
+        "character_blueprint_clue": 10,
+        "support_resource_clue": 125
+      }
+    },
+    {
+      "id": "035_huashan",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 103,
+        "ability_dependency_clue": 2,
+        "actor_config_clue": 8,
+        "character_blueprint_clue": 12,
+        "support_resource_clue": 255
+      }
+    },
+    {
+      "id": "036_spearman",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 35,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 5,
+        "support_resource_clue": 76
+      }
+    },
+    {
+      "id": "037_guichai",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 49,
+        "actor_config_clue": 7,
+        "character_blueprint_clue": 5,
+        "support_resource_clue": 115
+      }
+    },
+    {
+      "id": "038_aquakiller",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 33,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 88
+      }
+    },
+    {
+      "id": "039_guichai_white",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 7,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 4,
+        "support_resource_clue": 57
+      }
+    },
+    {
+      "id": "040_horse",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 7,
+        "character_blueprint_clue": 4,
+        "support_resource_clue": 10
+      }
+    },
+    {
+      "id": "041_bandit",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 21,
+        "actor_config_clue": 3,
+        "support_resource_clue": 67
+      }
+    },
+    {
+      "id": "042_ahua",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 15,
+        "ability_dependency_clue": 4,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 48
+      }
+    },
+    {
+      "id": "043_scavenger",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 28,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 94
+      }
+    },
+    {
+      "id": "044_pengmeng",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 26,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 68
+      }
+    },
+    {
+      "id": "045_jingye",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 22,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 88
+      }
+    },
+    {
+      "id": "046_yuu",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 16,
+        "support_resource_clue": 38
+      }
+    },
+    {
+      "id": "047_leidang",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 23,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 45
+      }
+    },
+    {
+      "id": "048_hookman",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 24,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 28
+      }
+    },
+    {
+      "id": "049_changhong",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 23,
+        "ability_dependency_clue": 2,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 80
+      }
+    },
+    {
+      "id": "050_leidang_p2",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 18,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 37
+      }
+    },
+    {
+      "id": "051_hookman_p2",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 16,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 63
+      }
+    },
+    {
+      "id": "052_baihedisciple",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 35,
+        "actor_config_clue": 3,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 65
+      }
+    },
+    {
+      "id": "053_changhong_p2",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 22,
+        "ability_dependency_clue": 2,
+        "support_resource_clue": 62
+      }
+    },
+    {
+      "id": "054_zuoshang",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 27,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 162
+      }
+    },
+    {
+      "id": "055_zuoshang_young",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 14,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 57
+      }
+    },
+    {
+      "id": "056_youlong",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 32,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 45
+      }
+    },
+    {
+      "id": "057_wanjun",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 13,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 34
+      }
+    },
+    {
+      "id": "058_maddoctor",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 14,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 42
+      }
+    },
+    {
+      "id": "059_duyan",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 18,
+        "actor_config_clue": 1,
+        "support_resource_clue": 78
+      }
+    },
+    {
+      "id": "060_guichai_yellow",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 41,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 141
+      }
+    },
+    {
+      "id": "061_guwanyue",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 24,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 69
+      }
+    },
+    {
+      "id": "062_muxiaokui",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 11,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 32
+      }
+    },
+    {
+      "id": "063_chilian_p1",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 20,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 3,
+        "support_resource_clue": 50
+      }
+    },
+    {
+      "id": "064_muxiaokui_p2",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 17,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 28
+      }
+    },
+    {
+      "id": "065_chilian_p2",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 8,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 61
+      }
+    },
+    {
+      "id": "066_rentuzi",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 11,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 30
+      }
+    },
+    {
+      "id": "067_motian",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 36,
+        "actor_config_clue": 3,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 175
+      }
+    },
+    {
+      "id": "068_yuzan",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 25,
+        "actor_config_clue": 5,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 51
+      }
+    },
+    {
+      "id": "069_guichai_red",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 23,
+        "character_blueprint_clue": 4,
+        "support_resource_clue": 94
+      }
+    },
+    {
+      "id": "070_guichai_cyan",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 13,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 58
+      }
+    },
+    {
+      "id": "071_xianzhe",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 9,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 26
+      }
+    },
+    {
+      "id": "072_canqu_biyuan",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 9,
+        "support_resource_clue": 78
+      }
+    },
+    {
+      "id": "073_yanqiansui",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 24,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 102
+      }
+    },
+    {
+      "id": "074_wulengshuang",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 12,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 27
+      }
+    },
+    {
+      "id": "075_guichai_red_p2",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 16,
+        "support_resource_clue": 71
+      }
+    },
+    {
+      "id": "076_zuoshang_p2",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 14,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 30
+      }
+    },
+    {
+      "id": "077_lengtu",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 50,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 95
+      }
+    },
+    {
+      "id": "078_menghua",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 28,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 106
+      }
+    },
+    {
+      "id": "079_xukong",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 7,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 7
+      }
+    },
+    {
+      "id": "888_ultimateboss",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 23,
+        "support_resource_clue": 7
+      }
+    },
+    {
+      "id": "canqu_bihai",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 20,
+        "ability_dependency_clue": 1,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 43
+      }
+    },
+    {
+      "id": "common",
+      "stage": "resource_clues_only",
+      "counts": {
+        "support_resource_clue": 40
+      }
+    },
+    {
+      "id": "datouwawa",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 30,
+        "ability_dependency_clue": 1,
+        "actor_config_clue": 4,
+        "character_blueprint_clue": 4,
+        "support_resource_clue": 92
+      }
+    },
+    {
+      "id": "danghui",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 24,
+        "ability_dependency_clue": 1,
+        "actor_config_clue": 4,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 52
+      }
+    },
+    {
+      "id": "feizei",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 20,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 4,
+        "support_resource_clue": 67
+      }
+    },
+    {
+      "id": "femaledoll",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 51,
+        "actor_config_clue": 10,
+        "character_blueprint_clue": 13,
+        "support_resource_clue": 145
+      }
+    },
+    {
+      "id": "fengxuedaoke",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 19,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 54
+      }
+    },
+    {
+      "id": "huwei",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 5,
+        "ability_dependency_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 10
+      }
+    },
+    {
+      "id": "huaqianxiao",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 23,
+        "ability_dependency_clue": 2,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 67
+      }
+    },
+    {
+      "id": "huotongren",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 35,
+        "actor_config_clue": 6,
+        "character_blueprint_clue": 13,
+        "support_resource_clue": 107
+      }
+    },
+    {
+      "id": "jiangjun",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 35,
+        "ability_dependency_clue": 1,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 68
+      }
+    },
+    {
+      "id": "liondancer",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 19,
+        "support_resource_clue": 29
+      }
+    },
+    {
+      "id": "liondancer_p2",
+      "stage": "resource_clues_only",
+      "counts": {
+        "ability_clue": 19,
+        "actor_config_clue": 1,
+        "support_resource_clue": 9
+      }
+    },
+    {
+      "id": "luanshi",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 53,
+        "ability_dependency_clue": 2,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 5,
+        "support_resource_clue": 57
+      }
+    },
+    {
+      "id": "maledoll",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 49,
+        "actor_config_clue": 6,
+        "character_blueprint_clue": 13,
+        "support_resource_clue": 145
+      }
+    },
+    {
+      "id": "npc_common",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 2
+      }
+    },
+    {
+      "id": "nanmin",
+      "stage": "resource_clues_only",
+      "counts": {
+        "support_resource_clue": 3
+      }
+    },
+    {
+      "id": "niangniangshengqu",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 1
+      }
+    },
+    {
+      "id": "placeholder",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 2,
+        "support_resource_clue": 2
+      }
+    },
+    {
+      "id": "qishu",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 34,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 6,
+        "support_resource_clue": 97
+      }
+    },
+    {
+      "id": "tutorial",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 2,
+        "support_resource_clue": 7
+      }
+    },
+    {
+      "id": "vesselrenoujiao",
+      "stage": "resource_clues_only",
+      "counts": {
+        "character_blueprint_clue": 1
+      }
+    },
+    {
+      "id": "yingmei",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 41,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 110
+      }
+    },
+    {
+      "id": "yubi",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 40,
+        "actor_config_clue": 1,
+        "character_blueprint_clue": 3,
+        "support_resource_clue": 138
+      }
+    },
+    {
+      "id": "yucong",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 19,
+        "actor_config_clue": 4,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 48
+      }
+    },
+    {
+      "id": "yuding_00",
+      "stage": "offline_identity_dossier",
+      "counts": {
+        "ability_clue": 13,
+        "ability_dependency_clue": 1,
+        "actor_config_clue": 2,
+        "character_blueprint_clue": 2,
+        "support_resource_clue": 43
+      }
+    },
+    {
+      "id": "yuping",
+      "stage": "resource_clues_only",
+      "counts": {
+        "actor_config_clue": 1,
+        "support_resource_clue": 1
+      }
+    },
+    {
+      "id": "zhigaozhe",
+      "stage": "resource_clues_only",
+      "counts": {
+        "character_blueprint_clue": 1,
+        "support_resource_clue": 4
+      }
+    }
+  ],
+  "dossiers": [
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\000_hun.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\001_arrowman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\003_malethug.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\004_dogtrainer.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\005_moddog.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\006_goldmaskman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\007_arrowman_bow.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\008_greatblademan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\008_greatblademan_hard.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\009_heavycrossbowman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\009_heavycrossbowmannew.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\010_bombman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\011_ironmaskman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\012_mboss.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\013_mbossvariants.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\014_jademaskman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\015_powerman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\016_mobmanelite.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\017_illnesscrow.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\018_zhengdaorenshi.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\019_vessel_vagrant.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\020_vessel_woman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\021_vessel_man.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\022_vessel_elder.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\023_vessel_child.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\024_vessel_giant.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\025_femalethug.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\027_xiaoxue.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\028_yanyan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\034_emei.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\035_huashan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\036_spearman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\037_guichai.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\038_aquakiller.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\039_guichai_white.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\040_horse.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\041_bandit.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\043_scavenger.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\044_pengmeng.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\045_jingye.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\046_yuu.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\047_leidang.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\048_hookman.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\049_changhong.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\050_leidang_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\051_hookman_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\052_baihedisciple.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\053_changhong_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\054_zuoshang.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\055_zuoshang_young.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\056_youlong.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\057_wanjun.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\058_maddoctor.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\059_duyan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\060_guichai_yellow.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\061_guwanyue.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\062_muxiaokui.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\063_chilian_p1.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\064_muxiaokui_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\065_chilian_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\066_rentuzi.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\067_motian.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\068_yuzan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\069_guichai_red.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\070_guichai_cyan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\071_xianzhe.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\072_canqu_biyuan.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\073_yanqiansui.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\074_wulengshuang.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\075_guichai_red_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\076_zuoshang_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\077_lengtu.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\078_menghua.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\079_xukong.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\888_ultimateboss.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\canqu_bihai.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\datouwawa.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\danghui.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\feizei.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\femaledoll.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\fengxuedaoke.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\huwei.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\huaqianxiao.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\huotongren.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\jiangjun.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\liondancer.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\liondancer_p2.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\luanshi.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\maledoll.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\npc_common.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\nanmin.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\niangniangshengqu.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\placeholder.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\qishu.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\tutorial.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\vesselrenoujiao.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\yingmei.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\yubi.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\yucong.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\yuding_00.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\yuping.json",
+    "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\dossiers\\zhigaozhe.json"
+  ],
+  "game_started": false
+}

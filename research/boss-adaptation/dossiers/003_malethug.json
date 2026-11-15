@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "id": "003_malethug",
+  "resource_folder": "003_MaleThug",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThugElite_Sword_Taunt_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_BigShield_ShieldBlock",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Dodge_B_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Dodge_B_Elite_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Dodge_B_Elite_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Dodge_F",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Taunt_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Taunt_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_Taunt_04",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities/GA_MaleThug_Common_TriggerFire",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Passive/GA_MaleThug_BigShield_Passive",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Passive/GA_MaleThug_SwordShield_Passive",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Story/GA_MaleThug_Common_Intro_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_ComboGroups",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_HeavyAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_RangeAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_BigShield/Abilities/GA_MaleThug_BigShield_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Abilities/GA_MaleThug_Club_LightAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Abilities/GA_MaleThug_Club_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Abilities/GA_MaleThug_Club_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Abilities/GA_MaleThug_Club_SpecialAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Abilities/Teaching/GA_MaleThug_Club_Skill_03_Combo",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield/Abilities/GA_MaleThug_Club_Shield_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield/Abilities/GA_MaleThug_Club_Shield_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Abilities/GA_MaleThug_Spear_MiddleAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Abilities/GA_MaleThug_Spear_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Abilities/GA_MaleThug_Spear_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Abilities/GA_MaleThug_Spear_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Abilities/GA_MaleThug_ShieldAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Abilities/GA_MaleThug_Sword_HeavyAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Abilities/GA_MaleThug_Sword_LightAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Abilities/LevelShow/GA_MaleThug_Sword_Ged_ToNpc_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/BulletData/GA_MobMan_LightAttack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/BulletData/GA_MobMan_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/Abilities/GA_MaleThug_TwinAxe_Attack_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/Abilities/GA_MaleThug_TwinAxe_Attack_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/Abilities/GA_MaleThug_TwinAxe_SpecialAttack_02"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_BigShield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_Club",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_Club_Shield_Teaching",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_Throw_Molotov",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_Throw_Rock",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/ActorData/ActorC_MaleThug_TwinAxe"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_Axe_Corrupted",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_Base",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_Club_Yellow_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_Club_Yellow_Shield_Teaching",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_Spear_Blue",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_Sword_Blue_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BP_Monster_MaleThug_TwinAxe"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIConfig_MaleThug_Axe_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIConfig_MaleThug_BigShield_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIConfig_MaleThug_Club_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIConfig_MaleThug_Throw_Molotov_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIConfig_MaleThug_Throw_Rock_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIConfig_MaleThug_TwinAxe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AIStrategyConfig_MaleThug_Axe_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AbilityPool_MaleThug_Club_Shield_Teaching",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AbilityPool_MaleThug_Common",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AbilityPool_MaleThug_Spear_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AbilityPool_MaleThug_Sword_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/AIConfig/AbilityPool_MaleThug_Throw_Rock_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Montage/MaleThug_Axe_Taunt_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Montage/MaleThug_Axe_Taunt_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Montage/MaleThug_Axe_Taunt_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Montage/MaleThug_Spear_TriggerFire_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Common/Story",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BD_MaleThug_Axe_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BD_MaleThug_Axe_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BD_MaleThug_Axe_Skill_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BD_MaleThug_Axe_Skill_05_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BD_MaleThug_Axe_Skill_05_06",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BD_MaleThug_Axe_SpecialAttack_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BulletData_MaleThug_Axe_HeavyAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/BulletData/BulletData_MaleThug_Axe_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_Deflect_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_Deflect_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_RangeAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_Skill_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_Skill_01_Short_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_Skill_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Montage/MaleThug_Axe_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_BigShield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_BigShield/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_BigShield/BulletData/BulletData_MaleThug_BigShield_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_BigShield/BulletData/BulletData_MaleThug_BigShield_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Abilities/Teaching",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BD_MaleThug_HuangPi_Skill_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BD_MaleThug_HuangPi_Skill_01_04",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BD_MaleThug_HuangPi_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BD_MaleThug_HuangPi_Skill_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BD_MaleThug_HuangPi_Skill_03_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BD_MaleThug_HuangPi_SpecialAttack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/BulletData_MaleThug_Club_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/Show",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/BulletData/Show/BulletData_MaleThug_Club_JumpAtk_ShwoSnap_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/Deflect",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/Deflect/MaleThug_HuangPi_DefenceNormal_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/MaleThug_HuangPi_Dodge_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/MaleThug_HuangPi_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/MaleThug_HuangPi_LightAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/MaleThug_HuangPi_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club/Montage/MaleThug_HuangPi_SpecialAttack_05_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield/BulletData/BulletData_MaleThug_Club_Shield_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield/Montage/MaleThug_JingJi_ShieldBreak_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Club_Shield/Montage/MaleThug_JingJi_Skill_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/BulletData/BD_MaleThug_Spear_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/BulletData/BD_MaleThug_Spear_Skill_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/BulletData/BD_MaleThug_Spear_Skill_05_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/BulletData/BD_MaleThug_Spear_Skill_2_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/BulletData/BD_MaleThug_Spear_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Montage/MaleThug_Spear_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Montage/MaleThug_Spear_Deflect_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Montage/MaleThug_Spear_Deflect_D_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Montage/MaleThug_Spear_SpecialAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Spear/Montage/MaleThug_Spear_SpecialAttack_02_Red_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Abilities/LevelShow",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/BulletData/LevelShow/BulletData_MaleThug_Sword_Gex_ToNpc_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/FromSoftware/MaleThug_Throw_Hit_NBreak_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/Hit/MaleThug_Throw_Hit_Knockback_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/AM_MaleThug_Hit_L_B_M",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_GetUp_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_GetUp_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_Ground_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_LaunchLoop_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_LaunchLoop_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_Launch_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/HitReaction/MaleThug_Throw_Hit_Launch_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/MaleThug_Attack_Move_slow_L_1_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/MobMan_SpecialAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/Test",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Sword/Montage/Test/TestMultiHit",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Molotov",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Molotov/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Molotov/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Molotov/BulletData/BD_MaleThug_Throw_Molotov_Skill_02_Flame",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Molotov/BulletData/BD_MobManElite_Throw_Molotov_Skill_02_Explosion",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Knockback_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Light_B_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Light_B_U_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Light_F_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Light_F_M_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Light_F_U_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Middle_B_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Middle_B_M_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Middle_B_U_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Middle_F_M_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/Hit/MaleThug_Throw_Hit_Middle_F_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/MaleThug_Throw_Molotov_SpecialAttack_06_Montage1",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Throw_Rock/Montage/MaleThug_Throw_SpecialAttack_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_01_03",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_01_04",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_01_05",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_03_04",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_03_05",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/BulletData/BulletData_MaleThug_Axe_Attack_03_06",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/Bullets/BP_Weapon_MaleThug_TwinAxe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/GameplayEffects",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/Montage/MaleThug_DoubleAxe_Attack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_TwinAxe/Montage/MaleThug_DoubleAxe_Skill_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/BT_MaleThug_Axe_Counter",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/BT_MaleThug_Axe_RangeAttack_Close",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo2",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo4",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/LevelShow/BT_MaleThug_Axe_LevelShow01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Club",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Club/Show/BT_MaleThug_Club_Show_HitFly",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Sword/BT_MaleThug_Sword_Story_01",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Event",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Hit_MaleThug_Sword_Blue",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Axe/Weapon_MaleThug_Axe",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_BigShield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_BigShield/BP_Weapon_MaleThug_BigShield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_BigShield/Hit_MaleThug_BigShield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_BigShield/Hit_MaleThug_BigShield_Combined",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Club/ABP_Item_MaleThug_Club",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Spear",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Spear/Hit_MaleThug_Spear_Blue",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Sword/Weapon_MaleThug_Sword",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Sword/Weapon_MaleThug_Sword_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Throw_Molotov/Weapon_MaleThug_Throw_Molotov",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Throw_Rock/ABP_Item_MaleThug_Throw",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Throw_Rock/Hit_MaleThug_Axe_Corrupted",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Throw_Rock/Hit_MaleThug_Sword_Blue_Shield",
+      "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/WeaponData/Weapon_Throw_Rock/Hit_MaleThug_Throw_Rock_Blue"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

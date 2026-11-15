@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "id": "006_goldmaskman",
+  "resource_folder": "006_GoldMaskMan",
+  "enabled": false,
+  "playable": false,
+  "stage": "resource_clues_only",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/AllOutAttack/GA_GoldMaskMan_Dodge_Disappear",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_AutoCombo",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Dodge_R_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Dodge_R_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Frightened",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_HeavyAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_MidAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_09",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Sp_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/Retarget/GA_GoldMask_Special_01_L",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/Retarget/GA_GoldMask_Special_01_R"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/ActorC_FemaleVessel_YuBi",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/ActorC_GoldMaskMan_Dummy_DeflectAndHit"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_AutoCombo_03",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_AutoCombo_04",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_SkillCombo_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_SkillCombo_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_SkillCombo_06",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_SkillCombo_07",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_SkillCombo_08",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_Story_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/AllOutAttack",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/AllOutAttack",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/AllOutAttack/BulletData_GoldMaskMan_Dodge_Disappear",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulledData_GoldMaskMan_Skill_07_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_08_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_10_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_11_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_12_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_12_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_13_04",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/BulletData_GoldMaskMan_Skill_13_05",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/Retarget",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/BulletData/Retarget/BulletData_GoldMaskMan_Special_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Bullets",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Bullets/BP_GoldMaskMan_Dart_New",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Hit_GoldMaskMan_Dummy_OnlyHit",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/AM_MaskAssassin_WeakBreak_Start",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Attack/GoldMaskMan_Skill02_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Attack/GoldMaskMan_Skill02_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Deflect/MaskAssassin_Gold_Deflect_R_Success_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_Common_Mask_M_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_Double_M_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_Long_M_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_SnakeDual_M_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_SnakeDual_M_01_KeepHead",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_SnakeDual_M_02",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_SnakeDual_M_04",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_BEd_Tang_M_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Execution/AM_MaskAssassin_SEd_M_01",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_Fly_End_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_Fly_End_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_Fly_Loop_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_Fly_Start_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_HitDown_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_HitDown_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/MaskAssassin_Ground_Light_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/New/MaskAssassin_Iron_ContinHit_F_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/New/MaskAssassin_Iron_Hit_Light_B_U_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/New/MaskAssassin_Iron_Hit_Light_F_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/New/MaskAssassin_Iron_Hit_Light_F_U_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/HitReaction/New/MaskAssassin_Iron_Hit_Middle_F_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/MaskAssassin_Battle_Alert_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/MaskAssassin_Sit_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/MaskAssassin_Spear_Frightened_03",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Maskassassin_Gold_Skill_09_Teleport_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/New/MaskAssassin_Gold_AllOutAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/New/MaskAssassin_Gold_DoggeAttack_R02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/New/MaskAssassin_Gold_Dogge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/New/MaskAssassin_Gold_Skill_02_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Retarget/Baishan_Bolt_SpecialAttack_04",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Retarget/Baishan_Bolt_SpecialAttack_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Story",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Montage/Story/MaskAssassin_Gold_Story",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Weapon/BP_Weapon_GoldMaskMan",
+      "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Weapon/Weapon_GoldMaskMan"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

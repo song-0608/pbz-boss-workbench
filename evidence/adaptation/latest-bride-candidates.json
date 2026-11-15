@@ -1,0 +1,478 @@
+{
+  "at": "2026-11-13T09:27:17.713447+08:00",
+  "pid": 27972,
+  "target_boss": "新娘阿花",
+  "candidate_name_matches": [
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP/_Generated_/6LXCPEIXUT40YW9UD7M6J9QFU.PBZ_Xigu_WP.PersistentLevel.BP_Ahua_SliderFlower_001_C_UAID_BCFCE7058ACCA3FC02_1896196149",
+      "index": 257279,
+      "kind": "BP_Ahua_SliderFlower_001_C",
+      "class": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.BP_Ahua_SliderFlower_001_C",
+      "npc_ancestry": false,
+      "runtime_instance": true
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP/_Generated_/6LXCPEIXUT40YW9UD7M6J9QFU.PBZ_Xigu_WP.PersistentLevel.BP_Ahua_SliderFlower_001_C_UAID_BCFCE7058ACCA3FC02_1896196149.NS_Ahua_SliderFlower_001",
+      "index": 257321,
+      "kind": "NiagaraComponent",
+      "class": "/Script/Niagara.NiagaraComponent",
+      "npc_ancestry": false,
+      "runtime_instance": true
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP/_Generated_/EKEQYZLE2VK20YUX27O2TXRE1.PBZ_Xigu_WP.PersistentLevel.BP_Ahua_SliderFlower_001_C_UAID_BCFCE7058ACCA5FC02_1603468518",
+      "index": 242979,
+      "kind": "BP_Ahua_SliderFlower_001_C",
+      "class": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.BP_Ahua_SliderFlower_001_C",
+      "npc_ancestry": false,
+      "runtime_instance": true
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP/_Generated_/EKEQYZLE2VK20YUX27O2TXRE1.PBZ_Xigu_WP.PersistentLevel.BP_Ahua_SliderFlower_001_C_UAID_BCFCE7058ACCA5FC02_1603468518.NS_Ahua_SliderFlower_001",
+      "index": 242987,
+      "kind": "NiagaraComponent",
+      "class": "/Script/Niagara.NiagaraComponent",
+      "npc_ancestry": false,
+      "runtime_instance": true
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP/_Generated_/EKEQYZLE2VK20YUX27O2TXRE1.PBZ_Xigu_WP.PersistentLevel.BP_Ahua_SliderFlower_001_C_UAID_BCFCE7058ACCA5FC02_1991968519",
+      "index": 242980,
+      "kind": "BP_Ahua_SliderFlower_001_C",
+      "class": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.BP_Ahua_SliderFlower_001_C",
+      "npc_ancestry": false,
+      "runtime_instance": true
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP/_Generated_/EKEQYZLE2VK20YUX27O2TXRE1.PBZ_Xigu_WP.PersistentLevel.BP_Ahua_SliderFlower_001_C_UAID_BCFCE7058ACCA5FC02_1991968519.NS_Ahua_SliderFlower_001",
+      "index": 242988,
+      "kind": "NiagaraComponent",
+      "class": "/Script/Niagara.NiagaraComponent",
+      "npc_ancestry": false,
+      "runtime_instance": true
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/BPF_AHua_BaoTu",
+      "index": 177235,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/BPF_AHua_BaoTu.BPF_AHua_BaoTu",
+      "index": 185592,
+      "kind": "FlowAsset",
+      "class": "/Script/Flow.FlowAsset",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/BPF_XinNiang_Death",
+      "index": 177076,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/BPF_XinNiang_Death.BPF_XinNiang_Death",
+      "index": 184310,
+      "kind": "FlowAsset",
+      "class": "/Script/Flow.FlowAsset",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/XinNiangAHua_ShaQiTa/BPF_Q_XinNiang_ChuChang",
+      "index": 177264,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/XinNiangAHua_ShaQiTa/BPF_Q_XinNiang_ChuChang.BPF_Q_XinNiang_ChuChang",
+      "index": 186004,
+      "kind": "FlowAsset",
+      "class": "/Script/Flow.FlowAsset",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/Foliage/Grass/PCG/PCG_MeshScatter_AHua",
+      "index": 225211,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/Foliage/Grass/PCG/PCG_MeshScatter_AHua.PCG_MeshScatter_AHua",
+      "index": 280209,
+      "kind": "PCGGraph",
+      "class": "/Script/PCG.PCGGraph",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua/MI_NPC_AHua_Furniture_001",
+      "index": 221170,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua/MI_NPC_AHua_Furniture_001.MI_NPC_AHua_Furniture_001",
+      "index": 237493,
+      "kind": "MaterialInstanceConstant",
+      "class": "/Script/Engine.MaterialInstanceConstant",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua/MI_NPC_AHua_Furniture_Fabric_001",
+      "index": 221172,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua/MI_NPC_AHua_Furniture_Fabric_001.MI_NPC_AHua_Furniture_Fabric_001",
+      "index": 237495,
+      "kind": "MaterialInstanceConstant",
+      "class": "/Script/Engine.MaterialInstanceConstant",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Mesh/AHua/SM_NPC_AHua_Furniture_001",
+      "index": 221175,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Mesh/AHua/SM_NPC_AHua_Furniture_001.SM_NPC_AHua_Furniture_001",
+      "index": 237496,
+      "kind": "StaticMesh",
+      "class": "/Script/Engine.StaticMesh",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_ARM_UDIM",
+      "index": 221162,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_ARM_UDIM.T_NPC_AHua_Furniture_001_ARM_UDIM",
+      "index": 237487,
+      "kind": "Texture2D",
+      "class": "/Script/Engine.Texture2D",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_D_UDIM",
+      "index": 221165,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_D_UDIM.T_NPC_AHua_Furniture_001_D_UDIM",
+      "index": 237490,
+      "kind": "Texture2D",
+      "class": "/Script/Engine.Texture2D",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_N_UDIM",
+      "index": 221161,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_N_UDIM.T_NPC_AHua_Furniture_001_N_UDIM",
+      "index": 237486,
+      "kind": "Texture2D",
+      "class": "/Script/Engine.Texture2D",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_Fabric_001_ARMA",
+      "index": 221164,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_Fabric_001_ARMA.T_NPC_AHua_Furniture_Fabric_001_ARMA",
+      "index": 237489,
+      "kind": "Texture2D",
+      "class": "/Script/Engine.Texture2D",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_Fabric_001_D",
+      "index": 221167,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_Fabric_001_D.T_NPC_AHua_Furniture_Fabric_001_D",
+      "index": 237492,
+      "kind": "Texture2D",
+      "class": "/Script/Engine.Texture2D",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_Fabric_001_N",
+      "index": 221166,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_Fabric_001_N.T_NPC_AHua_Furniture_Fabric_001_N",
+      "index": 237491,
+      "kind": "Texture2D",
+      "class": "/Script/Engine.Texture2D",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001",
+      "index": 220515,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.BP_Ahua_SliderFlower_001_C",
+      "index": 236282,
+      "kind": "BlueprintGeneratedClass",
+      "class": "/Script/Engine.BlueprintGeneratedClass",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.BP_Ahua_SliderFlower_001_C.NS_Ahua_SliderFlower_001_GEN_VARIABLE",
+      "index": 236284,
+      "kind": "NiagaraComponent",
+      "class": "/Script/Niagara.NiagaraComponent",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.Default__BP_Ahua_SliderFlower_001_C",
+      "index": 236293,
+      "kind": "BP_Ahua_SliderFlower_001_C",
+      "class": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/BP_Ahua_SliderFlower_001.BP_Ahua_SliderFlower_001_C",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/NS_Ahua_SliderFlower_001",
+      "index": 220516,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/NS_Ahua_SliderFlower_001.NS_Ahua_SliderFlower_001",
+      "index": 236271,
+      "kind": "NiagaraSystem",
+      "class": "/Script/Niagara.NiagaraSystem",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/Events/Amb/Landform/GuiXinNiang/SFX_AMB_Landform_GuiXinNiang_AHua",
+      "index": 225188,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/Events/Amb/Landform/GuiXinNiang/SFX_AMB_Landform_GuiXinNiang_AHua.SFX_AMB_Landform_GuiXinNiang_AHua",
+      "index": 279882,
+      "kind": "AkAudioEvent",
+      "class": "/Script/AkAudio.AkAudioEvent",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/Events/Amb/Points/Human/SFX_AMB_Point_GuiXinNiang_AHua_XiangGong",
+      "index": 220979,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/Events/Amb/Points/Human/SFX_AMB_Point_GuiXinNiang_AHua_XiangGong.SFX_AMB_Point_GuiXinNiang_AHua_XiangGong",
+      "index": 237148,
+      "kind": "AkAudioEvent",
+      "class": "/Script/AkAudio.AkAudioEvent",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/Events/Amb/Points/Object_XiGu/SFX_AMB_Point_AHua_GuGu",
+      "index": 225190,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/Events/Amb/Points/Object_XiGu/SFX_AMB_Point_AHua_GuGu.SFX_AMB_Point_AHua_GuGu",
+      "index": 279884,
+      "kind": "AkAudioEvent",
+      "class": "/Script/AkAudio.AkAudioEvent",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/States/Amb/Landform/Tag_AHua/Tag_AHua-AhuaDead",
+      "index": 225191,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/States/Amb/Landform/Tag_AHua/Tag_AHua-AhuaDead.Tag_AHua-AhuaDead",
+      "index": 279885,
+      "kind": "AkStateValue",
+      "class": "/Script/AkAudio.AkStateValue",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/States/Amb/Landform/Tag_AHua/Tag_AHua-None",
+      "index": 225193,
+      "kind": "Package",
+      "class": "/Script/CoreUObject.Package",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    },
+    {
+      "path": "/Game/Wwise/States/Amb/Landform/Tag_AHua/Tag_AHua-None.Tag_AHua-None",
+      "index": 279887,
+      "kind": "AkStateValue",
+      "class": "/Script/AkAudio.AkStateValue",
+      "npc_ancestry": false,
+      "runtime_instance": false
+    }
+  ],
+  "loaded_actor_data_classes": [
+    {
+      "path": "/Game/PBZContent/Blueprint/Character/NPC/BP_NPC_Base.BP_NPC_Base_C",
+      "index": 87806,
+      "super": "/Script/ProjectPBZ.PBZCharacter_NPC",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/Character/NPC/BP_NPC_Narrative.BP_NPC_Narrative_C",
+      "index": 88101,
+      "super": "/Game/PBZContent/Blueprint/Character/NPC/BP_NPC_Base.BP_NPC_Base_C",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/Character/NPC/BP_Test_NPC_Narrative.BP_Test_NPC_Narrative_C",
+      "index": 107761,
+      "super": "/Game/PBZContent/Blueprint/Character/NPC/BP_NPC_Narrative.BP_NPC_Narrative_C",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/Character/NPC/FlowNpc/BP_NPC_GuiFengKe.BP_NPC_GuiFengKe_C",
+      "index": 290647,
+      "super": "/Game/PBZContent/Blueprint/Character/NPC/BP_Test_NPC_Narrative.BP_Test_NPC_Narrative_C",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/Character/NPC/FlowNpc/BP_NPC_JiangHuRenShi_ShaQiTaBottom.BP_NPC_JiangHuRenShi_ShaQiTaBottom_C",
+      "index": 292122,
+      "super": "/Game/PBZContent/Blueprint/Character/NPC/BP_Test_NPC_Narrative.BP_Test_NPC_Narrative_C",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/PBZContent/Blueprint/Character/NPC/FlowNpc/BP_NPC_ZhengDaoDiZi_YanYan.BP_NPC_ZhengDaoDiZi_YanYan_C",
+      "index": 291389,
+      "super": "/Game/PBZContent/Blueprint/Character/NPC/BP_Test_NPC_Narrative.BP_Test_NPC_Narrative_C",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/RenewalContent/Prototypes/Character/BP_RenewalNPC.BP_RenewalNPC_C",
+      "index": 88146,
+      "super": "/Game/PBZContent/Blueprint/Character/NPC/BP_NPC_Base.BP_NPC_Base_C",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    },
+    {
+      "path": "/Script/ProjectPBZ.PBZCharacter_NPC",
+      "index": 5475,
+      "super": "/Script/ProjectPBZ.PBZCharacter",
+      "npc_ancestry": true,
+      "target_name_clue": false
+    }
+  ],
+  "loaded_npc_instances": [
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP.PersistentLevel.BP_NPC_GuiFengKe_C_2147471673",
+      "index": 291350,
+      "class": "/Game/PBZContent/Blueprint/Character/NPC/FlowNpc/BP_NPC_GuiFengKe.BP_NPC_GuiFengKe_C",
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP.PersistentLevel.BP_NPC_JiangHuRenShi_ShaQiTaBottom_C_2147471642",
+      "index": 292191,
+      "class": "/Game/PBZContent/Blueprint/Character/NPC/FlowNpc/BP_NPC_JiangHuRenShi_ShaQiTaBottom.BP_NPC_JiangHuRenShi_ShaQiTaBottom_C",
+      "target_name_clue": false
+    },
+    {
+      "path": "/Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP.PersistentLevel.BP_NPC_ZhengDaoDiZi_YanYan_C_2147471659",
+      "index": 292142,
+      "class": "/Game/PBZContent/Blueprint/Character/NPC/FlowNpc/BP_NPC_ZhengDaoDiZi_YanYan.BP_NPC_ZhengDaoDiZi_YanYan_C",
+      "target_name_clue": false
+    }
+  ],
+  "failures": [],
+  "counts_before_output_limits": {
+    "name_matches": 48,
+    "character_classes": 8,
+    "npc_instances": 3
+  },
+  "scope": "Bounded loaded UE metadata only; no writes, spawns, function calls or save parsing",
+  "boss_identity_verified": false,
+  "boss_control_verified": false
+}

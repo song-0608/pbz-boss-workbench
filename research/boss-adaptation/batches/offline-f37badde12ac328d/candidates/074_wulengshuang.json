@@ -1,0 +1,184 @@
+{
+  "id": "074_wulengshuang",
+  "resource_folder": "074_WuLengShuang",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/BP_Monster_WuLengShuang",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "219a0cf08c1ea21b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_AutoCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "94c25a79fbd7b51b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_LightAttack_01_E",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "13617c6117ed4b59",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "2599dee0f9d3c52a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "94c333a1021aedfa",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9a016956825ba94a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fb2abfaa8ea3c0ad",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_07",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "dfef2252bdea2cd4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8b8c4d01cdc586b2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/PlaceHolder/GA_EMei_Sword_Special_08",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "aecac7a3add585f2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/PlaceHolder/GA_WuLengShuang_DodgeAttack_F_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "854e6704cf4f3c74",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/PlaceHolder/GA_WuLengShuang_Dodge_B_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "776c75ffb2c980e4",
+      "package": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/PlaceHolder/GA_WuLengShuang_Dodge_L_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

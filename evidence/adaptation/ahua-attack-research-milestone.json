@@ -1,0 +1,126 @@
+{
+  "at": "2026-11-13T15:32:02.743507+08:00",
+  "session": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-151020",
+  "prior_failed_session": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\official-validation\\20261113-150139",
+  "attack_wrapper_inheritance": [
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Attack_01.GA_AHua_Attack_01_C",
+    "/PBZCombatAsset/Prototypes/AI/GA_AutoComboGroup.GA_AutoComboGroup_C",
+    "/Script/SGameAI.RunSubtreeAbility",
+    "/Script/GameplayAbilities.GameplayAbility",
+    "/Script/CoreUObject.Object"
+  ],
+  "combo_graph": "ahua-combo-tree-contract.json",
+  "node_count": 16,
+  "leaf_abilities": [
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Skill_03.GA_AHua_Skill_03_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_CA_01_GEx_Teleport_RedEye.GA_AHua_CA_01_GEx_Teleport_RedEye_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05_Hard.GA_AHua_Skill_05_Hard_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_08.GA_AHua_Skill_08_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Left.GA_AHua_Teleport_Left_C",
+    "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Right.GA_AHua_Teleport_Right_C"
+  ],
+  "static_relationship_only": true,
+  "exact_stuck_cause_proven": false,
+  "skill08_samples": [
+    {
+      "peak": 1,
+      "active_after": 0,
+      "natural_finish": true,
+      "health_before": 9000.0,
+      "health_after": 8900.0
+    }
+  ],
+  "skill08_active_cancellation_verified": true,
+  "default_f8_verified": false,
+  "default_f8_released": false,
+  "default_rearm_failed_before_takeover": true,
+  "initialization_stability_fixed": false,
+  "game_restart_for_each_skill": false,
+  "unsafe_attack01_disabled": true,
+  "default_player_skill_keys": 5,
+  "original_player_restoration_verified": true,
+  "deployment_history": [
+    {
+      "at": "2026-11-13T15:21:28.211800+08:00",
+      "grant": {
+        "isolated": true,
+        "offline": true,
+        "expires_at": 1794554990,
+        "session_id": "official-validation-20261113-151020",
+        "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423"
+      },
+      "formal_install_modified": false,
+      "temporary_actor_owned_by_probe": true,
+      "skill_lab": true,
+      "expanded": false,
+      "assembly_source_sha256": "d7d9906da6755be80f811cd6508d0e8bc636407edf8e060596c0d2a39057d041",
+      "module_source_sha256": {
+        "config.lua": "9d6a986653762d0ff151879f9fc6f9841d172159cb4e06bd6f6f9197e5afaab0",
+        "session.lua": "ee4f91677e68784c823e3e259bfb4afba036aa6075582d92cdc508253d435f21",
+        "pbz_bridge.lua": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49",
+        "ue_calls.lua": "79e156142f97c4026c6a403b2cd6cb835596190615f814eb17b312c32de38460",
+        "control_bridge.lua": "adb3cc638917242f6bf48f6795d07561e6e8aa2fd558d7e3dedbc2beae7e1f7f",
+        "input_driver.lua": "7d5c2b6136d331023533b75fc23f2f16c1cb4540b6029170fa11a6a6fc46d730",
+        "ue_input.lua": "2a4839e84ebdcbe926ad05d153a0ec8e15432dd627c666931dbd846676f061f0",
+        "runtime.lua": "864ea43de6bd630214c03718d3df166420a4d8cd4b368646e1eedec8c45066d2",
+        "ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+        "camera_rig.lua": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100",
+        "ue_camera.lua": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1",
+        "combat_identity.lua": "855c900bd3169449b652aa6e1e8fc07f24721d8c88422fea7e8fca70b1c75092",
+        "ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+        "remote_control.lua": "cb6f7f4d5eedde12ce2b0a97f549a09a326bfa9a72d2eafc5566bdb4c7b2d7aa",
+        "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+        "input_barrier.lua": "5c3ca8d5bbdafbeb69ccf2d3a8978990fab953138ce885f4ae7ed3537235eb8c",
+        "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+        "player_protection.lua": "a4bdfa314737b5da8f719c753da1504dab676e77eef5170af1aa26765bfdd118",
+        "target_selector.lua": "094884f8651423389723e107f8e592c92c77f951a1c65969c67db24e9f634c1c",
+        "skill_lab.lua": "573aa6f7229c383083aa06144a590fcb49ae894129d472723c35b7e6a2a9a4bb",
+        "profiles/ahua.lua": "6ac06909f916b955a8e8ce185e6ff1d10fe4d2686f75524e251bae8f13032ad1"
+      }
+    },
+    {
+      "at": "2026-11-13T15:26:15.569337+08:00",
+      "grant": {
+        "isolated": true,
+        "offline": true,
+        "expires_at": 1794554990,
+        "session_id": "official-validation-20261113-151020",
+        "exe_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423"
+      },
+      "formal_install_modified": false,
+      "temporary_actor_owned_by_probe": true,
+      "skill_lab": false,
+      "expanded": false,
+      "assembly_source_sha256": "f6a5d8d72a4c431b32293fb1961777dc836dad5fdbd4249aaa703b9c149ecfaf",
+      "module_source_sha256": {
+        "config.lua": "9d6a986653762d0ff151879f9fc6f9841d172159cb4e06bd6f6f9197e5afaab0",
+        "session.lua": "ee4f91677e68784c823e3e259bfb4afba036aa6075582d92cdc508253d435f21",
+        "pbz_bridge.lua": "c4404bf93914db185588b389e424494fb9d2f154c77b789825cbb8431e7bbf49",
+        "ue_calls.lua": "79e156142f97c4026c6a403b2cd6cb835596190615f814eb17b312c32de38460",
+        "control_bridge.lua": "adb3cc638917242f6bf48f6795d07561e6e8aa2fd558d7e3dedbc2beae7e1f7f",
+        "input_driver.lua": "7d5c2b6136d331023533b75fc23f2f16c1cb4540b6029170fa11a6a6fc46d730",
+        "ue_input.lua": "2a4839e84ebdcbe926ad05d153a0ec8e15432dd627c666931dbd846676f061f0",
+        "runtime.lua": "864ea43de6bd630214c03718d3df166420a4d8cd4b368646e1eedec8c45066d2",
+        "ue_host.lua": "dde2a1414bc6d2a47731689faee1af1b487c81c50dbdbecce9dc51e3861e808d",
+        "camera_rig.lua": "fd2ad3b1cce2be7c2d5e22209cf31cdd5419a843196ac188f404254559b4c100",
+        "ue_camera.lua": "dac112538ad0d32aba8193cffac6d2196b42e74e211d6c627a36b6cef5209eb1",
+        "combat_identity.lua": "855c900bd3169449b652aa6e1e8fc07f24721d8c88422fea7e8fca70b1c75092",
+        "ue_combat.lua": "8ba0e60502cfbe5baa77ef6aaaee59feb5993d1901dda2b106395c8886b0cbb8",
+        "remote_control.lua": "cb6f7f4d5eedde12ce2b0a97f549a09a326bfa9a72d2eafc5566bdb4c7b2d7aa",
+        "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+        "input_barrier.lua": "5c3ca8d5bbdafbeb69ccf2d3a8978990fab953138ce885f4ae7ed3537235eb8c",
+        "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+        "player_protection.lua": "a4bdfa314737b5da8f719c753da1504dab676e77eef5170af1aa26765bfdd118",
+        "target_selector.lua": "094884f8651423389723e107f8e592c92c77f951a1c65969c67db24e9f634c1c",
+        "skill_lab.lua": "573aa6f7229c383083aa06144a590fcb49ae894129d472723c35b7e6a2a9a4bb",
+        "profiles/ahua.lua": "31980a0b23ea7b7a19c0622cba415cfe9d06348e265db89a5061d7677d499f6a"
+      }
+    }
+  ],
+  "local_check_count": 17,
+  "formal_file_count": 56,
+  "formal_file_change_count": 0,
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "complete_all_boss_mod": false
+}

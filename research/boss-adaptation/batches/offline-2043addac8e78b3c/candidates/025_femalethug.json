@@ -1,0 +1,405 @@
+{
+  "id": "025_femalethug",
+  "resource_folder": "025_FemaleThug",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_BigKnife_ForXiaoXue",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Dart",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Dart_ForXiaoXue",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Fuhuai",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Fuhuai_ForXiaoXue",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_TwinHoe",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_TwinHoe_ForXiaoXue",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_BigKnife",
+    "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_Hoe",
+    "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_Molotov_ForXiaoXue",
+    "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_RongZhuang"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "fc02b38c4f78e415",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Abilities/GA_FemaleThug_Dart_DodgeL",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "980ac8bc12dac43c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Abilities/GA_FemaleThug_Dart_Special_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "39e8c4d35adada42",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_AttackDown_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9182e0f51dabe3f9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_HeavyAttack_01_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "19a7668b71b7bc25",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_LightAttack_01_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fc21a43709f68bc9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "ad3e84011fa3cae9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_Skill_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f37f57f1ced0a595",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Heavy_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "c0100aae5816af98",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Middle_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "164cd82e40206ec8",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Special_02_Slow",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "2fe9c2fd6dc4eb05",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Special_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f52253279e061244",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5bb5a9a791a71d4f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/BulletData/GA_FemaleThug_FuHuai_Special_01_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "634b8d68c904ca4e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/BulletData/GA_FemaleThug_FuHuai_Special_04_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6a6c2fcb1b68232f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Abilities/GA_FemaleThug_HeavyAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f9df03a0ad8568dd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Abilities/GA_FemaleThug_Hoe_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "c9b494a821f97143",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Abilities/GA_FemaleThug_MidAttack_02_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "87aae260ec6fd327",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/BulletData/GA_FemaleThug_MidAttack_02_L_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "83742cd18e568bcf",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Abilities/GA_FemaleThug_RongZhuang_Middle_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "4e1eae1b3beca54a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/Dodge/GA_FemaleThug_TwinHoe_Dodge_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "260f0ab94237e606",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/Dodge/GA_FemaleThug_TwinHoe_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "c9e1a3002b8c59e0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/Dodge/GA_FemaleThug_TwinHoe_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "19d941c3644e32e8",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_Attack_01_Fast",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "2d78e91fe4e3ebcc",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_Attack_07",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "ef27beda769857df",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_HeavyAttack_02_RedEye",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fd666f727dc2ac16",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_RunAttack",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a30667fb0b2057f0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_SpecialAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "id": "025_femalethug",
+  "resource_folder": "025_FemaleThug",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Abilities/GA_FemaleThug_Dart_DodgeL",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Abilities/GA_FemaleThug_Dart_Special_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_AttackDown_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_HeavyAttack_01_L",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_LightAttack_01_R",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Abilities/GA_FemaleThug_BigKnife_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Heavy_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Middle_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Special_02_Slow",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Special_04",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Abilities/GA_FemaleThug_FuHuai_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/BulletData/GA_FemaleThug_FuHuai_Special_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/BulletData/GA_FemaleThug_FuHuai_Special_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Abilities/GA_FemaleThug_HeavyAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Abilities/GA_FemaleThug_Hoe_Stance",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Abilities/GA_FemaleThug_MidAttack_02_L",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/BulletData/GA_FemaleThug_MidAttack_02_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Abilities/GA_FemaleThug_RongZhuang_Middle_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/Dodge/GA_FemaleThug_TwinHoe_Dodge_F",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/Dodge/GA_FemaleThug_TwinHoe_Dodge_L",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/Dodge/GA_FemaleThug_TwinHoe_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_Attack_01_Fast",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_Attack_07",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_HeavyAttack_02_RedEye",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_RunAttack",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities/GA_FemaleThug_TwinHoe_SpecialAttack_02"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_Hoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_Molotov_ForXiaoXue",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/ActorData/ActorC_FemaleThug_RongZhuang"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_BigKnife_ForXiaoXue",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Dart",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Dart_ForXiaoXue",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Fuhuai",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_Fuhuai_ForXiaoXue",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_TwinHoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BP_Monster_FemaleThug_TwinHoe_ForXiaoXue"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AIConfig_FemaleThug_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AIConfig_FemaleThug_Hoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AIConfig_FemaleThug_RongZhuang",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_Common",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_Common_Spear",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_Dart",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_FuHuai",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_Hoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/AbilityPool_FemaleThug_TwinHoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/ActivityConfig_FemaleThug",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/ActivityConfig_FemaleThug_Spear",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/AIConfig/ActivityConfig_FemaleThug_TwinHoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Bullet",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/Bullet/BD_GA_FemaleThug_Dart_Special_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/BulletData/BulletData_FemaleThug_Dart_Intro_03",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/BulletData/BulletData_FemaleThug_Dart_Intro_06",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Dart/BulletData/BulletData_FemaleThug_Dart_Special_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Montage/FemaleThug_DaCaiDao_Attack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Montage/FemaleThug_DaCaiDao_SpecialAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_BigKnife/Montage/FemaleThug_DaCaiDao_SpecialAttack_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Montage/FemaleThug_FuHuai_LightAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Montage/FemaleThug_FuHuai_LightAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Ge/Montage/FemaleThug_FuHuai_SpecialAttack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/FemaleThug_DefenceNormal_02_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/FemaleThug_FuHuai_Deflect_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/FemaleThug_FuHuai_Deflect_D_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/FemaleThug_Hoe_Deflect_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/FemaleThug_Hoe_Deflect_D_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/New/FemaleThug_HeavyAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Hoe/Montage/New/FemaleThug_LightAttack_01_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/BulletData/BD_GA_FemaleThug_RongZhuang_Middle_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/BulletData/BD_GA_FemaleThug_RongZhuang_Special_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/BulletData/BD_GA_FemaleThug_RongZhuang_Special_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Montage/Dodge",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Montage/Dodge/FemaleThug_RongZhuang_Dodge_L_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Montage/Dodge/FemaleThug_RongZhuang_Dodge_R_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Montage/FemaleThug_RongZhuang_LightAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_Spear/Montage/FemaleThug_RongZhuang_SpecialAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_Attack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_Attack_01_05",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_Attack_01_07",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_Attack_01_08",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_Attack_07_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_HeavyAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_LightAttack_01_R_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/BulletData/BulletData_FemaleThug_TwinHoe_LightAttack_02_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FeMaleThug_Double_Attack_07_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FemaleThug_Double_Attack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FemaleThug_Double_Attack_03_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FemaleThug_Double_Attack_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FemaleThug_Double_Deflect_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FemaleThug_Double_Deflect_D_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/Ability/Weapon_TwinHoe/Montage/FemaleThug_Double_Dodge_B_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BehaviorTree",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Molotov",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Molotov/BulletData_FemaleThug_Throw_Molotov_RangeAttack_01_01_Flame",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Weapon_BigKnife/BulletData_FemaleThug_BigKnife_HeavyAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Weapon_BigKnife/BulletData_FemaleThug_BigKnife_HeavyAttack_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Weapon_BigKnife/BulletData_FemaleThug_BigKnife_LightAttack_02_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Weapon_BigKnife/BulletData_FemaleThug_BigKnife_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Weapon_BigKnife/BulletData_FemaleThug_BigKnife_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/BulletData/Weapon_BigKnife/BulletData_FemaleThug_BigKnife_Skill_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Dart",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Dart/Hit_FemaleThug_Dart",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Dart/Weapon_FemaleThug_Dart",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_BigKnife/BP_Weapon_HuoTongRen_FemaleThug_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_BigKnife/PBZ_ABP_Item_FemaleThug_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Ge",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Ge/Hit_FemaleThug_FuHuai",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Ge/PBZ_ABP_Item_FemaleThug_FuHuai",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Ge/Weapon_FemaleThug_FuHuai",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Hoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Hoe/Hit_FemaleThug_BigKnife",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Hoe/Hit_FemaleThug_Hoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Molotov/BP_Bullet_FemaleThug_Throw_Molotov",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Molotov/Weapon_FemaleThug_Poison",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_Spear/PBZ_ABP_Item_FemaleThug_RongZhuang",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_TwinHoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_TwinHoe/BP_Weapon_FemaleThug_DoubleHoe",
+      "/PBZCombatAsset/ActorData/Mobs/025_FemaleThug/WeaponData/Weapon_TwinHoe/Hit_FemaleThug_TwinHoe"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

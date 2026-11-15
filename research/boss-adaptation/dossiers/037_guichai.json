@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "id": "037_guichai",
+  "resource_folder": "037_GuiChai",
+  "enabled": false,
+  "playable": false,
+  "stage": "offline_identity_dossier",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "source_manifest": [
+    {
+      "path": "evidence/adaptation/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    },
+    {
+      "path": "evidence/adaptation/latest-batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/adaptation/latest-boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/adaptation/latest-bride-candidates.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/adaptation/latest-character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/batch-character-metadata.json",
+      "sha256": "4b96eff4e31b4da2fb539c439f847373a222fe92a6b7a800b038d173ecc3c4db",
+      "bytes": 470276
+    },
+    {
+      "path": "evidence/official-validation/20261113-005436/loaded-boss-class-catalog.json",
+      "sha256": "75a8b16b943ccf703238aa37e35f891de9e382d9bb59a72f619ab1dc7995f444",
+      "bytes": 27801
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/batch-character-metadata.json",
+      "sha256": "bad746231c64bdeac640553b530c661674b1bb200466744df9360e6798a696c0",
+      "bytes": 669292
+    },
+    {
+      "path": "evidence/official-validation/20261113-011703/character-ability-specs.json",
+      "sha256": "176510fec73bb5e74bfb8a08b3d9095add38e845e4c3ffa7f67e7fd313fdc8f2",
+      "bytes": 32637
+    },
+    {
+      "path": "evidence/official-validation/20261113-014606/bride-candidate-catalog.json",
+      "sha256": "4d36d1467e5cd9bcf1b6f3dd99ac06fd176ddda97a72a199ba8c06be70f893a9",
+      "bytes": 27288
+    },
+    {
+      "path": "evidence/official-validation/20261113-020804/bride-candidate-catalog.json",
+      "sha256": "59d1e1799d49f8c04a3a63a19b477948a1e8a19ea18007fa5a7e04a7c1ccbd92",
+      "bytes": 36460
+    },
+    {
+      "path": "evidence/official-validation/20261113-092242/bride-candidate-catalog.json",
+      "sha256": "07cae7b8735e87d44be22d1615c8a4be93b150eebcc809f050b0e22648dafe89",
+      "bytes": 18451
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-asset-query-log.json",
+      "sha256": "f7eb4a4916551eb6eb1b6b7653415223a12d8c8fd7ae9434ed521a1eba68273f",
+      "bytes": 2111
+    },
+    {
+      "path": "evidence/official-validation/20261113-094904/boss-binding-evidence.json",
+      "sha256": "b0a8bd8df4cd42ac48972f5e3fd5168bf212deee3377703c242431434fa586a6",
+      "bytes": 122888
+    },
+    {
+      "path": "evidence/official-validation/20261115-002923/boss-resource-names.json",
+      "sha256": "eea1381fdb108f2d52bbbb2c8ca72e1038dfa17fae282c1cb9db52b2d074672b",
+      "bytes": 1688161
+    }
+  ],
+  "resources": {
+    "ability_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_DodgeAttack_L_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_DodgeAttack_R_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_DodgeAttack_R_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_Intro",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_RangeAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_Reload_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_ReversalRun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_SpecialAttack_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_SpecialAttack_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/Rider/GA_GuiChai_Black_Gun_Rider_Skill_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/Rider/GA_GuiChai_Black_Gun_Rider_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_CA_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_DodgeBackAtk_Sp",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_DodgeLRAtk_Skill",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Dodge_B",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Dodge_R",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Intro",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_MiddleAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Skill_03_Short",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Skill_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Skill_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_SpecialAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_SpecialAttack_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_SpecialAttack_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_SpecialMove_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_TwinBlade_StartGolden",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_L_Attack_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_L_Attack_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_L_Attack_07",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_L_Attack_08",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_R_Attack_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_R_Attack_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat/GA_GuiChai_Black_TwinBlade_Rider_R_Attack_08",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_CA_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_CA_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_HeavyAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_MiddleAttack_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_MiddleAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_Skill_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_Skill_06",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_Skill_07",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_SpecialAttack_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_GuiChai_Red_TwinBlade_SpecialAttack_06",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade/GA_Monster_GuiChai_Red_TwinBlade_Passive",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Story/GA_GuiChai_Black_TwinBlade_Story_Intro_05"
+    ],
+    "actor_config_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_Gun_AutoGolden",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_Gun_AutoIron",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_Gun_Rider_HorseCartCombat",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_TwinBlade_AutoGolden",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_TwinBlade_AutoIron",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/ActorData/ActorC_GuiChai_Black_TwinBlade_Rider"
+    ],
+    "character_blueprint_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/BP_Monster_GuiChai_Black_Gun_AutoIron",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/BP_Monster_GuiChai_Black_TwinBlade",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/BP_Monster_GuiChai_Black_TwinBlade_AutoGolden",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/Rider/HorseCartCombat/BP_Monster_GuiChai_Black_Gun_Rider_HorseCartCombat_L",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/Rider/HorseCartCombat/BP_Monster_GuiChai_Black_TwinBlade_Rider_HorseCartCombat_R"
+    ],
+    "support_resource_clue": [
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AIConfig_GuiChai_Black_Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AIConfig_GuiChai_Black_Gun_AutoGoldenIron",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AIConfig_GuiChai_Red_TwinBlade",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AIStrategyConfig_GuiChai_Black_Gun_Rider",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AIStrategyConfig_GuiChai_Black_TwinBlade1",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AbilityPool_GuiChai_Black_TwinBlade1",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/AbilityPool_GuiChai_Black_TwinBlade_AutoGoldenIron",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/ActivityConfig_Guichai",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/AIConfig/ActivityConfig_Guichai_Black_Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/BD_GuiChai_Black_Gun_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/BD_GuiChai_Black_Gun_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/BD_GuiChai_Black_Gun_Skill_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/BD_GuiChai_Black_Gun_SpecialAttack_03_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/BD_GuiChai_Black_Gun_Strong_Fast",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/BulletData_GuiChai_Gun_RangeAttack01_ComboShoot_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/Rider",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/Rider/BD_GuiChai_Black_GunRider_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/BulletData/Rider/BD_GuiChai_Black_GunRider_Skill_Normal",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_Exe_ComboShoot_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_Intro_Golden_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_Skill_StartGolden_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_SpecialAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_SpecialAttack_08_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_SpecialAttack_09_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Montage/GuiChai_Black_Gun_SpecialSkill_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/Horse/HorseCartCombat",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/RedTwinBlade",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_CA_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_CA_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_CA_02_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_MiddleAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_MiddleAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_01_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_03_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_04_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_04_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_05_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_Skill_06_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_SpecialAttack_02_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_SpecialAttack_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_SpecialAttack_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/BulletData_GuiChai_Black_TwinBlade_SpecialAttack_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_L_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_L_Attack_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_L_Attack_08_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_L_Attack_09_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_L_Attack_09_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_L_Attack_09_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_R_Attack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_R_Attack_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_R_Attack_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/Horse/HorseCartCombat/BulletData_GuiChai_Black_TwinBlade_Rider_R_Attack_07_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_CA_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_CA_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_CA_02_05",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_HeavyAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_HeavyAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_MiddleAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_01_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_01_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_04_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_05_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_05_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_06_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_Skill_06_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_SpecialAttack_01_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_SpecialAttack_02_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_SpecialAttack_02_03",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_SpecialAttack_02_04",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_SpecialAttack_06_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/BulletData/RedTwinBlade/BulletData_GuiChai_Red_TwinBlade_SpecialAttack_06_02",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_DefenceNormal_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_MiddleAttack_01_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_MiddleAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialAttack_02_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialAttack_04_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialAttack_06_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialAttack_08_Short_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialAttack_09_BanBen2_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialSkill_01_A_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialSkill_01_C_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialSkill_01_D_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_SpecialSkill_01_D_Short_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Montage/GuiChai_Black_StartIron_Montage",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/Gun/Rider",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/Gun/Rider/BT_GuiChai_Black_Gun_Rider_Skill_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/TwinBlade",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/TwinBlade/Tactic",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/TwinBlade/Tactic/BT_Tactic_GuiChaiTwinBlade_AutoCombo_01",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/Rider",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Blueprints/Rider/HorseCartCombat",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/M_Weapon_GuiChai_Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/WeaponData",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/WeaponData/Gun/Weapon_GuiChai_Black_Gun",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/WeaponData/Hit_GuiChai_Black_TwinBlade",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/WeaponData/Hit_Guichai_Black",
+      "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/WeaponData/Twinblade/Weapon_GuiChai_Black_TwinBlade"
+    ]
+  },
+  "runtime_profile": null,
+  "runtime_gates": {
+    "current_world_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "actor_config_binding": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "boss_identity": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "granted_abilities": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "ai_suspend_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "camera_input_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "natural_finish": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "active_cancel_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "damage_or_movement": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "owned_disposal_restore": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "stability_600s": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "native_menu_world_cycle": {
+      "status": "not_verified",
+      "evidence": []
+    },
+    "performance_cache_and_timing": {
+      "status": "not_verified",
+      "evidence": []
+    }
+  },
+  "next_step": "Resolve exact class lineage, actor-config reference and granted abilities in one bounded read-only batch.",
+  "acceptance_policy": {
+    "offline_first": true,
+    "repeat_only_changed_or_failed": true,
+    "session_seconds_max": 1200,
+    "assembly_seconds_max": 600,
+    "native_object_cache_required": true,
+    "developer_profiler_default": false,
+    "input_dispatch": "tools/research_game_menu.py",
+    "unrelated_menus": false,
+    "preserve_isolation_identity_los_and_restore_guards": true
+  }
+}

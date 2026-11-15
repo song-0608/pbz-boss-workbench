@@ -1,0 +1,279 @@
+{
+  "id": "yucong",
+  "resource_folder": "YuCong",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/BP_Monster_YuCong_HunDun",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/BP_Monster_YuCong_P1",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/YuCong/ActorData/ActorC_YuCong",
+    "/PBZCombatAsset/ActorData/Mobs/YuCong/ActorData/ActorC_YuCong_Bing",
+    "/PBZCombatAsset/ActorData/Mobs/YuCong/ActorData/ActorC_YuCong_P1",
+    "/PBZCombatAsset/ActorData/Mobs/YuCong/ActorData/ActorC_YuCong_WuLi"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "fd86be548ec190fb",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/Bing/GA_YuCong_Bing_CA_Combined",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "71453d992d6a49d9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/Bing/GA_YuCong_Bing_Dodge_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "55cd304ddf2bb7bc",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_WuLi_Skill_03_Combined",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "75a8eb56a194868c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_WuLi_Skill_03_Combined_hard",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "073fac81c6a681cd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Attack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "05c39bf2cf07825c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Attack_03_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9a904ed37c3b5812",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Attack_04_B",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "87037285e56813c3",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Attack_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "bd35a974f8d35462",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Attack_08",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9e3d1fcf49c7e96e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Dodge_F",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "dd3a5a2cca00b539",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "45f04ce6d9a1e455",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Skill_01_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1270f8eca9eb5e38",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Skill_01_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8acec4648fc21cb7",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Skill_01_02_A",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "add6f22ecd97926a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Skill_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "5e29f992a65e65d9",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Skill_04_Hard",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "cf60d6f3daf96773",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f6d44859ef797a60",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_TeleportEnd_Bing",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d64bd26f2b63e00e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_Wuli_to_Bing_Hard",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

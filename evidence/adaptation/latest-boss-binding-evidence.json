@@ -1,0 +1,3900 @@
+{
+  "at": "2026-11-13T09:59:31.634811+08:00",
+  "pid": 24372,
+  "fname_blocks": 254,
+  "fname_entries_parsed": 333225,
+  "target_name_clues": [
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Bullets/BP_AHua_Flower_Big",
+      "comparison_index": 3879918,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Bullets/BP_AHua_Flower_Small",
+      "comparison_index": 4134410,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/BP_Monster_AHua_GuiTouDao",
+      "comparison_index": 12660014,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/ActorData/ActorC_AHua_GuiTouDao",
+      "comparison_index": 5854851,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/Child/GA_AHua_SpecialMove_R",
+      "comparison_index": 1185245,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/Child/GA_AHua_Special_03_B_Flower_CD",
+      "comparison_index": 2103244,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Skill_01",
+      "comparison_index": 13121270,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_SpecialMove_01",
+      "comparison_index": 13068635,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_SpecialMove_Base",
+      "comparison_index": 11947372,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Special_05_A",
+      "comparison_index": 2255066,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Special_08",
+      "comparison_index": 9252575,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/Grab/GA_AHua_CA_01_GEx_Trap",
+      "comparison_index": 7437157,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_CA_01_GEx_Teleport",
+      "comparison_index": 3174064,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Homing_Flower_Hard",
+      "comparison_index": 7488916,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_PunishCounter_01",
+      "comparison_index": 9653658,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_04",
+      "comparison_index": 2769374,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05",
+      "comparison_index": 1851710,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05_B",
+      "comparison_index": 8597761,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_06_Hard",
+      "comparison_index": 11032350,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_07",
+      "comparison_index": 3479745,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_07_Hard",
+      "comparison_index": 3022456,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_09",
+      "comparison_index": 8143630,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Left",
+      "comparison_index": 8143675,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/BPF_AHua_BaoTu",
+      "comparison_index": 6646128,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Blueprint/FlowGraph/QuestFlowGraph/XiGu/XinNiangAHua_ShaQiTa/BPF_Q_XinNiang_ChuChang",
+      "comparison_index": 7110162,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Characters/EliteMonster/Bloody_Bride/Material",
+      "comparison_index": 7818650,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Characters/EliteMonster/Bloody_Bride/Material/MI_EliteMonster_Bloody_Bride_Flower_Body_UDIM",
+      "comparison_index": 6495192,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Characters/EliteMonster/Bloody_Bride/Material/MI_EliteMonster_Guitoudao2",
+      "comparison_index": 7413833,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Characters/EliteMonster/Bloody_Bride/Mesh/SM_EliteMonster_Guitoudao_Long",
+      "comparison_index": 12484547,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Characters/EliteMonster/Bloody_Bride/Textures",
+      "comparison_index": 9377982,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Characters/EliteMonster/Bloody_Bride/Textures/T_EliteMonster_Guitoudao_ARM",
+      "comparison_index": 11874048,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/Foliage/Grass/PCG/PCG_MeshScatter_AHua",
+      "comparison_index": 8980500,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua",
+      "comparison_index": 12846819,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua/MI_NPC_AHua_Furniture_001",
+      "comparison_index": 11824552,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Material/AHua/MI_NPC_AHua_Furniture_Fabric_001_A",
+      "comparison_index": 10961387,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Mesh/AHua",
+      "comparison_index": 861908,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Mesh/AHua/SM_NPC_AHua_Furniture_001",
+      "comparison_index": 13203470,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Mesh/AHua/SM_NPC_AHua_Furniture_002",
+      "comparison_index": 13454347,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Mesh/AHua/SM_NPC_AHua_Furniture_003",
+      "comparison_index": 10961480,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_ARM_UDIM",
+      "comparison_index": 9132854,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Environments/IP/Furniture/Texture/AHua/T_NPC_AHua_Furniture_001_D_UDIM",
+      "comparison_index": 7367866,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam02/Anim/Seq016_cam02_AHua",
+      "comparison_index": 8734669,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam06/Anim/Seq016_cam06_AHua",
+      "comparison_index": 8681947,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam07/Anim/Seq016_cam07_AHua",
+      "comparison_index": 9788989,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam08-1/Anim/Seq016_cam08-1_AHua",
+      "comparison_index": 9134950,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam08/Anim/Seq016_cam08_AHua",
+      "comparison_index": 10555875,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam10/Anim/Seq016_cam10_AHua",
+      "comparison_index": 11625132,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam11/Anim/Seq016_cam11_AHua",
+      "comparison_index": 13306188,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam12/Anim/Seq016_cam12_AHua",
+      "comparison_index": 11214416,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam13/Anim/Seq016_cam13_AHua",
+      "comparison_index": 12388796,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/Sequencer/GenerateSequencer/Seq016/cam14/Anim/Seq016_cam14_AHua",
+      "comparison_index": 2753365,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/UI/InGame/Literature/Gallery/T_BP_Monster_AHua_GuiTouDao",
+      "comparison_index": 10967809,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/UI/InGame/Literature/Gallery/T_BP_Monster_AHua_GuiTouDao_w",
+      "comparison_index": 10304096,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/PBZContent/VFX/SceneFX/Narrative/XiGu/NS_Ahua_SliderFlower_001",
+      "comparison_index": 12393001,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua",
+      "comparison_index": 13566017,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Axe_Mat_Slide_Long",
+      "comparison_index": 9242657,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flash_In",
+      "comparison_index": 5180641,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flower",
+      "comparison_index": 2297682,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_FlowerBlast",
+      "comparison_index": 2559015,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flower_Blast",
+      "comparison_index": 8336572,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flower_Blast_Short",
+      "comparison_index": 6712666,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flower_Hit_New",
+      "comparison_index": 4528761,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flower_Short",
+      "comparison_index": 2558966,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Flower_Touch",
+      "comparison_index": 11170677,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_GuiTouBlade_Stab_Light",
+      "comparison_index": 9391486,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_GuiTouBlade_Stone_Impact_Heavy",
+      "comparison_index": 10561353,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_GuiTouBlade_Wave_Light",
+      "comparison_index": 1074813,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_GuiTouBlade_Wave_Whoosh",
+      "comparison_index": 9895936,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_BaoTuNv_DaggerAxe_Whoosh",
+      "comparison_index": 5129201,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_GouZhe_Axe_HitGround_Light",
+      "comparison_index": 6049201,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_JingYingBaoTuNv_Rake_ClothWave",
+      "comparison_index": 9895990,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_JingYingBaoTuNv_Rake_Wave",
+      "comparison_index": 9141514,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_MoTian_Reuse_HitGround_Stone_Light",
+      "comparison_index": 9242709,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_PengMeng_Axe_Mat_Slide_Long",
+      "comparison_index": 9242772,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Reuse_PengMeng_Axe_Whoosh",
+      "comparison_index": 1327793,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_Storage",
+      "comparison_index": 7830736,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AHua/SFX_Combat_Special_AHua_VFX_Button",
+      "comparison_index": 8284312,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AquaKiller/SFX_Combat_Special_AquaKiller_Reuse_AHua_GuiTouBlade_Wave_Heavy",
+      "comparison_index": 9794716,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/AquaKiller/SFX_Combat_Special_AquaKiller_Reuse_AHua_GuiTouBlade_Wave_Rotate",
+      "comparison_index": 1841986,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Special/Monster_Special/BiYuan/SFX_Combat_Special_BiYuan_Reuse_AHua_GuiTouBlade_Wave_Whoosh",
+      "comparison_index": 4876944,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua2_Attack_Heavy",
+      "comparison_index": 1076029,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua2_Attack_Light",
+      "comparison_index": 4529909,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua2_Attack_Light_BiXian",
+      "comparison_index": 12192990,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua2_Attack_Middle",
+      "comparison_index": 8989902,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua2_Break",
+      "comparison_index": 13464572,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua2_Hurt",
+      "comparison_index": 6306993,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua_Attack_BiXian",
+      "comparison_index": 10512218,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua_Death",
+      "comparison_index": 6050286,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Combat/Vo/Monster_Vo/AHua/SFX_Combat_VO_AHua_Hurt",
+      "comparison_index": 11171682,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Move/Monster/AHua",
+      "comparison_index": 5334095,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/SFX/Move/Monster/AHua/SFX_Move_AHua_Roll_Foley",
+      "comparison_index": 4274318,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/VO/Plot/XG/Vo_Plot_XG_Seq016_XinNiang",
+      "comparison_index": 13060580,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/VO/Plot/XG/Vo_Plot_XG_Xinniang",
+      "comparison_index": 10822957,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/Events/VO/Plot/XG/Vo_Plot_XG_Xinniang_Battle",
+      "comparison_index": 2965555,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/Game/Wwise/States/Amb/Landform/Tag_AHua",
+      "comparison_index": 11429648,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Animation/Seqs/ActorForSeqs/BP_Seq_Ahua_Weapon",
+      "comparison_index": 1992926,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/AHua_Skeleton",
+      "comparison_index": 11735465,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_Battle_Turn_L",
+      "comparison_index": 10824448,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_Battle_Turn_R",
+      "comparison_index": 1385895,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_Battle_Walk_Bwd_Loop",
+      "comparison_index": 12912621,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_Battle_Walk_Fwd_Loop",
+      "comparison_index": 2714100,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_SpecialAttack",
+      "comparison_index": 5443225,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_SpecialAttack_07",
+      "comparison_index": 3623102,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/AHua_Story_Intro",
+      "comparison_index": 4880924,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_ContinHit_B_01",
+      "comparison_index": 3016365,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_ContinHit_B_01_Montage",
+      "comparison_index": 13519287,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_ContinHit_B_02",
+      "comparison_index": 8288570,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_ContinHit_B_03",
+      "comparison_index": 11431258,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_ContinHit_B_04",
+      "comparison_index": 5900836,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_ContinHit_F_01_Montage",
+      "comparison_index": 9449465,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Dead_Launch_B_Montage",
+      "comparison_index": 13062148,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Dead_Normal_B_Montage",
+      "comparison_index": 9851677,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Dead_Normal_F",
+      "comparison_index": 1332346,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Dead_Normal_F_Montage",
+      "comparison_index": 12398985,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_DBreak_F",
+      "comparison_index": 1537907,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_DBreak_F_Montage",
+      "comparison_index": 3371072,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Down_B_Montage",
+      "comparison_index": 1537941,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Getup_B",
+      "comparison_index": 13571397,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Getup_B_Montage",
+      "comparison_index": 6105562,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Getup_F",
+      "comparison_index": 7279390,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Getup_F_Montage",
+      "comparison_index": 6105599,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Ground_F",
+      "comparison_index": 1385941,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Knockback_B",
+      "comparison_index": 6054323,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Knockback_F",
+      "comparison_index": 8288605,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_LaunchLand_B",
+      "comparison_index": 926900,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_LaunchLoop_B_Montage",
+      "comparison_index": 6972733,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_LaunchLoop_F",
+      "comparison_index": 4982377,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_LaunchLoop_F_Montage",
+      "comparison_index": 10515609,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_B_L_Montage",
+      "comparison_index": 11481156,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_B_M",
+      "comparison_index": 9648150,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_B_M_Montage",
+      "comparison_index": 7430850,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_B_R",
+      "comparison_index": 4931375,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_B_R_Montage",
+      "comparison_index": 3473921,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_B_U_Montage",
+      "comparison_index": 3371123,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_F_D",
+      "comparison_index": 11684120,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_F_L",
+      "comparison_index": 12912657,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_F_M",
+      "comparison_index": 6766034,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_F_M_Montage",
+      "comparison_index": 4025807,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Light_F_U",
+      "comparison_index": 10311258,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_B_D_Montage",
+      "comparison_index": 4733437,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_B_L",
+      "comparison_index": 11892919,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_B_L_Montage",
+      "comparison_index": 4079051,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_B_U",
+      "comparison_index": 3623136,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_F_D",
+      "comparison_index": 11026585,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_F_L_Montage",
+      "comparison_index": 1129075,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_Middle_F_M_Montage",
+      "comparison_index": 7734774,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/Hit/AHua_Hit_NBreak_F",
+      "comparison_index": 10824480,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_Battle_Idle",
+      "comparison_index": 11276463,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_GEd_01_Dead",
+      "comparison_index": 8288650,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_GEd_01_New",
+      "comparison_index": 10824514,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_GEd_02_Montage",
+      "comparison_index": 9900286,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_GEx_01_New",
+      "comparison_index": 12195756,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_01_flower",
+      "comparison_index": 6310338,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_02",
+      "comparison_index": 11892954,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_03_BanBen2",
+      "comparison_index": 1332380,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_05_BanBen1",
+      "comparison_index": 9449519,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_07",
+      "comparison_index": 13519372,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_08",
+      "comparison_index": 10773650,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/Anim/K/AHua_SpecialAttack_09",
+      "comparison_index": 6564259,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/PBZ_ABP_Base_AHua",
+      "comparison_index": 6818607,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts",
+      "comparison_index": 5848832,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts/AHua_Cloth_01",
+      "comparison_index": 8288682,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts/CA_AHua_Cloth02",
+      "comparison_index": 1587714,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts/CA_AHua_Cloth03",
+      "comparison_index": 8540418,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts/PA_AHua_Cloth01",
+      "comparison_index": 9195364,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts/PA_AHua_Cloth02",
+      "comparison_index": 12600754,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/EliteMonster/AHua/SkinParts/PA_AHua_Cloth03",
+      "comparison_index": 8288714,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/Hero/Hero_Hun/Weapon/Monster_Weapon/Hun_AHua_Blade_PhysicsAsset",
+      "comparison_index": 11736648,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Characters/Hero/Hero_Hun/Weapon/Monster_Weapon/Hun_AHua_Blade_Skeleton",
+      "comparison_index": 9397467,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Weapon/Monster/AHua",
+      "comparison_index": 3172359,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Weapon/Monster/AHua/AHua_Weapon_01",
+      "comparison_index": 11280342,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Weapon/Monster/AHua/AHua_Weapon_PhysicsAsset",
+      "comparison_index": 4281609,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/HuaShira/Weapon/Monster/AHua/AHua_Weapon_Skeleton",
+      "comparison_index": 1183793,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/AIConfig",
+      "comparison_index": 4588822,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/AIConfig/ActivityConfig_AHua",
+      "comparison_index": 12404849,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability",
+      "comparison_index": 7081478,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities",
+      "comparison_index": 3174029,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/Grab",
+      "comparison_index": 5601212,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_CA_01_01",
+      "comparison_index": 13524218,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Heavy02_01",
+      "comparison_index": 7285583,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Heavy02_02",
+      "comparison_index": 6164030,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Skill_02_A_02",
+      "comparison_index": 880925,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Skill_06",
+      "comparison_index": 9402514,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_SpecialAttack_14_02",
+      "comparison_index": 7740245,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Special_02_New_01",
+      "comparison_index": 5449088,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Special_03_01",
+      "comparison_index": 2255111,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Special_04_01",
+      "comparison_index": 5395850,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Special_07_01",
+      "comparison_index": 3174114,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Special_11_01",
+      "comparison_index": 13121313,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/BD_GA_AHua_Special_11_02",
+      "comparison_index": 13576966,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/EB_GA_AHua_CA_01_GEb_01",
+      "comparison_index": 12456478,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/Flower",
+      "comparison_index": 3679377,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/Flower/BD_AHua_Flower_Base",
+      "comparison_index": 6518604,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/Flower/BD_AHua_Flower_Explode_Big",
+      "comparison_index": 12865894,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/Flower/BD_AHua_Flower_Homing_Hard_05",
+      "comparison_index": 1391887,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/Flower/BD_AHua_GatheringFlower",
+      "comparison_index": 7689132,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/BulletData/Flower/BD_AHua_GatheringFlower_Hard",
+      "comparison_index": 4937032,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Bullets/BP_Bullet_AHua_WhtieFlower",
+      "comparison_index": 10778916,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/GameplayEffect/GE_AHua_Debuff",
+      "comparison_index": 4134454,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/GameplayEffect/GE_AHua_Debuff_Effect",
+      "comparison_index": 12865946,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/GameplayEffect/GE_AHua_Debuff_Effect_BigFlower",
+      "comparison_index": 11084647,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/GameplayEffect/GE_AHua_ExitDebuffArea",
+      "comparison_index": 7029761,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/GameplayEffect/GE_AHua_RemoveDebuff",
+      "comparison_index": 12918320,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage",
+      "comparison_index": 8597807,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_02_Montage",
+      "comparison_index": 8396067,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_03_BanBen1_Montage",
+      "comparison_index": 8396116,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_03_Tou_Montage",
+      "comparison_index": 4588771,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_04_Montage",
+      "comparison_index": 2518546,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_05_BanBen1_Montage",
+      "comparison_index": 5140047,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_07_Montage",
+      "comparison_index": 7029810,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_09_Montage",
+      "comparison_index": 7233039,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Montage/AHua_SpecialAttack_11_Montage",
+      "comparison_index": 13372884,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_HomingFlower",
+      "comparison_index": 6059344,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_PunishCounter_02",
+      "comparison_index": 2974237,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/WeaponData",
+      "comparison_index": 5140100,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/WeaponData/GuiTouDao/Weapon_AHua_GuiTouDao",
+      "comparison_index": 2974282,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Mobs/042_AHua/WeaponData/Hit_AHua_GuiTouDao",
+      "comparison_index": 4333113,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZCombatAsset/ActorData/Players/Hun/BulletData/Iron/ExE/BD_Hun_BEd_AHua_Execution_Head_Cap",
+      "comparison_index": 7237037,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/MI_FX_BS1_AHua_Blade_103_B",
+      "comparison_index": 11797888,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/MI_FX_C2_AHuaBelt_001_B1",
+      "comparison_index": 3231067,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/MI_FX_C2_AHuaFlower_001_B",
+      "comparison_index": 11797921,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/MI_FX_C2_AHua_FlowerOfBlood_001",
+      "comparison_index": 4943821,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/MI_FX_MS_AHua_BG_001_B",
+      "comparison_index": 12207324,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/SM_FX_AHua_Flower_001",
+      "comparison_index": 3433202,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/T_FX_AHua_Belt_001_ARM",
+      "comparison_index": 10836549,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/T_FX_AHua_Belt_001_BC",
+      "comparison_index": 4793971,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/T_FX_AHua_Belt_001_N",
+      "comparison_index": 9862939,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/T_FX_AHua_Belt_002_BC",
+      "comparison_index": 11696533,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/Assets/T_FX_AHua_Belt_002_N",
+      "comparison_index": 2575147,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/NS_AHua_BladeTrail",
+      "comparison_index": 9659158,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/NS_AHua_FlowerGathering_001_Flower",
+      "comparison_index": 8551536,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/NS_AHua_FlowerGathering_002_Flower",
+      "comparison_index": 8551569,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "/PBZVFXPack/VFX/BattleFX/AHua/NS_AHua_Flower_001",
+      "comparison_index": 5706169,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua",
+      "comparison_index": 14969998,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Battle_Turn_L",
+      "comparison_index": 8288560,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Battle_Walk_Bwd_Loop",
+      "comparison_index": 1385927,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Battle_Walk_Fwd_Loop",
+      "comparison_index": 7279376,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Battle_Walk_Right_Loop",
+      "comparison_index": 10052577,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Body",
+      "comparison_index": 5390033,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Cloth_01",
+      "comparison_index": 1129114,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Cloth_02",
+      "comparison_index": 4982413,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Cloth_03",
+      "comparison_index": 1846184,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_ContinHit_B_01",
+      "comparison_index": 11225321,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_ContinHit_B_04",
+      "comparison_index": 11941570,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_ContinHit_F_01_Montage",
+      "comparison_index": 12146196,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Dead_Launch_B",
+      "comparison_index": 10362890,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Dead_Normal_B_Montage",
+      "comparison_index": 13519326,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Dead_Normal_F_Montage",
+      "comparison_index": 11941581,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_GEd_01_Dead",
+      "comparison_index": 11684154,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_GEd_01_Dead_StayDown_Montage",
+      "comparison_index": 6972784,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_GEd_01_Montage",
+      "comparison_index": 13519350,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_GEd_02_Montage",
+      "comparison_index": 13519361,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Down_B",
+      "comparison_index": 12859968,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Down_B_Montage",
+      "comparison_index": 3371110,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Getup_B_Montage",
+      "comparison_index": 1129047,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Getup_F_Montage",
+      "comparison_index": 9195351,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Ground_B_Montage",
+      "comparison_index": 5390019,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Ground_F",
+      "comparison_index": 1537978,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Ground_F_Montage",
+      "comparison_index": 7227653,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Knockback_B",
+      "comparison_index": 8794927,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Knockback_F",
+      "comparison_index": 4482853,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Knockback_F_Montage",
+      "comparison_index": 9045674,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_LaunchLand_B",
+      "comparison_index": 8944379,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_LaunchLand_F",
+      "comparison_index": 7430838,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_LaunchLoop_B",
+      "comparison_index": 5337595,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_LaunchLoop_B_Montage",
+      "comparison_index": 7885901,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_LaunchLoop_F",
+      "comparison_index": 8089571,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Launch_B",
+      "comparison_index": 12347639,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Launch_F",
+      "comparison_index": 13519340,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Launch_F_Montage",
+      "comparison_index": 11684106,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_B_D",
+      "comparison_index": 9246704,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_B_L_Montage",
+      "comparison_index": 8993123,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_B_M",
+      "comparison_index": 7934601,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_B_U",
+      "comparison_index": 8288640,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_F_L",
+      "comparison_index": 3473959,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_F_M",
+      "comparison_index": 5900871,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_F_M_Montage",
+      "comparison_index": 2248638,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_F_R",
+      "comparison_index": 8591377,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Light_F_U",
+      "comparison_index": 13115361,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_B_D",
+      "comparison_index": 6972773,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_B_R",
+      "comparison_index": 9246714,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_B_R_Montage",
+      "comparison_index": 9449504,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_B_U_Montage",
+      "comparison_index": 1129060,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_F_D_Montage",
+      "comparison_index": 1797345,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_F_M",
+      "comparison_index": 13316684,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_Middle_F_R_Montage",
+      "comparison_index": 8137488,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_NBreak_B_Montage",
+      "comparison_index": 3673162,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_NBreak_F",
+      "comparison_index": 10566482,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Hit_NBreak_F_Montage",
+      "comparison_index": 13725117,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_PhysicsAsset",
+      "comparison_index": 7227643,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Skeleton",
+      "comparison_index": 1537899,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Skeleton_AnimBlueprint",
+      "comparison_index": 12146211,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Skeleton_AnimBlueprint_C",
+      "comparison_index": 1638768,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack",
+      "comparison_index": 6512658,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_01",
+      "comparison_index": 3218949,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_01_Montage",
+      "comparison_index": 11487419,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_01_flower",
+      "comparison_index": 12912691,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_02",
+      "comparison_index": 2967744,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_02_Montage",
+      "comparison_index": 10058847,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_03_BanBen1",
+      "comparison_index": 12809343,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_03_Tou_Montage",
+      "comparison_index": 6823538,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_05_BanBen1",
+      "comparison_index": 5337607,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_05_BanBen2_Montage",
+      "comparison_index": 5449150,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_07_Dash_Montage",
+      "comparison_index": 5601249,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_08",
+      "comparison_index": 13519407,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_08_Montage",
+      "comparison_index": 880973,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_SpecialAttack_09",
+      "comparison_index": 8744921,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Special_Montage",
+      "comparison_index": 6059333,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Story_Intro",
+      "comparison_index": 4931366,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Weapon_01",
+      "comparison_index": 9251125,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AHua_Weapon_PhysicsAsset",
+      "comparison_index": 11739549,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "AbilityPool_AHua_GuiTouDao_Normal",
+      "comparison_index": 5395898,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "ActorC_AHua_GuiTouDao",
+      "comparison_index": 6570102,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_Flower_Base_Big",
+      "comparison_index": 8999091,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_Flower_Explode",
+      "comparison_index": 7233027,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_Flower_Explode_Big",
+      "comparison_index": 6367681,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_Flower_Homing_Hard_01",
+      "comparison_index": 2051512,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_Flower_Homing_Hard_03",
+      "comparison_index": 1851778,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_GatheringFlower",
+      "comparison_index": 4788888,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_GatheringFlower_Explode",
+      "comparison_index": 1593863,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_AHua_GatheringFlower_Hard",
+      "comparison_index": 983898,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_CA_01_01",
+      "comparison_index": 12151893,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_CA_01_GEx_01",
+      "comparison_index": 9857398,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Heavy01_01",
+      "comparison_index": 4283371,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Heavy01_02",
+      "comparison_index": 7081503,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Heavy02_01",
+      "comparison_index": 2103297,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Heavy02_02",
+      "comparison_index": 1851755,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Skill_04",
+      "comparison_index": 6978356,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Skill_06",
+      "comparison_index": 12404838,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Skill_08",
+      "comparison_index": 1851767,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_SpecialAttack_14_02",
+      "comparison_index": 6771370,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Special_03_01",
+      "comparison_index": 7233014,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Special_04_01",
+      "comparison_index": 10880222,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Special_07_01",
+      "comparison_index": 5190666,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_GA_AHua_Special_11_01",
+      "comparison_index": 13524263,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BD_Hun_BEd_AHua_Execution_Head",
+      "comparison_index": 3026460,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BPF_AHua_BaoTu",
+      "comparison_index": 3099296,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BPF_Q_XinNiang_ChuChang",
+      "comparison_index": 6037091,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BPF_XinNiang_Death",
+      "comparison_index": 3505599,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_AHua_Flower_Big_C",
+      "comparison_index": 10830594,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_AHua_Flower_Small",
+      "comparison_index": 10625784,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Ahua_SliderFlower_001",
+      "comparison_index": 2910698,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Ahua_SliderFlower_001_C",
+      "comparison_index": 13512967,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Bullet_AHua_WhtieFlower_Fast",
+      "comparison_index": 4084028,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Bullet_AHua_WhtieFlower_Slow_C",
+      "comparison_index": 8346418,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Monster_AHua_Base",
+      "comparison_index": 9455716,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Monster_AHua_Base_C",
+      "comparison_index": 10778963,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Monster_AHua_GuiTouDao_C",
+      "comparison_index": 12456538,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BP_Weapon_AHua_GuiTouDao",
+      "comparison_index": 4281637,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BT_AHua_Grab_Teleport",
+      "comparison_index": 6111476,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BT_AHua_PunishCounter_01",
+      "comparison_index": 13577014,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BT_AHua_PunishCounter_02",
+      "comparison_index": 7285629,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "BT_AHua_TeleportAttack_01",
+      "comparison_index": 10880246,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "CA_AHua_Cloth01",
+      "comparison_index": 7430888,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "CA_AHua_Cloth03",
+      "comparison_index": 9851715,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "CR_AHua_Procedural",
+      "comparison_index": 1797360,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "EB_GA_AHua_CA_01_GEb_01",
+      "comparison_index": 12456525,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Attack_01",
+      "comparison_index": 3628752,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_CA_01_GEx_02",
+      "comparison_index": 3628741,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_CA_01_GEx_C",
+      "comparison_index": 5140036,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_CA_01_GEx_Trap",
+      "comparison_index": 13068681,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_GuiTouBlade_Passive_C",
+      "comparison_index": 11947356,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Heavy_01",
+      "comparison_index": 3879909,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Heavy_01_C",
+      "comparison_index": 2307968,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Heavy_02",
+      "comparison_index": 7940198,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Homing_Flower",
+      "comparison_index": 2518511,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Homing_Flower_C",
+      "comparison_index": 3831406,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Homing_Flower_Hard",
+      "comparison_index": 4134396,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_01",
+      "comparison_index": 9857389,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_02",
+      "comparison_index": 7437148,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_03_C",
+      "comparison_index": 5449078,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_04_C",
+      "comparison_index": 8546309,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_05_B",
+      "comparison_index": 9906392,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_05_B_C",
+      "comparison_index": 2518523,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_05_Hard_C",
+      "comparison_index": 4588758,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_06_Hard",
+      "comparison_index": 13372872,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_07",
+      "comparison_index": 6164011,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_07_Hard_C",
+      "comparison_index": 12200936,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_08",
+      "comparison_index": 7488966,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_08_C",
+      "comparison_index": 6164020,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Skill_09_C",
+      "comparison_index": 9201158,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special",
+      "comparison_index": 1900815,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialAttack_13_C",
+      "comparison_index": 12151879,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialMove_01_C",
+      "comparison_index": 10830581,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialMove_B",
+      "comparison_index": 5140012,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialMove_Base_C",
+      "comparison_index": 10058833,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialMove_Dash",
+      "comparison_index": 7940207,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialMove_Dash_C",
+      "comparison_index": 9702137,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_SpecialMove_L",
+      "comparison_index": 880913,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_02_New",
+      "comparison_index": 5140024,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_02_New_C",
+      "comparison_index": 6570089,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_03",
+      "comparison_index": 7029751,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_03_C",
+      "comparison_index": 4283360,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_05_A",
+      "comparison_index": 4740131,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_05_A_C",
+      "comparison_index": 6315980,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_07",
+      "comparison_index": 10317247,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_07_C",
+      "comparison_index": 4538889,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_08",
+      "comparison_index": 10111685,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_08_C",
+      "comparison_index": 13068624,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Special_11_C",
+      "comparison_index": 4084017,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GA_AHua_Teleport_Left_C",
+      "comparison_index": 11947419,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_Debuff_Effect_BigFlower",
+      "comparison_index": 12200949,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_Debuff_Tick",
+      "comparison_index": 10880235,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_Debuff_Tick_C",
+      "comparison_index": 5449138,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_ExitDebuffArea",
+      "comparison_index": 2518534,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_InBuffArea_New",
+      "comparison_index": 1391941,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_InBuffArea_New_C",
+      "comparison_index": 8851904,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GE_AHua_InDebuffArea",
+      "comparison_index": 13068693,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GameplayEvent.Ability.AHua.Flower.Active",
+      "comparison_index": 14951625,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GameplayEvent.Ability.AHua.Flower.Deactive",
+      "comparison_index": 14951646,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "GameplayEvent.Ability.AHua.Flower.RequestNearestFlowerLocation",
+      "comparison_index": 14951668,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "HitReact.AttackType.Physical.Stab.AHua",
+      "comparison_index": 14959225,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Hit_AHua_GuiTouDao",
+      "comparison_index": 7689183,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Hitreact.AttackType.Physical.Slash.AHua",
+      "comparison_index": 14957938,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Hun_AHua_Blade",
+      "comparison_index": 2565499,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Hun_AHua_Blade_Skeleton",
+      "comparison_index": 12655706,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "MI_FX_BS1_AHua_Blade_101_B",
+      "comparison_index": 8149102,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "MI_FX_BS1_AHua_Blade_103_B",
+      "comparison_index": 4746046,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "MI_FX_C2_AHua_FlowerOfBlood_001",
+      "comparison_index": 12612961,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "NS_AHua_FlowerGathering_004_ExploSmall",
+      "comparison_index": 5401787,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "NS_AHua_FlowerWhite_001_Main",
+      "comparison_index": 1600462,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "NS_AHua_Flower_010_BigTimed",
+      "comparison_index": 13177458,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "NS_Ahua_SliderFlower_001",
+      "comparison_index": 8132578,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "PA_AHua_Cloth01",
+      "comparison_index": 2045247,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "PA_AHua_Cloth02",
+      "comparison_index": 6512668,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "PBZ_ABP_Base_AHua",
+      "comparison_index": 6310376,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "PBZ_ABP_Item_AHua_GuiTouDao",
+      "comparison_index": 7940220,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "PBZ_ABP_Item_AHua_GuiTouDao_C",
+      "comparison_index": 2307978,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "PCG_MeshScatter_AHua",
+      "comparison_index": 11823932,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Flash_In",
+      "comparison_index": 2244393,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Flower",
+      "comparison_index": 9141498,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Flower_Blast",
+      "comparison_index": 7223695,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Flower_Mix",
+      "comparison_index": 8940441,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Flower_Short",
+      "comparison_index": 3821192,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Flower_Touch",
+      "comparison_index": 11937528,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_GuiTouBlade_Hit",
+      "comparison_index": 9848388,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_GuiTouBlade_SmashGround_Light",
+      "comparison_index": 5332877,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_GuiTouBlade_Stab_Heavy",
+      "comparison_index": 11731325,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_GuiTouBlade_Stab_Light",
+      "comparison_index": 8535785,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_GuiTouBlade_Wave_Heavy",
+      "comparison_index": 1381264,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_GuiTouBlade_Wave_Rotate",
+      "comparison_index": 5385505,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_BaoTuNv_DaggerAxe_Whoosh",
+      "comparison_index": 4273084,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_HitGround_MoTian_Stone_Heavy",
+      "comparison_index": 10769137,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_JingYingBaoTuNv_Rake_ClothWave",
+      "comparison_index": 11220896,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_JingYingBaoTuNv_Rake_Wave",
+      "comparison_index": 13008332,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_LeiDang_Whoosh_light",
+      "comparison_index": 3416415,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_MoTian_Reuse_Sword_Wave_Heavy",
+      "comparison_index": 2963006,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_PengMeng_Axe_Hit_Heavy_Dust",
+      "comparison_index": 11022357,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_PengMeng_Axe_Mat_Slide_Long",
+      "comparison_index": 9896051,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Reuse_PowerMan_Arm_HitGround",
+      "comparison_index": 10769167,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_SmallFlowerBlast",
+      "comparison_index": 2244410,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AHua_Storage",
+      "comparison_index": 11937547,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_AquaKiller_Reuse_AHua_GuiTouBlade_Wave_Heavy",
+      "comparison_index": 8336621,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_Special_LionDancer_Reuse_AHua_GuiTouBlade_Stab_Whoosh",
+      "comparison_index": 6713014,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_VO_AHua_Hurt",
+      "comparison_index": 7627147,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SFX_Combat_VO_AHua_Laugh",
+      "comparison_index": 922135,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SM_FX_AHua_Flower_001",
+      "comparison_index": 10425195,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SM_FX_AHua_Flower_003",
+      "comparison_index": 9512022,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SM_FX_AHua_Flower_004",
+      "comparison_index": 13127252,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SM_NPC_AHua_Furniture_001",
+      "comparison_index": 5732705,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SM_NPC_AHua_Furniture_002",
+      "comparison_index": 6753794,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "SM_NPC_AHua_Furniture_003",
+      "comparison_index": 8274392,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam05_AHua",
+      "comparison_index": 1322128,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam06_AHua",
+      "comparison_index": 1322138,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam07_AHua",
+      "comparison_index": 10246473,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam08-1_AHua",
+      "comparison_index": 7824903,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam08_AHua",
+      "comparison_index": 11214392,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam12_AHua",
+      "comparison_index": 1732458,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Seq016_cam14_AHua",
+      "comparison_index": 13714481,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_BP_Monster_AHua_GuiTouDao_H",
+      "comparison_index": 5588765,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_EliteMonster_Bloody_Bride_Body_ARM_UDIM",
+      "comparison_index": 2443741,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_EliteMonster_Bloody_Bride_Body_N_UDIM",
+      "comparison_index": 12534815,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_FX_AHua_Belt_001_ARM",
+      "comparison_index": 2260632,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_FX_AHua_Belt_001_BC",
+      "comparison_index": 1191367,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_FX_AHua_Belt_002_ARM",
+      "comparison_index": 5247490,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_FX_AHua_Belt_002_BC",
+      "comparison_index": 4139602,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_FX_AHua_Belt_002_N",
+      "comparison_index": 9461660,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_NPC_AHua_Furniture_001_ARM_UDIM",
+      "comparison_index": 7822918,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_NPC_AHua_Furniture_001_D_UDIM",
+      "comparison_index": 3961519,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "T_NPC_AHua_Furniture_Fabric_001_N",
+      "comparison_index": 1524600,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Tag_AHua-AhuaDead",
+      "comparison_index": 8286949,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Vo_Plot_XG_Seq016_XinNiang",
+      "comparison_index": 10050526,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Vo_Plot_XG_Xinniang",
+      "comparison_index": 3014847,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "Vo_Plot_XG_Xinniang_Battle",
+      "comparison_index": 13569072,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "WSC_AHua_GuiTouDao",
+      "comparison_index": 13328497,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "xg.新娘阿花",
+      "comparison_index": 14880843,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "xg.阿花",
+      "comparison_index": 14881322,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "xg.阿花门口",
+      "comparison_index": 14880861,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "新娘阿花",
+      "comparison_index": 14880851,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "阿花",
+      "comparison_index": 14881328,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "阿花父亲回信",
+      "comparison_index": 15149810,
+      "runtime_identity_verified": false
+    },
+    {
+      "name": "阿花门口",
+      "comparison_index": 14880869,
+      "runtime_identity_verified": false
+    }
+  ],
+  "declarations": [
+    {
+      "path": "/Script/AssetRegistry.AssetRegistryHelpers",
+      "index": 214,
+      "kind": "Class",
+      "properties": [],
+      "functions": [
+        {
+          "name": "GetAssetRegistry",
+          "flags": "0x14022401",
+          "parameter_count": 1,
+          "parameter_bytes": 16,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4cf56c400",
+              "type": "InterfaceProperty",
+              "array_dim": 1,
+              "element_size": 16,
+              "property_flags": "0x1c001040000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetAsset",
+          "flags": "0x14422401",
+          "parameter_count": 2,
+          "parameter_bytes": 112,
+          "return_offset": 104,
+          "parameters": [
+            {
+              "name": "InAssetData",
+              "descriptor": "0x4cf56c480",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 104,
+              "property_flags": "0x18000008000182",
+              "offset": "0x0"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4cf56c580",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x68"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/AssetRegistry.AssetRegistryImpl",
+      "index": 216,
+      "kind": "Class",
+      "properties": [],
+      "functions": []
+    },
+    {
+      "path": "/Script/Engine.Controller",
+      "index": 1806,
+      "kind": "Class",
+      "properties": [
+        {
+          "name": "PlayerState",
+          "descriptor": "0x4d0e19200",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001100000234",
+          "offset": "0x2b8"
+        },
+        {
+          "name": "OnInstigatedAnyDamage",
+          "descriptor": "0x4d0e19280",
+          "type": "MulticastInlineDelegateProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000010080200",
+          "offset": "0x2c8"
+        },
+        {
+          "name": "OnPossessedPawnChanged",
+          "descriptor": "0x4d0e19300",
+          "type": "MulticastInlineDelegateProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000010080200",
+          "offset": "0x2d8"
+        },
+        {
+          "name": "StateName",
+          "descriptor": "0x4d0dddd00",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040000200",
+          "offset": "0x2e8"
+        },
+        {
+          "name": "Pawn",
+          "descriptor": "0x4d0e19380",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x14c001100000220",
+          "offset": "0x2f0"
+        },
+        {
+          "name": "Character",
+          "descriptor": "0x4d0e19400",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x14c001000000200",
+          "offset": "0x300"
+        },
+        {
+          "name": "TransformComponent",
+          "descriptor": "0x4d0e19480",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x14c001000080208",
+          "offset": "0x308"
+        },
+        {
+          "name": "ControlRotation",
+          "descriptor": "0x4d0e17400",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x20081040000200",
+          "offset": "0x328"
+        },
+        {
+          "name": "bAttachToPawn",
+          "descriptor": "0x4d0e17480",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081000010001",
+          "offset": "0x340"
+        }
+      ],
+      "functions": [
+        {
+          "name": "Possess",
+          "flags": "0x4020407",
+          "parameter_count": 1,
+          "parameter_bytes": 8,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "InPawn",
+              "descriptor": "0x4d0e17f80",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000280",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "IsMoveInputIgnored",
+          "flags": "0x54020402",
+          "parameter_count": 1,
+          "parameter_bytes": 1,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e16400",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "IsLookInputIgnored",
+          "flags": "0x54020402",
+          "parameter_count": 1,
+          "parameter_bytes": 1,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e16500",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetViewTarget",
+          "flags": "0x54020402",
+          "parameter_count": 1,
+          "parameter_bytes": 8,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e16d00",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000780",
+              "offset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "GetControlRotation",
+          "flags": "0x54820402",
+          "parameter_count": 1,
+          "parameter_bytes": 24,
+          "return_offset": 0,
+          "parameters": [
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e16b00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x10001040000780",
+              "offset": "0x0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.PlayerController",
+      "index": 1807,
+      "kind": "Class",
+      "properties": [
+        {
+          "name": "Player",
+          "descriptor": "0x4d0e46e80",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000000200",
+          "offset": "0x350"
+        },
+        {
+          "name": "AcknowledgedPawn",
+          "descriptor": "0x4d0e46f00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000000200",
+          "offset": "0x358"
+        },
+        {
+          "name": "MyHUD",
+          "descriptor": "0x4d0e46f80",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000000200",
+          "offset": "0x360"
+        },
+        {
+          "name": "PlayerCameraManager",
+          "descriptor": "0x4d0e47000",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000000214",
+          "offset": "0x368"
+        },
+        {
+          "name": "PlayerCameraManagerClass",
+          "descriptor": "0x4d0e47080",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x1c001000000215",
+          "offset": "0x370"
+        },
+        {
+          "name": "bAutoManageActiveCameraTarget",
+          "descriptor": "0x4d0e47100",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000201",
+          "offset": "0x378"
+        },
+        {
+          "name": "TargetViewRotation",
+          "descriptor": "0x4d0e47180",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10001040000220",
+          "offset": "0x380"
+        },
+        {
+          "name": "SmoothTargetViewRotationSpeed",
+          "descriptor": "0x4d0e324d0",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000205",
+          "offset": "0x3b0"
+        },
+        {
+          "name": "HiddenActors",
+          "descriptor": "0x4d0e47280",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x114000000000200",
+          "offset": "0x3b8"
+        },
+        {
+          "name": "HiddenPrimitiveComponents",
+          "descriptor": "0x4d0e47380",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x14008000000208",
+          "offset": "0x3c8"
+        },
+        {
+          "name": "LastSpectatorStateSynchTime",
+          "descriptor": "0x4d0e32540",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000200",
+          "offset": "0x3dc"
+        },
+        {
+          "name": "LastSpectatorSyncLocation",
+          "descriptor": "0x4d0e45300",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040002200",
+          "offset": "0x3e0"
+        },
+        {
+          "name": "LastSpectatorSyncRotation",
+          "descriptor": "0x4d0e45380",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10001040002200",
+          "offset": "0x3f8"
+        },
+        {
+          "name": "ClientCap",
+          "descriptor": "0x4d0e325b0",
+          "type": "IntProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000200",
+          "offset": "0x410"
+        },
+        {
+          "name": "CheatManager",
+          "descriptor": "0x4d0e45400",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000002214",
+          "offset": "0x418"
+        },
+        {
+          "name": "CheatClass",
+          "descriptor": "0x4d0e45480",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x1c001000010215",
+          "offset": "0x420"
+        },
+        {
+          "name": "PlayerInput",
+          "descriptor": "0x4d0e45500",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000002200",
+          "offset": "0x428"
+        },
+        {
+          "name": "ActiveForceFeedbackEffects",
+          "descriptor": "0x4d0e45600",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000000002200",
+          "offset": "0x430"
+        },
+        {
+          "name": "bPlayerIsWaiting",
+          "descriptor": "0x4d0e45680",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000020815",
+          "offset": "0x4c0"
+        },
+        {
+          "name": "NetPlayerIndex",
+          "descriptor": "0x4d0e45700",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040200200",
+          "offset": "0x4c4"
+        },
+        {
+          "name": "PendingSwapConnection",
+          "descriptor": "0x4d0e45780",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000200200",
+          "offset": "0x520"
+        },
+        {
+          "name": "NetConnection",
+          "descriptor": "0x4d0e45800",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000200200",
+          "offset": "0x528"
+        },
+        {
+          "name": "InputYawScale",
+          "descriptor": "0x4d0e32620",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001060004200",
+          "offset": "0x548"
+        },
+        {
+          "name": "InputPitchScale",
+          "descriptor": "0x4d0e32690",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001060004200",
+          "offset": "0x54c"
+        },
+        {
+          "name": "InputRollScale",
+          "descriptor": "0x4d0e32700",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001060004200",
+          "offset": "0x550"
+        },
+        {
+          "name": "bShowMouseCursor",
+          "descriptor": "0x4d0bf6310",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bEnableClickEvents",
+          "descriptor": "0x4d0e45880",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bEnableTouchEvents",
+          "descriptor": "0x4d0e45900",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bEnableMouseOverEvents",
+          "descriptor": "0x4d0e45980",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bEnableTouchOverEvents",
+          "descriptor": "0x4d0e45a00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bForceFeedbackEnabled",
+          "descriptor": "0x4d0e45a80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bEnableMotionControls",
+          "descriptor": "0x4d0e45b00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bEnableStreamingSource",
+          "descriptor": "0x4d0e45b80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x554"
+        },
+        {
+          "name": "bStreamingSourceShouldActivate",
+          "descriptor": "0x4d0e45c00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x555"
+        },
+        {
+          "name": "bStreamingSourceShouldBlockOnSlowStreaming",
+          "descriptor": "0x4d0e45c80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001000000005",
+          "offset": "0x555"
+        },
+        {
+          "name": "StreamingSourcePriority",
+          "descriptor": "0x4d0e45d80",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000205",
+          "offset": "0x558"
+        },
+        {
+          "name": "StreamingSourceDebugColor",
+          "descriptor": "0x4d0e45e00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000205",
+          "offset": "0x55c"
+        },
+        {
+          "name": "StreamingSourceShapes",
+          "descriptor": "0x4d0e45f00",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000000000205",
+          "offset": "0x560"
+        },
+        {
+          "name": "ForceFeedbackScale",
+          "descriptor": "0x4d0e32770",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040004200",
+          "offset": "0x570"
+        },
+        {
+          "name": "ClickEventKeys",
+          "descriptor": "0x4d0e46000",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x10000000000205",
+          "offset": "0x578"
+        },
+        {
+          "name": "DefaultMouseCursor",
+          "descriptor": "0x4d0e46080",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000215",
+          "offset": "0x588"
+        },
+        {
+          "name": "CurrentMouseCursor",
+          "descriptor": "0x4d0e46100",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000204",
+          "offset": "0x589"
+        },
+        {
+          "name": "DefaultClickTraceChannel",
+          "descriptor": "0x4d0e46180",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000215",
+          "offset": "0x58a"
+        },
+        {
+          "name": "CurrentClickTraceChannel",
+          "descriptor": "0x4d0e46200",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000204",
+          "offset": "0x58b"
+        },
+        {
+          "name": "HitResultTraceDistance",
+          "descriptor": "0x4d0e327e0",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000205",
+          "offset": "0x58c"
+        },
+        {
+          "name": "SeamlessTravelCount",
+          "descriptor": "0x4d0e32850",
+          "type": "UInt16Property",
+          "array_dim": 1,
+          "element_size": 2,
+          "property_flags": "0x18001040000200",
+          "offset": "0x590"
+        },
+        {
+          "name": "LastCompletedSeamlessTravelCount",
+          "descriptor": "0x4d0e328c0",
+          "type": "UInt16Property",
+          "array_dim": 1,
+          "element_size": 2,
+          "property_flags": "0x18001040000200",
+          "offset": "0x592"
+        },
+        {
+          "name": "InactiveStateInputComponent",
+          "descriptor": "0x4d0e46280",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x12c081000080208",
+          "offset": "0x618"
+        },
+        {
+          "name": "bShouldPerformFullTickWhenPaused",
+          "descriptor": "0x4d0e46300",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081000000005",
+          "offset": "0x620"
+        },
+        {
+          "name": "CurrentTouchInterface",
+          "descriptor": "0x4d0e44280",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x12c081000000200",
+          "offset": "0x638"
+        },
+        {
+          "name": "OverridePlayerInputClass",
+          "descriptor": "0x4d0e44300",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x2c081000010201",
+          "offset": "0x640"
+        },
+        {
+          "name": "SpectatorPawn",
+          "descriptor": "0x4d0e44380",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x14c001000000200",
+          "offset": "0x6c0"
+        },
+        {
+          "name": "bIsLocalPlayerController",
+          "descriptor": "0x4d0e44400",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x48001040000200",
+          "offset": "0x6cc"
+        },
+        {
+          "name": "SpawnLocation",
+          "descriptor": "0x4d0e44480",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x28081040000220",
+          "offset": "0x6d0"
+        },
+        {
+          "name": "CachedConnectionPlayerId",
+          "descriptor": "0x4d0e44500",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 48,
+          "property_flags": "0x48000000000000",
+          "offset": "0x708"
+        },
+        {
+          "name": "ClientHandshakeId",
+          "descriptor": "0x4d0e32930",
+          "type": "UInt32Property",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x48001040200200",
+          "offset": "0x738"
+        }
+      ],
+      "functions": [
+        {
+          "name": "IsInputKeyDown",
+          "flags": "0x54020403",
+          "parameter_count": 2,
+          "parameter_bytes": 25,
+          "return_offset": 24,
+          "parameters": [
+            {
+              "name": "Key",
+              "descriptor": "0x4d0e41c00",
+              "type": "StructProperty",
+              "array_dim": 1,
+              "element_size": 24,
+              "property_flags": "0x18000000000080",
+              "offset": "0x0"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0e41d00",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000780",
+              "offset": "0x18"
+            }
+          ]
+        },
+        {
+          "name": "GetInputMouseDelta",
+          "flags": "0x54420403",
+          "parameter_count": 2,
+          "parameter_bytes": 8,
+          "return_offset": 65535,
+          "parameters": [
+            {
+              "name": "DeltaX",
+              "descriptor": "0x4d0e31c10",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18001040000380",
+              "offset": "0x0"
+            },
+            {
+              "name": "DeltaY",
+              "descriptor": "0x4d0e31c80",
+              "type": "FloatProperty",
+              "array_dim": 1,
+              "element_size": 4,
+              "property_flags": "0x18001040000380",
+              "offset": "0x4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.GameplayStatics",
+      "index": 1983,
+      "kind": "Class",
+      "properties": [],
+      "functions": [
+        {
+          "name": "IsGamePaused",
+          "flags": "0x14022403",
+          "parameter_count": 2,
+          "parameter_bytes": 9,
+          "return_offset": 8,
+          "parameters": [
+            {
+              "name": "WorldContextObject",
+              "descriptor": "0x4d0ea4400",
+              "type": "ObjectProperty",
+              "array_dim": 1,
+              "element_size": 8,
+              "property_flags": "0x18001000000282",
+              "offset": "0x0"
+            },
+            {
+              "name": "ReturnValue",
+              "descriptor": "0x4d0ea4500",
+              "type": "BoolProperty",
+              "array_dim": 1,
+              "element_size": 1,
+              "property_flags": "0x18001040000780",
+              "offset": "0x8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/Script/GameplayAbilities.GameplayAbility",
+      "index": 2750,
+      "kind": "Class",
+      "properties": [
+        {
+          "name": "AbilityTags",
+          "descriptor": "0x4d115d580",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x10000000010001",
+          "offset": "0xa8"
+        },
+        {
+          "name": "bReplicateInputDirectly",
+          "descriptor": "0x4d115d600",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040010201",
+          "offset": "0xc8"
+        },
+        {
+          "name": "RemoteInstanceEnded",
+          "descriptor": "0x4d115d680",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000200",
+          "offset": "0xc9"
+        },
+        {
+          "name": "ReplicationPolicy",
+          "descriptor": "0x4d115b600",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0xce"
+        },
+        {
+          "name": "InstancingPolicy",
+          "descriptor": "0x4d115b680",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0xcf"
+        },
+        {
+          "name": "bServerRespectsRemoteAbilityCancellation",
+          "descriptor": "0x4d115b700",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0xd0"
+        },
+        {
+          "name": "bRetriggerInstancedAbility",
+          "descriptor": "0x4d115b780",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0xd1"
+        },
+        {
+          "name": "CurrentActivationInfo",
+          "descriptor": "0x4d115b800",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 20,
+          "property_flags": "0x20081000000014",
+          "offset": "0xd4"
+        },
+        {
+          "name": "CurrentEventData",
+          "descriptor": "0x4d115b880",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 176,
+          "property_flags": "0x20080000000014",
+          "offset": "0xe8"
+        },
+        {
+          "name": "NetExecutionPolicy",
+          "descriptor": "0x4d115b900",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0x198"
+        },
+        {
+          "name": "NetSecurityPolicy",
+          "descriptor": "0x4d115b980",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040010201",
+          "offset": "0x199"
+        },
+        {
+          "name": "CostGameplayEffectClass",
+          "descriptor": "0x4d115ba00",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x2c081000010201",
+          "offset": "0x1a0"
+        },
+        {
+          "name": "AbilityTriggers",
+          "descriptor": "0x4d115bb00",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x20080000010201",
+          "offset": "0x1a8"
+        },
+        {
+          "name": "CooldownGameplayEffectClass",
+          "descriptor": "0x4d115bb80",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x2c081000010201",
+          "offset": "0x1b8"
+        },
+        {
+          "name": "CancelAbilitiesWithTag",
+          "descriptor": "0x4d115bc00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x1c0"
+        },
+        {
+          "name": "BlockAbilitiesWithTag",
+          "descriptor": "0x4d115bc80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x1e0"
+        },
+        {
+          "name": "ActivationOwnedTags",
+          "descriptor": "0x4d115bd00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x200"
+        },
+        {
+          "name": "ActivationRequiredTags",
+          "descriptor": "0x4d115bd80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x220"
+        },
+        {
+          "name": "ActivationBlockedTags",
+          "descriptor": "0x4d115be00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x240"
+        },
+        {
+          "name": "SourceRequiredTags",
+          "descriptor": "0x4d115be80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x260"
+        },
+        {
+          "name": "SourceBlockedTags",
+          "descriptor": "0x4d115bf00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x280"
+        },
+        {
+          "name": "TargetRequiredTags",
+          "descriptor": "0x4d115bf80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x2a0"
+        },
+        {
+          "name": "TargetBlockedTags",
+          "descriptor": "0x4d115c000",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x20080000010001",
+          "offset": "0x2c0"
+        },
+        {
+          "name": "ActiveTasks",
+          "descriptor": "0x4d115c100",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x124080000000200",
+          "offset": "0x300"
+        },
+        {
+          "name": "CurrentMontage",
+          "descriptor": "0x4d115c180",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x12c081000000200",
+          "offset": "0x320"
+        },
+        {
+          "name": "bIsActive",
+          "descriptor": "0x4d115c200",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000200",
+          "offset": "0x388"
+        },
+        {
+          "name": "bIsAbilityEnding",
+          "descriptor": "0x4d115c280",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000200",
+          "offset": "0x389"
+        },
+        {
+          "name": "bIsCancelable",
+          "descriptor": "0x4d115c300",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000200",
+          "offset": "0x38a"
+        },
+        {
+          "name": "bIsBlockingOtherAbilities",
+          "descriptor": "0x4d115c380",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000200",
+          "offset": "0x38b"
+        },
+        {
+          "name": "bMarkPendingKillOnAbilityEnd",
+          "descriptor": "0x4d115c400",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x28081040000214",
+          "offset": "0x3a0"
+        }
+      ],
+      "functions": [
+        {
+          "name": "K2_EndAbility",
+          "flags": "0x4080402",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        },
+        {
+          "name": "K2_CancelAbility",
+          "flags": "0x4020403",
+          "parameter_count": 0,
+          "parameter_bytes": 0,
+          "return_offset": 65535,
+          "parameters": []
+        }
+      ]
+    },
+    {
+      "path": "/Script/CoreUObject.Vector",
+      "index": 8483,
+      "kind": "ScriptStruct",
+      "properties": [
+        {
+          "name": "X",
+          "descriptor": "0x4e2dea20",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001041000205",
+          "offset": "0x0"
+        },
+        {
+          "name": "Y",
+          "descriptor": "0x4e2dea90",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001041000205",
+          "offset": "0x8"
+        },
+        {
+          "name": "Z",
+          "descriptor": "0x4e2deb00",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001041000205",
+          "offset": "0x10"
+        }
+      ],
+      "functions": []
+    },
+    {
+      "path": "/Script/CoreUObject.Rotator",
+      "index": 8576,
+      "kind": "ScriptStruct",
+      "properties": [
+        {
+          "name": "Pitch",
+          "descriptor": "0x52492070",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001041000205",
+          "offset": "0x0"
+        },
+        {
+          "name": "Yaw",
+          "descriptor": "0x524920e0",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001041000205",
+          "offset": "0x8"
+        },
+        {
+          "name": "Roll",
+          "descriptor": "0x52492150",
+          "type": "DoubleProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001041000205",
+          "offset": "0x10"
+        }
+      ],
+      "functions": []
+    },
+    {
+      "path": "/Script/InputCore.Key",
+      "index": 8657,
+      "kind": "ScriptStruct",
+      "properties": [
+        {
+          "name": "KeyName",
+          "descriptor": "0x497b0bca0",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x48001040000201",
+          "offset": "0x0"
+        }
+      ],
+      "functions": []
+    },
+    {
+      "path": "/Script/CoreUObject.AssetData",
+      "index": 9443,
+      "kind": "ScriptStruct",
+      "properties": [
+        {
+          "name": "PackageName",
+          "descriptor": "0x4cf442cb0",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040002214",
+          "offset": "0x0"
+        },
+        {
+          "name": "PackagePath",
+          "descriptor": "0x4cf442d20",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040002214",
+          "offset": "0x8"
+        },
+        {
+          "name": "AssetName",
+          "descriptor": "0x4cf442e00",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040002214",
+          "offset": "0x10"
+        },
+        {
+          "name": "AssetClass",
+          "descriptor": "0x4cf442d90",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040002214",
+          "offset": "0x18"
+        },
+        {
+          "name": "AssetClassPath",
+          "descriptor": "0x4cf47fa80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x18001000002014",
+          "offset": "0x20"
+        }
+      ],
+      "functions": []
+    },
+    {
+      "path": "/Script/GameplayAbilities.GameplayAbilitySpec",
+      "index": 11453,
+      "kind": "ScriptStruct",
+      "properties": [
+        {
+          "name": "Handle",
+          "descriptor": "0x4cff47a80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001000000000",
+          "offset": "0xc"
+        },
+        {
+          "name": "Ability",
+          "descriptor": "0x4cff47b00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x11c001000000200",
+          "offset": "0x10"
+        },
+        {
+          "name": "Level",
+          "descriptor": "0x4cff25db0",
+          "type": "IntProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000200",
+          "offset": "0x18"
+        },
+        {
+          "name": "InputID",
+          "descriptor": "0x4cff25e20",
+          "type": "IntProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000200",
+          "offset": "0x1c"
+        },
+        {
+          "name": "SourceObject",
+          "descriptor": "0x4cff47b80",
+          "type": "WeakObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x1c001040000200",
+          "offset": "0x20"
+        },
+        {
+          "name": "ActiveCount",
+          "descriptor": "0x4cff47c00",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x180010c0000200",
+          "offset": "0x28"
+        },
+        {
+          "name": "InputPressed",
+          "descriptor": "0x4cff47c80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001080000000",
+          "offset": "0x29"
+        },
+        {
+          "name": "RemoveAfterActivation",
+          "descriptor": "0x4cff47d00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001080000000",
+          "offset": "0x29"
+        },
+        {
+          "name": "PendingRemove",
+          "descriptor": "0x4cff47d80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001080000000",
+          "offset": "0x29"
+        },
+        {
+          "name": "bActivateOnce",
+          "descriptor": "0x4cff48100",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001080000000",
+          "offset": "0x29"
+        },
+        {
+          "name": "ActivationInfo",
+          "descriptor": "0x4cff47e00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 20,
+          "property_flags": "0x10001080000000",
+          "offset": "0x40"
+        },
+        {
+          "name": "DynamicAbilityTags",
+          "descriptor": "0x4cff47e80",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 32,
+          "property_flags": "0x10000000000000",
+          "offset": "0x58"
+        },
+        {
+          "name": "NonReplicatedInstances",
+          "descriptor": "0x4cff47f80",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x114000080000200",
+          "offset": "0x78"
+        },
+        {
+          "name": "ReplicatedInstances",
+          "descriptor": "0x4cff48080",
+          "type": "ArrayProperty",
+          "array_dim": 1,
+          "element_size": 16,
+          "property_flags": "0x114000000000200",
+          "offset": "0x88"
+        },
+        {
+          "name": "GameplayEffectHandle",
+          "descriptor": "0x4cff48180",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001080000000",
+          "offset": "0x98"
+        }
+      ],
+      "functions": []
+    }
+  ],
+  "asset_registry_instances": [
+    {
+      "path": "/Script/AssetRegistry.Default__AssetRegistryImpl",
+      "index": 8619
+    }
+  ],
+  "errors": [],
+  "boss_identity_verified": false,
+  "boss_control_verified": false,
+  "scope": "Read-only FName metadata and specific reflected input/ability declarations; no map exploration, spawning, skill activation or save access"
+}

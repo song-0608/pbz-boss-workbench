@@ -1,0 +1,145 @@
+{
+  "id": "007_arrowman_bow",
+  "resource_folder": "007_ArrowMan_Bow",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/BP_Monster_ArrowMan_Bow",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/BP_Monster_ArrowMan_FireBow",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/ActorConfig/ActorC_ArrowMan_Bow",
+    "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/ActorConfig/ActorC_ArrowMan_FireBow"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "1514e61ed88e10e1",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/Bow/Abilities/GA_ArrowMan_Bow_DodgeAttack_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "b0c5fab5af4fa992",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/Bow/Abilities/GA_ArrowMan_Bow_LightAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "276261d4821e9320",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/Bow/Abilities/GA_ArrowMan_Bow_Skill_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "be1ac15b2766c3c0",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/Bow/Abilities/GA_ArrowMan_Bow_Skill_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "08b5ba63f2d9fc9b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/FireBow/Abilities/GA_ArrowMan_FireBow_MiddleAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6a876d8b379f0bbd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/FireBow/Abilities/GA_ArrowMan_FireBow_Skill_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "86471ffc4db727fa",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/FireBow/Abilities/GA_ArrowMan_FireBow_Skill_05",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3ceffb22567a472c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/007_ArrowMan_Bow/Ability/FireBow/Abilities/GA_ArrowMan_FireBow_SpecialAttack_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

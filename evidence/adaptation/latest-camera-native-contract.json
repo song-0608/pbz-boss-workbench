@@ -1,0 +1,784 @@
+{
+  "at": "2026-11-15T13:15:16.976091+08:00",
+  "pid": 38132,
+  "functions": [
+    {
+      "path": "/Script/Engine.ActorComponent.IsBeingDestroyed",
+      "parameter_bytes": 1,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3ef5c8d00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.ActorComponent.IsComponentTickEnabled",
+      "parameter_bytes": 1,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3ef5c8c00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.ActorComponent.K2_DestroyComponent",
+      "parameter_bytes": 8,
+      "parameters": [
+        {
+          "name": "Object",
+          "descriptor": "0x3ef5c8b00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000280",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.ActorComponent.SetComponentTickEnabled",
+      "parameter_bytes": 1,
+      "parameters": [
+        {
+          "name": "bEnabled",
+          "descriptor": "0x3ef5ca280",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.KismetSystemLibrary.IsValid",
+      "parameter_bytes": 9,
+      "parameters": [
+        {
+          "name": "Object",
+          "descriptor": "0x3ef766c00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000282",
+          "offset": "0x0"
+        },
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3ef766d00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x8"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SceneComponent.GetAttachParent",
+      "parameter_bytes": 8,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3efc6f500",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000080788",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SceneComponent.K2_AttachToComponent",
+      "parameter_bytes": 21,
+      "parameters": [
+        {
+          "name": "Parent",
+          "descriptor": "0x3efc86f00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000080280",
+          "offset": "0x0"
+        },
+        {
+          "name": "SocketName",
+          "descriptor": "0x3efa87010",
+          "type": "NameProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001040000280",
+          "offset": "0x8"
+        },
+        {
+          "name": "LocationRule",
+          "descriptor": "0x3efc87000",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x10"
+        },
+        {
+          "name": "RotationRule",
+          "descriptor": "0x3efc87080",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x11"
+        },
+        {
+          "name": "ScaleRule",
+          "descriptor": "0x3efc87180",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x12"
+        },
+        {
+          "name": "bWeldSimulatedBodies",
+          "descriptor": "0x3efc87200",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x13"
+        },
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3efc84300",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x14"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SceneComponent.K2_GetComponentLocation",
+      "parameter_bytes": 24,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3efc86b00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SceneComponent.K2_GetComponentRotation",
+      "parameter_bytes": 24,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3efc86a00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SceneComponent.K2_SetWorldRotation",
+      "parameter_bytes": 289,
+      "parameters": [
+        {
+          "name": "NewRotation",
+          "descriptor": "0x3efc88780",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10001040000280",
+          "offset": "0x0"
+        },
+        {
+          "name": "bSweep",
+          "descriptor": "0x3efc88800",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18041040000280",
+          "offset": "0x18"
+        },
+        {
+          "name": "SweepHitResult",
+          "descriptor": "0x3efc88880",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 256,
+          "property_flags": "0x10049040000180",
+          "offset": "0x20"
+        },
+        {
+          "name": "bTeleport",
+          "descriptor": "0x3efc88b80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18041040000280",
+          "offset": "0x120"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SceneComponent.SetAbsolute",
+      "parameter_bytes": 3,
+      "parameters": [
+        {
+          "name": "bNewAbsoluteLocation",
+          "descriptor": "0x3efc8b500",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x0"
+        },
+        {
+          "name": "bNewAbsoluteRotation",
+          "descriptor": "0x3efc8b580",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x1"
+        },
+        {
+          "name": "bNewAbsoluteScale",
+          "descriptor": "0x3efc82100",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x2"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.Actor.AddComponentByClass",
+      "parameter_bytes": 128,
+      "parameters": [
+        {
+          "name": "Class",
+          "descriptor": "0x3f03fe780",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x1c001000000280",
+          "offset": "0x0"
+        },
+        {
+          "name": "bManualAttachment",
+          "descriptor": "0x3f03fe800",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x8"
+        },
+        {
+          "name": "RelativeTransform",
+          "descriptor": "0x3f03fe880",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 96,
+          "property_flags": "0x18001048000182",
+          "offset": "0x10"
+        },
+        {
+          "name": "bDeferredFinish",
+          "descriptor": "0x3f03fe900",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x70"
+        },
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f03fec00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000080788",
+          "offset": "0x78"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.Actor.GetActorScale3D",
+      "parameter_bytes": 24,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f04a0580",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.Actor.GetLocalRole",
+      "parameter_bytes": 1,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f04a2d00",
+          "type": "ByteProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.Actor.IsActorBeingDestroyed",
+      "parameter_bytes": 1,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f04a3c00",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.CameraComponent.SetFieldOfView",
+      "parameter_bytes": 4,
+      "parameters": [
+        {
+          "name": "InFieldOfView",
+          "descriptor": "0x3f0f54290",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000280",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.CapsuleComponent.GetScaledCapsuleHalfHeight",
+      "parameter_bytes": 4,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f10c7320",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.CapsuleComponent.GetScaledCapsuleRadius",
+      "parameter_bytes": 4,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f10c7240",
+          "type": "FloatProperty",
+          "array_dim": 1,
+          "element_size": 4,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.SpringArmComponent.IsCollisionFixApplied",
+      "parameter_bytes": 1,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f11c6f80",
+          "type": "BoolProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.GameplayStatics.BeginDeferredActorSpawnFromClass",
+      "parameter_bytes": 144,
+      "parameters": [
+        {
+          "name": "WorldContextObject",
+          "descriptor": "0x3f11cbc00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000282",
+          "offset": "0x0"
+        },
+        {
+          "name": "ActorClass",
+          "descriptor": "0x3f11cbc80",
+          "type": "ClassProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x1c001000000280",
+          "offset": "0x8"
+        },
+        {
+          "name": "SpawnTransform",
+          "descriptor": "0x3f11cbd00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 96,
+          "property_flags": "0x18001048000182",
+          "offset": "0x10"
+        },
+        {
+          "name": "CollisionHandlingOverride",
+          "descriptor": "0x3f11cbd80",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x70"
+        },
+        {
+          "name": "Owner",
+          "descriptor": "0x3f11cbe00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000280",
+          "offset": "0x78"
+        },
+        {
+          "name": "TransformScaleMethod",
+          "descriptor": "0x3f11cbf00",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x80"
+        },
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f11cc000",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000780",
+          "offset": "0x88"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.GameplayStatics.FinishSpawningActor",
+      "parameter_bytes": 128,
+      "parameters": [
+        {
+          "name": "Actor",
+          "descriptor": "0x3f11cf880",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000280",
+          "offset": "0x0"
+        },
+        {
+          "name": "SpawnTransform",
+          "descriptor": "0x3f11cf900",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 96,
+          "property_flags": "0x18001048000182",
+          "offset": "0x10"
+        },
+        {
+          "name": "TransformScaleMethod",
+          "descriptor": "0x3f11cfa00",
+          "type": "EnumProperty",
+          "array_dim": 1,
+          "element_size": 1,
+          "property_flags": "0x18001040000280",
+          "offset": "0x70"
+        },
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f11cfb00",
+          "type": "ObjectProperty",
+          "array_dim": 1,
+          "element_size": 8,
+          "property_flags": "0x18001000000780",
+          "offset": "0x78"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.KismetMathLibrary.MakeTransform",
+      "parameter_bytes": 176,
+      "parameters": [
+        {
+          "name": "Location",
+          "descriptor": "0x3f126e000",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040000280",
+          "offset": "0x0"
+        },
+        {
+          "name": "Rotation",
+          "descriptor": "0x3f126e080",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10001040000280",
+          "offset": "0x18"
+        },
+        {
+          "name": "Scale",
+          "descriptor": "0x3f126e100",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040000280",
+          "offset": "0x30"
+        },
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f126e200",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 96,
+          "property_flags": "0x18001040000580",
+          "offset": "0x50"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.PlayerCameraManager.GetCameraLocation",
+      "parameter_bytes": 24,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f132b300",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x18001040000780",
+          "offset": "0x0"
+        }
+      ]
+    },
+    {
+      "path": "/Script/Engine.PlayerCameraManager.GetCameraRotation",
+      "parameter_bytes": 24,
+      "parameters": [
+        {
+          "name": "ReturnValue",
+          "descriptor": "0x3f132ad00",
+          "type": "StructProperty",
+          "array_dim": 1,
+          "element_size": 24,
+          "property_flags": "0x10001040000780",
+          "offset": "0x0"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "owner": "/Script/Engine.Actor",
+      "name": "RemoteRole",
+      "descriptor": "0x3f04ab900",
+      "type": "ByteProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x48001040022a21",
+      "offset": "0x61"
+    },
+    {
+      "owner": "/Script/Engine.Actor",
+      "name": "Role",
+      "descriptor": "0x3f04ac480",
+      "type": "ByteProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x48001040020a21",
+      "offset": "0x168"
+    },
+    {
+      "owner": "/Script/Engine.Actor",
+      "name": "RootComponent",
+      "descriptor": "0x3f04aa900",
+      "type": "ObjectProperty",
+      "array_dim": 1,
+      "element_size": 8,
+      "property_flags": "0x12c08100008021c",
+      "offset": "0x1b8"
+    },
+    {
+      "owner": "/Script/Engine.CameraActor",
+      "name": "CameraComponent",
+      "descriptor": "0x3f0fa0f00",
+      "type": "ObjectProperty",
+      "array_dim": 1,
+      "element_size": 8,
+      "property_flags": "0x14c0010000a021d",
+      "offset": "0x2b8"
+    },
+    {
+      "owner": "/Script/Engine.CameraComponent",
+      "name": "bConstrainAspectRatio",
+      "descriptor": "0x3f0fa1200",
+      "type": "BoolProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x18001200000005",
+      "offset": "0x279"
+    },
+    {
+      "owner": "/Script/Engine.CameraComponent",
+      "name": "bUsePawnControlRotation",
+      "descriptor": "0x3f0fa1580",
+      "type": "BoolProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x18001000000005",
+      "offset": "0x292"
+    },
+    {
+      "owner": "/Script/Engine.Character",
+      "name": "CapsuleComponent",
+      "descriptor": "0x3f05d4080",
+      "type": "ObjectProperty",
+      "array_dim": 1,
+      "element_size": 8,
+      "property_flags": "0x14c0010000a021d",
+      "offset": "0x340"
+    },
+    {
+      "owner": "/Script/Engine.CapsuleComponent",
+      "name": "CapsuleHalfHeight",
+      "descriptor": "0x3f10c6a60",
+      "type": "FloatProperty",
+      "array_dim": 1,
+      "element_size": 4,
+      "property_flags": "0x2808104000021d",
+      "offset": "0x548"
+    },
+    {
+      "owner": "/Script/Engine.CapsuleComponent",
+      "name": "CapsuleRadius",
+      "descriptor": "0x3f10c6ad0",
+      "type": "FloatProperty",
+      "array_dim": 1,
+      "element_size": 4,
+      "property_flags": "0x2808104000021d",
+      "offset": "0x54c"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "TargetArmLength",
+      "descriptor": "0x3f11a6d70",
+      "type": "FloatProperty",
+      "array_dim": 1,
+      "element_size": 4,
+      "property_flags": "0x18001040000205",
+      "offset": "0x250"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "SocketOffset",
+      "descriptor": "0x3f11c6880",
+      "type": "StructProperty",
+      "array_dim": 1,
+      "element_size": 24,
+      "property_flags": "0x18001040000205",
+      "offset": "0x258"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "TargetOffset",
+      "descriptor": "0x3f11c6900",
+      "type": "StructProperty",
+      "array_dim": 1,
+      "element_size": 24,
+      "property_flags": "0x18001040000205",
+      "offset": "0x270"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "ProbeSize",
+      "descriptor": "0x3f11a6de0",
+      "type": "FloatProperty",
+      "array_dim": 1,
+      "element_size": 4,
+      "property_flags": "0x18001040000205",
+      "offset": "0x288"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "ProbeChannel",
+      "descriptor": "0x3f11c6a00",
+      "type": "ByteProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x18001040000205",
+      "offset": "0x28c"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "bDoCollisionTest",
+      "descriptor": "0x3f11c6a80",
+      "type": "BoolProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x18001000000005",
+      "offset": "0x290"
+    },
+    {
+      "owner": "/Script/Engine.SpringArmComponent",
+      "name": "bUsePawnControlRotation",
+      "descriptor": "0x3f11c6b00",
+      "type": "BoolProperty",
+      "array_dim": 1,
+      "element_size": 1,
+      "property_flags": "0x18001000000005",
+      "offset": "0x290"
+    }
+  ],
+  "missing_functions": [],
+  "missing_properties": [],
+  "passed": true,
+  "scope": "Native camera declarations only; no camera creation or gameplay calls"
+}

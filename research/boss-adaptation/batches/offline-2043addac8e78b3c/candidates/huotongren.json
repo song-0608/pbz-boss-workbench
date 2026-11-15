@@ -1,0 +1,539 @@
+{
+  "id": "huotongren",
+  "resource_folder": "HuoTongRen",
+  "enabled": false,
+  "playable": false,
+  "boss_identity_verified": false,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "class_candidates": [
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BP_Monster_HuoJinRen_JiuHuanDao_Summon",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BP_Monster_HuoJinRen_TongGun_Summon",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BP_Monster_HuoTongRen",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoJinRen_Fist_ForBiHai",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoJinRen_JiuHuanDao_ForBiHai",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoJinRen_TongGun_ForBiHai",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoTieRen_Fist_ForBiHai",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ForBiHaiSummons/BP_Monster_HuoTieRen_JiuHuanDao_ForBiHai",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoJinRen_BP/BP_Monster_HuoJinRen_Fist",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoJinRen_BP/BP_Monster_HuoJinRen_TongGun",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTieRen_BP/BP_Monster_HuoTieRen_Fist",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTieRen_BP/BP_Monster_HuoTieRen_TongGun",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    },
+    {
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/HuoTongRen_BP/BP_Monster_HuoTongRen_Fist",
+      "observed_class_path": null,
+      "lineage_verified": false,
+      "config_binding_verified": false
+    }
+  ],
+  "config_candidates": [
+    "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_Fist",
+    "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_Fist_Summon",
+    "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_JiuHuanDao",
+    "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/ActorC_HuoTongRen_TongGun",
+    "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/GoldMan/ActorC_HuoTongRen_Gold_Fist",
+    "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/ActorData/IronMan/ActorC_HuoTongRen_Iron_Fist"
+  ],
+  "selected_class": null,
+  "selected_config": null,
+  "skills": [
+    {
+      "id": "454cd9a84df31c4a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_AutoCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a69d8e5fb381ad10",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Dodge_F_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "3f5dca8b58b08a42",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "800d01fccf2f1e3e",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_01_Combo01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "48e641ec3fca3c4c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "7c8fc1f54ab227df",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_01_Combo1",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6207282096f362fd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "41daef7968ba4bbf",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "25f89b41e08c513b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8b68e988df1a9481",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Troop_04",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "52955bfc97063e86",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Dodge_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d445a5adcfe345f2",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "88951b69744f5ccc",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Skill_01_Child",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "6ddb7489a8aa2a9b",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Skill_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "4132983bb9aed391",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_SpecialAttack_03",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e9491effdcd6698d",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_SpecialAttack_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "d2e52b6981ff8457",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_JiuHuanDao/Abilities/GA_HuoTongRen_JiuHuanDao_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "2a0deb7df947c969",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/Dodge/GA_HuoTongRen_TongGun_Dodge_B_02",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "ee3e60cec1e91208",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/Dodge/GA_HuoTongRen_TongGun_Dodge_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "fe299c801130c641",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_01",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "828cff1ee45c5280",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_04_Child",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "1b8eaea17a3b7fdf",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_06",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "0571866230f06842",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Skill_06_Child",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "f7789384843fb976",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_TongGun/Abilities/GA_HuoTongRen_TongGun_Stance",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a759f156b03e0660",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Intro/GA_HuoTongRen_CommonSummon_Intro",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "8bb5899b12922037",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Passive/GA_HuoTongRen_ShieldPassive",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "e4aad62084f7077a",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Passive/GA_HuoTongRen_ShieldPassive_Summon",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "9d07fc3a3818e5da",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Summon/GA_Monster_HuoTongRen_Summon_Init_AutoCombo",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "105087023d17f1cd",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/GA_HuoTongRen_Troops_01_NotUse",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "982edcea53f21a27",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Fist",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "4464b8e571ea4d0c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Knife",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "57717193d269bc0f",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Stick",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "54ad1e0cee17e595",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_End_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a065cb49f590438c",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_Start_L",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    },
+    {
+      "id": "a6563c4b3f10bae6",
+      "package": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_Start_R",
+      "observed_class_path": null,
+      "role": "ability_clue",
+      "player_key": null,
+      "granted_to_selected_actor": false,
+      "natural_finish_verified": false,
+      "active_cancel_restore_verified": false,
+      "gameplay_or_movement_verified": false,
+      "evidence": []
+    }
+  ],
+  "runtime_gates": {
+    "current_world_identity": "not_verified",
+    "actor_config_binding": "not_verified",
+    "boss_identity": "not_verified",
+    "granted_abilities": "not_verified",
+    "ai_suspend_restore": "not_verified",
+    "camera_input_restore": "not_verified",
+    "natural_finish": "not_verified",
+    "active_cancel_restore": "not_verified",
+    "damage_or_movement": "not_verified",
+    "owned_disposal_restore": "not_verified",
+    "stability_600s": "not_verified",
+    "native_menu_world_cycle": "not_verified",
+    "performance_cache_and_timing": "not_verified"
+  },
+  "runtime_session_allowed": false,
+  "blockers": [
+    "Exact Boss identity, class/config binding and granted abilities need their own evidence."
+  ]
+}

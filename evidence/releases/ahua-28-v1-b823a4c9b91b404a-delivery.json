@@ -1,0 +1,30 @@
+{
+  "release_id": "ahua-28-v1-b823a4c9b91b404a",
+  "complete_mod": true,
+  "installed_and_enabled": true,
+  "archive": "D:\\mod文档\\PBZ-Boss操控研究\\releases\\ahua-28-v1-b823a4c9b91b404a.zip",
+  "archive_sha256": "376e6ec79353e680b60143a1de1474e59be430a9f17373e9886b387e632a4ca3",
+  "archive_bytes": 101101,
+  "payload_files": 47,
+  "archive_manifest_and_payload_verified": true,
+  "acceptance_report": "evidence/releases/ahua-28-v1-b823a4c9b91b404a-acceptance.json",
+  "acceptance_report_sha256": "160d444605bcfd906db0195832a1f7abcb6102ad14186b36f2e62fb4cb8e0309",
+  "gates": {
+    "local_checks_current": true,
+    "installed_candidate_used_and_closed": true,
+    "all_28_natural_and_restored": true,
+    "all_28_active_cancel_and_restored": true,
+    "all_29_actual_bindings": true,
+    "full_600_seconds_and_continuous_active": true,
+    "ordinary_native_menu_world_cycle": true
+  },
+  "scope": "local-protected-offline-launcher",
+  "game_started_for_packaging": false,
+  "documentation_synced_at": "2026-11-14T22:07:20.783302+08:00",
+  "launcher_local_checks": "evidence/adaptation/ahua-delivery-local-checks.json",
+  "launcher_local_checks_sha256": "fa31d78559fb4d6e093b7379b457007b840ae058836ef8e77b7d70a57a51f4e1",
+  "immutable_release_local_checks": "evidence/releases/ahua-28-v1-b823a4c9b91b404a-local-checks.json",
+  "final_postcheck": "evidence/official-validation/20261114-215405/postcheck.json",
+  "status_history": "D:\\mod文档\\PBZ-Boss操控研究\\evidence\\status-history\\20261114-v1-delivery-220720",
+  "usage_document": "59-阿花v1交付说明.md"
+}
