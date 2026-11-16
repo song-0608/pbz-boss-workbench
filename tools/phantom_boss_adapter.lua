@@ -11,7 +11,7 @@ local function same(a,b)
         and a.class==b.class and a.world==b.world
 end
 
-function M.attach(api, config, host, protocol)
+function M.attach(api, config, host, protocol, enemy_fence)
     assert(api.version=='1.7.3','unsupported Phantom Pact API')
     local coop, net, game = assert(api.coop), assert(api.coop.net), assert(api.game)
     assert(type(coop.handlers)=='table' and type(coop.sendEvent)=='function')
@@ -26,23 +26,39 @@ function M.attach(api, config, host, protocol)
     assert(type(original_list)=='function' and type(original_cached)=='function')
     local self = { closed=false, owned={}, owned_count=0, local_body=nil, world=nil,
         last_poll=-math.huge, status='awaiting transport', remote_body_pending=true }
-    local role=coop.isHost() and 'host' or 'guest'
-    local function revoke(reason)
+    assert(type(enemy_fence)=='table' and type(enemy_fence.new)=='function','enemy isolation module required')
+    local fence=enemy_fence.new(coop,game,function(actor,addr) return self:exclude(actor,addr) end)
+    local role=assert(config.role,'explicit instance role required')
+    assert(role=='host' or role=='guest','invalid instance role')
+    local function invalidate(reason)
         self.status=reason
+        if self.invalidated_reason==reason then return end
+        self.invalidated_reason=reason
+        coop.retireWorkbenchGhosts() -- park old native clones before accepting another identity
+    end
+    local function revoke(reason)
+        invalidate(reason)
         if self.revoked_reason==reason then return end
         self.revoked_reason=reason
-        coop.retireWorkbenchGhosts() -- park old native clones before accepting another identity
-        host.on_revoke(reason) -- launcher/controller must revoke its research possession lease
+        net.enabled=false
+        local ok,result=pcall(host.on_revoke,reason)
+        self.restore_pending=not ok or result~=true
+        if self.restore_pending then host.log('BWB possession restoration unverified: '..tostring(reason)) end
+    end
+    local function protocol_invalidated(reason)
+        invalidate(reason)
+        if reason=='transport disconnected' or reason=='peer timeout'
+            or reason=='catalog or game build mismatch' or reason=='bridge closed' then revoke(reason) end
     end
     local state = protocol.new { role=role, session=config.session, catalog=config.catalog_sha256,
         build=config.exe_sha256, bosses=config.bosses,
         send=function(kind,line) coop.sendEvent(kind,line) end,
         on_ready=function(on,reason)
             self.status=on and 'identity ready; Boss ghost assembly unaccepted' or reason
-            if on then self.revoked_reason=nil end
-            if not on then revoke(reason) end
+            if on then self.revoked_reason,self.invalidated_reason=nil,nil end
+            if not on then protocol_invalidated(reason) end
         end,
-        on_clear=function(reason) revoke(reason) end,
+        on_clear=protocol_invalidated,
         on_identity=function() self.remote_body_pending=true end,
         -- Explicitly no on_action: the control plane cannot grant an ability or apply a hit.
     }
@@ -56,6 +72,7 @@ function M.attach(api, config, host, protocol)
         local old=self.owned[row.address]
         if not old then assert(self.owned_count<32,'owned actor limit'); self.owned_count=self.owned_count+1 end
         self.owned[row.address]={address=row.address,name=row.name,class=row.class,world=row.world,kind=kind}
+        fence:purge(row)
     end
     function self:exclude(actor,addr)
         local owned=self.owned[addr]
@@ -74,6 +91,17 @@ function M.attach(api, config, host, protocol)
             end
         end
         return out,addrs
+    end
+    function self:allow_enemy_name(name) return fence:allow_name(name) end
+    function self:allow_enemy_event(kind,...) return fence:allow_event(kind,...) end
+    function self:allow_enemy_actor(actor,addr)
+        if actor==nil then return true end
+        if addr==nil then
+            local ok,value=pcall(function() return actor:GetAddress() end)
+            if not ok then return false end
+            addr=value
+        end
+        return not self:exclude(actor,addr)
     end
     function self:allow_legacy_ghost()
         -- Boss classes cannot fall through to the receiver's own Pawn class.
@@ -112,6 +140,7 @@ function M.attach(api, config, host, protocol)
         if self.world~=snapshot.world then
             state:world_changed(now)
             self.owned,self.owned_count,self.local_body={},0,nil
+            fence:reset()
             self.world=snapshot.world
         end
         local boss=class_to_boss[snapshot.body.class]
@@ -128,14 +157,16 @@ function M.attach(api, config, host, protocol)
         state:tick(now)
     end
     function self:close()
-        if self.closed then return end
+        if self.closed then return not self.restore_pending end
         self.closed=true
+        revoke('bridge closed')
         if coop.handlers[protocol.EVENT]==handler then coop.handlers[protocol.EVENT]=nil end
         if game.listEnemies==wrapped_list then game.listEnemies=original_list end
         if game.enemiesSoFar==wrapped_cached then game.enemiesSoFar=original_cached end
         state:close()
         self.owned,self.owned_count={},0
         if self.cancel then self.cancel() end
+        return not self.restore_pending
     end
     local scheduled,cancel=pcall(host.schedule,100,function()
         local ok,why=pcall(self.poll,self)

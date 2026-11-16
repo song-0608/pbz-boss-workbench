@@ -16,11 +16,11 @@ RELEASE_SHA = '5cb110f21013baea5ae714ad334c54dcd7fb0215e35b697e6559004cd8235d0d'
 SCRIPTS = 'mod/PBZCoop/Scripts/'
 SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_catalog.lua',
            'tools/phantom_boss_protocol.lua', 'tools/phantom_boss_adapter.lua',
-           'tools/phantom_boss_entry.lua', 'tools/phantom_boss_host.lua')
+           'tools/phantom_boss_entry.lua', 'tools/phantom_boss_host.lua',
+           'tools/phantom_boss_enemy_fence.lua', 'tools/prepare_phantom_boss_pair.py')
 PENDING = [
     'dedicated online research launcher, lease issuer and local possession restoration',
     'Boss-specific ghost assembly, harmless effects and same-world parking contract',
-    'owned Boss removal from already-built enemy synchronization maps',
     'whitelisted visual action playback and measured host damage attribution',
     'two independent clients: real relay, different Bosses, world switch and reconnect',
 ]
@@ -129,6 +129,11 @@ def patches():
             ('. F6 PvP', '. HOME online panel | END follow partner | BWB research'),
         ],
         'coop.lua': [
+            ('    local function sendEvent(kind, ...)\n',
+             '    local function sendEvent(kind, ...)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_event(kind, ...) then return end\n'),
+            ('            if h then\n',
+             '            if h and (not api.bossWorkbench or api.bossWorkbench:allow_enemy_event(kind, rest)) then\n'),
             ('    local function spawnGhost(p)\n',
              '    local function spawnGhost(p)\n'
              '        -- BWB: never clone the receiving player for a different remote Boss.\n'
@@ -136,9 +141,64 @@ def patches():
             ('    local function tick()\n',
              '    local function tick()\n'
              '        if api.bossWorkbench and api.bossWorkbench.disabled then return end\n'),
+            ('            if addr ~= net.ghostAddr and not net.ghostSlots[addr] then',
+             '            if (not api.bossWorkbench or api.bossWorkbench:allow_enemy_actor(e, addr))\n'
+             '                and addr ~= net.ghostAddr and not net.ghostSlots[addr] then'),
+            ('    local function shareEnemy(actor, addr, aggro)\n',
+             '    local function shareEnemy(actor, addr, aggro)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_actor(actor, addr) then return end\n'),
+            ('    local function syncEnemy(name, actor, nextSeen, held)\n',
+             '    local function syncEnemy(name, actor, nextSeen, held)\n'
+             '        if api.bossWorkbench and (not api.bossWorkbench:allow_enemy_name(name)\n'
+             '            or not api.bossWorkbench:allow_enemy_actor(actor)) then return end\n'),
+            ('    local function reportHit(id, enemy, hpDamage, postureDamage, lethal)\n',
+             '    local function reportHit(id, enemy, hpDamage, postureDamage, lethal)\n'
+             '        if api.bossWorkbench and (not api.bossWorkbench:allow_enemy_name(id)\n'
+             '            or not api.bossWorkbench:allow_enemy_actor(enemy)) then return end\n'),
+            ('            if who and not justKilled and (isHost()',
+             '            if who and (not api.bossWorkbench or api.bossWorkbench:allow_enemy_name(who.name))\n'
+             '                and not justKilled and (isHost()'),
+            ('        enemyActor = function(name)\n            return enemyByName[name]\n',
+             '        enemyActor = function(name)\n'
+             '            if api.bossWorkbench and (not api.bossWorkbench:allow_enemy_name(name)\n'
+             '                or not api.bossWorkbench:allow_enemy_actor(enemyByName[name])) then return nil end\n'
+             '            return enemyByName[name]\n'),
             ('        handlers = handlers,       -- event type -> function(rest); other modules add their own types',
              '        retireWorkbenchGhosts = function() destroyGhosts() end, -- BWB: preserve native clone parking\n'
+             '        workbenchEnemyState = function()\n'
+             '            return {net=net,reach=reach,round=round,handover=handover,\n'
+             '                names=enemyByName,seen=seen,puppets=api.puppets}\n'
+             '        end,\n'
              '        handlers = handlers,       -- event type -> function(rest); other modules add their own types'),
+            *[(f'    handlers.{kind} = function({signature})\n',
+               f'    handlers.{kind} = function({signature})\n'
+               f'        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_event("{kind}", {argument}) then return end\n')
+              for kind, signature, argument in (
+                  ('N','rest','rest'), ('RUN','rest','rest'), ('GK','name','name'),
+                  ('K','name, _, quiet','name'), ('D','rest, from','rest'),
+                  ('LR','rest, from','rest'), ('HAS','name, from','name'),
+                  ('NOT','name, from','name'), ('BEATEN','name, from','name'), ('B','name, from','name'))],
+        ],
+        'puppets.lua': [
+            ('    function puppets.watchHost(name, actor, addr)\n',
+             '    function puppets.watchHost(name, actor, addr)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_actor(actor, addr) then return end\n'),
+            ('    function puppets.follow(name, actor, target)\n',
+             '    function puppets.follow(name, actor, target)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_actor(actor) then return end\n'),
+            ('    function puppets.release(addr)\n',
+             '    function puppets.forgetWorkbenchActor(addr, owned, names)\n'
+             '        local p = byAddr[addr]\n'
+             '        local removed = p and owned(p.actor, addr)\n'
+             '        if removed then byAddr[addr] = nil end\n'
+             '        if removed or next(names) ~= nil then hostMoves[addr] = nil end\n'
+             '        for name in pairs(names) do hostSeen[name] = nil end\n'
+             '        if (removed or next(names) ~= nil) and game.freeCopy then game.freeCopy(addr, true) end\n'
+             '    end\n\n'
+             '    function puppets.release(addr)\n'),
+            ('    coop.handlers.A = function(rest, from)\n',
+             '    coop.handlers.A = function(rest, from)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_event("A", rest) then return end\n'),
         ],
         'onlinepanel.lua': [
             ('controller:IsInputKeyDown(kit.key("F5"))', 'controller:IsInputKeyDown(kit.key("Home"))'),
@@ -200,8 +260,8 @@ def build(source=None, lua_lab=None, root=ROOT):
     config = dict(bosses=bosses, catalog_sha256=catalog_sha, exe_sha256=accepted['exe_sha256'],
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
-    for local, target in (('protocol', 'protocol'), ('adapter', 'adapter'), ('entry', 'entry'), ('host', 'host')):
-        contents[f'PBZCoop/Scripts/bwb_{target}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
+    for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence'):
+        contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in patches():
         contents['upstream-local-patches/' + name] = patch_source(
             name, (source / SCRIPTS / name).read_text(encoding='utf-8')).encode()

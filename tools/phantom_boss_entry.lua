@@ -15,15 +15,23 @@ return function(api, directory)
         and launch.expires_at<=os.time()+1200,'bounded online research lease required')
     assert(launch.exe_sha256==config.exe_sha256 and launch.catalog_sha256==config.catalog_sha256,
         'online research build/catalog mismatch')
+    assert(launch.role=='host' or launch.role=='guest','explicit online instance role required')
     local supplied=launch.host
     if supplied==nil then supplied=dofile(directory..'bwb_host.lua').new(api,launch,_G) end
     assert(type(supplied)=='table','trusted research host required')
     local host={}; for key,value in pairs(supplied) do host[key]=value end
     config.session=launch.session
+    config.role=launch.role
     local original_snapshot=host.snapshot
     host.snapshot=function()
         assert(os.time()<launch.expires_at,'online research session expired')
         return original_snapshot()
     end
-    return dofile(directory..'bwb_adapter.lua').attach(api,config,host,dofile(directory..'bwb_protocol.lua'))
+    -- Upstream starts with net.role='host', including on a guest, and autostart runs
+    -- later. Bind the instance role before installing the observer/handler.
+    local expected_role=launch.role=='host' and 'host' or 'client'
+    assert(not api.coop.net.enabled or api.coop.net.role==expected_role,'active relay role mismatch')
+    if not api.coop.net.enabled then api.coop.net.role=expected_role end
+    return dofile(directory..'bwb_adapter.lua').attach(api,config,host,
+        dofile(directory..'bwb_protocol.lua'),dofile(directory..'bwb_enemy_fence.lua'))
 end

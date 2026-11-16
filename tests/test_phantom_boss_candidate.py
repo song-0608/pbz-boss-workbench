@@ -70,7 +70,7 @@ class CandidateTests(unittest.TestCase):
                     'native_relay_executed', 'runtime_tests_inherited'):
             self.assertIs(self.manifest[key], False)
         self.assertTrue(self.manifest['source_only'])
-        self.assertEqual(len(self.manifest['pending']), 5)
+        self.assertEqual(len(self.manifest['pending']), 4)
 
     def test_all_patches_are_exact_unique_reversible_edits(self):
         for name, replacements in candidate.patches().items():

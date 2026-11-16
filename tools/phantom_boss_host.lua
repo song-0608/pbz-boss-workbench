@@ -39,7 +39,7 @@ function M.new(api,launch,globals)
     local function check_lease()
         assert(launch.mode=='two-player-online-research' and launch.session==expected_session
             and launch.exe_sha256==expected_build and launch.catalog_sha256==expected_catalog
-            and launch.native_player_class==native_class
+            and launch.native_player_class==native_class and launch.revoke_control==revoke
             and launch.expires_at==expires and os.time()<expires,'online research lease expired or changed')
     end
     check_lease()

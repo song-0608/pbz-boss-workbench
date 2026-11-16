@@ -28,8 +28,9 @@ def verify(path=None):
     _, accepted = verify_release(ROOT)
     assert report['singleplayer_payload_files_verified'] == len(accepted['files'])
     assert report['personal_settings_and_singleplayer_unchanged'] is True
-    counts = {'protocol_simulation': 16, 'adapter_mocked_api': 18, 'candidate_python': 14,
-              'entry_mocked_research_lease': 6, 'host_fake_uobjects': 9, 'patched_lua_compile_only': 11}
+    counts = {'protocol_simulation': 16, 'adapter_mocked_api': 22, 'candidate_python': 14,
+              'entry_mocked_research_lease': 8, 'host_fake_uobjects': 9,
+              'enemy_fence_patched_upstream': 13, 'same_pc_pair_python': 8, 'patched_lua_compile_only': 13}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
     for row in report['checks']:
@@ -38,14 +39,15 @@ def verify(path=None):
         raw = safe_file(ROOT, row['output']).read_bytes()
         assert sha(raw) == row['output_sha256'], 'test log drift'
         output = raw.decode('utf-8')
-        if row['name'] == 'candidate_python':
-            assert re.search(r'Ran 14 tests?', output) and re.search(r'\bOK\b', output)
+        if row['name'] in ('candidate_python','same_pc_pair_python'):
+            assert re.search(r'Ran '+str(row['groups'])+r' tests?', output) and re.search(r'\bOK\b', output)
         elif row['name'] == 'patched_lua_compile_only':
-            assert 'PASS syntax only: 11 candidate Lua files' in output
+            assert 'PASS syntax only: 13 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 63
-    return dict(passed=True, status='backend-milestone-only', groups=63, compiled_lua_files=11,
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence) groups', output)
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 90
+    assert report['syntax_checked_lua_files']==13
+    return dict(passed=True, status='backend-milestone-only', groups=90, compiled_lua_files=13,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

@@ -7,81 +7,98 @@
   "game_started": false,
   "native_relay_executed": false,
   "installed": false,
-  "candidate": "runtime/online-candidates/bwb-phantompact-d45947b6deaf0cd7b162",
-  "candidate_manifest_sha256": "84b78dfeca73c810c257f948d350895cbc03d76e2bddef127ca0d8e732041238",
+  "candidate": "runtime/online-candidates/bwb-phantompact-a5179dcb995075266404",
+  "candidate_manifest_sha256": "b23173112c1ee55aaf49d3710b6784603a8f0a6c8b993a482b2d758b5be9f8ae",
   "singleplayer_payload_files_verified": 62,
   "personal_settings_and_singleplayer_unchanged": true,
   "upstream_commit": "91099b849e474f0326834135ace52dfbab26e520",
   "upstream_reviewed_sources": 19,
   "catalog_bosses": 4,
   "catalog_abilities": 40,
-  "control_plane_test_groups": 63,
-  "syntax_checked_lua_files": 11,
+  "control_plane_test_groups": 90,
+  "syntax_checked_lua_files": 13,
   "checks": [
     {
       "name": "protocol_simulation",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/ec7f92ad3650473389db20eaaa15e708/protocol_simulation.txt",
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/protocol_simulation.txt",
       "output_sha256": "c60a6d3535af976ea71bfc4d3a5193fe8a7eb8679503ec0a2572f2d43ae31eae"
     },
     {
       "name": "adapter_mocked_api",
       "passed": true,
-      "groups": 18,
-      "output": "runtime/online-checks/ec7f92ad3650473389db20eaaa15e708/adapter_mocked_api.txt",
-      "output_sha256": "193b473ad8e3ba3624489adc70fdcb93180d6245680ab79ed54983a6a73faa85"
+      "groups": 22,
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/adapter_mocked_api.txt",
+      "output_sha256": "85b67543d31adbf1e32692063771c1045a22a3a0e854c9b617d74431c2832b52"
     },
     {
       "name": "candidate_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/ec7f92ad3650473389db20eaaa15e708/candidate_python.txt",
-      "output_sha256": "4c02ee10f49804dd968d5d917e18f031d105d94f5666d90453896c896b66e6e0"
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/candidate_python.txt",
+      "output_sha256": "0790b4efcb86c3fc234df7d55d88f80813dd1138213efede8bc044f06724f2f9"
     },
     {
       "name": "entry_mocked_research_lease",
       "passed": true,
-      "groups": 6,
-      "output": "runtime/online-checks/ec7f92ad3650473389db20eaaa15e708/entry_mocked_research_lease.txt",
-      "output_sha256": "594a6a9c43fa6fb15714317c7bdb689c1d983c22893a23433aac059074c29f35"
+      "groups": 8,
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/entry_mocked_research_lease.txt",
+      "output_sha256": "072a937403b3915fb9becc482a2fb1c01821dacca6a4a492cbb4ad7e2b161e79"
     },
     {
       "name": "host_fake_uobjects",
       "passed": true,
       "groups": 9,
-      "output": "runtime/online-checks/ec7f92ad3650473389db20eaaa15e708/host_fake_uobjects.txt",
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/host_fake_uobjects.txt",
       "output_sha256": "dea31001ae2cbf6aab629fa067a52bb93baf91efd0a318a4d17fe7e20bb14562"
+    },
+    {
+      "name": "enemy_fence_patched_upstream",
+      "passed": true,
+      "groups": 13,
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/enemy_fence_patched_upstream.txt",
+      "output_sha256": "911675c399824504b47c265b33cbd52c19bb01044ea9b52a52489279e9112e1a"
+    },
+    {
+      "name": "same_pc_pair_python",
+      "passed": true,
+      "groups": 8,
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/same_pc_pair_python.txt",
+      "output_sha256": "b936081716b2cb36173925f982fb4c4d5756a22dd6fdc2bd273e032df92df528"
     },
     {
       "name": "patched_lua_compile_only",
       "passed": true,
-      "groups": 11,
-      "output": "runtime/online-checks/ec7f92ad3650473389db20eaaa15e708/patched_lua_compile_only.txt",
-      "output_sha256": "4ffc238c7420ca29dae1a8f83163461d572508e15f6ed7b6410c8239b7675fe3"
+      "groups": 13,
+      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/patched_lua_compile_only.txt",
+      "output_sha256": "82dfbe731d8e7b7c1cd61e57ee7b68c6edc37701b02dab8caa8f9159b084523b"
     }
   ],
   "pending": [
     "dedicated online research launcher, lease issuer and local possession restoration",
     "Boss-specific ghost assembly, harmless effects and same-world parking contract",
-    "owned Boss removal from already-built enemy synchronization maps",
     "whitelisted visual action playback and measured host damage attribution",
     "two independent clients: real relay, different Bosses, world switch and reconnect"
   ],
   "source_sha256": {
-    "tools/build_phantom_boss_candidate.py": "e7c754d3fcb4c48d3ec79edf9d3efbe4e7a9e7347c859779943410ceb6a55252",
+    "tools/build_phantom_boss_candidate.py": "4200a25e79f0862e1d5d56cd141b9dddbb52793f43c2e220cdc56f84149aca96",
     "tools/export_phantom_boss_catalog.lua": "44d901f70b57174c296d42192a39fd80d4353c188b0a30a458f70b0e556ea6ac",
     "tools/phantom_boss_protocol.lua": "2ee398ca6edf934ea31a15f9385c711412781e4a59f91aa7a16a9961286f41fa",
-    "tools/phantom_boss_adapter.lua": "c266c880247fa334b9a113a0e0037dde9d8254b27b1d18e873614a0409d4e9d6",
-    "tools/phantom_boss_entry.lua": "fe403db6e8148b48c7b77f06cb1d8ba134dc92d13832f7f5e2e0c728b33c69d3",
-    "tools/phantom_boss_host.lua": "a8ff608baf1a14854e244c0c2f2110cf7c6b4960d2e015d845b083e84f12397d",
+    "tools/phantom_boss_adapter.lua": "9c00611f7707905a7d013ca5fb744c900b94dbca69899ef6fefb5674770600bb",
+    "tools/phantom_boss_entry.lua": "a6ca6f54e5985b74fd0daaef1c60c6ebba8355a0a0bbf11eeb85ad9c17ab0530",
+    "tools/phantom_boss_host.lua": "a893b40d51046707e4145959c92ef53fbcd72980380253478795eea894300a1a",
+    "tools/phantom_boss_enemy_fence.lua": "e520260f4fb72dad3e25735f412e244f642d6130b842ec2db32666928516b836",
+    "tools/prepare_phantom_boss_pair.py": "3ba25510dd8499158b3b44163475921c9dfc053f41c8f941f0d3814c2cdf37bd",
     "tests/test_phantom_boss_protocol.lua": "8f64d61f25490da8ad2067cf67a5a44e13706518a17e94971aa5ef7540daaa6d",
-    "tests/test_phantom_boss_adapter.lua": "bca14bb10b12f5e7b15f1ad2e472c34725e6e74eed72af16e66d7797040edf89",
-    "tests/test_phantom_boss_candidate.py": "2457501a5e080e2714b81dc8e9659ad8f1597cf14ec203e1a0ffc2f7fec151b9",
-    "tests/compile_phantom_boss_candidate.lua": "04f1ace496263e2411af9f4162001efb5c40489a07a33c902f0c918467f1d9d1",
-    "tests/test_phantom_boss_entry.lua": "48f1634d3fd05699ff4a23058fe7442e961ed08006e2fe12fb0ed13ecc8588df",
-    "tests/test_phantom_boss_host.lua": "023ea085c83968cce69bd22b7cd00792a1a9d095e223d88401bb3ed98c433531",
-    "tools/check_phantom_boss_backend.py": "fe223eb7d1d70c7ae7dc90fa266336304f211def8e0cc67c472a8e85da76de2c",
-    "tools/verify_phantom_boss_backend.py": "476facac715d4ca1b41135f8004302850b2d542509ffa3b4aa49b6256f851895"
+    "tests/test_phantom_boss_adapter.lua": "49072ea6df1a718233ff731dd3b412160da3aed115e9db7de7dda6e174a2df4c",
+    "tests/test_phantom_boss_candidate.py": "e3276bd622b2d7409183bc214edca59c64c8771ba8ff20a2f134bd710bb7d1b3",
+    "tests/compile_phantom_boss_candidate.lua": "9670fe2e5835fa94f29855c558d418f130fb5d041adcd4f6086a53e47ee75e3e",
+    "tests/test_phantom_boss_entry.lua": "6c76346dffc16e360a5c82402a9ef085d8948c2459a1d4b59ce7b71f3a7be6f8",
+    "tests/test_phantom_boss_host.lua": "05fda20f33fdde8b90d59d2599ff7e347fb1455679f9d5fbc72326ec8e7dd273",
+    "tests/test_phantom_boss_enemy_fence.lua": "75235909e999d9faeecaf04c377f9137f89338af2271f19762bb84981ee90d47",
+    "tests/test_phantom_boss_pair.py": "1c1d5206c728d0e071ca7184d519f25986357b2242a2069ecce5b989f36cdc4b",
+    "tools/check_phantom_boss_backend.py": "5d38e51f26ecdfae996fb0d9e9ec244f3aa1505db547d262610c20dccead73d6",
+    "tools/verify_phantom_boss_backend.py": "c2eca9cf8a911a974f394293fefa4ad2f2e0cf9247308409ab29969e3d307231"
   }
 }

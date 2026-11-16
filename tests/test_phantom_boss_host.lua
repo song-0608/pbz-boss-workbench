@@ -57,6 +57,9 @@ check('lease mutation and expired lease stop snapshots but permit restoration ca
     local e=engine();e.launch.expires_at=e.launch.expires_at+100;assert(not pcall(e.host.snapshot))
     e.host.on_revoke('expired');assert(#e.revokes==1)
     e=engine();e.launch.session='another';assert(not pcall(e.host.snapshot))
+    e=engine();e.launch.native_player_class='/Boss/Ahua.Ahua_C';assert(not pcall(e.host.snapshot))
+    e=engine();e.launch.revoke_control=function()error('replaced callback')end
+    assert(not pcall(e.host.snapshot));e.host.on_revoke('tamper');assert(#e.revokes==1)
 end)
 check('game-thread timer is explicitly cancelled once on stop and on user cancellation',function()
     local e=engine();local n=0

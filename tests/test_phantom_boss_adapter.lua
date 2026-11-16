@@ -1,14 +1,22 @@
 local root=assert(arg[1]); package.path=root..'/tools/?.lua;'..package.path
 local adapter=require('phantom_boss_adapter'); local protocol=require('phantom_boss_protocol')
+local fence=require('phantom_boss_enemy_fence')
 local checks=0
 local function check(name,fn) fn();checks=checks+1;print('PASS '..name) end
 local function actor(address,class,world)
-    return {address=address,name='Actor_'..address,class=class or '/Boss/Ahua.Ahua_C',world=world or 'world_1'}
+    return {address=address,name='Actor_'..address,class=class or '/Boss/Ahua.Ahua_C',world=world or 'world_1',
+        GetAddress=function(self)return self.address end}
 end
 local function env(role)
     local e={now=0, queue={}, snapshot={body=actor(1),world='world_1'}, enemies={}, addrs={}, revokes={},
         identify_count=0,snapshot_count=0,scheduled=nil,cancelled=false,linked=true,retired=0}
     local api={version='1.7.3',game={},coop={net={role=role=='host' and 'host' or 'client',enabled=true},handlers={}}}
+    for _,key in ipairs({'enemyNumbers','announced','matchSticky','enemyNames','heldAlive','deadBodies','aside'}) do
+        api.coop.net[key]={}
+    end
+    local cache={net=api.coop.net,names={},seen={},reach={list={},addrs={},at=1,near={}},
+        round={queue={},at=1},handover={seen={},since={},retryAt={}}}
+    api.coop.workbenchEnemyState=function()return cache end
     api.coop.sendEvent=function(kind,line)e.queue[#e.queue+1]={kind,line}end
     api.coop.linked=function()return e.linked end
     api.coop.isHost=function()return api.coop.net.role~='client'end
@@ -19,13 +27,13 @@ local function env(role)
     local host={now=function()return e.now end,
         snapshot=function()e.snapshot_count=e.snapshot_count+1;return e.snapshot end,
         identify=function(a)e.identify_count=e.identify_count+1;return a end,
-        log=function()end,on_revoke=function(why)e.revokes[#e.revokes+1]=why end,
+        log=function()end,on_revoke=function(why)e.revokes[#e.revokes+1]=why;return true end,
         schedule=function(ms,fn)assert(ms==100);e.scheduled=fn;return function()e.cancelled=true end end}
-    local config={session='research_1',catalog_sha256=string.rep('a',64),exe_sha256=string.rep('b',64),
+    local config={role=role,session='research_1',catalog_sha256=string.rep('a',64),exe_sha256=string.rep('b',64),
         runtime_acceptance_current=false,bosses={ahua={class_path='/Boss/Ahua.Ahua_C',actions={cut='/Ability/Cut.Cut_C'}},
         youlong={class_path='/Boss/YouLong.YouLong_C',actions={dodge='/Ability/Dodge.Dodge_C'}}}}
     e.api,e.host,e.config=api,host,config
-    e.bridge=adapter.attach(api,config,host,protocol)
+    e.bridge=adapter.attach(api,config,host,protocol,fence)
     return e
 end
 local function pair(native)
@@ -83,7 +91,7 @@ end)
 check('world switch clears all owned references and revokes readiness',function()
     local h,g,step=pair();h.bridge:register(actor(2),'training_target')
     h.snapshot={world='world_2',body=actor(1,nil,'world_2')};step(0.7)
-    assert(h.bridge.owned_count==1 and h.bridge.owned[2]==nil and #h.revokes>0)
+    assert(h.bridge.owned_count==1 and h.bridge.owned[2]==nil and h.retired>0)
     assert(not g.bridge.protocol.ready)
 end)
 check('world crossing and oversized ownership cannot be registered',function()
@@ -135,11 +143,32 @@ check('close preserves another extension installed after ours',function()
 end)
 check('duplicate attachment rejected before overwriting owner',function()
     local h=env('host');local handler=h.api.coop.handlers.BWB1
-    assert(not pcall(adapter.attach,h.api,h.config,h.host,protocol));assert(h.api.coop.handlers.BWB1==handler)
+    assert(not pcall(adapter.attach,h.api,h.config,h.host,protocol,fence));assert(h.api.coop.handlers.BWB1==handler)
 end)
 check('scheduler failure rolls back handler and both wrappers',function()
     local h=env('host');h.bridge:close();h.host.schedule=function()error('no timer')end
-    assert(not pcall(adapter.attach,h.api,h.config,h.host,protocol))
+    assert(not pcall(adapter.attach,h.api,h.config,h.host,protocol,fence))
     assert(h.api.coop.handlers.BWB1==nil and h.api.game.listEnemies==h.original_list)
+end)
+check('intentional Boss selection invalidates the remote ghost without undoing local control',function()
+    local h,g,step=pair();local before=h.retired
+    h.snapshot.body=actor(9,'/Boss/YouLong.YouLong_C');step(0.7)
+    assert(h.retired>before and #h.revokes==0 and #g.revokes==0)
+    step(1.3);assert(h.bridge.protocol.ready and g.bridge.protocol.ready)
+end)
+check('loss of transport still revokes possession on both body choices',function()
+    local h,g,step=pair();h.linked=false;h.now=0.8;h.scheduled()
+    assert(#h.revokes==1 and h.revokes[1]=='transport disconnected')
+end)
+check('restore exception cannot strand handlers, wrappers or the observer during shutdown',function()
+    local h=env('host');h.scheduled();h.host.on_revoke=function()error('restore failed')end
+    assert(h.bridge:close()==false and h.bridge:close()==false)
+    assert(h.bridge.restore_pending and not h.api.coop.net.enabled and h.cancelled)
+    assert(h.api.coop.handlers.BWB1==nil and h.api.game.listEnemies==h.original_list)
+end)
+check('unacknowledged restore stays visibly pending and synchronization is disabled',function()
+    local h,g=pair();h.host.on_revoke=function()return false end
+    h.linked=false;h.now=0.8;h.scheduled()
+    assert(h.bridge.restore_pending and not h.api.coop.net.enabled and not h.bridge.protocol.ready)
 end)
 print('PASS '..checks..' adapter groups; mocked upstream API, no native/game execution')
