@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "release": "ahua-boss-workbench-v3-f7034432a74d819b",
+  "installed_manifest_sha256": "5cb110f21013baea5ae714ad334c54dcd7fb0215e35b697e6559004cd8235d0d",
+  "bosses": 4,
+  "abilities": 40,
+  "bindings": 41,
+  "locked_previews": [],
+  "baseline_check_groups": 79,
+  "inherited_release_check_groups": 13,
+  "four_boss_offline_groups": 12,
+  "integration_session": "20261116-173808",
+  "closed_integration_collector_passed": true,
+  "publisher_evidence_replay_passed": true,
+  "installation_and_default_entry_verified": true,
+  "postcheck_passed": true,
+  "game_started": false,
+  "personal_settings_modified": false,
+  "source_sha256": {
+    "tools/verify_four_boss_delivery.py": "20616c6db2f267792488db9db3d9f61b5e7f80537166257d69fed03a1d982a80",
+    "开始Boss工作台.cmd": "c9c69323d72eec630c9170aa691a609be77f04fa8a0129b9209b07d4b5fc9fec",
+    "70-四Boss工作台v3操作说明.md": "74f3680ba1aa70d615be13d10d56cab223cd276b5f9da996f64764300caa68e8",
+    "71-后端优先与集中验收.md": "07820fccc38193784791ae6fd4337794e7c8adf039cca12daf5575081a56c9f8"
+  },
+  "player_window_smoke_passed": true
+}
