@@ -31,7 +31,8 @@ def collect(receipt,role):
     receipt=Path(receipt).resolve()
     declarations=[]
     with OnlineGameRead(receipt,role) as game:
-        for row in game.find_native({p.rsplit('.',1)[1] for p in FUNCTIONS}):
+        for row in game.find_native({p.rsplit('.',1)[1] for p in FUNCTIONS},
+                prefixes=('/Script/Engine.','/Script/UMG.')):
             if row['path'] not in FUNCTIONS:continue
             address=int(row['address'],16)
             declarations.append(dict(path=row['path'],

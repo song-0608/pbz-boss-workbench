@@ -32,14 +32,11 @@ function M.new(api,launch,config,peer,observer,directory,globals)
         scope:attest(false)
         assert(config.bosses[id],'Boss selection absent from online catalog')
         assert(self:refresh_local_body(),'valid gameplay snapshot required before online assembly')
-        if arena.state~='IDLE' and arena.state~='REJECTED' then
-            local clean,why=arena:stop('online Boss selection')
-            if not clean then return false,why end
-        end
-        return arena:start(id)
+        return arena:select(id)
     end
     function peer:assembly_status()
-        return {state=arena.state,reason=arena.failure,boss_id=arena.context and arena.context.profile.id,
+        return {state=arena.state,reason=arena.failure,selection_failure=arena.selection_failure,
+            boss_id=arena.context and arena.context.profile.id,
             visual=peer.visual and (peer.visual.visual.restore_pending and 'recovery pending' or 'contract supplied') or 'native contract pending',
             source_only=true,runtime_acceptance_current=false}
     end

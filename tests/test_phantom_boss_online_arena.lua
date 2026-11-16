@@ -11,7 +11,11 @@ local function fixture()
         assert(not f.probe);f.probe=probe
         return function()assert(f.probe()==nil);f.probe=nil;return true end
     end}
-    local n={prepare=function(id)event('prepare');assert(id=='boss');return {world=f.world or 'W'}end,
+    local n={prepare=function(id)
+            event('prepare');assert(id=='boss' or id=='second')
+            if f.prepare_failure then error('no clearance')end
+            return {world=f.world or 'W',id=id}
+        end,
         protect=function()event('protect');f.protected=true end,
         spawn=function(c,remember)
             local record={id='body'};remember(record);event('spawn');assert(f.arena.owned[1]==record)
@@ -27,7 +31,7 @@ local function fixture()
         restore_player=function()event('restore');f.restored=f.restored+1;f.protected=false;return true end,
         create_control=function()
             event('control');f.controls=f.controls+1
-            local control={session={}}
+            local control={session={state='OFF'}}
             function control:start()event('start');f.running=true;return not f.start_failure end
             function control:observed_body()return f.running and f.active_body or nil end
             control.runtime={stop=function()
@@ -122,5 +126,46 @@ check('closed or unrecovered peer never begins native assembly',function()
     for _,key in ipairs({'closed','restore_pending'})do
         local f=fixture();f.peer[key]=true;assert(not pcall(f.arena.start,f.arena,'boss') and #f.events==0)
     end
+end)
+check('rejected terrain selection preserves the ready Boss runtime and observer',function()
+    local f=fixture();assert(f.arena:start('boss'));f:tick(13)
+    local control,context,probe=f.arena.control,f.arena.context,f.probe
+    local before=#f.events;f.prepare_failure=true
+    local ok,why=f.arena:select('second')
+    assert(not ok and why:find('no clearance',1,true) and #f.events==before+1)
+    assert(f.arena.state=='READY' and f.arena.control==control and f.arena.context==context)
+    assert(f.running and f.probe==probe and not f.destroyed.body and not f.destroyed.ai)
+    assert(f.arena.selection_failure:find('no clearance',1,true))
+end)
+check('preflight World mismatch cannot retire the previous menu owner',function()
+    local f=fixture();f.arena:start('boss');f:tick(13);f.world='elsewhere'
+    local before=#f.events;assert(not f.arena:select('second'))
+    assert(#f.events==before+1 and f.arena.state=='READY' and f.running and not f.destroyed.body)
+end)
+check('successful switch checks destination once before retiring its old runtime',function()
+    local f=fixture();f.arena:start('boss');f:tick(13)
+    f.events={};assert(f.arena:select('second'))
+    assert(f.events[1]=='prepare' and f.events[2]=='stop')
+    local prepares=0;for _,e in ipairs(f.events)do if e=='prepare'then prepares=prepares+1 end end
+    assert(prepares==1 and f.arena.context.id=='second' and not f.arena.selection_failure)
+    f:tick(13);assert(f.arena.state=='READY' and f.controls==2)
+end)
+check('failed old restoration never protects or spawns the prepared destination',function()
+    local f=fixture();f.arena:start('boss');f:tick(13);f.restore_failure=true;f.events={}
+    assert(not f.arena:select('second') and f.arena.state=='FAULTED')
+    assert(table.concat(f.events,',')=='prepare,stop' and f.arena.control.session.receipt)
+    assert(not f.destroyed.body and not f.destroyed.ai and f.probe)
+end)
+check('active control and unfinished initialization refuse selection before preflight',function()
+    local f=fixture();f.arena:start('boss');local before=#f.events
+    assert(not f.arena:select('second') and #f.events==before)
+    f:tick(13);f.arena.control.session.state='ACTIVE';f.arena.control.session.receipt={};before=#f.events
+    assert(not pcall(f.arena.select,f.arena,'second') and #f.events==before)
+end)
+check('clean stop drops retired context before a later preparation failure',function()
+    local f=fixture();f.arena:start('boss');f:tick(13);assert(f.arena:stop('done'))
+    assert(not f.arena.context and not f.arena.body and not f.arena.control)
+    f.prepare_failure=true;f.events={};assert(not f.arena:start('second'))
+    assert(table.concat(f.events,',')=='prepare' and f.arena.state=='REJECTED')
 end)
 print('PASS '..checks..' online arena groups; simulated lifecycle, no engine/game/relay')

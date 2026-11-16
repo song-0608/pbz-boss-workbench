@@ -34,7 +34,7 @@ function M.new(scope,peer,observer,native)
                 if not restored or problem~=true then errors[#errors+1]='player restoration: '..tostring(problem) end
             end
             assert(#errors==0,table.concat(errors,'; '))
-            self.owned={};self.control=nil;self.state='IDLE'
+            self.owned={};self.control=nil;self.body=nil;self.context=nil;self.state='IDLE'
         end)
         if not ok then self.state='FAULTED';self.failure=tostring(why);native.log('assembly cleanup unverified: '..self.failure) end
         changed()
@@ -49,14 +49,14 @@ function M.new(scope,peer,observer,native)
         local clean=self:stop('assembly rejected')
         if clean then self.state='REJECTED';changed() end
     end
-    function self:start(boss_id)
+    local function begin(boss_id,prepared)
         assert(self.state=='IDLE' or self.state=='REJECTED','previous assembly must be cleaned first')
         scope:attest(false)
         assert(not peer.closed and not peer.restore_pending,'online adapter not recoverable')
-        self.state='PREPARING';self.failure=nil;self.polls=0
+        self.state='PREPARING';self.failure=nil;self.selection_failure=nil;self.polls=0
         self.generation=self.generation+1;local generation=self.generation
         local ok,why=pcall(function()
-            self.context=native.prepare(boss_id)
+            self.context=prepared or native.prepare(boss_id)
             assert(self.context.world==peer.world,'assembly/observer World mismatch')
             native.protect(self.context)
             local owned=native.spawn(self.context,function(record)
@@ -95,6 +95,36 @@ function M.new(scope,peer,observer,native)
         end)
         if not ok then failed(why);return false,why end
         return true
+    end
+    function self:start(boss_id)return begin(boss_id)end
+    function self:select(boss_id)
+        scope:attest(false)
+        assert(not peer.closed and not peer.restore_pending,'online adapter not recoverable')
+        if self.state~='READY' and self.state~='IDLE' and self.state~='REJECTED' then
+            return false,'previous assembly is busy or awaiting recovery'
+        end
+        if self.control then
+            assert(self.control.session.state=='OFF' and not self.control.session.receipt,
+                'restore native player before preparing another Boss')
+        end
+        -- Asset identity and bounded terrain checks do not create Actors or
+        -- apply player protection. A rejected destination keeps the old menu,
+        -- input runtime and Boss alive so the player can immediately retry.
+        local ok,context=pcall(native.prepare,boss_id)
+        if not ok or type(context)~='table' or context.world~=peer.world then
+            local why=not ok and context or 'assembly/observer World mismatch'
+            self.selection_failure=tostring(why)
+            native.log('Boss selection rejected before cleanup: '..self.selection_failure)
+            return false,self.selection_failure
+        end
+        scope:attest(false)
+        if self.state=='READY' then
+            local clean,why=self:stop('online Boss selection')
+            if not clean then return false,why end
+        end
+        -- The prepared context is consumed synchronously, never queued or
+        -- accepted from a file. Native protection revalidates live ownership.
+        return begin(boss_id,context)
     end
     return self
 end

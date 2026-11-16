@@ -34,7 +34,7 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
         scope:attest(false)
         assert(not stopped and config.bosses[id] and not active,'previous menu owner must retire before mounting')
         local owner={control=control,layer=layer,pc=pc,last_at=-math.huge,last_revision=-1}
-        active=owner;selected=id;changing=false
+        active=owner;selected=id;changing=false;widget:changed()
         for index,entry in ipairs(widget.options.entries())do if entry.id==id then widget.cursor=index end end
         widget:set_adapter({
             restore=function(reason)
@@ -94,6 +94,7 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
             local text=widget:is_open()and widget:text()or
                 ('Boss 联机工作台  |  Insert 选择角色  |  F6 接管  |  F10 恢复\n'
                 ..(peer.protocol.ready and '双方身份已确认' or '等待另一端身份确认'))
+            if not widget:is_open() and widget.message~='' then text=text..'\n'..widget.message end
             publish(text,grant);owner.last_at=at;owner.last_revision=widget.revision
         end
         return host.workbench
