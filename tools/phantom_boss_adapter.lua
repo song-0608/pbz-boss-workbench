@@ -35,26 +35,42 @@ function M.attach(api, config, host, protocol, enemy_fence)
     local fence=enemy_fence.new(coop,game,function(actor,addr) return self:exclude(actor,addr) end)
     local role=assert(config.role,'explicit instance role required')
     assert(role=='host' or role=='guest','invalid instance role')
-    local function invalidate(reason)
-        self.status=reason
-        if self.invalidated_reason==reason then return end
-        self.invalidated_reason=reason
-        coop.retireWorkbenchGhosts() -- park old native clones before accepting another identity
+    local function recovery_pending()
+        self.restore_pending=self.control_restore_pending==true or self.ghost_restore_pending==true
+            or self.scheduler_restore_pending==true or self.protocol_restore_pending==true
+        return self.restore_pending
     end
-    local function revoke(reason)
-        invalidate(reason)
-        if self.revoked_reason==reason then return end
+    local function invalidate(reason,retry)
+        self.status=reason
+        if self.invalidated_reason==reason and (not self.ghost_restore_pending or not retry) then
+            return not self.ghost_restore_pending
+        end
+        self.invalidated_reason=reason
+        -- The pinned parking API returns no acknowledgement. A thrown call is
+        -- still an owned failure; it must never prevent local player recovery.
+        local ok,why=pcall(coop.retireWorkbenchGhosts)
+        self.ghost_restore_pending=not ok
+        recovery_pending()
+        if not ok then pcall(host.log,'BWB legacy ghost recovery unverified: '..tostring(why))end
+        return ok
+    end
+    local function revoke(reason,retry)
+        invalidate(reason,retry)
+        if self.revoked_reason==reason and (not self.control_restore_pending or not retry) then
+            return not recovery_pending()
+        end
         self.revoked_reason=reason
         net.enabled=false
         self.revoking=true
         local ok,result=pcall(host.on_revoke,reason)
         self.revoking=false
-        self.restore_pending=not ok or result~=true
-        if self.restore_pending then host.log('BWB possession restoration unverified: '..tostring(reason)) end
+        self.control_restore_pending=not ok or result~=true
+        if self.control_restore_pending then pcall(host.log,'BWB possession restoration unverified: '..tostring(reason))end
+        return not recovery_pending()
     end
     local function protocol_invalidated(reason)
-        invalidate(reason)
-        if reason=='transport disconnected' or reason=='peer timeout'
+        local clean=invalidate(reason)
+        if not clean or reason=='transport disconnected' or reason=='peer timeout'
             or reason=='catalog or game build mismatch' or reason=='bridge closed' then revoke(reason) end
     end
     local state = protocol.new { role=role, session=config.session, catalog=config.catalog_sha256,
@@ -232,15 +248,25 @@ function M.attach(api, config, host, protocol, enemy_fence)
         state:tick(now)
     end
     function self:close()
-        if self.closed then return not self.restore_pending end
+        if self.closed and not self.restore_pending then return true end
         self.closed=true
-        revoke('bridge closed')
+        revoke('bridge closed',true)
         if coop.handlers[protocol.EVENT]==handler then coop.handlers[protocol.EVENT]=nil end
         if game.listEnemies==wrapped_list then game.listEnemies=original_list end
         if game.enemiesSoFar==wrapped_cached then game.enemiesSoFar=original_cached end
-        state:close()
-        self.owned,self.owned_count={},0
-        if self.cancel then self.cancel() end
+        local stopped,problem=pcall(state.close,state)
+        self.protocol_restore_pending=not stopped
+        if not stopped then pcall(host.log,'BWB protocol recovery unverified: '..tostring(problem))end
+        if self.cancel then
+            local cancelled,why=pcall(self.cancel)
+            self.scheduler_restore_pending=not cancelled
+            if cancelled then self.cancel=nil
+            else pcall(host.log,'BWB observer recovery unverified: '..tostring(why))end
+        end
+        if not recovery_pending()then
+            self.owned,self.owned_count={},0
+            self.local_body,self.body_actor,self.local_transition,self.snapshot_current=nil,nil,nil,false
+        end
         return not self.restore_pending
     end
     local scheduled,cancel=pcall(host.schedule,100,function()

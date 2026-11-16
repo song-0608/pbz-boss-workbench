@@ -9,6 +9,7 @@ function M.wait(directory,activate,g,io_api,identity_api)
     local self={state='DORMANT',closed=false,restore_pending=false}
     g.PBZBossOnlineGate=self
     local handle,peer,request
+    local peer_clean=false
     local function read(name,maximum)
         local f=io_api.open(directory..name,'rb');if not f then return nil end
         local bytes=f:read(maximum+1);f:close()
@@ -16,16 +17,25 @@ function M.wait(directory,activate,g,io_api,identity_api)
         return bytes
     end
     local function cancel()
-        if handle~=nil then local h=handle;handle=nil;g.CancelDelayedAction(h)end
+        if handle~=nil then local h=handle;g.CancelDelayedAction(h);if handle==h then handle=nil end end
     end
     local function close(reason)
-        if self.closed then return not self.restore_pending end
-        self.closed=true;self.reason=tostring(reason);self.state='CLOSING'
-        if peer then
+        if self.closed and not self.restore_pending then return true end
+        if self.state=='CLOSING'then return false end
+        self.closed=true;self.reason=self.reason or tostring(reason);self.state='CLOSING'
+        local errors={}
+        if peer and not peer_clean then
             local ok,clean=pcall(peer.close,peer)
-            self.restore_pending=not ok or clean~=true
+            peer_clean=ok and clean==true
+            if not peer_clean then errors[#errors+1]='peer recovery: '..tostring(clean)end
         end
-        self.state='CLOSED';cancel();return not self.restore_pending
+        self.peer_restore_pending=peer~=nil and not peer_clean
+        local cancelled,why=pcall(cancel)
+        self.scheduler_restore_pending=not cancelled
+        if not cancelled then errors[#errors+1]='gate scheduler recovery: '..tostring(why)end
+        self.restore_pending=self.peer_restore_pending or self.scheduler_restore_pending
+        self.cleanup_error=#errors>0 and table.concat(errors,'; ')or nil
+        self.state='CLOSED';return not self.restore_pending
     end
     function self:close(reason)return close(reason or 'research gate closed')end
     local function fields(bytes)

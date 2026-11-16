@@ -26,7 +26,10 @@ local function engine()
         revoke_control=function(why)e.revokes[#e.revokes+1]=why end}
     e.g={LoopInGameThreadWithDelay=function(ms,fn)
         assert(ms==100);e.started=e.started+1;e.handles[e.started]=fn;return e.started
-    end,CancelDelayedAction=function(handle)e.cancelled[handle]=(e.cancelled[handle]or 0)+1 end}
+    end,CancelDelayedAction=function(handle)
+        e.cancelled[handle]=(e.cancelled[handle]or 0)+1
+        if e.cancel_error then error('native timer cancellation failed')end
+    end}
     e.host=module.new(e.api,e.launch,e.g)
     return e
 end
@@ -112,5 +115,31 @@ end)
 check('unreadable control observation fails instead of sending the original player',function()
     local e=engine();e.host.bind_control_probe(function()error('readback failed')end)
     assert(not pcall(e.host.snapshot))
+end)
+check('failed explicit cancellation disables old callbacks and retains a retryable native handle',function()
+    local e=engine();local calls=0
+    local cancel=e.host.schedule(100,function()calls=calls+1 end);e.cancel_error=true
+    assert(not pcall(cancel));e.handles[1]();assert(calls==0 and e.cancelled[1]==1)
+    e.cancel_error=false;cancel();cancel();assert(e.cancelled[1]==2 and #e.revokes==0)
+end)
+check('observer callback failure restores control even if timer cancellation throws',function()
+    local e=engine();e.cancel_error=true
+    local cancel=e.host.schedule(100,function()error('observer failed')end)
+    assert(pcall(e.handles[1])and #e.revokes==1 and not e.api.coop.net.enabled)
+    e.handles[1]();assert(e.cancelled[1]==1 and #e.revokes==1)
+    e.cancel_error=false;cancel();assert(e.cancelled[1]==2)
+end)
+check('restoration exceptions cannot reactivate or repeatedly dispatch a failed observer',function()
+    local e=engine();local attempts=0
+    e.host.on_revoke=function()attempts=attempts+1;error('restore unavailable')end
+    e.host.schedule(100,function()error('observer failed')end)
+    assert(pcall(e.handles[1]));e.handles[1]()
+    assert(attempts==1 and e.cancelled[1]==1 and not e.api.coop.net.enabled)
+end)
+check('requested stop cancellation failure disables synchronization and invokes recovery',function()
+    local e=engine();e.cancel_error=true
+    e.host.schedule(100,function()return true end)
+    assert(pcall(e.handles[1])and #e.revokes==1 and not e.api.coop.net.enabled)
+    e.handles[1]();assert(e.cancelled[1]==1 and #e.revokes==1)
 end)
 print('PASS '..checks..' host groups; fake UObjects and scheduler, no engine execution')

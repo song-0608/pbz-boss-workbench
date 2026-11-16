@@ -24,21 +24,45 @@ return function(api,directory,globals)
     local captured={};for k,v in pairs(launch)do captured[k]=v end
     local self={startup_state='WAITING',status='waiting for native gameplay',closed=false}
     local peer,handle,stable,last_key,polls=nil,nil,0,nil,0
+    local transport_requested,transport_stopped,peer_clean=false,false,false
     local deadline=math.min(os.time()+120,grant.expires_at)
     local function cancel()
-        local old=handle;handle=nil
-        if old~=nil then g.CancelDelayedAction(old) end
+        local old=handle
+        if old~=nil then g.CancelDelayedAction(old);if handle==old then handle=nil end end
     end
     local function stop_transport()
-        if api.online and type(api.online.stop)=='function' then pcall(api.online.stop)
-        elseif api.link and type(api.link.stop)=='function' then pcall(api.link.stop) end
         api.coop.net.enabled=false
+        local stop=api.online and api.online.stop
+        if type(stop)~='function'then stop=api.link and api.link.stop end
+        if type(stop)~='function'then return not transport_requested,'transport stop binding unavailable'end
+        local ok,result=pcall(stop)
+        return ok and result~=false,result
+    end
+    local function cleanup()
+        -- No one cleanup failure may skip another owner. Keep only unfinished
+        -- responsibilities for explicit retries; no automatic reactivation.
+        local errors={}
+        local cancelled,why=pcall(cancel)
+        self.scheduler_restore_pending=not cancelled
+        if not cancelled then errors[#errors+1]='startup scheduler recovery: '..tostring(why)end
+        if not transport_stopped then
+            local stopped,problem=stop_transport();transport_stopped=stopped
+            if not stopped then errors[#errors+1]='transport recovery: '..tostring(problem)end
+        end
+        self.transport_restore_pending=not transport_stopped
+        if peer and not peer_clean then
+            local ok,clean=pcall(peer.close,peer);peer_clean=ok and clean==true
+            if not peer_clean then errors[#errors+1]='peer recovery: '..tostring(clean)end
+        end
+        self.peer_restore_pending=peer~=nil and not peer_clean
+        self.restore_pending=self.scheduler_restore_pending or self.transport_restore_pending or self.peer_restore_pending
+        self.cleanup_error=#errors>0 and table.concat(errors,'; ')or nil
+        return not self.restore_pending
     end
     local function fail(reason)
         self.startup_state,self.status='FAILED',tostring(reason)
-        cancel();stop_transport()
-        if peer then local ok,clean=pcall(peer.close,peer);self.restore_pending=not ok or clean~=true end
-        api.log('[BWB] startup stopped: '..self.status)
+        cleanup()
+        pcall(api.log,'[BWB] startup stopped: '..self.status)
     end
     local function ref(o)
         if not o or o:IsValid()~=true then return nil end
@@ -75,11 +99,10 @@ return function(api,directory,globals)
         return value
     end})
     function self:close()
-        if self.closed then return not self.restore_pending end
-        self.closed=true;cancel();stop_transport()
-        if peer then local ok,clean=pcall(peer.close,peer);self.restore_pending=not ok or clean~=true end
+        if self.closed and not self.restore_pending then return true end
+        self.closed=true
         self.startup_state='CLOSED'
-        return not self.restore_pending
+        return cleanup()
     end
     local function tick()
         if self.closed or self.startup_state~='WAITING' then return end
@@ -112,6 +135,7 @@ return function(api,directory,globals)
             local settings=assert(api.online.settings(),'online settings unavailable')
             local connection,reason=api.online.connection(settings,captured.role)
             assert(connection,reason)
+            transport_requested=true
             api.online.start(connection,settings)
             cancel()
             api.log('[BWB] native gameplay ready; assembly and same-PC relay requested')

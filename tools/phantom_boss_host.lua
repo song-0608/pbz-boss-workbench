@@ -101,22 +101,33 @@ function M.new(api,launch,globals)
     host.log=function(message) api.log('[BWB] '..tostring(message)) end
     host.schedule=function(milliseconds,callback)
         assert(milliseconds==100 and type(callback)=='function','bounded observer cadence required')
-        local handle,active=nil,true
+        local handle,active,retired=nil,true,false
         local function cancel()
-            if not active then return end
             active=false
-            if handle~=nil then g.CancelDelayedAction(handle) end
+            if handle~=nil and not retired then g.CancelDelayedAction(handle);retired=true end
+        end
+        local function recover(reason)
+            if api.coop and api.coop.net then api.coop.net.enabled=false end
+            local ok,result=pcall(host.on_revoke,reason)
+            if not ok or result~=true then pcall(host.log,'observer recovery unverified: '..tostring(result))end
         end
         handle=g.LoopInGameThreadWithDelay(milliseconds,function()
             if not active then return end
             -- UE4SS ignores callback return values: cancellation must be explicit.
             local ok,stop=pcall(callback)
             if not ok then
-                cancel()
-                if api.coop and api.coop.net then api.coop.net.enabled=false end
-                host.on_revoke('observer callback failed');return
+                local cancelled,why=pcall(cancel)
+                recover('observer callback failed')
+                if not cancelled then pcall(host.log,'observer scheduler recovery pending: '..tostring(why))end
+                return
             end
-            if stop==true then cancel() end
+            if stop==true then
+                local cancelled,why=pcall(cancel)
+                if not cancelled then
+                    recover('observer scheduler cancellation failed')
+                    pcall(host.log,'observer scheduler recovery pending: '..tostring(why))
+                end
+            end
         end)
         assert(handle~=nil,'native scheduler did not return a cancellation handle')
         return cancel

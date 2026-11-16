@@ -14,7 +14,10 @@ local function setup()
     launch.lease_provider=function()return grant end
     local g={PBZBossOnlineResearchLaunch=launch}
     g.LoopInGameThreadWithDelay=function(ms,fn)assert(ms==250);s.callbacks[#s.callbacks+1]=fn;return #s.callbacks end
-    g.CancelDelayedAction=function(handle)s.cancelled[handle]=true end
+    g.CancelDelayedAction=function(handle)
+        s.cancel_attempts=(s.cancel_attempts or 0)+1
+        if s.cancel_error then error('startup cancellation failed')end;s.cancelled[handle]=true
+    end
     local world
     local function object(address,path,name)
         local o={address=address,path=path,name=name or ('Object '..address)}
@@ -32,7 +35,9 @@ local function setup()
     s.playing=false
     local api={coop={net={enabled=false}},log=function()end,
         getPlayer1=function()if s.playing then return s.pc,s.pawn end end}
-    api.online={stop=function()s.stops=s.stops+1 end,settings=function()return {}end,
+    api.online={stop=function()
+        s.stops=s.stops+1;if s.stop_error then error('transport stop failed')end
+    end,settings=function()return {}end,
         connection=function(_,role)return {role=role}end,
         start=function()s.starts=s.starts+1;if s.start_error then error('start failed')end end}
     s.peer={close=function()s.closes=s.closes+1;if s.close_error then error('close failed')end;return not s.restore_pending end,
@@ -141,5 +146,68 @@ check('ready facade still rejects an expired or changed control lease',function(
     grant.session_id='changed';assert(not b:transport_allowed())
     s=setup();b=s:begin();s.playing=true;s:tick(3);s.now=1300
     assert(not b:transport_allowed())
+end)
+check('waiting startup cancellation failure still stops transport and retains an explicit retry',function()
+    local s=setup();local b=s:begin();s.cancel_error=true
+    local ok,clean=pcall(b.close,b);assert(ok and not clean and b.restore_pending and s.stops==1)
+    s.playing=true;s:tick(4);assert(s.mounts==0 and s.starts==0)
+    s.cancel_error=false;assert(b:close()and not b.restore_pending and s.cancel_attempts==2 and s.stops==1)
+end)
+check('ready startup retries failed peer restoration without stopping a completed transport twice',function()
+    local s=setup();local b=s:begin();s.playing=true;s:tick(3);s.close_error=true
+    assert(not b:close()and s.closes==1 and s.stops==1)
+    s.close_error=false;assert(b:close()and not b.restore_pending and s.closes==2 and s.stops==1)
+    assert(b:close()and s.closes==2 and not b:transport_allowed())
+end)
+check('transport stop exceptions do not skip peer recovery or leave synchronization enabled',function()
+    local s,_,_,api=setup();local b=s:begin();s.playing=true;s:tick(3)
+    api.coop.net.enabled=true;s.stop_error=true
+    assert(not b:close()and b.restore_pending and s.closes==1 and not api.coop.net.enabled)
+    s.stop_error=false;assert(b:close()and s.stops==2 and s.closes==1)
+end)
+check('startup failure retains cancellation transport and peer responsibilities independently',function()
+    local s=setup();local b=s:begin();s.playing=true
+    s.start_error=true;s.cancel_error=true;s.stop_error=true;s.close_error=true
+    assert(pcall(s.tick,s,3)and b.startup_state=='FAILED'and b.restore_pending and s.closes==1)
+    s.cancel_error=false;s.stop_error=false
+    assert(not b:close()and s.cancelled[1]and s.stops==2 and s.closes==2)
+    s.close_error=false;assert(b:close()and not b.restore_pending and s.closes==3 and s.stops==2)
+    s:tick(3);assert(s.mounts==1 and s.starts==1)
+end)
+check('missing transport stop after startup cannot falsely acknowledge successful shutdown',function()
+    local s,_,_,api=setup();local b=s:begin();s.playing=true;s:tick(3);api.online.stop=nil
+    assert(not b:close()and b.restore_pending and s.closes==1)
+    api.link={stop=function()s.stops=s.stops+1 end}
+    assert(b:close()and s.stops==1 and s.closes==1)
+end)
+check('actual launch gate and startup facade propagate recovery retries through both layers',function()
+    local s,_,_,_,g=setup();s.now=os.time()
+    local request={mode='two-player-online-research',role='host',session=string.rep('a',32),
+        activation=string.rep('b',32),issued_at=s.now-1,expires_at=s.now+600,
+        binding='bwb_current_bindings.lua',boss_id='ahua_guitoudao'}
+    local declarations={};for k,v in pairs(request)do if k~='binding'then declarations[k]=v end end
+    declarations.native_player_class='/Test/Player_C';declarations.assembly={}
+    declarations.exe_sha256=config.exe_sha256;declarations.catalog_sha256=config.catalog_sha256
+    declarations.upstream_commit=config.upstream_commit;declarations.process_identity='42:100000000000000001'
+    local lines,fields={},{}
+    for k,v in pairs(request)do lines[#lines+1]=k..'='..v end
+    for k,v in pairs(declarations)do
+        fields[#fields+1]=k..'='..(type(v)=='table'and '{}'or type(v)=='number'and tostring(v)or string.format('%q',v))
+    end
+    local files={['gate/bwb_gate.ini']=table.concat(lines,'\n'),
+        ['gate/bwb_current_bindings.lua']='return {'..table.concat(fields,',')..'}'}
+    local fake_io={open=function(path)
+        if files[path]then return {read=function(_,n)return files[path]:sub(1,n)end,close=function()end}end
+    end}
+    local gate=dofile(root..'/tools/phantom_boss_launch_gate.lua').wait('gate/',function(captured)
+        g.PBZBossOnlineResearchLaunch=captured;return s:begin()
+    end,g,fake_io,function()return declarations.process_identity end)
+    s.callbacks[1]();s.playing=true;for _=1,3 do s.callbacks[2]()end
+    assert(gate.state=='ACTIVE'and s.bridge.startup_state=='READY'and s.starts==1)
+    s.close_error=true;s.cancel_error=true
+    assert(not gate:close()and gate.restore_pending and s.bridge.restore_pending and s.closes==1)
+    s.close_error=false;s.cancel_error=false
+    assert(gate:close()and not gate.restore_pending and not s.bridge.restore_pending and s.closes==2 and s.stops==1)
+    s.callbacks[1]();s.callbacks[2]();assert(s.mounts==1 and s.starts==1 and not s.bridge:transport_allowed())
 end)
 print('PASS '..checks..' startup groups; simulated game-thread menu/loading, no game started')

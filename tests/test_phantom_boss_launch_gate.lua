@@ -4,12 +4,16 @@ local function check(name,f)f();checks=checks+1;print('PASS '..name)end
 local function setup()
     local s={now=os.time(),files={},activations=0,closes=0,cancels=0}
     local g={LoopInGameThreadWithDelay=function(ms,fn)assert(ms==250);s.tick=fn;return 10 end,
-        CancelDelayedAction=function(h)assert(h==10);s.cancels=s.cancels+1 end}
+        CancelDelayedAction=function(h)
+            assert(h==10);s.cancels=s.cancels+1;if s.cancel_error then error('gate cancellation failed')end
+        end}
     local io_fake={open=function(path)
         local value=s.files[path];if not value then return nil end
         return {read=function(_,n)return value:sub(1,n)end,close=function()end}
     end}
-    local peer={close=function()s.closes=s.closes+1;return not s.bad_close end}
+    local peer={close=function()
+        s.closes=s.closes+1;if s.close_error then error('peer cleanup failed')end;return not s.bad_close
+    end}
     s.gate=Gate.wait('test/',function(launch)
         s.activations=s.activations+1;s.launch=launch
         if s.bad_activation then error('activation rejected')end
@@ -91,5 +95,27 @@ end)
 check('missing process identity fails before native assembly',function()
     local s=setup();s:request();s:bindings({process_identity=''});s.tick()
     assert(s.gate.closed and s.activations==0)
+end)
+check('closed gate can retry peer recovery while keeping the original bounded lease',function()
+    local s,_,peer=setup();s:request();s:bindings();s.tick();s.bad_close=true
+    assert(not s.gate:close()and s.gate.restore_pending and s.closes==1 and s.cancels==1)
+    peer.close=function()
+        s.closes=s.closes+1;assert(s.launch.lease_provider().expires_at==s.now+600);return true
+    end
+    assert(s.gate:close()and not s.gate.restore_pending and s.closes==2 and s.cancels==1)
+    s.tick();assert(s.activations==1 and s.gate:close()and s.closes==2)
+end)
+check('gate timer cancellation failure remains visible and never repeats completed peer recovery',function()
+    local s=setup();s:request();s:bindings();s.tick();s.cancel_error=true
+    s.files['test/bwb_stop.txt']='stop';assert(pcall(s.tick))
+    assert(s.gate.closed and s.gate.restore_pending and s.closes==1 and s.cancels==1)
+    s.tick();assert(s.activations==1 and s.cancels==1)
+    s.cancel_error=false;assert(s.gate:close()and s.cancels==2 and s.closes==1)
+end)
+check('gate retains both failed peer and scheduler cleanup until each owner succeeds',function()
+    local s=setup();s:request();s:bindings();s.tick();s.close_error=true;s.cancel_error=true
+    local ok,clean=pcall(s.gate.close,s.gate);assert(ok and not clean and s.closes==1 and s.cancels==1)
+    s.cancel_error=false;assert(not s.gate:close()and s.closes==2 and s.cancels==2)
+    s.close_error=false;assert(s.gate:close()and s.closes==3 and s.cancels==2 and not s.gate.restore_pending)
 end)
 print('PASS '..checks..' launch gate groups')

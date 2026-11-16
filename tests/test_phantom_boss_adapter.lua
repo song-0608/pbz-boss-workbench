@@ -20,7 +20,9 @@ local function env(role)
     api.coop.sendEvent=function(kind,line)e.queue[#e.queue+1]={kind,line}end
     api.coop.linked=function()return e.linked end
     api.coop.isHost=function()return api.coop.net.role~='client'end
-    api.coop.retireWorkbenchGhosts=function()e.retired=e.retired+1 end
+    api.coop.retireWorkbenchGhosts=function()
+        e.retired=e.retired+1;if e.ghost_error then error('ghost retirement failed')end
+    end
     api.game.listEnemies=function()return e.enemies,e.addrs end
     api.game.enemiesSoFar=api.game.listEnemies
     e.original_list=api.game.listEnemies
@@ -28,7 +30,10 @@ local function env(role)
         snapshot=function()e.snapshot_count=e.snapshot_count+1;return e.snapshot end,
         identify=function(a)e.identify_count=e.identify_count+1;return a end,
         log=function()end,on_revoke=function(why)e.revokes[#e.revokes+1]=why;return true end,
-        schedule=function(ms,fn)assert(ms==100);e.scheduled=fn;return function()e.cancelled=true end end}
+        schedule=function(ms,fn)assert(ms==100);e.scheduled=fn;return function()
+            e.cancel_attempts=(e.cancel_attempts or 0)+1
+            if e.cancel_error then error('observer cancellation failed')end;e.cancelled=true
+        end end}
     local config={role=role,session='research_1',catalog_sha256=string.rep('a',64),exe_sha256=string.rep('b',64),
         runtime_acceptance_current=false,bosses={ahua={class_path='/Boss/Ahua.Ahua_C',actions={cut='/Ability/Cut.Cut_C'}},
         youlong={class_path='/Boss/YouLong.YouLong_C',actions={dodge='/Ability/Dodge.Dodge_C'}}}}
@@ -282,5 +287,54 @@ check('retired Actors keep old enemy aliases quarantined against late packets',f
     assert(h.bridge:retire_owned(row,'local_body',function()return true end))
     assert(h.bridge.owned_count==1 and not h.bridge:allow_enemy_name('owned_boss'))
     assert(not h.bridge:allow_enemy_event('D','owned_boss')and h.bridge:allow_enemy_name('normal_enemy'))
+end)
+check('failed close retains ownership and retries local restoration instead of permanently returning failure',function()
+    local h=env('host');h.scheduled();local clean=false
+    h.host.on_revoke=function(why)h.revokes[#h.revokes+1]=why;return clean end
+    assert(not h.bridge:close()and h.bridge.restore_pending and h.bridge.owned[1])
+    assert(h.api.coop.handlers.BWB1==nil and h.api.game.listEnemies==h.original_list and h.cancelled)
+    clean=true;assert(h.bridge:close()and not h.bridge.restore_pending and h.bridge.owned_count==0)
+    assert(#h.revokes==2);assert(h.bridge:close()and #h.revokes==2)
+end)
+check('observer cancellation failure cannot strand wrappers and can retry without restoring twice',function()
+    local h=env('host');h.scheduled();h.cancel_error=true
+    local ok,clean=pcall(h.bridge.close,h.bridge);assert(ok and not clean and h.bridge.restore_pending)
+    assert(h.api.coop.handlers.BWB1==nil and h.api.game.listEnemies==h.original_list and #h.revokes==1)
+    local snapshots=h.snapshot_count;assert(h.scheduled()and h.snapshot_count==snapshots)
+    h.cancel_error=false;assert(h.bridge:close()and h.cancel_attempts==2 and #h.revokes==1)
+    assert(h.bridge:close()and h.cancel_attempts==2 and h.bridge.owned_count==0)
+end)
+check('ghost retirement exceptions cannot skip local recovery or erase its retry responsibility',function()
+    local h=env('host');h.scheduled();h.ghost_error=true
+    local ok,clean=pcall(h.bridge.close,h.bridge);assert(ok and not clean and #h.revokes==1)
+    assert(h.bridge.closed and h.bridge.restore_pending and h.bridge.owned[1]and h.cancelled)
+    assert(h.api.coop.handlers.BWB1==nil and not h.api.coop.net.enabled)
+    h.ghost_error=false;assert(h.bridge:close()and #h.revokes==1 and h.bridge.owned_count==0)
+end)
+check('disconnect with a broken legacy ghost still revokes local control once without polling retries',function()
+    local h,g=pair();h.ghost_error=true;h.linked=false;h.now=.8
+    assert(pcall(h.scheduled)and #h.revokes==1 and not h.api.coop.net.enabled and not h.bridge.protocol.ready)
+    local retired=h.retired
+    for i=1,10 do h.now=.8+i*.2;assert(pcall(h.scheduled))end
+    assert(#h.revokes==1 and h.retired==retired and h.bridge.restore_pending)
+    h.ghost_error=false;assert(h.bridge:close())
+end)
+check('recovery retries preserve replacement handlers and enemy-list extensions',function()
+    local h=env('host');h.scheduled();h.host.on_revoke=function()return false end
+    assert(not h.bridge:close());local replacement=function()end
+    h.api.coop.handlers.BWB1=replacement;h.api.game.listEnemies=replacement;h.api.game.enemiesSoFar=replacement
+    h.host.on_revoke=function()return true end;assert(h.bridge:close())
+    assert(h.api.coop.handlers.BWB1==replacement and h.api.game.listEnemies==replacement
+        and h.api.game.enemiesSoFar==replacement)
+end)
+check('combined close failures remain pending until each independent owner acknowledges cleanup',function()
+    local h=env('host');h.scheduled();local restored=false
+    h.host.on_revoke=function(why)h.revokes[#h.revokes+1]=why;return restored end
+    h.ghost_error=true;h.cancel_error=true
+    assert(not h.bridge:close()and h.bridge.owned[1]and #h.revokes==1)
+    restored=true;assert(not h.bridge:close()and h.bridge.owned[1]and #h.revokes==2)
+    h.ghost_error=false;assert(not h.bridge:close()and h.bridge.owned[1]and #h.revokes==2)
+    h.cancel_error=false;assert(h.bridge:close()and not h.bridge.restore_pending and #h.revokes==2)
+    assert(h.bridge.owned_count==0 and h.bridge.local_body==nil and h.bridge.body_actor==nil)
 end)
 print('PASS '..checks..' adapter groups; mocked upstream API, no native/game execution')
