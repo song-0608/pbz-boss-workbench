@@ -49,7 +49,10 @@ int wmain(int argc,wchar_t** argv) {
         const auto status=relay::mail.status();
         const bool reset=relay::mail.take_events(relay::clock_ms()).empty()
             && status.find("connected=no stopped=yes")!=std::string::npos;
-        std::printf("connected=%d sample=%d event=%d reset=%d\n",connected,sample_seen,event_seen,reset);
+        char result[128];
+        std::snprintf(result,sizeof(result),"connected=%d sample=%d event=%d reset=%d\n",connected,sample_seen,event_seen,reset);
+        relay::write_atomic(directory+L"\\bootstrap_result.txt",result);
+        std::fputs(result,stdout);
         return connected && sample_seen && event_seen && reset ? 0 : 4;
     } catch (const std::exception& error) {
         std::fprintf(stderr,"rejected: %s\n",error.what());
