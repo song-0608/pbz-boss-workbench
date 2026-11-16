@@ -89,6 +89,29 @@ function M.attach(api, config, host, protocol, enemy_fence)
         self.owned[row.address]={address=row.address,name=row.name,class=row.class,world=row.world,kind=kind}
         fence:purge(row)
     end
+    -- Reclaim a registry slot only after the native owner synchronously proves
+    -- that exact identity is no longer usable. Never evict a live body to make
+    -- room; enemy aliases stay quarantined against late network messages.
+    function self:retire_owned(row,kind,verify_retired)
+        assert(identity(row)and type(verify_retired)=='function','native retirement identity/probe required')
+        assert(kind=='local_body'or kind=='controller'or kind=='remote_ghost'or kind=='training_target',
+            'unknown retirement kind')
+        local registered=self.owned[row.address]
+        assert(not registered or(same(registered,row)and registered.kind==kind),'owned retirement identity changed')
+        assert(self.closed or not self.local_transition or self.local_transition.address~=row.address,
+            'local ownership transition is still pending')
+        local world=self.world
+        assert(verify_retired()==true,'native Actor retirement not acknowledged')
+        assert(self.world==world and self.owned[row.address]==registered,'ownership changed during retirement readback')
+        if not registered then return true end
+        self.owned[row.address]=nil;self.owned_count=self.owned_count-1
+        assert(self.owned_count>=0,'owned retirement count underflow')
+        if same(self.local_body,row)then
+            self.local_body,self.body_actor,self.snapshot_current=nil,nil,false
+            if not self.closed then state:body_changed(host.now())end
+        end
+        return true
+    end
     function self:exclude(actor,addr)
         local owned=self.owned[addr]
         if not owned then return false end

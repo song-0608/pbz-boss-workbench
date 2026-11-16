@@ -221,4 +221,66 @@ check('combat bridge refuses inventory loot currency appearance rest and story p
     end
     e.bridge:close()
 end)
+check('one thousand clean Boss changes reclaim registrations without raising the live bound',function()
+    local h=env('host');h.snapshot.body.class='/Player/Hun.Hun_C';h.snapshot.native_player=true;h.scheduled()
+    for i=1,1000 do
+        local body,ai=actor(2*i),actor(2*i+1,'/AI/Controller.Controller_C')
+        h.bridge:register(body,'local_body');h.bridge:register(ai,'controller')
+        assert(h.bridge.owned_count==3)
+        assert(h.bridge:retire_owned(ai,'controller',function()return true end))
+        assert(h.bridge:retire_owned(body,'local_body',function()return true end))
+        assert(h.bridge.owned_count==1)
+    end
+    assert(h.bridge.owned[1]and h.snapshot_count==1)
+end)
+check('live unreadable or non-boolean retirement proof never frees a slot',function()
+    local h=env('host');h.scheduled();local row=actor(2);h.bridge:register(row,'training_target')
+    for _,probe in ipairs({function()return false end,function()return 1 end,function()error('unreadable')end})do
+        assert(not pcall(h.bridge.retire_owned,h.bridge,row,'training_target',probe))
+        assert(h.bridge.owned_count==2 and h.bridge.owned[2])
+    end
+end)
+check('replaced identities and kinds cannot retire a live registration',function()
+    local h=env('host');h.scheduled();local row=actor(2);h.bridge:register(row,'training_target')
+    for _,key in ipairs({'name','class','world'})do
+        local wrong=actor(2);wrong[key]='changed'
+        assert(not pcall(h.bridge.retire_owned,h.bridge,wrong,'training_target',function()error('not reached')end))
+    end
+    assert(not pcall(h.bridge.retire_owned,h.bridge,row,'controller',function()error('not reached')end))
+    assert(h.bridge.owned_count==2 and h.bridge.owned[2])
+end)
+check('pending ownership transitions cannot drop their Boss registration',function()
+    local h=env('host');h.scheduled();local row=h.bridge.owned[1]
+    local token=h.bridge:begin_local_transition(row)
+    assert(not pcall(h.bridge.retire_owned,h.bridge,row,'local_body',function()error('not reached')end))
+    assert(h.bridge.local_transition==token and h.bridge.owned[1]and h.bridge.owned_count==1)
+end)
+check('retired cached local body clears protocol readiness before it can be sent again',function()
+    local h,g=pair();local row=h.snapshot.body;local generation=h.bridge.protocol.generation
+    assert(h.bridge:retire_owned(row,'local_body',function()return true end))
+    assert(not h.bridge.protocol.ready and h.bridge.protocol.generation>generation)
+    assert(not h.bridge.local_body and not h.bridge.snapshot_current and h.bridge.owned_count==0)
+    assert(h.bridge:network_body()==nil and not h.bridge.closed)
+end)
+check('retirement is idempotent after close and cannot underflow the registry',function()
+    local h=env('host');h.scheduled();local row=h.snapshot.body;assert(h.bridge:close())
+    for _=1,5 do assert(h.bridge:retire_owned(row,'local_body',function()return true end))end
+    assert(h.bridge.owned_count==0 and next(h.bridge.owned)==nil)
+end)
+check('registry changes during native readback cannot drop a replacement',function()
+    local h=env('host');h.scheduled();local row=actor(2);h.bridge:register(row,'training_target')
+    local replacement=actor(2);replacement.name='replacement'
+    assert(not pcall(h.bridge.retire_owned,h.bridge,row,'training_target',function()
+        h.bridge:register(replacement,'training_target');return true
+    end))
+    assert(h.bridge.owned_count==2 and h.bridge.owned[2].name=='replacement')
+end)
+check('retired Actors keep old enemy aliases quarantined against late packets',function()
+    local h=env('host');h.scheduled();local row=actor(2)
+    local cache=h.api.coop.workbenchEnemyState();cache.names.owned_boss=row
+    h.bridge:register(row,'local_body');assert(not h.bridge:allow_enemy_name('owned_boss'))
+    assert(h.bridge:retire_owned(row,'local_body',function()return true end))
+    assert(h.bridge.owned_count==1 and not h.bridge:allow_enemy_name('owned_boss'))
+    assert(not h.bridge:allow_enemy_event('D','owned_boss')and h.bridge:allow_enemy_name('normal_enemy'))
+end)
 print('PASS '..checks..' adapter groups; mocked upstream API, no native/game execution')

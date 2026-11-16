@@ -51,7 +51,7 @@ def run():
     lab = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     commands = [
         ('protocol_simulation', [str(lab), str(ROOT / TESTS[0]), str(ROOT)], 16),
-        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 28),
+        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 36),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 15),
         ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 12),
         ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 13),
@@ -61,11 +61,11 @@ def run():
         ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 14),
         ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 8),
         ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 21),
-        ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 15),
+        ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 17),
         ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 17),
         ('combat_runtime_composition', [str(lab), str(ROOT / TESTS[15]), str(ROOT), str(target)], 5),
         ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 16),
-        ('visual_native_bindings', [str(lab), str(ROOT / TESTS[17]), str(ROOT)], 8),
+        ('visual_native_bindings', [str(lab), str(ROOT / TESTS[17]), str(ROOT)], 12),
         ('visual_session_integration', [str(lab), str(ROOT / TESTS[18]), str(ROOT)], 5),
         ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 11),
         ('pair_session_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair_session.py', '-v'], 18),

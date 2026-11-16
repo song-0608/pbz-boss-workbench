@@ -88,6 +88,7 @@ function M.new(api,scope,peer,observer,dependencies,binding,config,g)
         local actor=statics:BeginDeferredActorSpawnFromClass(pc,actor_class,transform,1,nil,0)
         assert(usable(actor) and calls:same(actor:GetClass(),actor_class),'visual spawn must be the plain Engine.Actor')
         local row={actor=calls:reference(actor),world=world,boss=id}
+        row.identity={address=row.actor.address,name=row.actor.name,class='/Script/Engine.Actor',world=world}
         remember(row) -- ownership survives partial construction failures
         peer:register(observer.identify(actor,world),'remote_ghost')
         actor:SetActorEnableCollision(false);actor:SetActorTickEnabled(false);actor:SetActorHiddenInGame(true)
@@ -126,11 +127,19 @@ function M.new(api,scope,peer,observer,dependencies,binding,config,g)
     end
     self.destroy=function(row)
         scope:attest(true)
+        local function retire()
+            return peer:retire_owned(assert(row.identity),'remote_ghost',function()
+                scope:attest(true)
+                local current=calls:optional(row.actor)
+                return current==nil or current:IsActorBeingDestroyed()==true
+            end)
+        end
         local actor=calls:optional(row.actor)
-        if not actor then return true end
+        if not actor then return retire()end
         assert(same_world(actor,row.world),'refuse cleanup of a substituted visual World')
         actor:SetActorHiddenInGame(true);actor:K2_DestroyActor()
-        return not usable(actor) or actor:IsActorBeingDestroyed()==true
+        if usable(actor)and actor:IsActorBeingDestroyed()~=true then return false end
+        return retire()
     end
     self.sample=function(id)
         scope:attest(false)

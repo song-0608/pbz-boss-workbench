@@ -7,7 +7,7 @@ local Native=dofile(directory..'bwb_spawn_native.lua')
 local checks=0
 local function check(name,fn)fn();checks=checks+1;print('PASS '..name)end
 local function fixture()
-    local f={registry={},events={},clock=0,remembered={},registered={},grants=1,protected=false}
+    local f={registry={},events={},clock=0,remembered={},registered={},retired={},grants=1,protected=false}
     local next_address=10
     local function obj(name,class)
         next_address=next_address+1
@@ -113,7 +113,16 @@ local function fixture()
     local scope={attest=function(_,restore)assert(restore or not f.revoked);return {exe_sha256=f.profile.exe_sha256}end}
     local peer={world='W',is_boss_class=function(_,path)return path=='/Boss/A.A_C'end,
         resolve_local_action=function(_,path,id)assert(path=='/Boss/A.A_C' and id=='cut');return '/Skill/Cut.Cut_C'end,
-        register=function(_,row,kind)f.registered[row.address]={row=row,kind=kind};f.events[#f.events+1]='register:'..kind end}
+        register=function(_,row,kind)f.registered[row.address]={row=row,kind=kind};f.events[#f.events+1]='register:'..kind end,
+        retire_owned=function(_,row,kind,probe)
+            assert(probe()==true and not f.retirement_refused,'native retirement not acknowledged')
+            local old=f.registered[row.address]
+            if old then
+                assert(old.kind==kind and old.row.name==row.name and old.row.class==row.class and old.row.world==row.world)
+                f.registered[row.address]=nil;f.retired[row.address]=old
+            end
+            return true
+        end}
     local observer={now=function()return f.clock end,log=function()end,
         identify=function(o,world)
             assert(o and o:IsValid() and (world==nil or world=='W') and o:GetWorld()==f.world)
@@ -177,7 +186,7 @@ check('partial Finish failure recovers an auto-created AI before any readiness p
     local c=f.native.prepare('boss');f.native.protect(c)
     assert(not pcall(f.native.spawn,c,function(r)f:remember(r)end) and #f.remembered==1 and f.ai)
     assert(f.native.destroy(f.remembered[1],c) and not f.ai.alive and not f.body.alive)
-    assert(f.registered[f.ai.address].kind=='controller')
+    assert(not f.registered[f.ai.address]and f.retired[f.ai.address].kind=='controller')
 end)
 check('cleanup after lease revocation only destroys exact owned identities',function()
     local f=fixture();local body,c=f:start();body:SpawnDefaultController()
@@ -226,5 +235,19 @@ end)
 check('recovery guard rejects expiry without protecting or spawning the native player',function()
     local f=fixture();local _,_,_,guard=f.native.recovery_menu('boss');f.revoked=true
     assert(not pcall(guard)and not f.protected and not f.menu_spawned and not f.body)
+end)
+check('confirmed Boss and AI destruction releases only their owned registrations',function()
+    local f=fixture();local body,c=f:start();body:SpawnDefaultController()
+    f.native.register_controller(body,c,function(r)f:remember(r)end)
+    for i=#f.remembered,1,-1 do assert(f.native.destroy(f.remembered[i],c))end
+    assert(next(f.registered)==nil and f.retired[body.address]and f.retired[f.ai.address])
+    for i=#f.remembered,1,-1 do assert(f.native.destroy(f.remembered[i],c))end
+    assert(f.player.alive and f.pc.alive and next(f.registered)==nil)
+end)
+check('failed registration retirement retains recovery responsibility for a later cleanup',function()
+    local f=fixture();local body,c=f:start();f.retirement_refused=true
+    assert(not pcall(f.native.destroy,f.record,c)and not body.alive and f.registered[body.address])
+    f.retirement_refused=false;assert(f.native.destroy(f.record,c)and not f.registered[body.address])
+    assert(f.retired[body.address]and f.player.alive)
 end)
 print('PASS '..checks..' spawn native groups; concrete bindings with fake Unreal objects, no game/relay')

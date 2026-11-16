@@ -3,7 +3,7 @@ local asset='/PBZCombatAsset/ActorData/Mobs/Test/Walk.Walk'
 local montage_path='/PBZCombatAsset/ActorData/Mobs/Test/Montage.Montage'
 local checks=0;local function check(name,fn)fn();checks=checks+1;print('PASS '..name)end
 local function fixture()
-    local s={objects={},next=10,now=0,world='W',registered={},finds=0}
+    local s={objects={},next=10,now=0,world='W',registered={},retired={},finds=0}
     local function object(name)
         s.next=s.next+1
         local o={address=s.next,name=name,valid=true,tick=true,collision=true}
@@ -33,7 +33,10 @@ local function fixture()
         function o:SetAnimation(v)self.animation=v end
         function o:SetPosition(time,notifies)assert(notifies==false,'notifies forbidden');self.position=time;s.poses=(s.poses or 0)+1 end
         function o:K2_SetActorLocationAndRotation(position,rotation,sweep)assert(sweep==false);self.position3=position;self.rotation=rotation end
-        function o:K2_DestroyActor()self.valid=false;s.destroyed=(s.destroyed or 0)+1 end
+        function o:K2_DestroyActor()
+            s.destroyed=(s.destroyed or 0)+1
+            if not s.reject_destroy then self.valid=false end
+        end
         function o:IsActorBeingDestroyed()return not self.valid end
         function o:PlayAnimation()error('automatic playback forbidden')end
         function o:Montage_Play()error('montage notifies forbidden')end
@@ -100,9 +103,26 @@ local function fixture()
     local g={StaticFindObject=function(path)s.finds=s.finds+1;return s.objects[path]end,
         LoadAsset=function(path)if path=='/Test/Boss_C' then return boss_class end;assert(path==asset);return sequence end}
     local observer={snapshot=function()return {world=s.world}end,now=function()return s.now end,
-        identify=function(o,expected)assert(not expected or expected==s.world);return {world=s.world,class=o==body and '/Test/Boss_C' or '/Script/Engine.Actor'}end}
+        identify=function(o,expected)
+            assert(not expected or expected==s.world)
+            return {address=o.address,name=o.name,world=s.world,class=o==body and '/Test/Boss_C' or '/Script/Engine.Actor'}
+        end}
     local scope={attest=function(_,restore)if s.expired and not restore then error('expired')end end}
-    local peer={register=function(_,row,kind)assert(kind=='remote_ghost');s.registered[#s.registered+1]=row end,
+    local peer={register=function(_,row,kind)
+        assert(kind=='remote_ghost');if s.reject_registration then error('registration failed')end
+        s.registered[#s.registered+1]=row
+    end,
+        retire_owned=function(_,row,kind,probe)
+            assert(kind=='remote_ghost'and probe()==true and not s.retirement_refused,'visual retirement unverified')
+            for i=#s.registered,1,-1 do
+                local old=s.registered[i]
+                if old.address==row.address then
+                    assert(old.name==row.name and old.class==row.class and old.world==row.world)
+                    table.remove(s.registered,i);s.retired[row.address]=row
+                end
+            end
+            return true
+        end,
         network_body=function()return body end}
     local api={getPlayer1=function()return pc end,coop={net={localMap=7}}}
     function s:create()return Native.new(api,scope,peer,observer,deps,binding,{bosses={ahua={class_path='/Test/Boss_C'}}},g)end
@@ -151,5 +171,29 @@ end)
 check('expiry blocks new poses but retains the ability to clean owned actors',function()
     local s=fixture();local n=s:create();local row=s:mount(n);s.expired=true
     assert(not pcall(n.sample,'ahua'));assert(n.destroy(row))
+end)
+check('remote visual replacement releases its registry slot across repeated generations',function()
+    local s=fixture();local n=s:create()
+    for _=1,1000 do
+        local row=s:mount(n);assert(#s.registered==1)
+        assert(n.destroy(row)and #s.registered==0 and s.retired[row.actor.address])
+    end
+    assert(s.destroyed==1000)
+end)
+check('a visual which remains alive cannot release its owned registration',function()
+    local s=fixture();local n=s:create();local row=s:mount(n);s.reject_destroy=true
+    assert(n.destroy(row)==false and #s.registered==1 and not s.retired[row.actor.address])
+    s.reject_destroy=false;assert(n.destroy(row)and #s.registered==0)
+end)
+check('failed visual retirement is retryable after native destruction without a second destroy',function()
+    local s=fixture();local n=s:create();local row=s:mount(n);s.retirement_refused=true
+    assert(not pcall(n.destroy,row)and #s.registered==1 and s.destroyed==1)
+    s.retirement_refused=false;assert(n.destroy(row)and #s.registered==0 and s.destroyed==1)
+    assert(n.destroy(row)and #s.registered==0 and s.destroyed==1)
+end)
+check('partial registration failure keeps enough identity to clean the remembered visual',function()
+    local s=fixture();local n=s:create();s.reject_registration=true
+    assert(not pcall(s.mount,s,n)and s.record and s.record.identity and #s.registered==0)
+    assert(n.destroy(s.record)and s.destroyed==1 and #s.registered==0)
 end)
 print('PASS '..checks..' visual native groups; fake engine contracts only, no game started')

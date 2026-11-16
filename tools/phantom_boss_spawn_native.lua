@@ -223,10 +223,18 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
         end
         return control
     end
+    local function retire(reference,kind,c)
+        local row={address=reference.address,name=reference.name,world=c.world,
+            class=assert(reference.class:match('^[^ ]+ (/.+)$'),'owned retirement class unreadable')}
+        return peer:retire_owned(row,kind,function()
+            scope:attest(true)
+            return calls:optional(reference)==nil
+        end)
+    end
     n.destroy=function(record,c)
         scope:attest(true)
         local object=calls:optional(record.reference)
-        if not object then return true end
+        if not object then return retire(record.reference,record.kind,c)end
         observer.identify(object,c.world)
         if record.kind=='controller' then
             local pawn=object:K2_GetPawn()
@@ -247,6 +255,7 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
         end
         object:K2_DestroyActor()
         assert(not calls:optional(record.reference),'owned online Actor destruction not acknowledged')
+        assert(retire(record.reference,record.kind,c)==true,'owned registration retirement unverified')
         if leftover then
             local ai=calls:optional(leftover)
             if ai then
@@ -254,6 +263,7 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
                 assert(not usable(pawn),'leftover AI acquired a living Pawn')
                 ai:K2_DestroyActor();assert(not calls:optional(leftover),'leftover online AI destruction unverified')
             end
+            assert(retire(leftover,'controller',c)==true,'leftover AI registration retirement unverified')
         end
         return true
     end
