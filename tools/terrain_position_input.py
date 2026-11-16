@@ -14,7 +14,7 @@ def variant(direction):
     path = ROOT / 'tools/research_game_menu.py'
     data = path.read_bytes()
     assert hashlib.sha256(data).hexdigest() == FROZEN
-    source = data.decode('utf-8')
+    source = data.decode('utf-8').replace('\r\n', '\n')
     needle = "'control_forward':83 if backward else 87"
     assert source.count(needle) == 1
     source = source.replace(needle, "'control_forward':" + str(65 if direction == 'left' else 68))
@@ -45,8 +45,38 @@ def move(direction):
     return result
 
 
+def startup_look(direction):
+    """One 600px camera gesture before any actors are assembled."""
+    assert direction in ('left', 'right')
+    path = ROOT / 'tools/research_game_menu.py'
+    data = path.read_bytes()
+    assert hashlib.sha256(data).hexdigest() == FROZEN
+    source = data.decode('utf-8').replace('\r\n', '\n')
+    start = source.index('    if positioning_key is not None:\n        u.keybd_event(positioning_key,0,0,0)')
+    end = source.index("    if purpose in ('control_lab_next'", start)
+    replacement = "    if positioning_key is not None:\n"
+    replacement += "        for _ in range(6):\n"
+    replacement += "            if u.GetForegroundWindow()!=h:raise RuntimeError('Research window lost focus')\n"
+    replacement += "            u.mouse_event(1," + str(-100 if direction == 'left' else 100) + ",0,0,0);time.sleep(.04)\n"
+    replacement += "        return {'relative_mouse_x':" + str(-600 if direction == 'left' else 600) + ",'only_research_game_targeted':True}\n"
+    module = types.ModuleType('bounded_startup_camera_variant');module.__file__ = str(path)
+    exec(compile(source[:start] + replacement + source[end:], str(path), 'exec'), module.__dict__)
+    result = module.click(0, 0, 2560, 1600, 'practice_position_left')
+    import ahua_practice as practice
+    import official_validation as validation
+    _, state = practice.owned_session()
+    receipt = Path(state['work']) / 'startup-camera-actions.json'
+    actions = json.loads(receipt.read_text(encoding='utf-8')) if receipt.exists() else []
+    actions.append({'at': validation.utc8(), 'state_file': state['state_file'],
+                    'direction': direction, 'relative_mouse_x': -600 if direction == 'left' else 600,
+                    'original_source_sha256': FROZEN, 'result': result})
+    validation.save(receipt, actions)
+    return result
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('direction', choices=('left', 'right'))
+    parser.add_argument('direction', choices=('left', 'right', 'look-left', 'look-right'))
     args = parser.parse_args()
-    print(json.dumps(move(args.direction), ensure_ascii=False))
+    result = startup_look(args.direction[5:]) if args.direction.startswith('look-') else move(args.direction)
+    print(json.dumps(result, ensure_ascii=False))
