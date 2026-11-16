@@ -76,7 +76,7 @@ def run():
         ('control_abi_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_abi.py', '-v'], 18),
         ('control_binding_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_binding.py', '-v'], 13),
         ('client_auth_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_client_auth.py', '-v'], 14),
-        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 7),
+        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 8),
         ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 66),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex

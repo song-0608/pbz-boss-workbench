@@ -30,7 +30,7 @@ local function fixture()
         spawn=function(_,remember)local r={};remember(r);f.created=f.created+1;return r end,
         resolve=function(r)return r end,register_controller=function()end,readiness=function()return 'settled'end,
         suspend=function()end,release_initialization=function()end,
-        restore_player=function()f.protected=false;return true end,destroy=function()return true end,
+        restore_player=function()f.protected=false;return true end,destroy=function()return not f.destroy_failure end,
         now=function()return f.clock end,log=function(message)f.logs[#f.logs+1]=message end,
         schedule=function(ms,fn)
             assert(ms==250);local t={active=true,fn=fn};f.timers[#f.timers+1]=t
@@ -109,5 +109,12 @@ end)
 check('lost native player retires recovery without automatic retry or takeover',function()
     local f=fixture();assert(not f.peer:select_boss('ahua_guitoudao'));f.keys.INS()
     f.valid=false;f:tick();assert(next(f.keys)==nil and not f.locked and f.created==0 and not f.timers[1].active)
+end)
+check('failed cleanup during a retry retires chooser keys instead of accepting another request',function()
+    local f=fixture();assert(not f.peer:select_boss('ahua_guitoudao'))
+    f.fail_prepare=false;f:retry();f.destroy_failure=true;f.arena.polls=64;f:tick()
+    assert(f.arena.state=='FAULTED'and next(f.keys)==nil and not f.locked)
+    for _,timer in ipairs(f.timers)do assert(not timer.active)end
+    local created=f.created;assert(not f.peer:select_boss('057_wanjun')and f.created==created)
 end)
 print('PASS '..checks..' online session groups; actual orchestration with fake native objects, no game started')

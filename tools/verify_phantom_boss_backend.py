@@ -39,7 +39,7 @@ def verify(path=None):
               'pair_session_python': 18, 'online_workbench_lifecycle': 25, 'workbench_native_umg': 13,
               'control_contract_python': 14,'contract_bundle_python':8,'control_abi_python':18,'control_binding_python':13,
               'client_auth_python':14,
-              'online_session_composition':7,
+              'online_session_composition':8,
               'patched_lua_compile_only': 66}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
@@ -55,9 +55,9 @@ def verify(path=None):
             assert 'PASS syntax only: 66 candidate Lua files' in output
         else:
             assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 368
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 369
     assert report['syntax_checked_lua_files']==66
-    return dict(passed=True, status='backend-milestone-only', groups=368, compiled_lua_files=66,
+    return dict(passed=True, status='backend-milestone-only', groups=369, compiled_lua_files=66,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

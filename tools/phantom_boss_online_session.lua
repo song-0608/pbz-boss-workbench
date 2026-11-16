@@ -25,6 +25,11 @@ function M.new(api,launch,config,peer,observer,directory,globals)
     native.mount_workbench=function(control,host,layer,pc,id)return workbench:mount(control,host,layer,pc,id)end
     native.state_changed=function(state,reason)
         workbench:assembly_changed(state,reason)
+        if state=='FAULTED'then
+            local ok,why=pcall(workbench.stop_recovery,workbench)
+            if not ok then native.log('faulted assembly menu recovery pending: '..tostring(why))end
+            return
+        end
         if state=='REJECTED'and not workbench.recovery then
             local ok,why=pcall(function()
                 local id=assert(arena.requested_boss_id)
