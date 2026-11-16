@@ -10,7 +10,9 @@ from build_phantom_boss_candidate import ROOT, SOURCES, build, sha, verify_candi
 TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapter.lua',
          'tests/test_phantom_boss_candidate.py', 'tests/compile_phantom_boss_candidate.lua',
          'tests/test_phantom_boss_entry.lua', 'tests/test_phantom_boss_host.lua',
-         'tests/test_phantom_boss_enemy_fence.lua', 'tests/test_phantom_boss_pair.py')
+         'tests/test_phantom_boss_enemy_fence.lua', 'tests/test_phantom_boss_pair.py',
+         'tests/test_phantom_boss_online_scope.lua', 'tests/test_phantom_boss_online_control.lua',
+         'tests/test_native_bridge.lua')
 
 
 def protected_files():
@@ -28,13 +30,15 @@ def run():
     lab = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     commands = [
         ('protocol_simulation', [str(lab), str(ROOT / TESTS[0]), str(ROOT)], 16),
-        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 22),
+        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 25),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 14),
         ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 8),
         ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 9),
-        ('enemy_fence_patched_upstream', [str(lab), str(ROOT / TESTS[6]), str(ROOT), str(target)], 13),
+        ('enemy_fence_patched_upstream', [str(lab), str(ROOT / TESTS[6]), str(ROOT), str(target)], 14),
         ('same_pc_pair_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair.py', '-v'], 8),
-        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 13),
+        ('online_scope_simulation', [str(lab), str(ROOT / TESTS[8]), str(ROOT)], 12),
+        ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 11),
+        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 23),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex
     log_directory.mkdir(parents=True)
@@ -47,7 +51,7 @@ def run():
         if completed.returncode:
             raise RuntimeError(name + ' failed')
         pattern = r'Ran (\d+) tests?' if name in ('candidate_python','same_pc_pair_python') else (
-            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence) groups')
+            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control) groups')
         found = re.search(pattern, output)
         if not found or int(found[1]) != expected:
             raise RuntimeError(name + ' did not report its complete expected test count')
@@ -66,7 +70,7 @@ def run():
         personal_settings_and_singleplayer_unchanged=True, upstream_commit=manifest['upstream_commit'],
         upstream_reviewed_sources=19, catalog_bosses=4, catalog_abilities=40,
         control_plane_test_groups=sum(row['groups'] for row in results[:-1]),
-        syntax_checked_lua_files=13, checks=results, pending=manifest['pending'],
+        syntax_checked_lua_files=23, checks=results, pending=manifest['pending'],
         source_sha256={n: sha((ROOT / n).read_bytes()) for n in (*SOURCES, *TESTS, 'tools/check_phantom_boss_backend.py',
             'tools/verify_phantom_boss_backend.py')})
     path = ROOT / 'evidence/adaptation/phantom-pact-backend.json'

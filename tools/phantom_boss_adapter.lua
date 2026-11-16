@@ -41,7 +41,9 @@ function M.attach(api, config, host, protocol, enemy_fence)
         if self.revoked_reason==reason then return end
         self.revoked_reason=reason
         net.enabled=false
+        self.revoking=true
         local ok,result=pcall(host.on_revoke,reason)
+        self.revoking=false
         self.restore_pending=not ok or result~=true
         if self.restore_pending then host.log('BWB possession restoration unverified: '..tostring(reason)) end
     end
@@ -63,8 +65,16 @@ function M.attach(api, config, host, protocol, enemy_fence)
         -- Explicitly no on_action: the control plane cannot grant an ability or apply a hit.
     }
     self.protocol=state
-    local class_to_boss={}
-    for id,row in pairs(config.bosses) do class_to_boss[row.class_path]=id end
+    local class_to_boss,class_actions={},{}
+    for id,row in pairs(config.bosses) do
+        class_to_boss[row.class_path]=id
+        local actions={};for key,path in pairs(row.actions) do actions[key]=path end
+        class_actions[row.class_path]=actions
+    end
+    function self:is_boss_class(path) return class_to_boss[path]~=nil end
+    function self:resolve_local_action(path,id)
+        return class_actions[path] and class_actions[path][id] or nil
+    end
     function self:register(row,kind)
         assert(not self.closed and identity(row),'valid current-world identity required')
         assert(row.world==self.world,'cannot own another world actor')
@@ -105,14 +115,36 @@ function M.attach(api, config, host, protocol, enemy_fence)
     end
     function self:allow_legacy_ghost()
         -- Boss classes cannot fall through to the receiver's own Pawn class.
-        return not self.closed and state.ready and state.boss=='native'
+        return not self.closed and not self.local_transition and state.ready and state.boss=='native'
             and state.remote and state.remote.boss=='native'
     end
     function self:remote_body_request()
-        if not state.ready then return nil,'identity handshake incomplete' end
+        if self.local_transition or not state.ready then return nil,'identity handshake incomplete' end
         local path=state:remote_class()
         if path then return path,'Boss ghost assembly contract pending' end
         return nil,'native body'
+    end
+    function self:begin_local_transition(row)
+        assert(not self.closed and not self.local_transition,'local body transition already pending or closed')
+        assert(identity(row) and self.owned[row.address]==row and row.kind=='local_body'
+            and row.world==self.world and class_to_boss[row.class],'registered same-World local Boss required')
+        local token={world=self.world,address=row.address}
+        self.local_transition=token
+        state:body_changed(host.now())
+        return token
+    end
+    function self:refresh_local_body()
+        if self.closed then return false end
+        if self.revoking then self.refresh_pending=true;return true end
+        self.last_poll=-math.huge
+        local ok,why=pcall(self.poll,self)
+        if not ok then state:set_link(false,host.now());revoke('body observation failed: '..tostring(why));return false end
+        return self.snapshot_current==true and self.local_body~=nil and not self.restore_pending
+    end
+    function self:finish_local_transition(token)
+        assert(token~=nil and self.local_transition==token,'stale local body transition token')
+        self.local_transition=nil
+        return self:refresh_local_body()
     end
     local handler=function(line,from)
         if self.closed or not net.enabled or not coop.linked() or net.party or net.pvp or net.role=='local' then return false end
@@ -129,6 +161,8 @@ function M.attach(api, config, host, protocol, enemy_fence)
         local now=host.now()
         if now-self.last_poll<0.1 then return end
         self.last_poll=now
+        self.refresh_pending=false
+        self.snapshot_current=false
         local ok,snapshot=pcall(host.snapshot)
         if not ok or type(snapshot)~='table' or not identity(snapshot.body)
             or type(snapshot.world)~='string' or snapshot.body.world~=snapshot.world then
@@ -140,6 +174,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         if self.world~=snapshot.world then
             state:world_changed(now)
             self.owned,self.owned_count,self.local_body={},0,nil
+            self.local_transition=nil
             fence:reset()
             self.world=snapshot.world
         end
@@ -153,6 +188,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
             self.local_body=snapshot.body
             if not state:select(boss or 'native',now) then state:body_changed(now) end
         end
+        self.snapshot_current=true
         state:set_link(net.enabled==true and coop.linked()==true,now)
         state:tick(now)
     end

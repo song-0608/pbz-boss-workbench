@@ -171,4 +171,30 @@ check('unacknowledged restore stays visibly pending and synchronization is disab
     h.linked=false;h.now=0.8;h.scheduled()
     assert(h.bridge.restore_pending and not h.api.coop.net.enabled and not h.bridge.protocol.ready)
 end)
+check('ownership transition blocks legacy ghosts and forces an immediate new body snapshot',function()
+    local h,g,step=pair(true);local boss=actor(77)
+    h.bridge:register(boss,'local_body');local before=h.snapshot_count
+    local token=h.bridge:begin_local_transition(h.bridge.owned[77])
+    assert(not h.bridge:allow_legacy_ghost() and not h.bridge.protocol.ready)
+    h.snapshot.body=boss;h.snapshot.native_player=false
+    assert(h.bridge:finish_local_transition(token) and h.snapshot_count==before+1)
+    assert(h.bridge.protocol.boss=='ahua' and not h.bridge.local_transition)
+    assert(not pcall(h.bridge.finish_local_transition,h.bridge,token))
+end)
+check('unknown classes cannot begin possession and action whitelist is copied',function()
+    local h=env('host');h.scheduled();local unknown=actor(8,'/Unreviewed/Boss.Boss_C')
+    h.bridge:register(unknown,'local_body')
+    assert(not pcall(h.bridge.begin_local_transition,h.bridge,h.bridge.owned[8]))
+    h.config.bosses.ahua.actions.cut='/Injected/Attack.Attack_C'
+    assert(h.bridge:resolve_local_action('/Boss/Ahua.Ahua_C','cut')=='/Ability/Cut.Cut_C')
+end)
+check('restoration callback cannot recursively poll a protocol clear in progress',function()
+    local h,g=pair();local before=h.snapshot_count
+    h.host.on_revoke=function()
+        assert(h.bridge.revoking and h.bridge:refresh_local_body());return true
+    end
+    h.linked=false;h.now=0.8;h.scheduled()
+    assert(h.snapshot_count==before+1 and h.bridge.refresh_pending and not h.bridge.restore_pending)
+    h.now=1;h.scheduled();assert(not h.bridge.refresh_pending and not h.bridge.protocol.connected)
+end)
 print('PASS '..checks..' adapter groups; mocked upstream API, no native/game execution')

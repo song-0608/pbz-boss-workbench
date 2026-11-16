@@ -17,9 +17,12 @@ SCRIPTS = 'mod/PBZCoop/Scripts/'
 SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_catalog.lua',
            'tools/phantom_boss_protocol.lua', 'tools/phantom_boss_adapter.lua',
            'tools/phantom_boss_entry.lua', 'tools/phantom_boss_host.lua',
-           'tools/phantom_boss_enemy_fence.lua', 'tools/prepare_phantom_boss_pair.py')
+           'tools/phantom_boss_enemy_fence.lua', 'tools/prepare_phantom_boss_pair.py',
+           'tools/phantom_boss_online_scope.lua', 'tools/phantom_boss_online_control.lua',
+           'tools/phantom_boss_local_dependencies.lua')
+LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary')
 PENDING = [
-    'dedicated online research launcher, lease issuer and local possession restoration',
+    'dedicated online launcher, lease issuer, owned-arena assembly and engine recovery binding',
     'Boss-specific ghost assembly, harmless effects and same-world parking contract',
     'whitelisted visual action playback and measured host damage attribution',
     'two independent clients: real relay, different Bosses, world switch and reconnect',
@@ -131,7 +134,11 @@ def patches():
         'coop.lua': [
             ('    local function sendEvent(kind, ...)\n',
              '    local function sendEvent(kind, ...)\n'
+             '        if api.bossWorkbench and (kind == "M" or (kind == "U" and not api.bossWorkbench:allow_legacy_ghost())) then return end\n'
              '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_event(kind, ...) then return end\n'),
+            ('    handlers.M = function(rest, from)\n',
+             '    handlers.M = function(rest, from)\n'
+             '        if api.bossWorkbench then return end -- BWB: no legacy remote ability activation/grant\n'),
             ('            if h then\n',
              '            if h and (not api.bossWorkbench or api.bossWorkbench:allow_enemy_event(kind, rest)) then\n'),
             ('    local function spawnGhost(p)\n',
@@ -164,7 +171,12 @@ def patches():
              '                or not api.bossWorkbench:allow_enemy_actor(enemyByName[name])) then return nil end\n'
              '            return enemyByName[name]\n'),
             ('        handlers = handlers,       -- event type -> function(rest); other modules add their own types',
-             '        retireWorkbenchGhosts = function() destroyGhosts() end, -- BWB: preserve native clone parking\n'
+             '        retireWorkbenchGhosts = function()\n'
+             '            for _, p in ipairs(partners()) do\n'
+             '                p.heldMove, p.ghostMontage, p.ghostPath, p.ghostMoveAt, p.stanceHeld = nil, nil, nil, nil, nil\n'
+             '            end\n'
+             '            destroyGhosts() -- BWB: preserve native clone parking\n'
+             '        end,\n'
              '        workbenchEnemyState = function()\n'
              '            return {net=net,reach=reach,round=round,handover=handover,\n'
              '                names=enemyByName,seen=seen,puppets=api.puppets}\n'
@@ -199,6 +211,14 @@ def patches():
             ('    coop.handlers.A = function(rest, from)\n',
              '    coop.handlers.A = function(rest, from)\n'
              '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_event("A", rest) then return end\n'),
+        ],
+        'moves.lua': [
+            ('    coop.handlers.U = function(rest, from)\n',
+             '    coop.handlers.U = function(rest, from)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_legacy_ghost() then return end\n'),
+            ('    local function playHeld(now)\n',
+             '    local function playHeld(now)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:allow_legacy_ghost() then return end\n'),
         ],
         'onlinepanel.lua': [
             ('controller:IsInputKeyDown(kit.key("F5"))', 'controller:IsInputKeyDown(kit.key("Home"))'),
@@ -247,6 +267,15 @@ def verify_candidate(directory):
     for name, digest in manifest['files'].items():
         if sha(safe_file(directory, name).read_bytes()) != digest:
             raise ValueError('Candidate payload drift: ' + name)
+    release_raw = (ROOT / 'releases' / RELEASE / 'pbz-release.json').read_bytes()
+    if sha(release_raw) != RELEASE_SHA:
+        raise ValueError('Local control dependency provenance changed')
+    release_files = json.loads(release_raw)['files']
+    for name in LOCAL_MODULES:
+        target = f'PBZCoop/Scripts/bwb_local_native/{name}.lua'
+        original = f'PBZBossControl/Scripts/{name}.lua'
+        if manifest['files'].get(target) != release_files[original]:
+            raise ValueError('Local control dependency differs from pinned release: ' + name)
     return manifest
 
 
@@ -260,8 +289,10 @@ def build(source=None, lua_lab=None, root=ROOT):
     config = dict(bosses=bosses, catalog_sha256=catalog_sha, exe_sha256=accepted['exe_sha256'],
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
-    for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence'):
+    for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control', 'local_dependencies'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
+    for name in LOCAL_MODULES:
+        contents[f'PBZCoop/Scripts/bwb_local_native/{name}.lua'] = (release / f'PBZBossControl/Scripts/{name}.lua').read_bytes()
     for name in patches():
         contents['upstream-local-patches/' + name] = patch_source(
             name, (source / SCRIPTS / name).read_text(encoding='utf-8')).encode()

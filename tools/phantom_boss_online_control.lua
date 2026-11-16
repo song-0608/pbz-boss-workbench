@@ -1,0 +1,124 @@
+-- Online-specific orchestration around the immutable control/session/runtime
+-- implementations. Supply their real modules from the pinned local dependency
+-- folder; this file never calls the offline entry or supplies an offline proof.
+local M={}
+local function valid(o) return o and o:IsValid()==true end
+function M.new(api,profile,config,scope,peer,host,dependencies)
+    assert(type(scope)=='table' and type(scope.attest)=='function')
+    assert(type(peer)=='table' and type(peer.begin_local_transition)=='function'
+        and type(peer.finish_local_transition)=='function' and type(peer.refresh_local_body)=='function',
+        'ownership transition adapter required')
+    assert(type(api.owned_temporary)=='table' and type(api.usable)=='function','owned actor bindings required')
+    assert(type(profile.instance_name)=='string','exact owned Boss instance required')
+    assert(config.expected_exe_sha256==profile.exe_sha256,'local control build mismatch')
+    assert(scope:attest(false).exe_sha256==profile.exe_sha256,'online scope game build mismatch')
+    assert(peer:is_boss_class(profile.class_path),'Boss absent from online class whitelist')
+    for _,definition in pairs(config.skills or {}) do
+        if definition.verified then
+            local skill=assert(profile.skills[definition.id],'missing local skill profile')
+            assert(peer:resolve_local_action(profile.class_path,definition.id)==skill.class_path,
+                'skill differs from online action whitelist')
+        end
+    end
+    assert(type(dependencies)=='table' and type(dependencies.Bridge)=='table'
+        and type(dependencies.Runtime)=='table','private pinned local dependencies required')
+    local modules=dependencies
+    local local_api={};for key,value in pairs(api) do local_api[key]=value end
+    local_api.attest=function()return scope:attest(false)end
+    local bridge=modules.Bridge.new(local_api,profile)
+    local pending_transition
+    -- Bridge's native methods retain their original build/object/World checks.
+    -- Only their environment and the session's context policy are specialized.
+    function bridge:environment() return scope:attest(self.online_restoring==true) end
+    function bridge:context()
+        local lease=self:environment()
+        local pc=self.active_receipt and self.calls:resolve(self.active_receipt.player_controller) or self:player_controller()
+        local boss_available
+        if self.active_receipt then
+            local ok,boss=pcall(self.calls.resolve,self.calls,self.active_receipt.boss)
+            boss_available=ok and valid(boss) or false
+        else boss_available=self:target(pc)~=nil end
+        return {mode=lease.mode,isolated=lease.isolated,exe_sha256=lease.exe_sha256,
+            world_id=self:world_id(pc,lease),boss_available=boss_available,restore_only=lease.restore_only}
+    end
+    local capture,take_control,can_start_skill=bridge.capture,bridge.take_control,bridge.can_start_skill
+    function bridge:capture()
+        scope:attest(false)
+        -- Registration must precede possession, not wait for the next observer tick.
+        for key,kind in pairs({boss='local_body',ai='controller'}) do
+            local object=self.calls:resolve(local_api.owned_temporary[key])
+            local addr=object:GetAddress();local row=peer.owned[addr]
+            assert(row and row.kind==kind and peer:exclude(object,addr),'online actor ownership not registered: '..key)
+        end
+        return capture(self)
+    end
+    function bridge:take_control(receipt)
+        pending_transition=peer:begin_local_transition(peer.owned[receipt.boss.address])
+        local taken=take_control(self,receipt)
+        if taken==true then
+            assert(peer:finish_local_transition(pending_transition),'post-possession observation failed')
+            pending_transition=nil
+        end
+        return taken
+    end
+    function bridge:can_start_skill(receipt,id)
+        scope:attest(false)
+        if not peer.protocol.ready then return false,'peer identity acknowledgement pending' end
+        return can_start_skill(self,receipt,id)
+    end
+    local runtime=modules.Runtime.new(bridge,config,host)
+    local session=runtime.session
+    function session:context()
+        local ok,context=pcall(self.bridge.context,self.bridge)
+        if not ok or type(context)~='table' then return nil,'online context unreadable' end
+        if context.mode~='two-player-online-research' or context.isolated~=true
+            or (context.restore_only and not bridge.online_restoring) then return nil,'online control not attested' end
+        if context.exe_sha256~=self.config.expected_exe_sha256 then return nil,'game build mismatch' end
+        if type(context.world_id)~='string' or context.world_id=='' then return nil,'missing World identity' end
+        if self.world_id and context.world_id~=self.world_id then return nil,'World changed; stale receipt rejected' end
+        return context
+    end
+    local enter,restore=session.enter,session.restore
+    function session:enter()
+        local ok=pcall(scope.attest,scope,false)
+        if not ok or not peer.protocol.ready or peer.closed then return false,'online peer/control lease not ready' end
+        return enter(self)
+    end
+    function session:restore(reason)
+        -- Mark only this synchronous restore call as cleanup. No queued skill,
+        -- input, capture or new possession may use the 15-second cleanup period.
+        if self.receipt and not pending_transition and not peer.closed and not peer.revoking then
+            local row=peer.owned[self.receipt.boss.address]
+            if row then
+                local started,token=pcall(peer.begin_local_transition,peer,row)
+                if started then pending_transition=token end
+            end
+        end
+        bridge.online_restoring=true
+        local ok,result,why=pcall(restore,self,reason)
+        bridge.online_restoring=false
+        if not ok then self.state='FAULTED';self:record('online restore exception: '..tostring(result));return false,result end
+        if result==true and pending_transition then
+            local observed,finished
+            if peer.closed then observed,finished=true,true
+            elseif peer.local_transition==pending_transition then
+                observed,finished=pcall(peer.finish_local_transition,peer,pending_transition)
+            else observed,finished=pcall(peer.refresh_local_body,peer) end
+            if not observed or finished~=true then return false,'restored local body observation unverified' end
+            pending_transition=nil
+        end
+        if result==true and self.state=='OFF' and not self.receipt and not peer.closed then
+            local observed,current=pcall(peer.refresh_local_body,peer)
+            if not observed or current~=true then return false,'restored local body observation unverified' end
+        end
+        return result,why
+    end
+    local self={runtime=runtime,session=session,bridge=bridge,scope=scope}
+    function self:start() scope:attest(false);return runtime:start() end
+    function self:revoke(reason)
+        scope:revoke(reason)
+        return runtime:stop(reason)
+    end
+    return self
+end
+return M

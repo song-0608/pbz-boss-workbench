@@ -170,4 +170,10 @@ check('in-flight aliases remain quarantined after the main mapping rotated away'
     assert(not e.fence:allow_name('old_alias') and not e.fence:allow_name('aside_alias'))
     assert(not e.fence:allow_name('mirror_alias') and e.view.net.mirrorOn.mirror_alias==nil)
 end)
+check('legacy peer ability packets cannot activate or grant abilities on the controlled body',function()
+    local e=env();e.view.net.ghost=e.boss;e.view.net.enabled=true
+    e.coop.handlers.M('/Arbitrary/Attack.Attack_C 0')
+    e.coop.sendEvent('M','/Arbitrary/Attack.Attack_C',0)
+    assert(e.writes==0 and #e.events==0)
+end)
 print('PASS '..checks..' enemy fence groups; patched upstream Lua executed with fake engine, no relay/game')

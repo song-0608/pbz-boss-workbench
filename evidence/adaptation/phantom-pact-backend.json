@@ -7,98 +7,118 @@
   "game_started": false,
   "native_relay_executed": false,
   "installed": false,
-  "candidate": "runtime/online-candidates/bwb-phantompact-a5179dcb995075266404",
-  "candidate_manifest_sha256": "b23173112c1ee55aaf49d3710b6784603a8f0a6c8b993a482b2d758b5be9f8ae",
+  "candidate": "runtime/online-candidates/bwb-phantompact-f0fc5002741f1ce83f44",
+  "candidate_manifest_sha256": "b8de33d17237ec45c4ae031cfed670ffcff0f6ae54678327a6622eb96f90845f",
   "singleplayer_payload_files_verified": 62,
   "personal_settings_and_singleplayer_unchanged": true,
   "upstream_commit": "91099b849e474f0326834135ace52dfbab26e520",
   "upstream_reviewed_sources": 19,
   "catalog_bosses": 4,
   "catalog_abilities": 40,
-  "control_plane_test_groups": 90,
-  "syntax_checked_lua_files": 13,
+  "control_plane_test_groups": 117,
+  "syntax_checked_lua_files": 23,
   "checks": [
     {
       "name": "protocol_simulation",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/protocol_simulation.txt",
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/protocol_simulation.txt",
       "output_sha256": "c60a6d3535af976ea71bfc4d3a5193fe8a7eb8679503ec0a2572f2d43ae31eae"
     },
     {
       "name": "adapter_mocked_api",
       "passed": true,
-      "groups": 22,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/adapter_mocked_api.txt",
-      "output_sha256": "85b67543d31adbf1e32692063771c1045a22a3a0e854c9b617d74431c2832b52"
+      "groups": 25,
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/adapter_mocked_api.txt",
+      "output_sha256": "cdf1e8cf605ca9f3d74c1a239716d78399334d2aa3507b3651235d98643efd26"
     },
     {
       "name": "candidate_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/candidate_python.txt",
-      "output_sha256": "0790b4efcb86c3fc234df7d55d88f80813dd1138213efede8bc044f06724f2f9"
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/candidate_python.txt",
+      "output_sha256": "066f1c835a32f48f630b4ad7ad426576d5aa67d9789b6ef23e76655d95927a7f"
     },
     {
       "name": "entry_mocked_research_lease",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/entry_mocked_research_lease.txt",
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/entry_mocked_research_lease.txt",
       "output_sha256": "072a937403b3915fb9becc482a2fb1c01821dacca6a4a492cbb4ad7e2b161e79"
     },
     {
       "name": "host_fake_uobjects",
       "passed": true,
       "groups": 9,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/host_fake_uobjects.txt",
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/host_fake_uobjects.txt",
       "output_sha256": "dea31001ae2cbf6aab629fa067a52bb93baf91efd0a318a4d17fe7e20bb14562"
     },
     {
       "name": "enemy_fence_patched_upstream",
       "passed": true,
-      "groups": 13,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/enemy_fence_patched_upstream.txt",
-      "output_sha256": "911675c399824504b47c265b33cbd52c19bb01044ea9b52a52489279e9112e1a"
+      "groups": 14,
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/enemy_fence_patched_upstream.txt",
+      "output_sha256": "f8b46603d7891818e54550044435d19817be703ffb81f40e051b0920b88b267a"
     },
     {
       "name": "same_pc_pair_python",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/same_pc_pair_python.txt",
-      "output_sha256": "b936081716b2cb36173925f982fb4c4d5756a22dd6fdc2bd273e032df92df528"
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/same_pc_pair_python.txt",
+      "output_sha256": "5786947413e146e22aed749550491b4afe6ed3cb069826aec086d53babf4401a"
+    },
+    {
+      "name": "online_scope_simulation",
+      "passed": true,
+      "groups": 12,
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/online_scope_simulation.txt",
+      "output_sha256": "2b3245b5ee807943c4219a77797eb6259e6d787508f5b5b4b58b8516fff65bf0"
+    },
+    {
+      "name": "online_control_fake_uobjects",
+      "passed": true,
+      "groups": 11,
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/online_control_fake_uobjects.txt",
+      "output_sha256": "f2112cfff070dadd1573da1c517078164aeb14ec32600ccb4881dd8f834ec872"
     },
     {
       "name": "patched_lua_compile_only",
       "passed": true,
-      "groups": 13,
-      "output": "runtime/online-checks/c4c7cb27f3474fbaa487ce2997bb68f5/patched_lua_compile_only.txt",
-      "output_sha256": "82dfbe731d8e7b7c1cd61e57ee7b68c6edc37701b02dab8caa8f9159b084523b"
+      "groups": 23,
+      "output": "runtime/online-checks/8b1a73b62675440ba2b79de464c7c8a1/patched_lua_compile_only.txt",
+      "output_sha256": "4c6241a95af99348454eca2bcb3f23481c888073a4d98ccd525086b49f4081ab"
     }
   ],
   "pending": [
-    "dedicated online research launcher, lease issuer and local possession restoration",
+    "dedicated online launcher, lease issuer, owned-arena assembly and engine recovery binding",
     "Boss-specific ghost assembly, harmless effects and same-world parking contract",
     "whitelisted visual action playback and measured host damage attribution",
     "two independent clients: real relay, different Bosses, world switch and reconnect"
   ],
   "source_sha256": {
-    "tools/build_phantom_boss_candidate.py": "4200a25e79f0862e1d5d56cd141b9dddbb52793f43c2e220cdc56f84149aca96",
+    "tools/build_phantom_boss_candidate.py": "5a22e5fce735062c0ad930724d6c7b4df3d7e7f642936c0d654fc1f8d590f4c5",
     "tools/export_phantom_boss_catalog.lua": "44d901f70b57174c296d42192a39fd80d4353c188b0a30a458f70b0e556ea6ac",
     "tools/phantom_boss_protocol.lua": "2ee398ca6edf934ea31a15f9385c711412781e4a59f91aa7a16a9961286f41fa",
-    "tools/phantom_boss_adapter.lua": "9c00611f7707905a7d013ca5fb744c900b94dbca69899ef6fefb5674770600bb",
+    "tools/phantom_boss_adapter.lua": "b70669140e416e67a64ef86c8a99204c6b77aa23404b681a7dcf0f1796c48b8a",
     "tools/phantom_boss_entry.lua": "a6ca6f54e5985b74fd0daaef1c60c6ebba8355a0a0bbf11eeb85ad9c17ab0530",
     "tools/phantom_boss_host.lua": "a893b40d51046707e4145959c92ef53fbcd72980380253478795eea894300a1a",
     "tools/phantom_boss_enemy_fence.lua": "e520260f4fb72dad3e25735f412e244f642d6130b842ec2db32666928516b836",
     "tools/prepare_phantom_boss_pair.py": "3ba25510dd8499158b3b44163475921c9dfc053f41c8f941f0d3814c2cdf37bd",
+    "tools/phantom_boss_online_scope.lua": "39dc46a7fd96fd9216681788b1e17436e1c46a3d8bb0870271af8dce17e18d5c",
+    "tools/phantom_boss_online_control.lua": "d8d22126daab7392ed766d8e35f0255527e1fb008bca101fecddbf554f23e99a",
+    "tools/phantom_boss_local_dependencies.lua": "b2f1a73893ce6ab775ce9c56e98fabb3938380ddf4058d11154211b196508c05",
     "tests/test_phantom_boss_protocol.lua": "8f64d61f25490da8ad2067cf67a5a44e13706518a17e94971aa5ef7540daaa6d",
-    "tests/test_phantom_boss_adapter.lua": "49072ea6df1a718233ff731dd3b412160da3aed115e9db7de7dda6e174a2df4c",
+    "tests/test_phantom_boss_adapter.lua": "d9f6cbc2b140cae9a316d4d37444a3f9cee8ddcc236aa6b3e46b838f8623fdfd",
     "tests/test_phantom_boss_candidate.py": "e3276bd622b2d7409183bc214edca59c64c8771ba8ff20a2f134bd710bb7d1b3",
-    "tests/compile_phantom_boss_candidate.lua": "9670fe2e5835fa94f29855c558d418f130fb5d041adcd4f6086a53e47ee75e3e",
+    "tests/compile_phantom_boss_candidate.lua": "1e007a789f28a73a61a19c99b7bbeea3777854175bc29e1bc133b2861c0e41ec",
     "tests/test_phantom_boss_entry.lua": "6c76346dffc16e360a5c82402a9ef085d8948c2459a1d4b59ce7b71f3a7be6f8",
     "tests/test_phantom_boss_host.lua": "05fda20f33fdde8b90d59d2599ff7e347fb1455679f9d5fbc72326ec8e7dd273",
-    "tests/test_phantom_boss_enemy_fence.lua": "75235909e999d9faeecaf04c377f9137f89338af2271f19762bb84981ee90d47",
+    "tests/test_phantom_boss_enemy_fence.lua": "f3487e9b483d999d7bc294fa656fcbf4755a1a0fd57cf15b42ba3f315e0f16a6",
     "tests/test_phantom_boss_pair.py": "1c1d5206c728d0e071ca7184d519f25986357b2242a2069ecce5b989f36cdc4b",
-    "tools/check_phantom_boss_backend.py": "5d38e51f26ecdfae996fb0d9e9ec244f3aa1505db547d262610c20dccead73d6",
-    "tools/verify_phantom_boss_backend.py": "c2eca9cf8a911a974f394293fefa4ad2f2e0cf9247308409ab29969e3d307231"
+    "tests/test_phantom_boss_online_scope.lua": "b7fc85a536dfbc48917a94507d5f9fe7ccc0320824e5085289aa3e0defbac4e9",
+    "tests/test_phantom_boss_online_control.lua": "655a2a122d3d0e298394a99f97c243b983d6ad2db1e78d3421778d6646321225",
+    "tests/test_native_bridge.lua": "2e408465276373577132963b64782165af33fa4d73a302d6e7016f96a9ffead1",
+    "tools/check_phantom_boss_backend.py": "a367741c4a727365b8d34dd9abbf1c18e78b143449048c9f1342d01f8b8650a4",
+    "tools/verify_phantom_boss_backend.py": "912445ab905d520df9e5ab27cd7f3524eb73fb6eca986aa818837ac59afee681"
   }
 }
