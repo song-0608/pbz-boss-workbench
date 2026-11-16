@@ -16,9 +16,9 @@ RELEASE_SHA = '5cb110f21013baea5ae714ad334c54dcd7fb0215e35b697e6559004cd8235d0d'
 SCRIPTS = 'mod/PBZCoop/Scripts/'
 SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_catalog.lua',
            'tools/phantom_boss_protocol.lua', 'tools/phantom_boss_adapter.lua',
-           'tools/phantom_boss_entry.lua')
+           'tools/phantom_boss_entry.lua', 'tools/phantom_boss_host.lua')
 PENDING = [
-    'dedicated online research launcher, expiry and local possession restoration',
+    'dedicated online research launcher, lease issuer and local possession restoration',
     'Boss-specific ghost assembly, harmless effects and same-world parking contract',
     'owned Boss removal from already-built enemy synchronization maps',
     'whitelisted visual action playback and measured host damage attribution',
@@ -200,7 +200,7 @@ def build(source=None, lua_lab=None, root=ROOT):
     config = dict(bosses=bosses, catalog_sha256=catalog_sha, exe_sha256=accepted['exe_sha256'],
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
-    for local, target in (('protocol', 'protocol'), ('adapter', 'adapter'), ('entry', 'entry')):
+    for local, target in (('protocol', 'protocol'), ('adapter', 'adapter'), ('entry', 'entry'), ('host', 'host')):
         contents[f'PBZCoop/Scripts/bwb_{target}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in patches():
         contents['upstream-local-patches/' + name] = patch_source(

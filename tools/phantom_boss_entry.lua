@@ -15,8 +15,10 @@ return function(api, directory)
         and launch.expires_at<=os.time()+1200,'bounded online research lease required')
     assert(launch.exe_sha256==config.exe_sha256 and launch.catalog_sha256==config.catalog_sha256,
         'online research build/catalog mismatch')
-    assert(type(launch.host)=='table','trusted research host required')
-    local host={}; for key,value in pairs(launch.host) do host[key]=value end
+    local supplied=launch.host
+    if supplied==nil then supplied=dofile(directory..'bwb_host.lua').new(api,launch,_G) end
+    assert(type(supplied)=='table','trusted research host required')
+    local host={}; for key,value in pairs(supplied) do host[key]=value end
     config.session=launch.session
     local original_snapshot=host.snapshot
     host.snapshot=function()

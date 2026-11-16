@@ -9,7 +9,7 @@ from build_phantom_boss_candidate import ROOT, SOURCES, build, sha, verify_candi
 
 TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapter.lua',
          'tests/test_phantom_boss_candidate.py', 'tests/compile_phantom_boss_candidate.lua',
-         'tests/test_phantom_boss_entry.lua')
+         'tests/test_phantom_boss_entry.lua', 'tests/test_phantom_boss_host.lua')
 
 
 def protected_files():
@@ -30,7 +30,8 @@ def run():
         ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 18),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 14),
         ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 6),
-        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 10),
+        ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 9),
+        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 11),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex
     log_directory.mkdir(parents=True)
@@ -43,7 +44,7 @@ def run():
         if completed.returncode:
             raise RuntimeError(name + ' failed')
         pattern = r'Ran (\d+) tests?' if name == 'candidate_python' else (
-            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry) groups')
+            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host) groups')
         found = re.search(pattern, output)
         if not found or int(found[1]) != expected:
             raise RuntimeError(name + ' did not report its complete expected test count')
@@ -62,7 +63,7 @@ def run():
         personal_settings_and_singleplayer_unchanged=True, upstream_commit=manifest['upstream_commit'],
         upstream_reviewed_sources=19, catalog_bosses=4, catalog_abilities=40,
         control_plane_test_groups=sum(row['groups'] for row in results[:-1]),
-        syntax_checked_lua_files=10, checks=results, pending=manifest['pending'],
+        syntax_checked_lua_files=11, checks=results, pending=manifest['pending'],
         source_sha256={n: sha((ROOT / n).read_bytes()) for n in (*SOURCES, *TESTS, 'tools/check_phantom_boss_backend.py',
             'tools/verify_phantom_boss_backend.py')})
     path = ROOT / 'evidence/adaptation/phantom-pact-backend.json'

@@ -29,7 +29,7 @@ def verify(path=None):
     assert report['singleplayer_payload_files_verified'] == len(accepted['files'])
     assert report['personal_settings_and_singleplayer_unchanged'] is True
     counts = {'protocol_simulation': 16, 'adapter_mocked_api': 18, 'candidate_python': 14,
-              'entry_mocked_research_lease': 6, 'patched_lua_compile_only': 10}
+              'entry_mocked_research_lease': 6, 'host_fake_uobjects': 9, 'patched_lua_compile_only': 11}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
     for row in report['checks']:
@@ -41,11 +41,11 @@ def verify(path=None):
         if row['name'] == 'candidate_python':
             assert re.search(r'Ran 14 tests?', output) and re.search(r'\bOK\b', output)
         elif row['name'] == 'patched_lua_compile_only':
-            assert 'PASS syntax only: 10 candidate Lua files' in output
+            assert 'PASS syntax only: 11 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 54
-    return dict(passed=True, status='backend-milestone-only', groups=54, compiled_lua_files=10,
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host) groups', output)
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 63
+    return dict(passed=True, status='backend-milestone-only', groups=63, compiled_lua_files=11,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 
