@@ -1,0 +1,194 @@
+{
+  "inherited_v1": {
+    "release": "ahua-boss-workbench-v1-f0bcf1323e641e03",
+    "manifest_sha256": "6cf83a155b7fab444d0ad0796c442a757f3b0f5df7d2c282d4903bad76fb78b7",
+    "acceptance_report": "evidence/releases/ahua-boss-workbench-v1-f0bcf1323e641e03-acceptance.json",
+    "acceptance_report_sha256": "95cd19eea8137d6b30c531d05420d89c5bdc9bab7773d936a5e56f4dd5627c2e",
+    "scope": "Inherited accepted Ahua and WanJun behavior; only exact initialization, catalog and selection patches allowed",
+    "unmodified_combat_camera_input_and_restoration": true,
+    "historical_tool_changes_require_current_offline_checks": [
+      "tests/test_player_settings.py",
+      "tools/ahua_practice.py",
+      "tools/boss_candidate_gate.py",
+      "tools/collect_boss_candidate_acceptance.py",
+      "tools/player_settings.py",
+      "tools/research_game_menu.py",
+      "tools/run_boss_candidate_milestone.py",
+      "tools/run_boss_identity_batch.py",
+      "tools/run_control_lifecycle_probe.py",
+      "tools/test_player_skill_batch.py"
+    ]
+  },
+  "exact_registry_world": {
+    "path": "research/boss-adaptation/developer-attempt-receipts/four-boss-youlong-world-20261116-115608.json",
+    "sha256": "46b13d3b436d475b3c832bb7dbecf16cf8df97c17e13fe654edd932c89482038"
+  },
+  "youlong_independent": {
+    "path": "research/boss-adaptation/developer-attempt-receipts/youlong-20261116-073449.json",
+    "sha256": "2259eaf7c2a0dadc4476367f463367c39dc1d087804ac43c33ce8ae6b35ca932"
+  },
+  "ordinary_action_count": 8,
+  "current_world_skill_count": 2,
+  "world_cycle": {
+    "before_identity": {
+      "world_id": "official-validation-20261116-115608|World /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP|73370420704",
+      "participants": {
+        "player_controller": {
+          "name": "BP_PlayerController_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_PlayerController_C_2147479670",
+          "address": 78070177024,
+          "class": "BlueprintGeneratedClass /Game/PBZContent/Blueprint/Character/Player/BP_PlayerController.BP_PlayerController_C"
+        },
+        "player": {
+          "name": "BP_Renewal_Hun_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Renewal_Hun_C_2147479626",
+          "address": 75512654528,
+          "class": "BlueprintGeneratedClass /Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C"
+        },
+        "boss": {
+          "name": "BP_Monster_YouLong_Harpoon_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_YouLong_Harpoon_C_2147470005",
+          "address": 77581205696,
+          "class": "BlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C"
+        }
+      }
+    },
+    "after_identity": {
+      "world_id": "official-validation-20261116-115608|World /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP|82282560096",
+      "participants": {
+        "player_controller": {
+          "name": "BP_PlayerController_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_PlayerController_C_2147465994",
+          "address": 74573409184,
+          "class": "BlueprintGeneratedClass /Game/PBZContent/Blueprint/Character/Player/BP_PlayerController.BP_PlayerController_C"
+        },
+        "player": {
+          "name": "BP_Renewal_Hun_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Renewal_Hun_C_2147465950",
+          "address": 81320531296,
+          "class": "BlueprintGeneratedClass /Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C"
+        },
+        "boss": {
+          "name": "BP_Monster_YouLong_Harpoon_C /Game/Maps/B03/PBZ_Fujizhilin_WP.PBZ_Fujizhilin_WP:PersistentLevel.BP_Monster_YouLong_Harpoon_C_2147457101",
+          "address": 79300993248,
+          "class": "BlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C"
+        }
+      }
+    },
+    "before_restoration": {
+      "label": "exit",
+      "reason": "",
+      "player_position_delta": 0.0,
+      "player_new_active_count": 0,
+      "camera_cleanup_verified": true,
+      "passed": true
+    },
+    "after_restoration": {
+      "label": "exit",
+      "reason": "",
+      "player_position_delta": 0.0,
+      "player_new_active_count": 0,
+      "camera_cleanup_verified": true,
+      "passed": true
+    },
+    "old_world_and_owned_retired": true,
+    "title_wait_resumed": true,
+    "skill_natural_damage": true,
+    "manual_rearm_absent": true,
+    "fault_absent": true,
+    "new_identity": true,
+    "passed": true
+  },
+  "session": "20261116-115608",
+  "release_id": "ahua-boss-workbench-v2-7b83ce4aa5d15a03",
+  "passed": true,
+  "at": "2026-11-16T12:12:03.947389+08:00",
+  "module_source_sha256": {
+    "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+    "boss_candidate.lua": "4b848bc35c20c36eec01fdb4025ac34363fdb7221059b8787b74f777dc52b1d1",
+    "boss_catalog.lua": "dab3d46bb3fa8d066c2f3970d96e4653df9e4b65837a2947059a054761d79971",
+    "boss_selection_preflight.lua": "00aa8165bd8e98fde9b68942a7233be5066683506bddc2b8c4991017707e9f8c",
+    "boss_workbench.lua": "1bb3317be749a39b04d1573a9eb7975054d375ff94fd88ed02c170787a894ea1",
+    "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+    "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+    "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+    "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+    "control_bridge.lua": "cc67e503ce4c42dc4b09f5c8c3e9e8ddc6f8b05fe7fa773249d89b2109c70658",
+    "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+    "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+    "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+    "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+    "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+    "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+    "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+    "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+    "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+    "owned_arena.lua": "315b4cb4ca7f91ce2e335969610484dcba3ca0991a2681a35394a74041381d69",
+    "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+    "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+    "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+    "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+    "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+    "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
+    "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+    "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+    "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
+    "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138",
+    "profiles/yanqiansui.lua": "87984906d2627c4fecca86a3b33997b78742457e2e537faefd75887116483512",
+    "profiles/yanqiansui_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d",
+    "profiles/youlong.lua": "31d5344cfc2bef1b9d8c3543222f3a775bf6a9520b2ff878a7d7615a53b13b5a",
+    "profiles/youlong_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d",
+    "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+    "runtime.lua": "97a458ee2be9996e352a66fdff17b4c4359ea81794f1d64c262585213202010f",
+    "session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+    "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+    "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+    "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+    "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+    "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+    "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+    "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
+    "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
+    "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+    "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+    "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+    "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+    "workbench_catalog.lua": "0d86861dc6aa6cedfe16a3fc270ebc28572dab4cdbe6dbc5346f1b434703b858",
+    "workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+    "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+    "yanqiansui_arena_clearance.lua": "65e887e3489b6317e15c196efef62197d30776654450e806193a10cfa1530da4"
+  },
+  "candidate": "ahua-boss-workbench-v2-three-8f9ab145244a0b06",
+  "candidate_manifest_sha256": "273729044afb7a265ebffdbf158f2be94c94f38618c513ab577cf80fa5812be7",
+  "scope": "current fixed PBZ build, local protected offline launcher",
+  "local_checks": {
+    "path": "evidence/adaptation/three-boss-v2-release-checks.json",
+    "sha256": "bab75e48560da6fc23ee8a4a74a12b727d5056c35d64ee74c7e70e8ec8da634c"
+  },
+  "source_sha256": {
+    "tools/release_youlong_workbench.py": "1688ab65fed6eb0627674bbd28376cd632feb6ca005839e8e7e4849a48d3badd",
+    "tools/boss_workbench_v2_window.py": "82be68f0a625ed3a6e32c4f708547cd5f055b5b62445843bd88f39b2b2d99690",
+    "tests/test_boss_workbench_v2_window.py": "dfc437ddacf771e5e6563aadbfe426ad0d12da44cd347095ae9805c3f61474e9",
+    "tests/test_three_boss_release.py": "e4140bca785a46abe034021740b6d1abe7764d1aefb91a9c16d3ae5ade37e02f"
+  },
+  "bosses": [
+    {
+      "id": "ahua_guitoudao",
+      "name": "新娘阿花",
+      "abilities": 28,
+      "bindings": 29
+    },
+    {
+      "id": "057_wanjun",
+      "name": "巨锤客：万钧",
+      "abilities": 4,
+      "bindings": 4
+    },
+    {
+      "id": "056_youlong",
+      "name": "发狂的水行帮主：游龙",
+      "abilities": 4,
+      "bindings": 4
+    }
+  ],
+  "locked_previews": [
+    "073_yanqiansui"
+  ],
+  "performance": "Native UObject cache and prior incremental scheduling retained; no GPU FPS claim",
+  "evidence_policy": "Unchanged v1 behavior inherited; YouLong independent baseline and eight ordinary actions reused by exact sources; fresh three-profile World cycle reparsed"
+}

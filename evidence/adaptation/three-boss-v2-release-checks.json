@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "exact_three_profiles",
+      "passed": true,
+      "output": "PASS three supported profiles, 36 abilities/37 bindings, exact native YouLong actions and locked YanQianSui"
+    },
+    {
+      "name": "selection_cleanup",
+      "passed": true,
+      "output": "PASS preflight: rejected/error selection preserves current assembly and input owner; valid choice switches once"
+    },
+    {
+      "name": "test_youlong_workbench_acceptance.py",
+      "passed": true,
+      "output": "test_execution_and_ability_changes_refused (test_youlong_workbench_acceptance.ThreeProfileTests.test_execution_and_ability_changes_refused) ... ok\ntest_only_locked_registry_and_preview_change (test_youlong_workbench_acceptance.ThreeProfileTests.test_only_locked_registry_and_preview_change) ... ok\ntest_versioned_driver_preserves_readiness_and_deadline_gates (test_youlong_workbench_acceptance.ThreeProfileTests.test_versioned_driver_preserves_readiness_and_deadline_gates) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 2.982s\n\nOK"
+    },
+    {
+      "name": "test_boss_workbench_v2_window.py",
+      "passed": true,
+      "output": "test_only_accepted_startup_roles (test_boss_workbench_v2_window.LauncherTests.test_only_accepted_startup_roles) ... ok\ntest_versioned_window_preserves_research_entry (test_boss_workbench_v2_window.LauncherTests.test_versioned_window_preserves_research_entry) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK"
+    },
+    {
+      "name": "test_three_boss_release.py",
+      "passed": true,
+      "output": "test_exact_inheritance_reconstructs_all_payloads (test_three_boss_release.ReleaseTests.test_exact_inheritance_reconstructs_all_payloads) ... ok\ntest_missing_world_or_current_sources_refused (test_three_boss_release.ReleaseTests.test_missing_world_or_current_sources_refused) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.467s\n\nOK"
+    },
+    {
+      "name": "test_youlong_attempt.py",
+      "passed": true,
+      "output": "test_eight_real_native_actions_reparse (test_youlong_attempt.YouLongActionProofTests.test_eight_real_native_actions_reparse) ... ok\ntest_omitted_duplicate_or_changed_action_refused (test_youlong_attempt.YouLongActionProofTests.test_omitted_duplicate_or_changed_action_refused) ... ok\ntest_wrong_native_class_or_registered_key_refused (test_youlong_attempt.YouLongActionProofTests.test_wrong_native_class_or_registered_key_refused) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.018s\n\nOK"
+    },
+    {
+      "name": "test_youlong_profile.py",
+      "passed": true,
+      "output": "test_four_independent_native_actions_required (test_youlong_profile.YouLongProfileTests.test_four_independent_native_actions_required) ... ok\ntest_stability_cleanup_motion_and_scope_required (test_youlong_profile.YouLongProfileTests.test_stability_cleanup_motion_and_scope_required) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK"
+    },
+    {
+      "name": "test_player_status_stream.py",
+      "passed": true,
+      "output": "test_append_only_and_no_reparse_without_changes (test_player_status_stream.StreamTests.test_append_only_and_no_reparse_without_changes) ... ok\ntest_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected (test_player_status_stream.StreamTests.test_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected) ... ok\ntest_split_utf8_line_foreign_session_staleness_and_truncation (test_player_status_stream.StreamTests.test_split_utf8_line_foreign_session_staleness_and_truncation) ... ok\ntest_waits_for_new_generation_status_and_recovers_missing_log (test_player_status_stream.StreamTests.test_waits_for_new_generation_status_and_recovers_missing_log) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.023s\n\nOK"
+    },
+    {
+      "name": "test_performance_comparison.py",
+      "passed": true,
+      "output": "test_different_gameplay_source_is_rejected (test_performance_comparison.PerformanceTests.test_different_gameplay_source_is_rejected) ... ok\ntest_endurance_rejects_heartbeat_gaps_and_off_intervals (test_performance_comparison.PerformanceTests.test_endurance_rejects_heartbeat_gaps_and_off_intervals) ... ok\ntest_mixed_or_idle_windows_cannot_pass (test_performance_comparison.PerformanceTests.test_mixed_or_idle_windows_cannot_pass) ... ok\ntest_other_loader_changes_cannot_borrow_cache_comparison (test_performance_comparison.PerformanceTests.test_other_loader_changes_cannot_borrow_cache_comparison) ... ok\ntest_probe_parsing_does_not_merge_windows (test_performance_comparison.PerformanceTests.test_probe_parsing_does_not_merge_windows) ... ok\ntest_three_complete_windows_are_required (test_performance_comparison.PerformanceTests.test_three_complete_windows_are_required) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "name": "test_workbench_release_runtime.py",
+      "passed": true,
+      "output": "test_changed_target_adapter_requires_exact_source_recovery (test_workbench_release_runtime.RuntimeGateTests.test_changed_target_adapter_requires_exact_source_recovery) ... ok\ntest_new_complete_exact_source_baseline_accepts_initialization_modules (test_workbench_release_runtime.RuntimeGateTests.test_new_complete_exact_source_baseline_accepts_initialization_modules) ... ok\ntest_unchanged_adapters_keep_independent_base (test_workbench_release_runtime.RuntimeGateTests.test_unchanged_adapters_keep_independent_base) ... ok\ntest_unexpected_added_or_missing_module_is_rejected (test_workbench_release_runtime.RuntimeGateTests.test_unexpected_added_or_missing_module_is_rejected) ... ok\ntest_unrelated_runtime_edits_are_not_waived (test_workbench_release_runtime.RuntimeGateTests.test_unrelated_runtime_edits_are_not_waived) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK"
+    },
+    {
+      "name": "test_mod_installation.py",
+      "passed": true,
+      "output": "test_active_session_blocks_every_mutation (test_mod_installation.InstallationTests.test_active_session_blocks_every_mutation) ... ok\ntest_development_fallback_only_before_first_install (test_mod_installation.InstallationTests.test_development_fallback_only_before_first_install) ... ok\ntest_install_disable_enable_uninstall_preserves_personal_files (test_mod_installation.InstallationTests.test_install_disable_enable_uninstall_preserves_personal_files) ... ok\ntest_receipt_cannot_select_an_external_directory (test_mod_installation.InstallationTests.test_receipt_cannot_select_an_external_directory) ... ok\ntest_rejects_traversal_and_incomplete_package (test_mod_installation.InstallationTests.test_rejects_traversal_and_incomplete_package) ... ok\ntest_restored_flag_without_loader_removal_still_blocks (test_mod_installation.InstallationTests.test_restored_flag_without_loader_removal_still_blocks) ... ok\ntest_same_id_cannot_replace_different_package (test_mod_installation.InstallationTests.test_same_id_cannot_replace_different_package) ... ok\ntest_tampered_installed_file_is_preserved_and_never_deployed (test_mod_installation.InstallationTests.test_tampered_installed_file_is_preserved_and_never_deployed) ... ok\ntest_undeclared_file_prevents_uninstall_before_any_delete (test_mod_installation.InstallationTests.test_undeclared_file_prevents_uninstall_before_any_delete) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.741s\n\nOK"
+    },
+    {
+      "name": "all_payload_lua_syntax",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "name": "player_window_smoke",
+      "passed": true,
+      "output": ""
+    }
+  ],
+  "candidate": "ahua-boss-workbench-v2-three-8f9ab145244a0b06",
+  "candidate_manifest_sha256": "273729044afb7a265ebffdbf158f2be94c94f38618c513ab577cf80fa5812be7",
+  "session": "20261116-115608",
+  "game_started": false,
+  "personal_settings_unchanged": true,
+  "baseline_checks": {
+    "path": "evidence/adaptation/three-boss-v2-baseline-checks.json",
+    "sha256": "45ca3167bbe231f63e3592c9b79dcf7b5d5a458f7c9cebb0379159359e1577a7"
+  },
+  "sources": {
+    "tests/test_boss_workbench_v2_window.py": "dfc437ddacf771e5e6563aadbfe426ad0d12da44cd347095ae9805c3f61474e9",
+    "tests/test_mod_installation.py": "e0c05b05d8d231aafe8027260aee9c60534f2e9645f163c83d8bdc0df8909559",
+    "tests/test_performance_comparison.py": "eb17c3a578e35155f6752c29404bac0a019c241ce266b69f64ef17c1010812e1",
+    "tests/test_player_status_stream.py": "58772f9674624b770231bd4247d1afb652d296821cad4ad1231e27022867f705",
+    "tests/test_three_boss_release.py": "e4140bca785a46abe034021740b6d1abe7764d1aefb91a9c16d3ae5ade37e02f",
+    "tests/test_workbench_release_runtime.py": "41ade8c6a48076e41866c13358b137ced8c0dee612f1b6d830d853c381000989",
+    "tests/test_workbench_selection_preflight.lua": "fdf7245821fcab1e45b6aa04d9b6cc794d06649aaed20be07a8d55a14fe7f17a",
+    "tests/test_youlong_attempt.py": "f1ad0ffe268dbac0fb848ff233162aef46849a5eaad1c24914b3430bb37b0fb1",
+    "tests/test_youlong_profile.py": "fad51f6f7531bf82dab33ec6921b9f644bf11e5d1717cca0890fd059b7c75402",
+    "tests/test_youlong_workbench_acceptance.py": "60cc01451f3580300a3c4bf63917a273bd2f8dac629b5f06ed2d2f839691661e",
+    "tests/test_youlong_workbench_candidate.lua": "78b9d49bea213fe7931b48cb53b32ee147aab7326a8453f069bc2c9e51f23691",
+    "tools/boss_workbench_v2_window.py": "82be68f0a625ed3a6e32c4f708547cd5f055b5b62445843bd88f39b2b2d99690",
+    "tools/release_youlong_workbench.py": "1688ab65fed6eb0627674bbd28376cd632feb6ca005839e8e7e4849a48d3badd"
+  }
+}

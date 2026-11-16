@@ -6,20 +6,27 @@ for the verified local Phantom Blade Zero build.
 
 ## Current status
 
-Version `ahua-boss-workbench-v1-f0bcf1323e641e03` is released, installed, enabled, and verified in the supported
-local offline setup. Bride Ahua has 28 abilities and 29 bindings; WanJun has
-four independent abilities and four bindings. Other Boss entries remain
-locked previews.
+Version `ahua-boss-workbench-v2-7b83ce4aa5d15a03` is released for the supported
+local offline setup. Bride Ahua has 28 abilities and 29 bindings; WanJun and
+YouLong each have four independent abilities and four bindings: **three playable
+Bosses, 36 abilities, 37 bindings**. YanQianSui remains a locked preview because
+terrain, movement/camera, and world integration acceptance is incomplete.
 
-All 79 offline check groups and current-source gameplay gates passed:
-ability natural completion and active cancellation with full restoration,
-600-second stability for both Bosses, ordinary workbench roundtrip, native
-menu world reassembly, real target death and lock cleanup, and guarded reentry
-after target collection. Formal files and host configuration remained unchanged.
+All 79 baseline offline check groups were rerun on current sources, with 13
+additional release checks. Ahua and WanJun inherit their immutable v1 acceptance;
+every common runtime change is reconstructed from that base and limited to
+initialization, selection preflight, and catalogs. YouLong has an independently
+accepted 600-second baseline, eight ordinary natural/cancellation actions, and
+a fresh exact-three-profile native menu/world cycle on November 16, 2026.
+New-world damage, full player restoration, and return to Ahua passed. Formal
+files and host configuration remained unchanged. Historical evidence is reused
+only for unchanged behavior; this does not claim all old tests were repeated
+in the latest game session.
 
 Start with `开始Boss工作台.cmd`. Controls and acceptance details are in
-[the delivery note](65-双Boss工作台v1交付说明.md) and
-[the player guide](64-双Boss工作台操作说明.md).
+[the v2 delivery and player guide](67-三Boss工作台v2交付说明.md).
+The external launcher starts Ahua or WanJun; select YouLong through `Insert`
+inside the game. The immutable v1 package remains available for rollback.
 
 ## Performance
 

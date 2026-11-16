@@ -1,0 +1,21 @@
+-- Only independently accepted profiles are selectable. Discovery records remain visible previews.
+local Catalog={}
+function Catalog.list()
+    local result,seen={},{}
+    for _,entry in ipairs(require('boss_catalog').list())do
+        seen[entry.id]=true
+        result[#result+1]={id=entry.id,name=entry.name,profile=entry.profile,playable=true,
+            detail=entry.abilities..' 项独立能力 / '..entry.bindings_count..' 个技能绑定；确认后按 F6 接管'}
+    end
+    for _,entry in ipairs({
+        {id='057_wanjun',name='巨锤客：万钧',count=13},
+        {id='073_yanqiansui',name='琴女烟千岁',count=24},
+        {id='056_youlong',name='发狂的水行帮主：游龙',count=32},
+    })do
+        if not seen[entry.id]then result[#result+1]={id=entry.id,name=entry.name,playable=false,
+            reason='烟千岁的地形、移动镜头及载图验收未完成，暂不开放',
+            detail=entry.count..' 条能力路径候选；不等于已授予或可用技能'}end
+    end
+    return result
+end
+return Catalog
