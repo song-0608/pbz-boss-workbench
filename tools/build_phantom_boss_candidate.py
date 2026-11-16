@@ -20,7 +20,8 @@ SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_c
            'tools/phantom_boss_enemy_fence.lua', 'tools/prepare_phantom_boss_pair.py',
            'tools/phantom_boss_online_scope.lua', 'tools/phantom_boss_online_control.lua',
            'tools/phantom_boss_local_dependencies.lua', 'tools/phantom_boss_online_arena.lua',
-           'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua')
+           'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua',
+           'tools/phantom_boss_startup.lua')
 LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary',
     'boss_catalog', 'keymap', 'profiles/ahua', 'profiles/wanjun', 'profiles/yanqiansui', 'profiles/youlong',
     'profiles/wanjun_bindings', 'profiles/yanqiansui_bindings', 'profiles/youlong_bindings',
@@ -133,12 +134,15 @@ def patches():
             ('local DEV_KEYS = os.getenv("PBZCOOP_DEBUG") == "1"',
              'local DEV_KEYS = false -- BWB: F7-F11 belong to the Boss workbench'),
             ('-- Command file: lets a developer drive tests from outside the game.',
-             'api.bossWorkbench = dofile(SCRIPT_DIR .. "bwb_entry.lua")(api, SCRIPT_DIR)\n'
+             'api.bossWorkbench = dofile(SCRIPT_DIR .. "bwb_startup.lua")(api, SCRIPT_DIR)\n'
              'PBZ.bossWorkbench = api.bossWorkbench\n\n'
              '-- Command file: lets a developer drive tests from outside the game.'),
             ('. F6 PvP', '. HOME online panel | END follow partner | BWB research'),
         ],
         'coop.lua': [
+            ('    local function start(role)\n',
+             '    local function start(role)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:transport_allowed() then return false end\n'),
             ('        local pawn = slow.body\n',
              '        local pawn\n'
              '        if api.bossWorkbench then\n'
@@ -242,6 +246,11 @@ def patches():
              '    local function playHeld(now)\n'
              '        if api.bossWorkbench and not api.bossWorkbench:allow_legacy_ghost() then return end\n'),
         ],
+        'autostart.lua': [
+            ('    local function startRelay(c, s)\n',
+             '    local function startRelay(c, s)\n'
+             '        if api.bossWorkbench and not api.bossWorkbench:transport_allowed() then return false end\n'),
+        ],
         'onlinepanel.lua': [
             ('controller:IsInputKeyDown(kit.key("F5"))', 'controller:IsInputKeyDown(kit.key("Home"))'),
         ],
@@ -312,7 +321,7 @@ def build(source=None, lua_lab=None, root=ROOT):
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
     for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control',
-                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session'):
+                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in LOCAL_MODULES:
         contents[f'PBZCoop/Scripts/bwb_local_native/{name}.lua'] = (release / f'PBZBossControl/Scripts/{name}.lua').read_bytes()

@@ -101,7 +101,7 @@ class CandidateTests(unittest.TestCase):
     def test_missing_launcher_exits_before_native_module_initialization(self):
         main = (self.target / 'upstream-local-patches/main.lua').read_text(encoding='utf-8')
         self.assertLess(main.index('PBZBossOnlineResearchLaunch'), main.index('local VERSION'))
-        self.assertLess(main.index('bwb_entry.lua'), main.index('autostart.lua'))
+        self.assertLess(main.index('bwb_startup.lua'), main.index('autostart.lua'))
         self.assertNotIn('enabled.txt', self.manifest['files'])
         self.assertFalse(any(Path(name).suffix.lower() in ('.dll', '.exe', '.sav', '.pak') for name in self.manifest['files']))
 

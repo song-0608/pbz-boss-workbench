@@ -33,7 +33,7 @@ def verify(path=None):
               'enemy_fence_patched_upstream': 14, 'same_pc_pair_python': 8,
               'online_scope_simulation': 12, 'online_control_fake_uobjects': 14,
               'network_body_patched_upstream': 5, 'online_arena_lifecycle': 14,
-              'online_spawn_native_bindings': 11, 'patched_lua_compile_only': 54}
+              'online_spawn_native_bindings': 11, 'cold_startup_menu_loading': 15, 'patched_lua_compile_only': 56}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
     for row in report['checks']:
@@ -45,12 +45,12 @@ def verify(path=None):
         if row['name'] in ('candidate_python','same_pc_pair_python'):
             assert re.search(r'Ran '+str(row['groups'])+r' tests?', output) and re.search(r'\bOK\b', output)
         elif row['name'] == 'patched_lua_compile_only':
-            assert 'PASS syntax only: 54 candidate Lua files' in output
+            assert 'PASS syntax only: 56 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 159
-    assert report['syntax_checked_lua_files']==54
-    return dict(passed=True, status='backend-milestone-only', groups=159, compiled_lua_files=54,
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup) groups', output)
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 174
+    assert report['syntax_checked_lua_files']==56
+    return dict(passed=True, status='backend-milestone-only', groups=174, compiled_lua_files=56,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 
