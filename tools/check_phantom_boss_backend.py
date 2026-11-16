@@ -32,7 +32,7 @@ def run():
     lab = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     commands = [
         ('protocol_simulation', [str(lab), str(ROOT / TESTS[0]), str(ROOT)], 16),
-        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 27),
+        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 28),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 14),
         ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 11),
         ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 13),
@@ -40,7 +40,7 @@ def run():
         ('same_pc_pair_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair.py', '-v'], 8),
         ('online_scope_simulation', [str(lab), str(ROOT / TESTS[8]), str(ROOT)], 12),
         ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 14),
-        ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 5),
+        ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 7),
         ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 14),
         ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 11),
         ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 15),

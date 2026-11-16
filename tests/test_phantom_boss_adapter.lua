@@ -211,4 +211,14 @@ check('failed observer and disconnect cannot reuse a previously cached network b
     h,g,step=pair();h.snapshot.body_actor=actor(1);step(0.7);h.bridge:close()
     assert(h.bridge:network_body()==nil)
 end)
+check('combat bridge refuses inventory loot currency appearance rest and story packets',function()
+    local e=env('host')
+    for _,kind in ipairs({'BAG','I','O','OF','T','OC','KS','MF','C','LOOK','FX','HEAL','SIT','R','RH','unknown'})do
+        assert(not e.bridge:allow_enemy_event(kind,'normal'))
+    end
+    for _,kind in ipairs({'BWB1','BWV1','Y','LOAD','BYE','N','NQ','D','K','GK','LR','RUN','A','HX'})do
+        assert(e.bridge:allow_enemy_event(kind,'normal'))
+    end
+    e.bridge:close()
+end)
 print('PASS '..checks..' adapter groups; mocked upstream API, no native/game execution')

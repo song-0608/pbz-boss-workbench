@@ -140,6 +140,12 @@ def patches():
             ('. F6 PvP', '. HOME online panel | END follow partner | BWB research'),
         ],
         'coop.lua': [
+            ('        local cine = game.inCutscene and game.inCutscene() and 1 or 0\n',
+             '        if api.bossWorkbench then return end -- BWB: no inventory/loot/story watchers\n'
+             '        local cine = game.inCutscene and game.inCutscene() and 1 or 0\n'),
+            ('    local function watchOwnDeath()\n',
+             '    local function watchOwnDeath()\n'
+             '        if api.bossWorkbench then return end -- BWB owns its Boss restoration; no owed loot\n'),
             ('    local function start(role)\n',
              '    local function start(role)\n'
              '        if api.bossWorkbench and not api.bossWorkbench:transport_allowed() then return false end\n'),

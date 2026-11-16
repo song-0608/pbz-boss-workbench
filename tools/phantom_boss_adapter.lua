@@ -1,6 +1,11 @@
 -- Phantom Pact 1.7.3 adapter. The pure protocol is injected by the pinned builder.
 -- Owns only its BWB1 handler and a bounded identity registry, never player inventory.
 local M = {}
+-- The Boss session shares combat and identity only. Upstream inventory, loot,
+-- currency, appearance, rest and story messages are outside this session.
+local combat_events={BWB1=true,BWV1=true,Y=true,S=true,J=true,LOAD=true,BYE=true,F=true,
+    N=true,NQ=true,D=true,K=true,GK=true,LR=true,RUN=true,B=true,BEATEN=true,
+    HAS=true,NOT=true,A=true,HX=true}
 local function identity(row)
     return type(row)=='table' and type(row.address)=='number' and row.address>0
         and type(row.name)=='string' and #row.name>0 and type(row.class)=='string'
@@ -103,7 +108,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return out,addrs
     end
     function self:allow_enemy_name(name) return fence:allow_name(name) end
-    function self:allow_enemy_event(kind,...) return fence:allow_event(kind,...) end
+    function self:allow_enemy_event(kind,...) return combat_events[kind]==true and fence:allow_event(kind,...) end
     function self:allow_enemy_actor(actor,addr)
         if actor==nil then return true end
         if addr==nil then

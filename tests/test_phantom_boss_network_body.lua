@@ -50,4 +50,27 @@ check('unmodified upstream path keeps its native Pawn cache when no workbench is
     local e=fixture(false);e.fn.send();e.fn.send()
     assert(#e.reads==2 and e.reads[1]==e.native and e.fallbacks==1 and e.offsets==1)
 end)
+check('actual slow watcher keeps map identity but cannot inspect inventory loot or currency',function()
+    local first=assert(source:find('    local function watchSlowly(now)\n',1,true))
+    local last=assert(source:find('    -- Where to show that player this frame.',first,true))
+    local code=source:sub(first,last-1)..'\nreturn watchSlowly\n'
+    local reads=0
+    local game=setmetatable({getHealth=function()error('health was already read this frame')end,
+        mapName=function()return 'Arena'end,forgetActors=function()end},
+        {__index=function(_,key)reads=reads+1;error('unexpected inventory/other watcher: '..key)end})
+    local env={api={bossWorkbench={}},localPawn=function()return {}end,
+        game=game,slow={hpAt=1},net={frameNow=1},reach={},handover={reset=function()end},
+        link={map=function(name)assert(name=='Arena');return 123 end}}
+    local run=assert(load(code,'actual_patched_watchSlowly','t',env))()
+    run(1);assert(reads==0 and env.net.localMap==123)
+end)
+check('actual upstream downed-player watcher exits before owed inventory and rewards',function()
+    local first=assert(source:find('    local function watchOwnDeath()\n',1,true))
+    local tail=source:sub(first+#'    local function watchOwnDeath()\n')
+    local guard=assert(tail:match('^([^\n]+)\n'))
+    local touched=false
+    local run=assert(load('return function()\n'..guard..'\ntouch()\nend','actual_death_guard','t',
+        {api={bossWorkbench={}},touch=function()touched=true end}))()
+    run();assert(not touched)
+end)
 print('PASS '..checks..' network body groups; patched upstream Lua, fake engine, no relay/game')
