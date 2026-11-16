@@ -147,7 +147,9 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return out,addrs
     end
     function self:allow_enemy_name(name) return fence:allow_name(name) end
-    function self:allow_enemy_event(kind,...) return combat_events[kind]==true and fence:allow_event(kind,...) end
+    function self:allow_enemy_event(kind,...)
+        return not self.closed and not self.world_transition and combat_events[kind]==true and fence:allow_event(kind,...)
+    end
     function self:allow_enemy_actor(actor,addr)
         if actor==nil then return true end
         if addr==nil then
@@ -178,7 +180,8 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return self.body_actor,current.address
     end
     function self:begin_local_transition(row)
-        assert(not self.closed and not self.local_transition,'local body transition already pending or closed')
+        assert(not self.closed and not self.world_transition and not self.local_transition,
+            'local body transition already pending or retired')
         assert(identity(row) and self.owned[row.address]==row and row.kind=='local_body'
             and row.world==self.world and class_to_boss[row.class],'registered same-World local Boss required')
         local token={world=self.world,address=row.address}
@@ -200,7 +203,8 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return self:refresh_local_body()
     end
     local handler=function(line,from)
-        if self.closed or not net.enabled or not coop.linked() or net.party or net.pvp or net.role=='local' then return false end
+        if self.closed or self.world_transition or not net.enabled or not coop.linked()
+            or net.party or net.pvp or net.role=='local' then return false end
         -- Native two-player relay has no @slot; accept @2 only on host for forwarded input.
         if from~=nil and not (role=='host' and from==2) then return false end
         return state:receive(line,role=='host' and 'guest' or 'host',host.now())
@@ -210,7 +214,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
     local wrapped_cached=function(...) return self:filter(original_cached(...)) end
     game.listEnemies,game.enemiesSoFar=wrapped_list,wrapped_cached
     function self:poll()
-        if self.closed then return end
+        if self.closed or self.world_transition then return end
         local now=host.now()
         if now-self.last_poll<0.1 then return end
         self.last_poll=now
@@ -226,6 +230,17 @@ function M.attach(api, config, host, protocol, enemy_fence)
             state:set_link(false,now); revoke('only fixed-role two-player online co-op supported'); return
         end
         if self.world~=snapshot.world then
+            if self.world~=nil then
+                -- A new World is not proof that the old control receipt, menu
+                -- and owned Actors were released. Preserve their registrations
+                -- for recovery and retire this activation before adopting any
+                -- replacement Pawn. Only an initial World may be established.
+                self.world_transition={previous=self.world,observed=snapshot.world}
+                state:world_changed(now)
+                revoke('world changed')
+                state:set_link(false,now)
+                return
+            end
             state:world_changed(now)
             self.owned,self.owned_count,self.local_body={},0,nil
             self.local_transition=nil

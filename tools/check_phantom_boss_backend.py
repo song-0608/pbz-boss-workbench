@@ -51,7 +51,7 @@ def run():
     lab = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     commands = [
         ('protocol_simulation', [str(lab), str(ROOT / TESTS[0]), str(ROOT)], 16),
-        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 42),
+        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 47),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 15),
         ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 12),
         ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 17),
@@ -67,7 +67,7 @@ def run():
         ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 21),
         ('visual_native_bindings', [str(lab), str(ROOT / TESTS[17]), str(ROOT)], 12),
         ('visual_session_integration', [str(lab), str(ROOT / TESTS[18]), str(ROOT)], 9),
-        ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 14),
+        ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 15),
         ('pair_session_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair_session.py', '-v'], 18),
         ('online_workbench_lifecycle', [str(lab), str(ROOT / TESTS[21]), str(ROOT), str(target)], 28),
         ('workbench_native_umg', [str(lab), str(ROOT / TESTS[22]), str(ROOT)], 16),
@@ -77,7 +77,7 @@ def run():
         ('control_binding_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_binding.py', '-v'], 13),
         ('client_auth_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_client_auth.py', '-v'], 14),
         ('optional_contracts_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_optional_contracts.py', '-v'], 14),
-        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 13),
+        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 15),
         ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 66),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex

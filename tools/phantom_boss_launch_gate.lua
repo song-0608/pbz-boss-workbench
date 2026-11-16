@@ -69,8 +69,8 @@ function M.wait(directory,activate,g,io_api,identity_api)
             end
             if os.time()>=request.expires_at then close('research lease expired');return end
             if peer then
-                if peer.startup_state=='FAILED' or peer.closed or peer.restore_pending then
-                    close('assembly startup or recovery stopped')
+                if peer.startup_state=='FAILED' or peer.closed or peer.restore_pending or peer.revoked_reason then
+                    close(peer.revoked_reason or 'assembly startup or recovery stopped')
                 end
                 return
             end

@@ -61,7 +61,13 @@ function M.new(api,launch,config,peer,observer,directory,globals)
         return arena:select(id)
     end
     function peer:assembly_status()
-        return {state=arena.state,reason=arena.failure,selection_failure=arena.selection_failure,
+        local pending=peer.restore_pending==true or arena.state=='FAULTED'
+        local retired=peer.closed or peer.revoked_reason or peer.world_transition or scope.revoked
+        local boundary=peer.world_transition
+        return {state=arena.state,reason=arena.state=='FAULTED'and arena.failure or peer.revoked_reason or arena.failure,
+            activation_state=pending and 'RECOVERY_PENDING'or retired and 'RETIRED'or 'ACTIVE',
+            restore_pending=pending,world_transition=boundary and {previous=boundary.previous,observed=boundary.observed}or nil,
+            selection_failure=arena.selection_failure,
             boss_id=arena.context and arena.context.profile.id,
             visual=peer.visual and (peer.visual.visual.restore_pending and 'recovery pending' or 'contract supplied') or 'native contract pending',
             source_only=true,runtime_acceptance_current=false}
