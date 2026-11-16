@@ -6,7 +6,7 @@ from pathlib import Path
 import time
 
 from mod_installation import ROOT, MANIFEST, digest
-from build_yanqiansui_centered_candidate import expected, verify
+from build_yanqiansui_slope_candidate import expected, verify
 from boss_adaptation_workflow import BUILD
 
 MODULES = ('arena_layout', 'yanqiansui_clearance_core', 'yanqiansui_arena_clearance',
@@ -93,6 +93,7 @@ def stage():
                'candidate': candidate.name, 'candidate_manifest_sha256': digest(candidate / MANIFEST),
                'payload_sha256': row['sha256'], 'probe_source_sha256': digest(Path(__file__)),
                'input_sent': False, 'assembly_started': False, 'acceptance_claimed': False}
+    (work / ('startup-preflight-' + token + '.lua')).write_bytes(payload)
     validation.save(work / ('startup-terrain-' + token + '.json'), receipt)
     return dict(receipt, next_step='Reload this staged one-shot probe with Ctrl+R in the verified research window')
 

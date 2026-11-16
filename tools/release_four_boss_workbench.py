@@ -13,8 +13,8 @@ import types
 
 from mod_installation import ROOT, MANIFEST, assert_closed, digest, read, validate_package
 from four_boss_integration_workflow import modules, verify as verify_workflow
-from build_yanqiansui_centered_candidate import expected, verify as verify_candidate
-from yanqiansui_centered_acceptance import verify_current
+from build_yanqiansui_slope_candidate import expected, verify as verify_candidate
+from yanqiansui_slope_acceptance import verify_current
 from release_youlong_workbench import acceptance as accepted_three, source_hashes
 
 BASE = 'ahua-boss-workbench-v2-7b83ce4aa5d15a03'
@@ -24,7 +24,9 @@ COLLECTOR_SHA = '4bbfc4528c086607ce81cb6aa603000717e607a8155d6e5a0a958801132a94e
 OFFLINE = ROOT / 'evidence/adaptation/four-boss-v3-offline.json'
 OWN = ('tools/release_four_boss_workbench.py', 'tools/boss_workbench_v3_window.py',
        'tests/test_four_boss_release.py', 'tests/test_boss_workbench_v3_window.py',
-       'tools/terrain_startup_preflight.py', 'tests/test_terrain_startup_preflight.lua')
+       'tools/terrain_startup_preflight.py', 'tests/test_terrain_startup_preflight.lua',
+       'tools/build_yanqiansui_slope_candidate.py', 'tools/yanqiansui_clearance_slope.lua',
+       'tools/yanqiansui_slope_acceptance.py', 'tests/test_yanqiansui_clearance_slope.lua')
 IDS = ['ahua_guitoudao', '057_wanjun', '073_yanqiansui', '056_youlong']
 
 
@@ -119,11 +121,11 @@ def offline(candidate):
     payload.write_bytes(render(candidate, int(time.time()) + 120, '123'))
     jobs = [
         ('four_profile_catalog', [lua, 'tests/test_four_boss_candidate.lua', str(candidate)]),
-        ('centered_floor', [lua, 'tests/test_yanqiansui_clearance_centered.lua', str(ROOT), str(candidate)]),
+        ('slope_floor', [lua, 'tests/test_yanqiansui_clearance_slope.lua', str(ROOT), str(candidate), str(ROOT / 'runtime/release-candidates' / manifest['slope_search_base'])]),
         ('startup_readonly_preflight', [lua, 'tests/test_terrain_startup_preflight.lua', str(candidate), str(payload)]),
         ('selection_preserves_current', [lua, 'tests/test_workbench_selection_preflight.lua', str(candidate / 'PBZBossControl/Scripts/boss_workbench.lua')]),
     ]
-    patterns = ('test_yanqiansui_centered_candidate.py', 'test_four_boss_release.py', 'test_boss_workbench_v3_window.py',
+    patterns = ('test_yanqiansui_slope_candidate.py', 'test_four_boss_release.py', 'test_boss_workbench_v3_window.py',
                 'test_performance_comparison.py', 'test_player_status_stream.py', 'test_mod_installation.py')
     jobs.extend((name, [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', name, '-v']) for name in patterns)
     syntax = ROOT / 'runtime/four-boss-v3-syntax.lua'
@@ -162,8 +164,9 @@ def release(candidate, session):
         '阿花、万钧、烟千岁、游龙四角色，共40项能力、41个绑定。\n\n'
         'Insert工作台，↑↓选择，Enter确认，F6接管，F10恢复。烟千岁及游龙在游戏内选择。'
         '工作台为Windows键盘浮层；保留原生冷却、地形及每轮十分钟限制。\n\n'
-        '烟千岁保留900cm净空、24点、192次上限，仅初始化查询。新增落点中心与主角地面高差最多100cm，'
-        '两个目标和全部净空点相对已投影中心地面高差不超过30cm。空间不足拒绝并保留当前角色。\n\n'
+        '烟千岁保留900cm净空、24点、192次上限，仅初始化查询。新增落点中心与主角地面高差最多100cm；'
+        '区域只接受不超过5度缓坡，平面残差和相邻采样高度突变不超过30cm，总高差不超过100cm。'
+        '空间不足拒绝并保留当前角色。\n\n'
         '不会修改正式游戏、正式存档或回写研究进度。使用根目录开始Boss工作台.cmd，详见70-四Boss工作台v3操作说明.md。\n').encode('utf-8')
     hashes = {n: hashlib.sha256(data).hexdigest() for n, data in contents.items()}
     key = hashlib.sha256(json.dumps(hashes, sort_keys=True).encode()).hexdigest()[:16]

@@ -1,7 +1,7 @@
 {
   "passed": true,
-  "candidate": "ahua-boss-workbench-centered-acfa1ea8642af5bb",
-  "candidate_manifest_sha256": "0c90e1160f3eda5780e42e6c39c83c061c5782f4bcb9f57e9c50dd6fdaa0ebf8",
+  "candidate": "ahua-boss-workbench-slope-b2fc42d266f127a0",
+  "candidate_manifest_sha256": "d953d3cf18fdabe86aa61ef60c6ae51dfb52068d169074061727bd4da9984091",
   "checks": [
     {
       "name": "four_profile_catalog",
@@ -9,9 +9,9 @@
       "output": "PASS four-Boss candidate: exact profiles, 40 abilities/41 bindings, native YouLong actions, no duplicate previews"
     },
     {
-      "name": "centered_floor",
+      "name": "slope_floor",
       "passed": true,
-      "output": "PASS centred floor: reproduce old false refusal; 9m/24/192, 100cm centre, 30cm targets/footprint, rejected keys and all failure gates"
+      "output": "PASS slope clearance: old false refusal reproduced; 9m/24/192 retained; <=5deg plane, 30cm residual/discontinuity, 100cm height, targets and failure gates"
     },
     {
       "name": "startup_readonly_preflight",
@@ -24,14 +24,14 @@
       "output": "PASS preflight: rejected/error selection preserves current assembly and input owner; valid choice switches once"
     },
     {
-      "name": "test_yanqiansui_centered_candidate.py",
+      "name": "test_yanqiansui_slope_candidate.py",
       "passed": true,
-      "output": "test_exact_candidate_reuses_only_unchanged_skills (test_yanqiansui_centered_candidate.CenteredCandidateTests.test_exact_candidate_reuses_only_unchanged_skills) ... ok\ntest_only_floor_reference_changes_and_original_is_reconstructible (test_yanqiansui_centered_candidate.CenteredCandidateTests.test_only_floor_reference_changes_and_original_is_reconstructible) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 14.355s\n\nOK"
+      "output": "test_only_initialization_changes_and_unchanged_skill_proofs_are_reparsed (test_yanqiansui_slope_candidate.SlopeCandidateTests.test_only_initialization_changes_and_unchanged_skill_proofs_are_reparsed) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 30.340s\n\nOK"
     },
     {
       "name": "test_four_boss_release.py",
       "passed": true,
-      "output": "test_inheritance_changes_only_catalog_and_unaccepted_search (test_four_boss_release.ReleaseTests.test_inheritance_changes_only_catalog_and_unaccepted_search) ... ok\ntest_missing_world_movement_or_real_skills_cannot_publish (test_four_boss_release.ReleaseTests.test_missing_world_movement_or_real_skills_cannot_publish) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 3.206s\n\nOK"
+      "output": "test_inheritance_changes_only_catalog_and_unaccepted_search (test_four_boss_release.ReleaseTests.test_inheritance_changes_only_catalog_and_unaccepted_search) ... ok\ntest_missing_world_movement_or_real_skills_cannot_publish (test_four_boss_release.ReleaseTests.test_missing_world_movement_or_real_skills_cannot_publish) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 5.123s\n\nOK"
     },
     {
       "name": "test_boss_workbench_v3_window.py",
@@ -46,12 +46,12 @@
     {
       "name": "test_player_status_stream.py",
       "passed": true,
-      "output": "test_append_only_and_no_reparse_without_changes (test_player_status_stream.StreamTests.test_append_only_and_no_reparse_without_changes) ... ok\ntest_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected (test_player_status_stream.StreamTests.test_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected) ... ok\ntest_split_utf8_line_foreign_session_staleness_and_truncation (test_player_status_stream.StreamTests.test_split_utf8_line_foreign_session_staleness_and_truncation) ... ok\ntest_waits_for_new_generation_status_and_recovers_missing_log (test_player_status_stream.StreamTests.test_waits_for_new_generation_status_and_recovers_missing_log) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.042s\n\nOK"
+      "output": "test_append_only_and_no_reparse_without_changes (test_player_status_stream.StreamTests.test_append_only_and_no_reparse_without_changes) ... ok\ntest_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected (test_player_status_stream.StreamTests.test_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected) ... ok\ntest_split_utf8_line_foreign_session_staleness_and_truncation (test_player_status_stream.StreamTests.test_split_utf8_line_foreign_session_staleness_and_truncation) ... ok\ntest_waits_for_new_generation_status_and_recovers_missing_log (test_player_status_stream.StreamTests.test_waits_for_new_generation_status_and_recovers_missing_log) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.047s\n\nOK"
     },
     {
       "name": "test_mod_installation.py",
       "passed": true,
-      "output": "test_active_session_blocks_every_mutation (test_mod_installation.InstallationTests.test_active_session_blocks_every_mutation) ... ok\ntest_development_fallback_only_before_first_install (test_mod_installation.InstallationTests.test_development_fallback_only_before_first_install) ... ok\ntest_install_disable_enable_uninstall_preserves_personal_files (test_mod_installation.InstallationTests.test_install_disable_enable_uninstall_preserves_personal_files) ... ok\ntest_receipt_cannot_select_an_external_directory (test_mod_installation.InstallationTests.test_receipt_cannot_select_an_external_directory) ... ok\ntest_rejects_traversal_and_incomplete_package (test_mod_installation.InstallationTests.test_rejects_traversal_and_incomplete_package) ... ok\ntest_restored_flag_without_loader_removal_still_blocks (test_mod_installation.InstallationTests.test_restored_flag_without_loader_removal_still_blocks) ... ok\ntest_same_id_cannot_replace_different_package (test_mod_installation.InstallationTests.test_same_id_cannot_replace_different_package) ... ok\ntest_tampered_installed_file_is_preserved_and_never_deployed (test_mod_installation.InstallationTests.test_tampered_installed_file_is_preserved_and_never_deployed) ... ok\ntest_undeclared_file_prevents_uninstall_before_any_delete (test_mod_installation.InstallationTests.test_undeclared_file_prevents_uninstall_before_any_delete) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.755s\n\nOK"
+      "output": "test_active_session_blocks_every_mutation (test_mod_installation.InstallationTests.test_active_session_blocks_every_mutation) ... ok\ntest_development_fallback_only_before_first_install (test_mod_installation.InstallationTests.test_development_fallback_only_before_first_install) ... ok\ntest_install_disable_enable_uninstall_preserves_personal_files (test_mod_installation.InstallationTests.test_install_disable_enable_uninstall_preserves_personal_files) ... ok\ntest_receipt_cannot_select_an_external_directory (test_mod_installation.InstallationTests.test_receipt_cannot_select_an_external_directory) ... ok\ntest_rejects_traversal_and_incomplete_package (test_mod_installation.InstallationTests.test_rejects_traversal_and_incomplete_package) ... ok\ntest_restored_flag_without_loader_removal_still_blocks (test_mod_installation.InstallationTests.test_restored_flag_without_loader_removal_still_blocks) ... ok\ntest_same_id_cannot_replace_different_package (test_mod_installation.InstallationTests.test_same_id_cannot_replace_different_package) ... ok\ntest_tampered_installed_file_is_preserved_and_never_deployed (test_mod_installation.InstallationTests.test_tampered_installed_file_is_preserved_and_never_deployed) ... ok\ntest_undeclared_file_prevents_uninstall_before_any_delete (test_mod_installation.InstallationTests.test_undeclared_file_prevents_uninstall_before_any_delete) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.690s\n\nOK"
     },
     {
       "name": "all_lua_syntax",
@@ -73,11 +73,15 @@
     "tests/test_player_status_stream.py": "58772f9674624b770231bd4247d1afb652d296821cad4ad1231e27022867f705",
     "tests/test_terrain_startup_preflight.lua": "c316002b44c06bbc60e955916461528bec8376cded706bc44f5c0958d467fffd",
     "tests/test_workbench_selection_preflight.lua": "fdf7245821fcab1e45b6aa04d9b6cc794d06649aaed20be07a8d55a14fe7f17a",
-    "tests/test_yanqiansui_centered_candidate.py": "e9998ccc402927977c6cad75ea2d47d1d92e4d046f316cfa236f619aca50b9b7",
     "tests/test_yanqiansui_clearance_centered.lua": "abd6a8efb9aa085bd73ee5ba1bc3ca8c22314beaba80419d755cd120b22d8cb9",
+    "tests/test_yanqiansui_clearance_slope.lua": "9ee1789a3acd73048f71024fb678d7a89156742989c9bdff19cc14c2f6178d3b",
+    "tests/test_yanqiansui_slope_candidate.py": "77e036dfcb39b46f3364e52631a0e845c042cfc1148f7c956557311bd8a60f14",
     "tools/boss_workbench_v3_window.py": "a7762a7e19ebaae4b83bcabc096730676918899e9c7fa70896c38d969dcf1c52",
-    "tools/release_four_boss_workbench.py": "632016b263cce583a9d1bf54a77ae8effcf3c0da7fcb39dde49035cfba83b96f",
-    "tools/terrain_startup_preflight.py": "bd2361cffc4eb4949744b55d25a5996f17a7cdbb205b8a0a479de5d534201fb5"
+    "tools/build_yanqiansui_slope_candidate.py": "67527e539d9e2b85bd7c504a955bb7d6b085d123df4e63defc6ffe49f3a40539",
+    "tools/release_four_boss_workbench.py": "2b99e6815216d3678fb836c794b3465177a7de9435e529199f6a907507e25fb2",
+    "tools/terrain_startup_preflight.py": "daeb282c67689b4f23e2b1bd1607075da5e0e2edeb6984e97839621147653959",
+    "tools/yanqiansui_clearance_slope.lua": "0d636e22a496c866eea31eb6c864a4d796321b92068dfbe553129b6bdf0144f7",
+    "tools/yanqiansui_slope_acceptance.py": "8258d3feadb1e23823ac070eca0eab86eb0a2bbad9d18c188a5bb4743bb86fa8"
   },
   "game_started": false,
   "personal_settings_unchanged": true
