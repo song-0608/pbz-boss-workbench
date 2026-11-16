@@ -129,4 +129,17 @@ check('actual patched upstream start functions return before work when startup i
         fn();assert(executed==1)
     end
 end)
+check('revoked closed or restoring peer cannot reopen transport through ready facade',function()
+    for _,key in ipairs({'closed','revoked_reason','revoking','restore_pending'})do
+        local s=setup();local b=s:begin();s.playing=true;s:tick(3)
+        assert(b:transport_allowed());s.peer[key]=true
+        assert(not b:transport_allowed())
+    end
+end)
+check('ready facade still rejects an expired or changed control lease',function()
+    local s,_,grant=setup();local b=s:begin();s.playing=true;s:tick(3)
+    grant.session_id='changed';assert(not b:transport_allowed())
+    s=setup();b=s:begin();s.playing=true;s:tick(3);s.now=1300
+    assert(not b:transport_allowed())
+end)
 print('PASS '..checks..' startup groups; simulated game-thread menu/loading, no game started')

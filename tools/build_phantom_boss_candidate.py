@@ -21,7 +21,7 @@ SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_c
            'tools/phantom_boss_online_scope.lua', 'tools/phantom_boss_online_control.lua',
            'tools/phantom_boss_local_dependencies.lua', 'tools/phantom_boss_online_arena.lua',
            'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua',
-           'tools/phantom_boss_startup.lua')
+           'tools/phantom_boss_startup.lua', 'tools/phantom_boss_combat_runtime.lua')
 LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary',
     'boss_catalog', 'keymap', 'profiles/ahua', 'profiles/wanjun', 'profiles/yanqiansui', 'profiles/youlong',
     'profiles/wanjun_bindings', 'profiles/yanqiansui_bindings', 'profiles/youlong_bindings',
@@ -126,6 +126,12 @@ def lua(value):
 def patches():
     return {
         'main.lua': [
+            ('api.lang = dofile(SCRIPT_DIR .. "lang.lua")(SCRIPT_DIR)',
+             'do\n'
+             '    dofile(SCRIPT_DIR .. "bwb_combat_runtime.lua")(api, SCRIPT_DIR)\n'
+             '    return -- BWB combat composition owns startup; optional modules below stay unloaded\n'
+             'end\n\n'
+             'api.lang = dofile(SCRIPT_DIR .. "lang.lua")(SCRIPT_DIR)'),
             ('local VERSION = "1.7.3"',
              'if type(rawget(_G, "PBZBossOnlineResearchLaunch")) ~= "table" then\n'
              '    print("[BWB] DISABLED: dedicated online research launcher required")\n'
@@ -327,7 +333,7 @@ def build(source=None, lua_lab=None, root=ROOT):
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
     for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control',
-                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup'):
+                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup', 'combat_runtime'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in LOCAL_MODULES:
         contents[f'PBZCoop/Scripts/bwb_local_native/{name}.lua'] = (release / f'PBZBossControl/Scripts/{name}.lua').read_bytes()

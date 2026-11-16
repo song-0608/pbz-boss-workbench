@@ -59,8 +59,10 @@ return function(api,directory,globals)
         return world..'|'..pc_key..'|'..pawn_key
     end
     function self:transport_allowed()
-        if self.closed or self.startup_state~='READY' then return false end
-        return pcall(scope.attest,scope,false)
+        if self.closed or self.startup_state~='READY' or not peer
+            or peer.closed or peer.revoked_reason or peer.revoking or peer.restore_pending then return false end
+        local ok=pcall(scope.attest,scope,false)
+        return ok
     end
     local defaults={network_body=function()return nil end,allow_legacy_ghost=function()return false end,
         allow_enemy_name=function()return false end,allow_enemy_event=function()return false end,

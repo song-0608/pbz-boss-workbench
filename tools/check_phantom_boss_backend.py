@@ -14,7 +14,7 @@ TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapte
          'tests/test_phantom_boss_online_scope.lua', 'tests/test_phantom_boss_online_control.lua',
          'tests/test_native_bridge.lua', 'tests/test_phantom_boss_network_body.lua',
          'tests/test_phantom_boss_online_arena.lua', 'tests/test_phantom_boss_spawn_native.lua',
-         'tests/test_phantom_boss_startup.lua')
+         'tests/test_phantom_boss_startup.lua', 'tests/test_phantom_boss_combat_runtime.lua')
 
 
 def protected_files():
@@ -43,8 +43,9 @@ def run():
         ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 7),
         ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 14),
         ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 11),
-        ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 15),
-        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 56),
+        ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 17),
+        ('combat_runtime_composition', [str(lab), str(ROOT / TESTS[15]), str(ROOT), str(target)], 5),
+        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 57),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex
     log_directory.mkdir(parents=True)
@@ -57,7 +58,7 @@ def run():
         if completed.returncode:
             raise RuntimeError(name + ' failed')
         pattern = r'Ran (\d+) tests?' if name in ('candidate_python','same_pc_pair_python') else (
-            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup) groups')
+            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime) groups')
         found = re.search(pattern, output)
         if not found or int(found[1]) != expected:
             raise RuntimeError(name + ' did not report its complete expected test count')
@@ -76,7 +77,7 @@ def run():
         personal_settings_and_singleplayer_unchanged=True, upstream_commit=manifest['upstream_commit'],
         upstream_reviewed_sources=19, catalog_bosses=4, catalog_abilities=40,
         control_plane_test_groups=sum(row['groups'] for row in results[:-1]),
-        syntax_checked_lua_files=56, checks=results, pending=manifest['pending'],
+        syntax_checked_lua_files=57, checks=results, pending=manifest['pending'],
         source_sha256={n: sha((ROOT / n).read_bytes()) for n in (*SOURCES, *TESTS, 'tools/check_phantom_boss_backend.py',
             'tools/verify_phantom_boss_backend.py')})
     path = ROOT / 'evidence/adaptation/phantom-pact-backend.json'
