@@ -16,7 +16,7 @@ function M.new(api,scope,observer,dependencies,binding,g)
         local o=g.StaticFindObject(name);assert(usable(o),'workbench library missing: '..name);return o
     end
     local self={textures={}}
-    local widget_ref,world,owner_ref,last_texture,last_geometry
+    local widget_ref,world,owner_ref,image_ref,last_texture,last_geometry
     local function widget()
         if not widget_ref then return nil end
         local o=calls:optional(widget_ref);assert(o,'owned workbench widget disappeared')
@@ -28,7 +28,7 @@ function M.new(api,scope,observer,dependencies,binding,g)
         if o then
             o:RemoveFromParent();assert(o:IsInViewport()==false,'workbench widget removal unverified')
         end
-        widget_ref,world,owner_ref,last_texture,last_geometry=nil,nil,nil,nil,nil
+        widget_ref,world,owner_ref,image_ref,last_texture,last_geometry=nil,nil,nil,nil,nil,nil
         self.textures={};return true
     end
     function self:render(pc,opened,cursor,selected)
@@ -55,7 +55,7 @@ function M.new(api,scope,observer,dependencies,binding,g)
         if not o then
             local class=g.LoadAsset(PATH);assert(usable(class),'workbench image class unavailable')
             o=library('/Script/UMG.Default__WidgetBlueprintLibrary'):Create(pc,class,pc)
-            assert(usable(o),'workbench widget creation rejected')
+            assert(usable(o)and o:IsA(class)==true,'workbench widget class/creation rejected')
             -- Capture before any viewport setup so partial failures retain recovery.
             widget_ref=calls:reference(o);world=current.world;owner_ref=calls:reference(pc)
             observer.identify(o,world)
@@ -64,8 +64,13 @@ function M.new(api,scope,observer,dependencies,binding,g)
             o:SetAlignmentInViewport({X=.5,Y=.5})
             o:SetDesiredSizeInViewport({X=1000,Y=620})
         else assert(o:IsInViewport()==true,'stale workbench widget is not on screen')end
+        local image=o.Circle
+        assert(usable(image)and image:IsA(library('/Script/UMG.Image'))==true,
+            'workbench image component class unavailable')
+        observer.identify(image,world)
+        if image_ref then assert(calls:same(image,calls:resolve(image_ref)),'workbench image identity changed')
+        else image_ref=calls:reference(image)end
         if last_texture~=name then
-            local image=o.Circle;assert(usable(image),'workbench image component unavailable')
             image:SetBrushFromTexture(texture,false)
             last_texture=name
         end

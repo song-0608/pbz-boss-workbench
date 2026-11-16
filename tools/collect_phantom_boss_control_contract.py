@@ -116,7 +116,7 @@ def capture(game,*,functions=None,requested_properties=None,enums=None):
 
 
 def collect(receipt,role,*,capture_fn=None,report_stem='control',sources=SOURCES):
-    assert report_stem in ('control','native-bundle')
+    assert report_stem in ('control','native-bundle','workbench','visual')
     receipt=Path(receipt).resolve();original=receipt.read_bytes()
     source_hashes={name:sha((ROOT/name).read_bytes()) for name in sources}
     with OnlineGameRead(receipt,role) as game:

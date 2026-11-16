@@ -8,7 +8,7 @@ local function fixture()
         function o:IsValid()return self.valid end
         s.objects[name]=o;return o
     end
-    s.pc=object('pc');s.class=object('class')
+    s.pc=object('pc');s.class=object('class');s.image_class=object('/Script/UMG.Image')
     local calls={reference=function(_,o)return {name=o.name,address=o.address}end,
         same=function(_,a,b)return a.address==b.address end}
     function calls:optional(r)
@@ -31,6 +31,8 @@ local function fixture()
         assert(pc==s.pc and class==s.class and owner==pc);s.creates=s.creates+1
         local o=object('menu '..s.creates);s.widget=o
         o.Circle=object('image '..s.creates)
+        function o:IsA(class)return class==s.class and not s.wrong_widget_class end
+        function o.Circle:IsA(class)return class==s.image_class and not s.wrong_image_class end
         function o.Circle:SetBrushFromTexture(_,resize)assert(not resize);s.brushes=s.brushes+1 end
         function o:AddToViewport(z)assert(z==990);self.screen=true;if s.fail_add then error('partial AddToViewport')end end
         function o:IsInViewport()return self.screen==true end
@@ -121,5 +123,20 @@ check('recovery art has no equipped Boss and cannot accept an out-of-range selec
     local s=fixture();assert(s.native:render(s.pc,true,3,0)and s.imports==1)
     assert(s.objects['texture E:/mod/art/bwb_workbench/menu-3-0.png'])
     assert(not pcall(s.native.render,s.native,s.pc,true,3,-1))
+end)
+check('wrong returned widget class cannot enter the viewport',function()
+    local s=fixture();s.wrong_widget_class=true
+    assert(not pcall(s.native.render,s.native,s.pc,true,1,1)and not s.widget.screen and s.brushes==0)
+end)
+check('wrong image component class or World cannot receive a brush',function()
+    local s=fixture();s.wrong_image_class=true
+    assert(not pcall(s.native.render,s.native,s.pc,true,1,1)and s.brushes==0)
+    assert(s.native:close())
+    s=fixture();s.native:render(s.pc,true,1,1);s.widget.Circle.world='other'
+    assert(not pcall(s.native.render,s.native,s.pc,true,2,1)and s.brushes==1)
+end)
+check('unchanged art cannot hide a substituted image component',function()
+    local s=fixture();s.native:render(s.pc,true,1,1);s.widget.Circle.address=999
+    assert(not pcall(s.native.render,s.native,s.pc,true,1,1)and s.brushes==1)
 end)
 print('PASS '..checks..' workbench native groups; fake UMG objects, no engine or game launched')

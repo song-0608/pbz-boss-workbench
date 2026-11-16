@@ -49,14 +49,14 @@ class BundleTests(unittest.TestCase):
         result=self.capture(BundleGame())
         self.assertEqual(control.PROPERTIES,before)
         found={(p['owner'],p['name']) for p in result['properties']}
-        for requested in (control.PROPERTIES,visual.PROPERTIES):
+        for requested in (control.PROPERTIES,visual.PROPERTIES,workbench.PROPERTIES):
             for owner,names in requested.items():
                 for name in names:self.assertIn((owner,name),found)
         self.assertEqual(len(found),len(result['properties']))
 
     def test_complete_bundle_does_not_accept_bindings_widgets_or_manual_animation(self):
         result=self.capture(BundleGame())
-        for name in ('binding_verified','widget_created','manual_pose_no_notifies_accepted',
+        for name in ('binding_verified','widget_created','manual_pose_no_notifies_accepted','blueprint_image_component_verified',
                 'game_functions_called','inventory_inspected','memory_written','runtime_acceptance_current'):
             self.assertIs(result[name],False)
         self.assertEqual(result['domains'],['control','workbench','visual'])

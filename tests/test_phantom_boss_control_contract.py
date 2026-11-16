@@ -165,9 +165,12 @@ class ControlContractTests(unittest.TestCase):
     def test_umg_collector_explicitly_includes_umg_namespace(self):
         with tempfile.TemporaryDirectory() as name:
             receipt=Path(name)/'session.json';receipt.write_bytes(b'{}');game=MetadataGame()
-            game.addresses={path:0x10000+index*0x1000 for index,path in enumerate(sorted(workbench.FUNCTIONS))}
+            game.addresses={path:0x10000+index*0x1000 for index,path in enumerate(sorted(
+                workbench.FUNCTIONS|workbench.PROPERTIES.keys()|workbench.ENUMS))}
             game.owners={address:path for path,address in game.addresses.items()}
-            with patch.object(workbench,'OnlineGameRead',return_value=game),patch.object(workbench,'fields',return_value=[]):
+            with patch.object(control,'OnlineGameRead',return_value=game),patch.object(control,'fields',return_value=[]),\
+                    patch.object(control,'validate_receipt',return_value=(dict(session='b'*32),game.instance)),\
+                    patch('phantom_boss_pair_session.process_identity',return_value=game.instance['game_identity']):
                 result=workbench.collect(receipt,'host')
             self.assertIn('/Script/UMG.',game.find_calls[0][1])
             self.assertEqual(result['missing_functions'],[])

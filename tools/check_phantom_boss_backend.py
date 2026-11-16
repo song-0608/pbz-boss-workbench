@@ -21,7 +21,7 @@ TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapte
          'tests/test_phantom_boss_workbench_native.lua','tests/test_phantom_boss_control_contract.py',
          'tests/test_phantom_boss_contract_bundle.py','tests/test_phantom_boss_control_abi.py',
          'tests/test_phantom_boss_control_binding.py','tests/test_phantom_boss_client_auth.py',
-         'tests/test_phantom_boss_online_session.lua')
+         'tests/test_phantom_boss_online_session.lua','tests/test_phantom_boss_optional_contracts.py')
 LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_readonly.py',
     'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py',
     'tools/check_phantom_boss_isolation.py','tools/phantom_boss_pair_bootstrap.cpp',
@@ -70,12 +70,13 @@ def run():
         ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 11),
         ('pair_session_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair_session.py', '-v'], 18),
         ('online_workbench_lifecycle', [str(lab), str(ROOT / TESTS[21]), str(ROOT), str(target)], 25),
-        ('workbench_native_umg', [str(lab), str(ROOT / TESTS[22]), str(ROOT)], 13),
+        ('workbench_native_umg', [str(lab), str(ROOT / TESTS[22]), str(ROOT)], 16),
         ('control_contract_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_contract.py', '-v'], 14),
         ('contract_bundle_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_contract_bundle.py', '-v'], 8),
         ('control_abi_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_abi.py', '-v'], 18),
         ('control_binding_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_binding.py', '-v'], 13),
         ('client_auth_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_client_auth.py', '-v'], 14),
+        ('optional_contracts_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_optional_contracts.py', '-v'], 14),
         ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 8),
         ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 66),
     ]

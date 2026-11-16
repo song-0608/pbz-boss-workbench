@@ -1,12 +1,7 @@
 """Collect only reflected cosmetic actor/animation declarations from one role; never call game functions."""
 import argparse
-import json
 from pathlib import Path
-import struct
-
-from build_phantom_boss_candidate import ROOT, canonical, sha
-from inspect_pbz_ai_metadata import fields
-from phantom_boss_online_readonly import OnlineGameRead
+import collect_phantom_boss_control_contract as control
 
 FUNCTIONS={
     '/Script/Engine.Actor.AddComponentByClass',
@@ -42,6 +37,8 @@ FUNCTIONS={
     '/Script/Engine.AnimInstance.GetCurrentActiveMontage',
     '/Script/Engine.AnimInstance.Montage_GetPosition',
 }
+ENUMS={'/Script/Engine.EAnimationMode','/Script/Engine.ECollisionEnabled'}
+SOURCES=(*control.SOURCES,'tools/collect_phantom_boss_visual_contract.py')
 PROPERTIES={
     '/Script/Engine.Actor':{'RootComponent'},
     '/Script/Engine.Character':{'Mesh'},
@@ -55,34 +52,14 @@ PROPERTIES={
 }
 
 
+def capture(game):
+    result=control.capture(game,functions=FUNCTIONS,requested_properties=PROPERTIES,enums=ENUMS)
+    result.update(domains=['visual'],manual_pose_no_notifies_accepted=False)
+    return result
+
+
 def collect(receipt,role):
-    receipt=Path(receipt).resolve()
-    wanted={path.rsplit('.',1)[1] for path in FUNCTIONS|PROPERTIES.keys()}
-    declarations=[];properties=[]
-    with OnlineGameRead(receipt,role) as g:
-        for row in g.find_native(wanted):
-            path=row['path'];address=int(row['address'],16)
-            if path in FUNCTIONS:
-                declarations.append(dict(path=path,parameter_bytes=struct.unpack('<H',g.read(address+0x106,2))[0],
-                    parameters=[p for p in fields(g,address,32) if int(p['property_flags'],16)&0x80]))
-            if path in PROPERTIES:
-                properties.extend(dict(owner=path,**p) for p in fields(g,address,256) if p['name'] in PROPERTIES[path])
-        missing_functions=sorted(FUNCTIONS-{row['path'] for row in declarations})
-        found={(p['owner'],p['name']) for p in properties}
-        missing_properties=sorted(owner+':'+name for owner,names in PROPERTIES.items() for name in names if (owner,name) not in found)
-        report=dict(schema=1,status='declarations-only',role=role,pid=g.pid,
-            session_sha256=sha(receipt.read_bytes()),functions=declarations,properties=properties,
-            missing_functions=missing_functions,missing_properties=missing_properties,
-            complete_declarations=not missing_functions and not missing_properties,
-            binding_verified=False,manual_pose_no_notifies_accepted=False,game_functions_called=False,
-            inventory_inspected=False,memory_written=False,runtime_acceptance_current=False,
-            source_sha256={name:sha((ROOT/name).read_bytes()) for name in (
-                'tools/collect_phantom_boss_visual_contract.py','tools/phantom_boss_online_readonly.py')})
-    target=receipt.parent/(role+'-visual-declarations.json')
-    with target.open('xb') as stream:stream.write(canonical(report)+b'\n')
-    print(json.dumps(dict(report=str(target),functions=len(declarations),properties=len(properties),
-        missing_functions=missing_functions,missing_properties=missing_properties,binding_verified=False),ensure_ascii=False))
-    return report
+    return control.collect(receipt,role,capture_fn=capture,report_stem='visual',sources=SOURCES)
 
 
 if __name__=='__main__':
