@@ -20,7 +20,8 @@ TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapte
          'tests/test_phantom_boss_pair_session.py', 'tests/test_phantom_boss_online_workbench.lua',
          'tests/test_phantom_boss_workbench_native.lua','tests/test_phantom_boss_control_contract.py',
          'tests/test_phantom_boss_contract_bundle.py','tests/test_phantom_boss_control_abi.py',
-         'tests/test_phantom_boss_control_binding.py','tests/test_phantom_boss_client_auth.py')
+         'tests/test_phantom_boss_control_binding.py','tests/test_phantom_boss_client_auth.py',
+         'tests/test_phantom_boss_online_session.lua')
 LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_readonly.py',
     'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py',
     'tools/check_phantom_boss_isolation.py','tools/phantom_boss_pair_bootstrap.cpp',
@@ -52,15 +53,15 @@ def run():
         ('protocol_simulation', [str(lab), str(ROOT / TESTS[0]), str(ROOT)], 16),
         ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 28),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 15),
-        ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 11),
+        ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 12),
         ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 13),
         ('enemy_fence_patched_upstream', [str(lab), str(ROOT / TESTS[6]), str(ROOT), str(target)], 14),
         ('same_pc_pair_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair.py', '-v'], 8),
         ('online_scope_simulation', [str(lab), str(ROOT / TESTS[8]), str(ROOT)], 12),
         ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 14),
         ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 8),
-        ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 20),
-        ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 11),
+        ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 21),
+        ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 15),
         ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 17),
         ('combat_runtime_composition', [str(lab), str(ROOT / TESTS[15]), str(ROOT), str(target)], 5),
         ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 16),
@@ -68,13 +69,14 @@ def run():
         ('visual_session_integration', [str(lab), str(ROOT / TESTS[18]), str(ROOT)], 5),
         ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 11),
         ('pair_session_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair_session.py', '-v'], 18),
-        ('online_workbench_lifecycle', [str(lab), str(ROOT / TESTS[21]), str(ROOT), str(target)], 17),
-        ('workbench_native_umg', [str(lab), str(ROOT / TESTS[22]), str(ROOT)], 12),
+        ('online_workbench_lifecycle', [str(lab), str(ROOT / TESTS[21]), str(ROOT), str(target)], 25),
+        ('workbench_native_umg', [str(lab), str(ROOT / TESTS[22]), str(ROOT)], 13),
         ('control_contract_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_contract.py', '-v'], 14),
         ('contract_bundle_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_contract_bundle.py', '-v'], 8),
         ('control_abi_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_abi.py', '-v'], 18),
         ('control_binding_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_binding.py', '-v'], 13),
         ('client_auth_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_client_auth.py', '-v'], 14),
+        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 7),
         ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 66),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex
@@ -88,7 +90,7 @@ def run():
         if completed.returncode:
             raise RuntimeError(name + ' failed')
         pattern = r'Ran (\d+) tests?' if name.endswith('_python') else (
-            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native) groups')
+            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session) groups')
         found = re.search(pattern, output)
         if not found or int(found[1]) != expected:
             raise RuntimeError(name + ' did not report its complete expected test count')

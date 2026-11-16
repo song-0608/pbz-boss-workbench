@@ -16,7 +16,7 @@ def build():
     fonts={size:ImageFont.truetype(str(FONT),size) for size in (22,24,28,38)}
     files={}
     for cursor in range(1,5):
-        for selected in range(1,5):
+        for selected in range(0,5):
             image=Image.new('RGBA',(1000,620),(16,24,30,246));draw=ImageDraw.Draw(image)
             draw.rounded_rectangle((2,2,997,617),radius=18,outline='#92B2AA',width=2)
             draw.text((42,28),'BOSS 工作台',font=fonts[38],fill='#F2EDDB')
@@ -30,7 +30,9 @@ def build():
                 if index==selected:draw.text((838,y+22),'使用中',font=fonts[22],fill='#CBE6B1')
             draw.line((42,478,958,478),fill='#405852',width=2)
             draw.text((44,498),'↑ / ↓ 选择    Enter 装配    Insert / Esc 返回',font=fonts[24],fill='#E5E5D4')
-            draw.text((44,542),'F6 接管  ·  F10 恢复主角  ·  接管前需完成双方身份确认',font=fonts[22],fill='#A9C4B8')
+            footer=('尚未装配  ·  选择角色后按 Enter 重试  ·  F10 关闭工作台'if selected==0 else
+                'F6 接管  ·  F10 恢复主角  ·  接管前需完成双方身份确认')
+            draw.text((44,542),footer,font=fonts[22],fill='#A9C4B8')
             name=f'menu-{cursor}-{selected}.png';path=TARGET/name
             image.save(path,format='PNG',optimize=False,compress_level=9)
             files[name]=hashlib.sha256(path.read_bytes()).hexdigest()

@@ -38,7 +38,7 @@ function M.new(api,scope,observer,dependencies,binding,g)
             return true
         end
         assert(type(cursor)=='number'and cursor==math.floor(cursor)and cursor>=1 and cursor<=4
-            and type(selected)=='number'and selected==math.floor(selected)and selected>=1 and selected<=4,
+            and type(selected)=='number'and selected==math.floor(selected)and selected>=0 and selected<=4,
             'bounded workbench art selection required')
         local current=observer.identify(pc)
         if world then

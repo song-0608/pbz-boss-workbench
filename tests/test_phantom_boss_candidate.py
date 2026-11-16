@@ -15,7 +15,7 @@ import player_keymap
 class CandidateTests(unittest.TestCase):
     def test_all_native_workbench_textures_are_pinned_and_staged(self):
         art=candidate.workbench_art(self.root)
-        self.assertEqual(len(art),17)
+        self.assertEqual(len(art),21)
         for name,data in art.items():
             self.assertEqual((self.target/'PBZCoop/art/bwb_workbench'/name).read_bytes(),data)
         with tempfile.TemporaryDirectory() as tmp:

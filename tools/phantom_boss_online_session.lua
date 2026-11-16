@@ -23,7 +23,23 @@ function M.new(api,launch,config,peer,observer,directory,globals)
     local workbench=dofile(directory..'bwb_online_workbench.lua').new(scope,peer,dependencies,config,
         function(text)globals.print(text)end,os.time,renderer)
     native.mount_workbench=function(control,host,layer,pc,id)return workbench:mount(control,host,layer,pc,id)end
-    native.state_changed=function(state,reason)workbench:assembly_changed(state,reason)end
+    native.state_changed=function(state,reason)
+        workbench:assembly_changed(state,reason)
+        if state=='REJECTED'and not workbench.recovery then
+            local ok,why=pcall(function()
+                local id=assert(arena.requested_boss_id)
+                local host,layer,pc,guard=native.recovery_menu(id)
+                workbench:recover(host,layer,pc,id,guard,native.schedule)
+            end)
+            if not ok then native.log('recovery menu unavailable: '..tostring(why))end
+        end
+    end
+    local revoke=arena.revoke
+    function arena:revoke(reason)
+        local ok,clean=pcall(workbench.close,workbench)
+        local restored,why=revoke(self,reason)
+        return ok and clean==true and restored==true,why
+    end
     if launch.assembly.bindings.visual~=nil then
         dofile(directory..'bwb_visual_session.lua').attach(api,scope,peer,observer,dependencies,
             launch.assembly.bindings.visual,config,arena,directory,globals)

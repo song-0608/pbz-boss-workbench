@@ -30,11 +30,12 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
             ..',"role":'..quote(grant.role)..',"expires_at":'..grant.expires_at
             ..',"mode":"two-player-online-research","text":'..quote(text)..'}\n')
     end
-    function self:mount(control,host,layer,pc,id)
+    function self:mount(control,host,layer,pc,id,recovery)
         scope:attest(false)
+        if self.recovery and not recovery then assert(self:stop_recovery()==true,'recovery menu retirement pending')end
         assert(not stopped and config.bosses[id] and not active,'previous menu owner must retire before mounting')
-        local owner={control=control,layer=layer,pc=pc,last_at=-math.huge,last_revision=-1}
-        active=owner;selected=id;changing=false;widget:changed()
+        local owner={control=control,layer=layer,pc=pc,last_at=-math.huge,last_revision=-1,recovery=recovery==true}
+        active=owner;selected=not recovery and id or nil;changing=false;widget:changed()
         for index,entry in ipairs(widget.options.entries())do if entry.id==id then widget.cursor=index end end
         widget:set_adapter({
             restore=function(reason)
@@ -82,7 +83,7 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
             if not force and widget.revision==owner.last_revision and at-owner.last_at<1 then return end
             local grant=scope:attest(false)
             if renderer then
-                local index
+                local index=0
                 for i,entry in ipairs(widget.options.entries())do if entry.id==selected then index=i end end
                 local ok,shown=pcall(renderer.render,renderer,pc,widget.opened,widget.cursor,index)
                 if not ok or shown~=true then
@@ -92,12 +93,76 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
                 end
             end
             local text=widget:is_open()and widget:text()or
-                ('Boss 联机工作台  |  Insert 选择角色  |  F6 接管  |  F10 恢复\n'
+                ((owner.recovery and 'Boss 装配重试  |  Insert 选择角色  |  Enter 重试\n'or
+                'Boss 联机工作台  |  Insert 选择角色  |  F6 接管  |  F10 恢复\n')
                 ..(peer.protocol.ready and '双方身份已确认' or '等待另一端身份确认'))
             if not widget:is_open() and widget.message~='' then text=text..'\n'..widget.message end
             publish(text,grant);owner.last_at=at;owner.last_revision=widget.revision
         end
         return host.workbench
+    end
+    -- A clean assembly rejection must not strand the chooser after Runtime.stop
+    -- released its keys. This owner has menu keys only, never takeover/skills.
+    function self:stop_recovery()
+        local r=self.recovery
+        if not r then return true end
+        r.running=false
+        if r.cancel then r.cancel();r.cancel=nil end
+        if r.host.release_keys then assert(r.host.release_keys()==true,'recovery key retirement failed')end
+        assert(r.view:shutdown()==true,'recovery menu input restoration failed')
+        self.recovery=nil;return true
+    end
+    function self:recover(host,layer,pc,id,guard,schedule)
+        scope:attest(false)
+        assert(not stopped and type(guard)=='function'and type(schedule)=='function','live recovery menu bindings required')
+        if self.recovery then return true end
+        assert(not active,'active Boss runtime still owns the chooser')
+        assert(guard()==true,'original player recovery unverified')
+        local r={host=host,running=true,pending=false}
+        local control={session={state='OFF'}}
+        control.session.restore=function()return guard()==true end
+        control.runtime={stop=function()return self:stop_recovery()end}
+        r.view=self:mount(control,host,layer,pc,id,true);self.recovery=r
+        local function action(method,delta)
+            if not r.running or self.recovery~=r then return end
+            local ok,why=pcall(function()
+                scope:attest(false);assert(guard()==true,'original player recovery changed')
+                if delta then return r.view:move(delta)end
+                return r.view[method](r.view)
+            end)
+            if not ok then
+                emit('[BWB] recovery menu stopped: '..tostring(why)..'\n')
+                self:stop_recovery();return
+            end
+            if r.running then host.status(nil,true)end
+        end
+        local function dispatch(key,method,delta)
+            if not r.running or r.pending then return end
+            if method~='toggle'and not widget.opened then return end
+            local release=method=='confirm'or method=='close'or(method=='toggle'and widget.opened)
+            local function invoke()r.pending=false;if r.running then host.on_game_thread(function()action(method,delta)end)end end
+            if release and host.after_key_release then r.pending=true;host.after_key_release(key,invoke)
+            else invoke()end
+        end
+        local ok,why=pcall(function()
+            local keys={INS={'toggle'},UP_ARROW={'move',-1},DOWN_ARROW={'move',1},RETURN={'confirm'},ESCAPE={'close'},F10={'close'}}
+            if host.validate_keys then local allowed={};for key in pairs(keys)do allowed[key]=true end;host.validate_keys(allowed)end
+            for key,row in pairs(keys)do
+                local selected_key,method,delta=key,row[1],row[2]
+                host.bind_key(key,function()dispatch(selected_key,method,delta)end)
+            end
+            r.cancel=schedule(250,function()
+                if not r.running then return end
+                local valid=pcall(function()scope:attest(false);assert(guard()==true)end)
+                if not valid then self:stop_recovery();return end
+                host.status(nil,false)
+            end)
+            assert(type(r.cancel)=='function','cancellable recovery status timer required')
+            widget:changed('装配未完成；Insert 重新选择，Enter 重试')
+            host.status(nil,true)
+        end)
+        if not ok then self:stop_recovery();error(why)end
+        return true
     end
     function self:assembly_changed(state,reason)
         if state=='REJECTED'or state=='FAULTED'then
@@ -106,6 +171,7 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
     end
     function self:close()
         stopped=true
+        assert(self:stop_recovery()==true,'recovery menu cleanup pending')
         if active then assert(active.layer:unlock()==true,'online menu input recovery pending');active=nil end
         if renderer then assert(renderer:close()==true,'online menu widget recovery pending')end
         changing=false;widget.opened=false;widget.busy=false

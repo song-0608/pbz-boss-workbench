@@ -54,6 +54,7 @@ function M.new(scope,peer,observer,native)
         scope:attest(false)
         assert(not peer.closed and not peer.restore_pending,'online adapter not recoverable')
         self.state='PREPARING';self.failure=nil;self.selection_failure=nil;self.polls=0
+        self.requested_boss_id=boss_id
         self.generation=self.generation+1;local generation=self.generation
         local ok,why=pcall(function()
             self.context=prepared or native.prepare(boss_id)
@@ -115,6 +116,9 @@ function M.new(scope,peer,observer,native)
             local why=not ok and context or 'assembly/observer World mismatch'
             self.selection_failure=tostring(why)
             native.log('Boss selection rejected before cleanup: '..self.selection_failure)
+            if self.state=='IDLE'or self.state=='REJECTED'then
+                self.requested_boss_id=boss_id;self.failure=self.selection_failure;self.state='REJECTED';changed()
+            end
             return false,self.selection_failure
         end
         scope:attest(false)

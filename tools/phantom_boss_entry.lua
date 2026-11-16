@@ -48,7 +48,10 @@ return function(api, directory)
         local ok,why=pcall(function()
             assembly=dofile(directory..'bwb_online_session.lua').new(api,launch,config,peer,host,directory,_G)
             local started,reason=peer:select_boss(launch.boss_id)
-            assert(started,reason)
+            if not started then
+                assert(assembly.state=='REJECTED',reason)
+                api.log('[BWB] initial assembly rejected; original player restored, retry from workbench: '..tostring(reason))
+            end
         end)
         if not ok then
             local clean=peer:close()

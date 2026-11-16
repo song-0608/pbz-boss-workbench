@@ -40,7 +40,7 @@ local function fixture()
     function f.class:GetCDO()return {['Actor Config']=actor_config,CapsuleComponent={CapsuleHalfHeight=110,CapsuleRadius=80}}end
     f.ai_class=obj('/AI/AI.AI_C')
     f.profile={id='boss',exe_sha256=string.rep('a',64),identity_verified=true,class_path='/Boss/A.A_C',
-        config_path='/Boss/Config.Config',display_name='Boss',skills={cut={class_path='/Skill/Cut.Cut_C'}}}
+        config_path='/Boss/Config.Config',display_name='Boss',camera={},input={},skills={cut={class_path='/Skill/Cut.Cut_C'}}}
     f.config={expected_exe_sha256=f.profile.exe_sha256,skills={slot1={id='cut',verified=true}},controls={enter='F6',exit='F10'}}
     local mods={ue_calls=deps.require('ue_calls')}
     mods.object_lifecycle={new=function()return {usable=function(_,o)return o and o:IsValid() or false end}end}
@@ -54,6 +54,15 @@ local function fixture()
             verify=function()return f.held end,release=function()f.held=false end}
     end}
     mods.ue_combat={new=function()return {}end}
+    mods.ue_host={new=function(bridge,input)
+        assert(input and bridge.player_controller);f.recovery_pc=bridge.player_controller;return {menu_only=true}
+    end}
+    mods.ue_camera={new=function()return {spawn_camera=function(pc,anchor)
+        assert(pc==f.pc and anchor==f.player);f.menu_spawned=true;return f.object('/Fixture/Menu')
+    end,destroy_camera=function()return true end}end}
+    mods.ue_input_barrier={new=function()return {}end}
+    mods.input_barrier={new=function()return {}end}
+    mods.workbench_input=deps.require('workbench_input')
     mods.ue_arena_layout={new=function()return function()end end}
     mods.arena_layout={choose=function()return {boss={X=450,Y=0,Z=112},heading=0}end}
     local g={LoadAsset=function(path)
@@ -109,7 +118,8 @@ local function fixture()
         identify=function(o,world)
             assert(o and o:IsValid() and (world==nil or world=='W') and o:GetWorld()==f.world)
             return {address=o:GetAddress(),name=o:GetFullName(),class=o:GetClass():GetFullName():match('^[^ ]+ (.+)$'),world='W'}
-        end,snapshot=function()return {world='W',native_player=true}end}
+        end,snapshot=function()return {world=f.snapshot_world or 'W',native_player=f.native_player~=false,
+            remote_control=f.remote_control}end}
     local bindings={combat={binding_verified=true,friendly=0,hostile=2,ai_focus_bridge=true}}
     for _,key in ipairs({'camera','remote','barrier','protection','arena','visibility'})do bindings[key]={binding_verified=true}end
     f.scope,f.peer,f.bindings,f.g,f.dependencies=scope,peer,bindings,g,{require=function(name)return assert(mods[name],name)end}
@@ -194,5 +204,27 @@ check('cancelled native scheduler ignores stale callbacks and cancels exactly on
     local f=fixture();local calls=0
     local cancel=f.native.schedule(250,function()calls=calls+1 end)
     f.timer();cancel();cancel();f.timer();assert(calls==1 and f.cancelled==1)
+end)
+check('recovery host resolves the original player without loading or spawning another Boss',function()
+    local f=fixture();local host,layer,pc,guard=f.native.recovery_menu('boss')
+    assert(host.menu_only and pc==f.pc and guard()and f.recovery_pc()==pc)
+    assert(not f.protected and not f.body and not f.menu_spawned and #f.events==0 and not layer.ticket)
+end)
+check('recovery menu refuses a controlled Boss or a changed World before input attachment',function()
+    for _,field in ipairs({'native_player','remote_control','snapshot_world'})do
+        local f=fixture()
+        if field=='native_player'then f[field]=false elseif field=='remote_control'then f[field]=true else f[field]='other'end
+        assert(not pcall(f.native.recovery_menu,'boss')and not f.menu_spawned and not f.body)
+    end
+end)
+check('recovery guard rejects a new Pawn and cannot follow a reused controller',function()
+    local f=fixture();local _,_,_,guard=f.native.recovery_menu('boss')
+    f.pc.Pawn=f.object('/Fixture/Replacement');assert(not pcall(guard))
+    f=fixture();local _,_,_,guard=f.native.recovery_menu('boss')
+    f.object(f.pc.name);assert(not pcall(guard))
+end)
+check('recovery guard rejects expiry without protecting or spawning the native player',function()
+    local f=fixture();local _,_,_,guard=f.native.recovery_menu('boss');f.revoked=true
+    assert(not pcall(guard)and not f.protected and not f.menu_spawned and not f.body)
 end)
 print('PASS '..checks..' spawn native groups; concrete bindings with fake Unreal objects, no game/relay')

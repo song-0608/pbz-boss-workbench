@@ -53,7 +53,7 @@ def canonical(value):
 def workbench_art(root):
     directory=root/'assets/online-workbench'
     manifest=json.loads((directory/'art.json').read_bytes())
-    expected={f'menu-{c}-{s}.png' for c in range(1,5) for s in range(1,5)}
+    expected={f'menu-{c}-{s}.png' for c in range(1,5) for s in range(0,5)}
     assert manifest['schema']==1 and manifest['width']==1000 and manifest['height']==620
     assert manifest['boss_order']==['ahua_guitoudao','057_wanjun','073_yanqiansui','056_youlong']
     assert manifest['source_sha256']==sha((root/'tools/build_phantom_boss_workbench_art.py').read_bytes())

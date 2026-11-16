@@ -22,7 +22,7 @@ local function fixture()
     end}
     local render=object('/Script/Engine.Default__KismetRenderingLibrary')
     function render:ImportFileAsTexture2D(pc,path)
-        assert(pc==s.pc and path:match('^E:/mod/art/bwb_workbench/menu%-[1-4]%-[1-4]%.png$'))
+        assert(pc==s.pc and path:match('^E:/mod/art/bwb_workbench/menu%-[1-4]%-[0-4]%.png$'))
         s.imports=s.imports+1;if s.reject_import then return nil end
         return object('texture '..path)
     end
@@ -116,5 +116,10 @@ check('stale viewport cannot be reused and invalid geometry is not applied',func
     s=fixture();s.viewport={X=0/0,Y=720}
     assert(not pcall(s.native.render,s.native,s.pc,true,1,1)and s.positions==0)
     assert(s.native:close())
+end)
+check('recovery art has no equipped Boss and cannot accept an out-of-range selection',function()
+    local s=fixture();assert(s.native:render(s.pc,true,3,0)and s.imports==1)
+    assert(s.objects['texture E:/mod/art/bwb_workbench/menu-3-0.png'])
+    assert(not pcall(s.native.render,s.native,s.pc,true,3,-1))
 end)
 print('PASS '..checks..' workbench native groups; fake UMG objects, no engine or game launched')

@@ -29,16 +29,17 @@ def verify(path=None):
     assert report['singleplayer_payload_files_verified'] == len(accepted['files'])
     assert report['personal_settings_and_singleplayer_unchanged'] is True
     counts = {'protocol_simulation': 16, 'adapter_mocked_api': 28, 'candidate_python': 15,
-              'entry_mocked_research_lease': 11, 'host_fake_uobjects': 13,
+              'entry_mocked_research_lease': 12, 'host_fake_uobjects': 13,
               'enemy_fence_patched_upstream': 14, 'same_pc_pair_python': 8,
               'online_scope_simulation': 12, 'online_control_fake_uobjects': 14,
-              'network_body_patched_upstream': 8, 'online_arena_lifecycle': 20,
-              'online_spawn_native_bindings': 11, 'cold_startup_menu_loading': 17,
+              'network_body_patched_upstream': 8, 'online_arena_lifecycle': 21,
+              'online_spawn_native_bindings': 15, 'cold_startup_menu_loading': 17,
               'combat_runtime_composition': 5, 'visual_protocol_lifecycle': 16,
               'visual_native_bindings': 8, 'visual_session_integration': 5, 'deferred_launch_gate': 11,
-              'pair_session_python': 18, 'online_workbench_lifecycle': 17, 'workbench_native_umg': 12,
+              'pair_session_python': 18, 'online_workbench_lifecycle': 25, 'workbench_native_umg': 13,
               'control_contract_python': 14,'contract_bundle_python':8,'control_abi_python':18,'control_binding_python':13,
               'client_auth_python':14,
+              'online_session_composition':7,
               'patched_lua_compile_only': 66}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
@@ -53,10 +54,10 @@ def verify(path=None):
         elif row['name'] == 'patched_lua_compile_only':
             assert 'PASS syntax only: 66 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 346
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session) groups', output)
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 368
     assert report['syntax_checked_lua_files']==66
-    return dict(passed=True, status='backend-milestone-only', groups=346, compiled_lua_files=66,
+    return dict(passed=True, status='backend-milestone-only', groups=368, compiled_lua_files=66,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

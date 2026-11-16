@@ -168,4 +168,11 @@ check('clean stop drops retired context before a later preparation failure',func
     f.prepare_failure=true;f.events={};assert(not f.arena:start('second'))
     assert(table.concat(f.events,',')=='prepare' and f.arena.state=='REJECTED')
 end)
+check('first selection without clearance reports a recoverable rejected state',function()
+    local f=fixture();f.prepare_failure=true
+    local ok,why=f.arena:select('second')
+    assert(not ok and why:find('no clearance',1,true)and f.arena.state=='REJECTED')
+    assert(f.arena.requested_boss_id=='second'and not f.protected and #f.arena.owned==0)
+    f.prepare_failure=false;assert(f.arena:select('boss'));f:tick(13);assert(f.arena.state=='READY')
+end)
 print('PASS '..checks..' online arena groups; simulated lifecycle, no engine/game/relay')

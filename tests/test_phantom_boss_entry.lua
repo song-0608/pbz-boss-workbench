@@ -81,7 +81,7 @@ local function assembly_entry(fail)
         end} end
         if path==directory..'bwb_online_session.lua' then return {new=function(_,l,c,peer)
             function peer:select_boss(id)assert(id==launch.boss_id);assembled=assembled+1;return not fail,'start rejected'end
-            return {revoke=function()revoked=revoked+1;return true end}
+            return {state=fail=='clean'and'REJECTED'or'FAULTED',revoke=function()revoked=revoked+1;return true end}
         end} end
         return dofile(path)
     end},{__index=_G})
@@ -98,5 +98,10 @@ end)
 check('assembly startup rejection rolls back transport wrappers and observer through recovery',function()
     local ok,why,api,counts=assembly_entry(true);assert(not ok and why:find('cleanup=true',1,true))
     local started,revoked=counts();assert(started==1 and revoked==1 and api.coop.handlers.BWB1==nil and not api.coop.net.enabled)
+end)
+check('clean initial rejection preserves the adapter for an explicit workbench retry',function()
+    local ok,peer,api,counts=assembly_entry('clean');assert(ok and api.coop.handlers.BWB1)
+    local started,revoked=counts();assert(started==1 and revoked==0 and not peer.closed)
+    assert(peer:close());started,revoked=counts();assert(revoked==1 and api.coop.handlers.BWB1==nil)
 end)
 print('PASS '..checks..' entry groups; mocked research lease, no launcher or game started')

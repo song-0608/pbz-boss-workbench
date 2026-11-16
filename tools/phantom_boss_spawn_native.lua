@@ -43,6 +43,39 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
             'original online player ownership changed')
         return pc,player
     end
+    local function menu_layer(pc,anchor,profile)
+        local camera=req('ue_camera').new(g,profile.camera)
+        local barrier=req('input_barrier').new(calls,req('ue_input_barrier').new(bindings.barrier),bindings.barrier)
+        return req('workbench_input').new(calls,barrier,{
+            create=function()return camera.spawn_camera(pc,anchor,profile.camera)end,
+            finish=function(owner)
+                local transform=maths:MakeTransform(anchor:K2_GetActorLocation(),
+                    {Pitch=0,Yaw=0,Roll=0},{X=1,Y=1,Z=1})
+                local finished=statics:FinishSpawningActor(owner,transform,profile.camera.spawn_scale)
+                return usable(finished)and calls:same(owner,finished)
+            end,
+            destroy=camera.destroy_camera,
+        })
+    end
+    n.recovery_menu=function(id)
+        scope:attest(false)
+        local pc,player=api.getPlayer1();local snapshot=observer.snapshot()
+        assert(snapshot.native_player and not snapshot.remote_control and snapshot.world==peer.world,
+            'clean original player required before recovery menu')
+        local context={pc=calls:reference(pc),player=calls:reference(player),world=snapshot.world}
+        local profile=clone(req('boss_catalog').profile(id))
+        assert(profile.identity_verified and profile.exe_sha256==scope:attest(false).exe_sha256,
+            'recovery input profile mismatch')
+        local function guard()
+            current(context,false)
+            local seen=observer.snapshot()
+            assert(seen.native_player and not seen.remote_control and seen.world==context.world and peer.world==context.world,
+                'original player World changed during recovery menu')
+            return true
+        end
+        local host=req('ue_host').new({player_controller=function()guard();return calls:resolve(context.pc)end},profile.input,g)
+        return host,menu_layer(pc,player,profile),pc,guard
+    end
     n.prepare=function(id)
         scope:attest(false)
         local catalog=req('boss_catalog')
@@ -185,17 +218,7 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
         for k,v in pairs(req('ue_host').new(control.bridge,profile.input,g))do runtime_host[k]=v end
         if n.mount_workbench then
             local pc=calls:resolve(c.pc)
-            local camera=req('ue_camera').new(g,profile.camera)
-            local layer=req('workbench_input').new(calls,a.input_barrier,{
-                create=function()return camera.spawn_camera(pc,body,profile.camera)end,
-                finish=function(owner)
-                    local transform=maths:MakeTransform(body:K2_GetActorLocation(),
-                        {Pitch=0,Yaw=0,Roll=0},{X=1,Y=1,Z=1})
-                    local finished=statics:FinishSpawningActor(owner,transform,profile.camera.spawn_scale)
-                    return usable(finished)and calls:same(owner,finished)
-                end,
-                destroy=camera.destroy_camera,
-            })
+            local layer=menu_layer(pc,body,profile)
             n.mount_workbench(control,runtime_host,layer,pc,profile.id)
         end
         return control
