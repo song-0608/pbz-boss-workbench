@@ -116,4 +116,32 @@ check('scope and profile build mismatch is rejected before registering runtime c
     assert(not pcall(Control.new,f.api,f.profile,f.config,f.scope,f.peer,f.host,dependencies))
     assert(#f.mutations==0 and next(f.keys)==nil)
 end)
+local function remote_env()
+    local f=env();local remote={}
+    function remote:capture()return {}end
+    function remote:apply(t)t.active=true end
+    function remote:verify(t)return t.active and f.pc.Pawn==f.player and f.ai.Pawn==f.boss end
+    function remote:brain_suspended()return not f.brain.running end
+    function remote:restore(t)t.active=false;t.restored=true end
+    f.bridge.api.remote=remote
+    return f
+end
+check('retained AI control publishes Boss body without possessing the player Pawn',function()
+    local f=remote_env();assert(f.control:observed_body()==nil)
+    assert(f.session:enter() and f.pc.Pawn==f.player and f.ai.Pawn==f.boss)
+    local row=f.control:observed_body()
+    assert(row.verified and row.body==f.boss and row.controller==f.ai and row.player==f.player and row.player_controller==f.pc)
+    assert(f.session:restore('F10') and f.control:observed_body()==nil)
+    for _,event in ipairs(f.mutations)do assert(not event:find('possess:',1,true))end
+end)
+check('remote observation refuses a broken control receipt or expired action scope',function()
+    local f=remote_env();assert(f.session:enter());f.ai.Pawn=f.player
+    assert(not pcall(f.control.observed_body,f.control))
+    f.ai.Pawn=f.boss;f.clock=201;assert(not pcall(f.control.observed_body,f.control))
+    assert(f.control:revoke('expired') and f.control:observed_body()==nil)
+end)
+check('possession mode remains observable through native Pawn and requires no override',function()
+    local f=env();assert(f.session:enter() and f.pc.Pawn==f.boss)
+    assert(f.control:observed_body()==nil and f.session:restore('F10'))
+end)
 print('PASS '..checks..' online control groups; frozen native Lua with fake UObjects, no game/relay')

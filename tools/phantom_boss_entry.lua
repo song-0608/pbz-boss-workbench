@@ -16,6 +16,16 @@ return function(api, directory)
     assert(launch.exe_sha256==config.exe_sha256 and launch.catalog_sha256==config.catalog_sha256,
         'online research build/catalog mismatch')
     assert(launch.role=='host' or launch.role=='guest','explicit online instance role required')
+    local assembly
+    if launch.assembly~=nil then
+        assert(launch.host==nil and type(launch.lease_provider)=='function'
+            and type(launch.boss_id)=='string' and config.bosses[launch.boss_id],
+            'dedicated native online assembly launch required')
+        assert(launch.revoke_control==nil,'assembly owns its native recovery callback')
+        launch.revoke_control=function(reason)
+            return not assembly or assembly:revoke(reason)
+        end
+    end
     local supplied=launch.host
     if supplied==nil then supplied=dofile(directory..'bwb_host.lua').new(api,launch,_G) end
     assert(type(supplied)=='table','trusted research host required')
@@ -32,6 +42,18 @@ return function(api, directory)
     local expected_role=launch.role=='host' and 'host' or 'client'
     assert(not api.coop.net.enabled or api.coop.net.role==expected_role,'active relay role mismatch')
     if not api.coop.net.enabled then api.coop.net.role=expected_role end
-    return dofile(directory..'bwb_adapter.lua').attach(api,config,host,
+    local peer=dofile(directory..'bwb_adapter.lua').attach(api,config,host,
         dofile(directory..'bwb_protocol.lua'),dofile(directory..'bwb_enemy_fence.lua'))
+    if launch.assembly~=nil then
+        local ok,why=pcall(function()
+            assembly=dofile(directory..'bwb_online_session.lua').new(api,launch,config,peer,host,directory,_G)
+            local started,reason=peer:select_boss(launch.boss_id)
+            assert(started,reason)
+        end)
+        if not ok then
+            local clean=peer:close()
+            error('online assembly mount rejected; cleanup='..tostring(clean)..': '..tostring(why))
+        end
+    end
+    return peer
 end

@@ -44,6 +44,17 @@ function M.new(api,launch,globals)
     end
     check_lease()
     local host={}
+    local control_probe
+    host.bind_control_probe=function(probe)
+        assert(type(probe)=='function' and control_probe==nil,'one online control observer required')
+        control_probe=probe
+        return function()
+            if control_probe~=probe then return true end
+            assert(probe()==nil,'cannot detach an active or unverified control observer')
+            control_probe=nil
+            return true
+        end
+    end
     host.now=function()
         local now=api.link.now()
         assert(type(now)=='number' and now==now and now>=0 and now<math.huge,'invalid native monotonic clock')
@@ -62,7 +73,24 @@ function M.new(api,launch,globals)
         local body=host.identify(pawn,controller.world)
         assert(same(object_ref(pc:K2_GetPawn()),body),'controller Pawn readback mismatch')
         assert(same(object_ref(pawn:GetController()),controller),'Pawn controller readback mismatch')
-        return {body=body,controller=controller,world=controller.world,
+        local remote=control_probe and control_probe()
+        if remote~=nil then
+            assert(type(remote)=='table' and remote.verified==true,'online control observation unverified')
+            assert(same(host.identify(remote.player_controller,controller.world),controller)
+                and same(host.identify(remote.player,controller.world),body),
+                'controlled Boss belongs to another local player')
+            assert(body.class==native_class,'remote control original Pawn class changed')
+            local boss=host.identify(remote.body,controller.world)
+            local ai=host.identify(remote.controller,controller.world)
+            assert(boss.class~=native_class and not same(boss,body) and not same(ai,controller),
+                'remote control requires an independent Boss and AI controller')
+            assert(same(host.identify(remote.body:GetController(),controller.world),ai)
+                and same(host.identify(remote.controller:K2_GetPawn(),controller.world),boss),
+                'Boss AI ownership readback mismatch')
+            return {body=boss,body_actor=remote.body,controller=ai,player_controller=controller,player=body,
+                world=controller.world,native_player=false,remote_control=true}
+        end
+        return {body=body,body_actor=pawn,controller=controller,world=controller.world,
             native_player=body.class==native_class}
     end
     host.on_revoke=function(reason)

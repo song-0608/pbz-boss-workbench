@@ -124,6 +124,15 @@ function M.attach(api, config, host, protocol, enemy_fence)
         if path then return path,'Boss ghost assembly contract pending' end
         return nil,'native body'
     end
+    function self:network_body()
+        -- The observer verifies ownership at 10 Hz. Per-frame state sends resolve
+        -- only that actor, never enumerate NPCs or fall back to a hidden player.
+        if self.closed or self.local_transition or not self.snapshot_current or not state.ready
+            or not self.body_actor or not self.local_body then return nil end
+        local ok,current=pcall(host.identify,self.body_actor,self.world)
+        if not ok or not same(current,self.local_body) then return nil end
+        return self.body_actor,current.address
+    end
     function self:begin_local_transition(row)
         assert(not self.closed and not self.local_transition,'local body transition already pending or closed')
         assert(identity(row) and self.owned[row.address]==row and row.kind=='local_body'
@@ -163,6 +172,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         self.last_poll=now
         self.refresh_pending=false
         self.snapshot_current=false
+        self.body_actor=nil
         local ok,snapshot=pcall(host.snapshot)
         if not ok or type(snapshot)~='table' or not identity(snapshot.body)
             or type(snapshot.world)~='string' or snapshot.body.world~=snapshot.world then
@@ -189,6 +199,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
             if not state:select(boss or 'native',now) then state:body_changed(now) end
         end
         self.snapshot_current=true
+        self.body_actor=snapshot.body_actor
         state:set_link(net.enabled==true and coop.linked()==true,now)
         state:tick(now)
     end

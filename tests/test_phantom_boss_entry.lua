@@ -64,4 +64,39 @@ check('missing or changed active instance role refuses attachment',function()
     api,launch=setup();api.coop.net.enabled=true;launch.role='guest';_G.PBZBossOnlineResearchLaunch=launch
     assert(not pcall(entry,api,directory) and api.coop.handlers.BWB1==nil and api.coop.net.role=='host')
 end)
+check('owned assembly refuses supplied host, absent lease provider and unknown Boss selection',function()
+    for _,change in ipairs({function(l)l.host=nil end,function(l)l.boss_id='unknown';l.lease_provider=function()end end,
+        function(l)l.lease_provider=function()end end})do
+        local api,launch=setup();launch.assembly={};change(launch);_G.PBZBossOnlineResearchLaunch=launch
+        assert(not pcall(entry,api,directory) and api.coop.handlers.BWB1==nil)
+    end
+end)
+local function assembly_entry(fail)
+    local api,launch=setup();local supplied=launch.host;launch.host=nil
+    launch.assembly={};launch.boss_id='ahua_guitoudao';launch.lease_provider=function()return {}end
+    local assembled,revoked=0,0
+    local environment=setmetatable({dofile=function(path)
+        if path==directory..'bwb_host.lua' then return {new=function(_,l)
+            supplied.on_revoke=function(reason)return l.revoke_control(reason)end;return supplied
+        end} end
+        if path==directory..'bwb_online_session.lua' then return {new=function(_,l,c,peer)
+            function peer:select_boss(id)assert(id==launch.boss_id);assembled=assembled+1;return not fail,'start rejected'end
+            return {revoke=function()revoked=revoked+1;return true end}
+        end} end
+        return dofile(path)
+    end},{__index=_G})
+    local run=assert(loadfile(directory..'bwb_entry.lua','t',environment))()
+    _G.PBZBossOnlineResearchLaunch=launch
+    local ok,result=pcall(run,api,directory)
+    return ok,result,api,function()return assembled,revoked end
+end
+check('dedicated assembly attaches its own recovery callback before native control starts',function()
+    local ok,peer,api,counts=assembly_entry(false);assert(ok and api.coop.handlers.BWB1)
+    local started,revoked=counts();assert(started==1 and revoked==0)
+    assert(peer:close());started,revoked=counts();assert(revoked==1 and api.coop.handlers.BWB1==nil)
+end)
+check('assembly startup rejection rolls back transport wrappers and observer through recovery',function()
+    local ok,why,api,counts=assembly_entry(true);assert(not ok and why:find('cleanup=true',1,true))
+    local started,revoked=counts();assert(started==1 and revoked==1 and api.coop.handlers.BWB1==nil and not api.coop.net.enabled)
+end)
 print('PASS '..checks..' entry groups; mocked research lease, no launcher or game started')

@@ -12,6 +12,7 @@ local function engine()
         function o:GetWorld()return self.world end
         return o
     end
+    e.object=obj
     e.world=obj(100,'World /Game/Map.Map','/Script/Engine.World')
     e.pc=obj(1,'PC /Game/Map.Map:PersistentLevel.PC_0','/Game/PC.PC_C')
     e.pawn=obj(2,'Player /Game/Map.Map:PersistentLevel.Player_0','/Game/Player.Player_C')
@@ -76,5 +77,40 @@ check('nonfinite native clock and missing restoration contract are rejected',fun
     local e=engine();e.now=math.huge;assert(not pcall(e.host.now))
     e=engine();e.launch.revoke_control=nil;assert(not pcall(module.new,e.api,e.launch,e.g))
     e=engine();e.launch.native_player_class=nil;assert(not pcall(module.new,e.api,e.launch,e.g))
+end)
+local function controlled(e)
+    local boss=e.object(3,'Boss /Game/Map.Map:PersistentLevel.Boss_0','/Boss/Ahua.Ahua_C')
+    local ai=e.object(4,'AI /Game/Map.Map:PersistentLevel.AI_0','/Game/AI.AI_C')
+    boss.world,ai.world=e.world,e.world
+    function boss:GetController()return ai end
+    function ai:K2_GetPawn()return boss end
+    return {verified=true,body=boss,controller=ai,player_controller=e.pc,player=e.pawn}
+end
+check('remote Boss snapshot retains both reciprocal native ownership pairs',function()
+    local e=engine();local row=controlled(e)
+    e.host.bind_control_probe(function()return row end)
+    local snapshot=e.host.snapshot()
+    assert(snapshot.remote_control and snapshot.body.address==3 and snapshot.controller.address==4)
+    assert(snapshot.player.address==2 and snapshot.player_controller.address==1)
+    assert(snapshot.body_actor==row.body and e.pc:K2_GetPawn()==e.pawn and not snapshot.native_player)
+end)
+check('remote Boss cannot spoof another player, World, AI ownership or verification',function()
+    for _,change in ipairs({function(e,r)r.player=r.body end,function(e,r)r.body.world=e.pc end,
+        function(e,r)r.controller.K2_GetPawn=function()return e.pawn end end,
+        function(e,r)r.verified=false end,function(e,r)r.body.path=e.pawn.path end})do
+        local e=engine();local row=controlled(e);change(e,row)
+        e.host.bind_control_probe(function()return row end);assert(not pcall(e.host.snapshot))
+    end
+end)
+check('active control observer cannot be replaced or detached before restoration',function()
+    local e=engine();local row=controlled(e)
+    local detach=e.host.bind_control_probe(function()return row end)
+    assert(not pcall(e.host.bind_control_probe,function()end) and not pcall(detach))
+    row=nil;assert(detach() and detach() and e.host.snapshot().native_player)
+    assert(e.host.bind_control_probe(function()end))
+end)
+check('unreadable control observation fails instead of sending the original player',function()
+    local e=engine();e.host.bind_control_probe(function()error('readback failed')end)
+    assert(not pcall(e.host.snapshot))
 end)
 print('PASS '..checks..' host groups; fake UObjects and scheduler, no engine execution')

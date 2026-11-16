@@ -19,10 +19,17 @@ SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_c
            'tools/phantom_boss_entry.lua', 'tools/phantom_boss_host.lua',
            'tools/phantom_boss_enemy_fence.lua', 'tools/prepare_phantom_boss_pair.py',
            'tools/phantom_boss_online_scope.lua', 'tools/phantom_boss_online_control.lua',
-           'tools/phantom_boss_local_dependencies.lua')
-LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary')
+           'tools/phantom_boss_local_dependencies.lua', 'tools/phantom_boss_online_arena.lua',
+           'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua')
+LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary',
+    'boss_catalog', 'keymap', 'profiles/ahua', 'profiles/wanjun', 'profiles/yanqiansui', 'profiles/youlong',
+    'profiles/wanjun_bindings', 'profiles/yanqiansui_bindings', 'profiles/youlong_bindings',
+    'object_lifecycle', 'ue_combat', 'owned_initialization', 'player_protection', 'ue_arena_layout',
+    'arena_layout', 'yanqiansui_clearance_core', 'combat_identity', 'remote_control', 'ue_remote',
+    'ue_camera', 'camera_rig', 'ue_input_barrier', 'input_barrier', 'ue_host', 'ue_input',
+    'combo_scheduler', 'subtree_contracts', 'target_selector')
 PENDING = [
-    'dedicated online launcher, lease issuer, owned-arena assembly and engine recovery binding',
+    'dedicated online launcher, lease issuer, isolated same-PC deployment and live assembly/recovery acceptance',
     'Boss-specific ghost assembly, harmless effects and same-world parking contract',
     'whitelisted visual action playback and measured host damage attribution',
     'two independent clients: real relay, different Bosses, world switch and reconnect',
@@ -132,6 +139,21 @@ def patches():
             ('. F6 PvP', '. HOME online panel | END follow partner | BWB research'),
         ],
         'coop.lua': [
+            ('        local pawn = slow.body\n',
+             '        local pawn\n'
+             '        if api.bossWorkbench then\n'
+             '            local address\n'
+             '            pawn, address = api.bossWorkbench:network_body()\n'
+             '            if not pawn then return end\n'
+             '            slow.body, slow.pawn, slow.pc, slow.pawnAt = pawn, address, nil, nil\n'
+             '        else\n'
+             '        pawn = slow.body\n'),
+            ('        slow.seenAt = net.frameNow\n',
+             '        end -- BWB observed body or ordinary native Pawn cache\n'
+             '        slow.seenAt = net.frameNow\n'),
+            ('        local _, pawn = getPlayer1()\n        return pawn\n',
+             '        if api.bossWorkbench then return api.bossWorkbench:network_body() end\n'
+             '        local _, pawn = getPlayer1()\n        return pawn\n'),
             ('    local function sendEvent(kind, ...)\n',
              '    local function sendEvent(kind, ...)\n'
              '        if api.bossWorkbench and (kind == "M" or (kind == "U" and not api.bossWorkbench:allow_legacy_ghost())) then return end\n'
@@ -289,7 +311,8 @@ def build(source=None, lua_lab=None, root=ROOT):
     config = dict(bosses=bosses, catalog_sha256=catalog_sha, exe_sha256=accepted['exe_sha256'],
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
-    for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control', 'local_dependencies'):
+    for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control',
+                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in LOCAL_MODULES:
         contents[f'PBZCoop/Scripts/bwb_local_native/{name}.lua'] = (release / f'PBZBossControl/Scripts/{name}.lua').read_bytes()

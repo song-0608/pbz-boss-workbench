@@ -114,6 +114,18 @@ function M.new(api,profile,config,scope,peer,host,dependencies)
         return result,why
     end
     local self={runtime=runtime,session=session,bridge=bridge,scope=scope}
+    function self:observed_body()
+        local receipt=bridge.active_receipt
+        if not receipt or receipt.input_enabled~=true then return nil end
+        scope:attest(false)
+        assert(bridge:verify_control(receipt)==true,'controlled Boss readback failed')
+        if not receipt.remote_control then return nil end -- native Possess is read by the ordinary host snapshot
+        local body=bridge.calls:resolve(receipt.boss)
+        assert(peer:is_boss_class(body:GetClass():GetFullName():match('^[^ ]+ (.+)$')),
+            'observed body absent from online whitelist')
+        return {verified=true,body=body,controller=bridge.calls:resolve(receipt.ai),
+            player=bridge.calls:resolve(receipt.player),player_controller=bridge.calls:resolve(receipt.player_controller)}
+    end
     function self:start() scope:attest(false);return runtime:start() end
     function self:revoke(reason)
         scope:revoke(reason)
