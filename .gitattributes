@@ -145,3 +145,6 @@ tools/verify_four_boss_delivery.py -text whitespace=cr-at-eol
 开始Boss工作台.cmd -text whitespace=cr-at-eol
 70-四Boss工作台v3操作说明.md -text whitespace=cr-at-eol
 71-后端优先与集中验收.md -text whitespace=cr-at-eol
+README.md -text whitespace=cr-at-eol
+72-入口一致性与兼容路径核对.md -text whitespace=cr-at-eol
+evidence/releases/four-boss-entry-consistency-20261116.json -text whitespace=cr-at-eol
