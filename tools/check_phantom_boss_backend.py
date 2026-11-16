@@ -14,7 +14,14 @@ TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapte
          'tests/test_phantom_boss_online_scope.lua', 'tests/test_phantom_boss_online_control.lua',
          'tests/test_native_bridge.lua', 'tests/test_phantom_boss_network_body.lua',
          'tests/test_phantom_boss_online_arena.lua', 'tests/test_phantom_boss_spawn_native.lua',
-         'tests/test_phantom_boss_startup.lua', 'tests/test_phantom_boss_combat_runtime.lua')
+         'tests/test_phantom_boss_startup.lua', 'tests/test_phantom_boss_combat_runtime.lua',
+         'tests/test_phantom_boss_visual.lua', 'tests/test_phantom_boss_visual_native.lua',
+         'tests/test_phantom_boss_visual_session.lua', 'tests/test_phantom_boss_launch_gate.lua',
+         'tests/test_phantom_boss_pair_session.py')
+LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_readonly.py',
+    'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py',
+    'tools/check_phantom_boss_isolation.py','tools/phantom_boss_pair_bootstrap.cpp',
+    'tools/check_phantom_boss_pair_bootstrap.py')
 
 
 def protected_files():
@@ -40,12 +47,17 @@ def run():
         ('same_pc_pair_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair.py', '-v'], 8),
         ('online_scope_simulation', [str(lab), str(ROOT / TESTS[8]), str(ROOT)], 12),
         ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 14),
-        ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 7),
+        ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 8),
         ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 14),
         ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 11),
         ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 17),
         ('combat_runtime_composition', [str(lab), str(ROOT / TESTS[15]), str(ROOT), str(target)], 5),
-        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 57),
+        ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 16),
+        ('visual_native_bindings', [str(lab), str(ROOT / TESTS[17]), str(ROOT)], 8),
+        ('visual_session_integration', [str(lab), str(ROOT / TESTS[18]), str(ROOT)], 5),
+        ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 8),
+        ('pair_session_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair_session.py', '-v'], 11),
+        ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 61),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex
     log_directory.mkdir(parents=True)
@@ -57,8 +69,8 @@ def run():
         print(output, flush=True)
         if completed.returncode:
             raise RuntimeError(name + ' failed')
-        pattern = r'Ran (\d+) tests?' if name in ('candidate_python','same_pc_pair_python') else (
-            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime) groups')
+        pattern = r'Ran (\d+) tests?' if name in ('candidate_python','same_pc_pair_python','pair_session_python') else (
+            r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate) groups')
         found = re.search(pattern, output)
         if not found or int(found[1]) != expected:
             raise RuntimeError(name + ' did not report its complete expected test count')
@@ -77,8 +89,8 @@ def run():
         personal_settings_and_singleplayer_unchanged=True, upstream_commit=manifest['upstream_commit'],
         upstream_reviewed_sources=19, catalog_bosses=4, catalog_abilities=40,
         control_plane_test_groups=sum(row['groups'] for row in results[:-1]),
-        syntax_checked_lua_files=57, checks=results, pending=manifest['pending'],
-        source_sha256={n: sha((ROOT / n).read_bytes()) for n in (*SOURCES, *TESTS, 'tools/check_phantom_boss_backend.py',
+        syntax_checked_lua_files=61, checks=results, pending=manifest['pending'],
+        source_sha256={n: sha((ROOT / n).read_bytes()) for n in (*SOURCES, *TESTS, *LAUNCH_SOURCES, 'tools/check_phantom_boss_backend.py',
             'tools/verify_phantom_boss_backend.py')})
     path = ROOT / 'evidence/adaptation/phantom-pact-backend.json'
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -90,4 +102,5 @@ def run():
 
 
 if __name__ == '__main__':
+    sys.stdout.reconfigure(encoding='utf-8',errors='replace')
     run()

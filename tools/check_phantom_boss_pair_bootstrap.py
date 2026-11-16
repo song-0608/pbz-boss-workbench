@@ -47,7 +47,7 @@ def run():
         if expected==0:
             observed=json.loads(physical.read_bytes())
             assert observed==dict(box_verified=True,lease_verified=True,role=role,probe_only=True,
-                active_client_in_same_box=False,official_existing_user=False,registry_error=0,
+                active_client_in_same_box=False,official_existing_user=False,official_logged_on=False,registry_error=0,
                 created=False,child_pid=0,child_box_verified=False,resumed=False,win32_error=0)
             checks.append(dict(name=name,passed=True,exit_code=0,output=str(physical),output_sha256=sha(physical.read_bytes())))
         else:

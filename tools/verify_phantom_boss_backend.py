@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import re
 from build_phantom_boss_candidate import ROOT, SOURCES, sha, safe_file, verify_candidate, verify_upstream, verify_release, COMMIT
-from check_phantom_boss_backend import TESTS
+from check_phantom_boss_backend import TESTS, LAUNCH_SOURCES
 
 
 def verify(path=None):
@@ -12,7 +12,7 @@ def verify(path=None):
     assert report['schema'] == 1 and report['status'] == 'backend-milestone-only' and report['passed'] is True
     for key in ('complete_mod', 'runtime_acceptance_current', 'game_started', 'native_relay_executed', 'installed'):
         assert report[key] is False, key
-    expected_sources = {*SOURCES, *TESTS, 'tools/check_phantom_boss_backend.py', 'tools/verify_phantom_boss_backend.py'}
+    expected_sources = {*SOURCES, *TESTS, *LAUNCH_SOURCES, 'tools/check_phantom_boss_backend.py', 'tools/verify_phantom_boss_backend.py'}
     assert set(report['source_sha256']) == expected_sources, 'incomplete source graph'
     for name, digest in report['source_sha256'].items():
         assert sha(safe_file(ROOT, name).read_bytes()) == digest, 'source drift: ' + name
@@ -32,9 +32,11 @@ def verify(path=None):
               'entry_mocked_research_lease': 11, 'host_fake_uobjects': 13,
               'enemy_fence_patched_upstream': 14, 'same_pc_pair_python': 8,
               'online_scope_simulation': 12, 'online_control_fake_uobjects': 14,
-              'network_body_patched_upstream': 7, 'online_arena_lifecycle': 14,
+              'network_body_patched_upstream': 8, 'online_arena_lifecycle': 14,
               'online_spawn_native_bindings': 11, 'cold_startup_menu_loading': 17,
-              'combat_runtime_composition': 5, 'patched_lua_compile_only': 57}
+              'combat_runtime_composition': 5, 'visual_protocol_lifecycle': 16,
+              'visual_native_bindings': 8, 'visual_session_integration': 5, 'deferred_launch_gate': 8,
+              'pair_session_python': 11, 'patched_lua_compile_only': 61}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
     for row in report['checks']:
@@ -43,15 +45,15 @@ def verify(path=None):
         raw = safe_file(ROOT, row['output']).read_bytes()
         assert sha(raw) == row['output_sha256'], 'test log drift'
         output = raw.decode('utf-8')
-        if row['name'] in ('candidate_python','same_pc_pair_python'):
+        if row['name'] in ('candidate_python','same_pc_pair_python','pair_session_python'):
             assert re.search(r'Ran '+str(row['groups'])+r' tests?', output) and re.search(r'\bOK\b', output)
         elif row['name'] == 'patched_lua_compile_only':
-            assert 'PASS syntax only: 57 candidate Lua files' in output
+            assert 'PASS syntax only: 61 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 184
-    assert report['syntax_checked_lua_files']==57
-    return dict(passed=True, status='backend-milestone-only', groups=184, compiled_lua_files=57,
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate) groups', output)
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 233
+    assert report['syntax_checked_lua_files']==61
+    return dict(passed=True, status='backend-milestone-only', groups=233, compiled_lua_files=61,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

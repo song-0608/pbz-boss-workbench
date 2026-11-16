@@ -14,6 +14,10 @@ function M.new(api,launch,config,peer,observer,directory,globals)
     local native=dofile(directory..'bwb_spawn_native.lua').new(api,scope,peer,observer,dependencies,
         dofile(directory..'bwb_online_control.lua'),assert(launch.assembly.bindings),globals)
     local arena=dofile(directory..'bwb_online_arena.lua').new(scope,peer,observer,native)
+    if launch.assembly.bindings.visual~=nil then
+        dofile(directory..'bwb_visual_session.lua').attach(api,scope,peer,observer,dependencies,
+            launch.assembly.bindings.visual,config,arena,directory,globals)
+    end
     function peer:select_boss(id)
         scope:attest(false)
         assert(config.bosses[id],'Boss selection absent from online catalog')
@@ -26,6 +30,7 @@ function M.new(api,launch,config,peer,observer,directory,globals)
     end
     function peer:assembly_status()
         return {state=arena.state,reason=arena.failure,boss_id=arena.context and arena.context.profile.id,
+            visual=peer.visual and (peer.visual.visual.restore_pending and 'recovery pending' or 'contract supplied') or 'native contract pending',
             source_only=true,runtime_acceptance_current=false}
     end
     return arena

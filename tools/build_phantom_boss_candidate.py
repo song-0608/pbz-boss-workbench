@@ -21,7 +21,9 @@ SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_c
            'tools/phantom_boss_online_scope.lua', 'tools/phantom_boss_online_control.lua',
            'tools/phantom_boss_local_dependencies.lua', 'tools/phantom_boss_online_arena.lua',
            'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua',
-           'tools/phantom_boss_startup.lua', 'tools/phantom_boss_combat_runtime.lua')
+           'tools/phantom_boss_startup.lua', 'tools/phantom_boss_combat_runtime.lua',
+           'tools/phantom_boss_visual.lua', 'tools/phantom_boss_visual_native.lua', 'tools/phantom_boss_visual_session.lua',
+           'tools/phantom_boss_launch_gate.lua')
 LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary',
     'boss_catalog', 'keymap', 'profiles/ahua', 'profiles/wanjun', 'profiles/yanqiansui', 'profiles/youlong',
     'profiles/wanjun_bindings', 'profiles/yanqiansui_bindings', 'profiles/youlong_bindings',
@@ -128,14 +130,17 @@ def patches():
         'main.lua': [
             ('api.lang = dofile(SCRIPT_DIR .. "lang.lua")(SCRIPT_DIR)',
              'do\n'
-             '    dofile(SCRIPT_DIR .. "bwb_combat_runtime.lua")(api, SCRIPT_DIR)\n'
-             '    return -- BWB combat composition owns startup; optional modules below stay unloaded\n'
+             '    return dofile(SCRIPT_DIR .. "bwb_combat_runtime.lua")(api, SCRIPT_DIR)\n'
              'end\n\n'
              'api.lang = dofile(SCRIPT_DIR .. "lang.lua")(SCRIPT_DIR)'),
             ('local VERSION = "1.7.3"',
              'if type(rawget(_G, "PBZBossOnlineResearchLaunch")) ~= "table" then\n'
-             '    print("[BWB] DISABLED: dedicated online research launcher required")\n'
-             '    return\n'
+             '    local source = debug.getinfo(1, "S").source:gsub("^@", "")\n'
+             '    local directory = assert(source:match("^(.*[/\\\\])"))\n'
+             '    return dofile(directory .. "bwb_launch_gate.lua").wait(directory, function(launch)\n'
+             '        _G.PBZBossOnlineResearchLaunch = launch\n'
+             '        return dofile(source)\n'
+             '    end)\n'
              'end\n\nlocal VERSION = "1.7.3"'),
             ('local DEV_KEYS = os.getenv("PBZCOOP_DEBUG") == "1"',
              'local DEV_KEYS = false -- BWB: F7-F11 belong to the Boss workbench'),
@@ -146,6 +151,8 @@ def patches():
             ('. F6 PvP', '. HOME online panel | END follow partner | BWB research'),
         ],
         'coop.lua': [
+            ('    local QUICK = { U = true, M = true, A = true, H = true, Z = true, SHOT = true, NQ = true, HEAL = true, HX = true }',
+             '    local QUICK = { BWV1 = true, U = true, M = true, A = true, H = true, Z = true, SHOT = true, NQ = true, HEAL = true, HX = true }'),
             ('        local cine = game.inCutscene and game.inCutscene() and 1 or 0\n',
              '        if api.bossWorkbench then return end -- BWB: no inventory/loot/story watchers\n'
              '        local cine = game.inCutscene and game.inCutscene() and 1 or 0\n'),
@@ -251,6 +258,12 @@ def patches():
              '        if api.bossWorkbench and not api.bossWorkbench:allow_enemy_event("A", rest) then return end\n'),
         ],
         'moves.lua': [
+            ('    coop.frameTicks.moveStarts = function()\n',
+             '    coop.frameTicks.moveStarts = function()\n'
+             '        if api.bossWorkbench then return end -- BWB uses its bounded cosmetic pose sampler\n'),
+            ('    coop.extraTicks.moves = function()\n',
+             '    coop.extraTicks.moves = function()\n'
+             '        if api.bossWorkbench then return end -- BWB: no gear, props or backpack observers\n'),
             ('    coop.handlers.U = function(rest, from)\n',
              '    coop.handlers.U = function(rest, from)\n'
              '        if api.bossWorkbench and not api.bossWorkbench:allow_legacy_ghost() then return end\n'),
@@ -333,7 +346,8 @@ def build(source=None, lua_lab=None, root=ROOT):
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
     for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control',
-                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup', 'combat_runtime'):
+                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup', 'combat_runtime',
+                  'visual', 'visual_native', 'visual_session', 'launch_gate'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in LOCAL_MODULES:
         contents[f'PBZCoop/Scripts/bwb_local_native/{name}.lua'] = (release / f'PBZBossControl/Scripts/{name}.lua').read_bytes()

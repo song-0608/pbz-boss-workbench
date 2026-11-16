@@ -12,11 +12,19 @@
 #include <algorithm>
 
 using Query=LONG(*)(HANDLE,WCHAR*,WCHAR*,WCHAR*,ULONG*);
+class SteamUserReadOnly {
+public:
+    virtual int GetHSteamUser()=0;
+    virtual bool BLoggedOn()=0;
+};
 class SteamClientReadOnly {
 public:
     virtual int CreateSteamPipe()=0;
     virtual bool BReleaseSteamPipe(int)=0;
     virtual int ConnectToGlobalUser(int)=0;
+    virtual int CreateLocalUser(int*,int)=0; // ABI declaration only; never called
+    virtual void ReleaseUser(int,int)=0; // never called: do not release the existing user
+    virtual SteamUserReadOnly* GetISteamUser(int,int,const char*)=0;
 };
 static bool boxed(Query query,DWORD pid,const wchar_t* expected) {
     WCHAR box[64]{},image[96]{},sid[96]{};ULONG session=0;
@@ -56,7 +64,7 @@ static DWORD active_client() {
     }
     return pid;
 }
-static bool official_user() {
+static bool official_user(bool& logged_on) {
     // Query an existing global user through Valve's public interface. No local
     // user creation, app-id override, authentication patch or license emulation.
     HMODULE module=LoadLibraryExW(L"E:\\PBZSteamLabClient\\steamclient64.dll",nullptr,LOAD_WITH_ALTERED_SEARCH_PATH);
@@ -64,13 +72,18 @@ static bool official_user() {
     using Factory=void*(*)(const char*,int*);
     const auto factory=reinterpret_cast<Factory>(GetProcAddress(module,"CreateInterface"));int status=0;bool found=false;
     auto api=factory?static_cast<SteamClientReadOnly*>(factory("SteamClient023",&status)):nullptr;
-    if(api){const int pipe=api->CreateSteamPipe();if(pipe){found=api->ConnectToGlobalUser(pipe)!=0;api->BReleaseSteamPipe(pipe);}}
+    if(api){const int pipe=api->CreateSteamPipe();if(pipe){
+        const int user=api->ConnectToGlobalUser(pipe);found=user!=0;
+        auto status=found?api->GetISteamUser(user,pipe,"SteamUser023"):nullptr;
+        if(status)logged_on=status->BLoggedOn();
+        api->BReleaseSteamPipe(pipe);
+    }}
     FreeLibrary(module);return found;
 }
 int wmain(int argc,wchar_t**argv) {
     if(argc!=5)return 64;
     const std::wstring action=argv[1],role=argv[2];
-    if((role!=L"host" && role!=L"guest") || (action!=L"leasecheck" && action!=L"probe" && action!=L"client" && action!=L"inspect" && action!=L"game"))return 64;
+    if((role!=L"host" && role!=L"guest") || (action!=L"leasecheck" && action!=L"probe" && action!=L"client" && action!=L"client-online" && action!=L"inspect" && action!=L"game"))return 64;
     // Pure parser regression entry: no registry/client/game operation or output.
     if(action==L"leasecheck")return lease_ok(argv[3],role==L"host"?"host":"guest")?0:66;
     const wchar_t* box=role==L"host"?L"PBZOnlineHost":L"PBZOnlineGuest";
@@ -78,12 +91,14 @@ int wmain(int argc,wchar_t**argv) {
     const auto query=module?reinterpret_cast<Query>(GetProcAddress(module,"SbieApi_QueryProcess")):nullptr;
     if(!boxed(query,GetCurrentProcessId(),box))return 65;
     if(!lease_ok(argv[3],role==L"host"?"host":"guest"))return 66;
-    bool created=false,child_box=false,resumed=false,authorized=false;DWORD child_pid=0,error=0;LONG setup=0;
+    bool created=false,child_box=false,resumed=false,authorized=false,logged_on=false;
+    const bool is_client=action==L"client" || action==L"client-online";
+    DWORD child_pid=0,error=0;LONG setup=0;
     const auto current=active_client();
     const bool same_client=current && boxed(query,current,box);
-    if((action==L"inspect" || action==L"game") && same_client)authorized=official_user();
-    if(action==L"game" && !authorized)return 67;
-    if(action==L"client") {
+    if((action==L"inspect" || action==L"game") && same_client)authorized=official_user(logged_on);
+    if(action==L"game" && (!authorized || !logged_on))return 67;
+    if(is_client) {
         if(same_client)return 68; // never replace an active independent Steam
         setup=set_string(HKEY_CURRENT_USER,L"SteamPath",L"E:\\PBZSteamLabClient");
         if(!setup)setup=set_string(HKEY_CURRENT_USER,L"SteamExe",L"E:\\PBZSteamLabClient\\steam.exe");
@@ -96,11 +111,11 @@ int wmain(int argc,wchar_t**argv) {
             }
         }
     }
-    if(!setup && (action==L"client" || action==L"game")) {
+    if(!setup && (is_client || action==L"game")) {
         const wchar_t* exe=L"E:\\PBZSteamLabClient\\steam.exe";
         std::wstring command=L"\""+std::wstring(exe)+L"\"";
-        command+=action==L"client"?L" -offline -silent":L" -applaunch 4115450 -windowed -ResX=960 -ResY=540 -nosplash -log";
-        STARTUPINFOW start{};start.cb=sizeof(start);start.dwFlags=STARTF_USESHOWWINDOW;start.wShowWindow=action==L"client"?SW_HIDE:SW_SHOW;
+        command+=is_client?(action==L"client"?L" -offline -silent":L" -silent"):L" -applaunch 4115450 -windowed -ResX=960 -ResY=540 -nosplash -log";
+        STARTUPINFOW start{};start.cb=sizeof(start);start.dwFlags=STARTF_USESHOWWINDOW;start.wShowWindow=is_client?SW_HIDE:SW_SHOW;
         PROCESS_INFORMATION process{};
         created=CreateProcessW(exe,command.data(),nullptr,nullptr,FALSE,CREATE_SUSPENDED,nullptr,L"E:\\PBZSteamLabClient",&start,&process)!=FALSE;
         if(created) {
@@ -115,6 +130,7 @@ int wmain(int argc,wchar_t**argv) {
         <<"\",\"probe_only\":"<<(action==L"probe"?"true":"false")
         <<",\"active_client_in_same_box\":"<<(same_client?"true":"false")
         <<",\"official_existing_user\":"<<(authorized?"true":"false")
+        <<",\"official_logged_on\":"<<(logged_on?"true":"false")
         <<",\"registry_error\":"<<setup<<",\"created\":"<<(created?"true":"false")
         <<",\"child_pid\":"<<child_pid<<",\"child_box_verified\":"<<(child_box?"true":"false")
         <<",\"resumed\":"<<(resumed?"true":"false")<<",\"win32_error\":"<<error<<"}";

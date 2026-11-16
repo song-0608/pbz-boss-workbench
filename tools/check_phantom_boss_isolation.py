@@ -21,7 +21,7 @@ BOXES = dict(host='PBZOnlineHost', guest='PBZOnlineGuest')
 PROBE_SOURCE = 'tools/phantom_boss_isolation_probe.cpp'
 
 
-def settings(role, probes=False):
+def settings(role, probes=False, official_online=False, official_game_auth=False):
     box = BOXES[role]
     other = BOXES['guest' if role == 'host' else 'host']
     rules = ['*,Block', 'PBZ.exe,Allow;Address=127.0.0.1;Protocol=UDP',
@@ -29,6 +29,11 @@ def settings(role, probes=False):
           for address in ('127.0.0.1','::1')]]
     if probes:
         rules.append('bootstrap_probe.exe,Allow;Address=127.0.0.1;Protocol=UDP')
+    if official_online:
+        rules.extend(('steam.exe,Allow','steamwebhelper.exe,Allow'))
+    if official_game_auth:
+        assert official_online,'Official game authentication requires its logged-on research Steam client'
+        rules.extend(('PBZ.exe,Allow;Protocol=TCP','PBZ.exe,Allow;Port=53;Protocol=UDP'))
     return dict(Enabled=['y'], AutoRecover=['n'], AutoDelete=['n'], NeverDelete=['y'],
         DropAdminRights=['y'], SeparateUserFolders=['n'], BoxNameTitle=['y'],
         BorderColor=['#48B0FF,ttl' if role == 'host' else '#B080FF,ttl'],
@@ -97,7 +102,7 @@ def sections():
     return result
 
 
-def verify_policy(dll,role,probes):
+def verify_policy(dll,role,probes,official_online=False,official_game_auth=False):
     box=BOXES[role]
     kernel=ctypes.WinDLL('kernel32',use_last_error=True)
     kernel.QueryDosDeviceW.argtypes=[w.LPCWSTR,w.LPWSTR,w.DWORD]
@@ -109,7 +114,7 @@ def verify_policy(dll,role,probes):
             return target.value+text[2:]
         return text
     raw=sections()[box]
-    for key,expected in settings(role,probes).items():
+    for key,expected in settings(role,probes,official_online,official_game_auth).items():
         configured=[line.split('=',1)[1] for line in raw if line.split('=',1)[0]==key]
         assert configured==expected, 'Unexpected configured online setting: '+box+'/'+key
         actual=values(dll,box,key)

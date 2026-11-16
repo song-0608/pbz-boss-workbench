@@ -64,7 +64,7 @@ check('failed transport initialization restores the mounted peer',function()
 end)
 check('actual main takes combat composition before optional modules or command polling',function()
     local f=assert(io.open(candidate..'/upstream-local-patches/main.lua','r'));local src=f:read('a');f:close()
-    local first=assert(src:find('do\n    dofile(SCRIPT_DIR .. "bwb_combat_runtime.lua")',1,true))
+    local first=assert(src:find('do\n    return dofile(SCRIPT_DIR .. "bwb_combat_runtime.lua")',1,true))
     local last=assert(src:find('\napi.lang = dofile',first,true))
     local tail=src:sub(first,last-1)..'\nerror("optional module tail executed")'
     local calls=0

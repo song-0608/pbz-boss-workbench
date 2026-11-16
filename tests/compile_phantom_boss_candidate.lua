@@ -1,7 +1,7 @@
 local root=assert(arg[1])
 local own={'bwb_protocol.lua','bwb_adapter.lua','bwb_entry.lua','bwb_config.lua','bwb_host.lua','bwb_enemy_fence.lua',
     'bwb_online_scope.lua','bwb_online_control.lua','bwb_local_dependencies.lua','bwb_online_arena.lua','bwb_spawn_native.lua',
-    'bwb_online_session.lua','bwb_startup.lua','bwb_combat_runtime.lua'}
+    'bwb_online_session.lua','bwb_startup.lua','bwb_combat_runtime.lua','bwb_visual.lua','bwb_visual_native.lua','bwb_visual_session.lua','bwb_launch_gate.lua'}
 local native={'control_bridge','ue_calls','session','runtime','input_driver','world_boundary',
     'boss_catalog','keymap','profiles/ahua','profiles/wanjun','profiles/yanqiansui','profiles/youlong',
     'profiles/wanjun_bindings','profiles/yanqiansui_bindings','profiles/youlong_bindings',

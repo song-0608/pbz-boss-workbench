@@ -73,4 +73,15 @@ check('actual upstream downed-player watcher exits before owed inventory and rew
         {api={bossWorkbench={}},touch=function()touched=true end}))()
     run();assert(not touched)
 end)
+check('legacy move samplers exit before stance scans gear and props during Boss sessions',function()
+    local f=assert(io.open(candidate..'/upstream-local-patches/moves.lua','r'));local moves=f:read('a');f:close()
+    for _,anchor in ipairs({'    coop.frameTicks.moveStarts = function()\n','    coop.extraTicks.moves = function()\n'})do
+        local at=assert(moves:find(anchor,1,true));local tail=moves:sub(at+#anchor)
+        local guard=assert(tail:match('^([^\n]+)\n'));local touched=false
+        local fn=assert(load('return function()\n'..guard..'\ntouch()\nend','actual_move_guard','t',
+            {api={bossWorkbench={}},touch=function()touched=true end}))()
+        fn();assert(not touched)
+    end
+    assert(source:find('local QUICK = { BWV1 = true,',1,true),'cosmetic frames must use the native quick lane')
+end)
 print('PASS '..checks..' network body groups; patched upstream Lua, fake engine, no relay/game')
