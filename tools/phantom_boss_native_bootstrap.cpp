@@ -3,6 +3,24 @@
 #include "relay.hpp"
 #include "lua_link.hpp"
 
+// Keep FILETIME as decimal text: its 64 bits cannot round-trip through a Lua
+// double. The launch gate compares this original process identity before it
+// loads any native gameplay assembly, including after a process/PID restart.
+std::string bwb_process_identity_text() {
+    FILETIME created{},exited{},kernel{},user{};
+    if (!GetProcessTimes(GetCurrentProcess(),&created,&exited,&kernel,&user))
+        throw std::runtime_error("research process identity unavailable");
+    const auto ticks=(static_cast<unsigned long long>(created.dwHighDateTime)<<32)|created.dwLowDateTime;
+    return std::to_string(GetCurrentProcessId())+":"+std::to_string(ticks);
+}
+
+extern "C" __declspec(dllexport) int bwb_process_identity(void* lua) {
+    const auto* api=lua_link::api();
+    if (!api) return 0;
+    try {return lua_link::push_text(api,lua_link::State{lua},bwb_process_identity_text());}
+    catch (...) {return 0;}
+}
+
 namespace {
 HMODULE module_handle=nullptr;
 LONG started=0;

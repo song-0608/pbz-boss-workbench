@@ -18,7 +18,9 @@ TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapte
          'tests/test_phantom_boss_visual.lua', 'tests/test_phantom_boss_visual_native.lua',
          'tests/test_phantom_boss_visual_session.lua', 'tests/test_phantom_boss_launch_gate.lua',
          'tests/test_phantom_boss_pair_session.py', 'tests/test_phantom_boss_online_workbench.lua',
-         'tests/test_phantom_boss_workbench_native.lua','tests/test_phantom_boss_control_contract.py')
+         'tests/test_phantom_boss_workbench_native.lua','tests/test_phantom_boss_control_contract.py',
+         'tests/test_phantom_boss_contract_bundle.py','tests/test_phantom_boss_control_abi.py',
+         'tests/test_phantom_boss_control_binding.py')
 LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_readonly.py',
     'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py',
     'tools/check_phantom_boss_isolation.py','tools/phantom_boss_pair_bootstrap.cpp',
@@ -26,7 +28,10 @@ LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_
     'tools/stage_phantom_boss_pair.py','tools/phantom_boss_pair_compatibility.py',
     'tools/phantom_boss_isolation_probe.cpp','tools/collect_phantom_boss_control_contract.py',
     'tools/inspect_camera_contract.py','tools/inspect_remote_contract.py','tools/inspect_arena_contract.py',
-    'tools/inspect_pbz_ai_metadata.py')
+    'tools/inspect_pbz_ai_metadata.py','tools/collect_phantom_boss_contract_bundle.py',
+    'tools/phantom_boss_control_abi.py','tools/issue_phantom_boss_control_binding.py',
+    'research/contracts/phantom-control-abi.json','tools/phantom_boss_native_bootstrap.cpp',
+    'tools/phantom_boss_native_probe.cpp','tools/build_phantom_boss_native.py','tools/check_phantom_boss_native.py')
 
 
 def protected_files():
@@ -60,11 +65,14 @@ def run():
         ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 16),
         ('visual_native_bindings', [str(lab), str(ROOT / TESTS[17]), str(ROOT)], 8),
         ('visual_session_integration', [str(lab), str(ROOT / TESTS[18]), str(ROOT)], 5),
-        ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 8),
+        ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 11),
         ('pair_session_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair_session.py', '-v'], 18),
         ('online_workbench_lifecycle', [str(lab), str(ROOT / TESTS[21]), str(ROOT), str(target)], 17),
         ('workbench_native_umg', [str(lab), str(ROOT / TESTS[22]), str(ROOT)], 12),
-        ('control_contract_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_contract.py', '-v'], 12),
+        ('control_contract_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_contract.py', '-v'], 14),
+        ('contract_bundle_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_contract_bundle.py', '-v'], 8),
+        ('control_abi_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_abi.py', '-v'], 18),
+        ('control_binding_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_binding.py', '-v'], 13),
         ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 66),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex
@@ -77,7 +85,7 @@ def run():
         print(output, flush=True)
         if completed.returncode:
             raise RuntimeError(name + ' failed')
-        pattern = r'Ran (\d+) tests?' if name in ('candidate_python','same_pc_pair_python','pair_session_python','control_contract_python') else (
+        pattern = r'Ran (\d+) tests?' if name.endswith('_python') else (
             r'PASS syntax only: (\d+)' if name == 'patched_lua_compile_only' else r'PASS (\d+) (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native) groups')
         found = re.search(pattern, output)
         if not found or int(found[1]) != expected:

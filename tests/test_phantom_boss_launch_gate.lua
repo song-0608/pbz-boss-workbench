@@ -14,7 +14,10 @@ local function setup()
         s.activations=s.activations+1;s.launch=launch
         if s.bad_activation then error('activation rejected')end
         return peer
-    end,g,io_fake)
+    end,g,io_fake,function()
+        s.identity_calls=(s.identity_calls or 0)+1
+        return s.identity or '42:100000000000000001'
+    end)
     function s:request(changes)
         local f={mode='two-player-online-research',role='host',session=string.rep('a',32),
             activation=string.rep('b',32),issued_at=self.now-1,expires_at=self.now+600,
@@ -26,7 +29,8 @@ local function setup()
     function s:bindings(changes)
         local data={activation=string.rep('b',32),session=string.rep('a',32),role='host',
             issued_at=self.now-1,expires_at=self.now+600,native_player_class='/Test/Player_C',
-            assembly={},boss_id='ahua_guitoudao',exe_sha256='exe',catalog_sha256='catalog',upstream_commit='upstream'}
+            assembly={},boss_id='ahua_guitoudao',exe_sha256='exe',catalog_sha256='catalog',upstream_commit='upstream',
+            process_identity='42:100000000000000001'}
         for k,v in pairs(changes or {})do data[k]=v end
         local values={};for k,v in pairs(data)do
             values[#values+1]=k..'='..(type(v)=='table' and '{}' or type(v)=='number' and tostring(v) or string.format('%q',v))
@@ -73,5 +77,19 @@ end)
 check('failed startup retains failed cleanup responsibility',function()
     local s,_,peer=setup();s:request();s:bindings();s.tick();s.bad_close=true;peer.startup_state='FAILED';s.tick()
     assert(s.gate.closed and s.gate.restore_pending and s.closes==1)
+end)
+check('dormant gate never loads a process identity or native assembly',function()
+    local s=setup();s:request();for _=1,10 do s.tick()end
+    assert(not s.identity_calls and s.activations==0)
+end)
+check('another PID or reused PID with new FILETIME cannot activate',function()
+    for _,identity in ipairs({'43:100000000000000001','42:100000000000000002','42:100000000000000000','bad'})do
+        local s=setup();s.identity=identity;s:request();s:bindings();s.tick()
+        assert(s.gate.closed and s.activations==0 and s.identity_calls==1)
+    end
+end)
+check('missing process identity fails before native assembly',function()
+    local s=setup();s:request();s:bindings({process_identity=''});s.tick()
+    assert(s.gate.closed and s.activations==0)
 end)
 print('PASS '..checks..' launch gate groups')

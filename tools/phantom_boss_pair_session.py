@@ -25,7 +25,11 @@ from stage_phantom_boss_pair import digest, save_snapshot, verify as verify_stag
 
 RUNS=ROOT/'runtime/online-runs'
 SOURCE_NAMES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_readonly.py',
-    'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py')
+    'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py',
+    'tools/collect_phantom_boss_control_contract.py','tools/collect_phantom_boss_contract_bundle.py',
+    'tools/collect_phantom_boss_workbench_contract.py','tools/phantom_boss_control_abi.py',
+    'tools/issue_phantom_boss_control_binding.py','research/contracts/phantom-control-abi.json',
+    'tools/phantom_boss_native_bootstrap.cpp','tools/phantom_boss_launch_gate.lua')
 
 
 def atomic(path,value):
@@ -455,6 +459,7 @@ def cleanup(path):
     path,value=load_run(path);dll=api()
     assert all(not pids(dll,box) for box in BOXES.values()),'Exit both research containers before cleanup'
     controls=[]
+    from issue_phantom_boss_control_binding import owned_files
     for role in BOXES:
         mod=virtual(role,GAME/'platform/steam/ue4ss/Mods/PBZCoop')
         lease=mod/'bwb_native_lease.ini';gate=mod/'Scripts/bwb_gate.ini'
@@ -466,10 +471,9 @@ def cleanup(path):
             pairs=dict(line.split('=',1) for line in gate.read_text(encoding='ascii').splitlines())
             assert pairs['session']==value['session'] and pairs['role']==role
             controls.append(gate)
-        binding=mod/'Scripts/bwb_current_bindings.lua'
-        # Native declarations require their own source/digest receipt. Preserve
-        # unrecognized content instead of treating it as a disposable control file.
-        assert not binding.exists(),'Preserve accepted binding file until its activation receipt is available'
+        # The issuer records both final and pending ownership before publishing.
+        # Refuse unknown or changed declarations before removing any payload.
+        controls.extend(owned_files(path,value,role,resolver=virtual))
         stop=mod/'Scripts/bwb_stop.txt'
         if stop.exists():assert stop.read_bytes()==b'stop\n';controls.append(stop)
     for row in value['deployed']:
@@ -478,7 +482,8 @@ def cleanup(path):
     for row in reversed(value['deployed']):
         target=Path(row['path'])
         if target.exists():target.unlink()
-    for target in controls:target.unlink()
+    for target in controls:
+        if target.exists():target.unlink()
     value.update(status='cleaned',saves_restored=False,formal_files_unchanged=formal_files()==value['formal_before'])
     atomic(path,value)
     print(json.dumps(dict(status='cleaned',research_progress='preserved',formal_files_unchanged=value['formal_files_unchanged'])),flush=True)

@@ -76,8 +76,8 @@ def capture(game,*,functions=None,requested_properties=None,enums=None):
     enums=ENUMS if enums is None else enums
     wanted=functions|requested_properties.keys()|enums
     prefixes=tuple(sorted({path.split('.',1)[0]+'.' for path in wanted}))
-    found={};declarations=[];properties=[];enums=[];classes=[]
-    requested_enums=wanted-functions-requested_properties.keys()
+    requested_enums=set(enums)
+    found={};declarations=[];properties=[];enum_declarations=[];classes=[]
     for row in game.find_native({p.rsplit('.',1)[1] for p in wanted},prefixes=prefixes):
         path=row['path']
         if path not in wanted:continue
@@ -85,14 +85,20 @@ def capture(game,*,functions=None,requested_properties=None,enums=None):
         found[path]=row
         address=int(row['address'],16)
         if path in functions:
+            parameters=fields(game,address,33)
+            if len(parameters)>32:raise ValueError('control parameter chain exceeds bound')
             declarations.append(dict(path=path,parameter_bytes=struct.unpack('<H',game.read(address+0x106,2))[0],
-                parameters=[p for p in fields(game,address,32) if int(p['property_flags'],16)&0x80]))
+                parameter_count=game.read(address+0x104,1)[0],
+                return_offset=struct.unpack('<H',game.read(address+0x108,2))[0],
+                parameters=[p for p in parameters if int(p['property_flags'],16)&0x80]))
         elif path in requested_properties:
             classes.append(dict(path=path,size=game.u32(address+0xa8)))
-            properties.extend(dict(owner=path,**p) for p in fields(game,address,512) if p['name'] in requested_properties[path])
+            reflected=fields(game,address,513)
+            if len(reflected)>512:raise ValueError('control property chain exceeds bound')
+            properties.extend(dict(owner=path,**p) for p in reflected if p['name'] in requested_properties[path])
         else:
             if game.header(row['class'])['name']!='Enum':raise ValueError('unexpected reflected enum kind')
-            enums.append(dict(path=path,rows=enum_rows(game,address)))
+            enum_declarations.append(dict(path=path,rows=enum_rows(game,address)))
     present={(p['owner'],p['name']) for p in properties}
     missing_functions=sorted(functions-found.keys())
     missing_classes=sorted(requested_properties.keys()-found.keys())
@@ -101,7 +107,7 @@ def capture(game,*,functions=None,requested_properties=None,enums=None):
     missing_enums=sorted(requested_enums-found.keys())
     return dict(functions=sorted(declarations,key=lambda r:r['path']),
         properties=sorted(properties,key=lambda r:(r['owner'],r['name'])),
-        classes=sorted(classes,key=lambda r:r['path']),enums=sorted(enums,key=lambda r:r['path']),
+        classes=sorted(classes,key=lambda r:r['path']),enums=sorted(enum_declarations,key=lambda r:r['path']),
         missing_functions=missing_functions,missing_classes=missing_classes,
         missing_properties=missing_properties,missing_enums=missing_enums,
         complete_requested_declarations=not any((missing_functions,missing_classes,missing_properties,missing_enums)),

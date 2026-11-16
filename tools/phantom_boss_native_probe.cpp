@@ -2,13 +2,19 @@
 // This executable never loads UE4SS or starts the game.
 #include "phantom_boss_native_bootstrap.cpp"
 #include <thread>
+#include <iostream>
 
 int wmain(int argc,wchar_t** argv) {
     if (argc!=3) return 2;
     directory=argv[2];
     try {
-        auto options=validate_request(directory+L"\\net_start.txt");
         const std::wstring mode=argv[1];
+        if (mode==L"identity") {
+            std::cout<<bwb_process_identity_text()<<std::endl;
+            Sleep(1000); // let the parent independently query this live process
+            return 0;
+        }
+        auto options=validate_request(directory+L"\\net_start.txt");
         if (mode==L"validate") return 0;
         if (mode==L"reload") {
             relay::write_atomic(options.ini,relay::read_text(directory+L"\\replacement.ini"));

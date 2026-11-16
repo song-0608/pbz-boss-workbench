@@ -36,13 +36,15 @@ class MetadataGame:
             self.assert_maximum=maximum
             return [dict(name='ReturnValue',property_flags='0x480',type='BoolProperty',offset='0x0',element_size=1,array_dim=1),
                 dict(name='NonParameter',property_flags='0x0')]
-        assert maximum==512
+        assert maximum==513
         names=sorted(control.PROPERTIES[path])
         if self.missing_property:names=[]
         return [dict(name=name,property_flags='0x0',type='IntProperty',offset='0x20',element_size=4,array_dim=1) for name in names]
     def read(self,address,length):
         for base in self.owners:
             if address==base+0x106:return struct.pack('<H',1)
+            if address==base+0x104:return bytes([1])
+            if address==base+0x108:return struct.pack('<H',0)
             if address==base+0x40:return struct.pack('<QQi4x',0x100000,0x200000,self.enum_count)
         if 0x100000<=address<0x101000:return struct.pack('<II',(address-0x100000)//8,0)
         if 0x200000<=address<0x201000:return struct.pack('<q',-1+(address-0x200000)//8)
@@ -69,7 +71,7 @@ class ControlContractTests(unittest.TestCase):
     def test_function_parameters_exclude_non_parameter_properties(self):
         game=MetadataGame()
         with patch.object(control,'fields',side_effect=game.reflected_fields):result=control.capture(game)
-        self.assertEqual(game.assert_maximum,32)
+        self.assertEqual(game.assert_maximum,33)
         self.assertTrue(all([p['name'] for p in row['parameters']]==['ReturnValue'] for row in result['functions']))
 
     def test_ambiguous_native_path_rejects_instead_of_accepting_first_object(self):
@@ -107,6 +109,19 @@ class ControlContractTests(unittest.TestCase):
         self.assertEqual([r['value'] for r in control.enum_rows(game,address)],[-1,0])
         game.duplicate_name=True
         with self.assertRaisesRegex(ValueError,'duplicate control enum'):control.enum_rows(game,address)
+
+    def test_parameter_chain_truncation_cannot_be_reported_as_complete(self):
+        game=MetadataGame()
+        with patch.object(control,'fields',return_value=[{}]*33),self.assertRaisesRegex(ValueError,'parameter chain exceeds bound'):
+            control.capture(game)
+
+    def test_property_chain_truncation_cannot_hide_a_required_field(self):
+        game=MetadataGame()
+        def fields(g,address,maximum):
+            if game.owners[address]in control.PROPERTIES:return [{}]*513
+            return game.reflected_fields(g,address,maximum)
+        with patch.object(control,'fields',side_effect=fields),self.assertRaisesRegex(ValueError,'property chain exceeds bound'):
+            control.capture(game)
 
     def test_published_report_belongs_to_exact_role_process_and_activation_and_leaves_gate_untouched(self):
         with tempfile.TemporaryDirectory() as name:

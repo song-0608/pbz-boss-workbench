@@ -54,6 +54,20 @@ def check(target):
         return subprocess.run([str(probe), mode, str(folder)], capture_output=True,
                               timeout=20, creationflags=subprocess.CREATE_NO_WINDOW)
 
+    from phantom_boss_pair_session import process_identity
+    process=subprocess.Popen([str(probe),'identity',str(directory)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+        creationflags=subprocess.CREATE_NO_WINDOW)
+    try:
+        raw=process.stdout.readline()
+        identity=process_identity(process.pid)
+        stdout,stderr=process.communicate(timeout=10)
+        record('original-process-identity',raw+stdout+stderr,
+            identity is not None and process.returncode==0
+            and raw.strip()==f"{identity['pid']}:{identity['created']}".encode(),
+            exact_filetime_text=True,independent_windows_query=True)
+    finally:
+        if process.poll()is None:process.kill();process.communicate(timeout=5)
+
     secret = secrets.token_hex(32)
     session = secrets.token_hex(16)
     # Bind a temporary loopback socket only to choose a currently free port.

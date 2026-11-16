@@ -1,7 +1,7 @@
 -- One cold process, one activation. Waiting loads no gameplay modules and sends
 -- no input. A launcher can supply current declarations after read-only capture.
 local M={}
-function M.wait(directory,activate,g,io_api)
+function M.wait(directory,activate,g,io_api,identity_api)
     g=g or _G;io_api=io_api or io
     assert(type(activate)=='function' and type(g.LoopInGameThreadWithDelay)=='function'
         and type(g.CancelDelayedAction)=='function','cancellable launch gate required')
@@ -75,6 +75,15 @@ function M.wait(directory,activate,g,io_api)
                 and captured.boss_id==request.boss_id
                 and type(captured.native_player_class)=='string' and type(captured.assembly)=='table',
                 'declarations belong to another launch')
+            if not identity_api then
+                assert(type(g.package)=='table' and type(g.package.loadlib)=='function',
+                    'native process identity loader unavailable')
+                identity_api=assert(g.package.loadlib(directory..'../dlls/main.dll','bwb_process_identity'))
+            end
+            local identity=identity_api()
+            assert(type(identity)=='string' and identity:match('^[1-9][0-9]*:[1-9][0-9]*$')
+                and type(captured.process_identity)=='string' and captured.process_identity==identity,
+                'declarations belong to another game process')
             captured.mode=request.mode
             captured.lease_provider=function()
                 assert(not self.closed or self.state=='CLOSING' or self.restore_pending,'research gate is closed')
