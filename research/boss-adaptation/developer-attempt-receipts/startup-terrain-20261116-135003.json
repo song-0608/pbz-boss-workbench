@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "session": "20261116-135003",
+  "observations_verified": true,
+  "unarmed_no_spawn_no_takeover": true,
+  "formal_postcheck_passed": true,
+  "ordinary_integration_accepted": false,
+  "terrain_observations": [
+    {
+      "token": "1794808497047053600",
+      "origin": [
+        -40518.78,
+        157409.917,
+        1591.68
+      ],
+      "forward": [
+        0.365,
+        0.931,
+        0.0
+      ],
+      "queries": 83,
+      "unavailable_projections": 36,
+      "projections_over_35cm_horizontal_drift": 19,
+      "projections_over_100cm_requested_height_difference": 15,
+      "terrain_preflight_result": false,
+      "player_identity_position_unchanged": true,
+      "log_offset": 53824,
+      "result_log_end": 63289,
+      "later_errors": [
+        "...\\platform\\steam\\ue4ss\\Mods\\PBZObserveAI\\Scripts\\main.lua:675: startup preflight expired"
+      ],
+      "geometric_replay_claimed": false,
+      "ordinary_integration_accepted": false,
+      "candidate": "ahua-boss-workbench-centered-acfa1ea8642af5bb",
+      "probe_source_sha256": "bd2361cffc4eb4949744b55d25a5996f17a7cdbb205b8a0a479de5d534201fb5",
+      "exact_probe_source": "e11e15b4334727ad2e31993146b0146c2a0488fe",
+      "payload_archived_and_digest_verified": false
+    }
+  ],
+  "sources": {
+    "runtime/official-validation-20261116-135003/state.json": "9b10d8fbafef28c5f087172c79d1963305b1fa1d30e3614f04973753cc408102",
+    "evidence/official-validation/20261116-135003/postcheck.json": "bd493d429591c418f10b45a1d9e549e4b7fdfb549025304c7403cd9c902a6be6",
+    "evidence/official-validation/20261116-135003/UE4SS.log": "35e2a7b83e47ab7539d1e9db8c499d231b69ff0a9c2d0e2a24e3965f30df6486",
+    "tools/collect_startup_terrain.py": "9b8417419b110d24911acd5d63b10cc46c8813c47c4f2eb5b3bd8771f49f1e9c",
+    "evidence/official-validation/20261116-135003/startup-terrain-1794808497047053600.json": "0b875db298853a7f791398a0f4a075a9e8d00f656ee0eccf7fcc739e8d266252",
+    "runtime/release-candidates/ahua-boss-workbench-centered-acfa1ea8642af5bb/pbz-release.json": "0c90e1160f3eda5780e42e6c39c83c061c5782f4bcb9f57e9c50dd6fdaa0ebf8"
+  }
+}

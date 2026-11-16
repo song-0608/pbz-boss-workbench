@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "session": "20261116-141211",
+  "observations_verified": true,
+  "unarmed_no_spawn_no_takeover": true,
+  "formal_postcheck_passed": true,
+  "ordinary_integration_accepted": false,
+  "terrain_observations": [
+    {
+      "token": "1794809715340780300",
+      "origin": [
+        -40518.78,
+        157409.918,
+        1591.68
+      ],
+      "forward": [
+        0.365,
+        0.931,
+        0.0
+      ],
+      "queries": 85,
+      "unavailable_projections": 36,
+      "projections_over_35cm_horizontal_drift": 20,
+      "projections_over_100cm_requested_height_difference": 15,
+      "terrain_preflight_result": false,
+      "player_identity_position_unchanged": true,
+      "log_offset": 53824,
+      "result_log_end": 63495,
+      "later_errors": [],
+      "geometric_replay_claimed": false,
+      "ordinary_integration_accepted": false,
+      "candidate": "ahua-boss-workbench-slope-b2fc42d266f127a0",
+      "probe_source_sha256": "647cddd65a19da7fc8d07a007a34c01013e7d6fa5a885129d4d00f1ec267a31e",
+      "exact_probe_source": "working-tree",
+      "payload_archived_and_digest_verified": true
+    },
+    {
+      "token": "1794810298414651100",
+      "origin": [
+        -40671.874,
+        155150.895,
+        1587.514
+      ],
+      "forward": [
+        -0.214,
+        -0.977,
+        0.0
+      ],
+      "queries": 101,
+      "unavailable_projections": 46,
+      "projections_over_35cm_horizontal_drift": 11,
+      "projections_over_100cm_requested_height_difference": 12,
+      "terrain_preflight_result": false,
+      "player_identity_position_unchanged": true,
+      "log_offset": 63496,
+      "result_log_end": 74526,
+      "later_errors": [],
+      "geometric_replay_claimed": false,
+      "ordinary_integration_accepted": false,
+      "candidate": "ahua-boss-workbench-slope-b2fc42d266f127a0",
+      "probe_source_sha256": "647cddd65a19da7fc8d07a007a34c01013e7d6fa5a885129d4d00f1ec267a31e",
+      "exact_probe_source": "working-tree",
+      "payload_archived_and_digest_verified": true
+    }
+  ],
+  "sources": {
+    "runtime/official-validation-20261116-141211/state.json": "e4b18378ac696e122c0fb49211488f1fd93ecd88c615380caa69efd3b45961e0",
+    "evidence/official-validation/20261116-141211/postcheck.json": "a1e406a022734c868e058057f7fc53dc0e10c195048cd49c36f91cd6d8b62500",
+    "evidence/official-validation/20261116-141211/UE4SS.log": "88409a106973547d8861177e94da4eebb7207950aff5ad48d4c9fad5f393cfea",
+    "tools/collect_startup_terrain.py": "9b8417419b110d24911acd5d63b10cc46c8813c47c4f2eb5b3bd8771f49f1e9c",
+    "evidence/official-validation/20261116-141211/startup-preflight-1794809715340780300.lua": "8f7945a293fb3235628a72c0ff64d1979426f5bd1162bf3012fc30cbe64485b9",
+    "evidence/official-validation/20261116-141211/startup-terrain-1794809715340780300.json": "34bd0bb9b6348104de58197fd8ca7c873c3fc65e575ac7f4dc8b2d294d681436",
+    "runtime/release-candidates/ahua-boss-workbench-slope-b2fc42d266f127a0/pbz-release.json": "d953d3cf18fdabe86aa61ef60c6ae51dfb52068d169074061727bd4da9984091",
+    "evidence/official-validation/20261116-141211/startup-preflight-1794810298414651100.lua": "ad59bb68e6735d6b6684d97591fe321bef4426c0670126dafbc7dd74d40979f8",
+    "evidence/official-validation/20261116-141211/startup-terrain-1794810298414651100.json": "a6755de0af9807053cc8c8ffaca2532f4cdeaa2e76d717ed1d2f74c5c6c37b16"
+  }
+}

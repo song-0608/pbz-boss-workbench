@@ -45,9 +45,9 @@ def move(direction):
     return result
 
 
-def startup_look(direction):
-    """One 600px camera gesture before any actors are assembled."""
-    assert direction in ('left', 'right')
+def render_startup_camera(direction):
+    """Render only a fixed gesture; retain every original isolation and lease gate."""
+    assert direction in ('left', 'right', 'fine-left', 'fine-right', 'down')
     path = ROOT / 'tools/research_game_menu.py'
     data = path.read_bytes()
     assert hashlib.sha256(data).hexdigest() == FROZEN
@@ -57,10 +57,18 @@ def startup_look(direction):
     replacement = "    if positioning_key is not None:\n"
     replacement += "        for _ in range(6):\n"
     replacement += "            if u.GetForegroundWindow()!=h:raise RuntimeError('Research window lost focus')\n"
-    replacement += "            u.mouse_event(1," + str(-100 if direction == 'left' else 100) + ",0,0,0);time.sleep(.04)\n"
-    replacement += "        return {'relative_mouse_x':" + str(-600 if direction == 'left' else 600) + ",'only_research_game_targeted':True}\n"
+    dx,dy={'left':(-100,0),'right':(100,0),'fine-left':(-20,0),'fine-right':(20,0),'down':(0,40)}[direction]
+    replacement += "            u.mouse_event(1," + str(dx) + "," + str(dy) + ",0,0);time.sleep(.04)\n"
+    replacement += "        return {'relative_mouse_x':" + str(dx*6) + ",'relative_mouse_y':"+str(dy*6)+",'only_research_game_targeted':True}\n"
+    return source[:start] + replacement + source[end:],dx,dy
+
+
+def startup_look(direction):
+    """One finite camera gesture before any actors are assembled."""
+    source,dx,dy=render_startup_camera(direction)
+    path=ROOT/'tools/research_game_menu.py'
     module = types.ModuleType('bounded_startup_camera_variant');module.__file__ = str(path)
-    exec(compile(source[:start] + replacement + source[end:], str(path), 'exec'), module.__dict__)
+    exec(compile(source, str(path), 'exec'), module.__dict__)
     result = module.click(0, 0, 2560, 1600, 'practice_position_left')
     import ahua_practice as practice
     import official_validation as validation
@@ -68,7 +76,7 @@ def startup_look(direction):
     receipt = Path(state['work']) / 'startup-camera-actions.json'
     actions = json.loads(receipt.read_text(encoding='utf-8')) if receipt.exists() else []
     actions.append({'at': validation.utc8(), 'state_file': state['state_file'],
-                    'direction': direction, 'relative_mouse_x': -600 if direction == 'left' else 600,
+                    'direction': direction, 'relative_mouse_x': dx*6, 'relative_mouse_y':dy*6,
                     'original_source_sha256': FROZEN, 'result': result})
     validation.save(receipt, actions)
     return result
@@ -76,7 +84,7 @@ def startup_look(direction):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('direction', choices=('left', 'right', 'look-left', 'look-right'))
+    parser.add_argument('direction', choices=('left', 'right', 'look-left', 'look-right','look-fine-left','look-fine-right','look-down'))
     args = parser.parse_args()
     result = startup_look(args.direction[5:]) if args.direction.startswith('look-') else move(args.direction)
     print(json.dumps(result, ensure_ascii=False))
