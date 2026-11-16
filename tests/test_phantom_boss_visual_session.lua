@@ -4,21 +4,31 @@ local function fixture(role)
     local s={cancelled=0,closed=0,invalidated=0,stopped=0,revoked=0,received=0,ticks=0}
     local visual={receive=function(_,line,sender)s.received=s.received+1;s.sender=sender;return true end,
         tick=function()s.ticks=s.ticks+1 end,
-        close=function()s.closed=s.closed+1;return not s.cleanup_error end,
-        invalidate=function()s.invalidated=s.invalidated+1;return not s.cleanup_error end}
+        close=function()s.closed=s.closed+1;if s.close_throws then error('visual close failed')end;return not s.cleanup_error end,
+        invalidate=function()s.invalidated=s.invalidated+1;if s.invalidate_throws then error('visual invalidate failed')end;return not s.cleanup_error end}
     local api={coop={handlers={},net={enabled=true,role=role=='guest' and 'client' or 'host'},
         sendEvent=function()end,linked=function()return not s.disconnected end}}
-    local arena={stop=function()s.stopped=s.stopped+1;return not s.control_error end,
-        revoke=function(self,reason)s.revoked=s.revoked+1;return self:stop(reason)end}
+    local native={log=function()end}
+    for _,name in ipairs({'prepare','protect','spawn','resolve','register_controller','readiness','suspend',
+        'release_initialization','restore_player','create_control','destroy','schedule','now'})do
+        native[name]=function()error('unexpected native assembly operation: '..name)end
+    end
+    local peer={protocol={}}
+    local arena=dofile(root..'/tools/phantom_boss_online_arena.lua').new(
+        {revoke=function()s.revoked=s.revoked+1 end},peer,{bind_control_probe=function()error('unused')end},native)
     local env=setmetatable({dofile=function(path)
         if path=='candidate/bwb_visual_native.lua' then return {new=function()return {animations={},sample=function()end}end}end
         assert(path=='candidate/bwb_visual.lua');return {EVENT='BWV1',new=function(options)s.options=options;return visual end}
     end},{__index=_G})
     local module=assert(loadfile(root..'/tools/phantom_boss_visual_session.lua','t',env))()
     local g={LoopInGameThreadWithDelay=function(ms,fn)assert(ms==50);s.callback=fn;return 9 end,
-        CancelDelayedAction=function(h)assert(h==9);s.cancelled=s.cancelled+1 end}
-    local peer={protocol={}};local observer={now=function()return 1 end,log=function()end}
+        CancelDelayedAction=function(h)
+            assert(h==9);s.cancelled=s.cancelled+1;if s.cancel_error then error('cancel failed')end
+        end}
+    local observer={now=function()return 1 end,log=function()end}
     s.service=module.attach(api,{},peer,observer,{}, {},{role=role or 'host',session='S',bosses={}},arena,'candidate/',g)
+    arena.state='READY'
+    arena.control={session={},runtime={stop=function()s.stopped=s.stopped+1;return not s.control_error end}}
     s.api,s.arena,s.peer=api,arena,peer
     return s
 end
@@ -38,17 +48,42 @@ check('slot role and fixed two-player transport are enforced before visual parsi
 end)
 check('Boss switching retires cosmetics and still restores local control if cosmetic cleanup fails',function()
     local s=fixture();s.cleanup_error=true
-    local ok,why=s.arena:stop('selection');assert(not ok and why=='visual recovery remains pending')
-    assert(s.stopped==1 and s.invalidated==1 and s.closed==0)
+    local ok,why=s.arena:stop('selection');assert(not ok and why:find('remote_visual recovery',1,true))
+    assert(s.stopped==1 and s.invalidated==1 and s.closed==0 and s.arena.state=='FAULTED')
 end)
 check('revocation stops scheduler removes handler and restores both owned lifecycles',function()
     local s=fixture();assert(s.arena:revoke('expired'))
-    assert(s.closed==1 and s.invalidated==1 and s.revoked==1 and s.stopped==1 and s.cancelled==1)
+    assert(s.closed==1 and s.invalidated==0 and s.revoked==1 and s.stopped==1 and s.cancelled==1)
     assert(not s.api.coop.handlers.BWV1);s.callback();assert(s.ticks==0)
 end)
 check('failed cosmetic recovery stays observable and can be retried without replacing another handler',function()
     local s=fixture();s.cleanup_error=true;assert(not s.arena:revoke('disconnect'))
     local replacement=function()end;s.api.coop.handlers.BWV1=replacement
     s.cleanup_error=false;assert(s.service:close());assert(s.api.coop.handlers.BWV1==replacement and s.cancelled==1)
+end)
+check('initializing rejected or faulted assemblies cannot receive or remount cosmetics',function()
+    for _,state in ipairs({'IDLE','INITIALIZING','REJECTED','FAULTED'})do
+        local s=fixture();s.arena.state=state
+        assert(not s.api.coop.handlers.BWV1('pose',2)and s.received==0)
+        s.callback();assert(s.ticks==0 and s.invalidated==1)
+    end
+end)
+check('cosmetic cleanup exception cannot skip original control restoration',function()
+    local s=fixture();s.invalidate_throws=true
+    assert(not s.arena:stop('switch')and s.stopped==1 and s.arena.state=='FAULTED')
+    s.invalidate_throws=false;assert(s.arena:stop('retry')and s.arena.state=='IDLE')
+end)
+check('scheduler cancellation failure still removes the handler and attempts native visual cleanup',function()
+    local s=fixture();s.cancel_error=true
+    assert(not s.arena:revoke('closed')and s.stopped==1 and s.closed==1 and s.arena.state=='FAULTED')
+    assert(not s.api.coop.handlers.BWV1 and s.service.cleanup_error)
+    s.callback();assert(s.ticks==0)
+    s.cancel_error=false;assert(s.arena:stop('retry cleanup')and s.cancelled==2 and s.closed==2)
+end)
+check('native close exception preserves recovery responsibility after callback retirement',function()
+    local s=fixture();s.close_throws=true
+    assert(not s.arena:revoke('closed')and not s.api.coop.handlers.BWV1 and s.stopped==1)
+    assert(s.arena.state=='FAULTED'and s.cancelled==1 and s.service.cleanup_error)
+    s.close_throws=false;assert(s.arena:stop('retry cleanup')and s.cancelled==1 and not s.service.cleanup_error)
 end)
 print('PASS '..checks..' visual session groups; lifecycle integration with fake transport, no game started')

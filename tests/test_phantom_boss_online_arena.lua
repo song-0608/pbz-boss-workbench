@@ -47,10 +47,10 @@ local function fixture()
         schedule=function(ms,fn)
             assert(ms==250);if f.schedule_failure then error('missing scheduler')end
             local timer={fn=fn,active=true};f.timers[#f.timers+1]=timer
-            return function()timer.active=false;event('cancel')end
+            return function()timer.active=false;event('cancel');if f.cancel_failure then error('cancel rejected')end end
         end,
         now=function()return f.clock end,log=function()end}
-    f.scope,f.peer,f.observer=scope,peer,observer
+    f.scope,f.peer,f.observer,f.native=scope,peer,observer,n
     f.arena=Arena.new(scope,peer,observer,n)
     function f:tick(n)
         local timer=self.timers[#self.timers]
@@ -174,5 +174,52 @@ check('first selection without clearance reports a recoverable rejected state',f
     assert(not ok and why:find('no clearance',1,true)and f.arena.state=='REJECTED')
     assert(f.arena.requested_boss_id=='second'and not f.protected and #f.arena.owned==0)
     f.prepare_failure=false;assert(f.arena:select('boss'));f:tick(13);assert(f.arena.state=='READY')
+end)
+check('dependent cleanup is registered once before native assembly begins',function()
+    local f=fixture();assert(f.arena:add_cleanup('visual',function()return true end))
+    assert(not pcall(f.arena.add_cleanup,f.arena,'visual',function()return true end))
+    for _,name in ipairs({'','../visual',string.rep('x',49)})do
+        assert(not pcall(f.arena.add_cleanup,f.arena,name,function()return true end))
+    end
+    assert(f.arena:start('boss'))
+    assert(not pcall(f.arena.add_cleanup,f.arena,'late',function()return true end))
+end)
+check('owned cleanup callback count is bounded without dropping an existing owner',function()
+    local f=fixture()
+    for i=1,8 do assert(f.arena:add_cleanup(string.char(96+i),function()return true end))end
+    assert(not pcall(f.arena.add_cleanup,f.arena,'overflow',function()return true end))
+    local count=0;for _ in pairs(f.arena.cleanups)do count=count+1 end;assert(count==8)
+end)
+check('failed cosmetic cleanup still restores the player and cannot report idle or allow a new Boss',function()
+    local f=fixture();local clean=false
+    f.arena:add_cleanup('visual',function()return clean end)
+    f.arena:start('boss');f:tick(13)
+    assert(not f.arena:stop('switch')and f.arena.state=='FAULTED')
+    assert(f.destroyed.body and f.destroyed.ai and not f.probe and not f.protected)
+    assert(not f.arena.control and not f.arena.context and not f.arena:select('second'))
+    clean=true;assert(f.arena:stop('retry cleanup')and f.arena.state=='IDLE')
+    assert(f.arena:select('second'))
+end)
+check('exception in one dependent cleanup still attempts all other owners and local restoration',function()
+    local f=fixture();local seen={}
+    f.arena:add_cleanup('broken',function()seen.broken=true;error('visual identity changed')end)
+    f.arena:add_cleanup('other',function()seen.other=true;return true end)
+    f.arena:start('boss');f:tick(13)
+    assert(not f.arena:stop('close')and f.arena.state=='FAULTED')
+    assert(seen.broken and seen.other and f.destroyed.body and not f.protected and not f.probe)
+end)
+check('dependent cleanup never authorizes destruction of an unrestored controlled Boss',function()
+    local f=fixture();local attempts=0
+    f.arena:add_cleanup('visual',function()attempts=attempts+1;return true end)
+    f.arena:start('boss');f:tick(13);f.restore_failure=true
+    assert(not f.arena:stop('close')and attempts==1 and f.arena.control.session.receipt)
+    assert(f.probe and not f.destroyed.body and not f.destroyed.ai)
+end)
+check('scheduler cancellation error does not skip owned Actor and player cleanup',function()
+    local f=fixture();f.arena:start('boss');f:tick();f.cancel_failure=true
+    assert(not f.arena:stop('close')and f.arena.state=='FAULTED')
+    assert(f.destroyed.body and f.destroyed.ai and not f.protected)
+    local before=#f.events;f.timers[1].fn();assert(#f.events==before)
+    f.cancel_failure=false;assert(f.arena:stop('retry scheduler')and f.arena.state=='IDLE')
 end)
 print('PASS '..checks..' online arena groups; simulated lifecycle, no engine/game/relay')

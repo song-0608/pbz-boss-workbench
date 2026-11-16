@@ -33,13 +33,24 @@ function M.new(o)
             and number(frame.y,-20000000,20000000) and number(frame.z,-20000000,20000000)
             and number(frame.yaw,-360,360) and pose(frame,boss)
     end
-    function self:invalidate(reason)
+    local function recovery_clock()
+        local ok,now=pcall(o.now)
+        if ok and number(now,0,math.huge-1) then return now end
+    end
+    function self:invalidate(reason,automatic)
         self.pending=nil
+        if automatic and self.restore_pending then
+            local now=recovery_clock()
+            if not now or (self.retry_after and now<self.retry_after) then return false end
+        end
         if self.record then
             local ok,clean=pcall(o.native.destroy,self.record)
             self.restore_pending=not ok or clean~=true
             if not self.restore_pending then self.record=nil end
         end
+        if self.restore_pending then
+            local now=recovery_clock();self.retry_after=now and now+.25 or nil
+        else self.retry_after=nil end
         self.reason=reason
         return not self.restore_pending
     end
@@ -64,10 +75,13 @@ function M.new(o)
     end
     local function update()
         o.attest(false)
-        if not ready() then self:invalidate('identity not ready');return end
+        if not ready() then self:invalidate('identity not ready',true);return end
         local world,map,local_position=o.world()
         assert(type(world)=='string' and #world>0 and integer(map,1),'current visual World/map required')
-        if world~=self.world then self:invalidate('local World changed');self.world=world end
+        if world~=self.world then
+            local clean=self:invalidate('local World changed',true);self.world=world
+            if not clean then return end
+        end
         local now=o.now();assert(number(now,0,math.huge-1),'invalid visual clock')
         local local_key=peer.generation..'|'..peer.remote.generation..'|'..peer.boss
         if local_key~=self.local_key then self.local_key=local_key;self.sequence=0;self.last_send=-math.huge end
@@ -86,14 +100,14 @@ function M.new(o)
         local frame=self.pending
         local expected=peer.remote.generation..'|'..peer.generation..'|'..peer.remote.boss
         if not frame or frame.key~=expected or frame.map~=map or now-frame.received>.3 then
-            self:invalidate('remote pose absent stale or on another map');return
+            self:invalidate('remote pose absent stale or on another map',true);return
         end
         assert(type(local_position)=='table' and number(local_position.x,-20000000,20000000)
             and number(local_position.y,-20000000,20000000) and number(local_position.z,-20000000,20000000))
         local dx,dy,dz=frame.x-local_position.x,frame.y-local_position.y,frame.z-local_position.z
-        if dx*dx+dy*dy+dz*dz>50000^2 then self:invalidate('remote pose outside visual range');return end
+        if dx*dx+dy*dy+dz*dz>50000^2 then self:invalidate('remote pose outside visual range',true);return end
         if self.record and self.record_key~=world..'|'..expected then
-            if not self:invalidate('remote generation changed') then return end
+            if not self:invalidate('remote generation changed',true) then return end
             self.pending=frame
         end
         if self.restore_pending then return end
@@ -109,9 +123,13 @@ function M.new(o)
     end
     function self:tick()
         if self.closed then return end
+        -- A continuous stream of valid poses must not strand a failed cleanup.
+        -- Retire its recorded Actor at most four times per second, and require
+        -- a fresh packet after recovery before constructing another body.
+        if self.restore_pending then self:invalidate(self.reason,true);return end
         local ok,why=pcall(update)
         if not ok then
-            self:invalidate('visual update failed: '..tostring(why))
+            self:invalidate('visual update failed: '..tostring(why),true)
             if self.last_error~=self.reason then self.last_error=self.reason;o.log(self.reason)end
         end
     end

@@ -4,6 +4,7 @@ local M={}
 function M.attach(api,scope,peer,observer,dependencies,binding,config,arena,directory,g)
     g=g or _G
     assert(type(g.LoopInGameThreadWithDelay)=='function' and type(g.CancelDelayedAction)=='function')
+    assert(type(arena.add_cleanup)=='function','assembly-owned visual cleanup registration required')
     local Native=dofile(directory..'bwb_visual_native.lua')
     local Visual=dofile(directory..'bwb_visual.lua')
     assert(not api.coop.handlers[Visual.EVENT],'visual handler already installed')
@@ -18,32 +19,39 @@ function M.attach(api,scope,peer,observer,dependencies,binding,config,arena,dire
     local service={visual=visual,closed=false}
     local handle
     local handler=function(line,from)
-        if service.closed or peer.closed or not api.coop.net.enabled or not api.coop.linked()
+        if service.closed or peer.closed or arena.state~='READY' or not api.coop.net.enabled or not api.coop.linked()
             or api.coop.net.party or api.coop.net.pvp or api.coop.net.role=='local' then return false end
         if from~=nil and not (config.role=='host' and from==2) then return false end
         return visual:receive(line,config.role=='host' and 'guest' or 'host')
     end
     function service:close()
         self.closed=true
-        if handle~=nil then g.CancelDelayedAction(handle);handle=nil end
         if api.coop.handlers[Visual.EVENT]==handler then api.coop.handlers[Visual.EVENT]=nil end
-        return visual:close()
+        local cancelled,cancel_error=true,nil
+        if handle~=nil then
+            cancelled,cancel_error=pcall(g.CancelDelayedAction,handle)
+            if cancelled then handle=nil end
+        end
+        local observed,clean=pcall(visual.close,visual)
+        self.cleanup_error=not cancelled and ('visual scheduler recovery: '..tostring(cancel_error))
+            or (not observed and tostring(clean))or(clean~=true and 'visual native recovery remains pending')or nil
+        return cancelled and observed and clean==true,self.cleanup_error
     end
+    assert(arena:add_cleanup('remote_visual',function(reason)
+        if service.closed then return service:close()end
+        return visual:invalidate(reason)
+    end)==true,'visual cleanup responsibility not registered')
     handle=g.LoopInGameThreadWithDelay(50,function()
-        if not service.closed then visual:tick()end
+        if service.closed then return end
+        if peer.closed or arena.state~='READY'then visual:invalidate('local assembly not ready',true);return end
+        visual:tick()
     end)
     assert(handle~=nil,'visual scheduler must be cancellable')
     api.coop.handlers[Visual.EVENT]=handler
-    local original_stop,original_revoke=arena.stop,arena.revoke
-    function arena:stop(reason)
-        local visual_ok=visual:invalidate(reason)
-        local control_ok,why=original_stop(self,reason)
-        return visual_ok and control_ok,visual_ok and why or 'visual recovery remains pending'
-    end
+    local original_revoke=arena.revoke
     function arena:revoke(reason)
-        local visual_ok=service:close()
-        local control_ok,why=original_revoke(self,reason)
-        return visual_ok and control_ok,visual_ok and why or 'visual recovery remains pending'
+        service.closed=true
+        return original_revoke(self,reason)
     end
     peer.visual=service
     return service

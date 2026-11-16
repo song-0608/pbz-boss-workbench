@@ -13,7 +13,10 @@ local function fixture(role)
     end,update=function(record,f,world)
         assert(record.world==world and record.boss==f.boss);s.updates=s.updates+1;s.frame=f
         if s.update_error then error('identity replaced')end;return true
-    end,destroy=function(record)s.destroys=s.destroys+1;return not s.cleanup_error end}
+    end,destroy=function(record)
+        s.destroys=s.destroys+1;if s.destroy_throws then error('native destruction failed')end
+        return not s.cleanup_error
+    end}
     local options={role=role or 'host',session='bwb_visual_test',protocol=protocol,
         bosses={ahua={},youlong={}},animations={ahua={[asset]=2},youlong={[asset]=2}},native=native,
         now=function()return s.now end,send=function(kind,line)s.sent[#s.sent+1]={kind,line}end,
@@ -116,5 +119,45 @@ end)
 check('closing prevents all later receive and tick operations',function()
     local s=fixture();assert(s:receive());s.v:tick();assert(s.v:close());s.v:tick()
     assert(not s:receive(2) and s.mounts==1 and s.destroys==1)
+end)
+check('fresh same-generation packets cannot strand a failed visual recovery',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.update_error=true;s.cleanup_error=true
+    assert(s:receive(2));s.v:tick();local record=s.v.record
+    assert(record and s.v.restore_pending and s.destroys==1)
+    s.update_error=false;s.cleanup_error=false;s.now=1.251;assert(s:receive(3));s.v:tick()
+    assert(s.destroys==2 and not s.v.record and not s.v.restore_pending and s.mounts==1)
+    assert(s:receive(4));s.v:tick();assert(s.mounts==2 and s.v.record~=record)
+end)
+check('automatic recovery retries are bounded while explicit close remains immediate',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.update_error=true;s.cleanup_error=true;s.v:tick()
+    local record=s.v.record;assert(record and s.destroys==1)
+    for sequence=2,21 do
+        s.now=1+(sequence-1)*.01;assert(s:receive(sequence));s.v:tick()
+        assert(not s.v:invalidate('assembly not ready',true))
+    end
+    assert(s.destroys==1 and s.mounts==1 and s.updates==2 and s.v.record==record)
+    s.now=1.251;assert(s:receive(22));s.v:tick();assert(s.destroys==2)
+    s.now=1.26;s.v:tick();assert(s.destroys==2)
+    s.cleanup_error=false;assert(s.v:close()and s.destroys==3 and not s.v.record)
+end)
+check('native destruction exceptions retain ownership until the next bounded retry',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.update_error=true;s.destroy_throws=true;s.v:tick()
+    local record=s.v.record;assert(record and s.v.restore_pending and s.destroys==1)
+    s.v:tick();assert(s.destroys==1 and s.v.record==record)
+    s.destroy_throws=false;s.now=1.251;s.v:tick();assert(s.destroys==2 and not s.v.record)
+end)
+check('invalid recovery clocks suppress automatic native work without blocking explicit cleanup',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.update_error=true;s.cleanup_error=true;s.v:tick()
+    s.now=0/0;assert(pcall(s.v.tick,s.v));assert(s.destroys==1 and s.v.restore_pending)
+    s.options.now=function()error('clock unavailable')end
+    assert(pcall(s.v.tick,s.v));assert(s.destroys==1)
+    s.cleanup_error=false;assert(s.v:close()and s.destroys==2 and not s.v.record)
+end)
+check('partial visual construction must finish recovery before a fresh packet can remount',function()
+    local s=fixture();s.mount_error=true;s.cleanup_error=true;assert(s:receive());s.v:tick()
+    assert(s.mounts==1 and s.destroys==1 and s.v.restore_pending)
+    s.mount_error=false;s.cleanup_error=false;s.now=1.251;assert(s:receive(2));s.v:tick()
+    assert(s.mounts==1 and s.destroys==2 and not s.v.record)
+    assert(s:receive(3));s.v:tick();assert(s.mounts==2 and s.updates==1)
 end)
 print('PASS '..checks..' visual groups; cosmetic lifecycle with fake native bindings, no game started')

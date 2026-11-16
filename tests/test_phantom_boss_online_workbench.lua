@@ -14,7 +14,9 @@ local function fixture()
         f.renders=(f.renders or 0)+1;f.rendered={pc,opened,cursor,selected}
         if f.render_error then error('widget rendering rejected')end
         return true
-    end,close=function()f.ui_closes=(f.ui_closes or 0)+1;return true end}
+    end,close=function()
+        f.ui_closes=(f.ui_closes or 0)+1;if f.ui_close_error then error('widget removal failed')end;return true
+    end}
     local wb=Workbench.new(scope,peer,deps,config,function(line)f.logs[#f.logs+1]=line end,function()return f.now end,renderer)
     f.wb,f.peer,f.grant=wb,peer,grant
     function f:mount(id)
@@ -53,7 +55,10 @@ local function fixture()
         self.keys={};self.recovery_valid=true
         host.on_game_thread=function(fn)self.queued=fn;if not self.defer then fn()end end
         host.bind_key=function(key,fn)self.keys[key]=fn end
-        host.release_keys=function()self.keys={};self.released=(self.released or 0)+1;return true end
+        host.release_keys=function()
+            if self.release_error then return false end
+            self.keys={};self.released=(self.released or 0)+1;return true
+        end
         host.after_key_release=function(key,fn)self.release=fn end
         function peer:select_boss(id)
             assert(not f.locked);f.selections=f.selections+1;f.next_id=id
@@ -62,7 +67,9 @@ local function fixture()
         end
         self.recovery_host=host
         assert(wb:recover(host,self.layer,self.pc,'ahua_guitoudao',function()return self.recovery_valid end,
-            function(ms,fn)assert(ms==250);self.recovery_tick=fn;return function()self.cancelled=true end end))
+            function(ms,fn)assert(ms==250);self.recovery_tick=fn;return function()
+                self.cancelled=true;if self.cancel_error then error('cancellation failed')end
+            end end))
         self.view=host.workbench
         return self.view
     end
@@ -205,5 +212,23 @@ check('failed recovery input detach retains its receipt for a later cleanup',fun
     local f=fixture();f:recover();f.keys.INS();f.unlock_error=true
     assert(not pcall(f.wb.stop_recovery,f.wb)and f.wb.recovery and f.locked)
     f.unlock_error=false;assert(f.wb:stop_recovery()and not f.locked)
+end)
+check('recovery cancellation failure still releases keys unlocks input and closes the widget',function()
+    local f=fixture();f:recover();f.keys.INS();f.cancel_error=true
+    local closes=f.ui_closes;assert(not pcall(f.wb.stop_recovery,f.wb))
+    assert(f.wb.recovery and f.wb.recovery.cancel and not f.locked and next(f.keys)==nil and f.ui_closes==closes+1)
+    f.cancel_error=false;assert(f.wb:stop_recovery()and not f.wb.recovery)
+end)
+check('key removal failure still restores input and preserves its retry receipt',function()
+    local f=fixture();f:recover();f.keys.INS();f.release_error=true;local old=f.keys.INS
+    local closes=f.ui_closes;assert(not pcall(f.wb.stop_recovery,f.wb))
+    assert(f.wb.recovery and not f.locked and f.ui_closes==closes+1)
+    old();assert(not f.locked and f.selections==0)
+    f.release_error=false;assert(f.wb:stop_recovery()and next(f.keys)==nil)
+end)
+check('explicit close attempts widget removal even if native input restoration fails',function()
+    local f=fixture();local view=f:mount();assert(view:toggle());f.unlock_error=true
+    assert(not pcall(f.wb.close,f.wb)and f.ui_closes==1 and f.locked)
+    f.unlock_error=false;assert(f.wb:close()and not f.locked and f.ui_closes==2)
 end)
 print('PASS '..checks..' online workbench groups; pinned chooser with fake native input, no game started')

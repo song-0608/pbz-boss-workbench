@@ -70,7 +70,10 @@ local function fixture()
         assert(path=='/PBZCombatAsset/Prototypes/AI/BP_PBZAIController.BP_PBZAIController_C');return f.ai_class
     end,StaticFindObject=function(path)return f.registry[path]end,
         LoopInGameThreadWithDelay=function(ms,fn)assert(ms==250);f.timer=fn;return 77 end,
-        CancelDelayedAction=function(handle)assert(handle==77);f.cancelled=(f.cancelled or 0)+1 end}
+        CancelDelayedAction=function(handle)
+            assert(handle==77);f.cancelled=(f.cancelled or 0)+1
+            if f.cancel_failure then error('native cancellation failed')end
+        end}
     local maths=obj('/Script/Engine.Default__KismetMathLibrary')
     function maths:MakeTransform(location,rotation,scale)return {location=location,rotation=rotation,scale=scale}end
     local statics=obj('/Script/Engine.Default__GameplayStatics')
@@ -249,5 +252,11 @@ check('failed registration retirement retains recovery responsibility for a late
     assert(not pcall(f.native.destroy,f.record,c)and not body.alive and f.registered[body.address])
     f.retirement_refused=false;assert(f.native.destroy(f.record,c)and not f.registered[body.address])
     assert(f.retired[body.address]and f.player.alive)
+end)
+check('failed native cancellation disables queued callbacks and retains a retryable handle',function()
+    local f=fixture();local calls=0
+    local cancel=f.native.schedule(250,function()calls=calls+1 end)
+    f.timer();f.cancel_failure=true;assert(not pcall(cancel));f.timer();assert(calls==1)
+    f.cancel_failure=false;cancel();cancel();f.timer();assert(calls==1 and f.cancelled==2)
 end)
 print('PASS '..checks..' spawn native groups; concrete bindings with fake Unreal objects, no game/relay')

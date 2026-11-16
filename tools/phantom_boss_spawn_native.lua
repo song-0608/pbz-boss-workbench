@@ -268,10 +268,13 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
         return true
     end
     n.schedule=function(ms,callback)
-        assert(ms==250);local active,handle=true,nil
+        assert(ms==250);local active,handle,retired=true,nil,false
         handle=g.LoopInGameThreadWithDelay(ms,function()if active then callback()end end)
         assert(handle~=nil,'online assembly timer missing handle')
-        return function()if active then active=false;g.CancelDelayedAction(handle)end end
+        return function()
+            active=false
+            if not retired then g.CancelDelayedAction(handle);retired=true end
+        end
     end
     return n
 end

@@ -39,11 +39,16 @@ function M.new(api,launch,config,peer,observer,directory,globals)
             if not ok then native.log('recovery menu unavailable: '..tostring(why))end
         end
     end
+    local revoking=false
+    arena:add_cleanup('workbench',function()
+        if revoking then return workbench:close()end
+        if arena.state=='FAULTED'then return workbench:stop_recovery()end
+        return true
+    end)
     local revoke=arena.revoke
     function arena:revoke(reason)
-        local ok,clean=pcall(workbench.close,workbench)
-        local restored,why=revoke(self,reason)
-        return ok and clean==true and restored==true,why
+        revoking=true
+        return revoke(self,reason)
     end
     if launch.assembly.bindings.visual~=nil then
         dofile(directory..'bwb_visual_session.lua').attach(api,scope,peer,observer,dependencies,

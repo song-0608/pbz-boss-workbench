@@ -1,6 +1,11 @@
 -- Reuse the accepted chooser without inheriting its offline launch/status proof.
 -- One coordinator survives Boss reassembly; each runtime owns only its menu layer.
 local M={}
+local function cleanup(errors,name,callback)
+    local ok,result=pcall(callback)
+    if not ok or result~=true then errors[#errors+1]=name..': '..tostring(result);return false end
+    return true
+end
 local function quote(value)
     return '"'..value:gsub('[%z\1-\31\\"]',function(c)
         if c=='"'then return '\\"'elseif c=='\\'then return '\\\\'end
@@ -66,8 +71,10 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
         -- busy until the asynchronous replacement has actually become ready.
         host.workbench=setmetatable({}, {__index=function(_,key)
             if key=='shutdown'then return function()
-                assert(layer:unlock()==true,'online workbench input recovery failed')
-                if renderer then assert(renderer:close()==true,'online menu widget recovery failed')end
+                local errors={}
+                cleanup(errors,'online workbench input recovery failed',function()return layer:unlock()end)
+                if renderer then cleanup(errors,'online menu widget recovery failed',function()return renderer:close()end)end
+                assert(#errors==0,table.concat(errors,'; '))
                 if active==owner then
                     active=nil;widget.opened=false;widget.busy=changing
                 end
@@ -107,9 +114,15 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
         local r=self.recovery
         if not r then return true end
         r.running=false
-        if r.cancel then r.cancel();r.cancel=nil end
-        if r.host.release_keys then assert(r.host.release_keys()==true,'recovery key retirement failed')end
-        assert(r.view:shutdown()==true,'recovery menu input restoration failed')
+        local errors={}
+        if r.cancel and cleanup(errors,'recovery scheduler retirement failed',function()r.cancel();return true end)then r.cancel=nil end
+        if r.host.release_keys and not r.keys_released then
+            r.keys_released=cleanup(errors,'recovery key retirement failed',function()return r.host.release_keys()end)
+        end
+        if not r.view_closed then
+            r.view_closed=cleanup(errors,'recovery menu input restoration failed',function()return r.view:shutdown()end)
+        end
+        assert(#errors==0,table.concat(errors,'; '))
         self.recovery=nil;return true
     end
     function self:recover(host,layer,pc,id,guard,schedule)
@@ -171,9 +184,11 @@ function M.new(scope,peer,dependencies,config,emit,now,renderer)
     end
     function self:close()
         stopped=true
-        assert(self:stop_recovery()==true,'recovery menu cleanup pending')
-        if active then assert(active.layer:unlock()==true,'online menu input recovery pending');active=nil end
-        if renderer then assert(renderer:close()==true,'online menu widget recovery pending')end
+        local errors={}
+        cleanup(errors,'recovery menu cleanup pending',function()return self:stop_recovery()end)
+        if active and cleanup(errors,'online menu input recovery pending',function()return active.layer:unlock()end)then active=nil end
+        if renderer then cleanup(errors,'online menu widget recovery pending',function()return renderer:close()end)end
+        assert(#errors==0,table.concat(errors,'; '))
         changing=false;widget.opened=false;widget.busy=false
         return true
     end

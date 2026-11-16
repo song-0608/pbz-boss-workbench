@@ -6,16 +6,33 @@ function M.new(scope,peer,observer,native)
         assert(type(native[key])=='function','online assembly binding missing '..key)
     end
     assert(type(observer.bind_control_probe)=='function','controlled body observer required')
-    local self={state='IDLE',generation=0,owned={},polls=0}
+    local self={state='IDLE',generation=0,owned={},polls=0,cleanups={}}
     local cancel,detach
     local function changed()
         if native.state_changed then native.state_changed(self.state,self.failure) end
     end
     local function cancel_poll()
-        if cancel then local old=cancel;cancel=nil;old() end
+        if cancel then local old=cancel;old();if cancel==old then cancel=nil end end
+    end
+    function self:add_cleanup(name,callback)
+        assert(self.state=='IDLE'and self.generation==0,'register cleanup before the first assembly')
+        assert(type(name)=='string'and #name<=48 and name:match('^[a-z_]+$')
+            and type(callback)=='function'and not self.cleanups[name],'unique owned cleanup callback required')
+        local count=0;for _ in pairs(self.cleanups)do count=count+1 end
+        assert(count<8,'bounded owned cleanup callbacks required')
+        self.cleanups[name]=callback;return true
     end
     function self:stop(reason)
-        self.generation=self.generation+1;cancel_poll()
+        self.generation=self.generation+1
+        local dependent_errors={}
+        local cancelled,cancel_error=pcall(cancel_poll)
+        if not cancelled then dependent_errors[#dependent_errors+1]='assembly scheduler recovery: '..tostring(cancel_error)end
+        -- Presentation failure must never skip native player restoration, nor
+        -- disappear behind a successful local-body cleanup and an IDLE state.
+        for name,callback in pairs(self.cleanups)do
+            local clean,result=pcall(callback,reason)
+            if not clean or result~=true then dependent_errors[#dependent_errors+1]=name..' recovery: '..tostring(result)end
+        end
         local ok,why=pcall(function()
             if self.control then
                 assert(self.control.runtime:stop(reason)==true,'local control restoration not acknowledged')
@@ -35,6 +52,7 @@ function M.new(scope,peer,observer,native)
             end
             assert(#errors==0,table.concat(errors,'; '))
             self.owned={};self.control=nil;self.body=nil;self.context=nil;self.state='IDLE'
+            assert(#dependent_errors==0,table.concat(dependent_errors,'; '))
         end)
         if not ok then self.state='FAULTED';self.failure=tostring(why);native.log('assembly cleanup unverified: '..self.failure) end
         changed()
