@@ -220,7 +220,8 @@ def bootstrap(path,role,action,timeout=35):
     path,value=load_run(path);assert role in BOXES and action in ('probe','client','client-online','inspect','game')
     assert type(value['expires_at']) is int and time.time()<value['expires_at']
     assert digest(value['bootstrap'])==value['bootstrap_sha256']
-    verify_policy(api(),role,False,value.get('official_steam_online',False),value.get('official_game_auth',False))
+    verify_policy(api(),role,False,value.get('official_steam_online',False),value.get('official_game_auth',False),
+        compatible=value.get('compatibility_requested',False))
     output=path.parent/(role+'-'+action+'-'+uuid.uuid4().hex+'.json')
     lease=path.parent/(role+'-bootstrap.ini')
     result=subprocess.run([str(SBIE/'Start.exe'),'/box:'+BOXES[role],'/silent','/hide_window','/wait',
@@ -233,21 +234,35 @@ def bootstrap(path,role,action,timeout=35):
     return data
 
 
-def network_policy(online,game_auth=False):
-    dll=api()
+def network_policy(online,game_auth=False,compatible=False):
+    dll=api();errors=[]
     for role,box in BOXES.items():
         rules=settings(role,False,online,game_auth)['NetworkAccess']
-        change('set',box,'NetworkAccess',rules[0])
-        for rule in rules[1:]:change('append',box,'NetworkAccess',rule)
-        verify_policy(dll,role,False,online,game_auth)
+        try:
+            change('set',box,'NetworkAccess',rules[0])
+            for rule in rules[1:]:change('append',box,'NetworkAccess',rule)
+        except Exception as error:
+            if online:raise
+            errors.append(role+' network rollback write: '+type(error).__name__)
+    # A separate compatibility failure in one role must never leave the other
+    # role's temporary public Steam exception in place. Write both first and
+    # report every failed readback instead of aborting recovery at the first.
+    for role in BOXES:
+        try:
+            if compatible:verify_policy(dll,role,False,online,game_auth,compatible=True)
+            else:verify_policy(dll,role,False,online,game_auth)
+        except Exception as error:
+            if online:raise
+            errors.append(role+' network rollback verify: '+type(error).__name__)
+    if errors:raise RuntimeError('; '.join(errors))
 
 
 def game_network(path):
     path,value=load_run(path)
     assert value.get('official_steam_online') is True and time.time()<value['expires_at']
-    assert value['status'] in ('games-starting','games-waiting','games-start-timeout','partial-active','active')
+    assert value['status'] in ('clients-ready','games-starting','games-waiting','games-start-timeout','partial-active','active')
     if not value.get('official_game_auth'):
-        for role in BOXES:verify_policy(api(),role,False,True,False)
+        for role in BOXES:verify_policy(api(),role,False,True,False,compatible=value.get('compatibility_requested',False))
     else:
         configured=sections()
         for role,box in BOXES.items():
@@ -255,18 +270,24 @@ def game_network(path):
             expected=settings(role,False,True,True)['NetworkAccess']
             assert rules in (expected,expected[:-1]),'Preserve an unexpected research network policy'
     value['official_game_auth']=True;atomic(path,value)
-    network_policy(True,True)
+    network_policy(True,True,compatible=value.get('compatibility_requested',False))
     print(json.dumps(dict(official_game_auth=True,scope='two research PBZ.exe processes; TCP and DNS only',
         expires_at=value['expires_at'],watchdog_restores_loopback=True)),flush=True)
 
 
-def start_clients(path,official_online=False):
+def start_clients(path,official_online=False,compatible=False):
     path,value=load_run(path);assert value['status']=='prepared'
     dll=api();verify_clients()
     for role,box in BOXES.items():verify_policy(dll,role,False);assert not pids(dll,box)
     for row in value['deployed']:assert row['status']=='installed' and digest(row['path'])==row['sha256']
     now=int(time.time());value.update(issued_at=now,expires_at=now+value['duration_seconds'],status='clients-starting',
-        official_steam_online=official_online)
+        official_steam_online=official_online,compatibility_requested=compatible)
+    if compatible:
+        from phantom_boss_pair_compatibility import probe_exe
+        value['compatibility_probe']=str(probe_exe())
+        configured=sections()
+        value['compatibility_prior']={role:{key:[line.split('=',1)[1] for line in configured[box]
+            if line.startswith(key+'=')] for key in ('UnstrippedToken','ClosedFilePath')} for role,box in BOXES.items()}
     for role in BOXES:
         lease=''.join(f'{key}={item}\n' for key,item in dict(mode=value['mode'],role=role,session=value['session'],
             issued_at=now,expires_at=value['expires_at']).items()).encode()
@@ -287,7 +308,18 @@ def start_clients(path,official_online=False):
     ready_until=time.monotonic()+10
     while not (path.parent/'watch.json').exists() and time.monotonic()<ready_until and watchdog.poll() is None:time.sleep(.1)
     assert watchdog.poll() is None and (path.parent/'watch.json').is_file(),'Independent watchdog did not become ready'
-    if official_online:network_policy(True)
+    if compatible:
+        from phantom_boss_pair_compatibility import policy,probe
+        try:
+            policy(True)
+            for role in BOXES:verify_policy(dll,role,False,compatible=True)
+            proof=probe(path.parent,Path(value['compatibility_probe']))
+            assert formal_files()==value['formal_before'],'Formal files changed during compatible Saved sentinel'
+            atomic(path.parent/'compatibility-probe.json',proof)
+            value['compatibility_probe_passed']=True;atomic(path,value)
+        except Exception:
+            request_stop(path,'compatible Saved sentinel failed');raise
+    if official_online:network_policy(True,compatible=compatible)
     for role in BOXES:
         data=bootstrap(path,role,'client-online' if official_online else 'client')
         assert data['created'] and data['child_box_verified'] and data['resumed']
@@ -316,7 +348,8 @@ def show_clients(path):
     assert time.time()<value['expires_at']
     dll=api()
     for role in BOXES:
-        verify_policy(dll,role,False,value.get('official_steam_online',False),value.get('official_game_auth',False))
+        verify_policy(dll,role,False,value.get('official_steam_online',False),value.get('official_game_auth',False),
+            compatible=value.get('compatibility_requested',False))
         assert pids(dll,BOXES[role]),'Existing research client required'
         result=subprocess.run([str(SBIE/'Start.exe'),'/box:'+BOXES[role],'/silent',
             str(LOGICAL/'steam.exe'),'steam://open/main'],capture_output=True,timeout=15,
@@ -377,10 +410,11 @@ def watch(path):
             for role,box in BOXES.items():
                 for pid in pids(dll,box):
                     row=process_identity(pid)
-                    if row and Path(row['image']).name.casefold() in ('steam.exe','steamwebhelper.exe','pbz.exe','crashreportclient.exe'):
+                    if row and Path(row['image']).name.casefold() in ('steam.exe','steamwebhelper.exe','pbz.exe','crashreportclient.exe','isolation_probe.exe'):
                         image=Path(row['image']).resolve()
                         if image.is_relative_to(LOGICAL.resolve()) or image.is_relative_to(virtual(role,LOGICAL).resolve()) \
-                                or image in ((GAME/'steam/PBZ.exe').resolve(),(GAME/'platform/steam/PBZ.exe').resolve()):
+                                or image in ((GAME/'steam/PBZ.exe').resolve(),(GAME/'platform/steam/PBZ.exe').resolve()) \
+                                or (value.get('compatibility_probe') and image==Path(value['compatibility_probe']).resolve()):
                             known[role][pid]=row
             atomic(path.parent/'watch.json',dict(status='watching',at=int(time.time()),
                 processes={role:list(rows.values()) for role,rows in known.items()},expires_at=value['expires_at']))
@@ -398,6 +432,13 @@ def watch(path):
             try:
                 if terminate_owned(dll,role,row):terminated.append(dict(role=role,**row))
             except Exception as error:cleanup_errors.append(type(error).__name__)
+    compatibility_restored=not value.get('compatibility_requested')
+    if not compatibility_restored:
+        from phantom_boss_pair_compatibility import policy
+        for attempt in range(3):
+            try:policy(False,value.get('compatibility_prior'));compatibility_restored=True;break
+            except Exception as error:
+                cleanup_errors.append('compatibility rollback: '+type(error).__name__);time.sleep(1)
     restored=not value.get('official_steam_online')
     if not restored:
         for attempt in range(3):
@@ -405,7 +446,8 @@ def watch(path):
             except Exception as error:
                 cleanup_errors.append('network rollback: '+type(error).__name__);time.sleep(1)
     atomic(path.parent/'watch.json',dict(status='stopped',reason=reason,at=int(time.time()),
-        terminated=terminated,saves_restored=False,temporary_steam_network_restored=restored,cleanup_errors=cleanup_errors,
+        terminated=terminated,saves_restored=False,temporary_steam_network_restored=restored,
+        compatibility_restored=compatibility_restored,cleanup_errors=cleanup_errors,
         formal_files_unchanged=formal_files()==value['formal_before']))
 
 
@@ -446,12 +488,13 @@ if __name__=='__main__':
     sys.stdout.reconfigure(encoding='utf-8',errors='replace')
     parser=argparse.ArgumentParser(description=__doc__)
     actions=parser.add_mutually_exclusive_group(required=True)
-    for action in ('prepare','clients','clients-online','inspect','show','games','observe','game-network','retry-uninitialized','stop','watch','cleanup'):actions.add_argument('--'+action,type=Path)
+    for action in ('prepare','clients','clients-online','clients-online-compatible','inspect','show','games','observe','game-network','retry-uninitialized','stop','watch','cleanup'):actions.add_argument('--'+action,type=Path)
     parser.add_argument('--role',choices=tuple(BOXES))
     args=parser.parse_args()
     if args.prepare:prepare(args.prepare)
     elif args.clients:start_clients(args.clients)
     elif args.clients_online:start_clients(args.clients_online,official_online=True)
+    elif args.clients_online_compatible:start_clients(args.clients_online_compatible,official_online=True,compatible=True)
     elif args.inspect:inspect_clients(args.inspect)
     elif args.show:show_clients(args.show)
     elif args.games:start_games(args.games)

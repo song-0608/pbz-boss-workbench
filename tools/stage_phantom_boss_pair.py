@@ -113,7 +113,7 @@ def stage(native_build, candidate=None):
         patched=candidate/'upstream-local-patches'/name
         contents['ue4ss/Mods/PBZCoop/Scripts/'+name]=(patched if patched.is_file() else origin).read_bytes()
     for name in manifest['files']:
-        if name.startswith('PBZCoop/Scripts/'):
+        if name.startswith('PBZCoop/'):
             contents['ue4ss/Mods/'+name]=safe_file(candidate,name).read_bytes()
     files={}
     for role in ROLES:

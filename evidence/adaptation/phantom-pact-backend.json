@@ -7,156 +7,170 @@
   "game_started": false,
   "native_relay_executed": false,
   "installed": false,
-  "candidate": "runtime/online-candidates/bwb-phantompact-9be9af68386b041ac3ed",
-  "candidate_manifest_sha256": "c1db46781d46a6cdc0ad3b05d28943d170252d25e705a41b1d086008cbcd3dc4",
+  "candidate": "runtime/online-candidates/bwb-phantompact-bea242517a17eeb9156d",
+  "candidate_manifest_sha256": "4332a39f635bd9755a5060ac8f2dbdea3bb8cb6abc727e54c8720159d858312d",
   "singleplayer_payload_files_verified": 62,
   "personal_settings_and_singleplayer_unchanged": true,
   "upstream_commit": "91099b849e474f0326834135ace52dfbab26e520",
   "upstream_reviewed_sources": 19,
   "catalog_bosses": 4,
   "catalog_abilities": 40,
-  "control_plane_test_groups": 233,
-  "syntax_checked_lua_files": 61,
+  "control_plane_test_groups": 269,
+  "syntax_checked_lua_files": 66,
   "checks": [
     {
       "name": "protocol_simulation",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/protocol_simulation.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/protocol_simulation.txt",
       "output_sha256": "c60a6d3535af976ea71bfc4d3a5193fe8a7eb8679503ec0a2572f2d43ae31eae"
     },
     {
       "name": "adapter_mocked_api",
       "passed": true,
       "groups": 28,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/adapter_mocked_api.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/adapter_mocked_api.txt",
       "output_sha256": "12f70cea75d549a7f85780632329dfe8a11967656f55e155f91dfcc0169c9bc7"
     },
     {
       "name": "candidate_python",
       "passed": true,
-      "groups": 14,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/candidate_python.txt",
-      "output_sha256": "eed89398225ff0c5b93d83d9bff0ebdb597138d2e83df6430cb15028db8723f6"
+      "groups": 15,
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/candidate_python.txt",
+      "output_sha256": "5b7253158c2e3db6d4e6d47d65118fcf7387212e15d6359f7ec40efb3b91bb9e"
     },
     {
       "name": "entry_mocked_research_lease",
       "passed": true,
       "groups": 11,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/entry_mocked_research_lease.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/entry_mocked_research_lease.txt",
       "output_sha256": "c70c939b134fbedeb8716502cb8457fa22c73de9f3de716c1c2efd111633f2a4"
     },
     {
       "name": "host_fake_uobjects",
       "passed": true,
       "groups": 13,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/host_fake_uobjects.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/host_fake_uobjects.txt",
       "output_sha256": "e3b4ebc61a688043e07edc9c76c3c14da32db7f1fe0cec78a4a09c1ad1303b14"
     },
     {
       "name": "enemy_fence_patched_upstream",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/enemy_fence_patched_upstream.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/enemy_fence_patched_upstream.txt",
       "output_sha256": "f8b46603d7891818e54550044435d19817be703ffb81f40e051b0920b88b267a"
     },
     {
       "name": "same_pc_pair_python",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/same_pc_pair_python.txt",
-      "output_sha256": "757ef3f99ce6cc4aa15863626f7a02505e4b1533a70871e9e677a65c584dcede"
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/same_pc_pair_python.txt",
+      "output_sha256": "7f4eddb777e82736d7b4e65a574555e2a35f925e90281b436bd61dd01c483de6"
     },
     {
       "name": "online_scope_simulation",
       "passed": true,
       "groups": 12,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/online_scope_simulation.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/online_scope_simulation.txt",
       "output_sha256": "2b3245b5ee807943c4219a77797eb6259e6d787508f5b5b4b58b8516fff65bf0"
     },
     {
       "name": "online_control_fake_uobjects",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/online_control_fake_uobjects.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/online_control_fake_uobjects.txt",
       "output_sha256": "88da7edc7575b21e505bb7385a21a455a46207961a4f7643440fb9feda86f8ed"
     },
     {
       "name": "network_body_patched_upstream",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/network_body_patched_upstream.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/network_body_patched_upstream.txt",
       "output_sha256": "e601945a92b5cd1f6b82c94dcc682c7f9be7e107293cb84ee45fa3aee7f3ce2e"
     },
     {
       "name": "online_arena_lifecycle",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/online_arena_lifecycle.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/online_arena_lifecycle.txt",
       "output_sha256": "b76792f04817419f0224156d2c8f4102a57ce09309487683d80ad8a20317db6d"
     },
     {
       "name": "online_spawn_native_bindings",
       "passed": true,
       "groups": 11,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/online_spawn_native_bindings.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/online_spawn_native_bindings.txt",
       "output_sha256": "df5d6c4aee5458cb4c088ed041ec67e10ee7d779a9e14d62c787f9e68e5b9589"
     },
     {
       "name": "cold_startup_menu_loading",
       "passed": true,
       "groups": 17,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/cold_startup_menu_loading.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/cold_startup_menu_loading.txt",
       "output_sha256": "1de0991c158aab07add2ff2dd2ccc8fdef2494244a8211980ef9ca85393374a6"
     },
     {
       "name": "combat_runtime_composition",
       "passed": true,
       "groups": 5,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/combat_runtime_composition.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/combat_runtime_composition.txt",
       "output_sha256": "aabd6dd8b00af17d4eecc94a2d2a39a865e8a2c9f112a057a1dea1c21fcca247"
     },
     {
       "name": "visual_protocol_lifecycle",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/visual_protocol_lifecycle.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/visual_protocol_lifecycle.txt",
       "output_sha256": "062feebad2ca1c6d213115e1393c031abcc28c4746e2841347aae2c4b15aac31"
     },
     {
       "name": "visual_native_bindings",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/visual_native_bindings.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/visual_native_bindings.txt",
       "output_sha256": "7941b2eeb363b0af64a4ed189c23e7abbe247d343396508383670ac529063b8f"
     },
     {
       "name": "visual_session_integration",
       "passed": true,
       "groups": 5,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/visual_session_integration.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/visual_session_integration.txt",
       "output_sha256": "97ba9580b5c4e20a4d562fa2b6fe8da17728048967474226358edfee160d0a39"
     },
     {
       "name": "deferred_launch_gate",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/deferred_launch_gate.txt",
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/deferred_launch_gate.txt",
       "output_sha256": "83044c915061909a79a8630a561d10faf4c0072f477d614d5b43247f7165d0e5"
     },
     {
       "name": "pair_session_python",
       "passed": true,
-      "groups": 11,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/pair_session_python.txt",
-      "output_sha256": "bc37d15ce8f662e518ffbdf4bb02b3beec9642c7753afede26332566bd6be1a8"
+      "groups": 18,
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/pair_session_python.txt",
+      "output_sha256": "649eaa6dba2035763e636f1d8176eb927b365ce112e12df053b6f60bf69fecd2"
+    },
+    {
+      "name": "online_workbench_lifecycle",
+      "passed": true,
+      "groups": 16,
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/online_workbench_lifecycle.txt",
+      "output_sha256": "56da66b1fbb3ef8aabb2bf5688f03fe38881de208e9015a6a4438122cd7a4ac1"
+    },
+    {
+      "name": "workbench_native_umg",
+      "passed": true,
+      "groups": 12,
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/workbench_native_umg.txt",
+      "output_sha256": "ce83baa2fc6802e08c6f2ae564c138785411dfc6f6d062df113d4b55bf9f9c65"
     },
     {
       "name": "patched_lua_compile_only",
       "passed": true,
-      "groups": 61,
-      "output": "runtime/online-checks/80b59854430b41d8a4b74290edf6a5d3/patched_lua_compile_only.txt",
-      "output_sha256": "d87f07acae6bcb88c5afc8178744e52ce514e496845e051494730c3d34032dcb"
+      "groups": 66,
+      "output": "runtime/online-checks/cb2fbfb89c164c02bab9a3e827a85030/patched_lua_compile_only.txt",
+      "output_sha256": "b4fb0852ee6f903d13027fda186f8681adf8d1bda134bca68367146496ccfb20"
     }
   ],
   "pending": [
@@ -166,7 +180,7 @@
     "two independent clients: real relay, different Bosses, world switch and reconnect"
   ],
   "source_sha256": {
-    "tools/build_phantom_boss_candidate.py": "26311a3931e05bd94a65e3edbf03261b21240c440e77b66d833fef54038e2f77",
+    "tools/build_phantom_boss_candidate.py": "47952cf799ac4e330a7662dcaa15dfc8c222918a028485563e56758f8a40478e",
     "tools/export_phantom_boss_catalog.lua": "44d901f70b57174c296d42192a39fd80d4353c188b0a30a458f70b0e556ea6ac",
     "tools/phantom_boss_protocol.lua": "2ee398ca6edf934ea31a15f9385c711412781e4a59f91aa7a16a9961286f41fa",
     "tools/phantom_boss_adapter.lua": "3a85d57e6b1a0e65898f66463c01389e6a4a1a14d41bea5a1d88df68f9db1cf2",
@@ -176,20 +190,24 @@
     "tools/prepare_phantom_boss_pair.py": "3ba25510dd8499158b3b44163475921c9dfc053f41c8f941f0d3814c2cdf37bd",
     "tools/phantom_boss_online_scope.lua": "39dc46a7fd96fd9216681788b1e17436e1c46a3d8bb0870271af8dce17e18d5c",
     "tools/phantom_boss_online_control.lua": "a623d9d0f1d28d2ad0cb745fcda33e7c114a5bed956bf34ff2d3174d70e0d883",
-    "tools/phantom_boss_local_dependencies.lua": "8e711462776238e8ef88d639ca05bec6357b42daf909fe72ec23eaca3ad00039",
-    "tools/phantom_boss_online_arena.lua": "fe9d1c5f9403f64869264d05e1f7e6b5fe6eea033f109ca9d32d7641721aff68",
-    "tools/phantom_boss_spawn_native.lua": "e92e35407a05a39bffe37bf0fbf0b08c2bcddff04a2b40a854832981237eb63d",
-    "tools/phantom_boss_online_session.lua": "49abd95361479e549abd28c934ce6966bc0b02ac28d4efbc39c7a975dab3d483",
+    "tools/phantom_boss_local_dependencies.lua": "a126e32f9e23088f29ac0f31795b9bf8160a33ccebe1814cd66c0a7d29cc994a",
+    "tools/phantom_boss_online_arena.lua": "51034e4ab7cc1b2d68f68fbf418a87a8cb2b0cd35cfb82dea72a15221df56712",
+    "tools/phantom_boss_spawn_native.lua": "3fb895941c2e564899f7ee5fe63b252819a07afc0925bb03b9443e4138a3752a",
+    "tools/phantom_boss_online_session.lua": "093168ea88e38a78e31e9ecf0437c6d46b108216921418928c64ad4aea3d59fa",
     "tools/phantom_boss_startup.lua": "efe7fe93dc2e94e6c606ea35b2b2f4f74d3a9d989257cda740cb4e73da76a2c8",
     "tools/phantom_boss_combat_runtime.lua": "c6192711e156b27b7aa9ee9c6c75942be6d5075af4696b4a9619629403173dad",
     "tools/phantom_boss_visual.lua": "a958c59a7cfb470da6a69532a9d8f03e93717b5490b4dec3790688778b62adbd",
     "tools/phantom_boss_visual_native.lua": "3a8499e1a6369eaf15930321272adcb869a70ff3f89ade3bea933bd3992bbd1f",
     "tools/phantom_boss_visual_session.lua": "c38c1f9580b9a7bd8a714666509b6d281543db0588c05267d52c77d72f1bd85b",
     "tools/phantom_boss_launch_gate.lua": "5a1d46886a617a627be75a4eee027ff9bc5a08240db4727d6ab5ca4c8d9d828f",
+    "tools/phantom_boss_online_workbench.lua": "31cf5f1bbc12e6270004b4e052f726264cbdecc0610ac99c4ad0d7dce5f9cf26",
+    "tools/phantom_boss_workbench_native.lua": "2534139795bde0cd517e0b224b202180cbe9a70c417a17907659ca86238e272b",
+    "tools/build_phantom_boss_workbench_art.py": "480d3250993d239abe36f3299cac276d9ba8d4658e27e428b6a1a66cf6188d3c",
+    "assets/online-workbench/art.json": "86e1a2e15e2c3a1711ca86b9018192687a5328963ebf1b06128c2f0160917a2f",
     "tests/test_phantom_boss_protocol.lua": "8f64d61f25490da8ad2067cf67a5a44e13706518a17e94971aa5ef7540daaa6d",
     "tests/test_phantom_boss_adapter.lua": "52667460aae02eb705f3dd87a0a8ae5a988963187859be539df21678ef8f9e1e",
-    "tests/test_phantom_boss_candidate.py": "f5c4e63777ce4b59900e7cedfe7dfe07768d500d12e5556d8765612f45d84154",
-    "tests/compile_phantom_boss_candidate.lua": "3ea8d99ed71b01d4a0fa42dd8d3b84a32a5ac9b2ecd6d7a61f07afbbae2dc953",
+    "tests/test_phantom_boss_candidate.py": "51d761db33073293f08069c9450a08d1d1e2c35f3f5c375641c9f758c251ea04",
+    "tests/compile_phantom_boss_candidate.lua": "a2e0f1c2349610dd16240c66eeba81a7c9506951a198e70e647aedbac03264d1",
     "tests/test_phantom_boss_entry.lua": "28f2707df462fa65ac893cb0e0cf980b37feacef374e6292d6dd6a7080baf02a",
     "tests/test_phantom_boss_host.lua": "869c224dc7c6a69783b0817572e39ebc2dc7df83fcf09b264bef00fcb14ec974",
     "tests/test_phantom_boss_enemy_fence.lua": "f3487e9b483d999d7bc294fa656fcbf4755a1a0fd57cf15b42ba3f315e0f16a6",
@@ -206,15 +224,21 @@
     "tests/test_phantom_boss_visual_native.lua": "aacb1eef49c79e6949d05a5cb84d0ac7f3450d15d3d065e18e2be7c5e7c6c28e",
     "tests/test_phantom_boss_visual_session.lua": "5d86a23667eb4b8dc8ec621c43229e8e1b3853c1aef25fb2e1c80dd814b7ca8e",
     "tests/test_phantom_boss_launch_gate.lua": "e9280a10afab7ebbfcb4c0a68cc14a08ddf9ed62d1b3081a272eb156422f74d3",
-    "tests/test_phantom_boss_pair_session.py": "c7e0ba5c98ec6bebcea2389be850c786af87e9aae3d64680b9fec34050a2fcae",
-    "tools/phantom_boss_pair_session.py": "da7427ce8d7981f8eb38c47c446e03c50928cd062da014fdbb086db603064160",
-    "tools/phantom_boss_online_readonly.py": "114aff7e9f178426e2f4ef0b283c04e3283aec50b7e255435c9f1c3fe50ab7f8",
+    "tests/test_phantom_boss_pair_session.py": "9d2ced72c00f147ad2f432ef3b33c609f3a3e2a8a4d6905a9bb04d6b413012a9",
+    "tests/test_phantom_boss_online_workbench.lua": "47d6a436b4c6e482d2f404bddd6a4071d229e5901ae6c4c617af258bd9a5ac80",
+    "tests/test_phantom_boss_workbench_native.lua": "a7ab95c3e767b1d0fa16e3de77b16ffa3aa0d041fbb9801e5a4da8cafbedb568",
+    "tools/phantom_boss_pair_session.py": "fb4067b1644b1aacb3a3ae91ecd23d32f1ade7ba206236be5ea6928461d97855",
+    "tools/phantom_boss_online_readonly.py": "7eb4dc6f43e0280bdf9dea3cc4c3b17af018867567d3a031500ae0cc109865e3",
     "tools/collect_phantom_boss_visual_contract.py": "8bde2f80e37234889e75132d900bc4b9a9e67dbaf887b6301a72c97062083a8a",
     "tools/prepare_phantom_boss_clients.py": "10ed677d1331ffdbf39fa6a59e029713341fe1eed03ed8b5370fdc777e71a0d1",
-    "tools/check_phantom_boss_isolation.py": "1ecb949d0d1d9d2de3468cd3b9997066b9506ca27c8718d6d881d0f469a76fbf",
+    "tools/check_phantom_boss_isolation.py": "3864249de4cb590588aa75fd3dd1fa9e1e6827ed0725d467f3819efba26b3e82",
     "tools/phantom_boss_pair_bootstrap.cpp": "ca3c3a8fdce578c9816118e1d41d8cb6d9a30dda3419af00c1d99800998546bb",
     "tools/check_phantom_boss_pair_bootstrap.py": "e932637984177c0a110c290b4152868cde0b134f6b0c4294ca2b55f383c19840",
-    "tools/check_phantom_boss_backend.py": "12d9aaf0b9927607319689cedc17ebf1d001e67e0447c935a6f927dd8576c6a1",
-    "tools/verify_phantom_boss_backend.py": "a6e50a7ec293d99f6f46f1c40e74f03571d6e6ac9646ad3c11086af169971466"
+    "tools/collect_phantom_boss_workbench_contract.py": "08fce63825f9576a5d9c878cf6c0da9d2d526bafcb37bb1ec4a6fb088a8a9aa4",
+    "tools/stage_phantom_boss_pair.py": "3c3c8a9fd574631e2803946d42af09d727863c0d8580aa08f7355b2ce20d613e",
+    "tools/phantom_boss_pair_compatibility.py": "80673f1190d19e7529e6e86dc0adcc4ca06f7b2781bc042eb0b315f8afc1005c",
+    "tools/phantom_boss_isolation_probe.cpp": "21438deececf0555bb3768aa10a6a302771d6bfdb10398439ad8230dd57881a9",
+    "tools/check_phantom_boss_backend.py": "39d7e2caa0b2303323c1561137aecce2267d9b003a55f0db5de6a2bb12e4fe60",
+    "tools/verify_phantom_boss_backend.py": "dac3a655693d33a529534d46fbf6e1f51fa81eff0c16672c5aede238059d50a4"
   }
 }

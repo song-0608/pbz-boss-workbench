@@ -37,7 +37,7 @@ class OnlineGameRead(GameRead):
         from phantom_boss_pair_session import process_identity
         assert self.instance.get('game_identity')==process_identity(self.pid),'Original role game process changed'
         dll=api();verify_policy(dll,role,False,self.session.get('official_steam_online',False),
-            self.session.get('official_game_auth',False))
+            self.session.get('official_game_auth',False),compatible=self.session.get('compatibility_requested',False))
         assert self.pid in pids(dll,BOXES[role]),'Requested game is outside its role container'
         query=dll.SbieApi_QueryProcess
         query.argtypes=[w.HANDLE,w.LPWSTR,w.LPWSTR,w.LPWSTR,ctypes.POINTER(w.ULONG)];query.restype=w.LONG

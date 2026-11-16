@@ -8,6 +8,9 @@ function M.new(scope,peer,observer,native)
     assert(type(observer.bind_control_probe)=='function','controlled body observer required')
     local self={state='IDLE',generation=0,owned={},polls=0}
     local cancel,detach
+    local function changed()
+        if native.state_changed then native.state_changed(self.state,self.failure) end
+    end
     local function cancel_poll()
         if cancel then local old=cancel;cancel=nil;old() end
     end
@@ -34,6 +37,7 @@ function M.new(scope,peer,observer,native)
             self.owned={};self.control=nil;self.state='IDLE'
         end)
         if not ok then self.state='FAULTED';self.failure=tostring(why);native.log('assembly cleanup unverified: '..self.failure) end
+        changed()
         return ok,why
     end
     function self:revoke(reason)
@@ -43,7 +47,7 @@ function M.new(scope,peer,observer,native)
     local function failed(why)
         self.failure=tostring(why);native.log('assembly rejected: '..self.failure)
         local clean=self:stop('assembly rejected')
-        if clean then self.state='REJECTED' end
+        if clean then self.state='REJECTED';changed() end
     end
     function self:start(boss_id)
         assert(self.state=='IDLE' or self.state=='REJECTED','previous assembly must be cleaned first')
@@ -81,7 +85,7 @@ function M.new(scope,peer,observer,native)
                         self.control=native.create_control(body,self.context)
                         detach=observer.bind_control_probe(function()return self.control:observed_body()end)
                         assert(self.control:start()==true,'online input runtime did not start')
-                        self.state='READY';cancel_poll();native.log('owned Boss ready: '..boss_id)
+                        self.state='READY';cancel_poll();changed();native.log('owned Boss ready: '..boss_id)
                     end
                 end)
                 if not accepted then failed(problem) end

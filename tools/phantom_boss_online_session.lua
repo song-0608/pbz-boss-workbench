@@ -2,6 +2,7 @@
 -- The dedicated launcher issues the lease and current native declarations.
 local M={}
 function M.new(api,launch,config,peer,observer,directory,globals)
+    globals=globals or _G
     assert(type(launch.assembly)=='table' and type(launch.lease_provider)=='function',
         'online assembly options and live lease provider required')
     local scope=dofile(directory..'bwb_online_scope.lua').new(launch.lease_provider,{
@@ -14,6 +15,15 @@ function M.new(api,launch,config,peer,observer,directory,globals)
     local native=dofile(directory..'bwb_spawn_native.lua').new(api,scope,peer,observer,dependencies,
         dofile(directory..'bwb_online_control.lua'),assert(launch.assembly.bindings),globals)
     local arena=dofile(directory..'bwb_online_arena.lua').new(scope,peer,observer,native)
+    local renderer
+    if launch.assembly.bindings.workbench_ui~=nil then
+        renderer=dofile(directory..'bwb_workbench_native.lua').new(api,scope,observer,dependencies,
+            launch.assembly.bindings.workbench_ui,globals)
+    end
+    local workbench=dofile(directory..'bwb_online_workbench.lua').new(scope,peer,dependencies,config,
+        function(text)globals.print(text)end,os.time,renderer)
+    native.mount_workbench=function(control,host,layer,pc,id)return workbench:mount(control,host,layer,pc,id)end
+    native.state_changed=function(state,reason)workbench:assembly_changed(state,reason)end
     if launch.assembly.bindings.visual~=nil then
         dofile(directory..'bwb_visual_session.lua').attach(api,scope,peer,observer,dependencies,
             launch.assembly.bindings.visual,config,arena,directory,globals)

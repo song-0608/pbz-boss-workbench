@@ -9,9 +9,75 @@ from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 import phantom_boss_pair_session as session
 import phantom_boss_online_readonly as reader
+import phantom_boss_pair_compatibility as compatibility
+from check_phantom_boss_isolation import settings
 
 
 class PairSessionTests(unittest.TestCase):
+    def test_compatibility_is_opt_in_and_preserves_network_and_admin_denial(self):
+        for role in session.BOXES:
+            base=settings(role);compatible=settings(role,compatible=True)
+            self.assertNotIn('UnstrippedToken',base)
+            self.assertEqual(compatible['UnstrippedToken'],['y'])
+            self.assertEqual(compatible['NetworkAccess'],base['NetworkAccess'])
+            self.assertEqual(compatible['DropAdminRights'],['y'])
+            self.assertTrue(all(rule in compatible['ClosedFilePath'] for rule in base['ClosedFilePath']))
+
+    def test_compatibility_policy_changes_only_two_expected_keys_and_boxes(self):
+        with patch.object(compatibility,'change') as change:
+            compatibility.policy(True)
+            for call in change.call_args_list:
+                self.assertIn(call.args[1],session.BOXES.values())
+                self.assertIn(call.args[2],('UnstrippedToken','ClosedFilePath'))
+            self.assertEqual(sum(c.args[2]=='UnstrippedToken' for c in change.call_args_list),2)
+            self.assertNotIn('OpenFilePath',str(change.call_args_list))
+
+    def test_compatibility_rollback_preserves_explicit_baseline_token_setting(self):
+        prior={r:dict(UnstrippedToken=['n'],ClosedFilePath=settings(r)['ClosedFilePath']) for r in session.BOXES}
+        with patch.object(compatibility,'change') as change:
+            compatibility.policy(False,prior)
+            for box in session.BOXES.values():
+                change.assert_any_call('delete',box,'UnstrippedToken','y')
+                change.assert_any_call('set',box,'UnstrippedToken','n')
+            self.assertTrue(all(len(c.args)==4 for c in change.call_args_list))
+        prior['host']['ClosedFilePath']=['C:\\*']
+        with patch.object(compatibility,'change') as change,self.assertRaises(AssertionError):
+            compatibility.policy(False,prior)
+        change.assert_not_called()
+
+    def test_compatible_sentinel_checks_both_saved_paths_without_reading_saves(self):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);exe=root/'isolation_probe.exe';exe.write_bytes(b'fixed probe')
+            def virtual(role,path):return root/role/Path(path).relative_to(path.anchor)
+            def run(command,**kwargs):
+                box,mode=command[6:8];role=next(r for r,b in session.BOXES.items() if b==box)
+                markers=list(map(Path,command[8:10]));token=command[10].encode();report=Path(command[11])
+                if mode=='write':
+                    for marker in markers:
+                        target=virtual(role,marker);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(token)
+                target=virtual(role,report);target.parent.mkdir(parents=True,exist_ok=True)
+                target.write_bytes(b'{"sandbox_verified":true,"local_saved":true,"installed_saved":true}')
+                from types import SimpleNamespace
+                return SimpleNamespace(returncode=0)
+            with patch.object(compatibility,'virtual',side_effect=virtual),patch.object(compatibility.subprocess,'run',side_effect=run),\
+                    patch.object(compatibility,'GAME',root/'game'),patch.dict(compatibility.os.environ,LOCALAPPDATA=str(root/'local')):
+                result=compatibility.probe(root/'run',exe)
+            self.assertTrue(result['passed']);self.assertEqual(len(result['checks']),4)
+            self.assertFalse(result['saves_read_or_restored']);self.assertEqual(list(root.rglob('*.tmp')),[])
+
+    def test_watchdog_rolls_compatibility_back_before_restoring_network(self):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);path=root/'session.json';events=[]
+            value=dict(expires_at=0,formal_before={},official_steam_online=True,compatibility_requested=True)
+            with patch.object(session,'load_run',return_value=(path,value)),patch.object(session,'api'),\
+                    patch.object(session,'request_stop'),patch.object(session.time,'sleep'),patch.object(session,'formal_files',return_value={}),\
+                    patch.object(compatibility,'policy',side_effect=lambda *a:events.append('compatibility')),\
+                    patch.object(session,'network_policy',side_effect=lambda *a:events.append('network')):
+                session.watch(path)
+            result=json.loads((root/'watch.json').read_bytes())
+            self.assertEqual(events,['compatibility','network'])
+            self.assertTrue(result['compatibility_restored']and result['temporary_steam_network_restored'])
+
     def test_atomic_receipt_roundtrip_leaves_no_pending_file(self):
         with tempfile.TemporaryDirectory() as name:
             path=Path(name)/'session.json'
@@ -105,6 +171,27 @@ class PairSessionTests(unittest.TestCase):
                 self.assertEqual('PBZ.exe,Allow;Port=53;Protocol=UDP' in rules,game_auth)
                 self.assertNotIn('PBZ.exe,Allow',rules)
                 self.assertTrue(all('PBZ.exe,Allow;Address=127.0.0.1;Protocol=UDP' in rules for _ in (0,)))
+
+    def test_network_rollback_attempts_both_roles_before_any_failed_verification(self):
+        events=[]
+        def change(*args):events.append(('write',args[1]))
+        def verify(dll,role,*args):
+            events.append(('verify',role))
+            if role=='host':raise AssertionError('compatibility still pending')
+        with patch.object(session,'api'),patch.object(session,'change',side_effect=change),\
+                patch.object(session,'verify_policy',side_effect=verify),self.assertRaisesRegex(RuntimeError,'host network rollback verify'):
+            session.network_policy(False)
+        self.assertIn(('write',session.BOXES['guest']),events)
+        self.assertEqual(events[-2:],[('verify','host'),('verify','guest')])
+
+    def test_network_rollback_still_attempts_guest_after_host_write_failure(self):
+        def change(operation,box,*args):
+            if box==session.BOXES['host']:raise OSError('write failed')
+        with patch.object(session,'api'),patch.object(session,'change',side_effect=change) as write,\
+                patch.object(session,'verify_policy') as verify,self.assertRaisesRegex(RuntimeError,'host network rollback write'):
+            session.network_policy(False)
+        self.assertTrue(any(c.args[1]==session.BOXES['guest'] for c in write.call_args_list))
+        self.assertEqual([c.args[1] for c in verify.call_args_list],['host','guest'])
 
     def test_cached_user_does_not_qualify_as_online_game_authorization(self):
         value=dict(status='clients-running',instances={r:{} for r in session.BOXES})

@@ -13,6 +13,19 @@ import player_keymap
 
 
 class CandidateTests(unittest.TestCase):
+    def test_all_native_workbench_textures_are_pinned_and_staged(self):
+        art=candidate.workbench_art(self.root)
+        self.assertEqual(len(art),17)
+        for name,data in art.items():
+            self.assertEqual((self.target/'PBZCoop/art/bwb_workbench'/name).read_bytes(),data)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            shutil.copytree(self.root/'assets/online-workbench',root/'assets/online-workbench')
+            (root/'tools').mkdir()
+            shutil.copy2(self.root/'tools/build_phantom_boss_workbench_art.py',root/'tools')
+            (root/'assets/online-workbench/menu-1-1.png').write_bytes(b'changed texture')
+            with self.assertRaises(AssertionError):candidate.workbench_art(root)
+
     @classmethod
     def setUpClass(cls):
         cls.root = candidate.ROOT

@@ -23,14 +23,17 @@ SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_c
            'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua',
            'tools/phantom_boss_startup.lua', 'tools/phantom_boss_combat_runtime.lua',
            'tools/phantom_boss_visual.lua', 'tools/phantom_boss_visual_native.lua', 'tools/phantom_boss_visual_session.lua',
-           'tools/phantom_boss_launch_gate.lua')
+           'tools/phantom_boss_launch_gate.lua', 'tools/phantom_boss_online_workbench.lua',
+           'tools/phantom_boss_workbench_native.lua', 'tools/build_phantom_boss_workbench_art.py',
+           'assets/online-workbench/art.json')
 LOCAL_MODULES = ('control_bridge', 'ue_calls', 'session', 'runtime', 'input_driver', 'world_boundary',
     'boss_catalog', 'keymap', 'profiles/ahua', 'profiles/wanjun', 'profiles/yanqiansui', 'profiles/youlong',
     'profiles/wanjun_bindings', 'profiles/yanqiansui_bindings', 'profiles/youlong_bindings',
     'object_lifecycle', 'ue_combat', 'owned_initialization', 'player_protection', 'ue_arena_layout',
     'arena_layout', 'yanqiansui_clearance_core', 'combat_identity', 'remote_control', 'ue_remote',
     'ue_camera', 'camera_rig', 'ue_input_barrier', 'input_barrier', 'ue_host', 'ue_input',
-    'combo_scheduler', 'subtree_contracts', 'target_selector')
+    'combo_scheduler', 'subtree_contracts', 'target_selector',
+    'boss_workbench', 'workbench_input', 'workbench_catalog')
 PENDING = [
     'dedicated online launcher, lease issuer, isolated same-PC deployment and live assembly/recovery acceptance',
     'Boss-specific ghost assembly, harmless effects and same-world parking contract',
@@ -45,6 +48,23 @@ def sha(data):
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode()
+
+
+def workbench_art(root):
+    directory=root/'assets/online-workbench'
+    manifest=json.loads((directory/'art.json').read_bytes())
+    expected={f'menu-{c}-{s}.png' for c in range(1,5) for s in range(1,5)}
+    assert manifest['schema']==1 and manifest['width']==1000 and manifest['height']==620
+    assert manifest['boss_order']==['ahua_guitoudao','057_wanjun','073_yanqiansui','056_youlong']
+    assert manifest['source_sha256']==sha((root/'tools/build_phantom_boss_workbench_art.py').read_bytes())
+    assert set(manifest['files'])==expected
+    result={'art.json':(directory/'art.json').read_bytes()}
+    for name in expected:
+        data=safe_file(directory,name).read_bytes()
+        assert sha(data)==manifest['files'][name] and data[:8]==b'\x89PNG\r\n\x1a\n'
+        assert int.from_bytes(data[16:20],'big')==1000 and int.from_bytes(data[20:24],'big')==620
+        result[name]=data
+    return result
 
 
 def safe_file(root, name):
@@ -347,10 +367,12 @@ def build(source=None, lua_lab=None, root=ROOT):
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
     for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control',
                   'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup', 'combat_runtime',
-                  'visual', 'visual_native', 'visual_session', 'launch_gate'):
+                  'visual', 'visual_native', 'visual_session', 'launch_gate', 'online_workbench', 'workbench_native'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in LOCAL_MODULES:
         contents[f'PBZCoop/Scripts/bwb_local_native/{name}.lua'] = (release / f'PBZBossControl/Scripts/{name}.lua').read_bytes()
+    for name,data in workbench_art(root).items():
+        contents['PBZCoop/art/bwb_workbench/'+name]=data
     for name in patches():
         contents['upstream-local-patches/' + name] = patch_source(
             name, (source / SCRIPTS / name).read_text(encoding='utf-8')).encode()
@@ -358,7 +380,8 @@ def build(source=None, lua_lab=None, root=ROOT):
     contents['README.txt'] = (
         'SOURCE-ONLY BACKEND CANDIDATE. NOT AN INSTALLER OR MULTIPLAYER RELEASE.\n'
         'Requires a separately acquired Phantom Pact 1.7.3; no upstream DLL or complete mod is bundled.\n'
-        'Home: online panel; End: follow partner; F6/F10: reserved for Boss workbench.\n'
+        'Insert: Boss chooser; arrows/Enter/Esc: select/confirm/close; F6/F10: control/restore.\n'
+        'Native UMG presentation is conditional on current-process UI declarations.\n'
         'Boss ghost assembly and live damage are blocked pending their native contracts.\n'
         'No launch entry, enabled.txt, network policy, saved game or single-player release is changed.\n'
     ).encode()

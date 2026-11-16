@@ -183,6 +183,21 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
         end
         local control=Control.new(a,profile,c.config,scope,peer,runtime_host,dependencies)
         for k,v in pairs(req('ue_host').new(control.bridge,profile.input,g))do runtime_host[k]=v end
+        if n.mount_workbench then
+            local pc=calls:resolve(c.pc)
+            local camera=req('ue_camera').new(g,profile.camera)
+            local layer=req('workbench_input').new(calls,a.input_barrier,{
+                create=function()return camera.spawn_camera(pc,body,profile.camera)end,
+                finish=function(owner)
+                    local transform=maths:MakeTransform(body:K2_GetActorLocation(),
+                        {Pitch=0,Yaw=0,Roll=0},{X=1,Y=1,Z=1})
+                    local finished=statics:FinishSpawningActor(owner,transform,profile.camera.spawn_scale)
+                    return usable(finished)and calls:same(owner,finished)
+                end,
+                destroy=camera.destroy_camera,
+            })
+            n.mount_workbench(control,runtime_host,layer,pc,profile.id)
+        end
         return control
     end
     n.destroy=function(record,c)

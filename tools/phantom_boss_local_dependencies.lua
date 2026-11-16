@@ -9,7 +9,8 @@ return function(directory)
         object_lifecycle=true,ue_combat=true,owned_initialization=true,player_protection=true,
         ue_arena_layout=true,arena_layout=true,yanqiansui_clearance_core=true,combat_identity=true,
         remote_control=true,ue_remote=true,ue_camera=true,camera_rig=true,ue_input_barrier=true,
-        input_barrier=true,ue_host=true,ue_input=true,combo_scheduler=true,subtree_contracts=true,target_selector=true}
+        input_barrier=true,ue_host=true,ue_input=true,combo_scheduler=true,subtree_contracts=true,target_selector=true,
+        boss_workbench=true,workbench_input=true,workbench_catalog=true}
     local cache,loading={},{}
     local env=setmetatable({},{__index=_G})
     local function exact_require(name)

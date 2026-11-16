@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "width": 1000,
+  "height": 620,
+  "boss_order": [
+    "ahua_guitoudao",
+    "057_wanjun",
+    "073_yanqiansui",
+    "056_youlong"
+  ],
+  "files": {
+    "menu-1-1.png": "b7d7192e8cbc4418f0af91a0b4b613bff67ee7e2fed24e9f70e2159d9233699c",
+    "menu-1-2.png": "4da9be20c7005e49cff5ebe9d0ccebcdd04038509844185a877d309630090fd5",
+    "menu-1-3.png": "367b8d5f9701149ee4df522a4b9f8d8274a45bb9861139cec426ef3d143253b3",
+    "menu-1-4.png": "6e4db10487329e2dc043b3a3042b40791eff89c5e24cb7f04df608ed1ff853e6",
+    "menu-2-1.png": "6dabf7129b390777d96987784260a683ce6d4d8cc33f34aaffd1407ca2f3b7de",
+    "menu-2-2.png": "3c0ec0defa7844d1ab3cd3e6cb5b35e4c6dc1cb73f1eefdc390e63fd02982f4d",
+    "menu-2-3.png": "ed8006b31ddf89b6616eb7fa0a7839835d4e49bff81b687f3b1d03544cf08588",
+    "menu-2-4.png": "6a2c744f5eddb5c4b82aeb6512be7fc2ce6203d7515aa6863ad235de05429cce",
+    "menu-3-1.png": "3a26b5f2be4d73b014c28e8e174327934f12f909756315c673bbea511ea884c7",
+    "menu-3-2.png": "dcb2333fb2fe7d46fbd2b0b2c1c6b848b7a2cc9b36b0228ede789a15efb2ac74",
+    "menu-3-3.png": "8d0123a6d156ad3ed492cea6abffdfebf859054ccad4c2101905e4ad2f351acb",
+    "menu-3-4.png": "391f2ea1c812c3863b22d7dc92f322520a23608f67a8048503f78df4505e44d8",
+    "menu-4-1.png": "81d9ed8636638940ed4960b60ebd327492ac3245ab5c835319aeebae1b553cdd",
+    "menu-4-2.png": "27397ad38afbda3ac62d8ad4d1c23f31a874383fc084504d8f33ec308c56577e",
+    "menu-4-3.png": "6c525cfd712ec04f828ebdc4f4476dc0757ca32de2608b9b9b0e4ee9038b193a",
+    "menu-4-4.png": "3d8d835259061af5c2ba689e0b529bcfecbdd12a18ead5f130a292933d2029b5"
+  },
+  "source_sha256": "480d3250993d239abe36f3299cac276d9ba8d4658e27e428b6a1a66cf6188d3c",
+  "font_sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+  "game_started": false
+}

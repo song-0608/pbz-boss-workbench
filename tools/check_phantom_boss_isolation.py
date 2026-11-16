@@ -21,7 +21,7 @@ BOXES = dict(host='PBZOnlineHost', guest='PBZOnlineGuest')
 PROBE_SOURCE = 'tools/phantom_boss_isolation_probe.cpp'
 
 
-def settings(role, probes=False, official_online=False, official_game_auth=False):
+def settings(role, probes=False, official_online=False, official_game_auth=False, compatible=False):
     box = BOXES[role]
     other = BOXES['guest' if role == 'host' else 'host']
     rules = ['*,Block', 'PBZ.exe,Allow;Address=127.0.0.1;Protocol=UDP',
@@ -34,13 +34,18 @@ def settings(role, probes=False, official_online=False, official_game_auth=False
     if official_game_auth:
         assert official_online,'Official game authentication requires its logged-on research Steam client'
         rules.extend(('PBZ.exe,Allow;Protocol=TCP','PBZ.exe,Allow;Port=53;Protocol=UDP'))
-    return dict(Enabled=['y'], AutoRecover=['n'], AutoDelete=['n'], NeverDelete=['y'],
+    result=dict(Enabled=['y'], AutoRecover=['n'], AutoDelete=['n'], NeverDelete=['y'],
         DropAdminRights=['y'], SeparateUserFolders=['n'], BoxNameTitle=['y'],
         BorderColor=['#48B0FF,ttl' if role == 'host' else '#B080FF,ttl'],
         Template=['BlockPorts'],
         FileRootPath=[str(SBIE / (box+'Root'))], NetworkEnableWFP=['y'], AllowNetworkAccess=['y'],
         NetworkAccess=rules, NormalFilePath=[r'\Device\NamedPipe\*steam*'],
         ClosedFilePath=[r'D:\steam\*', str(SBIE / (other+'Root'))+'\\*'])
+    if compatible:
+        result['UnstrippedToken']=['y']
+        result['ClosedFilePath'].extend([r'PBZ.exe,*\gameoverlayrenderer64.dll',
+            r'PBZ.exe,*\nvspcap64.dll',r'PBZ.exe,*\nvppex.dll'])
+    return result
 
 
 def api():
@@ -102,7 +107,7 @@ def sections():
     return result
 
 
-def verify_policy(dll,role,probes,official_online=False,official_game_auth=False):
+def verify_policy(dll,role,probes,official_online=False,official_game_auth=False,compatible=False):
     box=BOXES[role]
     kernel=ctypes.WinDLL('kernel32',use_last_error=True)
     kernel.QueryDosDeviceW.argtypes=[w.LPCWSTR,w.LPWSTR,w.DWORD]
@@ -114,7 +119,7 @@ def verify_policy(dll,role,probes,official_online=False,official_game_auth=False
             return target.value+text[2:]
         return text
     raw=sections()[box]
-    for key,expected in settings(role,probes,official_online,official_game_auth).items():
+    for key,expected in settings(role,probes,official_online,official_game_auth,compatible).items():
         configured=[line.split('=',1)[1] for line in raw if line.split('=',1)[0]==key]
         assert configured==expected, 'Unexpected configured online setting: '+box+'/'+key
         actual=values(dll,box,key)
@@ -135,8 +140,10 @@ def verify_policy(dll,role,probes,official_online=False,official_game_auth=False
     assert values(dll,box,'OpenIpcPath') in ([],[r'\RPC Control\webcache_*',
         r'*\BaseNamedObjects\windows_webcache_counters_*']), 'Unexpected host IPC exception'
     for key in ('OpenFilePath','OpenPipePath','BreakoutProcess','BreakoutFolder',
-                'NoSecurityIsolation','UnfilteredToken','KeepTokenIntegrity','UnstrippedToken','NoUntrustedToken'):
+                'NoSecurityIsolation','UnfilteredToken','KeepTokenIntegrity','NoUntrustedToken','UnrestrictedToken'):
         assert values(dll,box,key) in ([],['n']), 'Unexpected online isolation exception: '+box+'/'+key
+    if not compatible:
+        assert values(dll,box,'UnstrippedToken') in ([],['n']), 'Unexpected unleased compatibility setting'
 
 
 def virtual(role,logical):
