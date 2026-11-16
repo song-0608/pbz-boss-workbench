@@ -84,3 +84,6 @@ tools/four_boss_integration_workflow.py -text whitespace=cr-at-eol
 tools/test_four_boss_integration.py -text whitespace=cr-at-eol
 tools/collect_four_boss_integration.py -text whitespace=cr-at-eol
 tests/test_four_boss_integration_workflow.py -text whitespace=cr-at-eol
+tools/collect_four_boss_attempt.py -text whitespace=cr-at-eol
+research/boss-adaptation/developer-attempt-receipts/four-boss-selection-refusal-20261116-080111.json -text whitespace=cr-at-eol
+research/boss-adaptation/developer-attempt-receipts/four-boss-youlong-20261116-080111.json -text whitespace=cr-at-eol
