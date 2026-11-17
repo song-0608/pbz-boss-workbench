@@ -1,0 +1,86 @@
+{
+  "at": "2026-11-18T00:28:46.526921+08:00",
+  "compiled_from_source": true,
+  "main_revision": "560411f18512b6c9395285e55624de4b91a2c45b",
+  "unreal_revision": "c3dcec82c6356daffd754d4470bf1315584116ba",
+  "configuration": "Game__Shipping__Win64",
+  "source_kind": "Pinned authorized source plus locally regression-tested Win32Async input correction",
+  "artifacts": [
+    {
+      "path": "D:\\mod文档\\build\\ue4ss-ascii\\Game__Shipping__Win64\\bin\\UE4SS.dll",
+      "bytes": 20714496,
+      "sha256": "7cc1c7f3780057b1dffd6719a5050275dcd2f8a753d6999ddb323a98239bce97"
+    },
+    {
+      "path": "D:\\mod文档\\build\\ue4ss-ascii\\Game__Shipping__Win64\\bin\\UE4SS.pdb",
+      "bytes": 96628736,
+      "sha256": "e1907b9fbc0e8fd721c6f110fbf6903f0d8f75ad2110f9f9e85466e4d97a4e01"
+    },
+    {
+      "path": "D:\\mod文档\\build\\ue4ss-ascii\\Game__Shipping__Win64\\bin\\dwmapi.dll",
+      "bytes": 273920,
+      "sha256": "3c49d48565a0fb86241c18705728b83420e6fa0ab9dbf6b6cc1750a442ff921f"
+    },
+    {
+      "path": "D:\\mod文档\\build\\ue4ss-ascii\\Game__Shipping__Win64\\bin\\dwmapi.pdb",
+      "bytes": 2240512,
+      "sha256": "4d951d6db8f29549292ce498c19edb8330ccb2f8f029359468a87f289a0ee04d"
+    }
+  ],
+  "practice_test": {
+    "started_at": "2026-11-18T00:27:49.108449+08:00",
+    "target": "D:\\mod文档\\build\\UE58Lab-Development\\Windows\\UE58Lab\\Binaries\\Win64\\UE58Lab.exe",
+    "engine": "UE5.8.1 Development self-packaged lab",
+    "ue4ss_source_revision": "560411f18512b6c9395285e55624de4b91a2c45b",
+    "selfbuilt_dll": "D:\\mod文档\\build\\ue4ss-ascii\\Game__Shipping__Win64\\bin\\UE4SS.dll",
+    "dll_sha256": "7cc1c7f3780057b1dffd6719a5050275dcd2f8a753d6999ddb323a98239bce97",
+    "proxy_sha256": "3c49d48565a0fb86241c18705728b83420e6fa0ab9dbf6b6cc1750a442ff921f",
+    "stage": "D:\\mod文档\\build\\selfbuilt-ue4ss-smoke\\20261118-002749\\ue4ss",
+    "passed": true,
+    "pbz_tested": false,
+    "gameplay_modified": false,
+    "pid": 32792,
+    "modules": [
+      {
+        "module": "dwmapi.dll",
+        "path": "D:\\mod文档\\build\\UE58Lab-Development\\Windows\\UE58Lab\\Binaries\\Win64\\dwmapi.dll"
+      },
+      {
+        "module": "dwmapi.dll",
+        "path": "C:\\WINDOWS\\system32\\dwmapi.dll"
+      },
+      {
+        "module": "UE4SS.dll",
+        "path": "D:\\mod文档\\build\\selfbuilt-ue4ss-smoke\\20261118-002749\\ue4ss\\UE4SS.dll"
+      }
+    ],
+    "loaded_selfbuilt_dll": true,
+    "exit_code_before_cleanup": null,
+    "lua_started": true,
+    "reflection_actor_read": true,
+    "world_read": true,
+    "test_process_terminated_after_observation": true,
+    "temporary_proxy_removed": true,
+    "scope": "Self-built loader, initialization, Lua and read-only reflection in custom lab; no PBZ or clean-shutdown validation"
+  },
+  "pbz_compatibility_verified": false,
+  "boss_control_verified": false,
+  "input_regression": {
+    "at": "2026-11-18T00:26:33.956951+08:00",
+    "passed": true,
+    "compiler": "D:\\vs\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+    "output": "PASS: initial focus establishes baseline\r\nPASS: historical low bits do not generate keyboard or mouse events\r\nPASS: high bit generates one real press\r\nPASS: held key does not repeat\r\nPASS: released key may be pressed again\r\nPASS: next distinct press needs no idle sampling frame\r\nPASS: alternating keys preserve every new press\r\nPASS: unfocused window receives no events\r\nPASS: key held during focus return is suppressed\r\nPASS: same class in another process is rejected\r\nPASS: foreign process press cannot leak on focus return\r\nPASS: historical modifier bit is ignored\r\nPASS: held modifier remains functional\r\nPASS: input permission gate is preserved\r\nPASS: disallowed press is not replayed later\r\nPASS: reactivation resets focus baseline\r\nPASS: exact observed research class accepts a current press\r\nPASS: research class in another process stays rejected\r\nPASS: return from foreign research window seeds held keys\r\nPASS: other sandbox namespace stays rejected\r\nPASS: arbitrary class suffix is insufficient\r\nPASS: research window cannot replay historical low bits\r\nPASS: unavailable message hook is not retried every poll\r\nPASS: message observer attaches only to the current process window thread\r\nPASS: complete keyboard tap between async polls is preserved exactly once\r\nPASS: drained message tap is never replayed\r\nPASS: short chord keeps event-time modifiers after release\r\nPASS: held key and native autorepeat do not create duplicate actions\r\nPASS: short mouse tap uses the same bounded queue\r\nPASS: side mouse buttons remain available\r\nPASS: peeked message is ignored until removed\r\nPASS: permission is rechecked at dispatch\r\nPASS: press observed while input is disabled is discarded\r\nPASS: queued tap older than 250 ms expires after a stall\r\nPASS: stale window messages force a fresh focus baseline\r\nPASS: focus loss between polls flushes pending input\r\nPASS: other window messages cannot trigger this source\r\nPASS: foreign foreground activity cannot leak through a fast focus roundtrip\r\nPASS: message path seeds a key held on focus return\r\nPASS: held key from another focus cannot cast\r\nPASS: overflow discards the batch and establishes a new baseline\r\nPASS: fresh input resumes after bounded overflow recovery\r\nPASS: deactivation unhooks and drops pending actions\r\nWIN32_ASYNC_INPUT_REGRESSION:PASS\r\n",
+    "source_sha256": {
+      "tests\\test_win32_async_input.cpp": "7f23435152d8e50335d8280519aeb79917fb6f5fad9ad1dfd8348c9d95b2ec23",
+      "upstream\\RE-UE4SS\\deps\\first\\Input\\src\\Platform\\Win32AsyncInputSource.cpp": "9ba09fe84f2daaa7ef63f00e4f9626dfc62bf6dec2f1138339ea86bcd7a6c888",
+      "upstream\\RE-UE4SS\\deps\\first\\Input\\include\\Input\\Platform\\Win32AsyncInputSource.hpp": "f92f7837e40e1a4e3ef79115d614074e184e2656da7861b7c941854e87030d18"
+    },
+    "scope": "Production C++ input implementation, deterministic Win32 API fixture; no game input sent"
+  },
+  "previous_verification": {
+    "path": "D:\\mod文档\\evidence\\setup\\selfbuilt-ue4ss-20261117-234812\\verification.json",
+    "sha256": "e66427b4457c089e189fc63bc612550281a55cb2bd72a04c6f0a919f5cbcfc33"
+  },
+  "build_command": "cmake --build E:/ue4ss/build/ue4ss-ascii --config Game__Shipping__Win64 --target UE4SS --parallel 4",
+  "pbz_tested": false
+}

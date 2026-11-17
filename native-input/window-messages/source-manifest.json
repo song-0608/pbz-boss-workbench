@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "purpose": "Bounded same-process window-message observer; no input injection; current foreground and permission rechecks; 250 ms expiry; fallback preserves async high-bit-only path",
+  "files": {
+    "Win32AsyncInputSource.cpp": {
+      "source": "D:\\mod文档\\upstream\\RE-UE4SS\\deps\\first\\Input\\src\\Platform\\Win32AsyncInputSource.cpp",
+      "sha256": "9ba09fe84f2daaa7ef63f00e4f9626dfc62bf6dec2f1138339ea86bcd7a6c888"
+    },
+    "Win32AsyncInputSource.hpp": {
+      "source": "D:\\mod文档\\upstream\\RE-UE4SS\\deps\\first\\Input\\include\\Input\\Platform\\Win32AsyncInputSource.hpp",
+      "sha256": "f92f7837e40e1a4e3ef79115d614074e184e2656da7861b7c941854e87030d18"
+    },
+    "test_win32_async_input.cpp": {
+      "source": "D:\\mod文档\\tests\\test_win32_async_input.cpp",
+      "sha256": "7f23435152d8e50335d8280519aeb79917fb6f5fad9ad1dfd8348c9d95b2ec23"
+    },
+    "test_win32_async_input.py": {
+      "source": "D:\\mod文档\\tools\\test_win32_async_input.py",
+      "sha256": "333008d320bf86ce444a68506de68692d8db8c1e7aebab892747de67505ddd9f"
+    },
+    "input-regression.json": {
+      "source": "D:\\mod文档\\evidence\\input-regression\\latest-result.json",
+      "sha256": "3363c7be90e579b1bf93e2e29b1d688018671775bf458b6b8f2a205d6d100581"
+    },
+    "build-verification.json": {
+      "source": "D:\\mod文档\\evidence\\setup\\selfbuilt-ue4ss-20261118-002846\\verification.json",
+      "sha256": "bc29758a20236f836a323d2e560708593523a56007272efaf58042342f058d5c"
+    }
+  },
+  "pbz_runtime_verified": false
+}
