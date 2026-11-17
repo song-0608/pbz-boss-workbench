@@ -7,6 +7,7 @@ from boss_workbench_v4_window import check_installed
 from four_boss_integration_workflow import modules
 from mod_installation import ROOT, MANIFEST, assert_closed, digest, installed_package, read, validate_package
 from research_scene_checkpoint import LABEL, storage, save_snapshot
+from verify_research_scene_reload import verify as verify_reload
 
 
 def check():
@@ -46,12 +47,14 @@ def check():
     assert checkpoint_path.parent == storage() and checkpoint['label'] == LABEL
     assert read(checkpoint_path / 'checkpoint.json') == checkpoint
     assert save_snapshot(checkpoint_path) == checkpoint['files']
+    reload = verify_reload()
     return dict(passed=True, release_id=identifier, installed_manifest_sha256=digest(directory / MANIFEST),
                 installed_and_enabled=receipt['enabled'], bosses=4, abilities=52, bindings=53,
                 offline_groups=13, ordinary_extra_actions=24, ordinary_session=ordinary['session'],
                 world_session=ordinary['world_session'], publisher_evidence_replayed=True,
                 checkpoint_label=LABEL, checkpoint_file_count=len(checkpoint['files']),
-                checkpoint_integrity_verified=True, checkpoint_reload_verified=checkpoint['reload_verified'],
+                checkpoint_integrity_verified=True, checkpoint_reload_verified=reload['reload_verified'],
+                checkpoint_reload_session=reload['session'],
                 default_entry_verified=True, game_started=False)
 
 

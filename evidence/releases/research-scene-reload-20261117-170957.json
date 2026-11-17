@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "label": "悲泣溪谷—斧老大斩落处",
+  "session": "20261117-170957",
+  "recorded_at": "2026-11-17T17:17:58.699590+08:00",
+  "checkpoint_manifest_sha256": "7cd66e1e2cd66d8090b48dc4b2a6b4be432c783fcd039a3530c9efb92a64d265",
+  "checkpoint_file_count": 53,
+  "observation": {
+    "method": "assistant_visual_observation_via_computer_use",
+    "title_continue_observed": true,
+    "direct_open_area_spawn_observed": true,
+    "no_travel_or_teleport_performed": true,
+    "mod_not_armed": true,
+    "landmarks": [
+      "主角位于青铜鹤寄魂点旁",
+      "前方为溪水与开阔浅滩",
+      "对岸可见木屋、水轮与木制高台"
+    ],
+    "observed_window_title": "[#] Phantom Blade Zero   [#]",
+    "input_sequence": [
+      "title Continue click",
+      "E interaction attempt; checkpoint prompt remained visible"
+    ],
+    "screenshot_archive": null,
+    "evidence_surface": "Computer Use screenshots shown in this conversation",
+    "limitation": "Visual scene correspondence observed by assistant, not automated image or location-name recognition."
+  },
+  "sources": {
+    "runtime/official-validation-20261117-170957/state.json": "4b875d5deeda0405ad4434242afe2783b7a279f6b62db1af0962f41bea03976d",
+    "evidence/official-validation/20261117-170957/postcheck.json": "9fbb6eed06c52016b434ec074bfd00a196f83fe2c3d8bcac81049332c66f7719",
+    "evidence/official-validation/20261117-170957/research-checkpoint-applied.json": "4a0682368b28218ea1995d88f6c0b84349eb15e437c351887c432174fc4936f0",
+    "evidence/official-validation/20261117-170957/UE4SS.log": "3ed4807c78bc22f3fc06255fe53979c5a92f2a96df52761029debb27d703a3ab",
+    "tools/verify_research_scene_reload.py": "8a6f07bcf728d19dd498d34de8867de2f0cb74437addf02b67d7fde22dc99dca"
+  }
+}

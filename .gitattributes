@@ -222,3 +222,7 @@ evidence/releases/ahua-boss-workbench-v4-d2cb2593f6ea392e-acceptance.json -text 
 evidence/releases/boss-skills-v4-player-delivery-20261117.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-skill-campaign-8c170315c8923a86.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-skills-v4-offline.json -text whitespace=cr-at-eol
+tools/verify_research_scene_reload.py -text whitespace=cr-at-eol
+tests/test_research_scene_reload.py -text whitespace=cr-at-eol
+evidence/releases/research-scene-reload-20261117-170957.json -text whitespace=cr-at-eol
+evidence/releases/boss-skills-v4-player-delivery-reload-20261117.json -text whitespace=cr-at-eol

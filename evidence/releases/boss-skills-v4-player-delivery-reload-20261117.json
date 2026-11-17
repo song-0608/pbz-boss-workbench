@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "release_id": "ahua-boss-workbench-v4-d2cb2593f6ea392e",
+  "installed_manifest_sha256": "a4bff25a22f303ff862796f88c641df93530dc61aac1a29c180be5965e6ffc2e",
+  "installed_and_enabled": true,
+  "bosses": 4,
+  "abilities": 52,
+  "bindings": 53,
+  "offline_groups": 13,
+  "ordinary_extra_actions": 24,
+  "ordinary_session": "20261117-152918",
+  "world_session": "20261117-155229",
+  "publisher_evidence_replayed": true,
+  "checkpoint_label": "悲泣溪谷—斧老大斩落处",
+  "checkpoint_file_count": 53,
+  "checkpoint_integrity_verified": true,
+  "checkpoint_reload_verified": true,
+  "checkpoint_reload_session": "20261117-170957",
+  "default_entry_verified": true,
+  "game_started": false,
+  "h_workspace_entry_verified": true,
+  "e_project_entry_verified": true,
+  "h_workspace_entry_text": "@echo off\nchcp 65001 >nul\nrem Frozen installation and evidence remain in the canonical research repository.\nset \"PBZ_VERIFIED_ENTRY=D:\\mod文档\\PBZ-Boss操控研究\\开始Boss工作台.cmd\"\nif not exist \"%PBZ_VERIFIED_ENTRY%\" (\n  echo Verified Boss workbench entry is missing. See README.md in this folder.\n  pause\n  exit /b 1\n)\ncall \"%PBZ_VERIFIED_ENTRY%\"\n",
+  "h_workspace_files_sha256": {
+    "H:\\ue4ss\\开始Boss工作台.cmd": "4cf800b5405a5ab93fcd638f20eb477dd3ca6fc8d34dddacac0f55299472eea0",
+    "H:\\ue4ss\\README.md": "4ac09ca147bfbcbe59891406539c35f0117b6fa22963c709f55a77160bba753b",
+    "H:\\ue4ss\\AGENTS.md": "c0e0daaad6dcdf623f8b1ead3572ea3fc8250af09fac754201ded27f1e938edb"
+  },
+  "source_sha256": {
+    "tools/verify_boss_skill_delivery.py": "98201a9024e4648251dbfe76026ee0f16e37eb4d1662c3f87547bcefaf9f3044",
+    "tools/verify_research_scene_reload.py": "8a6f07bcf728d19dd498d34de8867de2f0cb74437addf02b67d7fde22dc99dca",
+    "tests/test_research_scene_reload.py": "bfdfa5f95717631a7b7f31b479913d3e4078805806a3a2d3121093d1b42fe7c1",
+    "AGENTS.md": "8d4832054ec08d0727c122beb37cd0655a31a881a446c22444c60535b2350017",
+    "README.md": "26ad4dd3c058d5bce0cb0ce9dabe43d68ce26376dcce7cda8295dc307b33744b",
+    "71-后端优先与集中验收.md": "94554c21268eacee9ce66e8ce6211c01fa52c6aa9354b8e0f6306a959662b975",
+    "72-四Boss技能扩展v4操作说明.md": "98679190d7da72e2144d1d0ca50d7a7bf7296ee595428acc4ec44be8ca17c69e",
+    "开始Boss工作台.cmd": "f97c694bdbe7a14296317f395cf9c42e45fd16c23acf8c29fb768288502321f8"
+  }
+}

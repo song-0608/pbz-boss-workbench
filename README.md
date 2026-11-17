@@ -30,8 +30,11 @@ preserves the current Boss. Historical releases and failed attempts are retained
 The research environment and a fixed Beiqi Valley axe-Boss save snapshot live
 under `E:\项目\PBZ-Boss操控研究`; source remains on D:. Workbench preparation
 automatically applies the hash-checked scene snapshot and backs up the previous
-research progress. The subsequent cold-start visual confirmation was interrupted
-by a window-tool error and is not marked verified. Formal saves are unchanged.
+research progress. Session `20261117-170957` then loaded the saved open area
+directly through title-screen Continue, observed beside the checkpoint without
+travel or teleport. The visual observation and closed-session checks are recorded
+separately; the earlier window-tool failure and original capture metadata remain
+unchanged. Formal saves are unchanged.
 Network adaptation remains deferred.
 
 ## Performance
