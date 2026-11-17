@@ -74,6 +74,7 @@ function M.new(o)
         self.remote_key,self.remote_sequence,self.pending=key,sequence,frame
         return true
     end
+    local source_complete=false
     local function update()
         o.attest(false)
         if not ready() then self:invalidate('identity not ready',true);return end
@@ -98,6 +99,8 @@ function M.new(o)
                 assert(#line<850,'visual packet exceeds relay bound');o.send(M.EVENT,line)
             end
         end
+        source_complete=true
+        self.source_failures,self.source_retry_at=0,nil
         -- Keep publishing the local pose while a failing remote renderer cools
         -- down. A valid packet alone cannot authorize frame-rate reconstruction.
         if self.pose_retry_at and now<self.pose_retry_at then return end
@@ -137,11 +140,24 @@ function M.new(o)
         -- Retire its recorded Actor at most four times per second, and require
         -- a fresh packet after recovery before constructing another body.
         if self.restore_pending then self:invalidate(self.reason,true);return end
+        -- Source observation/sampling has its own cooldown. Remote render
+        -- failures must not suppress healthy sends, while a failing source
+        -- must not repeat native ownership/animation reads at timer cadence.
+        if (self.source_failures or 0)>0 then
+            local now=recovery_clock()
+            if not now or (self.source_retry_at and now<self.source_retry_at)then return end
+        end
+        source_complete=false
         local ok,why=pcall(update)
         if not ok then
-            self.pose_failures=math.min((self.pose_failures or 0)+1,4)
             local now=recovery_clock()
-            self.pose_retry_at=now and now+.25*2^(self.pose_failures-1) or nil
+            if source_complete then
+                self.pose_failures=math.min((self.pose_failures or 0)+1,4)
+                self.pose_retry_at=now and now+.25*2^(self.pose_failures-1) or nil
+            else
+                self.source_failures=math.min((self.source_failures or 0)+1,4)
+                self.source_retry_at=now and now+.25*2^(self.source_failures-1) or nil
+            end
             self:invalidate('visual update failed: '..tostring(why),true)
             if self.last_error~=self.reason then self.last_error=self.reason;o.log(self.reason)end
         end

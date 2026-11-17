@@ -20,7 +20,8 @@ local function fixture(role)
     local options={role=role or 'host',session='bwb_visual_test',protocol=protocol,
         bosses={ahua={},youlong={}},animations={ahua={[asset]=2},youlong={[asset]=2}},native=native,
         now=function()return s.now end,send=function(kind,line)s.sent[#s.sent+1]={kind,line}end,
-        snapshot=function()return frame end,world=function()return s.world,s.map,{x=0,y=0,z=0}end,
+        snapshot=function()s.samples=(s.samples or 0)+1;if s.sample_error then error('local sampling failed')end;return frame end,
+        world=function()s.world_reads=(s.world_reads or 0)+1;if s.world_error then error('local observation failed')end;return s.world,s.map,{x=0,y=0,z=0}end,
         attest=function()if s.expired then error('expired')end end,log=function(t)s.logs[#s.logs+1]=t end}
     local v=Visual.new(options);s.v,s.p,s.local_frame,s.options=v,protocol,frame,options
     v:tick() -- establish this local World; no remote Actor is created
@@ -40,6 +41,49 @@ check('sender emits complete generation-bound poses at most twenty times per sec
     local s=fixture();assert(#s.sent==1 and s.sent[1][1]=='BWV1' and #s.sent[1][2]<850)
     for _=1,100 do s.v:tick()end;assert(#s.sent==1)
     s.now=1.051;s.v:tick();assert(#s.sent==2 and s.mounts==0)
+end)
+check('local observation failures back off before repeating native reads',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.world_error=true;s.v:tick()
+    local reads,samples=s.world_reads,s.samples
+    assert(s.destroys==1 and not s.v.record)
+    for i=1,1000 do s.now=1+i*.0002;s.v:tick()end
+    assert(s.world_reads==reads and s.samples==samples)
+    s.now=1.251;s.v:tick();assert(s.world_reads==reads+1)
+    s.now=1.51;s.v:tick();assert(s.world_reads==reads+1)
+    s.now=1.752;s.v:tick();assert(s.world_reads==reads+2)
+    s.now=2.26;s.v:tick();assert(s.world_reads==reads+2)
+    s.now=2.753;s.v:tick();assert(s.world_reads==reads+3)
+    s.now=3.8;s.v:tick();assert(s.world_reads==reads+3)
+    s.now=4.754;s.v:tick();assert(s.world_reads==reads+4)
+    s.now=5.8;s.v:tick();assert(s.world_reads==reads+4)
+    s.now=6.755;s.v:tick();assert(s.world_reads==reads+5)
+end)
+check('sampling failures suppress both source reads and sends until recovery is due',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.now=1.051;s.sample_error=true;s.v:tick()
+    local samples,reads,sent=s.samples,s.world_reads,#s.sent
+    for i=1,100 do s.now=1.051+i*.002;s.v:tick()end
+    assert(s.samples==samples and s.world_reads==reads and #s.sent==sent and s.destroys==1)
+    s.sample_error=false;s.now=1.302;assert(s:receive(2));s.v:tick()
+    assert(s.samples==samples+1 and #s.sent==sent+1 and s.mounts==2 and s.updates==2)
+end)
+check('successful local sampling resets source backoff independently of remote rendering',function()
+    local s=fixture();s.now=1.051;s.sample_error=true;s.v:tick()
+    s.sample_error=false;s.now=1.302;assert(s:receive());s.v:tick();assert(s.mounts==1)
+    s.sample_error=true;s.now=1.353;s.v:tick();local samples=s.samples
+    s.sample_error=false;s.now=1.604;assert(s:receive(2));s.v:tick()
+    assert(s.samples==samples+1 and s.mounts==2)
+    s.update_error=true;assert(s:receive(3));s.v:tick();local sent=#s.sent
+    s.now=1.655;assert(s:receive(4));s.v:tick()
+    assert(#s.sent==sent+1 and s.mounts==2) -- remote cooldown does not pause healthy local sends
+end)
+check('unreadable source recovery clocks suppress observation without blocking explicit cleanup',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.world_error=true;s.v:tick()
+    local reads=s.world_reads;s.now=0/0
+    for _=1,100 do assert(pcall(s.v.tick,s.v))end
+    assert(s.world_reads==reads)
+    s.options.now=function()error('clock unavailable')end
+    assert(pcall(s.v.tick,s.v)and s.world_reads==reads)
+    assert(s.v:close()and not s.v.record)
 end)
 check('validated network handlers buffer without loading assets or spawning Actors',function()
     local s=fixture();assert(s:receive());assert(s.mounts==0 and s.updates==0)
