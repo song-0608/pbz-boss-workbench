@@ -1,15 +1,17 @@
--- Share a bounded gameplay-controller census across HUD, idle World checks and
--- release waits. Cached objects still pass identity, World and possession checks.
+-- Production reads current engine ownership. The bounded legacy census remains
+-- for callers without that binding; both paths validate World and possession.
 local Query={};Query.__index=Query
 local function same(a,b)
     return a and b and a.name==b.name and a.address==b.address and a.class==b.class
 end
-function Query.new(calls,api)
+function Query.new(calls,api,engine_ownership)
     assert(type(api.now)=='function'and type(api.find_all)=='function','controller query API required')
-    return setmetatable({calls=calls,api=api},Query)
+    return setmetatable({calls=calls,api=api,
+        owner=engine_ownership and require('player_controller_owner').new(calls,api)or nil},Query)
 end
 function Query:invalidate()
     self.checked_at=nil;self.reference=nil;self.world=nil;self.count=0
+    if self.owner then self.owner:invalidate()end
 end
 function Query:usable(pc)
     if not pc or not pc:IsValid()then return false end
@@ -24,6 +26,14 @@ end
 function Query:get()
     local now=self.api.now()
     assert(type(now)=='number'and now==now and math.abs(now)<math.huge,'controller query clock invalid')
+    if self.owner then
+        local pc,count=self.owner:get()
+        if count~=1 or not pc then return nil,count end
+        if not self:usable(pc)then return nil,0 end
+        assert(pc:GetFullName():find(':PersistentLevel.',1,true),'current gameplay controller level unreadable')
+        assert(same(self.calls:world(pc),self.calls:world(pc.Pawn)),'current controller/pawn World mismatch')
+        return pc,1
+    end
     if self.checked_at and now>=self.checked_at and now<self.checked_at+1 then
         if not self.reference then return nil,self.count end
         local pc=self.calls:optional(self.reference)

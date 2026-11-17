@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "candidate": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\release-candidates\\ahua-player-travel-dev-2ebca7373e41f24b",
+  "candidate_manifest_sha256": "ea1ad238f44344ab751a2062dd80854ea5e55dbd8dac7b28e0442808bf490ab7",
+  "workflow": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\integration-workflows\\travel-repair-d258ddd5603aa78a",
+  "workflow_manifest_sha256": "ae282df54ee743b3b2a8c2f94dc3072a9450c3ceca60b651715f731adbbba762",
+  "checks": [
+    {
+      "name": "syntax",
+      "passed": true,
+      "output": "PASS candidate Lua syntax: 76"
+    },
+    {
+      "name": "player_travel_repair",
+      "passed": true,
+      "output": "PASS five accepted damage shortcuts; live identity cache; bounded retirement census; current World change; idle/active travel cleanup\nPASS Shift+takeover menu fallback preserves bare key and releases old assembly routes\nPASS repeated takeover key restores ACTIVE and opens/confirms chooser without timing or extra key dependency\nPASS key release timeout, World exception and retired callbacks reject safely and unlock the pending menu queue"
+    },
+    {
+      "name": "player_controller_query",
+      "passed": true,
+      "output": "PASS controller census shared and bounded; negative loading cache; full identity and possession validation; World change rejection"
+    },
+    {
+      "name": "player_controller_owner",
+      "passed": true,
+      "output": "PASS current engine/viewport/local-player ownership, no recurring global census, live PC replacement and ambiguity/identity refusals"
+    },
+    {
+      "name": "player_reassembly",
+      "passed": true,
+      "output": "PASS queued selection vs synchronous map cleanup; stopped owner; live switch; duplicate delivery"
+    },
+    {
+      "name": "player_native_travel_trial",
+      "passed": true,
+      "output": "PASS real restoration before native-menu readiness; skill, target, time and runtime gates; no raw map opening"
+    },
+    {
+      "name": "player_assembly_tasks",
+      "passed": true,
+      "output": "PASS stale camera/skill observations and cleanup are cancelled and inert after assembly retirement"
+    },
+    {
+      "name": "player_retirement_budget",
+      "passed": true,
+      "output": "PASS captured retirement avoids global scans; pending scans bounded to one per second; same state checked immediately"
+    },
+    {
+      "name": "player_map_lifecycle",
+      "passed": true,
+      "output": "PASS pre/post World transaction, same-World cancellation, nested loads, old callbacks, cleanup/grant refusal and native hook signatures"
+    },
+    {
+      "name": "player_map_initialization",
+      "passed": true,
+      "output": "PASS generated Arena installs hooks before readiness, cancels queued begin, waits for post and rechecks gameplay"
+    },
+    {
+      "name": "player_target_diagnostics",
+      "passed": true,
+      "output": "PASS repeated target diagnostics deduplicated; live reads, identity changes and independent actors preserved"
+    },
+    {
+      "name": "runtime",
+      "passed": true,
+      "output": "PASS only verified skill keys are registered\nPASS enter is queued onto the game thread\nPASS queued repeated F10 restores once and reports one complete event\nPASS inactive frame does not read input\nPASS idle world watch runs while OFF and suspends old HUD while pending\nPASS active frame polls and drives movement\nPASS skill action dispatches configured slot\nPASS stop restores and invalidates queued actions\nPASS duplicate keys are rejected before registration\nPASS frame exception restores and reports failure\nPASS automatic health exit is reported separately from the F10 callback\nPASS Esc restores active session once and stays quiet when already OFF\nPASS optional F7 queues a target request on game thread\nPASS target key conflict is rejected before registering any key\nPASS lab candidate dispatch stays on game thread and cannot change mid-skill\nPASS default config never registers developer candidate keys\nPASS F11 restores ACTIVE before opening and blocks queued skills and takeover\nPASS workbench routes arrows and Enter and serializes duplicate switch input\nPASS preview selection stays quarantined and F10 closes workbench while OFF\nPASS Escape closes only workbench and stop invalidates pending workbench actions\nPASS workbench keys conflict before any native registration\nPASS workbench stop refuses a false native cleanup result\nPASS native key preflight rejects before any callback is registered\nRuntime fixtures: 23 passed; no PBZ runtime integration claimed."
+    },
+    {
+      "name": "ue_calls",
+      "passed": true,
+      "output": "PASS active cancellable instance reaches native cancel\nPASS unverified cancel binding cannot call the instance\nPASS uncancellable skill remains active and reports failure\nPASS class defaults are never treated as active skill instances\nPASS cancel must clear the actual activity count\nPASS unbounded instance arrays are rejected before native calls\nPASS cancel diagnostic distinguishes blocked instance from no-match\nPASS failing diagnostic cannot prevent real cancellation\nPASS optional resolution distinguishes disposal from replacement and unreadable validity\nNative call fixtures: 9 passed; cancellation not runtime verified."
+    },
+    {
+      "name": "ue_combat",
+      "passed": true,
+      "output": "PBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=false\n\nPASS native success avoids reflected fallback\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPASS dead target stale component is cleared with exact empty socket\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPASS whole struct nil table reproduces the observed skipped pointer\nPASS ignored reflected cleanup never reports success\nPASS reflected cleanup error propagates\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=false\n\nPASS repeat cleanup leaves empty target empty\nNative combat cleanup checks passed: 6"
+    },
+    {
+      "name": "world_boundary",
+      "passed": true,
+      "output": "PASS world boundary disposal, surviving component, identity reuse and unreadable validity\nPASS transition suspends input, preserves pending receipt, retires disposed state and fails on timeout\nPASS same-name new World independently enumerates old identity without accepting replacement"
+    },
+    {
+      "name": "idle_world_watch",
+      "passed": true,
+      "output": "PASS idle scene disposal waits for all owned objects, bounds queries and rejects ambiguous identity"
+    },
+    {
+      "name": "map_travel_guard",
+      "passed": true,
+      "output": "PASS travel pre-hook synchronous restoration, current World, lease, idle, stopped runtime and restoration failures"
+    },
+    {
+      "name": "workbench_input",
+      "passed": true,
+      "output": "PASS workbench input ownership, rollback, retirement and identity guards"
+    },
+    {
+      "name": "player_experience_runtime",
+      "passed": true,
+      "output": "PASS moving cast, native activity exclusion, fresh completion, lock key and restore gates"
+    },
+    {
+      "name": "player_action_input",
+      "passed": true,
+      "output": "PASS bare/Shift skills, mouse variants, native focus path, bounded routes and owner cleanup"
+    },
+    {
+      "name": "target_transition",
+      "passed": true,
+      "output": "PASS request is pending until actual query matches\nPASS pending switch blocks skill and repeat requests\nPASS active skill blocks switch before mutation\nPASS timeout requests old target and clears pending\nPASS lost requested object rolls back without fault\nPASS dead previous target clears target rather than selecting it\nPASS exit clears pending target state\nPASS partial native target write triggers restoration\nTarget transition fixtures passed: 8"
+    },
+    {
+      "name": "ue_host",
+      "passed": true,
+      "output": "PASS native workbench key enumeration and side-effect-free validation"
+    },
+    {
+      "name": "player_travel_candidate",
+      "passed": true,
+      "output": ".\n----------------------------------------------------------------------\nRan 1 test in 0.250s\n\nOK"
+    },
+    {
+      "name": "player_travel_trial",
+      "passed": true,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.001s\n\nOK"
+    },
+    {
+      "name": "player_travel_progress",
+      "passed": true,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "name": "player_overlay",
+      "passed": true,
+      "output": "Overlay accepts only current bounded well-formed live status\nWorkbench uses a larger bounded centered presentation; compact HUD remains separate"
+    },
+    {
+      "name": "player_status_stream",
+      "passed": true,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.031s\n\nOK"
+    },
+    {
+      "name": "workbench_roster",
+      "passed": true,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.375s\n\nOK"
+    },
+    {
+      "name": "workbench_session_status",
+      "passed": true,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.612s\n\nOK"
+    },
+    {
+      "name": "workbench_cmd_entry",
+      "passed": true,
+      "output": ".\n----------------------------------------------------------------------\nRan 1 test in 1.226s\n\nOK"
+    }
+  ],
+  "passed": true,
+  "game_started": false,
+  "installed": false,
+  "runtime_verified": false,
+  "native_travel_verified": false,
+  "all_boss_skills_complete": false
+}

@@ -17,7 +17,9 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua', 'tests/test_player_native_travel_trial.lua',
            'tools/player_assembly_tasks.lua', 'tests/test_player_assembly_tasks.lua', 'tests/test_player_retirement_budget.lua',
            'tools/player_map_lifecycle.lua', 'tools/player_map_lifecycle_binding.lua', 'tests/test_player_map_lifecycle.lua',
-           'tests/test_player_map_initialization.lua', 'tests/test_player_target_diagnostics.lua')
+           'tests/test_player_map_initialization.lua', 'tests/test_player_target_diagnostics.lua',
+           'tools/player_controller_owner.lua', 'tests/test_player_controller_owner.lua',
+           'tools/inspect_player_controller_contract.py')
 
 
 def payload(root=ROOT):
@@ -35,6 +37,7 @@ def payload(root=ROOT):
     files[PREFIX + 'idle_world_watch.lua'] = (root / 'tools/player_world_watch.lua').read_bytes()
     files[PREFIX + 'player_native_travel_trial.lua'] = (root / 'tools/player_native_travel_trial.lua').read_bytes()
     files[PREFIX + 'player_controller_query.lua'] = (root / 'tools/player_controller_query.lua').read_bytes()
+    files[PREFIX + 'player_controller_owner.lua'] = (root / 'tools/player_controller_owner.lua').read_bytes()
     files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
     files[PREFIX + 'player_assembly_tasks.lua'] = (root / 'tools/player_assembly_tasks.lua').read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
@@ -43,17 +46,17 @@ def payload(root=ROOT):
     end = original_bridge.index('\nfunction Bridge:world_id(', begin)
     change('control_bridge.lua', original_bridge[begin:end],
            'function Bridge:player_controller()\n'
-           "    self.controller_query=self.controller_query or require('player_controller_query').new(self.calls,self.api)\n"
+           "    self.controller_query=self.controller_query or require('player_controller_query').new(self.calls,self.api,true)\n"
            '    local pc,count=self.controller_query:get()\n'
            '    assert(count==1 and pc,"exactly one local gameplay controller required")\n'
            '    return pc\nend\n')
 
-    # Readiness samples health/velocity every 100 ms, but a full controller census
-    # is shared for one second, including negative results while a map is loading.
+    # Use the process engine's current viewport/local player, including during
+    # readiness. Do not sweep the global object array once a second in gameplay.
     change('owned_arena.lua', 'local gate_started,stationary_polls=0,0',
            "local readiness_query=require('player_controller_query').new(\n"
            "    require('ue_calls').new({find_exact=StaticFindObject,usable=valid}),\n"
-           '    {find_all=FindAllOf,now=os.time,usable=valid})\n'
+           '    {find_all=FindAllOf,now=os.time,usable=valid},true)\n'
            'local gate_started,stationary_polls=0,0')
     change('owned_arena.lua', "        local player,count=nil,0\n"
            "        for _,pc in ipairs(FindAllOf('PBZPlayerController')or{})do\n"
@@ -61,6 +64,14 @@ def payload(root=ROOT):
            '        end',
            '        local ready_pc,count=readiness_query:get()\n'
            '        local player=ready_pc and ready_pc.Pawn')
+    change('owned_arena.lua', '        local pc\n'
+           '        for _,candidate in ipairs(FindAllOf("PBZPlayerController") or {})do\n'
+           '            if valid(candidate) and valid(candidate.Pawn) and candidate:GetFullName():find(":PersistentLevel.",1,true)then\n'
+           '                assert(not pc,"ambiguous player controller");pc=candidate\n'
+           '            end\n        end\n'
+           '        assert(pc,"local gameplay player missing")',
+           '        local pc,count=readiness_query:get()\n'
+           '        assert(count==1 and pc,"unique current gameplay player required")')
 
     # A swallowed timer exception or a key held across travel must not leave a
     # permanent callback and a permanently locked menu queue.

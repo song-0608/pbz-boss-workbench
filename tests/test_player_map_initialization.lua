@@ -12,6 +12,7 @@ local function object(name,address,class)
     function o:GetFullName()return name end
     function o:GetAddress()return address end
     function o:GetClass()return{GetFullName=function()return class end}end
+    function o:IsA(expected)return self.native_class==expected end
     return o
 end
 local world=object('World /Old.Old',1,'Class World')
@@ -24,6 +25,14 @@ function player:GetController()return pc end
 pc.Pawn=player
 function pc:GetWorld()return world end
 function pc:K2_GetPawn()return player end
+pc.native_class='/Script/ProjectPBZ.PBZPlayerController'
+local engine=object('Engine /Transient.Engine',4,'Class GameEngine');engine.native_class='/Script/Engine.GameEngine'
+local viewport=object('Viewport /Transient.Viewport',5,'Class Viewport');viewport.native_class='/Script/Engine.GameViewportClient'
+local instance=object('GI /Transient.Instance',6,'Class GI');instance.native_class='/Script/Engine.GameInstance'
+local local_player=object('LP /Transient.LocalPlayer',7,'Class LP');local_player.native_class='/Script/Engine.LocalPlayer'
+engine.GameViewport=viewport;engine.GameInstance=instance;viewport.GameInstance=instance
+instance.LocalPlayers={local_player};function instance.LocalPlayers:GetArrayNum()return #self end
+local_player.ViewportClient=viewport;local_player.PlayerController=pc;pc.Player=local_player
 local function schedule(ms,fn)
     f.serial=f.serial+1;f.queue[#f.queue+1]={id=f.serial,ms=ms,fn=fn};return f.serial
 end
@@ -33,7 +42,7 @@ local env=setmetatable({
     ExecuteInGameThreadWithDelay=schedule,CancelDelayedAction=function(id)f.cancelled[id]=true end,
     RegisterLoadMapPreHook=function(fn)f.pre=fn;f.pre_count=f.pre_count+1 end,
     RegisterLoadMapPostHook=function(fn)f.post=fn;f.post_count=f.post_count+1 end,
-    FindAllOf=function()return{pc}end,
+    FindAllOf=function(class)assert(class=='GameEngine','must not enumerate world controllers');return{engine}end,
     StaticFindObject=function()error('unexpected global lookup')end,
     LoadAsset=function()f.loads=f.loads+1;error('fixture stops before asset mutation')end,
 },{__index=_G})
