@@ -6,13 +6,18 @@ import json
 from pathlib import Path
 
 from boss_adaptation_workflow import ROOT, sha, write_json
-from collect_expanded_boss_player import collect
+from collect_expanded_boss_player import collect, historical_profile_base
 from mod_installation import MANIFEST, assert_closed, validate_package
 import build_expanded_boss_candidate as candidate
 from four_boss_integration_workflow import modules
 
 
 def release(package, session, flow, offline, world_sessions=()):
+    with historical_profile_base(package):
+        return _release(package, session, flow, offline, world_sessions)
+
+
+def _release(package, session, flow, offline, world_sessions=()):
     assert_closed()
     manifest = candidate.verify(package)
     checked = json.loads(offline.read_bytes())
@@ -33,6 +38,7 @@ def release(package, session, flow, offline, world_sessions=()):
         '中键切换镜头锁敌，F7请求切换目标。支持WASD与Shift组合施法；保留游戏原生技能条件。\n\n'
         '弦儿当前仅开放已验证的两项原生闪避，攻击招式仍待适配；不把闪避记作伤害能力。'
         '选择界面使用不抢焦点的Windows覆盖层。联机暂停。详见74-Boss工作台v5操作说明.md。\n'
+        '升级后可运行 tools/verify_boss_workbench_v5.py；历史验收固定核对其原始v4依赖与完整摘要。\n'
     ).encode('utf-8')
     files = {name:hashlib.sha256(data).hexdigest() for name, data in sorted(payload.items())}
     identifier = 'ahua-boss-workbench-v5-' + hashlib.sha256(json.dumps(files, sort_keys=True).encode()).hexdigest()[:16]

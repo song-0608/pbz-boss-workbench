@@ -7,4 +7,4 @@
 - 场景快照与冷启动重新载入已通过：会话 `20261117-170957` 只点标题“继续游戏”，直接出生在保存的溪谷开阔区与寄魂点旁，没有穿行或传送，未装配Mod。独立记录见 `evidence/releases/research-scene-reload-20261117-170957.json`，用 `tools/verify_research_scene_reload.py` 核验。地点依据本轮画面观察及固定快照来源，未宣称自动图像识别。保留16:14那次窗口错误记录；捕获时的原始checkpoint与指针不变，不把其历史 `reload_verified=false` 当作最新验证状态。
 - 不访问背包等无关界面；不绕过会话时限、焦点检查、隔离检查或验收门槛。保留失败记录和历史冻结工具。
 - Python 运行带 `-B -X utf8`，避免冻结工作流出现 `__pycache__`。
-- 当前交付为四Boss v4；说明见 `72-四Boss技能扩展v4操作说明.md`，只读核验使用 `tools/verify_boss_skill_delivery.py`。
+- 当前交付为六角色工作台 v5（`ahua-boss-workbench-v5-3f29975fe3b8826f`）；说明见 `74-Boss工作台v5操作说明.md`，只读核验使用 `tools/verify_boss_workbench_v5.py`。弦儿仅两项闪避，魔渊未开放；联机暂缓。

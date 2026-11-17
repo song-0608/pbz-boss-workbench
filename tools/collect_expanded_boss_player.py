@@ -1,5 +1,6 @@
 """Replay closed ordinary selection, exact native actions and every added World cycle."""
 import argparse
+from contextlib import contextmanager
 from datetime import datetime
 import json
 from pathlib import Path
@@ -14,6 +15,9 @@ from candidate_effect_scope import local_effect
 from expanded_boss_world import proof as world_proof, definition
 import expanded_boss_integration_workflow as workflow
 import build_expanded_boss_candidate as candidate
+import build_player_experience_candidate as experience_candidate
+import expanded_boss_developer_bundle as developer_bundle
+from mod_installation import MANIFEST, unlinked_path, validate_package
 
 BAD = ('state=FAULTED', 'PBZ_CONTROL_LIFECYCLE:ISSUE_', 'PBZ_CONTROL_RESTORE:FAILED=',
        '[Lua::execute_file]', 'HUD_UNAVAILABLE=')
@@ -62,7 +66,41 @@ def verified_dispatches(work, state_path, flow, package):
     return dispatches, sources
 
 
+@contextmanager
+def historical_profile_base(package, root=ROOT):
+    """Replay development evidence against its hashed v4 base after an upgrade.
+
+    Only the developer-bundle dependency is pinned. Installed payload validation,
+    native evidence, dispatch gates and every source/hash check remain in force.
+    No installation receipt or historical file is changed.
+    """
+    package = unlinked_path(package)
+    recorded = json.loads((package / MANIFEST).read_bytes())
+    identifier = recorded['experience_base_release']
+    assert identifier == experience_candidate.BASE
+    base = unlinked_path(root / 'releases' / identifier)
+    assert sha(base / MANIFEST) == recorded['experience_base_manifest_sha256']
+    manifest = validate_package(base)
+    assert manifest['release_id'] == identifier and manifest['status'] == 'release'
+    assert manifest['runtime_acceptance_current']
+    original = developer_bundle.active_mod_root
+    def pinned(requested_root=root):
+        assert Path(requested_root).resolve() == Path(root).resolve()
+        return base / 'PBZBossControl'
+    developer_bundle.active_mod_root = pinned
+    try:
+        yield base
+    finally:
+        developer_bundle.active_mod_root = original
+
+
 def collect(session, flow, world_sessions=()):
+    recorded = json.loads((flow / 'manifest.json').read_bytes())
+    with historical_profile_base(Path(recorded['candidate'])):
+        return _collect(session, flow, world_sessions)
+
+
+def _collect(session, flow, world_sessions=()):
     frozen = workflow.verify(flow); package = Path(frozen['candidate']); manifest = candidate.verify(package)
     read = lambda p: json.loads(p.read_bytes())
     state_path, work, raw, sources = closed_session(session, flow, package, manifest)

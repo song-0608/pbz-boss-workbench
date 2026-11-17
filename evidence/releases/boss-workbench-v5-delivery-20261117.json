@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "release_id": "ahua-boss-workbench-v5-3f29975fe3b8826f",
+  "installed_and_enabled": true,
+  "bosses": 6,
+  "abilities": 58,
+  "bindings": 59,
+  "ordinary_session": "20261117-194721",
+  "world_sessions": [
+    "20261117-195944",
+    "20261117-201305"
+  ],
+  "acceptance_replayed": true,
+  "player_workflow": "runtime/player-workflows/v5-8f4ee778b71f7cb3",
+  "default_entry_verified": true,
+  "checkpoint_label": "悲泣溪谷—斧老大斩落处",
+  "checkpoint_integrity_verified": true,
+  "checkpoint_reload_verified": true,
+  "game_started": false,
+  "schema": 1,
+  "verification_source_sha256": "3a918cb2ff67d05bfa2576bcde26f57912a8972a21f5771249efedf857df1496",
+  "release_manifest_sha256": "c5d4d049989687a401ee6e8fa7cc49a50211f042f1aa9a88ea65e5cd933fe295",
+  "publication_report": "evidence/releases/ahua-boss-workbench-v5-3f29975fe3b8826f-acceptance.json",
+  "publication_report_sha256": "0a0ccd99ae8094c80e02c1301a86b96475ca2e43210acac0772aaef7391ae928",
+  "ordinary_acceptance_sha256": "a211a76f4fa6ecc4d7fd0ed3fbe53175227d46ce2b1d10913bc637e6fbc9d570",
+  "offline_report": "evidence/adaptation/expanded-player-offline-0abd49f9ed110d2d.json",
+  "offline_report_sha256": "557240ab3115bf9f48fd21ec1bf9a4da57cc30c6f0982210d17c4a5ecaac2c29",
+  "world_cycles": [
+    {
+      "id": "071_xianzhe",
+      "session": "20261117-195944",
+      "passed": true,
+      "primary_damage_observed": false
+    },
+    {
+      "id": "058_maddoctor",
+      "session": "20261117-201305",
+      "passed": true,
+      "primary_damage_observed": true
+    }
+  ],
+  "roles": [
+    {
+      "id": "071_xianzhe",
+      "skills": [
+        "skill_01",
+        "heavy_01"
+      ],
+      "ordinary_native_actions_verified": true,
+      "shifted_movement_cast_verified": true,
+      "lock_and_target_cycle_verified": true,
+      "restoration_verified": true
+    },
+    {
+      "id": "058_maddoctor",
+      "skills": [
+        "skill_01",
+        "heavy_01",
+        "skill_02",
+        "dash"
+      ],
+      "ordinary_native_actions_verified": true,
+      "shifted_movement_cast_verified": true,
+      "lock_and_target_cycle_verified": true,
+      "restoration_verified": true
+    }
+  ],
+  "networking_verified": false,
+  "native_umg": false,
+  "held_key_focus_release_verified": false,
+  "formal_files_changed": false
+}

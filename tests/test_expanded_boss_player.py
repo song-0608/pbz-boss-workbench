@@ -11,6 +11,45 @@ import collect_expanded_boss_player as collector
 
 
 class ClosedSessionTests(unittest.TestCase):
+    def historical_fixture(self, root):
+        identifier = collector.experience_candidate.BASE
+        base = root / 'releases' / identifier
+        base.mkdir(parents=True)
+        manifest = dict(release_id=identifier, status='release', runtime_acceptance_current=True)
+        (base / collector.MANIFEST).write_text(json.dumps(manifest), encoding='utf-8')
+        package = root / 'candidate'; package.mkdir()
+        recorded = dict(experience_base_release=identifier,
+            experience_base_manifest_sha256=collector.sha(base / collector.MANIFEST))
+        (package / collector.MANIFEST).write_text(json.dumps(recorded), encoding='utf-8')
+        return package, base, manifest
+
+    def test_upgrade_replay_pins_original_base_and_restores_current_resolver(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); package, base, manifest = self.historical_fixture(root)
+            original = collector.developer_bundle.active_mod_root
+            with patch.object(collector, 'validate_package', return_value=manifest) as validated:
+                with self.assertRaisesRegex(RuntimeError, 'replay stopped'):
+                    with collector.historical_profile_base(package, root):
+                        self.assertEqual(collector.developer_bundle.active_mod_root(root), base / 'PBZBossControl')
+                        with self.assertRaises(AssertionError):
+                            collector.developer_bundle.active_mod_root(root / 'other')
+                        raise RuntimeError('replay stopped')
+                validated.assert_called_once_with(base.resolve())
+            self.assertIs(collector.developer_bundle.active_mod_root, original)
+
+    def test_upgrade_replay_rejects_changed_historical_manifest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); package, base, _ = self.historical_fixture(root)
+            original = collector.developer_bundle.active_mod_root
+            with (base / collector.MANIFEST).open('a', encoding='utf-8') as stream:
+                stream.write(' ')
+            with patch.object(collector, 'validate_package') as validated:
+                with self.assertRaises(AssertionError):
+                    with collector.historical_profile_base(package, root):
+                        self.fail('Changed base must not enter replay')
+                validated.assert_not_called()
+            self.assertIs(collector.developer_bundle.active_mod_root, original)
+
     def test_closed_sessions_keep_their_own_payload_and_postcheck(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); package = root / 'candidate'

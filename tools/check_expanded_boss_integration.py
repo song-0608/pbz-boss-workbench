@@ -10,7 +10,7 @@ from boss_adaptation_workflow import ROOT, sha, write_json
 from build_boss_profile_candidate import lua
 import build_expanded_boss_candidate as candidate
 import expanded_boss_integration_workflow as workflow
-from collect_expanded_boss_player import SOURCES as COLLECTOR_SOURCES
+from collect_expanded_boss_player import SOURCES as COLLECTOR_SOURCES, historical_profile_base
 
 TESTS = ('test_expanded_boss_profile', 'test_expanded_boss_integration', 'test_expanded_boss_world',
          'test_player_experience_input_release', 'test_mod_installation', 'test_player_target_readiness',
@@ -23,6 +23,11 @@ SOURCES = tuple(sorted(set((*candidate.SOURCES, *workflow.SOURCES, *COLLECTOR_SO
 
 
 def check(package):
+    with historical_profile_base(package):
+        return _check(package)
+
+
+def _check(package):
     manifest = candidate.verify(package); flow = workflow.build(package)
     sources = {name: sha(ROOT / name) for name in SOURCES}
     identity = dict(candidate_manifest_sha256=sha(package / 'pbz-release.json'), source_files=sources,
