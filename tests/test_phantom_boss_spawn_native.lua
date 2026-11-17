@@ -4,9 +4,12 @@ local root,candidate=assert(arg[1]),assert(arg[2])
 local directory=candidate..'/PBZCoop/Scripts/'
 local deps=dofile(directory..'bwb_local_dependencies.lua')(directory)
 local Native=dofile(directory..'bwb_spawn_native.lua')
+local Adapter=dofile(directory..'bwb_adapter.lua')
+local Protocol=dofile(directory..'bwb_protocol.lua')
+local EnemyFence=dofile(directory..'bwb_enemy_fence.lua')
 local checks=0
 local function check(name,fn)fn();checks=checks+1;print('PASS '..name)end
-local function fixture()
+local function fixture(real_adapter)
     local f={registry={},events={},clock=0,remembered={},registered={},retired={},grants=1,protected=false}
     local next_address=10
     local function obj(name,class)
@@ -19,6 +22,9 @@ local function fixture()
         function o:GetWorld()return f.world end
         function o:K2_DestroyActor()
             f.events[#f.events+1]='destroy:'..self.name
+            self.destroy_attempts=(self.destroy_attempts or 0)+1
+            if self.destroy_error then error('native Actor destruction failed')end
+            if self.refuse_destroy then return false end
             self.alive=false
             if self.Controller then self.Controller.Pawn=nil end
             if self.Pawn then self.Pawn.Controller=nil end
@@ -107,7 +113,8 @@ local function fixture()
     end
     function statics:FinishSpawningActor(body,transform,scale)
         assert(body==f.body and body.AIControllerClass==f.ai_class and scale==0)
-        assert(f.registered[body.address] and #f.remembered==1,'must register deferred body before Finish')
+        assert((f.peer.owned or f.registered)[body.address] and #f.remembered==1,
+            'must register deferred body before Finish')
         f.events[#f.events+1]='finish'
         if f.auto_ai then body:SpawnDefaultController()end
         if f.fail_finish then error('partial native Finish failure')end
@@ -116,9 +123,13 @@ local function fixture()
     local scope={attest=function(_,restore)assert(restore or not f.revoked);return {exe_sha256=f.profile.exe_sha256}end}
     local peer={world='W',is_boss_class=function(_,path)return path=='/Boss/A.A_C'end,
         resolve_local_action=function(_,path,id)assert(path=='/Boss/A.A_C' and id=='cut');return '/Skill/Cut.Cut_C'end,
-        register=function(_,row,kind)f.registered[row.address]={row=row,kind=kind};f.events[#f.events+1]='register:'..kind end,
+        register=function(_,row,kind)
+            assert(not f.registration_refused,'registration rejected')
+            f.registered[row.address]={row=row,kind=kind};f.events[#f.events+1]='register:'..kind
+        end,
         retire_owned=function(_,row,kind,probe)
-            assert(probe()==true and not f.retirement_refused,'native retirement not acknowledged')
+            assert(probe()==true and not f.retirement_refused and f.retirement_refused_address~=row.address,
+                'native retirement not acknowledged')
             local old=f.registered[row.address]
             if old then
                 assert(old.kind==kind and old.row.name==row.name and old.row.class==row.class and old.row.world==row.world)
@@ -134,14 +145,56 @@ local function fixture()
             remote_control=f.remote_control}end}
     local bindings={combat={binding_verified=true,friendly=0,hostile=2,ai_focus_bridge=true}}
     for _,key in ipairs({'camera','remote','barrier','protection','arena','visibility'})do bindings[key]={binding_verified=true}end
-    f.scope,f.peer,f.bindings,f.g,f.dependencies=scope,peer,bindings,g,{require=function(name)return assert(mods[name],name)end}
     f.api={getPlayer1=function()return f.pc,f.player end}
+    if real_adapter then
+        local net={role='host',enabled=true}
+        for _,key in ipairs({'enemyNumbers','announced','matchSticky','enemyNames','heldAlive','deadBodies','aside'})do
+            net[key]={}
+        end
+        local cache={net=net,names={},seen={},reach={list={},addrs={},at=1,near={}},
+            round={queue={},at=1},handover={seen={},since={},retryAt={}}}
+        f.api.version='1.7.3'
+        f.api.game={listEnemies=function()return {},{}end,enemiesSoFar=function()return {},{}end}
+        f.api.coop={net=net,handlers={},workbenchEnemyState=function()return cache end,
+            sendEvent=function()end,linked=function()return f.linked~=false end,isHost=function()return true end,
+            retireWorkbenchGhosts=function()end}
+        local host={now=observer.now,identify=observer.identify,log=observer.log,
+            snapshot=function()
+                local snapshot=observer.snapshot();snapshot.body=observer.identify(f.player,snapshot.world)
+                return snapshot
+            end,
+            schedule=function(ms,fn)assert(ms==100);f.peer_timer=fn;return function()end end,
+            on_revoke=function(why)
+                f.revoked=true;f.revoke_while_open=not f.peer.closed
+                if f.on_revoke then return f.on_revoke(why)end
+                return true
+            end}
+        peer=Adapter.attach(f.api,{role='host',session='spawn_cleanup',
+            catalog_sha256=string.rep('b',64),exe_sha256=f.profile.exe_sha256,
+            runtime_acceptance_current=false,bosses={boss={class_path=f.profile.class_path,
+                actions={cut=f.profile.skills.cut.class_path}}}},host,Protocol,EnemyFence)
+        f.peer_timer();assert(peer.world=='W'and not peer.revoked_reason)
+        local partner=Protocol.new{role='guest',session='spawn_cleanup',catalog=string.rep('b',64),
+            build=f.profile.exe_sha256,bosses={boss={class_path=f.profile.class_path,
+                actions={cut=f.profile.skills.cut.class_path}}},
+            send=function(kind,line)assert(f.api.coop.handlers[kind](line,nil))end}
+        partner:set_link(true,0);partner:tick(0)
+        assert(peer.protocol.remote,'disconnect cleanup requires an observed partner identity')
+    end
+    f.scope,f.peer,f.bindings,f.g,f.dependencies=scope,peer,bindings,g,{require=function(name)return assert(mods[name],name)end}
     f.native=Native.new(f.api,scope,peer,observer,f.dependencies,{},bindings,g)
     function f:remember(record)self.remembered[#self.remembered+1]=record end
     function f:start()
         self.context=self.native.prepare('boss');self.native.protect(self.context)
         self.record=self.native.spawn(self.context,function(record)self:remember(record)end)
         return self.body,self.context
+    end
+    function f:partial()
+        self.auto_ai=true;self.fail_finish=true
+        self.context=self.native.prepare('boss');self.native.protect(self.context)
+        assert(not pcall(self.native.spawn,self.context,function(record)self:remember(record)end))
+        assert(#self.remembered==1 and self.ai);self.record=self.remembered[1]
+        return self.record,self.context
     end
     return f
 end
@@ -190,6 +243,96 @@ check('partial Finish failure recovers an auto-created AI before any readiness p
     assert(not pcall(f.native.spawn,c,function(r)f:remember(r)end) and #f.remembered==1 and f.ai)
     assert(f.native.destroy(f.remembered[1],c) and not f.ai.alive and not f.body.alive)
     assert(not f.registered[f.ai.address]and f.retired[f.ai.address].kind=='controller')
+end)
+check('partial cleanup retries the remembered AI after its body has already gone',function()
+    for _,failure in ipairs({'refuse_destroy','destroy_error'})do
+        local f=fixture();local record,c=f:partial();f.ai[failure]=true
+        assert(not pcall(f.native.destroy,record,c)and not f.body.alive and f.ai.alive)
+        assert(record.leftover and record.leftover.address==f.ai.address,'AI recovery reference was lost')
+        f.ai[failure]=false
+        assert(f.native.destroy(record,c)and not f.ai.alive and not record.leftover)
+        assert(f.body.destroy_attempts==1 and f.ai.destroy_attempts==2 and next(f.registered)==nil)
+    end
+end)
+check('AI retirement retry does not repeat acknowledged native destruction',function()
+    local f=fixture();local record,c=f:partial();f.retirement_refused_address=f.ai.address
+    assert(not pcall(f.native.destroy,record,c)and not f.body.alive and not f.ai.alive)
+    assert(record.leftover and f.registered[f.ai.address])
+    f.retirement_refused_address=nil
+    assert(f.native.destroy(record,c)and not record.leftover and next(f.registered)==nil)
+    assert(f.body.destroy_attempts==1 and f.ai.destroy_attempts==1)
+end)
+check('body destruction failure retains the discovered AI for later cleanup',function()
+    local f=fixture();local record,c=f:partial();f.body.refuse_destroy=true
+    assert(not pcall(f.native.destroy,record,c)and f.body.alive and f.ai.alive)
+    assert(record.leftover and record.leftover.address==f.ai.address and not f.ai.destroy_attempts)
+    f.body.refuse_destroy=false
+    assert(f.native.destroy(record,c)and not f.body.alive and not f.ai.alive and not record.leftover)
+end)
+check('body registry retirement failure cannot lose a partially initialized AI',function()
+    local f=fixture();local record,c=f:partial();f.retirement_refused_address=f.body.address
+    assert(not pcall(f.native.destroy,record,c)and not f.body.alive and f.ai.alive)
+    assert(record.leftover and not f.ai.destroy_attempts)
+    f.retirement_refused_address=nil
+    assert(f.native.destroy(record,c)and not f.ai.alive and next(f.registered)==nil)
+    assert(f.body.destroy_attempts==1)
+end)
+check('remembered AI acquiring another Pawn is refused without dropping its recovery reference',function()
+    local f=fixture();local record,c=f:partial();f.ai.refuse_destroy=true
+    assert(not pcall(f.native.destroy,record,c)and not f.body.alive)
+    f.ai.refuse_destroy=false;f.ai.Pawn=f.player
+    assert(not pcall(f.native.destroy,record,c)and f.ai.alive and f.player.alive)
+    assert(record.leftover and f.ai.destroy_attempts==1)
+    f.ai.Pawn=nil;assert(f.native.destroy(record,c)and not f.ai.alive and not record.leftover)
+end)
+check('same-name AI address reuse is refused during a delayed cleanup retry',function()
+    local f=fixture();local record,c=f:partial();f.ai.refuse_destroy=true
+    assert(not pcall(f.native.destroy,record,c))
+    local original=f.ai;local replacement=f.object(original.name,original.class)
+    assert(not pcall(f.native.destroy,record,c)and replacement.alive and not replacement.destroy_attempts)
+    assert(record.leftover.address==original.address and original.alive)
+    f.registry[original.name]=original;original.refuse_destroy=false
+    assert(f.native.destroy(record,c)and not original.alive and replacement.alive)
+end)
+check('failed AI registration retains exact ownership before either Actor is destroyed',function()
+    local f=fixture();local record,c=f:partial();f.registration_refused=true
+    assert(not pcall(f.native.destroy,record,c)and f.body.alive and f.ai.alive)
+    assert(record.leftover and record.leftover.address==f.ai.address)
+    f.registration_refused=false;assert(f.native.destroy(record,c)and next(f.registered)==nil)
+end)
+check('a replaced controller cannot overwrite the AI retained by a failed body cleanup',function()
+    local f=fixture();local record,c=f:partial();f.body.refuse_destroy=true
+    assert(not pcall(f.native.destroy,record,c))
+    local original=f.ai;f.body:SpawnDefaultController();local replacement=f.ai
+    assert(not pcall(f.native.destroy,record,c)and f.body.destroy_attempts==1)
+    assert(record.leftover.address==original.address and original.alive and replacement.alive)
+    f.registry[original.name]=original;f.body.Controller=original;f.body.refuse_destroy=false
+    assert(f.native.destroy(record,c)and not original.alive and replacement.alive)
+end)
+check('real retired adapter permits partial AI disposal before close without a new registration',function()
+    local f=fixture(true);local record,c=f:partial()
+    assert(not f.peer.owned[f.ai.address])
+    f.on_revoke=function()
+        assert(f.peer.revoked_reason)
+        return f.native.destroy(record,c)
+    end
+    f.clock=0.2;f.linked=false;f.peer_timer()
+    assert(f.revoke_while_open and not f.peer.control_restore_pending and not f.peer.closed)
+    assert(not f.body.alive and not f.ai.alive and not record.leftover)
+    assert(f.peer.owned_count==1 and f.peer.owned[f.player.address])
+    assert(not pcall(f.peer.register,f.peer,{address=999,name='Actor_999',class='/AI/AI.AI_C',world='W'},'controller'))
+    assert(f.peer:close()and f.player.alive and f.pc.alive)
+end)
+check('real retired adapter preserves failed AI disposal until an explicit close retries it',function()
+    local f=fixture(true);local record,c=f:partial();f.ai.refuse_destroy=true
+    f.on_revoke=function()return f.native.destroy(record,c)end
+    f.clock=0.2;f.linked=false;f.peer_timer()
+    assert(f.peer.control_restore_pending and not f.peer.closed and not f.body.alive and f.ai.alive)
+    assert(record.leftover and not f.peer.owned[f.ai.address])
+    assert(not f.peer:close()and f.peer.control_restore_pending and record.leftover)
+    f.ai.refuse_destroy=false
+    assert(f.peer:close()and not f.ai.alive and not record.leftover and f.peer.owned_count==0)
+    assert(f.body.destroy_attempts==1 and f.ai.destroy_attempts==3 and f.player.alive and f.pc.alive)
 end)
 check('cleanup after lease revocation only destroys exact owned identities',function()
     local f=fixture();local body,c=f:start();body:SpawnDefaultController()

@@ -234,36 +234,48 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
     n.destroy=function(record,c)
         scope:attest(true)
         local object=calls:optional(record.reference)
-        if not object then return retire(record.reference,record.kind,c)end
-        observer.identify(object,c.world)
-        if record.kind=='controller' then
-            local pawn=object:K2_GetPawn()
-            assert(not usable(pawn) or (calls:same(pawn,calls:optional(assert(c.body_reference)))),
-                'owned AI acquired another Pawn; disposal refused')
-        end
-        local leftover
-        if record.kind=='local_body' then
-            -- FinishSpawningActor may create an AI and then fail. Recover that
-            -- controller even when initialization never reached the next poll.
-            local ai=object:GetController()
-            if usable(ai) then
-                assert(not calls:same(ai,calls:resolve(c.pc)) and calls:same(ai:K2_GetPawn(),object),
-                    'unrecognized owner of the temporary Boss')
-                observer.identify(ai,c.world);leftover=calls:reference(ai)
-                if not peer.closed then peer:register(observer.identify(ai,c.world),'controller') end
+        if object then
+            observer.identify(object,c.world)
+            if record.kind=='controller' then
+                local pawn=object:K2_GetPawn()
+                assert(not usable(pawn) or (calls:same(pawn,calls:optional(assert(c.body_reference)))),
+                    'owned AI acquired another Pawn; disposal refused')
             end
+            if record.kind=='local_body' then
+                -- Finish may create an AI before failing. Keep its exact recovery
+                -- identity on the owned record before registration or destruction;
+                -- a retry must still dispose it after the body has already gone.
+                local ai=object:GetController()
+                if usable(ai) then
+                    assert(not calls:same(ai,calls:resolve(c.pc)) and calls:same(ai:K2_GetPawn(),object),
+                        'unrecognized owner of the temporary Boss')
+                    local row=observer.identify(ai,c.world);local reference=calls:reference(ai)
+                    local old=record.leftover
+                    assert(not old or(old.address==reference.address and old.name==reference.name
+                        and old.class==reference.class),'owned AI replaced during cleanup')
+                    record.leftover=reference
+                    -- Terminal revoke forbids new gameplay registrations even
+                    -- while on_revoke is running before peer.closed becomes true.
+                    if not peer.closed and not peer.revoked_reason and not peer.world_transition then
+                        peer:register(row,'controller')
+                    end
+                end
+            end
+            object:K2_DestroyActor()
+            assert(not calls:optional(record.reference),'owned online Actor destruction not acknowledged')
         end
-        object:K2_DestroyActor()
-        assert(not calls:optional(record.reference),'owned online Actor destruction not acknowledged')
         assert(retire(record.reference,record.kind,c)==true,'owned registration retirement unverified')
+        local leftover=record.leftover
         if leftover then
             local ai=calls:optional(leftover)
             if ai then
+                observer.identify(ai,c.world)
                 local pawn=ai:K2_GetPawn()
                 assert(not usable(pawn),'leftover AI acquired a living Pawn')
                 ai:K2_DestroyActor();assert(not calls:optional(leftover),'leftover online AI destruction unverified')
             end
             assert(retire(leftover,'controller',c)==true,'leftover AI registration retirement unverified')
+            record.leftover=nil
         end
         return true
     end

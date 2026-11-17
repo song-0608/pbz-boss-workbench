@@ -61,7 +61,7 @@ def run():
         ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 23),
         ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 8),
         ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 27),
-        ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 18),
+        ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 28),
         ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 23),
         ('combat_runtime_composition', [str(lab), str(ROOT / TESTS[15]), str(ROOT), str(target)], 5),
         ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 24),
