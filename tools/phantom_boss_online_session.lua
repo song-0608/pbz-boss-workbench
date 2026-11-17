@@ -61,10 +61,15 @@ function M.new(api,launch,config,peer,observer,directory,globals)
         return arena:select(id)
     end
     function peer:assembly_status()
+        local control=arena.control
         local pending=peer.restore_pending==true or arena.state=='FAULTED'
+            or (control and (control.session.online_restore_pending==true or control.runtime.online_stop_pending==true)) or false
         local retired=peer.closed or peer.revoked_reason or peer.world_transition or scope.revoked
+            or (control and control.runtime.online_stopped)
         local boundary=peer.world_transition
-        return {state=arena.state,reason=arena.state=='FAULTED'and arena.failure or peer.revoked_reason or arena.failure,
+        return {state=arena.state,reason=arena.state=='FAULTED'and arena.failure
+                or (control and (control.runtime.online_stop_reason or control.session.online_restore_reason))
+                or peer.revoked_reason or arena.failure,
             activation_state=pending and 'RECOVERY_PENDING'or retired and 'RETIRED'or 'ACTIVE',
             restore_pending=pending,world_transition=boundary and {previous=boundary.previous,observed=boundary.observed}or nil,
             selection_failure=arena.selection_failure,

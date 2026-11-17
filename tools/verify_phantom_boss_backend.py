@@ -31,7 +31,7 @@ def verify(path=None):
     counts = {'protocol_simulation': 16, 'adapter_mocked_api': 47, 'candidate_python': 15,
               'entry_mocked_research_lease': 12, 'host_fake_uobjects': 17,
               'enemy_fence_patched_upstream': 14, 'same_pc_pair_python': 8,
-              'online_scope_simulation': 12, 'online_control_fake_uobjects': 14,
+              'online_scope_simulation': 12, 'online_control_fake_uobjects': 23,
               'network_body_patched_upstream': 8, 'online_arena_lifecycle': 27,
               'online_spawn_native_bindings': 18, 'cold_startup_menu_loading': 23,
               'combat_runtime_composition': 5, 'visual_protocol_lifecycle': 21,
@@ -40,7 +40,7 @@ def verify(path=None):
               'control_contract_python': 14,'contract_bundle_python':8,'control_abi_python':18,'control_binding_python':13,
               'client_auth_python':14,
               'optional_contracts_python':14,
-              'online_session_composition':15,
+              'online_session_composition':16,
               'patched_lua_compile_only': 66}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
@@ -56,9 +56,9 @@ def verify(path=None):
             assert 'PASS syntax only: 66 candidate Lua files' in output
         else:
             assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 451
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 461
     assert report['syntax_checked_lua_files']==66
-    return dict(passed=True, status='backend-milestone-only', groups=451, compiled_lua_files=66,
+    return dict(passed=True, status='backend-milestone-only', groups=461, compiled_lua_files=66,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

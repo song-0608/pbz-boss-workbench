@@ -178,4 +178,15 @@ check('public recovery status takes priority over a retired activation until nat
     assert(status.activation_state=='RETIRED'and not status.restore_pending)
     f.peer.restore_pending=true;assert(f.peer:assembly_status().activation_state=='RECOVERY_PENDING')
 end)
+check('public status exposes control observation and runtime cleanup pending before assembly faults',function()
+    local f=fixture();f.fail_prepare=false;assert(f.peer:select_boss('ahua_guitoudao'));f:tick(13)
+    local c=f.arena.control;assert(c and f.arena.state=='READY')
+    c.session.online_restore_pending=true;c.session.online_restore_reason='observation pending'
+    local status=f.peer:assembly_status()
+    assert(status.activation_state=='RECOVERY_PENDING'and status.reason=='observation pending')
+    c.session.online_restore_pending=false;c.runtime.online_stop_pending=true
+    assert(f.peer:assembly_status().restore_pending)
+    c.runtime.online_stop_pending=false;assert(f.peer:assembly_status().activation_state=='ACTIVE')
+    c.runtime.online_stopped=true;assert(f.peer:assembly_status().activation_state=='RETIRED')
+end)
 print('PASS '..checks..' online session groups; actual orchestration with fake native objects, no game started')

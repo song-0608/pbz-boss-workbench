@@ -58,7 +58,7 @@ def run():
         ('enemy_fence_patched_upstream', [str(lab), str(ROOT / TESTS[6]), str(ROOT), str(target)], 14),
         ('same_pc_pair_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_pair.py', '-v'], 8),
         ('online_scope_simulation', [str(lab), str(ROOT / TESTS[8]), str(ROOT)], 12),
-        ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 14),
+        ('online_control_fake_uobjects', [str(lab), str(ROOT / TESTS[9]), str(ROOT), str(target)], 23),
         ('network_body_patched_upstream', [str(lab), str(ROOT / TESTS[11]), str(target)], 8),
         ('online_arena_lifecycle', [str(lab), str(ROOT / TESTS[12]), str(ROOT)], 27),
         ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 18),
@@ -77,7 +77,7 @@ def run():
         ('control_binding_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_control_binding.py', '-v'], 13),
         ('client_auth_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_client_auth.py', '-v'], 14),
         ('optional_contracts_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_optional_contracts.py', '-v'], 14),
-        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 15),
+        ('online_session_composition', [str(lab), str(ROOT / TESTS[28]), str(ROOT), str(target)], 16),
         ('patched_lua_compile_only', [str(lab), str(ROOT / TESTS[3]), str(target)], 66),
     ]
     log_directory = ROOT / 'runtime/online-checks' / uuid.uuid4().hex

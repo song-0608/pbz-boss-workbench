@@ -26,7 +26,12 @@ function M.new(api,profile,config,scope,peer,host,dependencies)
     local local_api={};for key,value in pairs(api) do local_api[key]=value end
     local_api.attest=function()return scope:attest(false)end
     local bridge=modules.Bridge.new(local_api,profile)
-    local pending_transition
+    local pending_transition,runtime,session
+    local function control_ready()
+        return peer.protocol.ready and not (peer.closed or peer.revoking or peer.revoked_reason
+            or peer.restore_pending or peer.world_transition or (session and session.online_restore_pending)
+            or (runtime and (runtime.online_stop_pending or runtime.online_stopped)))
+    end
     -- Bridge's native methods retain their original build/object/World checks.
     -- Only their environment and the session's context policy are specialized.
     function bridge:environment() return scope:attest(self.online_restoring==true) end
@@ -63,11 +68,11 @@ function M.new(api,profile,config,scope,peer,host,dependencies)
     end
     function bridge:can_start_skill(receipt,id)
         scope:attest(false)
-        if not peer.protocol.ready then return false,'peer identity acknowledgement pending' end
+        if not control_ready() then return false,'online peer or control recovery not ready' end
         return can_start_skill(self,receipt,id)
     end
-    local runtime=modules.Runtime.new(bridge,config,host)
-    local session=runtime.session
+    runtime=modules.Runtime.new(bridge,config,host)
+    session=runtime.session
     function session:context()
         local ok,context=pcall(self.bridge.context,self.bridge)
         if not ok or type(context)~='table' then return nil,'online context unreadable' end
@@ -81,10 +86,11 @@ function M.new(api,profile,config,scope,peer,host,dependencies)
     local enter,restore=session.enter,session.restore
     function session:enter()
         local ok=pcall(scope.attest,scope,false)
-        if not ok or not peer.protocol.ready or peer.closed then return false,'online peer/control lease not ready' end
+        if not ok or not control_ready() then return false,'online peer/control lease not ready' end
         return enter(self)
     end
     function session:restore(reason)
+        local needs_observation=self.receipt~=nil or pending_transition~=nil or self.online_restore_pending==true
         -- Mark only this synchronous restore call as cleanup. No queued skill,
         -- input, capture or new possession may use the 15-second cleanup period.
         if self.receipt and not pending_transition and not peer.closed and not peer.revoking then
@@ -97,21 +103,63 @@ function M.new(api,profile,config,scope,peer,host,dependencies)
         bridge.online_restoring=true
         local ok,result,why=pcall(restore,self,reason)
         bridge.online_restoring=false
-        if not ok then self.state='FAULTED';self:record('online restore exception: '..tostring(result));return false,result end
-        if result==true and pending_transition then
-            local observed,finished
-            if peer.closed then observed,finished=true,true
-            elseif peer.local_transition==pending_transition then
-                observed,finished=pcall(peer.finish_local_transition,peer,pending_transition)
-            else observed,finished=pcall(peer.refresh_local_body,peer) end
-            if not observed or finished~=true then return false,'restored local body observation unverified' end
-            pending_transition=nil
+        if not ok then
+            self.online_restore_pending=true;self.state='FAULTED'
+            self.online_restore_reason='online restore exception: '..tostring(result)
+            pcall(self.record,self,'online restore exception: '..tostring(result));return false,result
         end
-        if result==true and self.state=='OFF' and not self.receipt and not peer.closed then
-            local observed,current=pcall(peer.refresh_local_body,peer)
-            if not observed or current~=true then return false,'restored local body observation unverified' end
+        if result~=true then
+            self.online_restore_pending=needs_observation;self.online_restore_reason=tostring(why or 'native restore unverified')
+            return result,why
         end
+        if needs_observation and not peer.closed then
+            local observed,current
+            if pending_transition and peer.local_transition==pending_transition then
+                observed,current=pcall(peer.finish_local_transition,peer,pending_transition)
+            else observed,current=pcall(peer.refresh_local_body,peer) end
+            if not observed or current~=true then
+                self.online_restore_pending=true;self.state='FAULTED'
+                self.online_restore_reason='restored local body observation unverified'
+                return false,'restored local body observation unverified'
+            end
+        end
+        pending_transition=nil;self.online_restore_pending=false;self.online_restore_reason=nil
         return result,why
+    end
+    -- Keep the pinned single-player runtime intact. Online shutdown owns each
+    -- resource independently: a failed menu/key/timer must never skip restoring
+    -- the native player, and failed resources remain available for retry.
+    local start=runtime.start
+    function runtime:start()
+        -- A stopped owner must be replaced by the arena, never reactivated:
+        -- its old game-thread callbacks may still be queued in the host.
+        if self.online_stopped or session.online_restore_pending then return false,'online runtime retired or recovery pending' end
+        return start(self)
+    end
+    function runtime:stop(reason)
+        self.running=false;self.online_stopped=true;self.online_stop_pending=true
+        local failures={}
+        local function cleanup(label,fn,explicit)
+            local ok,result,why=pcall(fn)
+            if not ok or result==false or (explicit and result~=true) then
+                failures[#failures+1]=label..': '..tostring(ok and (why or result) or result)
+                return false
+            end
+            return true
+        end
+        if self.host.release_keys then cleanup('keys',self.host.release_keys) end
+        if self.frame_handle then
+            if cleanup('frame',function()return self.host.cancel_frame(self.frame_handle)end) then self.frame_handle=nil end
+        end
+        if self.host.workbench then
+            cleanup('workbench',function()return self.host.workbench:shutdown()end,true)
+        end
+        cleanup('native player',function()return self.session:restore(reason or 'runtime stop')end,true)
+        self.online_stop_pending=#failures>0
+        local why=self.online_stop_pending and table.concat(failures,'; ') or nil
+        self.online_stop_reason=why
+        pcall(self.report,self,'stop',not self.online_stop_pending,why)
+        return not self.online_stop_pending,why
     end
     local self={runtime=runtime,session=session,bridge=bridge,scope=scope}
     function self:observed_body()

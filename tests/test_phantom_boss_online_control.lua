@@ -144,4 +144,78 @@ check('possession mode remains observable through native Pawn and requires no ov
     local f=env();assert(f.session:enter() and f.pc.Pawn==f.boss)
     assert(f.control:observed_body()==nil and f.session:restore('F10'))
 end)
+check('failed restore observation blocks takeover until an explicit successful recovery',function()
+    local f=env();assert(f.session:enter());f.observation_failed=true
+    assert(not f.session:restore('F10') and f.pc.Pawn==f.player and not f.session.receipt)
+    assert(f.session.state=='FAULTED' and f.session.online_restore_pending)
+    f.peer.protocol.ready=true;local count=#f.mutations
+    assert(not f.session:enter() and #f.mutations==count)
+    f.observation_failed=false;local refreshes=f.refreshes
+    assert(f.session:restore('retry observation') and f.refreshes==refreshes+1)
+    assert(f.session.state=='OFF' and not f.session.online_restore_pending)
+    f.peer.protocol.ready=true;assert(f.session:enter())
+end)
+check('retired or recovering peer rejects takeover and skills even with a stale ready flag',function()
+    for _,key in ipairs({'closed','revoking','revoked_reason','restore_pending','world_transition'})do
+        local f=env();f.peer[key]=true
+        assert(not f.session:enter() and #f.mutations==0,key)
+        f=env();assert(f.session:enter());f.peer.protocol.ready=true;f.peer[key]=true
+        assert(not f.session:skill('slot1') and not f.activation_calls,key)
+    end
+end)
+check('successful restoration publishes exactly one refreshed local body',function()
+    local f=env();assert(f.session:enter());local refreshes=f.refreshes
+    assert(f.session:restore('F10') and f.refreshes==refreshes+1)
+end)
+local function running_env()
+    local f=env();assert(f.control:start());f.keys.F6();f.queue[1]();f.peer.protocol.ready=true
+    f.keys.F1();f.host.workbench={shutdown=function()f.menu_cleanups=(f.menu_cleanups or 0)+1;return true end}
+    return f
+end
+check('key release exception cannot skip frame menu or player restoration',function()
+    local f=running_env();local release=f.host.release_keys
+    f.host.release_keys=function()error('keys still registered')end
+    assert(not f.control.runtime:stop('stop') and f.cancelled and f.menu_cleanups==1 and f.pc.Pawn==f.player)
+    assert(f.control.runtime.online_stop_pending and not f.control.runtime.running)
+    f.queue[2]();assert(not f.activation_calls)
+    local count=#f.mutations;f.peer.protocol.ready=true
+    assert(not f.session:enter() and not f.control:start() and #f.mutations==count)
+    f.host.release_keys=release;assert(f.control.runtime:stop('retry') and next(f.keys)==nil)
+    assert(not f.control.runtime.online_stop_pending)
+end)
+check('failed frame cancellation retains its handle while queued callbacks stay inert',function()
+    local f=running_env();local cancel=f.host.cancel_frame
+    f.host.cancel_frame=function()error('timer still owned')end
+    assert(not f.control.runtime:stop('stop') and f.control.runtime.frame_handle==1)
+    assert(f.menu_cleanups==1 and f.pc.Pawn==f.player)
+    f.frame();f.queue[2]();assert(not f.activation_calls)
+    f.host.cancel_frame=cancel;assert(f.control.runtime:stop('retry') and f.cancelled)
+    assert(f.control.runtime.frame_handle==nil)
+end)
+check('menu rejection or exception still restores player and remains explicitly retryable',function()
+    for _,throws in ipairs({false,true})do
+        local f=running_env();local shutdown=f.host.workbench.shutdown
+        f.host.workbench.shutdown=function()if throws then error('widget retained')end;return false,'widget retained'end
+        assert(not f.control.runtime:stop('stop') and f.pc.Pawn==f.player and f.cancelled)
+        assert(f.control.runtime.online_stop_pending)
+        f.host.workbench.shutdown=shutdown;assert(f.control.runtime:stop('retry') and f.menu_cleanups==1)
+    end
+end)
+check('logging failure does not interrupt cleanup or hide successful player restoration',function()
+    local f=running_env();f.host.log=function()error('logger unavailable')end
+    assert(f.control.runtime:stop('stop') and f.pc.Pawn==f.player and f.cancelled and f.menu_cleanups==1)
+end)
+check('native restore failure retains its receipt independently of successful resource cleanup',function()
+    local f=running_env();local restore=f.bridge.restore
+    f.bridge.restore=function()return false end
+    assert(not f.control.runtime:stop('stop') and f.session.receipt and f.session.state=='FAULTED')
+    assert(f.cancelled and f.menu_cleanups==1 and f.control.runtime.online_stop_pending)
+    f.bridge.restore=restore;assert(f.control.runtime:stop('retry') and not f.session.receipt and f.pc.Pawn==f.player)
+end)
+check('completed shutdown cannot reactivate an owner with queued game-thread work',function()
+    local f=running_env();assert(f.control.runtime:stop('stop'))
+    local count=#f.mutations;f.peer.protocol.ready=true
+    assert(not f.control:start() and not f.session:enter())
+    f.queue[2]();f.frame();assert(not f.activation_calls and #f.mutations==count and not f.control.runtime.running)
+end)
 print('PASS '..checks..' online control groups; frozen native Lua with fake UObjects, no game/relay')
