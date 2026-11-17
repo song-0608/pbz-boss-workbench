@@ -72,6 +72,16 @@ class TravelInputTests(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 validate_action('native_light', self.owner, self.deployment, changed)
 
+    def test_retreat_is_only_the_current_native_wanjun_binding(self):
+        text = self.active.replace('PLAYER_ENTRY_READY=role',
+            'PLAYER_BINDING=teleport_left|teleport_left|Q\nPLAYER_ENTRY_READY=057_wanjun')
+        self.assertEqual(validate_action('native_retreat', self.owner, self.deployment, text), 'Q')
+        for changed in (text.replace('057_wanjun', '073_yanqiansui'),
+                        text.replace('teleport_left|teleport_left|Q', 'teleport_left|teleport_left|E'),
+                        text+'[PBZBossControl] exit success=true state=OFF\n'):
+            with self.assertRaises(AssertionError):
+                validate_action('native_retreat', self.owner, self.deployment, changed)
+
 
 if __name__ == '__main__':
     unittest.main()

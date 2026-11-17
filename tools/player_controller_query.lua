@@ -8,6 +8,9 @@ function Query.new(calls,api)
     assert(type(api.now)=='function'and type(api.find_all)=='function','controller query API required')
     return setmetatable({calls=calls,api=api},Query)
 end
+function Query:invalidate()
+    self.checked_at=nil;self.reference=nil;self.world=nil;self.count=0
+end
 function Query:usable(pc)
     if not pc or not pc:IsValid()then return false end
     if self.api.usable and not self.api.usable(pc)then return false end

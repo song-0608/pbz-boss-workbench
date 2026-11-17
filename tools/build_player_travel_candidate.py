@@ -15,7 +15,9 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tests/test_player_travel_repair.lua', 'tests/test_player_controller_query.lua',
            'tests/test_player_travel_candidate.py', 'tools/player_overlay.py', 'tests/test_player_overlay.py',
            'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua', 'tests/test_player_native_travel_trial.lua',
-           'tools/player_assembly_tasks.lua', 'tests/test_player_assembly_tasks.lua', 'tests/test_player_retirement_budget.lua')
+           'tools/player_assembly_tasks.lua', 'tests/test_player_assembly_tasks.lua', 'tests/test_player_retirement_budget.lua',
+           'tools/player_map_lifecycle.lua', 'tools/player_map_lifecycle_binding.lua', 'tests/test_player_map_lifecycle.lua',
+           'tests/test_player_map_initialization.lua', 'tests/test_player_target_diagnostics.lua')
 
 
 def payload(root=ROOT):
@@ -35,6 +37,7 @@ def payload(root=ROOT):
     files[PREFIX + 'player_controller_query.lua'] = (root / 'tools/player_controller_query.lua').read_bytes()
     files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
     files[PREFIX + 'player_assembly_tasks.lua'] = (root / 'tools/player_assembly_tasks.lua').read_bytes()
+    files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')
     end = original_bridge.index('\nfunction Bridge:world_id(', begin)
@@ -192,6 +195,18 @@ def payload(root=ROOT):
            '        if self.cache_size>=256 then self.object_cache={};self.cache_size=0 end\n'
            '        self.object_cache[path]=object;self.cache_size=self.cache_size+1\n'
            '    end\n    return object\nend\n\nfunction Calls:resolve')
+    # Keep every native target read and validation. Only duplicate diagnostic I/O
+    # is suppressed; identity reuse and hard/soft-lock changes still log an event.
+    change('ue_combat.lua', "    local utils=valid(g.StaticFindObject('/Script/SGameCombatSystem.Default__FactionUtils'),'faction library')",
+           "    local last_query=setmetatable({},{__mode='k'})\n"
+           "    local utils=valid(g.StaticFindObject('/Script/SGameCombatSystem.Default__FactionUtils'),'faction library')")
+    change('ue_combat.lua', "                print('PBZ_COMBAT_TARGET:QUERY='..name(target)..'|ignore_soft='..name(hard)..'\\n')",
+           "                local query=name(target)..'|ignore_soft='..name(hard)\n"
+           "                local function address(o)return o and o:IsValid()and tostring(o:GetAddress())or'None'end\n"
+           "                local signature=query..'|'..address(target)..'|'..address(hard)\n"
+           '                if last_query[actor]~=signature then\n'
+           "                    print('PBZ_COMBAT_TARGET:QUERY='..query..'\\n')\n"
+           '                    last_query[actor]=signature\n                end')
     change('ue_calls.lua', 'function Calls:retirement_optional(reference)',
            'function Calls:retirement_optional(reference,census)')
     change('ue_calls.lua', '    local candidates=self.api.find_all(class_name)or{}',
@@ -236,66 +251,39 @@ def payload(root=ROOT):
     change('map_travel_guard.lua', "    self.api.log('MAP_TRAVEL_RESTORED_BEFORE_LOAD',true)",
            "    self.api.log('MAP_TRAVEL_RESTORED_BEFORE_LOAD',true)\n"
            '    if self.api.retire_idle then self.api.retire_idle(world,runtime)end')
-    change('owned_arena.lua', "                        local travel=require('map_travel_guard').new({runtime=function()return runtime end,attest=guard,log=log,",
-           "                        local travel=require('map_travel_guard').new({runtime=function()return runtime end,attest=guard,log=log,\n"
-           '                            retire_idle=function(world,current)\n'
-           "                                assert(current.session.state=='OFF'and not current.session.receipt,'restored player required before travel cleanup')\n"
-           "                                assert(calls:same(world,calls:resolve(captured_world)),'travel World differs from assembly')\n"
-           "                                assert(cleanup(),'preload owned cleanup not verified')\n"
-           '                                actor,ai,target_actor,target_ai,session,runtime,setup_protection,setup_ticket=nil,nil,nil,nil,nil,nil,nil,nil\n'
-           '                                extra_targets={};initialized_owned={};spawn_attempts=0;initialization_deadline=nil;rejected_layouts={}\n'
-           '                                gate_started,stationary_polls=0,0\n'
-           '                                travel_wait_world=captured_world\n'
-           "                                log('MAP_TRAVEL_IDLE_CLEANED',true)\n"
-           '                                ExecuteInGameThreadWithDelay(1000,wait_for_player)\n'
-           '                            end,')
-    # These upvalues belong to Arena.start, not the per-assembly closure.
+    # Install native pre/post hooks before title/readiness/initialization timers.
+    # All mutable stages share the assembly epoch, including queued begin work.
+    text=files[PREFIX+'owned_arena.lua'].decode('utf-8').replace('\r\n','\n')
+    start=text.index('                    if experiment_player_entry and not map_travel_guard_installed then')
+    end=text.index('                    if options.scene_transition_trial then',start)
+    text=text[:start]+text[end:]
+    files[PREFIX+'owned_arena.lua']=text.encode('utf-8')
     change('owned_arena.lua', 'local map_travel_guard_installed=false',
-           'local map_travel_guard_installed=false\nlocal travel_wait_world')
-    change('owned_arena.lua', '                    if experiment_player_entry and not map_travel_guard_installed then',
-           '                    local captured_world=calls:world(pc)\n'
-           '                    if experiment_player_entry and not map_travel_guard_installed then')
-    # The one installed hook must follow the current assembly, not its first pc/calls.
-    change('owned_arena.lua', 'local travel_wait_world', 'local travel_wait_world\nlocal retire_idle_assembly')
-    start = "                    local captured_world=calls:world(pc)\n                    if experiment_player_entry and not map_travel_guard_installed then"
-    end = '                            end,\n                            same_world=function(world,reference)'
-    text = files[PREFIX + 'owned_arena.lua'].decode('utf-8')
-    a = text.index(start); b = text.index(end, a)
-    block = text[a:b + len('                            end,')]
-    body = block.split('                            retire_idle=function(world,current)\n', 1)[1].rsplit('                            end,', 1)[0]
-    replacement = ('                    local captured_world=calls:world(pc)\n'
-        '                    retire_idle_assembly=function(world,current)\n' + body + '                    end\n'
-        '                    if experiment_player_entry and not map_travel_guard_installed then\n'
-        "                        assert(type(RegisterLoadMapPreHook)=='function','current loader LoadMap pre-hook unavailable')\n"
-        "                        local travel=require('map_travel_guard').new({runtime=function()return runtime end,attest=guard,log=log,\n"
-        '                            retire_idle=function(world,current)return retire_idle_assembly(world,current)end,')
-    files[PREFIX + 'owned_arena.lua'] = replace(text, block, replacement).encode('utf-8')
+           'local map_lifecycle\nlocal assembly_world,assembly_calls')
+    change('owned_arena.lua', '        local player=pc.Pawn\n',
+           '        local player=pc.Pawn\n'
+           '        if experiment_player_entry then\n'
+           "            assert(not map_lifecycle:suspended()and map_lifecycle:ready(player:GetWorld()),'native map transaction still pending')\n"
+           "            assembly_calls=require('ue_calls').new({find_exact=StaticFindObject,usable=valid})\n"
+           '            assembly_world=assembly_calls:world(pc)\n        end\n')
+    change('owned_arena.lua', 'wait_for_player=function()\n',
+           'wait_for_player=function()\n'
+           '    if experiment_player_entry and map_lifecycle:suspended()then return end\n')
     change('owned_arena.lua', "        local identity=player:GetFullName()..'|'..tostring(player:GetAddress())",
-           "        if travel_wait_world then\n"
-           "            local world=player:GetWorld()\n"
-           "            assert(valid(world),'gameplay World still loading')\n"
-           "            if world:GetFullName()==travel_wait_world.name and world:GetAddress()==travel_wait_world.address then\n"
-           "                no_gameplay_player=true;error('waiting for LoadMap to leave previous World')\n"
-           '            end\n            travel_wait_world=nil\n        end\n'
+           '        if experiment_player_entry and not map_lifecycle:ready(player:GetWorld())then\n'
+           "            no_gameplay_player=true;error('waiting for native post-load gameplay World')\n        end\n"
            "        local identity=player:GetFullName()..'|'..tostring(player:GetAddress())")
-    # Role switching is queued; native LoadMap cleanup is synchronous. A queued
-    # old owner must not clean up whatever a later assembly put in runtime.
+    change('owned_arena.lua', 'begin_experiment=function()\nExecuteInGameThread(function()',
+           'begin_experiment=function()\nassembly_tasks:defer(0,function()')
+    binding=(root/'tools/player_map_lifecycle_binding.lua').read_text(encoding='utf-8').replace('\r\n','\n')
+    change('owned_arena.lua', 'ExecuteWithDelay(1500,function()ExecuteInGameThread(wait_for_player)end)',
+           binding+'\nassembly_tasks:defer(1500,wait_for_player)')
+    # Queued role selection must also become inert when pre-load cleanup retires it.
     change('owned_arena.lua', '                        ExecuteInGameThreadWithDelay(250,function()\n'
            '                            local restarted,problem=pcall(function()\n',
            "                        require('player_reassembly').schedule({current=function()return runtime end,\n"
-           '                            defer=ExecuteInGameThreadWithDelay},old_runtime,function()\n'
+           '                            defer=function(ms,fn)return assembly_tasks:defer(ms,fn)end},old_runtime,function()\n'
            '                            local restarted,problem=pcall(function()\n')
-    # The single LoadMap hook must resolve through the latest assembly's calls,
-    # including when a map with the same name is reloaded at a new address.
-    change('owned_arena.lua', 'local retire_idle_assembly',
-           'local retire_idle_assembly\nlocal current_assembly_world')
-    change('owned_arena.lua', '                    local captured_world=calls:world(pc)\n',
-           '                    local captured_world=calls:world(pc)\n'
-           '                    current_assembly_world=function(world,reference)\n'
-           '                        return lifecycle:usable(world)and calls:same(world,calls:resolve(reference))\n'
-           '                    end\n')
-    change('owned_arena.lua', '                                return lifecycle:usable(world)and calls:same(world,calls:resolve(reference))\n',
-           '                                return current_assembly_world(world,reference)\n')
     # Native-route receipt distinguishes a missed native key edge from an action
     # refused by Lua. Event-only logging adds no per-frame input polling.
     change('ue_host.lua', '                    if route then route.fn()end\n',
@@ -373,15 +361,14 @@ def payload(root=ROOT):
            'local assembly_generation=0')
     change('owned_arena.lua', 'local function cleanup()\n    guard()',
            'local function cleanup()\n    guard()\n    assembly_tasks:retire()')
-    for before, after in (
-        ('ExecuteInGameThreadWithDelay(100,observe_skill)', 'assembly_tasks:defer(100,observe_skill)'),
-        ('ExecuteInGameThreadWithDelay(delay,observe_camera)', 'assembly_tasks:defer(delay,observe_camera)'),
-        ('ExecuteInGameThreadWithDelay(500,verify_camera_cleanup)', 'assembly_tasks:defer(500,verify_camera_cleanup)'),
-        ('ExecuteInGameThreadWithDelay(duration*1000,function()', 'assembly_tasks:defer(duration*1000,function()'),
-    ):
-        text=files[PREFIX+'owned_arena.lua'].decode('utf-8')
-        assert before in text, 'assembly task anchor missing: '+before
-        files[PREFIX+'owned_arena.lua']=text.replace(before,after).encode('utf-8')
+    change('owned_arena.lua', '    if setup_ticket and not setup_ticket.restored then setup_protection:restore(setup_ticket)end\n    return true',
+           '    if setup_ticket and not setup_ticket.restored then setup_protection:restore(setup_ticket)end\n'
+           '    assembly_world,assembly_calls=nil,nil\n    return true')
+    text=files[PREFIX+'owned_arena.lua'].decode('utf-8')
+    # The scheduler is constructed with the native function value (no call here).
+    # Every actual delayed call belongs to the current assembly, including setup.
+    text=text.replace('ExecuteInGameThreadWithDelay(', 'assembly_tasks:defer(')
+    files[PREFIX+'owned_arena.lua']=text.encode('utf-8')
     return manifest, files
 
 

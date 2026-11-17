@@ -41,4 +41,8 @@ now=105;objects={pc};assert(q:get()==pc)
 world=object('World /New.New',4,'Class World')
 assert(q:get()==nil,'a cached controller with a changed World must not be reused')
 now=106;assert(q:get()==pc)
+objects={};q:invalidate();assert(q:get()==nil and scans==8,
+    'native pre/post invalidation must not reuse a same-second controller result')
+objects={pc};assert(q:get()==nil and scans==8)
+q:invalidate();assert(q:get()==pc and scans==9)
 print('PASS controller census shared and bounded; negative loading cache; full identity and possession validation; World change rejection')
