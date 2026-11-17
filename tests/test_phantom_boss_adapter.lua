@@ -202,8 +202,8 @@ check('restoration callback cannot recursively poll a protocol clear in progress
         assert(h.bridge.revoking and h.bridge:refresh_local_body());return true
     end
     h.linked=false;h.now=0.8;h.scheduled()
-    assert(h.snapshot_count==before+1 and h.bridge.refresh_pending and not h.bridge.restore_pending)
-    h.now=1;h.scheduled();assert(not h.bridge.refresh_pending and not h.bridge.protocol.connected)
+    assert(h.snapshot_count==before+1 and not h.bridge.refresh_pending and not h.bridge.restore_pending)
+    h.now=1;h.scheduled();assert(h.snapshot_count==before+1 and not h.bridge.protocol.connected)
 end)
 check('network state uses only the observed acknowledged body and blocks during transition',function()
     local h,g,step=pair();h.snapshot.body_actor=actor(1);step(0.7)
@@ -377,5 +377,50 @@ check('explicit close can retry failed World recovery without resetting the old 
     assert(h.bridge.restore_pending and h.bridge.owned[1]==old)
     assert(not h.bridge:close()and h.bridge.owned[1]==old)
     clean=true;assert(h.bridge:close()and h.bridge.owned_count==0 and not h.bridge.restore_pending)
+end)
+check('disconnect retirement stops repeated snapshots and cannot be revived by relay flags',function()
+    local h,g,step=pair();h.snapshot.body_actor=h.snapshot.body
+    h.linked=false;step(.8);assert(h.bridge.revoked_reason and #h.revokes==1)
+    local snapshots,generation=h.snapshot_count,h.bridge.protocol.generation
+    h.linked=true;h.api.coop.net.enabled=true
+    for i=1,20 do step(.8+i*.05)end
+    assert(h.snapshot_count==snapshots and h.bridge.protocol.generation==generation and not h.bridge.protocol.ready)
+    assert(h.bridge.revoked_reason and not h.bridge:network_body()and not h.bridge:allow_legacy_ghost())
+    assert(not h.bridge:refresh_local_body()and h.snapshot_count==snapshots)
+end)
+check('late control and enemy messages cannot pass a retired activation',function()
+    local h,g=pair();g.now=1.1;g.scheduled();local late=assert(g.queue[1])
+    h.linked=false;h.now=1.2;h.scheduled();h.linked=true;h.api.coop.net.enabled=true
+    assert(not h.api.coop.handlers.BWB1(late[2],nil))
+    for _,kind in ipairs({'BWB1','BWV1','Y','N','D','K','A'})do
+        assert(not h.bridge:allow_enemy_event(kind,'normal_enemy'))
+    end
+    assert(not h.bridge:allow_enemy_name('normal_enemy')and not h.bridge:allow_enemy_actor(actor(99)))
+    assert(not h.bridge:allow_enemy_actor(nil))
+end)
+check('a rejected initial body cannot later establish gameplay under the same activation',function()
+    local h=env('host');h.snapshot=nil;assert(h.scheduled())
+    local snapshots=h.snapshot_count
+    h.snapshot={world='world_1',body=actor(7),native_player=false};h.api.coop.net.enabled=true
+    h.now=1;assert(h.scheduled()and h.snapshot_count==snapshots and not h.bridge.world)
+    assert(not h.bridge:refresh_local_body()and not h.bridge.owned[7])
+end)
+check('retired ownership rejects new registration and transitions but keeps native cleanup available',function()
+    local h,g=pair();local row=h.bridge.owned[1]
+    h.linked=false;h.now=.8;assert(h.scheduled())
+    local generation=h.bridge.protocol.generation
+    assert(not pcall(h.bridge.register,h.bridge,actor(99),'training_target'))
+    assert(not pcall(h.bridge.begin_local_transition,h.bridge,row))
+    assert(h.bridge:retire_owned(row,'local_body',function()return true end))
+    assert(h.bridge.owned_count==0 and h.bridge.protocol.generation==generation and h.bridge:close())
+end)
+check('failed disconnect recovery remains explicitly retryable without repeating observer work',function()
+    local h,g=pair();local clean=false
+    h.host.on_revoke=function(why)h.revokes[#h.revokes+1]=why;return clean end
+    h.linked=false;h.now=.8;assert(h.scheduled()and h.bridge.restore_pending)
+    local snapshots,retired=h.snapshot_count,h.retired
+    for i=1,1000 do h.now=.8+i*.1;assert(h.scheduled())end
+    assert(h.snapshot_count==snapshots and h.retired==retired and #h.revokes==1 and h.bridge.owned[1])
+    clean=true;assert(h.bridge:close()and not h.bridge.restore_pending and #h.revokes==2)
 end)
 print('PASS '..checks..' adapter groups; mocked upstream API, no native/game execution')

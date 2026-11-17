@@ -51,7 +51,7 @@ def run():
     lab = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     commands = [
         ('protocol_simulation', [str(lab), str(ROOT / TESTS[0]), str(ROOT)], 16),
-        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 47),
+        ('adapter_mocked_api', [str(lab), str(ROOT / TESTS[1]), str(ROOT)], 52),
         ('candidate_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_phantom_boss_candidate.py', '-v'], 15),
         ('entry_mocked_research_lease', [str(lab), str(ROOT / TESTS[4]), str(target)], 12),
         ('host_fake_uobjects', [str(lab), str(ROOT / TESTS[5]), str(ROOT)], 17),

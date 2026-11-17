@@ -31,6 +31,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
     assert(type(original_list)=='function' and type(original_cached)=='function')
     local self = { closed=false, owned={}, owned_count=0, local_body=nil, world=nil,
         last_poll=-math.huge, status='awaiting transport', remote_body_pending=true }
+    local retired=false
     assert(type(enemy_fence)=='table' and type(enemy_fence.new)=='function','enemy isolation module required')
     local fence=enemy_fence.new(coop,game,function(actor,addr) return self:exclude(actor,addr) end)
     local role=assert(config.role,'explicit instance role required')
@@ -55,6 +56,9 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return ok
     end
     local function revoke(reason,retry)
+        -- An activation owns one lifetime. Transport flags are not a new lease
+        -- and cannot resume observation or gameplay after any terminal revoke.
+        retired=true;self.snapshot_current=false;self.body_actor=nil
         invalidate(reason,retry)
         if self.revoked_reason==reason and (not self.control_restore_pending or not retry) then
             return not recovery_pending()
@@ -64,6 +68,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         self.revoking=true
         local ok,result=pcall(host.on_revoke,reason)
         self.revoking=false
+        self.refresh_pending=false -- retired observation is never resumed
         self.control_restore_pending=not ok or result~=true
         if self.control_restore_pending then pcall(host.log,'BWB possession restoration unverified: '..tostring(reason))end
         return not recovery_pending()
@@ -77,6 +82,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         build=config.exe_sha256, bosses=config.bosses,
         send=function(kind,line) coop.sendEvent(kind,line) end,
         on_ready=function(on,reason)
+            if on and retired then return end
             self.status=on and 'identity ready; Boss ghost assembly unaccepted' or reason
             if on then self.revoked_reason,self.invalidated_reason=nil,nil end
             if not on then protocol_invalidated(reason) end
@@ -97,7 +103,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return class_actions[path] and class_actions[path][id] or nil
     end
     function self:register(row,kind)
-        assert(not self.closed and identity(row),'valid current-world identity required')
+        assert(not self.closed and not retired and identity(row),'valid current-world identity required')
         assert(row.world==self.world,'cannot own another world actor')
         assert(kind=='local_body' or kind=='remote_ghost' or kind=='training_target' or kind=='controller')
         local old=self.owned[row.address]
@@ -124,7 +130,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         assert(self.owned_count>=0,'owned retirement count underflow')
         if same(self.local_body,row)then
             self.local_body,self.body_actor,self.snapshot_current=nil,nil,false
-            if not self.closed then state:body_changed(host.now())end
+            if not self.closed and not retired then state:body_changed(host.now())end
         end
         return true
     end
@@ -146,11 +152,12 @@ function M.attach(api, config, host, protocol, enemy_fence)
         end
         return out,addrs
     end
-    function self:allow_enemy_name(name) return fence:allow_name(name) end
+    function self:allow_enemy_name(name)return not self.closed and not retired and not self.world_transition and fence:allow_name(name)end
     function self:allow_enemy_event(kind,...)
-        return not self.closed and not self.world_transition and combat_events[kind]==true and fence:allow_event(kind,...)
+        return not self.closed and not retired and not self.world_transition and combat_events[kind]==true and fence:allow_event(kind,...)
     end
     function self:allow_enemy_actor(actor,addr)
+        if self.closed or retired or self.world_transition then return false end
         if actor==nil then return true end
         if addr==nil then
             local ok,value=pcall(function() return actor:GetAddress() end)
@@ -161,11 +168,11 @@ function M.attach(api, config, host, protocol, enemy_fence)
     end
     function self:allow_legacy_ghost()
         -- Boss classes cannot fall through to the receiver's own Pawn class.
-        return not self.closed and not self.local_transition and state.ready and state.boss=='native'
+        return not self.closed and not retired and not self.local_transition and state.ready and state.boss=='native'
             and state.remote and state.remote.boss=='native'
     end
     function self:remote_body_request()
-        if self.local_transition or not state.ready then return nil,'identity handshake incomplete' end
+        if self.closed or retired or self.local_transition or not state.ready then return nil,'identity handshake incomplete' end
         local path=state:remote_class()
         if path then return path,'Boss ghost assembly contract pending' end
         return nil,'native body'
@@ -173,14 +180,14 @@ function M.attach(api, config, host, protocol, enemy_fence)
     function self:network_body()
         -- The observer verifies ownership at 10 Hz. Per-frame state sends resolve
         -- only that actor, never enumerate NPCs or fall back to a hidden player.
-        if self.closed or self.local_transition or not self.snapshot_current or not state.ready
+        if self.closed or retired or self.local_transition or not self.snapshot_current or not state.ready
             or not self.body_actor or not self.local_body then return nil end
         local ok,current=pcall(host.identify,self.body_actor,self.world)
         if not ok or not same(current,self.local_body) then return nil end
         return self.body_actor,current.address
     end
     function self:begin_local_transition(row)
-        assert(not self.closed and not self.world_transition and not self.local_transition,
+        assert(not self.closed and not retired and not self.world_transition and not self.local_transition,
             'local body transition already pending or retired')
         assert(identity(row) and self.owned[row.address]==row and row.kind=='local_body'
             and row.world==self.world and class_to_boss[row.class],'registered same-World local Boss required')
@@ -192,6 +199,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
     function self:refresh_local_body()
         if self.closed then return false end
         if self.revoking then self.refresh_pending=true;return true end
+        if retired or self.world_transition then return false end
         self.last_poll=-math.huge
         local ok,why=pcall(self.poll,self)
         if not ok then state:set_link(false,host.now());revoke('body observation failed: '..tostring(why));return false end
@@ -203,7 +211,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         return self:refresh_local_body()
     end
     local handler=function(line,from)
-        if self.closed or self.world_transition or not net.enabled or not coop.linked()
+        if self.closed or retired or self.world_transition or not net.enabled or not coop.linked()
             or net.party or net.pvp or net.role=='local' then return false end
         -- Native two-player relay has no @slot; accept @2 only on host for forwarded input.
         if from~=nil and not (role=='host' and from==2) then return false end
@@ -214,7 +222,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
     local wrapped_cached=function(...) return self:filter(original_cached(...)) end
     game.listEnemies,game.enemiesSoFar=wrapped_list,wrapped_cached
     function self:poll()
-        if self.closed or self.world_transition then return end
+        if self.closed or retired or self.world_transition then return end
         local now=host.now()
         if now-self.last_poll<0.1 then return end
         self.last_poll=now
@@ -222,6 +230,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
         self.snapshot_current=false
         self.body_actor=nil
         local ok,snapshot=pcall(host.snapshot)
+        if retired then return end
         if not ok or type(snapshot)~='table' or not identity(snapshot.body)
             or type(snapshot.world)~='string' or snapshot.body.world~=snapshot.world then
             state:set_link(false,now); revoke('no valid local world/body'); return
@@ -257,6 +266,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
             self.local_body=snapshot.body
             if not state:select(boss or 'native',now) then state:body_changed(now) end
         end
+        if retired then return end
         self.snapshot_current=true
         self.body_actor=snapshot.body_actor
         state:set_link(net.enabled==true and coop.linked()==true,now)
@@ -290,7 +300,7 @@ function M.attach(api, config, host, protocol, enemy_fence)
             -- A failed observer must not leave the previous handshake ready.
             state:set_link(false,host.now()); revoke('adapter exception: '..tostring(why))
         end
-        return self.closed
+        return self.closed or retired
     end)
     if not scheduled or type(cancel)~='function' then
         self:close()
