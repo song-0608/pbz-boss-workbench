@@ -7,7 +7,7 @@ if not exist "%PBZ_PYTHON%" (
   pause
   exit /b 1
 )
-"%PBZ_PYTHON%" -B -X utf8 "%~dp0tools\boss_workbench_v5_window.py" %*
+"%PBZ_PYTHON%" -B -X utf8 "%~dp0tools\workbench_status_bootstrap.py" "%~dp0tools\boss_workbench_v5_window.py" %*
 set "PBZ_EXIT_CODE=%ERRORLEVEL%"
 if not "%PBZ_EXIT_CODE%"=="0" pause
 exit /b %PBZ_EXIT_CODE%

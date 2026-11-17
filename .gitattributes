@@ -369,3 +369,10 @@ tools/run_player_experience_roles.py -text whitespace=cr-at-eol
 tools/select_expanded_boss.py -text whitespace=cr-at-eol
 tools/test_player_experience_inputs.py -text whitespace=cr-at-eol
 tools/verify_boss_workbench_v5.py -text whitespace=cr-at-eol
+
+# Preserve the source-matched UI status extension.
+tools/workbench_session_status.py -text whitespace=cr-at-eol
+tools/workbench_status_bootstrap.py -text whitespace=cr-at-eol
+tests/test_workbench_session_status.py -text whitespace=cr-at-eol
+tests/test_workbench_cmd_entry.py -text whitespace=cr-at-eol
+evidence/releases/workbench-session-ui-9abea4e959836709.json -text whitespace=cr-at-eol

@@ -8,3 +8,4 @@
 - 不访问背包等无关界面；不绕过会话时限、焦点检查、隔离检查或验收门槛。保留失败记录和历史冻结工具。
 - Python 运行带 `-B -X utf8`，避免冻结工作流出现 `__pycache__`。
 - 当前交付为六角色工作台 v5（`ahua-boss-workbench-v5-3f29975fe3b8826f`）；说明见 `74-Boss工作台v5操作说明.md`，只读核验使用 `tools/verify_boss_workbench_v5.py`。弦儿仅两项闪避，魔渊未开放；联机暂缓。
+- 默认CMD通过 `tools/workbench_status_bootstrap.py` 包装原始且摘要匹配的v5窗口，增加状态提示、重复步骤拦截及新窗口间步骤锁。界面扩展不改冻结的v5窗口、研究流程或游戏Lua；不会热更新旧窗口或重启正在进行的研究会话。回归见 `tests/test_workbench_session_status.py` 与 `tests/test_workbench_cmd_entry.py`。

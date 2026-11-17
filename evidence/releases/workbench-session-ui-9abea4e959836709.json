@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "passed": true,
+  "base_release": "ahua-boss-workbench-v5-3f29975fe3b8826f",
+  "base_manifest_sha256": "c5d4d049989687a401ee6e8fa7cc49a50211f042f1aa9a88ea65e5cd933fe295",
+  "source_files": {
+    "tools/workbench_session_status.py": "ff57c267d1478bcf1e99537215aaadf4068178ca3c7fe2ed34625afdb5b45241",
+    "tools/workbench_status_bootstrap.py": "3b40aa02fc69d4203d74a1f1d9613af5c78c4ba7eaa49eb57dae1f2879c849f0",
+    "tests/test_workbench_session_status.py": "496920437729320054b1c5ec526cd1442856d2a65cdfbbabef439bd8d3ae8f1d",
+    "tests/test_workbench_cmd_entry.py": "534de39f2bd714a0df0c36e26480ae92e3b42d2050fa9747ba894b7da397f998",
+    "开始Boss工作台.cmd": "c28117cd3bea23a29af35c9d70c18f9d6e404175aa121c869c6f91ef013d21bd"
+  },
+  "tests_passed": 14,
+  "test_output": "test_already_armed_jobs_do_not_dispatch_or_acquire_a_lease (tests.test_workbench_session_status.RenderedGuardTests.test_already_armed_jobs_do_not_dispatch_or_acquire_a_lease) ... ok\ntest_overlay_keeps_original_backend_path_and_explicit_input_gates (tests.test_workbench_session_status.RenderedGuardTests.test_overlay_keeps_original_backend_path_and_explicit_input_gates) ... ok\ntest_real_window_disables_repeat_steps_and_shows_saved_bindings (tests.test_workbench_session_status.RenderedGuardTests.test_real_window_disables_repeat_steps_and_shows_saved_bindings) ... ok\ntest_action_lock_blocks_a_second_window_and_releases (tests.test_workbench_session_status.SessionStatusTests.test_action_lock_blocks_a_second_window_and_releases) ... ok\ntest_expired_grant_only_allows_cleanup (tests.test_workbench_session_status.SessionStatusTests.test_expired_grant_only_allows_cleanup) ... ok\ntest_expired_session_does_not_offer_prepare_before_cleanup (tests.test_workbench_session_status.SessionStatusTests.test_expired_session_does_not_offer_prepare_before_cleanup) ... ok\ntest_foreign_session_cannot_be_stopped_or_overwritten (tests.test_workbench_session_status.SessionStatusTests.test_foreign_session_cannot_be_stopped_or_overwritten) ... ok\ntest_no_session_has_only_prepare_and_status (tests.test_workbench_session_status.SessionStatusTests.test_no_session_has_only_prepare_and_status) ... ok\ntest_operating_system_releases_lock_after_process_exit (tests.test_workbench_session_status.SessionStatusTests.test_operating_system_releases_lock_after_process_exit) ... ok\ntest_partial_json_and_unexpected_paths_fail_closed (tests.test_workbench_session_status.SessionStatusTests.test_partial_json_and_unexpected_paths_fail_closed) ... ok\ntest_phase_buttons_only_offer_the_next_valid_step (tests.test_workbench_session_status.SessionStatusTests.test_phase_buttons_only_offer_the_next_valid_step) ... ok\ntest_restored_with_pending_postcheck_cannot_start_a_new_round (tests.test_workbench_session_status.SessionStatusTests.test_restored_with_pending_postcheck_cannot_start_a_new_round) ... ok\ntest_snapshot_is_read_only_and_uses_saved_control_limits (tests.test_workbench_session_status.SessionStatusTests.test_snapshot_is_read_only_and_uses_saved_control_limits) ... ok\ntest_real_cmd_launcher_opens_and_exits_smoke_from_another_directory (tests.test_workbench_cmd_entry.WorkbenchCommandEntryTests.test_real_cmd_launcher_opens_and_exits_smoke_from_another_directory) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 2.216s\n\nOK\n",
+  "entry_checks": [
+    {
+      "entry": "D-canonical",
+      "sha256": "c28117cd3bea23a29af35c9d70c18f9d6e404175aa121c869c6f91ef013d21bd",
+      "passed": true
+    },
+    {
+      "entry": "D-forward",
+      "sha256": "9b7bc738cb8af37a7474958c0cf725c6292aad229ad793be48e95072422495a4",
+      "passed": true
+    },
+    {
+      "entry": "E-forward",
+      "sha256": "f9f9c9d3e2992a92c3716628b4cfef7986e5c025b1662eb9803c208a2b860495",
+      "passed": true
+    },
+    {
+      "entry": "H-forward",
+      "sha256": "9b7bc738cb8af37a7474958c0cf725c6292aad229ad793be48e95072422495a4",
+      "passed": true
+    }
+  ],
+  "frozen_acceptance_source_fingerprints_unchanged": true,
+  "game_lua_payload_unchanged": true,
+  "game_commands_dispatched_by_ui_checks": 0,
+  "existing_windows_hot_patched": false,
+  "lease_extended": false,
+  "full_closed_session_verifier_rerun": false
+}
