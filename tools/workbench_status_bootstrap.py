@@ -8,6 +8,25 @@ from boss_adaptation_workflow import ROOT, sha
 from mod_installation import MANIFEST, installed_package, unlinked_path
 
 
+def installed_roles(manifest):
+    """Use only roles present in the verified installed payload, never previews."""
+    roles = {}
+    for row in manifest['bosses']:
+        assert isinstance(row['id'], str) and isinstance(row['name'], str)
+        assert row['id'] not in roles and row['name'] not in roles.values()
+        assert row['abilities'] > 0 and row['bindings'] > 0
+        roles[row['id']] = row['name']
+    assert roles and len(roles) <= 128
+    return roles
+
+
+def startup_selection(data, roles):
+    if (not isinstance(data, dict) or set(data) != {'boss_id'}
+            or not isinstance(data['boss_id'], str) or data['boss_id'] not in roles):
+        raise ValueError('启动角色不在当前已安装且核验通过的角色清单中')
+    return dict(data), False
+
+
 def verified_entry(entry):
     entry = unlinked_path(entry)
     assert entry == ROOT / 'tools/boss_workbench_v5_window.py'
@@ -96,7 +115,19 @@ def main(entry, smoke=False):
     module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
     original = module.render
     module.render = lambda flow, count: render(original(flow, count))
-    module.main(smoke=smoke)
+    # The frozen v5 GUI still uses v2's two-role STARTUP_BOSSES. Expand this
+    # process-local presentation from the installed manifest without rewriting
+    # any frozen GUI, native payload, session gate or player's selection.
+    _, manifest, _ = installed_package()
+    roles = installed_roles(manifest)
+    startup = module.previous.previous.previous
+    old_roles, old_normalize = startup.STARTUP_BOSSES, startup.startup_settings
+    startup.STARTUP_BOSSES = roles
+    startup.startup_settings = lambda data: startup_selection(data, roles)
+    try:
+        module.main(smoke=smoke)
+    finally:
+        startup.STARTUP_BOSSES, startup.startup_settings = old_roles, old_normalize
 
 
 if __name__ == '__main__':
