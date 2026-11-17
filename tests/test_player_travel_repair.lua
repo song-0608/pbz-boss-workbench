@@ -21,11 +21,6 @@ for _,row in ipairs(Catalog.list())do
     end
 end
 assert(roles==6 and primaries==5)
-local cross_map=require('player_cross_map_trial')
-assert(cross_map.destination('/Game/Maps/B02/PBZ_Xigu_WP')=='/Game/Maps/B03/PBZ_Fujizhilin_WP')
-assert(cross_map.destination('/Game/Maps/B03/PBZ_Fujizhilin_WP')=='/Game/Maps/B02/PBZ_Xigu_WP')
-assert(not pcall(cross_map.destination,'/Unobserved/Map'),'unobserved travel must be rejected')
-
 local Calls=require('ue_calls')
 local scans,alive,usable,address,name=0,true,true,1,'Object /Fixture'
 local object={IsValid=function()return alive end,GetAddress=function()return address end,

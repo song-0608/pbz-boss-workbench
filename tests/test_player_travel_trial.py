@@ -52,15 +52,25 @@ class TravelInputTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             validate_action('primary', self.owner, self.deployment, duplicate)
 
-    def test_cross_map_is_explicit_and_once_only(self):
-        text = self.active + ('PBZ_CONTROL_LIFECYCLE:TRANSITION_TRIAL_KEY=F12; native travel '
-                              'between observed valley/forest packages once\n')
+    def test_native_travel_preparation_is_explicit_and_once_only(self):
+        text = self.active + ('PBZ_CONTROL_LIFECYCLE:TRANSITION_TRIAL_KEY=F12; restore once '
+                              'for native map menu travel\n')
         with self.assertRaises(AssertionError):
-            validate_action('cross_map', self.owner, self.deployment, text)
+            validate_action('prepare_native_travel', self.owner, self.deployment, text)
         self.owner['scene_transition_trial'] = self.deployment['scene_transition_trial'] = True
-        self.assertEqual(validate_action('cross_map', self.owner, self.deployment, text), 'F12')
+        self.assertEqual(validate_action('prepare_native_travel', self.owner, self.deployment, text), 'F12')
         with self.assertRaises(AssertionError):
-            validate_action('cross_map', self.owner, self.deployment, text + 'CROSS_MAP_TRIAL_ROUTE=a|b')
+            validate_action('prepare_native_travel', self.owner, self.deployment, text + 'NATIVE_TRAVEL_MENU_READY=true')
+
+    def test_native_light_is_only_the_current_wanjun_slot(self):
+        text = self.active.replace('PLAYER_ENTRY_READY=role',
+            'PLAYER_BINDING=skill_07|skill_07|F9\nPLAYER_ENTRY_READY=057_wanjun')
+        self.assertEqual(validate_action('native_light', self.owner, self.deployment, text), 'F9')
+        for changed in (text.replace('057_wanjun', '073_yanqiansui'),
+                        text.replace('skill_07|skill_07|F9', 'skill_07|skill_07|Q'),
+                        text+'[PBZBossControl] exit success=true state=OFF\n'):
+            with self.assertRaises(AssertionError):
+                validate_action('native_light', self.owner, self.deployment, changed)
 
 
 if __name__ == '__main__':

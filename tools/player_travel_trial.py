@@ -13,7 +13,7 @@ NATIVE_ACTIONS = {'native_interact': 'e', 'native_confirm': 'Return', 'native_do
 def validate_action(action, owner, deployment, text):
     actions = dict(inherited.ACTIONS, **NATIVE_ACTIONS, primary='LEFT_MOUSE_BUTTON',
                    workbench_alias='Shift_L+F6', workbench_active='F6',
-                   picker_up='F1', picker_down='F2', picker_confirm='F6', cross_map='F12')
+                   picker_up='F1', picker_down='F2', picker_confirm='F6', prepare_native_travel='F12', native_light='F9')
     assert action in actions, 'Bounded trial action required'
     assert owner.get('phase') == 'armed' and owner.get('player_entry')
     assert not any(owner.get(k) for k in ('skill_lab', 'expanded', 'boss_candidate'))
@@ -31,7 +31,7 @@ def validate_action(action, owner, deployment, text):
     exited = max([current.rfind('PBZ_CONTROL_LIFECYCLE:' + label + '=') for label in
                   ('PLAYER_ENTRY_READY', 'WORKBENCH_BOSS_SELECTED', 'MAP_TRAVEL_IDLE_CLEANED')] + off)
     active = entered >= 0 and entered > exited
-    if action in ('lock', 'cycle_target', 'cast', 'shift_cast', 'exit', 'primary', 'workbench_active', 'cross_map'):
+    if action in ('lock', 'cycle_target', 'cast', 'shift_cast', 'exit', 'primary', 'workbench_active', 'prepare_native_travel', 'native_light'):
         assert active, 'Current successful active takeover required'
     if action in ('enter', 'down', 'up', 'confirm', 'close', 'picker_up', 'picker_down', 'picker_confirm'):
         assert not active, 'Restore the player before selecting or entering'
@@ -43,11 +43,11 @@ def validate_action(action, owner, deployment, text):
         validate_control_menu_transition(owner, text)
     if action == 'workbench_alias':
         assert 'WORKBENCH_SHORTCUT_READY=SHIFT+F6' in current
-    if action == 'cross_map':
+    if action == 'prepare_native_travel':
         assert owner.get('scene_transition_trial') and deployment.get('scene_transition_trial')
-        assert 'TRANSITION_TRIAL_KEY=F12; native travel between observed valley/forest packages once' in current
-        assert 'CROSS_MAP_TRIAL_ROUTE=' not in current, 'Only one cross-map request per session'
-    if action in ('cast', 'shift_cast', 'primary'):
+        assert 'TRANSITION_TRIAL_KEY=F12; restore once for native map menu travel' in current
+        assert 'NATIVE_TRAVEL_MENU_READY=' not in current, 'Only one native travel preparation per session'
+    if action in ('cast', 'shift_cast', 'primary', 'native_light'):
         # Read actual bindings from the latest assembly, not the initial owner.
         begin = current.rfind('PBZ_CONTROL_LIFECYCLE:SPAWN_ATTEMPT=')
         assembly = current[max(0, begin):]
@@ -55,6 +55,12 @@ def validate_action(action, owner, deployment, text):
     if action == 'primary':
         bindings = re.findall(r'PLAYER_BINDING=primary_attack\|([^|\r\n]+)\|LEFT_MOUSE_BUTTON(?:\r?\n|$)', assembly)
         assert len(bindings) == 1, 'Current assembly requires exactly one primary mouse binding'
+    if action == 'native_light':
+        # This is the already exposed WanJun light-attack slot, not a newly
+        # invented ability or an attestation that it has dealt damage.
+        assert 'PLAYER_ENTRY_READY=057_wanjun' in assembly, 'WanJun light slot required'
+        bindings = re.findall(r'PLAYER_BINDING=skill_07\|skill_07\|F9(?:\r?\n|$)', assembly)
+        assert len(bindings) == 1, 'Current assembly requires exactly one native light binding'
     return actions[action]
 
 
@@ -73,6 +79,6 @@ if __name__ == '__main__':
     parser.add_argument('workflow', type=Path)
     parser.add_argument('action', choices=(*inherited.ACTIONS, *NATIVE_ACTIONS,
                                          'primary', 'workbench_alias', 'workbench_active',
-                                         'picker_up', 'picker_down', 'picker_confirm', 'cross_map'))
+                                         'picker_up', 'picker_down', 'picker_confirm', 'prepare_native_travel', 'native_light'))
     args = parser.parse_args()
     gate(args.workflow.resolve(), args.action)

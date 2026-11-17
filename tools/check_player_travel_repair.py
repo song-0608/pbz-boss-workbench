@@ -29,12 +29,12 @@ def main():
         "print('PASS candidate Lua syntax: '..#files)\n", encoding='utf-8')
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     jobs = [('syntax', [str(executable), str(syntax)])]
-    for name in ('player_travel_repair', 'player_controller_query', 'player_reassembly', 'runtime', 'ue_calls', 'world_boundary', 'idle_world_watch',
+    for name in ('player_travel_repair', 'player_controller_query', 'player_reassembly', 'player_native_travel_trial', 'runtime', 'ue_calls', 'world_boundary', 'idle_world_watch',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'target_transition', 'ue_host'):
         jobs.append((name, [str(executable), str(loader), '.', package.relative_to(ROOT).as_posix(),
                            'tests/test_' + name + '.lua']))
-    for name in ('player_travel_candidate', 'player_travel_trial', 'player_overlay', 'player_status_stream',
+    for name in ('player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',
                  'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry'):
         command = ([sys.executable, '-B', '-X', 'utf8', 'tests/test_player_overlay.py']
                    if name == 'player_overlay' else

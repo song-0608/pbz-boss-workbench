@@ -11,10 +11,10 @@ from mod_installation import MANIFEST, assert_closed, unlinked_path, validate_pa
 BASE = 'ahua-boss-workbench-v5-3f29975fe3b8826f'
 PREFIX = 'PBZBossControl/Scripts/'
 SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls.lua',
-           'tools/player_world_watch.lua', 'tools/player_cross_map_trial.lua', 'tools/player_controller_query.lua',
+           'tools/player_world_watch.lua', 'tools/player_native_travel_trial.lua', 'tools/player_controller_query.lua',
            'tests/test_player_travel_repair.lua', 'tests/test_player_controller_query.lua',
            'tests/test_player_travel_candidate.py', 'tools/player_overlay.py', 'tests/test_player_overlay.py',
-           'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua')
+           'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua', 'tests/test_player_native_travel_trial.lua')
 
 
 def payload(root=ROOT):
@@ -30,7 +30,7 @@ def payload(root=ROOT):
 
     files[PREFIX + 'player_role_controls.lua'] = (root / 'tools/player_role_controls.lua').read_bytes()
     files[PREFIX + 'idle_world_watch.lua'] = (root / 'tools/player_world_watch.lua').read_bytes()
-    files[PREFIX + 'player_cross_map_trial.lua'] = (root / 'tools/player_cross_map_trial.lua').read_bytes()
+    files[PREFIX + 'player_native_travel_trial.lua'] = (root / 'tools/player_native_travel_trial.lua').read_bytes()
     files[PREFIX + 'player_controller_query.lua'] = (root / 'tools/player_controller_query.lua').read_bytes()
     files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
@@ -296,11 +296,12 @@ def payload(root=ROOT):
     change('ue_host.lua', '                    if route then route.fn()end\n',
            "                    if route then g.print('[PBZBossControl] input_route key='..tostring(native_key)..'\\n');route.fn()end\n")
     change('owned_arena.lua', "                                statics:OpenLevel(pc,FName(package),true,'')",
-           "                                local destination=require('player_cross_map_trial').destination(package)\n"
-           "                                log('CROSS_MAP_TRIAL_ROUTE',package..'|'..destination)\n"
-           "                                statics:OpenLevel(pc,FName(destination),true,'')")
+           "                                require('player_native_travel_trial').prepare(runtime,\n"
+           '                                    {attest=guard,now=os.time,log=log})')
+    change('owned_arena.lua', "                                log('ACTIVE_WORLD_TRIAL_REQUESTED',true)",
+           "                                log('ACTIVE_WORLD_TRIAL_PREPARED',true)")
     change('owned_arena.lua', 'F12; reload exact captured current map once; isolated developer validation',
-           'F12; native travel between observed valley/forest packages once; isolated developer validation')
+           'F12; restore once for native map menu travel; isolated developer validation')
     return manifest, files
 
 
