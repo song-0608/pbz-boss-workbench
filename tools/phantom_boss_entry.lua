@@ -1,6 +1,7 @@
 -- A candidate is inert unless a dedicated online-research launcher supplies its host.
 -- Never consume PBZBossControlLaunch or counterfeit an offline proof.
-return function(api, directory)
+return function(api, directory, remember)
+    assert(remember==nil or type(remember)=='function','recovery owner callback required')
     local launch=rawget(_G,'PBZBossOnlineResearchLaunch')
     _G.PBZBossOnlineResearchLaunch=nil
     if type(launch)~='table' then
@@ -44,9 +45,26 @@ return function(api, directory)
     if not api.coop.net.enabled then api.coop.net.role=expected_role end
     local peer=dofile(directory..'bwb_adapter.lua').attach(api,config,host,
         dofile(directory..'bwb_protocol.lua'),dofile(directory..'bwb_enemy_fence.lua'))
+    -- Publish the recovery owner before optional/native construction can fail.
+    -- Once accepted, the outer startup retains it and owns cleanup retries.
+    local published=false
+    if remember then
+        local ok,accepted=pcall(remember,peer)
+        if not ok or accepted~=true then
+            local closed,clean=pcall(peer.close,peer)
+            error('recovery owner publication rejected; cleanup='..tostring(closed and clean==true)..': '..tostring(accepted))
+        end
+        published=true
+    end
     if launch.assembly~=nil then
         local ok,why=pcall(function()
-            assembly=dofile(directory..'bwb_online_session.lua').new(api,launch,config,peer,host,directory,_G)
+            local mounted=dofile(directory..'bwb_online_session.lua').new(api,launch,config,peer,host,directory,_G,function(owner)
+                assert(type(owner)=='table' and type(owner.revoke)=='function','invalid assembly recovery owner')
+                assert(assembly==nil or assembly==owner,'assembly recovery owner cannot be replaced')
+                assembly=owner
+                return true
+            end)
+            assert(mounted==assembly,'assembly recovery owner was not published')
             local started,reason=peer:select_boss(launch.boss_id)
             if not started then
                 assert(assembly.state=='REJECTED',reason)
@@ -54,8 +72,10 @@ return function(api, directory)
             end
         end)
         if not ok then
-            local clean=peer:close()
-            error('online assembly mount rejected; cleanup='..tostring(clean)..': '..tostring(why))
+            if published then error('online assembly mount rejected; outer recovery retained: '..tostring(why))end
+            local closed,clean=pcall(peer.close,peer)
+            error('online assembly mount rejected; cleanup='..tostring(closed and clean==true)..': '..tostring(why)
+                ..(closed and ''or '; cleanup error='..tostring(clean)))
         end
     end
     return peer

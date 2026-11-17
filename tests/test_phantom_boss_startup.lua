@@ -44,10 +44,12 @@ local function setup()
         network_body=function(self)assert(self==s.peer);return 'BOSS',42 end,
         select_boss=function(self,id)assert(self==s.peer);return id=='056_youlong' end}
     local environment=setmetatable({os={time=function()return s.now end},dofile=function(path)
-        if path==directory..'bwb_entry.lua' then return function(a)
+        if path==directory..'bwb_entry.lua' then return function(a,dir,remember)
             assert(g.PBZBossOnlineResearchLaunch and a==api)
             g.PBZBossOnlineResearchLaunch=nil;s.mounts=s.mounts+1
             if s.mount_error then error('mount failed')end
+            if remember then assert(remember(s.peer)==true)end
+            if s.partial_mount_error then error('partially mounted entry failed')end
             return s.peer
         end end
         return dofile(path)
@@ -209,5 +211,17 @@ check('actual launch gate and startup facade propagate recovery retries through 
     s.close_error=false;s.cancel_error=false
     assert(gate:close()and not gate.restore_pending and not s.bridge.restore_pending and s.closes==2 and s.stops==1)
     s.callbacks[1]();s.callbacks[2]();assert(s.mounts==1 and s.starts==1 and not s.bridge:transport_allowed())
+end)
+check('entry failure after publishing its peer retains unfinished recovery in the startup facade',function()
+    local s=setup();local b=s:begin();s.playing=true;s.partial_mount_error=true;s.restore_pending=true;s:tick(3)
+    assert(b.startup_state=='FAILED'and b.restore_pending and s.closes==1 and s.starts==0 and s.stops==1)
+    s.restore_pending=false;assert(b:close()and not b.restore_pending and s.closes==2 and s.stops==1)
+    s:tick(4);assert(s.mounts==1 and s.starts==0)
+end)
+check('partial entry cleanup exceptions preserve the original startup failure and remain retryable',function()
+    local s=setup();local b=s:begin();s.playing=true;s.partial_mount_error=true;s.close_error=true;s:tick(3)
+    assert(b.startup_state=='FAILED'and b.status:find('partially mounted entry failed',1,true))
+    assert(b.restore_pending and b.cleanup_error:find('close failed',1,true)and s.closes==1)
+    s.close_error=false;assert(b:close()and not b.restore_pending and s.closes==2 and s.starts==0)
 end)
 print('PASS '..checks..' startup groups; simulated game-thread menu/loading, no game started')

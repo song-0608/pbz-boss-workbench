@@ -123,11 +123,16 @@ return function(api,directory,globals)
             assert(g.PBZBossOnlineResearchLaunch==nil,'another startup owns the launch slot')
             -- The normal entry consumes this exact captured launch once.
             g.PBZBossOnlineResearchLaunch=captured
-            local mounted,result=pcall(dofile(directory..'bwb_entry.lua'),api,directory)
+            local function remember(owner)
+                assert(type(owner)=='table' and type(owner.close)=='function','invalid online recovery owner')
+                assert(peer==nil or peer==owner,'online recovery owner cannot be replaced')
+                peer=owner
+                return true
+            end
+            local mounted,result=pcall(dofile(directory..'bwb_entry.lua'),api,directory,remember)
             if g.PBZBossOnlineResearchLaunch==captured then g.PBZBossOnlineResearchLaunch=nil end
             assert(mounted,result)
-            assert(type(result)=='table' and type(result.close)=='function','invalid online entry result')
-            peer=result
+            assert(remember(result),'invalid online entry result')
             self.startup_state,self.status='READY','native gameplay assembly mounted'
             assert(api.online and type(api.online.settings)=='function'
                 and type(api.online.connection)=='function' and type(api.online.start)=='function',

@@ -71,24 +71,30 @@ check('owned assembly refuses supplied host, absent lease provider and unknown B
         assert(not pcall(entry,api,directory) and api.coop.handlers.BWB1==nil)
     end
 end)
-local function assembly_entry(fail)
+local function assembly_entry(fail,remember)
     local api,launch=setup();local supplied=launch.host;launch.host=nil
     launch.assembly={};launch.boss_id='ahua_guitoudao';launch.lease_provider=function()return {}end
     local assembled,revoked=0,0
+    local state={close_refused=fail=='close_refused'}
     local environment=setmetatable({dofile=function(path)
         if path==directory..'bwb_host.lua' then return {new=function(_,l)
             supplied.on_revoke=function(reason)return l.revoke_control(reason)end;return supplied
         end} end
-        if path==directory..'bwb_online_session.lua' then return {new=function(_,l,c,peer)
+        if path==directory..'bwb_online_session.lua' then return {new=function(_,l,c,peer,observer,dir,globals,publish)
+            local owner={state=fail=='clean'and'REJECTED'or'FAULTED',revoke=function()
+                revoked=revoked+1;return not state.close_refused
+            end}
+            if publish then assert(publish(owner)==true)end
+            if fail=='construction'then error('optional visual construction failed')end
             function peer:select_boss(id)assert(id==launch.boss_id);assembled=assembled+1;return not fail,'start rejected'end
-            return {state=fail=='clean'and'REJECTED'or'FAULTED',revoke=function()revoked=revoked+1;return true end}
+            return owner
         end} end
         return dofile(path)
     end},{__index=_G})
     local run=assert(loadfile(directory..'bwb_entry.lua','t',environment))()
     _G.PBZBossOnlineResearchLaunch=launch
-    local ok,result=pcall(run,api,directory)
-    return ok,result,api,function()return assembled,revoked end
+    local ok,result=pcall(run,api,directory,remember)
+    return ok,result,api,function()return assembled,revoked end,state
 end
 check('dedicated assembly attaches its own recovery callback before native control starts',function()
     local ok,peer,api,counts=assembly_entry(false);assert(ok and api.coop.handlers.BWB1)
@@ -103,5 +109,28 @@ check('clean initial rejection preserves the adapter for an explicit workbench r
     local ok,peer,api,counts=assembly_entry('clean');assert(ok and api.coop.handlers.BWB1)
     local started,revoked=counts();assert(started==1 and revoked==0 and not peer.closed)
     assert(peer:close());started,revoked=counts();assert(revoked==1 and api.coop.handlers.BWB1==nil)
+end)
+check('partial session construction preserves its assembly owner for local rollback',function()
+    local ok,why,api,counts=assembly_entry('construction')
+    assert(not ok and why:find('optional visual construction failed',1,true))
+    local started,revoked=counts();assert(started==0 and revoked==1 and api.coop.handlers.BWB1==nil)
+end)
+check('published peer survives assembly failure for explicit outer recovery without an unowned retry',function()
+    local captured
+    local ok,why,api,counts,state=assembly_entry('close_refused',function(peer)
+        assert(type(peer.close)=='function'and peer.select_boss==nil);captured=peer;return true
+    end)
+    assert(not ok and why:find('start rejected',1,true)and captured)
+    local started,revoked=counts();assert(started==1 and revoked==0)
+    assert(not captured:close()and captured.restore_pending and api.coop.handlers.BWB1==nil)
+    state.close_refused=false;assert(captured:close()and not captured.restore_pending)
+    started,revoked=counts();assert(started==1 and revoked==2)
+end)
+check('rejected owner publication rolls back before native assembly can start',function()
+    for _,publish in ipairs({function()return false end,function()error('owner registration rejected')end})do
+        local ok,why,api,counts=assembly_entry(false,publish)
+        assert(not ok and why:find('recovery owner publication',1,true)and api.coop.handlers.BWB1==nil)
+        local started,revoked=counts();assert(started==0 and revoked==0 and not api.coop.net.enabled)
+    end
 end)
 print('PASS '..checks..' entry groups; mocked research lease, no launcher or game started')

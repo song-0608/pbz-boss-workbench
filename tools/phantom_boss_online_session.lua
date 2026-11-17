@@ -1,8 +1,9 @@
 -- Mount one online owned-Boss assembly onto an already captured gameplay host.
 -- The dedicated launcher issues the lease and current native declarations.
 local M={}
-function M.new(api,launch,config,peer,observer,directory,globals)
+function M.new(api,launch,config,peer,observer,directory,globals,remember)
     globals=globals or _G
+    assert(remember==nil or type(remember)=='function','assembly recovery owner callback required')
     assert(type(launch.assembly)=='table' and type(launch.lease_provider)=='function',
         'online assembly options and live lease provider required')
     local scope=dofile(directory..'bwb_online_scope.lua').new(launch.lease_provider,{
@@ -15,6 +16,7 @@ function M.new(api,launch,config,peer,observer,directory,globals)
     local native=dofile(directory..'bwb_spawn_native.lua').new(api,scope,peer,observer,dependencies,
         dofile(directory..'bwb_online_control.lua'),assert(launch.assembly.bindings),globals)
     local arena=dofile(directory..'bwb_online_arena.lua').new(scope,peer,observer,native)
+    if remember then assert(remember(arena)==true,'assembly recovery owner publication rejected')end
     local renderer
     if launch.assembly.bindings.workbench_ui~=nil then
         renderer=dofile(directory..'bwb_workbench_native.lua').new(api,scope,observer,dependencies,

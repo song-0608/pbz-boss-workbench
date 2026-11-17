@@ -5,7 +5,7 @@ local directory=candidate..'/PBZCoop/Scripts/'
 local config=dofile(directory..'bwb_config.lua')
 local checks=0
 local function check(name,fn)fn();checks=checks+1;print('PASS '..name)end
-local function fixture(with_ui)
+local function fixture(with_ui,construction_error)
     local f={clock=0,keys={},timers={},logs={},fail_prepare=true,clean=true,valid=true,created=0,recovery_hosts=0}
     local grant={issued_at=os.time(),expires_at=os.time()+600,session_id='integration',role='host'}
     local scope={attest=function(_,restore)assert(restore or not f.expired);return grant end,
@@ -71,7 +71,24 @@ local function fixture(with_ui)
         return dofile(path)
     end},{__index=_G})
     local Session=assert(loadfile(root..'/tools/phantom_boss_online_session.lua','t',env))()
-    f.arena=Session.new({},launch,config,peer,observer,directory,{print=function(s)f.logs[#f.logs+1]=s end})
+    local function mount()
+        if construction_error then
+            launch.assembly.bindings.workbench_ui={}
+        end
+        return Session.new({},launch,config,peer,observer,directory,{print=function(s)f.logs[#f.logs+1]=s end},function(owner)
+            f.published=owner;return true
+        end)
+    end
+    if construction_error then
+        -- Fail a later private dependency, after the arena owner exists.
+        launch.assembly.bindings.visual={}
+        local original=env.dofile
+        env.dofile=function(path)
+            if path==directory..'bwb_visual_session.lua'then return {attach=function()error('visual attachment failed')end}end
+            return original(path)
+        end
+        f.mount=mount
+    else f.arena=mount()end
     f.peer=peer
     function f:tick(count)
         for _=1,count or 1 do
@@ -188,5 +205,10 @@ check('public status exposes control observation and runtime cleanup pending bef
     assert(f.peer:assembly_status().restore_pending)
     c.runtime.online_stop_pending=false;assert(f.peer:assembly_status().activation_state=='ACTIVE')
     c.runtime.online_stopped=true;assert(f.peer:assembly_status().activation_state=='RETIRED')
+end)
+check('partial optional attachment publishes the actual arena before construction can fail',function()
+    local f=fixture(true,true);local ok,why=pcall(f.mount)
+    assert(not ok and why:find('visual attachment failed',1,true)and f.published and not f.arena)
+    assert(f.published:revoke('failed construction')and f.published.state=='IDLE'and f.created==0)
 end)
 print('PASS '..checks..' online session groups; actual orchestration with fake native objects, no game started')
