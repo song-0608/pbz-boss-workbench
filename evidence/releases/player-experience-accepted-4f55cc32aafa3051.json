@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "passed": true,
+  "experience_runtime_verified": true,
+  "candidate": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\release-candidates\\ahua-player-experience-dev-e552ef2f8fdf70c0",
+  "candidate_manifest_sha256": "ceb536d885a504d97b409f145dc8d485fa914f48819bb83601609dbf6fe0c60b",
+  "workflow": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\integration-workflows\\player-experience-cc07320372e64a4f",
+  "feature_session": "20261117-182116",
+  "world_session": "20261117-185046",
+  "feature_checks": {
+    "four_role_shift_casts": true,
+    "four_role_initial_lock": true,
+    "four_role_f10_restoration": true,
+    "manual_lock_off_on": true,
+    "target_switch": true,
+    "workbench_restores_active_takeover": true,
+    "selection_roundtrip": true,
+    "all_dispatch_results": true
+  },
+  "world_reload_verified": true,
+  "focus_idle_roundtrip_verified": true,
+  "held_key_focus_release_verified": false,
+  "loop_measurements": {
+    "active_windows": 45,
+    "frames": 15613,
+    "weighted_mean_callback_ms": 3.019535010888362,
+    "max_callback_ms": 34.0,
+    "is_gpu_fps": false
+  },
+  "receipts": {
+    "evidence/official-validation/20261117-182116/player-experience-features-c100baf960077f13.json": "68c47d8cab712ecd723d0dc39abba97e41162f0132f5beffc74a77f7787ca26d",
+    "evidence/official-validation/20261117-185046/player-experience-world-acceptance.json": "acf261f64c7b27654bfc1f279985769ec552ce28263c738f217309b933054fb6",
+    "evidence/official-validation/20261117-185046/player-experience-focus-acceptance.json": "9fc14612e5c9b1639e4ffa51d789abe7d74965be5e2f4ad50583daafa6b2b2e7",
+    "evidence/adaptation/player-experience-offline-03cca80af9cf665f.json": "eed3279921a41ec8f3c97a5f1cb6b480fc60c54944c279f4155345ed6cfa56f3"
+  },
+  "sources": {
+    "tools/player_experience_acceptance.py": "847e68bccf0f7b0f1d74e71e5cd353660400ae5fe620c136fc4c34f54f28a9e7",
+    "tools/collect_player_experience.py": "c100baf960077f133fb03a08bcce3b18694ef371347f58abf1d89dd56647a489",
+    "tools/player_experience_world.py": "228c163a48f2309aef286e2a687369fd84c261d77136a48ed6802ea1487f4288",
+    "tools/player_experience_focus.py": "f5703f0e8dee4a0274d4de1fa84c99ef51128c5ca4813f0d2fdc4d35959b6769",
+    "tests/test_collect_player_experience.py": "4c63464fc7370f02866c25b387025ab3f6a7e0d351bbe20b966c796f55651dc5",
+    "tests/test_player_experience_lifecycle.py": "9eb77adea3b1ca53c783497fbbd16067aae1a90bfbfe58014937217fa771698a"
+  },
+  "new_playable_bosses": 0,
+  "installed": false,
+  "complete_mod": false,
+  "remaining_scope": "Additional Boss native grants, effects, cancellation and ordinary selection acceptance"
+}

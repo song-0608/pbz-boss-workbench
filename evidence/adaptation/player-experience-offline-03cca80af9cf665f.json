@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "at": "2026-11-17T18:44:59.518661+08:00",
+  "passed": true,
+  "candidate": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\release-candidates\\ahua-player-experience-dev-e552ef2f8fdf70c0",
+  "candidate_manifest_sha256": "ceb536d885a504d97b409f145dc8d485fa914f48819bb83601609dbf6fe0c60b",
+  "workflow": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\integration-workflows\\player-experience-cc07320372e64a4f",
+  "workflow_manifest_sha256": "0b2c8d51b67a91911e14386be9d319e4a3e8160d66f409d58cef1b918ede0bab",
+  "source_files": {
+    "tests/test_player_action_input.lua": "e71378e06e582ab69332663bc31255c46cfaca01ad1e4649366237fd031a227a",
+    "tests/test_player_target_lock.lua": "197a47cd66408e63fdf7e8eb57b72be306e6e8b9b045c6bbcdd66e17b4db9555",
+    "tests/test_player_boss_picker.lua": "9db4efd24f12e4fd5ac7b3487cacc11dcc90d88e34fba6ff23091b1be1683fe7",
+    "tests/test_player_experience_runtime.lua": "c25519aab27761dde71f9785bb2e864defd84496647d85f1a76f777aa7c6f29e",
+    "tests/test_player_experience_bridge.lua": "2cf57488efbbe251e0ffcf0830ea8bc680c97b36531b8964bfe21775549c43e1",
+    "tests/test_player_experience_catalog.lua": "1a7f3bad0b6089b8e47642c4c77a960be9a4b7a66fc25d51c4ee9e7ca7c031d4",
+    "tests/test_runtime.lua": "14638b699944f12adcb2bfcb3c7715986cf8f576550b7bc7ceb0dc6b00d948c5",
+    "tests/test_session.lua": "bb9479e965c38c606b9e2daabdae96a69b4e1365a34497ef70309056454d7a94",
+    "tests/test_input_driver.lua": "1ffbf31bee7e7505372121ec9e81a8ef92dead79847ca81f5f119e334205a53f",
+    "tests/test_ue_host.lua": "b775ce2f4f8666a2161a0d6b887b0b68b6f1b22a3678953a49952cf08ff9b54a",
+    "tests/test_target_selector.lua": "5016156a1d83c65025fc13e03ca7d6dbe5c8aeb99123b0af5be73e3e64f681e8",
+    "tests/test_target_transition.lua": "f157875e0b040aa0c8c9d991d8a2a074ab54cc2ba9db50279266fa85ff542113",
+    "tests/test_remote_control.lua": "682c464e31f2213ebcc6d6b3590d5d33fc549b9ee52c2232058c97fec1e5a2b1",
+    "tests/test_world_boundary.lua": "bab3874a7889475385a128950e401e89381dd484fbea33c78e0b52625a0b6e71",
+    "tests/test_ue_calls.lua": "2e8156c96801253f16915c4143cadc36a53577e1e68f4d8020459876f8614656",
+    "tests/test_ue_input_cache.lua": "a3a64a1bd75c586181112034fa9dde85e17020f7ee6b112a403e856df4930462",
+    "tests/test_input_barrier.lua": "6f7dfb7d49d61039bcab92d55bb8e6c527cc7a8f44548f3e7fccff9336da67b2",
+    "tests/test_object_lifecycle.lua": "b33f2db20a6d5d5831740653164eb67ed3b00b5288206d3ecda71d82e23913b7",
+    "tests/test_combat_identity.lua": "da00e92e5f0eca6be16c092f4628b5557a87e4be08f52bdbf2a552029dcabb08",
+    "tests/test_ue_combat.lua": "dc59aeb77bca96bfe9b740ff4416f38dfa9ab0c2d8ecee2c2b8669a060981aa1",
+    "tests/test_boss_workbench.lua": "d4fdf5f5251565eed454f034a02cf13a8ab146523568446c94a88a2cd9d6061c",
+    "tests/test_workbench_input.lua": "895746509335f4667833c1bb4d4a9cd13aa4da3e6dc2896fa7bf33086a709918",
+    "tests/test_player_hud.lua": "35c8d2f270fdd86824daad2472d9649d083837992869ddfb5db68b94cf2e5fe2",
+    "tests/test_player_entry.lua": "3c96d706fc03543271a074cc4156dfbc30a940bb051304340d1f2df8ec168dfe",
+    "tests/test_keymap.lua": "bb4d89c0dc9698e1e2154580e593746d57897d1316790325044a6b0e350f147a",
+    "tests/test_player_protection.lua": "3c1608547d4e980d591ae2b260100e180688701f757c6bcee249f7084581bce9",
+    "tests/test_owned_initialization.lua": "4c7e252ee15cc328db90eb6ee505cf3f61124e0a64cc2309c8a45c95c769067b",
+    "tests/test_idle_world_watch.lua": "f70d377208d6e43502b9eca57a79030da3ffe1dfed8964108fb76845bc5c2309",
+    "tests/test_player_experience_candidate.py": "e7ee9efcfc412a2230179bf137c140fb621c10b98297b83cfa2b80c39a5a21b4",
+    "tests/test_player_experience_workflow.py": "ef612029a4bf2d278e44121d397b3d42fc7c65a3938779a939e9a67f7dbfcec0",
+    "tests/test_player_experience_trial.py": "4cbe5bc7256dfbc1ca985f311131a6569aec0f825dcf93979eee7f190be74ca9",
+    "tests/test_player_experience_input_release.py": "ab134dcf4201dc8b76ba299f89b01ccc13b03e19f68677e1ed60fb2866d6f9ac",
+    "tests/test_player_roster_expansion.py": "3d303e0106223e2d887d176339d50ba121350eb50d677351eec2621dffedabff",
+    "tests/test_player_keymap.py": "cdfe7385626e6b7826fb6f8c0ad592289609ad9ce6e9f87371d9d6b2b0805fa3",
+    "tests/test_player_overlay.py": "a1b8a0c60fe1fbb969152a48bdc127e733feb589c3844f0ebe2c7f8741efb19d",
+    "tests/test_player_status_stream.py": "58772f9674624b770231bd4247d1afb652d296821cad4ad1231e27022867f705",
+    "tests/test_performance_comparison.py": "eb17c3a578e35155f6752c29404bac0a019c241ce266b69f64ef17c1010812e1",
+    "tests/test_practice_lease.py": "b56e19af51127420b1140628ecd31684087f2620eba6ccb93c9e99ff410bab86",
+    "tests/test_research_scene_checkpoint.py": "286b8c5598f16d47d6e30d4aeb729be229a2e87e89d6c787efddee707b60db6b",
+    "tests/test_research_scene_reload.py": "bfdfa5f95717631a7b7f31b479913d3e4078805806a3a2d3121093d1b42fe7c1",
+    "tools/player_experience_trial.py": "86b897212a05a742d2424f2e2d56eddd7a5e55d5a74399542f6a355ee090a917",
+    "tools/test_player_experience_inputs.py": "8a542e2f05dba6bbb3136dc8be5d82d59f94ef4f8ff76d82fa46e29280be97cb",
+    "tools/player_experience_metadata.py": "2168b95506c34184a341bb8a4f359490f75d934a7868c982d309502fc8621093",
+    "tools/check_player_experience.py": "20a1da7f1a0da7617daa2c30a1e73203c2f11861bb50977743069aee0b5f7298"
+  },
+  "candidate_lua_modules": 59,
+  "checks": [
+    {
+      "name": "candidate_lua_syntax",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS syntax: 59 candidate modules"
+    },
+    {
+      "name": "player_action_input",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS bare/Shift skills, mouse variants, native focus path, bounded routes and owner cleanup"
+    },
+    {
+      "name": "player_target_lock",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS disabled lock never reads game target or writes camera\nPASS lock acquires verified combat target and takes shortest yaw across wrap\nPASS F7 target change revalidates immediately without global discovery\nPASS dead target or obstruction releases within six updates\nPASS missing or cross-world target releases before any camera write\nPASS invalid geometry and out of range never rotate camera\nPASS manual unlock and missing target cannot fabricate a lock\nPASS camera changes are bounded and validation sampling is limited\nCamera target lock fixtures passed: 8"
+    },
+    {
+      "name": "player_boss_picker",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS ten-entry selection panel, cursor paging, current Boss, metadata quarantine and switching state"
+    },
+    {
+      "name": "player_experience_runtime",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS moving cast, native activity exclusion, fresh completion, lock key and restore gates"
+    },
+    {
+      "name": "player_experience_bridge",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS bridge lock initialization, F7 wait, free camera, logical references and restoration"
+    },
+    {
+      "name": "player_experience_catalog",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS four verified Boss profiles, 52 abilities/53 bindings, six quarantined previews, native proof gates"
+    },
+    {
+      "name": "candidate_baseline_runtime",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS only verified skill keys are registered\nPASS enter is queued onto the game thread\nPASS queued repeated F10 restores once and reports one complete event\nPASS inactive frame does not read input\nPASS idle world watch runs while OFF and suspends old HUD while pending\nPASS active frame polls and drives movement\nPASS skill action dispatches configured slot\nPASS stop restores and invalidates queued actions\nPASS duplicate keys are rejected before registration\nPASS frame exception restores and reports failure\nPASS automatic health exit is reported separately from the F10 callback\nPASS Esc restores active session once and stays quiet when already OFF\nPASS optional F7 queues a target request on game thread\nPASS target key conflict is rejected before registering any key\nPASS lab candidate dispatch stays on game thread and cannot change mid-skill\nPASS default config never registers developer candidate keys\nPASS F11 restores ACTIVE before opening and blocks queued skills and takeover\nPASS workbench routes arrows and Enter and serializes duplicate switch input\nPASS preview selection stays quarantined and F10 closes workbench while OFF\nPASS Escape closes only workbench and stop invalidates pending workbench actions\nPASS workbench keys conflict before any native registration\nPASS workbench stop refuses a false native cleanup result\nPASS native key preflight rejects before any callback is registered\nRuntime fixtures: 23 passed; no PBZ runtime integration claimed."
+    },
+    {
+      "name": "candidate_baseline_session",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS missing isolation performs no mutation\nPASS online context performs no mutation\nPASS wrong build rejected\nPASS unknown boss rejected\nPASS capture failure cannot mutate\nPASS partial takeover failure restores\nPASS takeover verification failure restores\nPASS enter and repeated enter are deterministic\nPASS unverified skill blocked\nPASS game cooldown rules respected\nPASS native activation rejection does not discard possession\nPASS skill reentry blocked until actual finish\nPASS world change rejects stale restoration\nPASS skill start error triggers restoration\nPASS failed restoration remains faulted\nPASS exit clears skill and restores once\nPASS missing bridge refused\nPASS depleted boss restores even with no current skill\nPASS health query failure blocks new skill and attempts restoration\nPASS health-triggered restoration failure keeps the receipt faulted\n[PBZBossControl] DISABLED: start through the protected offline launcher\n\nPASS real entry is disabled and registers no keys\nPBZ control-core mock tests: 21 passed; PBZ runtime integration is NOT verified"
+    },
+    {
+      "name": "candidate_baseline_input_driver",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS diagonal movement remains unit length\nPASS camera yaw rotates forward movement\nPASS opposite held keys cancel\nPASS pause or blocked input submits nothing\nPASS pause menu restores before sending any further boss input\nPASS inactive control does not sample inputs\nPASS input failure restores rather than continuing to move\nPASS invalid rotation does not submit movement\nPASS look input routes to the controlled pawn\nPASS native input uses struct key and named scalar out parameters\nPASS unverified FKey binding is rejected\nPASS fast finite mouse movement is bounded rather than rejecting control\nPASS lost possession is detected without movement input\nPASS maintenance happens before strict verification and movement\nPASS rejected maintenance restores without sampling player input\nInput driver fixtures: 15 passed; no runtime movement verification claimed."
+    },
+    {
+      "name": "candidate_baseline_ue_host",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS native workbench key enumeration and side-effect-free validation"
+    },
+    {
+      "name": "candidate_baseline_target_selector",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS first selection chooses nearest eligible enemy\nPASS cycling reaches another actor and wraps\nPASS one enemy is not reported as a switch\nPASS dead and invalid objects excluded\nPASS other world and friendly objects excluded\nPASS out of radius and nonfinite coordinates excluded\nPASS nonfinite health excluded\nPASS duplicates do not create false alternate target\nPASS oversized candidate list is explicitly refused\nPASS stale current target chooses fresh nearest\nPASS current actor health rechecked on next scan\nPASS destroy requested but still valid object is excluded\nTarget selector fixtures passed: 12\nPASS visibility false and unreadable both reject targets\nPASS required visibility cannot silently degrade"
+    },
+    {
+      "name": "candidate_baseline_target_transition",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS request is pending until actual query matches\nPASS pending switch blocks skill and repeat requests\nPASS active skill blocks switch before mutation\nPASS timeout requests old target and clears pending\nPASS lost requested object rolls back without fault\nPASS dead previous target clears target rather than selecting it\nPASS exit clears pending target state\nPASS partial native target write triggers restoration\nTarget transition fixtures passed: 8"
+    },
+    {
+      "name": "candidate_baseline_remote_control",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS AI and player ownership remain unchanged\nPASS movement goes to boss while original input is disabled\nPASS camera look changes rotation without original player input\nPASS exit balances only its own input blocks and restores rotation\nPASS repeated restore does not decrement input blocks twice\nPBZ_REMOTE_VERIFY:FAILED=boss_controller\nPASS lost boss controller blocks movement\nPASS unnormalized direction is rejected\nPBZ_REMOTE_VERIFY:FAILED=brain_tick_disabled\nPASS game reenabled brain scheduling rejects movement\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=1\n\nPASS owned brain pause can be reasserted then restored to original\nPASS other controller or input changes forbid maintenance writes\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=1\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=2\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=3\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=4\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=5\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=6\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=7\n\nPBZ_REMOTE_MAINTAIN:BRAIN_REASSERT=8\n\nPASS repeated game conflict exhausts bounded maintenance budget\nPASS default remote refuses scheduler without writing brain\nPBZ_COMBO_SCHEDULER:STATE=attack_01|brain_tick=true\n\nPBZ_COMBO_SCHEDULER:STATE=attack_01|brain_tick=false\n\nPBZ_REMOTE_VERIFY:FAILED=boss_controller\nPASS explicit scheduler permits real brain ticks while retaining all other invariants\nPBZ_REMOTE_VERIFY:FAILED=brain_tick_disabled\nPBZ_COMBO_SCHEDULER:STATE=attack_01|brain_tick=true\n\nPASS expired scheduler cannot keep control or renew itself\nPASS wrong skill and unbounded lease cannot enable scheduler\nRemote control fixtures: 15 passed; runtime verification separate."
+    },
+    {
+      "name": "candidate_baseline_world_boundary",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS world boundary disposal, surviving component, identity reuse and unreadable validity\nPASS transition suspends input, preserves pending receipt, retires disposed state and fails on timeout\nPASS same-name new World independently enumerates old identity without accepting replacement"
+    },
+    {
+      "name": "candidate_baseline_ue_calls",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS active cancellable instance reaches native cancel\nPASS unverified cancel binding cannot call the instance\nPASS uncancellable skill remains active and reports failure\nPASS class defaults are never treated as active skill instances\nPASS cancel must clear the actual activity count\nPASS unbounded instance arrays are rejected before native calls\nPASS cancel diagnostic distinguishes blocked instance from no-match\nPASS failing diagnostic cannot prevent real cancellation\nPASS optional resolution distinguishes disposal from replacement and unreadable validity\nNative call fixtures: 9 passed; cancellation not runtime verified."
+    },
+    {
+      "name": "candidate_baseline_ue_input_cache",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS four cached FNames with unchanged per-frame input and identity checks"
+    },
+    {
+      "name": "candidate_baseline_input_barrier",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS fresh owned layer blocks and restores\nPASS existing component preserved\nPASS partial enable retains cleanup responsibility\nPASS repeated exit removes its own layer once\nInput barrier fixtures: 4 passed; runtime input consumption remains separate."
+    },
+    {
+      "name": "candidate_baseline_object_lifecycle",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS engine-invalid and GC-invalid objects rejected without calling a stale address"
+    },
+    {
+      "name": "candidate_baseline_combat_identity",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS capture does not mutate\nPASS faction roundtrip and exact mesh snapshot\nPASS partial native write remains restorable\nPASS self target rejected\nPASS saved player rejected\nPASS cross world rejected\nPASS friendly target rejected\nPASS native lock refusal rejected\nPASS ability query disagreement blocks target\nPASS hostile selected target revalidated\nPASS dead target rejected on revalidation\nPASS failed target cleanup still attempts faction restoration\nPASS asynchronous request alone is not a verified ability target\ncombat identity checks passed: 13"
+    },
+    {
+      "name": "candidate_baseline_ue_combat",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=false\n\nPASS native success avoids reflected fallback\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPASS dead target stale component is cleared with exact empty socket\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPASS whole struct nil table reproduces the observed skipped pointer\nPASS ignored reflected cleanup never reports success\nPASS reflected cleanup error propagates\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=false\n\nPASS repeat cleanup leaves empty target empty\nNative combat cleanup checks passed: 6"
+    },
+    {
+      "name": "candidate_baseline_boss_workbench",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS Boss workbench selection, preview quarantine, restore rollback and switch serialization"
+    },
+    {
+      "name": "candidate_baseline_workbench_input",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS workbench input ownership, rollback, retirement and identity guards"
+    },
+    {
+      "name": "candidate_baseline_player_hud",
+      "passed": true,
+      "exit_code": 0,
+      "output": "Player HUD rendering, live values, cadence, transition and invalid values passed"
+    },
+    {
+      "name": "candidate_baseline_player_entry",
+      "passed": true,
+      "exit_code": 0,
+      "output": "Player entry requires current offline credentials, registered boss, complete protection and navigation; rejects developer controls"
+    },
+    {
+      "name": "candidate_baseline_keymap",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS keymap preserves disabled abilities and developer bank"
+    },
+    {
+      "name": "candidate_baseline_player_protection",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS protect and restore exact original states\nPASS partial protection remains restorable\nPASS moving original player rejected before mutation\nPASS dead original player rejected\nPASS preexisting hidden state preserved\nPASS health change rejected without writing health\nPBZ_PLAYER_PROTECTION:POSITION_CHANGED=20.0\n\nPASS position drift is detected and never teleported back\nPlayer protection fixtures: 7 passed; game damage handling requires runtime evidence."
+    },
+    {
+      "name": "candidate_baseline_owned_initialization",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS three-party initialization preserves player and restores distinct native tags\nPASS no faction restoration until every controller is stopped\nPASS original player duplicate subject ignored writes and hostile reverse relation reject\nPASS asynchronous faction changes expired subjects and failed native release cannot pass\nOwned initialization fixtures passed: 4"
+    },
+    {
+      "name": "candidate_baseline_idle_world_watch",
+      "passed": true,
+      "exit_code": 0,
+      "output": "PASS idle scene disposal waits for all owned objects, bounds queries and rejects ambiguous identity"
+    },
+    {
+      "name": "python_regressions",
+      "passed": true,
+      "exit_code": 0,
+      "output": "Overlay accepts only current bounded well-formed live status\nWorkbench uses a larger bounded centered presentation; compact HUD remains separate\n已装载研究起点：悲泣溪谷—斧老大斩落处\n............................................\n----------------------------------------------------------------------\nRan 44 tests in 0.938s\n\nOK"
+    }
+  ],
+  "game_started": false,
+  "installed": false,
+  "runtime_acceptance_current": false,
+  "new_playable_bosses": 0,
+  "more_boss_resource_previews": 6
+}

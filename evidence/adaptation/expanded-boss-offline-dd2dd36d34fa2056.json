@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "passed": true,
+  "checks": [
+    {
+      "id": "071_xianzhe",
+      "passed": true,
+      "output": "PASS 071_xianzhe: exact CDO identity, native unique grants, atomic rejection\n"
+    },
+    {
+      "id": "058_maddoctor",
+      "passed": true,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection\n"
+    },
+    {
+      "id": "067_motian",
+      "passed": true,
+      "output": "PASS 067_motian: exact CDO identity, native unique grants, atomic rejection\n"
+    },
+    {
+      "id": "python_regressions",
+      "passed": true,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 1.086s\n\nOK\n"
+    }
+  ],
+  "packages": [
+    {
+      "id": "071_xianzhe",
+      "bundle": "research/boss-adaptation/developer-bundles/071_xianzhe-30a21ed4b7aafe1c",
+      "manifest_sha256": "b38603e002b5d77e1ddf363a0b207163df9bd484fc5c9dc7e0ab42b12efb0eb7",
+      "workflow": "runtime/developer-workflows/expanded-071_xianzhe-3701a2bd65030f5a",
+      "workflow_manifest_sha256": "302996b19bd18a1326b17849532890e4ad836bd937fa19c8eaf680e5e0bc09ac",
+      "metadata_pool": 5,
+      "native_grants_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "058_maddoctor",
+      "bundle": "research/boss-adaptation/developer-bundles/058_maddoctor-ba5f50b466ddc58c",
+      "manifest_sha256": "9ac1ce756e3e930d2d0226cb23a12acbc57bdfc1640e3940a60e52b36373683e",
+      "workflow": "runtime/developer-workflows/expanded-058_maddoctor-f65964e080e4ee65",
+      "workflow_manifest_sha256": "9c95aab40cb9bbfbcab6ca6b0e06ad49b707f9d385234f95f371ab96a2496258",
+      "metadata_pool": 5,
+      "native_grants_verified": false,
+      "activation_verified": false,
+      "playable": false
+    },
+    {
+      "id": "067_motian",
+      "bundle": "research/boss-adaptation/developer-bundles/067_motian-03187da20790df21",
+      "manifest_sha256": "73279027adf5db5e7702ee482f3cfc92c2cfa7d5d439ce049f51db51d1b17c0b",
+      "workflow": "runtime/developer-workflows/expanded-067_motian-6fb7b84eb361521f",
+      "workflow_manifest_sha256": "87ff07ba40e9e6c38c454fac4fc40986d60c07fc8cf55b779b6a80a8cbf7a961",
+      "metadata_pool": 6,
+      "native_grants_verified": false,
+      "activation_verified": false,
+      "playable": false
+    }
+  ],
+  "sources": {
+    "tests/test_expanded_boss_candidate.lua": "5bada16b582417ce45d2db9caabfdc8bba2e6b0b0b68ba98eb70633fb4167ab9",
+    "tests/test_expanded_boss_developer.py": "0bb9708bceab98482a03e81c87367e9bc70456562190aa17f932855136186e8a",
+    "tests/test_youlong_developer_workflow.py": "b37f09efea3ed0a1b3d39af3ff3c63e41fc2865ca2688ed99628d5518a42bc3c",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/boss_metadata_jobs.py": "be5e127bc4ab2d506b785853e5520edde824ab5ff7d9d437e05818f376ce51b4",
+    "tools/check_expanded_bosses.py": "521e0efb0b57058929e4f7aa0a9ae6c8e093ec317a3e2ea738871782464e50b5",
+    "tools/collect_boss_metadata_jobs.py": "91821a20e5c0951ea3eac7c358262c371291a2433023ea79a646083d28f75ced",
+    "tools/expanded_boss_developer_bundle.py": "15693a2c5851eb1b9b22261cca2096fec84c746c7c6ef795f5aeda1ba07d59e0",
+    "tools/expanded_boss_developer_workflow.py": "7d6f9ba41a4c0135007a82fe06b1a7707da5c7a45d8044b4c851f51e183aea0c",
+    "tools/youlong_developer_workflow.py": "df0c492bcd8e7a8ceb44b0d97eec0305b1c3b1a688bad69fae756f85f66b92df"
+  },
+  "game_started": false,
+  "installed": false,
+  "new_playable_bosses": 0,
+  "runtime_acceptance_current": false
+}
