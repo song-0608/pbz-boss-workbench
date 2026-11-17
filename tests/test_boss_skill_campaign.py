@@ -2,11 +2,28 @@ import copy
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import collect_boss_skill_campaign as campaign
 
 
 class SkillCampaignTests(unittest.TestCase):
+    def test_archived_base_ignores_current_installation_and_restores_resolvers(self):
+        previous=(campaign.expansion.active_mod_root,campaign.session_collector.active_mod_root)
+        with patch.object(campaign,'validate_package',return_value={'verified':'base'}):
+            with self.assertRaisesRegex(RuntimeError,'test failure'):
+                with campaign.archived_base():
+                    expected=campaign.ROOT/'runtime/managed-mod'/campaign.BASE/'PBZBossControl'
+                    self.assertEqual(campaign.expansion.active_mod_root(),expected)
+                    self.assertEqual(campaign.session_collector.active_mod_root(),expected)
+                    raise RuntimeError('test failure')
+        self.assertEqual(previous,(campaign.expansion.active_mod_root,campaign.session_collector.active_mod_root))
+
+    def test_changed_archive_is_rejected(self):
+        with patch.object(campaign,'validate_package',side_effect=[{'hash':'changed'},{'hash':'released'}]):
+            with self.assertRaisesRegex(AssertionError,'Archived skill base changed'):
+                with campaign.archived_base():self.fail('Changed archive accepted')
+
     def receipt(self, session, ids):
         return dict(session=session, target_build_sha256=campaign.BUILD,
             formal_postcheck_passed=True, bosses=[dict(id=identifier, all_four_accepted=True,

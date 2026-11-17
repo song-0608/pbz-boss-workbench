@@ -1,5 +1,6 @@
 """Join independently closed skill sessions without extending any issued lease."""
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
@@ -8,8 +9,29 @@ import re
 import boss_skill_expansion as expansion
 from boss_adaptation_workflow import ROOT, BUILD, sha, write_json
 from collect_boss_skill_retry_session import collect
+import collect_boss_skill_session as session_collector
+from mod_installation import validate_package
 
 EXPECTED = frozenset(('057_wanjun', '073_yanqiansui', '056_youlong'))
+BASE = 'ahua-boss-workbench-v3-f7034432a74d819b'
+
+
+@contextmanager
+def archived_base(root=ROOT):
+    """Replay issued grants against their immutable base, independent of installation."""
+    released=root/'releases'/BASE
+    archived=root/'runtime/managed-mod'/BASE
+    assert validate_package(archived)==validate_package(released), 'Archived skill base changed'
+    base=archived/'PBZBossControl'
+    previous_expansion,previous_collector=expansion.active_mod_root,session_collector.active_mod_root
+    def resolve(requested=root):
+        assert Path(requested).resolve()==root.resolve(), 'Unexpected archive root'
+        return base
+    expansion.active_mod_root=session_collector.active_mod_root=resolve
+    try:
+        yield
+    finally:
+        expansion.active_mod_root,session_collector.active_mod_root=previous_expansion,previous_collector
 
 
 def combine(receipts):
@@ -40,7 +62,8 @@ def campaign(sessions, root=ROOT):
     receipts = []
     sources = {}
     for session in sorted(sessions):
-        receipt = collect(session, root)
+        with archived_base(root):
+            receipt = collect(session, root)
         path = root / 'evidence/official-validation' / session / 'boss-skill-session.json'
         assert expansion.read(path) == receipt, 'Closed session receipt differs from raw replay'
         receipts.append(receipt)
