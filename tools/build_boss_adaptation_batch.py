@@ -40,7 +40,22 @@ def candidate_work(candidate):
         'blockers': ['Exact Boss identity, class/config binding and granted abilities need their own evidence.']}
 
 
-def freeze(catalog_path=OUT/'catalog.json', output=OUT/'batches', root=ROOT):
+def select_batch(work, identifiers=None):
+    if identifiers is None:
+        return [c['id'] for c in work if len(c['class_candidates'])==1 and len(c['config_candidates'])==1][:3]
+    if not 1<=len(identifiers)<=3 or len(set(identifiers))!=len(identifiers):
+        raise ValueError('Choose one to three distinct candidate identifiers')
+    indexed={c['id']:c for c in work}
+    for identifier in identifiers:
+        if identifier not in indexed:
+            raise ValueError('Unknown or reference-only candidate: '+identifier)
+        candidate=indexed[identifier]
+        if len(candidate['class_candidates'])!=1 or len(candidate['config_candidates'])!=1:
+            raise ValueError('Ambiguous character/config pairs require their own variant evidence: '+identifier)
+    return list(identifiers)
+
+
+def freeze(catalog_path=OUT/'catalog.json', output=OUT/'batches', root=ROOT, identifiers=None):
     catalog=json.loads(catalog_path.read_text(encoding='utf-8'))
     if catalog.get('target_build_sha256') != BUILD:
         raise ValueError('Fixed registered game build required')
@@ -57,19 +72,19 @@ def freeze(catalog_path=OUT/'catalog.json', output=OUT/'batches', root=ROOT):
     sources={name:sha(root/name) for name in code_paths}
     semantic_catalog={k:v for k,v in catalog.items() if k!='at'}
     content_sha=hashlib.sha256(json.dumps(semantic_catalog,sort_keys=True).encode()).hexdigest()
-    fingerprint=hashlib.sha256(json.dumps({'catalog':content_sha,'tools':sources},sort_keys=True).encode()).hexdigest()[:16]
-    target=output/f'offline-{fingerprint}'
-    if target.exists():
-        return target
     selected=[c for c in catalog['candidates'] if not c['reference_only'] and c['resource_folder']!='Common']
     work=[candidate_work(c) for c in selected]
     # Review priority affects only work order; it is never a playability claim.
     work.sort(key=lambda c:(FIRST_QUEUE.index(c['id']) if c['id'] in FIRST_QUEUE else len(FIRST_QUEUE),
                            -bool(c['class_candidates']),-bool(c['config_candidates']),-len(c['skills']),c['id']))
+    snapshot_available=catalog.get('bounded_name_snapshot_available',False)
+    batch_ids=select_batch(work,identifiers)
+    fingerprint=hashlib.sha256(json.dumps({'catalog':content_sha,'tools':sources,'batch_ids':batch_ids},sort_keys=True).encode()).hexdigest()[:16]
+    target=output/f'offline-{fingerprint}'
+    if target.exists():
+        return target
     for candidate in work:
         write_json(target/'candidates'/f"{candidate['id']}.json",candidate)
-    snapshot_available=catalog.get('bounded_name_snapshot_available',False)
-    batch_ids=[c['id'] for c in work if c['class_candidates'] and c['config_candidates']][:3]
     write_json(target/'catalog.json',catalog)
     manifest={'schema_version':1,'at':datetime.now().astimezone().isoformat(),
         'fingerprint':fingerprint,'target_build_sha256':BUILD,'catalog_sha256':sha(target/'catalog.json'),
@@ -91,5 +106,6 @@ def freeze(catalog_path=OUT/'catalog.json', output=OUT/'batches', root=ROOT):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--catalog',type=Path,default=OUT/'catalog.json')
+    parser.add_argument('--candidate',action='append',help='Explicit next-wave identifier; at most three unambiguous pairs')
     args=parser.parse_args()
-    print(json.dumps({'batch':str(freeze(args.catalog)),'game_started':False},ensure_ascii=False))
+    print(json.dumps({'batch':str(freeze(args.catalog,identifiers=args.candidate)),'game_started':False},ensure_ascii=False))

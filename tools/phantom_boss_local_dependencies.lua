@@ -24,5 +24,6 @@ return function(directory)
         return value
     end
     env.require=exact_require
-    return {Bridge=exact_require('control_bridge'),Runtime=exact_require('runtime'),require=exact_require}
+    return {Bridge=exact_require('control_bridge'),Runtime=exact_require('runtime'),require=exact_require,
+        policy=dofile(directory..'bwb_profile_policy.lua')}
 end

@@ -41,7 +41,9 @@ def verify(path=None):
               'client_auth_python':14,
               'optional_contracts_python':14,
               'online_session_composition':17,
-              'patched_lua_compile_only': 66}
+              'profile_policy_lifecycle':8,'boss_adapter_registry_python':12,'boss_adaptation_batch_python':9,
+              'next_boss_identity_ok':1,'next_boss_identity_wrong_identity':1,'next_boss_identity_wrong_config':1,
+              'patched_lua_compile_only': 67}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
     for row in report['checks']:
@@ -53,12 +55,15 @@ def verify(path=None):
         if row['name'].endswith('_python'):
             assert re.search(r'Ran '+str(row['groups'])+r' tests?', output) and re.search(r'\bOK\b', output)
         elif row['name'] == 'patched_lua_compile_only':
-            assert 'PASS syntax only: 66 candidate Lua files' in output
+            assert 'PASS syntax only: 67 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session) groups', output)
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 498
-    assert report['syntax_checked_lua_files']==66
-    return dict(passed=True, status='backend-milestone-only', groups=498, compiled_lua_files=66,
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session|profile policy|identity queue) groups', output)
+    from boss_adapter_registry import verify as verify_expansion
+    expansion=verify_expansion()
+    assert expansion['adapters']==6 and expansion['metadata_ready']==3 and expansion['metadata_requests']==6
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 530
+    assert report['syntax_checked_lua_files']==67
+    return dict(passed=True, status='backend-milestone-only', groups=530, compiled_lua_files=67,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

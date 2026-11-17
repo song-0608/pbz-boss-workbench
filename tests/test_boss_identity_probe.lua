@@ -28,6 +28,9 @@ LoadAsset=function(path)
    ['057_WanJun']='ActorData/ActorC_WanJun_JinGua',
    ['073_YanQianSui']='ActorConfig/ActorC_YanQianSui',
    ['056_YouLong']='ActorData/ActorC_YouLong_SecondBrother',
+   ['054_ZuoShang']='ActorConfig/ActorC_ZuoShang',
+   ['066_RenTuZi']='ActorData/ActorC_RenTuZi_AutoGolden',
+   ['071_XianZhe']='ActorConfig/ActorC_XianZhe',
   }
   local name=assert(folder:match('/([^/]+)/$'));local config=assert(configs[name])
   local configleaf=config:match('([^/]+)$')
@@ -60,4 +63,4 @@ if mode=='ok'then
 else
  assert(joined:find('REJECTED=',1,true));assert(not joined:find('DEFAULT_CONFIG_MATCH=',1,true))
 end
-original_print('PASS generated identity queue: '..mode)
+original_print('PASS 1 identity queue groups; generated identity queue: '..mode)

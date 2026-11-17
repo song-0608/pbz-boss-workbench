@@ -8,6 +8,7 @@ end
 function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
     g=g or _G
     local req=dependencies.require
+    local policy=assert(dependencies.policy,'private Boss profile policy required')
     for _,key in ipairs({'camera','combat','remote','barrier','protection','arena','visibility'})do
         assert(bindings[key] and bindings[key].binding_verified==true,'current online native binding required: '..key)
     end
@@ -93,12 +94,10 @@ function M.new(api,scope,peer,observer,dependencies,Control,bindings,g)
         local ai_class=g.LoadAsset('/PBZCombatAsset/Prototypes/AI/BP_PBZAIController.BP_PBZAIController_C')
         assert(usable(ai_class),'Boss AI controller class missing')
         local p,b=player.CapsuleComponent,class:GetCDO().CapsuleComponent
-        local layout_module=id=='073_yanqiansui' and 'yanqiansui_clearance_core' or 'arena_layout'
-        local layout,why=req(layout_module).choose(req('ue_arena_layout').new(g,bindings.arena,pc),
+        local layout,why=policy.choose(profile,req,req('ue_arena_layout').new(g,bindings.arena,pc),
             player:K2_GetActorLocation(),player:GetActorForwardVector(),p.CapsuleHalfHeight,
             b.CapsuleHalfHeight,b.CapsuleRadius,1,{},b.CapsuleHalfHeight,b.CapsuleRadius)
         assert(layout,why)
-        if id=='073_yanqiansui' then assert(layout.clearance_cm==900 and layout.clearance_samples==24)end
         return {world=observed.world,pc=calls:reference(pc),player=calls:reference(player),
             profile=profile,config=config,class=class,ai_class=ai_class,layout=layout,controllers={}}
     end

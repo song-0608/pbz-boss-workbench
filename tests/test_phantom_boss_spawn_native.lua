@@ -45,7 +45,7 @@ local function fixture(real_adapter)
     f.class=obj('/Boss/A.A_C')
     function f.class:GetCDO()return {['Actor Config']=actor_config,CapsuleComponent={CapsuleHalfHeight=110,CapsuleRadius=80}}end
     f.ai_class=obj('/AI/AI.AI_C')
-    f.profile={id='boss',exe_sha256=string.rep('a',64),identity_verified=true,class_path='/Boss/A.A_C',
+    f.profile={id='ahua_guitoudao',exe_sha256=string.rep('a',64),identity_verified=true,class_path='/Boss/A.A_C',
         config_path='/Boss/Config.Config',display_name='Boss',camera={},input={},skills={cut={class_path='/Skill/Cut.Cut_C'}}}
     f.config={expected_exe_sha256=f.profile.exe_sha256,skills={slot1={id='cut',verified=true}},controls={enter='F6',exit='F10'}}
     local mods={ue_calls=deps.require('ue_calls')}
@@ -181,7 +181,7 @@ local function fixture(real_adapter)
         partner:set_link(true,0);partner:tick(0)
         assert(peer.protocol.remote,'disconnect cleanup requires an observed partner identity')
     end
-    f.scope,f.peer,f.bindings,f.g,f.dependencies=scope,peer,bindings,g,{require=function(name)return assert(mods[name],name)end}
+    f.scope,f.peer,f.bindings,f.g,f.dependencies=scope,peer,bindings,g,{require=function(name)return assert(mods[name],name)end,policy=deps.policy}
     f.native=Native.new(f.api,scope,peer,observer,f.dependencies,{},bindings,g)
     function f:remember(record)self.remembered[#self.remembered+1]=record end
     function f:start()

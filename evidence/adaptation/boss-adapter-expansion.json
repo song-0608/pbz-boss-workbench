@@ -1,0 +1,1754 @@
+{
+  "schema_version": 1,
+  "status": "offline-adapter-preparation",
+  "passed": true,
+  "fingerprint": "d0bc3ded9baf0378665d",
+  "directory": "runtime/boss-expansion/d0bc3ded9baf0378665d",
+  "catalog": "research/boss-adaptation/catalog.json",
+  "catalog_sha256": "bbab28b159eb5ed13392c61dc4f8d8fa029ef9580d13b211e1a38ea685bce9d1",
+  "source_files": {
+    "tools/boss_adapter_registry.py": "dcfbbe5ab5aaadbbfeeb9ef02c53f3e0d5b29252b6122885590e09c72ce04c0d",
+    "tools/boss_adaptation_workflow.py": "1f3e81706dbb8b10bcac4d97a63dee0c5df4151fa29f5a42dc35db85d8e8d18a",
+    "tools/build_boss_adaptation_batch.py": "0b754fa29a49be531cbe267716e97c264df24ed9afc5701f4f34587878e8c8de",
+    "tools/build_boss_identity_probe.py": "ce5dc0e302b9928f507bbcf805168fd4c00c64fd55cf492d0ac35341a8943af5",
+    "tests/test_boss_adapter_registry.py": "af8a8985b2dbf4dc121dcb7bd888541910a4799aae9bc688f7ef4d4c4c249b35",
+    "tests/test_boss_adaptation_batch.py": "0e53a0177371f0bc4d350c1494a81768ec8ceb91770cbdae50569c9afb3d78eb",
+    "tests/test_boss_identity_probe.lua": "33dd04e0f9c5294bd8b155310a7ad0b9d4dcad826796d09f39b18f4c5ac57cb0",
+    "research/boss-adaptation/expansion-queue.json": "077bd21f7c530ce39469e8f4fbeee9f3953aecbe9b2c586b0cca8d0ad6c85696"
+  },
+  "registry": {
+    "schema_version": 1,
+    "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+    "adapters": [
+      {
+        "id": "054_zuoshang",
+        "resource_folder": "054_ZuoShang",
+        "stage": "ready_for_identity_metadata",
+        "class_candidates": [
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          }
+        ],
+        "config_candidates": [
+          "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang"
+        ],
+        "identity_requests": [
+          {
+            "id": "054_zuoshang",
+            "role": "character",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending",
+            "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending.BP_Monster_ZuoShang_Ending_C",
+            "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+            "expected_config": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang"
+          },
+          {
+            "id": "054_zuoshang",
+            "role": "config",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang",
+            "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang.ActorC_ZuoShang",
+            "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+            "expected_config": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang"
+          }
+        ],
+        "skills": [
+          {
+            "id": "b13a18a5f5b6c73e",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEd_ZuoShang_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "e92c71adfe1ea89f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "00119e36870757b2",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "d743b10a46fd81c1",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_CA_02_Fixed",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "30088aae636eab40",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f55bc49d4cec26a0",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03_QTE",
+            "observed_class_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03_QTE.GA_ZuoShang_CA_03_QTE_C",
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "eebece528d0e4ee6",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_GEx_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "62628cdcdedd1c25",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dash_B",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5e3585f3df0cee0c",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dash_F",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "4bde886763923502",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_F_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "b3e60f91a785f663",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_F_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "cead8380e752dbc9",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5859e946f056c6ee",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "03ee210e560b661c",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "899b2be88b79daa1",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Grab_Normal",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "fd430abe2d2b6cd6",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_HeavyAttack_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "c193e036867ebc30",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_LightAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "6877f13ecd462184",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "847dfc76e2518e77",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_05_Child",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "332af654270baefd",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_06_Fast",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "18d4b8ee2962fc49",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_09",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "513d7ef8a6d6ba24",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_12_Combo",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f80d4313a0d956f0",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "8f51d333f4bc1c1c",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_07",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f5d0fa21aeb096be",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_09",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "afd7ef942a61eba1",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_09_Gun",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "15803770744a0b1b",
+            "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_11_Ending",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          }
+        ],
+        "enabled": false,
+        "playable": false,
+        "identity_verified": false,
+        "control_verified": false,
+        "runtime_acceptance_current": false,
+        "runtime_profile": null,
+        "runtime_policy": null,
+        "capabilities": {
+          "current_world_identity": false,
+          "actor_config_binding": false,
+          "boss_identity": false,
+          "granted_abilities": false,
+          "ai_suspend_restore": false,
+          "camera_input_restore": false,
+          "natural_finish": false,
+          "active_cancel_restore": false,
+          "damage_or_movement": false,
+          "owned_disposal_restore": false,
+          "stability_600s": false,
+          "native_menu_world_cycle": false,
+          "performance_cache_and_timing": false
+        },
+        "missing": [
+          "exact class lineage, CDO config binding and display name",
+          "Boss-specific live grants, natural finish, cancellation and effects",
+          "movement, input/camera restoration, disposal and measured performance"
+        ],
+        "variant_blocker": null
+      },
+      {
+        "id": "066_rentuzi",
+        "resource_folder": "066_RenTuZi",
+        "stage": "ready_for_identity_metadata",
+        "class_candidates": [
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/BP_Monster_RenTuZi_AutoGolden",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          }
+        ],
+        "config_candidates": [
+          "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/ActorData/ActorC_RenTuZi_AutoGolden"
+        ],
+        "identity_requests": [
+          {
+            "id": "066_rentuzi",
+            "role": "character",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/BP_Monster_RenTuZi_AutoGolden",
+            "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/BP_Monster_RenTuZi_AutoGolden.BP_Monster_RenTuZi_AutoGolden_C",
+            "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+            "expected_config": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/ActorData/ActorC_RenTuZi_AutoGolden"
+          },
+          {
+            "id": "066_rentuzi",
+            "role": "config",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/ActorData/ActorC_RenTuZi_AutoGolden",
+            "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/ActorData/ActorC_RenTuZi_AutoGolden.ActorC_RenTuZi_AutoGolden",
+            "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+            "expected_config": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/ActorData/ActorC_RenTuZi_AutoGolden"
+          }
+        ],
+        "skills": [
+          {
+            "id": "bce14a0f3ce3b05c",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Buff",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "4bac06b67500448b",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_CA_01_Ged",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "0e7ea40c428a539d",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Dodge_B",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "ace99a3c08f7f251",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Intro_Golden",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "b01c245a3e98aaf2",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Skill_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "32b2c37af01e66c2",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Skill_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f3c23105714da673",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "6bb06b25d5fd2d2c",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "700ba5e905a13302",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_04",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f5f4813c962adc4d",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "00f25126f8ae6564",
+            "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_06",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          }
+        ],
+        "enabled": false,
+        "playable": false,
+        "identity_verified": false,
+        "control_verified": false,
+        "runtime_acceptance_current": false,
+        "runtime_profile": null,
+        "runtime_policy": null,
+        "capabilities": {
+          "current_world_identity": false,
+          "actor_config_binding": false,
+          "boss_identity": false,
+          "granted_abilities": false,
+          "ai_suspend_restore": false,
+          "camera_input_restore": false,
+          "natural_finish": false,
+          "active_cancel_restore": false,
+          "damage_or_movement": false,
+          "owned_disposal_restore": false,
+          "stability_600s": false,
+          "native_menu_world_cycle": false,
+          "performance_cache_and_timing": false
+        },
+        "missing": [
+          "exact class lineage, CDO config binding and display name",
+          "Boss-specific live grants, natural finish, cancellation and effects",
+          "movement, input/camera restoration, disposal and measured performance"
+        ],
+        "variant_blocker": null
+      },
+      {
+        "id": "071_xianzhe",
+        "resource_folder": "071_XianZhe",
+        "stage": "ready_for_identity_metadata",
+        "class_candidates": [
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          }
+        ],
+        "config_candidates": [
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe"
+        ],
+        "identity_requests": [
+          {
+            "id": "071_xianzhe",
+            "role": "character",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe",
+            "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+            "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+            "expected_config": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe"
+          },
+          {
+            "id": "071_xianzhe",
+            "role": "config",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe",
+            "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe",
+            "lookup_path_derivation": "Conventional Unreal object suffix; request only, not verified identity.",
+            "expected_config": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe"
+          }
+        ],
+        "skills": [
+          {
+            "id": "96fdd4540d305cab",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "bf0a5405acf47fe4",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_B",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "cca11934c28c923f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_L",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "8d568780cce329b3",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_EnterCombat",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5eade18227d3f22f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "390ed0fad19e0588",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_06",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "3546d0cabd435865",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_07",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "ef99b20a40b776ce",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BulletData/GA_XianZhe_EnergySpear_Blue",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "bc8ed193cf61394f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BulletData/GA_XianZhe_EnergySpear_Red",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          }
+        ],
+        "enabled": false,
+        "playable": false,
+        "identity_verified": false,
+        "control_verified": false,
+        "runtime_acceptance_current": false,
+        "runtime_profile": null,
+        "runtime_policy": null,
+        "capabilities": {
+          "current_world_identity": false,
+          "actor_config_binding": false,
+          "boss_identity": false,
+          "granted_abilities": false,
+          "ai_suspend_restore": false,
+          "camera_input_restore": false,
+          "natural_finish": false,
+          "active_cancel_restore": false,
+          "damage_or_movement": false,
+          "owned_disposal_restore": false,
+          "stability_600s": false,
+          "native_menu_world_cycle": false,
+          "performance_cache_and_timing": false
+        },
+        "missing": [
+          "exact class lineage, CDO config binding and display name",
+          "Boss-specific live grants, natural finish, cancellation and effects",
+          "movement, input/camera restoration, disposal and measured performance"
+        ],
+        "variant_blocker": null
+      },
+      {
+        "id": "058_maddoctor",
+        "resource_folder": "058_MadDoctor",
+        "stage": "variant_binding_required",
+        "class_candidates": [
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_MadDoctor",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          },
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          }
+        ],
+        "config_candidates": [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Sacrifice/Data/ActorC_EMei_Sacrifice"
+        ],
+        "identity_requests": [],
+        "skills": [
+          {
+            "id": "ec7cd77cec3753d3",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/Ceremony/GA_SacrificeBase",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "1df8e5243cb0e97e",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctorBoss_Extract",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "74ecfb9afdfcf93b",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "e358ee2b182bb6d9",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "72915c70b2ab3b9b",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_F",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "748d890ec50e01f4",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "3745f786805cdcec",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HealingBase",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "6e18d878bdc9fa5f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HeavyAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "8301261ea50756bd",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_LightAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f2b0021a07329048",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistResurrect",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "029101d11f060235",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "074cc4ccac675f77",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_GroupResurrect",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "380acb25d1c49bfc",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "0507c7101ba24de6",
+            "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          }
+        ],
+        "enabled": false,
+        "playable": false,
+        "identity_verified": false,
+        "control_verified": false,
+        "runtime_acceptance_current": false,
+        "runtime_profile": null,
+        "runtime_policy": null,
+        "capabilities": {
+          "current_world_identity": false,
+          "actor_config_binding": false,
+          "boss_identity": false,
+          "granted_abilities": false,
+          "ai_suspend_restore": false,
+          "camera_input_restore": false,
+          "natural_finish": false,
+          "active_cancel_restore": false,
+          "damage_or_movement": false,
+          "owned_disposal_restore": false,
+          "stability_600s": false,
+          "native_menu_world_cycle": false,
+          "performance_cache_and_timing": false
+        },
+        "missing": [
+          "exact class lineage, CDO config binding and display name",
+          "Boss-specific live grants, natural finish, cancellation and effects",
+          "movement, input/camera restoration, disposal and measured performance"
+        ],
+        "variant_blocker": "Multiple or missing class/config resources; do not pair main bodies, summons or stage props by folder."
+      },
+      {
+        "id": "067_motian",
+        "resource_folder": "067_MoTian",
+        "stage": "variant_binding_required",
+        "class_candidates": [
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          },
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian_LongZhu_02",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          }
+        ],
+        "config_candidates": [
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_01",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_03"
+        ],
+        "identity_requests": [],
+        "skills": [
+          {
+            "id": "f6adef885a25dcf1",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "2019db12c110e0b5",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "944a184a44538ae9",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "9c0363546b634d10",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/ExE/GA_Hun_BEd_MoYuan",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "04ced00221ea6c58",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_Hun_BDEx_MoYuan_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "79953acd1cb511a6",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f8dd92e88df71955",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02_Short",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "44935df542b432f5",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "ed8267064f8fe752",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "ef55b9e7dccfa571",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "16e63d739b32f4ea",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "06b39cd1a55665e2",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_04",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "7c21b4cfe1d968bd",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "385f6d46072a7e54",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5d9902c05bcb49c2",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01_Endure",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "4b073d4fbeb49d7c",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Init_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5ca810f937c4c580",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_LightAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "e26a0f7dfc5af3b2",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "26600f03921f58a9",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02_Endure",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "55b862fa7f0ba81d",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "8596d973e211c52f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_07",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "90e84eaff5bd0d0b",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_09_Endure",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "38b5b2a7a42a6240",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "a15409d2273a9c0e",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_03_Endure",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "196794873fb971d8",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "cfd5cd552608cb18",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_06",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "c621f82a97c1d8fd",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_07",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5fbe173131d20152",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "154ff2ea87cc49a5",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f7aba58b73caf434",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive/GA_MoYuan_Passive_LongZhu_01",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "b78f073efd35d99b",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_04",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "5cf7a9e58b2c4a06",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "ba1bcca3af236a0f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_02",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "b424018954527c61",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_05",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "d0420df403673502",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_06",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "fcece1d6bce677ab",
+            "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Stance",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          }
+        ],
+        "enabled": false,
+        "playable": false,
+        "identity_verified": false,
+        "control_verified": false,
+        "runtime_acceptance_current": false,
+        "runtime_profile": null,
+        "runtime_policy": null,
+        "capabilities": {
+          "current_world_identity": false,
+          "actor_config_binding": false,
+          "boss_identity": false,
+          "granted_abilities": false,
+          "ai_suspend_restore": false,
+          "camera_input_restore": false,
+          "natural_finish": false,
+          "active_cancel_restore": false,
+          "damage_or_movement": false,
+          "owned_disposal_restore": false,
+          "stability_600s": false,
+          "native_menu_world_cycle": false,
+          "performance_cache_and_timing": false
+        },
+        "missing": [
+          "exact class lineage, CDO config binding and display name",
+          "Boss-specific live grants, natural finish, cancellation and effects",
+          "movement, input/camera restoration, disposal and measured performance"
+        ],
+        "variant_blocker": "Multiple or missing class/config resources; do not pair main bodies, summons or stage props by folder."
+      },
+      {
+        "id": "076_zuoshang_p2",
+        "resource_folder": "076_ZuoShang_P2",
+        "stage": "variant_binding_required",
+        "class_candidates": [
+          {
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/BP_Monster_ZuoShang_P2_Stand",
+            "observed_class_path": null,
+            "lineage_verified": false,
+            "config_binding_verified": false
+          }
+        ],
+        "config_candidates": [
+          "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/ActorConfig/ActorC_ZuoShang_P2",
+          "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/DragonPillar/ActorC_ZuoShang_P2_DragonPillar"
+        ],
+        "identity_requests": [],
+        "skills": [
+          {
+            "id": "96b886d6d098e0ca",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Attack_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "00bba287e675bda1",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "ea8ca4942c65921f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_01_Hard",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "fc94ba2f57c01155",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_03",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "3a793839fb0922c5",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_09",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "6d5b339d0190c53e",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_14_WithSubtitle",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "e7f7b2d589d62ae8",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_17_NoCD",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "db8d6a3efcd593da",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_18_NoCD",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "a09cc594b43116a8",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_20_GEd",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "a8e1f19a1380f710",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_20_NoCD",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "53a7c7f7a1be415f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_23_Combined",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "d69bedb048b99e2f",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_24_Combined",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "9aa67966c553e6bf",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Stance",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          },
+          {
+            "id": "f1cef9860d29e733",
+            "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Subtitle",
+            "observed_class_path": null,
+            "role": "ability_clue",
+            "player_key": null,
+            "granted_to_selected_actor": false,
+            "natural_finish_verified": false,
+            "active_cancel_restore_verified": false,
+            "gameplay_or_movement_verified": false,
+            "evidence": []
+          }
+        ],
+        "enabled": false,
+        "playable": false,
+        "identity_verified": false,
+        "control_verified": false,
+        "runtime_acceptance_current": false,
+        "runtime_profile": null,
+        "runtime_policy": null,
+        "capabilities": {
+          "current_world_identity": false,
+          "actor_config_binding": false,
+          "boss_identity": false,
+          "granted_abilities": false,
+          "ai_suspend_restore": false,
+          "camera_input_restore": false,
+          "natural_finish": false,
+          "active_cancel_restore": false,
+          "damage_or_movement": false,
+          "owned_disposal_restore": false,
+          "stability_600s": false,
+          "native_menu_world_cycle": false,
+          "performance_cache_and_timing": false
+        },
+        "missing": [
+          "exact class lineage, CDO config binding and display name",
+          "Boss-specific live grants, natural finish, cancellation and effects",
+          "movement, input/camera restoration, disposal and measured performance"
+        ],
+        "variant_blocker": "Multiple or missing class/config resources; do not pair main bodies, summons or stage props by folder."
+      }
+    ],
+    "next_identity_batches": [
+      [
+        "054_zuoshang",
+        "066_rentuzi",
+        "071_xianzhe"
+      ]
+    ],
+    "game_started": false,
+    "installed": false,
+    "complete_mod": false,
+    "runtime_acceptance_current": false,
+    "new_playable_bosses": 0,
+    "architecture": {
+      "discovery": "observed catalog with source hashes",
+      "planning": "per-Boss adapter manifests and bounded missing-evidence jobs",
+      "runtime": "shared native lifecycle plus separately reviewed Boss terrain policy",
+      "promotion": "independent identity, grants and runtime acceptance; never folder-name inference"
+    }
+  },
+  "registry_sha256": "5726d20318715464453f12a7b8c6fba3f2c417fd7eb74c4c2aa6ffac60cdbd88",
+  "adapter_files": {
+    "adapters/054_zuoshang.json": "2c3e0168ee838055cbad2bceab6063db51434df63a3a61b1de6cf9604ed908f3",
+    "adapters/058_maddoctor.json": "205a3740bca327caaa0ca086475f3c3500c2274920971b1a6d6e3c461d6580bf",
+    "adapters/066_rentuzi.json": "22705f7df8d589bc6f329c4af4c563912be3c60642b508e5d14d7dac38733e55",
+    "adapters/067_motian.json": "a50472e28c89010bd5b820d12919e3d58950aff254079d2c3799e6cdeefa99d0",
+    "adapters/071_xianzhe.json": "b1b050fc448e826f620161cf2f4a175be0c67336adae2ddf74a01a189d941153",
+    "adapters/076_zuoshang_p2.json": "d4509662113e6e9a2e06b3454b54e235db99dee260784a0c2e491c7f955665db"
+  },
+  "batches": [
+    {
+      "directory": "runtime/boss-expansion/d0bc3ded9baf0378665d/batches/offline-0ee3447c989783c9",
+      "candidate_ids": [
+        "054_zuoshang",
+        "066_rentuzi",
+        "071_xianzhe"
+      ],
+      "manifest_sha256": "bcd5d2a472773ddc8e5485812e58a3c759a33f9b81a6a511b287cf141b92a86e",
+      "probe_manifest_sha256": "52f1bb75bc1be959a75c46dbf29adcfdb7bb1f0b6162863e5d36b97511afb879",
+      "script_sha256": "2cda2b2e99949af19247632c36b812e36c405d4f674c183875bb1cd84e30f8ff",
+      "requests": 6,
+      "deployed": false,
+      "game_started": false
+    }
+  ],
+  "game_started": false,
+  "installed": false,
+  "new_playable_bosses": 0,
+  "complete_mod": false,
+  "runtime_acceptance_current": false
+}

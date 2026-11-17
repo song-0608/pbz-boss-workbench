@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "candidate_ids": [
+    "054_zuoshang",
+    "066_rentuzi",
+    "071_xianzhe",
+    "058_maddoctor",
+    "067_motian",
+    "076_zuoshang_p2"
+  ],
+  "scope": "Internal resource identifiers only; no asserted display names, Boss identity or playable registration."
+}

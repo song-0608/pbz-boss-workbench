@@ -20,7 +20,7 @@ SOURCES = ('tools/build_phantom_boss_candidate.py', 'tools/export_phantom_boss_c
            'tools/phantom_boss_enemy_fence.lua', 'tools/prepare_phantom_boss_pair.py',
            'tools/phantom_boss_online_scope.lua', 'tools/phantom_boss_online_control.lua',
            'tools/phantom_boss_local_dependencies.lua', 'tools/phantom_boss_online_arena.lua',
-           'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_online_session.lua',
+           'tools/phantom_boss_spawn_native.lua', 'tools/phantom_boss_profile_policy.lua', 'tools/phantom_boss_online_session.lua',
            'tools/phantom_boss_startup.lua', 'tools/phantom_boss_combat_runtime.lua',
            'tools/phantom_boss_visual.lua', 'tools/phantom_boss_visual_native.lua', 'tools/phantom_boss_visual_session.lua',
            'tools/phantom_boss_launch_gate.lua', 'tools/phantom_boss_online_workbench.lua',
@@ -366,7 +366,7 @@ def build(source=None, lua_lab=None, root=ROOT):
                   upstream_commit=COMMIT, runtime_acceptance_current=False)
     contents = {'PBZCoop/Scripts/bwb_config.lua': ('return ' + lua(config) + '\n').encode()}
     for local in ('protocol', 'adapter', 'entry', 'host', 'enemy_fence', 'online_scope', 'online_control',
-                  'local_dependencies', 'online_arena', 'spawn_native', 'online_session', 'startup', 'combat_runtime',
+                  'local_dependencies', 'online_arena', 'spawn_native', 'profile_policy', 'online_session', 'startup', 'combat_runtime',
                   'visual', 'visual_native', 'visual_session', 'launch_gate', 'online_workbench', 'workbench_native'):
         contents[f'PBZCoop/Scripts/bwb_{local}.lua'] = (root / f'tools/phantom_boss_{local}.lua').read_bytes()
     for name in LOCAL_MODULES:

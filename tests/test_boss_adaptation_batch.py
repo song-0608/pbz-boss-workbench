@@ -12,6 +12,27 @@ import build_boss_identity_probe as probe
 
 
 class BatchTests(unittest.TestCase):
+    def test_explicit_next_wave_does_not_repeat_first_queue(self):
+        work=[{'id':id,'class_candidates':[{}],'config_candidates':['config']} for id in ['057_wanjun','054_zuoshang','066_rentuzi','071_xianzhe']]
+        wanted=['054_zuoshang','066_rentuzi','071_xianzhe']
+        self.assertEqual(batch.select_batch(work,wanted),wanted)
+
+    def test_default_batch_skips_ambiguous_pairs_instead_of_failing_probe_generation(self):
+        work=[{'id':'variants','class_candidates':[{},{}],'config_candidates':['config']},
+              {'id':'one','class_candidates':[{}],'config_candidates':['config']}]
+        self.assertEqual(batch.select_batch(work),['one'])
+        with self.assertRaises(ValueError):batch.select_batch(work,['variants'])
+
+    def test_explicit_queue_rejects_unknown_duplicate_or_excessive_ids(self):
+        work=[{'id':'one','class_candidates':[{}],'config_candidates':['config']}]
+        for identifiers in [[],['unknown'],['one','one'],['one']*4]:
+            with self.subTest(identifiers=identifiers),self.assertRaises(ValueError):batch.select_batch(work,identifiers)
+
+    def test_missing_config_cannot_be_scheduled_as_identity_pair(self):
+        work=[{'id':'one','class_candidates':[{}],'config_candidates':[]}]
+        self.assertEqual(batch.select_batch(work),[])
+        with self.assertRaises(ValueError):batch.select_batch(work,['one'])
+
     def test_only_observed_class_paths_count(self):
         a={'package':'/P/BP_Test','observations':[{'observed':'/P/BP_Test.Default__BP_Test_C'}]}
         self.assertIsNone(batch.exact_class(a))
