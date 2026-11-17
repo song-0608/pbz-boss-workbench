@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "candidate": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\release-candidates\\ahua-expanded-boss-dev-4255513e8b66512c",
+  "workflow": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\integration-workflows\\expanded-player-b4bf4da104ca5ad9",
+  "candidate_manifest_sha256": "b00d94877886fa905750233cda97d39cf16d0250c627c676a3f9ba82d2fd2c10",
+  "source_files": {
+    "tests/test_expanded_boss_catalog.lua": "0eba4ef9429171473177adc751da05634c77fefa462b9fc2cc18b1493f99a6d4",
+    "tests/test_expanded_boss_integration.py": "5649d021ca373e95b48d7a52864e8042935f0859d40e0ef91d057ac8358e03aa",
+    "tests/test_expanded_boss_player.py": "eef40b9fa968dbbdce6e0b8cdda5d273041e3e68f4524dd1d7f8cc53d9caceab",
+    "tests/test_expanded_boss_profile.py": "89617072c9e0379764034aaa8fdaf07f43a740e65524ef33e815bdcea66b31be",
+    "tests/test_expanded_boss_world.py": "f74efcc60e1a2bfcc47e17ffadacc89dc2cc476424e7526b4e5830662dff3184",
+    "tests/test_mod_installation.py": "e0c05b05d8d231aafe8027260aee9c60534f2e9645f163c83d8bdc0df8909559",
+    "tests/test_player_experience_input_release.py": "ab134dcf4201dc8b76ba299f89b01ccc13b03e19f68677e1ed60fb2866d6f9ac",
+    "tests/test_player_target_readiness.py": "6005578eec1a2ddfe60508b0df21f10a5e853f0d1416dab28c92fee8fe8f6b2f",
+    "tests/test_published_boss_workflow.py": "928a8703388ba4c05444512e4737e570a80179ab7890cc23e860c45ba8df98eb",
+    "tools/boss_workbench_v5_window.py": "e77e050771fe20c6ed87d48e63c2fd804ff0e4ad6b81fc6b3a94a9e350dfa6f7",
+    "tools/build_expanded_boss_candidate.py": "961198f84a00bdff97d44375adc8e7c1311b08620a9bddef6736bff3e41856c1",
+    "tools/build_expanded_boss_profile.py": "36914877a01a664434ff7efe023e3d894dca3c11bad771c87153b4f611b14aa8",
+    "tools/check_expanded_boss_integration.py": "b430182833715dee80b71b6ec0fca93a8dc4ca9e18cd2f12f3caec0343d1eea9",
+    "tools/collect_expanded_boss_player.py": "f5e59b8d4bf9618e53c2d1449e7a4986a3d9e0e65fc65c504e3bbd1dea96514f",
+    "tools/expanded_boss_integration_workflow.py": "6fa915c851aa3ddd7cbd58ef881c5147c3a298ceec2eaf3d15d4de1ba34c8ee7",
+    "tools/expanded_boss_world.py": "97bc9f5799d7417899529ece73075a16cabd92015d4f5c1c01191fbdddc2bb9f",
+    "tools/player_experience_trial.py": "86b897212a05a742d2424f2e2d56eddd7a5e55d5a74399542f6a355ee090a917",
+    "tools/published_boss_workflow.py": "09243209773ec70c8251cf9a844cbc8d23f2650fad07706c3a505ec931eec0e7",
+    "tools/release_expanded_boss_workbench.py": "c781e3d63b590f85ac7cf95d15efd798890dff48def34480c5d77017f49cbb94",
+    "tools/run_expanded_boss_player_batch.py": "574ba1288404b8e17c1514b3700eb8e1f16fabbc5873308a7cf930a727d6da3c",
+    "tools/select_expanded_boss.py": "e9a8e0ff032e0ff96cf837261ca413fb98c57acfeffbcb2f58c1f8d6b065f95f",
+    "tools/test_player_experience_inputs.py": "8a542e2f05dba6bbb3136dc8be5d82d59f94ef4f8ff76d82fa46e29280be97cb",
+    "tools/verify_boss_workbench_v5.py": "3a918cb2ff67d05bfa2576bcde26f57912a8972a21f5771249efedf857df1496"
+  },
+  "workflow_manifest_sha256": "6b01a99e46845fdef02f6bcf9ddfe30d8b462b74f4bcbc622163cd3771a0e1bc",
+  "checks": [
+    {
+      "name": "all_lua_syntax",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "name": "independent_catalog",
+      "passed": true,
+      "output": "PASS exact independent profiles, unique selection entries, action counts and locked previews\n"
+    },
+    {
+      "name": "python_regressions",
+      "passed": true,
+      "output": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 1.620s\n\nOK\n"
+    }
+  ],
+  "passed": true,
+  "installed": false,
+  "game_started": false
+}

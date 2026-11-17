@@ -38,6 +38,7 @@ def render(directory, root=ROOT, additions=()):
         '    if boss_id in extra_labels:return dict(extra_labels[boss_id])\n'
         '    import player_keymap\n    return {slot:LABELS[slot]for slot in player_keymap.read()[\'skills\']}')
     source += '\n# Exact independently accepted profiles in this candidate only.\nBOSSES.update(' + repr(names) + ')\n'
+    source += "LABELS['lock_target']='镜头锁敌开关'\nDESCRIPTIONS['lock_target']='中键切换镜头锁敌；只跟随已核对的有效目标。'\n"
     files['player_settings.py'] = source.encode('utf-8')
     header = 'import sys\nsys.dont_write_bytecode=True\nsys.path.append(' + repr(str(root / 'tools')) + ')\n'
     source = (root / 'tools/player_experience_trial.py').read_text(encoding='utf-8')

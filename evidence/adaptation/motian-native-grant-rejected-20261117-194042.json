@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "session": "20261117-194042",
+  "id": "067_motian",
+  "playable": false,
+  "accepted": false,
+  "reason": "No reviewed idle native ability from the candidate pool was granted; manual grants were not used.",
+  "actual_native_grants": [
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C",
+    "/Script/SGameCombatSystem.GA_CombatAimPassive",
+    "/Script/SGameLocomotionDriver.GA_SpaceState",
+    "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.GA_LocomotionDriver_3DDefault_C",
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive/GA_MoYuan_Passive.GA_MoYuan_Passive_C",
+    "/PBZCombatAsset/Prototypes/Abilities/Base/BP_MonsterSubtitlesBase.BP_MonsterSubtitlesBase_C",
+    "/PBZCombatAsset/Prototypes/Abilities/GA_MobUtilitiesPassive.GA_MobUtilitiesPassive_C",
+    "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.GA_CommonUtilitiesPassive_C",
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Stance.GA_MoTian_Tang_Stance_C",
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+    "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SwitchPhase.GA_MoTian_SwitchPhase_C"
+  ],
+  "cleanup": {
+    "boss": true,
+    "boss_controller": true,
+    "target": true,
+    "target_controller": true,
+    "extra_target": true,
+    "extra_target_controller": true
+  },
+  "research_box_closed": true,
+  "formal_files_changed": false,
+  "sources": {
+    "evidence/official-validation/20261117-194042/UE4SS.log": "5337875e2cc4a3801a2d1e3364458a82e3e0382b8fb6e3a54f15b86d617b9212",
+    "evidence/official-validation/20261117-194042/postcheck.json": "4c558893b2a7ed168bb231503e36744268da86ec59ce2f2a382f36d4779847c5",
+    "evidence/official-validation/20261117-194042/control-lifecycle-deployment.json": "c88d76d3ca82995ce6f970fefd73d8246d2904239f4b5b09d10910df828fe766"
+  }
+}
