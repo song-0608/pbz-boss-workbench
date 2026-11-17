@@ -7,7 +7,7 @@ import re
 
 import boss_skill_expansion as expansion
 from boss_adaptation_workflow import ROOT, BUILD, sha, write_json
-from collect_boss_skill_session import collect
+from collect_boss_skill_retry_session import collect
 
 EXPECTED = frozenset(('057_wanjun', '073_yanqiansui', '056_youlong'))
 

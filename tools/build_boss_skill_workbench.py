@@ -4,16 +4,17 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import shutil
 import boss_skill_expansion as expansion
 from build_boss_profile_candidate import lua
 from collect_boss_skill_campaign import save_campaign
 from boss_adaptation_workflow import ROOT,sha,write_json
-from mod_installation import MANIFEST,assert_closed,installed_package,validate_package
+from mod_installation import MANIFEST,assert_closed,validate_package
 
 PROFILES={'057_wanjun':'wanjun','073_yanqiansui':'yanqiansui','056_youlong':'youlong'}
+BASE='ahua-boss-workbench-v3-f7034432a74d819b'
 SOURCES=('tools/build_boss_skill_workbench.py','tests/test_boss_skill_workbench.py',
          'tools/collect_boss_skill_campaign.py','tests/test_boss_skill_campaign.py')
+SOURCES=(*SOURCES,'tools/collect_boss_skill_retry_session.py','tests/test_boss_skill_retry_session.py')
 
 
 def additions(actions,accepted,evidence):
@@ -57,12 +58,12 @@ return bindings
     return result
 
 
-def build(sessions,root=ROOT):
-    assert_closed(root);receipt_path,receipt=save_campaign(sessions,root)
+def expected(sessions,root=ROOT):
+    receipt_path,receipt=save_campaign(sessions,root,verify=True)
     assert expansion.read(receipt_path)==receipt and receipt['all_twelve_accepted'] is True
-    _,base,source=installed_package(root)
+    source=root/'releases'/BASE;base=validate_package(source)
     assert base['status']=='release' and base['complete_mod'] and base['runtime_acceptance_current']
-    assert base['release_id']=='ahua-boss-workbench-v3-f7034432a74d819b'
+    assert base['release_id']==BASE
     payload={n:(source/n).read_bytes() for n in base['files']}
     catalog_name='PBZBossControl/Scripts/boss_catalog.lua';catalog=payload[catalog_name].decode('utf-8')
     reports={r['id']:r for r in receipt['bosses']};assert set(reports)==set(PROFILES)
@@ -92,8 +93,26 @@ def build(sessions,root=ROOT):
         skill_expansion_sources={n:sha(root/n) for n in SOURCES},
         pending=['Ordinary player keys, Boss switching, scene-cycle and shared runtime acceptance'],
         bosses=[dict(row,abilities=8,bindings=8) if row['id'] in PROFILES else row for row in base['bosses']])
+    for name in ('acceptance_report','acceptance_report_sha256','local_checks_sha256'):
+        manifest.pop(name,None)
     fingerprint=hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()[:16]
     identifier='ahua-boss-workbench-v4-dev-'+fingerprint;manifest['release_id']=identifier
+    return manifest,payload,identifier
+
+
+def verify(target,root=ROOT):
+    manifest=validate_package(target)
+    campaign=expansion.read(root/manifest['skill_session'])
+    current,payload,identifier=expected(campaign['sessions'],root)
+    assert Path(target).resolve()==(root/'runtime/release-candidates'/identifier).resolve()
+    assert manifest==current,'Skill workbench differs from independently replayed inputs'
+    for name,data in payload.items():assert (target/name).read_bytes()==data
+    return manifest
+
+
+def build(sessions,root=ROOT):
+    assert_closed(root);save_campaign(sessions,root)
+    manifest,payload,identifier=expected(sessions,root)
     target=root/'runtime/release-candidates'/identifier
     if target.exists():
         assert validate_package(target)==manifest
@@ -102,7 +121,7 @@ def build(sessions,root=ROOT):
         for name,data in payload.items():
             path=target/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
         write_json(target/MANIFEST,manifest)
-    assert validate_package(target)==manifest
+    assert verify(target,root)==manifest
     return target
 
 
