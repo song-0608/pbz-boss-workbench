@@ -15,7 +15,8 @@ from pbz_ue4ss_baseline import verified_build_record
 from verify_phantom_boss_backend import verify as verify_backend
 
 MODULES=('main','lang','lang_ar','pbz','coop','status','moves','puppets','hitfx','autostart')
-RESEARCH_SAVED=ROOT/'sandbox/PBZSteamLab/drive/E/SteamLibrary/steamapps/common/PBZ/ProjectPBZ/Saved'
+from research_storage import container_path
+RESEARCH_SAVED=container_path()/'drive/E/SteamLibrary/steamapps/common/PBZ/ProjectPBZ/Saved'
 
 
 def digest(path):

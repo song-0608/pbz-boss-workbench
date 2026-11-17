@@ -11,7 +11,8 @@ import official_validation as v
 def main():
     sys.stdout.reconfigure(encoding='utf-8')
     analysis=v.ROOT/'runtime/dump-analysis'
-    dump_root=v.ROOT/'sandbox/PBZSteamLab/drive/C/Users/xuesong/AppData/Local/CrashDumps'
+    from research_storage import container_path
+    dump_root=container_path()/'drive/C/Users/xuesong/AppData/Local/CrashDumps'
     fixture=json.loads((analysis/'fixture-report.json').read_text())
     map_text=(analysis/'fixture.map').read_text(errors='replace')
     expected={}

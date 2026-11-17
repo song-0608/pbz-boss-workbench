@@ -23,7 +23,8 @@ def reload():
     rows=[r for r in s['ue4ss_loader_manifest'] if Path(r['physical_path']).as_posix().endswith(suffix)]
     if len(rows)!=1:raise RuntimeError('Exact observer manifest entry required')
     row=rows[0];target=Path(row['physical_path'])
-    if not target.is_relative_to(v.ROOT/'sandbox/PBZSteamLab'):raise RuntimeError('Research mirror only')
+    from research_storage import container_path
+    if not target.is_relative_to(container_path()):raise RuntimeError('Research mirror only')
     old=target.read_bytes();new=source.read_bytes()
     history=work/'readonly-reloads';history.mkdir(exist_ok=True)
     serial=len(list(history.glob('*.json')))+1

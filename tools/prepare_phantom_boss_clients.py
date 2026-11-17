@@ -11,7 +11,8 @@ from check_phantom_boss_isolation import BOXES,api,pids,virtual,verify_policy
 from run_sandbox_baseline import formal_files
 from stage_phantom_boss_pair import digest
 
-SOURCE=ROOT/'sandbox/PBZSteamLab/drive/E/PBZSteamLabClient'
+from research_storage import container_path
+SOURCE=container_path()/'drive/E/PBZSteamLabClient'
 LOGICAL=Path(r'E:\PBZSteamLabClient')
 
 

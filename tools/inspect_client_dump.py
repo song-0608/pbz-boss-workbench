@@ -91,7 +91,8 @@ def inspect(path):
 
 def main():
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-    dump_root = ROOT / 'sandbox/PBZSteamLab/drive/D/mod文档/PBZ-Boss操控研究/runtime/SteamOffline/dumps'
+    from research_storage import container_path
+    dump_root = container_path() / 'drive/D/mod文档/PBZ-Boss操控研究/runtime/SteamOffline/dumps'
     dumps = sorted(dump_root.glob('crash_steam.exe_*.dmp'))
     reports = [inspect(path) for path in dumps]
     result = {'time': datetime.now(timezone(timedelta(hours=8))).isoformat(), 'dumps': reports,

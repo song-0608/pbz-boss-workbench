@@ -10,7 +10,8 @@ from datetime import datetime, timezone, timedelta
 from fetch_client_update import keyvalues, CACHE
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / 'sandbox/PBZSteamLab/drive/E/PBZSteamLabClient/package'
+from research_storage import container_path
+SOURCE = container_path() / 'drive/E/PBZSteamLabClient/package'
 
 
 def digest(path):

@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import json
 import sys
+from research_storage import container_path
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ def main():
         'game_initialization_verified': False, 'boss_control_verified': False, 'real_bridge_available': False,
         'no_loader_deployment': True, 'current_authentication_stage_game_launched': False,
         'sandboxie_global_wfp_enabled': True, 'client_offline_network_mode': 'Steam/steamwebhelper localhost TCP only; other network default-deny; auth exceptions are leased separately',
-        'experimental_client_copy': str(ROOT / 'sandbox/PBZSteamLab/drive/E/PBZSteamLabClient'),
+        'experimental_client_copy': str(container_path() / 'drive/E/PBZSteamLabClient'),
         'client_virtual_english_entry': r'E:\PBZSteamLabClient',
         'latest_client_test': str(ROOT / 'evidence/offline-steam/latest-client-result.json'),
         'latest_client_loopback_probe': str(ROOT / 'evidence/offline-steam/client-loopback-policy.json'),

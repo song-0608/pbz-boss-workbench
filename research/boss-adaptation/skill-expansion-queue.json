@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "bosses": [
+    {
+      "id": "057_wanjun",
+      "baseline_session": "20261115-100319",
+      "actions": [
+        {"id": "extra_attack_right", "key": "F5", "player_slot": "skill_06", "name": "万钧右侧攻击", "class_short": "GA_WanJun_Attack_R_C"},
+        {"id": "extra_middle_01", "key": "F8", "player_slot": "skill_08", "name": "万钧中段攻击01", "class_short": "GA_WanJun_MiddleAttack_01_C"},
+        {"id": "extra_light_01", "key": "F9", "player_slot": "skill_07", "name": "万钧轻击01", "class_short": "GA_WanJun_LightAttack_01_C"},
+        {"id": "extra_dodge_back", "key": "Q", "player_slot": "teleport_left", "name": "万钧后撤攻击", "class_short": "GA_WanJun_DodgeAttack_B_C"}
+      ]
+    },
+    {
+      "id": "073_yanqiansui",
+      "baseline_session": "20261116-055334",
+      "actions": [
+        {"id": "extra_skill_05", "key": "F5", "player_slot": "skill_06", "name": "烟千岁技能05", "class_short": "GA_YanQianSui_Skill_05_C"},
+        {"id": "extra_skill_06", "key": "F8", "player_slot": "skill_08", "name": "烟千岁技能06", "class_short": "GA_YanQianSui_Skill_06_C"},
+        {"id": "extra_dodge_front", "key": "F9", "player_slot": "skill_07", "name": "烟千岁前闪攻击01", "class_short": "GA_YanQianSui_DodgeAttack_F_01_C"},
+        {"id": "extra_dodge_back", "key": "Q", "player_slot": "teleport_left", "name": "烟千岁后撤攻击01", "class_short": "GA_YanQianSui_DodgeAttack_B_01_C"}
+      ]
+    },
+    {
+      "id": "056_youlong",
+      "baseline_session": "20261116-073449",
+      "actions": [
+        {"id": "extra_middle_02", "key": "F5", "player_slot": "skill_06", "name": "游龙中段攻击02", "class_short": "GA_YouLong_MiddleAttack_02_C"},
+        {"id": "extra_heavy_02", "key": "F8", "player_slot": "skill_08", "name": "游龙重击02", "class_short": "GA_YouLong_HeavyAttack_02_C"},
+        {"id": "extra_dodge_front", "key": "F9", "player_slot": "skill_07", "name": "游龙前闪", "class_short": "GA_YouLong_Dodge_F_C"},
+        {"id": "extra_dodge_back", "key": "Q", "player_slot": "teleport_left", "name": "游龙后闪", "class_short": "GA_YouLong_Dodge_B_C"}
+      ]
+    }
+  ],
+  "blocked_class_shorts": ["GA_YanQianSui_Skill_01_C", "GA_YanQianSui_StoryIntro_C", "GA_YouLong_SummonPassive_General_C"],
+  "scope": "Observed native grants only. CDO kind, current unique idle grant, activation, completion, cancellation and effects still require their own checks."
+}

@@ -64,7 +64,8 @@ def get_root(dll):
         if kernel.QueryDosDeviceW(drive, name, len(name)):
             if buffers[0].value.casefold().startswith(name.value.casefold() + "\\"):
                 path = Path(drive + buffers[0].value[len(name.value):])
-                allowed = [ROOT / "sandbox" / BOX]
+                from research_storage import container_path
+                allowed = [container_path(BOX,root=ROOT)]
                 if BOX=='PBZBossLab':allowed.extend([ROOT / "sandbox" / "PBZBossLabDriveLayout", SBIE / "PBZBossLabRoot"])
                 if any(str(path).casefold() == str(candidate).casefold() for candidate in allowed):
                     return path
