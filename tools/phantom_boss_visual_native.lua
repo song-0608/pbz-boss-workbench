@@ -40,7 +40,11 @@ function M.new(api,scope,peer,observer,dependencies,binding,config,g)
         for path,segments in pairs(montages)do assert(type(path)=='string' and #path<=256);segments_valid(id,segments)end
     end
     local function assets(id)
-        if cache[id] then return cache[id] end
+        local old=cache[id]
+        if old and usable(old.mesh)and usable(old.mesh.Skeleton)then
+            local valid=true;for _,material in ipairs(old.materials)do if not usable(material)then valid=false;break end end
+            if valid then return old end
+        end
         assert(config.bosses[id],'visual Boss absent from catalog')
         local class=g.LoadAsset(config.bosses[id].class_path);assert(usable(class))
         local source=class:GetCDO().Mesh;assert(usable(source))
@@ -59,8 +63,10 @@ function M.new(api,scope,peer,observer,dependencies,binding,config,g)
         cache[id]=row;return row
     end
     local function sequence_for(id,path)
-        local a=assets(id);local old=a.sequences[path]
-        if old and usable(old) then return old end
+        -- Asset loading belongs to construction. A pose callback may only look
+        -- up a sequence already streamed by the game, never reload its Boss.
+        local a=assert(cache[id],'visual assets were not mounted');local old=a.sequences[path]
+        if old and usable(old.object) then return old.object,old end
         local now=observer.now()
         if now<a.lookup_at then return nil end
         a.lookup_at=now+.25 -- at most four exact unloaded-sequence lookups per second
@@ -69,9 +75,9 @@ function M.new(api,scope,peer,observer,dependencies,binding,config,g)
         local sequence=g.StaticFindObject(path)
         if not usable(sequence) then return nil end
         assert(sequence:IsA(sequence_class)==true and usable(sequence.Skeleton)
-            and sequence.Skeleton:GetFullName()==a.mesh.Skeleton:GetFullName(),'visual sequence skeleton/class mismatch')
+            and calls:same(sequence.Skeleton,a.mesh.Skeleton),'visual sequence skeleton/class mismatch')
         assert(math.abs(sequence:GetPlayLength()-assert(animations[id][path]))<.001,'captured sequence duration changed')
-        a.sequences[path]=sequence;return sequence
+        local entry={object=sequence};a.sequences[path]=entry;return sequence,entry
     end
     local function same_world(actor,world)return observer.identify(actor,world).world==world end
     local function resolve(record,restoring)
@@ -109,16 +115,21 @@ function M.new(api,scope,peer,observer,dependencies,binding,config,g)
     end
     self.update=function(row,frame,world)
         assert(row.world==world and frame.boss==row.boss,'visual identity changed')
-        local actor=resolve(row,false);local mesh=calls:resolve(row.mesh)
-        assert(calls:same(mesh:GetOwner(),actor) and mesh:IsComponentTickEnabled()==false
-            and actor:GetActorEnableCollision()==false and mesh:GetCollisionEnabled()==0
+        local actor=resolve(row,false);local mesh=calls:resolve(row.mesh);local root=calls:resolve(row.root)
+        local a=assert(cache[row.boss],'visual asset ownership missing')
+        assert(usable(a.mesh)and usable(a.mesh.Skeleton)and calls:same(mesh:GetSkeletalMeshAsset(),a.mesh),
+            'visual skeletal mesh changed or retired')
+        assert(calls:same(actor.RootComponent,root)and calls:same(root:GetOwner(),actor)
+            and calls:same(mesh:GetAttachParent(),root)and calls:same(mesh:GetOwner(),actor) and mesh:IsComponentTickEnabled()==false
+            and actor:IsActorTickEnabled()==false and actor:GetActorEnableCollision()==false and mesh:GetCollisionEnabled()==0
             and mesh:GetGenerateOverlapEvents()==false and mesh:GetAnimationMode()==1 and mesh:IsPlaying()==false,
             'visual animation/collision changed')
         assert(frame.animation=='-' or animations[row.boss][frame.animation],'uncaptured animation')
-        local sequence=frame.animation~='-' and sequence_for(row.boss,frame.animation) or nil
+        local sequence,token
+        if frame.animation~='-'then sequence,token=sequence_for(row.boss,frame.animation)end
         local animation=sequence and frame.animation or '-'
-        if row.animation~=animation then
-            mesh:SetAnimation(sequence);mesh:SetPlaying(false);row.animation=animation
+        if row.animation~=animation or row.sequence_token~=token then
+            mesh:SetAnimation(sequence);mesh:SetPlaying(false);row.animation=animation;row.sequence_token=token
         end
         if sequence then mesh:SetPosition(frame.time,false)end -- false is mandatory: no notifies
         actor:K2_SetActorLocationAndRotation({X=frame.x,Y=frame.y,Z=frame.z},{Pitch=0,Yaw=frame.yaw,Roll=0},false,{},true)

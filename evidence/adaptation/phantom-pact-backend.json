@@ -7,218 +7,218 @@
   "game_started": false,
   "native_relay_executed": false,
   "installed": false,
-  "candidate": "runtime/online-candidates/bwb-phantompact-9b652ddf63289733b1e6",
-  "candidate_manifest_sha256": "e6bef452027242f421597bce661a93d417bd0d3a5dd8272e6411f4df1f38b33e",
+  "candidate": "runtime/online-candidates/bwb-phantompact-9d1844ed28ebf6283df6",
+  "candidate_manifest_sha256": "2d2abf85789ddf6d3a8f45f7e1feee59f81c200641b32d6fe99d82e7b9bb12b7",
   "singleplayer_payload_files_verified": 62,
   "personal_settings_and_singleplayer_unchanged": true,
   "upstream_commit": "91099b849e474f0326834135ace52dfbab26e520",
   "upstream_reviewed_sources": 19,
   "catalog_bosses": 4,
   "catalog_abilities": 40,
-  "control_plane_test_groups": 461,
+  "control_plane_test_groups": 469,
   "syntax_checked_lua_files": 66,
   "checks": [
     {
       "name": "protocol_simulation",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/protocol_simulation.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/protocol_simulation.txt",
       "output_sha256": "c60a6d3535af976ea71bfc4d3a5193fe8a7eb8679503ec0a2572f2d43ae31eae"
     },
     {
       "name": "adapter_mocked_api",
       "passed": true,
       "groups": 47,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/adapter_mocked_api.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/adapter_mocked_api.txt",
       "output_sha256": "c29f9ce351e75e47edbb8b00a22ecca188476f7cfaf854b5486b252b9252663f"
     },
     {
       "name": "candidate_python",
       "passed": true,
       "groups": 15,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/candidate_python.txt",
-      "output_sha256": "071383c6132c541abfbe6906ae6771cc166969b745e9c7626775e1646419aec9"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/candidate_python.txt",
+      "output_sha256": "8f8f09bf518775ea0c92de3f3a18bfb19829a72c874cf270b1f4f4a31d170230"
     },
     {
       "name": "entry_mocked_research_lease",
       "passed": true,
       "groups": 12,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/entry_mocked_research_lease.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/entry_mocked_research_lease.txt",
       "output_sha256": "fbb42b888a9c041509ff6ca87fd57d01e67843e72fd7af38258bf107ad8cdb25"
     },
     {
       "name": "host_fake_uobjects",
       "passed": true,
       "groups": 17,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/host_fake_uobjects.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/host_fake_uobjects.txt",
       "output_sha256": "809c1f12f5a752d39e854bf4d6ac90a388d23e02215df7cb3fb425f9a16c706a"
     },
     {
       "name": "enemy_fence_patched_upstream",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/enemy_fence_patched_upstream.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/enemy_fence_patched_upstream.txt",
       "output_sha256": "f8b46603d7891818e54550044435d19817be703ffb81f40e051b0920b88b267a"
     },
     {
       "name": "same_pc_pair_python",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/same_pc_pair_python.txt",
-      "output_sha256": "4e553fbb3c351219cc799816e9c96a08fd3b8e22b90d1500e1c19131aa2455a1"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/same_pc_pair_python.txt",
+      "output_sha256": "5d222cfac9138e792768f9241b6732616b2916c4309380b8a7dbe2759631cb00"
     },
     {
       "name": "online_scope_simulation",
       "passed": true,
       "groups": 12,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/online_scope_simulation.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/online_scope_simulation.txt",
       "output_sha256": "2b3245b5ee807943c4219a77797eb6259e6d787508f5b5b4b58b8516fff65bf0"
     },
     {
       "name": "online_control_fake_uobjects",
       "passed": true,
       "groups": 23,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/online_control_fake_uobjects.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/online_control_fake_uobjects.txt",
       "output_sha256": "3cbe562a0e2ab34b2e735371dace04e44db53cfcb867b3d2a8e14f96b80cca95"
     },
     {
       "name": "network_body_patched_upstream",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/network_body_patched_upstream.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/network_body_patched_upstream.txt",
       "output_sha256": "e601945a92b5cd1f6b82c94dcc682c7f9be7e107293cb84ee45fa3aee7f3ce2e"
     },
     {
       "name": "online_arena_lifecycle",
       "passed": true,
       "groups": 27,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/online_arena_lifecycle.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/online_arena_lifecycle.txt",
       "output_sha256": "c8eabe90111b67aeadf159ffd74b688015784eac4f5ee8b1dea5357d7cc6424c"
     },
     {
       "name": "online_spawn_native_bindings",
       "passed": true,
       "groups": 18,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/online_spawn_native_bindings.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/online_spawn_native_bindings.txt",
       "output_sha256": "e7729bf0ade0e44f8e0ac4e1936210e9f7cd22c9d66008c89e1e9b0735ee3b4e"
     },
     {
       "name": "cold_startup_menu_loading",
       "passed": true,
       "groups": 23,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/cold_startup_menu_loading.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/cold_startup_menu_loading.txt",
       "output_sha256": "2e46bd0ec4dfc69c64b6228480694b18e6b75ab136d1a327a561d6bb37707378"
     },
     {
       "name": "combat_runtime_composition",
       "passed": true,
       "groups": 5,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/combat_runtime_composition.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/combat_runtime_composition.txt",
       "output_sha256": "aabd6dd8b00af17d4eecc94a2d2a39a865e8a2c9f112a057a1dea1c21fcca247"
     },
     {
       "name": "visual_protocol_lifecycle",
       "passed": true,
-      "groups": 21,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/visual_protocol_lifecycle.txt",
-      "output_sha256": "84de723483e6680400bbf7f20615db7001c8b07b6cb91e166b8306102bd6aec3"
+      "groups": 24,
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/visual_protocol_lifecycle.txt",
+      "output_sha256": "56e5b2eb47ed6cf620642c2c125693bee086df878163235e17c763336934fb99"
     },
     {
       "name": "visual_native_bindings",
       "passed": true,
-      "groups": 12,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/visual_native_bindings.txt",
-      "output_sha256": "46c9c7e26568ec9cd9a2293bb4351961814d0b7185489d9076a9497a3f9b930d"
+      "groups": 17,
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/visual_native_bindings.txt",
+      "output_sha256": "1df43087e7c6e39956308a558cbdef6927af98e4a1e5621a7e7e2988e6a58926"
     },
     {
       "name": "visual_session_integration",
       "passed": true,
       "groups": 9,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/visual_session_integration.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/visual_session_integration.txt",
       "output_sha256": "a37af87f69303ffa7c1b1668bec8891ae73cd1546b8cde3abfdb96cead213a07"
     },
     {
       "name": "deferred_launch_gate",
       "passed": true,
       "groups": 15,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/deferred_launch_gate.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/deferred_launch_gate.txt",
       "output_sha256": "deb534e1b193201ef124f34b4c3df0655274bc6ee68112b96620f09d5f41bf55"
     },
     {
       "name": "pair_session_python",
       "passed": true,
       "groups": 18,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/pair_session_python.txt",
-      "output_sha256": "6fc2ec3c5f251c6a45b25dd1f757e39a334ebf8c37e1c93e035a990de058d90c"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/pair_session_python.txt",
+      "output_sha256": "6308295481c52afefd33df27526716e8fa06cca7245f697a9b09e5296a8f605a"
     },
     {
       "name": "online_workbench_lifecycle",
       "passed": true,
       "groups": 28,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/online_workbench_lifecycle.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/online_workbench_lifecycle.txt",
       "output_sha256": "2903bde9989f8a69749d28c2aa7764371d21ecc4571ac8c691d058891685ac7b"
     },
     {
       "name": "workbench_native_umg",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/workbench_native_umg.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/workbench_native_umg.txt",
       "output_sha256": "8246fae8d88502b0619d154cb643bad6adfc84d218276e3697aa9860a4dd3b9a"
     },
     {
       "name": "control_contract_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/control_contract_python.txt",
-      "output_sha256": "5f7d7da671a26581ec66beccccb70b152ff3f05882dff6ee92f76c53ff1aaff3"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/control_contract_python.txt",
+      "output_sha256": "7fb6c1532cbd492e40977642d618d104b5af3ac6d853066b56573cd23b2296d4"
     },
     {
       "name": "contract_bundle_python",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/contract_bundle_python.txt",
-      "output_sha256": "334cdfee44338549a4e9be5e1915fefcd3dfcf7f82f08a90f3b2ee9bb6ef812e"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/contract_bundle_python.txt",
+      "output_sha256": "dd4bbaa63b44ce63896dc25763f28636b2f187e3b1e051b9908fe51cc46260b8"
     },
     {
       "name": "control_abi_python",
       "passed": true,
       "groups": 18,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/control_abi_python.txt",
-      "output_sha256": "7befce3d8ff93c6dd63632552414ceed3bd19a2f7cf49271c43b97f0759ce7df"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/control_abi_python.txt",
+      "output_sha256": "badb161338b04ee2e7ba63061bff15f54995406ef098e68e87dd4d4d7e313a0a"
     },
     {
       "name": "control_binding_python",
       "passed": true,
       "groups": 13,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/control_binding_python.txt",
-      "output_sha256": "01a77c7594ce0f8d6b09afda542ded624c44bfcd85b2c7033de16c4f8c1bef6f"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/control_binding_python.txt",
+      "output_sha256": "05b868081b0196d97b9b10738a71d0b7af4561a483bade4c11c4129ffd5a92c6"
     },
     {
       "name": "client_auth_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/client_auth_python.txt",
-      "output_sha256": "5be682a0e6a8723dcad48efd115ab96b85cb341390d0ecdae37f75d56610eb27"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/client_auth_python.txt",
+      "output_sha256": "29b6c1bd9fc0fa5c540be21fc68a7c3801d80be0c46e0c5bad5b50688723c7db"
     },
     {
       "name": "optional_contracts_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/optional_contracts_python.txt",
-      "output_sha256": "0489161f8ef50b68e456677340fa7bc9079acf9e63a774dc97e4e24b1d3ba75f"
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/optional_contracts_python.txt",
+      "output_sha256": "9e9c17bade536dbe083c3338d802c6fb047770174c3b279811a91f2d3c7e4f1f"
     },
     {
       "name": "online_session_composition",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/online_session_composition.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/online_session_composition.txt",
       "output_sha256": "a03aee9d6bd251153ff02ac84b3a3b58a43de7f34362c0f6db013ce79c463065"
     },
     {
       "name": "patched_lua_compile_only",
       "passed": true,
       "groups": 66,
-      "output": "runtime/online-checks/9ad24bfa34e7455b80b7bb9f481213d7/patched_lua_compile_only.txt",
+      "output": "runtime/online-checks/e57db3cda19949748fc8d100481d1f04/patched_lua_compile_only.txt",
       "output_sha256": "b4fb0852ee6f903d13027fda186f8681adf8d1bda134bca68367146496ccfb20"
     }
   ],
@@ -245,8 +245,8 @@
     "tools/phantom_boss_online_session.lua": "2605faf181e3caf69447768cbd997fa8772ea4a7616c8f0ce44b981ba396faba",
     "tools/phantom_boss_startup.lua": "f3b0a6b2697a349062148c16b1f14ba5e0695a3ff2b22605f797d00e2c599aa0",
     "tools/phantom_boss_combat_runtime.lua": "c6192711e156b27b7aa9ee9c6c75942be6d5075af4696b4a9619629403173dad",
-    "tools/phantom_boss_visual.lua": "7c9ea9ab9ed235c25cbb03c4a43ce51bc5c5f185b864c1bdb7b652228ef290dd",
-    "tools/phantom_boss_visual_native.lua": "583f3ae73971baefbe6c47dd49a4004a2f0a53f8051c6f8bf0be493da188f6be",
+    "tools/phantom_boss_visual.lua": "1633c705d872de15ed0147d2292619a9d69e7d66782d8c8519dc3cd855572d8f",
+    "tools/phantom_boss_visual_native.lua": "2be9dca08e8665e798f36abd21cd51b912ba44fd56c7384a203ba4fb42263ce7",
     "tools/phantom_boss_visual_session.lua": "331238a34bba90d4937a5ca24e8a83182718d2eec8ce06307144664d441c80c1",
     "tools/phantom_boss_launch_gate.lua": "71bc78ce0417083f0748f8daa40176a33db84329c89d9ce0d538b8a59ced4d58",
     "tools/phantom_boss_online_workbench.lua": "353d26c8805ef5494b5ae1ae3205e5be070ffef61017730fdcb59c62149408ce",
@@ -269,8 +269,8 @@
     "tests/test_phantom_boss_spawn_native.lua": "63338fd717af7052f226a563f041f49b90ef6e81104f11a46c951b752cb27717",
     "tests/test_phantom_boss_startup.lua": "10fd46e0b8ad9c6417cb5265259faf4fd36f185988e2445794000d0c1e2ac6f4",
     "tests/test_phantom_boss_combat_runtime.lua": "4309e17efcffa87426b80c2a62b920970baa836f1e392fc52e583d29aa2976ed",
-    "tests/test_phantom_boss_visual.lua": "57349e6e0b0543e8ec1234f78814c827119e29b6e85bc3cda32fa74081627a53",
-    "tests/test_phantom_boss_visual_native.lua": "121918e2114f478a2131a548769a7c79e00bc1fa0c13d116e25e2b005bc9b375",
+    "tests/test_phantom_boss_visual.lua": "bc11016c7d3ef2f7a0719215804c46f42d36466dbdaae23efc02a03b97c1a359",
+    "tests/test_phantom_boss_visual_native.lua": "2c8eb2c4983cd66da5a6be2ba6fa5ce2dc78eca78323692606feaac1df0c33af",
     "tests/test_phantom_boss_visual_session.lua": "b945a89f7a96219646e948548111eb27c4d78eb57799a06d6e0a0043d126d3b8",
     "tests/test_phantom_boss_launch_gate.lua": "0d6e511d93348f74927169e9f78d37b6536d5b28595067d069c90fda455041e4",
     "tests/test_phantom_boss_pair_session.py": "9d2ced72c00f147ad2f432ef3b33c609f3a3e2a8a4d6905a9bb04d6b413012a9",
@@ -308,7 +308,7 @@
     "tools/build_phantom_boss_native.py": "8169fb5c98464ada9679b312098f4cf052954c02ba75eb5f5db070aa8a4b2387",
     "tools/check_phantom_boss_native.py": "82587a3c9010e7adecf8242bde3d993e5e2152d28ed7b69a7f283b1d00ff6d23",
     "tools/inspect_phantom_boss_client_auth.py": "1d8883a929ebdf89bada7f485436052a333634a1ed8a0e58e2975b5d2dca2e69",
-    "tools/check_phantom_boss_backend.py": "649af520967b9e6f94ec926363b03e4ea4ab17e996b5d5aabef368319698baff",
-    "tools/verify_phantom_boss_backend.py": "4b7aa8e3af7bf003c5439275b07ad230e25e138785c0451030ca2f736ace0edc"
+    "tools/check_phantom_boss_backend.py": "d11f0775b9e6b5f2cbdc59b2fc2a5cbddbadef21e37b8ef7176dc5afaa355690",
+    "tools/verify_phantom_boss_backend.py": "64e2bf189968b70b7edbac852c82d6899f445532350c7ef899fcd392ab8c8196"
   }
 }

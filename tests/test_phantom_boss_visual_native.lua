@@ -25,6 +25,7 @@ local function fixture()
         function o:SetGenerateOverlapEvents(v)self.overlap=v end
         function o:GetGenerateOverlapEvents()return self.overlap end
         function o:SetSkeletalMesh(v)self.mesh=v end
+        function o:GetSkeletalMeshAsset()return self.mesh end
         function o:SetAnimationMode(v)self.mode=v end
         function o:GetAnimationMode()return self.mode end
         function o:SetPlaying(v)assert(v==false,'automatic playback forbidden');self.playing=v end
@@ -55,7 +56,7 @@ local function fixture()
     function sequence:IsA(cls)return cls==sequence_class end
     function sequence:GetPlayLength()return 2 end
     local source=object('SkeletalMeshComponent /Test/Default.Mesh')
-    function source:GetSkeletalMeshAsset()return mesh_asset end
+    function source:GetSkeletalMeshAsset()return s.source_asset or mesh_asset end
     function source:GetNumMaterials()return 1 end
     function source:GetMaterial(i)assert(i==0);return material end
     function source:GetRelativeTransform()return {relative=true}end
@@ -101,7 +102,10 @@ local function fixture()
     local binding={binding_verified=true,single_node_mode=1,no_collision=0,manual_pose_no_notifies=true,
         animations={ahua={[asset]=2}},sampling={ahua={[montage_path]={{path=asset,at=0,start=.1,finish=1.6,rate=2,loops=1}}}}}
     local g={StaticFindObject=function(path)s.finds=s.finds+1;return s.objects[path]end,
-        LoadAsset=function(path)if path=='/Test/Boss_C' then return boss_class end;assert(path==asset);return sequence end}
+        LoadAsset=function(path)
+            s.loads=(s.loads or 0)+1
+            if path=='/Test/Boss_C' then return boss_class end;assert(path==asset);return sequence
+        end}
     local observer={snapshot=function()return {world=s.world}end,now=function()return s.now end,
         identify=function(o,expected)
             assert(not expected or expected==s.world)
@@ -130,6 +134,7 @@ local function fixture()
         return n.mount('ahua',s.world,function(row)s.remembered=row.actor.address;s.record=row end)
     end
     s.binding,s.sequence,s.asset,s.body= binding,sequence,mesh_asset,body
+    s.object,s.sequence_class,s.skeleton=object,sequence_class,skeleton
     return s
 end
 check('visual is a plain actor with inert components and no collision or automatic animation',function()
@@ -195,5 +200,46 @@ check('partial registration failure keeps enough identity to clean the remembere
     local s=fixture();local n=s:create();s.reject_registration=true
     assert(not pcall(s.mount,s,n)and s.record and s.record.identity and #s.registered==0)
     assert(n.destroy(s.record)and s.destroyed==1 and #s.registered==0)
+end)
+check('reloaded same-path animation is assigned instead of retaining the invalid sequence',function()
+    local s=fixture();local n=s:create();local row=s:mount(n)
+    local frame={boss='ahua',animation=asset,time=.5,x=1,y=2,z=3,yaw=4}
+    assert(n.update(row,frame,'W')and s.mesh.animation==s.sequence)
+    s.sequence.valid=false;local replacement=s.object('AnimSequence '..asset);replacement.Skeleton=s.skeleton
+    function replacement:IsA(cls)return cls==s.sequence_class end
+    function replacement:GetPlayLength()return 2 end
+    s.now=.251;assert(n.update(row,frame,'W')and s.mesh.animation==replacement and s.poses==2)
+end)
+check('a retired cached mesh is rejected on update and refreshed only when mounting again',function()
+    local s=fixture();local n=s:create();local row=s:mount(n);s.asset.valid=false
+    local replacement=s.object('SkeletalMesh /Test/Mesh');replacement.Skeleton=s.skeleton;s.source_asset=replacement
+    local frame={boss='ahua',animation=asset,time=.5,x=1,y=2,z=3,yaw=4}
+    assert(not pcall(n.update,row,frame,'W')and not s.poses and s.loads==1)
+    assert(n.destroy(row));local next_row=s:mount(n)
+    assert(s.mesh.mesh==replacement and n.update(next_row,frame,'W')and s.loads==2)
+end)
+check('a same-named replacement skeleton cannot be used with the original mesh skeleton',function()
+    local s=fixture();local n=s:create();local row=s:mount(n)
+    s.sequence.Skeleton=s.object('Skeleton /Test/Skeleton')
+    assert(not pcall(n.update,row,{boss='ahua',animation=asset,time=.5,x=1,y=2,z=3,yaw=4},'W'))
+end)
+check('actor ticking mesh substitution and changed root ownership reject further posing',function()
+    for _,change in ipairs({'tick','mesh','root'})do
+        local s=fixture();local n=s:create();local row=s:mount(n)
+        if change=='tick'then s.actor.tick=true
+        elseif change=='mesh'then s.mesh.mesh=s.object('SkeletalMesh /Test/OtherMesh')
+        else s.mesh.parent=s.object('SceneComponent /Transient/OtherRoot')end
+        assert(not pcall(n.update,row,{boss='ahua',animation=asset,time=.5,x=1,y=2,z=3,yaw=4},'W')and not s.poses)
+    end
+end)
+check('missing streamed sequences are throttled without synchronous asset loading during poses',function()
+    local s=fixture();local n=s:create();local row=s:mount(n);local before=s.finds
+    local frame={boss='ahua',animation=asset,time=.5,x=1,y=2,z=3,yaw=4}
+    s.objects[asset]=nil;assert(n.update(row,frame,'W')and s.finds==before+1 and s.loads==1)
+    for _=1,1000 do assert(n.update(row,frame,'W'))end
+    assert(s.finds==before+1 and s.loads==1 and not s.poses)
+    s.now=.251;assert(n.update(row,frame,'W')and s.finds==before+2 and s.loads==1)
+    s.objects[asset]=s.sequence;s.now=.502;assert(n.update(row,frame,'W'))
+    assert(s.finds==before+3 and s.loads==1 and s.poses==1 and s.mesh.animation==s.sequence)
 end)
 print('PASS '..checks..' visual native groups; fake engine contracts only, no game started')

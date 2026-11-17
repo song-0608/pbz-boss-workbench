@@ -160,4 +160,40 @@ check('partial visual construction must finish recovery before a fresh packet ca
     assert(s.mounts==1 and s.destroys==2 and not s.v.record)
     assert(s:receive(3));s.v:tick();assert(s.mounts==2 and s.updates==1)
 end)
+check('persistent pose errors back off reconstruction while local pose sends continue',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.update_error=true;s.v:tick()
+    assert(s.mounts==1 and s.destroys==1)
+    for sequence=2,5 do
+        s.now=1+(sequence-1)*.05;assert(s:receive(sequence));s.v:tick()
+    end
+    assert(s.mounts==1 and s.destroys==1 and #s.sent>=3)
+    s.now=1.251;assert(s:receive(6));s.v:tick();assert(s.mounts==2 and s.destroys==2)
+    s.now=1.51;assert(s:receive(7));s.v:tick();assert(s.mounts==2)
+    s.now=1.752;assert(s:receive(8));s.v:tick();assert(s.mounts==3 and s.destroys==3)
+    s.now=2.26;assert(s:receive(9));s.v:tick();assert(s.mounts==3)
+    s.now=2.753;assert(s:receive(10));s.v:tick();assert(s.mounts==4 and s.destroys==4)
+    s.now=3.8;assert(s:receive(11));s.v:tick();assert(s.mounts==4)
+    s.now=4.754;assert(s:receive(12));s.v:tick();assert(s.mounts==5 and s.destroys==5)
+    s.now=5.8;assert(s:receive(13));s.v:tick();assert(s.mounts==5)
+    s.now=6.755;assert(s:receive(14));s.v:tick();assert(s.mounts==6 and s.destroys==6)
+end)
+check('successful visual recovery resets retry delay for a later independent failure',function()
+    local s=fixture();assert(s:receive());s.v:tick();s.update_error=true;s.v:tick()
+    s.now=1.251;s.update_error=false;assert(s:receive(2));s.v:tick();assert(s.mounts==2 and s.updates==3)
+    s.now=1.3;s.update_error=true;assert(s:receive(3));s.v:tick();assert(s.destroys==2)
+    s.now=1.551;s.update_error=false;assert(s:receive(4));s.v:tick();assert(s.mounts==3 and s.updates==5)
+end)
+check('construction failures before a recorded Actor also respect the visual retry delay',function()
+    local s=fixture();local native=s.options.native
+    native.mount=function()s.mounts=s.mounts+1;error('asset unavailable before spawning')end
+    assert(s:receive());s.v:tick();assert(s.mounts==1 and not s.v.record)
+    for sequence=2,30 do assert(s:receive(sequence));s.v:tick()end
+    assert(s.mounts==1 and s.destroys==0)
+    s.now=1.251;assert(s:receive(31));s.v:tick();assert(s.mounts==2)
+    native.mount=function(_,world,remember)
+        s.mounts=s.mounts+1;local row={boss='youlong',world=world};remember(row);return row
+    end
+    s.now=1.8;s.v:tick();assert(s.mounts==2) -- buffered pose is stale, even after cooldown
+    assert(s:receive(32));s.v:tick();assert(s.mounts==3 and s.updates==1)
+end)
 print('PASS '..checks..' visual groups; cosmetic lifecycle with fake native bindings, no game started')
