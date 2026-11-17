@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "purpose": "Merge message short taps with current high-bit edges; bounded timestamp deduplication; foreground, permission and expiry checks preserved",
+  "pbz_runtime_verified": false,
+  "files": {
+    "Win32AsyncInputSource.cpp": {
+      "source": "D:\\mod文档\\upstream\\RE-UE4SS\\deps\\first\\Input\\src\\Platform\\Win32AsyncInputSource.cpp",
+      "sha256": "d008fafb3c5d1a69e647e87cb005e51e6c1611b876f98d667852ce5b7d428896"
+    },
+    "Win32AsyncInputSource.hpp": {
+      "source": "D:\\mod文档\\upstream\\RE-UE4SS\\deps\\first\\Input\\include\\Input\\Platform\\Win32AsyncInputSource.hpp",
+      "sha256": "f92f7837e40e1a4e3ef79115d614074e184e2656da7861b7c941854e87030d18"
+    },
+    "test_win32_async_input.cpp": {
+      "source": "D:\\mod文档\\tests\\test_win32_async_input.cpp",
+      "sha256": "94cfc2f2ee8d7447971b2beb531c33f4e0229073bdc8deb606288ead0bd66ef1"
+    },
+    "test_win32_async_input.py": {
+      "source": "D:\\mod文档\\tools\\test_win32_async_input.py",
+      "sha256": "333008d320bf86ce444a68506de68692d8db8c1e7aebab892747de67505ddd9f"
+    },
+    "input-regression.json": {
+      "source": "D:\\mod文档\\evidence\\input-regression\\latest-result.json",
+      "sha256": "5bde552eebdc9f049d697c0250ac65c6aa23bb7bf84ba0789c5dcc3bc09fe6bf"
+    },
+    "build-verification.json": {
+      "source": "D:\\mod文档\\evidence\\setup\\selfbuilt-ue4ss-20261118-011033\\verification.json",
+      "sha256": "7b6406a7b871e632ec123e2bcda82c174dc699cc378606c44ab0c782cee84c86"
+    }
+  }
+}
