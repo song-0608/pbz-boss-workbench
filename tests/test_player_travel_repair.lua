@@ -52,6 +52,29 @@ assert(watch:poll('OFF')=='changed'and queries==0 and not watch.finished,
 assert(watch:poll('OFF')=='changed'and queries==0)
 now=11;current=nil;assert(watch:poll('OFF')=='pending'and queries==0)
 
+-- Native teleports and player replacement can keep the same UWorld alive.
+local stable_world={name='World /Stable',address=200,class='Class World'}
+local stable_pc={name='PC /Stable.PC',address=201,class='Class PC'}
+local stable_player={name='Pawn /Stable.Pawn',address=202,class='Class Pawn'}
+local moved={X=0,Y=0,Z=0}
+local sampled_player=stable_player
+local original={world=stable_world,player_controller=stable_pc,player=stable_player}
+local stable_calls={optional=function()return{}end,world=function()return stable_world end}
+local travel=require('idle_world_watch').new(stable_calls,original,function()return now end,
+    function()return stable_world,stable_pc,sampled_player,moved end)
+assert(travel:poll('OFF')=='same')
+now=12;moved={X=600,Y=0,Z=0};assert(travel:poll('OFF')=='same','ordinary walking must not rebuild the assembly')
+now=13;moved={X=30000,Y=0,Z=0};assert(travel:poll('OFF')=='changed','same-World native relocation must retire old assembly')
+local replaced=require('idle_world_watch').new(stable_calls,original,function()return now end,
+    function()return stable_world,stable_pc,sampled_player end)
+sampled_player={name='Pawn /Stable.NewPawn',address=203,class='Class Pawn'}
+assert(replaced:poll('OFF')=='changed','same-World respawn must not reuse old player assembly')
+sampled_player=stable_player
+now=14
+local unreadable=require('idle_world_watch').new(stable_calls,original,function()return now end,
+    function()return stable_world,stable_pc,sampled_player,{X=0/0,Y=0,Z=0}end)
+assert(not pcall(unreadable.poll,unreadable,'OFF'),'bad transform must not authorize reuse')
+
 local events={}
 local session={state='OFF'}
 local runtime={running=true,session=session,report=function()events[#events+1]='report'end}

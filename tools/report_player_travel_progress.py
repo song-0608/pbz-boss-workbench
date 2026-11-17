@@ -13,10 +13,12 @@ def observe(text):
     active = False
     primary = None
     pending = {}
-    attacks, roles, routes, events = [], [], [], []
+    geometry = {}
+    skill_pending = {}
+    attacks, skills, roles, routes, events = [], [], [], [], []
     for number, line in enumerate(text.splitlines(), 1):
         if 'PBZ_CONTROL_LIFECYCLE:SPAWN_ATTEMPT=' in line:
-            role, active, primary, pending = None, False, None, {}
+            role, active, primary, pending, geometry, skill_pending = None, False, None, {}, {}, {}
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:PLAYER_ENTRY_READY=([^\r\n]+)', line)
         if match:
             role = match[1]; roles.append(dict(role=role, ready_line=number))
@@ -27,13 +29,24 @@ def observe(text):
             active = False
         if '[PBZBossControl] primary_attack success=true state=ACTIVE' in line:
             primary = dict(role=role, dispatch_line=number, active=active)
+        match = re.search(r'PBZ_CONTROL_LIFECYCLE:SKILL_GEOMETRY=([^|]+)\|distance=([\d.]+)', line)
+        if match:
+            geometry[match[1]] = float(match[2])
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:KEY_SKILL_BEGIN=([^|]+)\|', line)
         if match:
             pending[match[1]] = primary
+            skill_pending[match[1]] = dict(role=role, begin_line=number, active=active,
+                target_distance=geometry.pop(match[1], None))
             primary = None
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:KEY_SKILL_END=([^|]+)\|.*?natural=(true|false)\|'
                           r'health_before=([\d.]+)\|health_after=([\d.]+)', line)
         if match:
+            observation = skill_pending.pop(match[1], None)
+            if observation:
+                before, after = float(match[3]), float(match[4])
+                skills.append(dict(observation, skill=match[1], end_line=number,
+                    natural=match[2] == 'true', health_before=before, health_after=after,
+                    observed_damage=before-after))
             attempt = pending.pop(match[1], None)
             if attempt:
                 before, after = float(match[3]), float(match[4])
@@ -44,10 +57,11 @@ def observe(text):
         if match:
             routes.append(dict(source=match[1], destination=match[2], line=number))
         for event in ('MAP_TRAVEL_PRE_ACTIVE', 'MAP_TRAVEL_RESTORED_BEFORE_LOAD', 'MAP_TRAVEL_IDLE_CLEANED',
-                      'IDLE_WORLD_CHANGED', 'WORLD_REASSEMBLY_WAIT'):
+                      'IDLE_WORLD_CHANGED', 'WORLD_REASSEMBLY_WAIT', 'NATIVE_TRAVEL_MENU_READY'):
             if 'PBZ_CONTROL_LIFECYCLE:' + event + '=' in line:
                 events.append(dict(event=event, role=role, line=number))
-    return dict(ready_roles=roles, primary_observations=attacks, cross_map_requests=routes, lifecycle=events,
+    return dict(ready_roles=roles, primary_observations=attacks, skill_observations=skills,
+        cross_map_requests=routes, lifecycle=events,
         runtime_fault_lines=[i for i,line in enumerate(text.splitlines(),1)
             if 'state=FAULTED' in line or 'PBZ_CONTROL_LIFECYCLE:ISSUE_' in line])
 

@@ -32,6 +32,21 @@ class TravelProgressTests(unittest.TestCase):
         data = observe(self.ready+self.active+'[PBZBossControl] slot1 success=true state=ACTIVE\n'
                        +self.begin+self.end)
         self.assertEqual(data['primary_observations'], [])
+        self.assertEqual(data['skill_observations'][0]['observed_damage'], 100)
+
+    def test_native_light_miss_and_geometry_are_preserved(self):
+        text = (self.ready+self.active+'PBZ_CONTROL_LIFECYCLE:SKILL_GEOMETRY=skill_07|distance=279.959\n'
+                +self.begin.replace('skill_01', 'skill_07')
+                +self.end.replace('skill_01', 'skill_07').replace('8900.0', '9000.0')
+                +'[PBZBossControl] auto_exit success=true state=OFF\n'
+                +'PBZ_CONTROL_LIFECYCLE:NATIVE_TRAVEL_MENU_READY=true\n')
+        data = observe(text)
+        self.assertEqual(data['primary_observations'], [])
+        skill, = data['skill_observations']
+        self.assertEqual(skill['target_distance'], 279.959)
+        self.assertEqual(skill['observed_damage'], 0)
+        self.assertEqual(data['lifecycle'][-1]['event'], 'NATIVE_TRAVEL_MENU_READY')
+        self.assertNotIn('passed', data)
 
     def test_new_assembly_invalidates_unfinished_primary_observation(self):
         text = self.ready+self.active+self.primary+self.begin+self.ready.replace('057_wanjun', '058_maddoctor')+self.end

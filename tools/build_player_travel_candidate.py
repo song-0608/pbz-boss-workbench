@@ -14,7 +14,8 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tools/player_world_watch.lua', 'tools/player_native_travel_trial.lua', 'tools/player_controller_query.lua',
            'tests/test_player_travel_repair.lua', 'tests/test_player_controller_query.lua',
            'tests/test_player_travel_candidate.py', 'tools/player_overlay.py', 'tests/test_player_overlay.py',
-           'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua', 'tests/test_player_native_travel_trial.lua')
+           'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua', 'tests/test_player_native_travel_trial.lua',
+           'tools/player_assembly_tasks.lua', 'tests/test_player_assembly_tasks.lua', 'tests/test_player_retirement_budget.lua')
 
 
 def payload(root=ROOT):
@@ -33,6 +34,7 @@ def payload(root=ROOT):
     files[PREFIX + 'player_native_travel_trial.lua'] = (root / 'tools/player_native_travel_trial.lua').read_bytes()
     files[PREFIX + 'player_controller_query.lua'] = (root / 'tools/player_controller_query.lua').read_bytes()
     files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
+    files[PREFIX + 'player_assembly_tasks.lua'] = (root / 'tools/player_assembly_tasks.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')
     end = original_bridge.index('\nfunction Bridge:world_id(', begin)
@@ -210,11 +212,14 @@ def payload(root=ROOT):
     # Cleanup owned actors before reassembly rather than waiting indefinitely for GC.
     change('owned_arena.lua', "local watch=require('idle_world_watch').new(calls,captured,os.time)",
            "local watch=require('idle_world_watch').new(calls,captured,os.time,function()\n"
-           '                            return calls:world(bridge:player_controller())\n                        end)')
+           '                            local current=bridge:player_controller()\n'
+           '                            local pawn=current.Pawn\n'
+           '                            return calls:world(current),calls:reference(current),calls:reference(pawn),pawn:K2_GetActorLocation()\n'
+           '                        end)')
     change('owned_arena.lua', "                            if status=='retired'and not reassembly_requested then",
            "                            if status=='changed'and not reassembly_requested then\n"
            "                                log('IDLE_WORLD_CHANGED',captured.world.name..'|address='..captured.world.address)\n"
-           "                                schedule_reassembly('new gameplay World; cleanup owned previous assembly')\n"
+           "                                schedule_reassembly('gameplay World, player or location changed; cleanup previous assembly')\n"
            "                            elseif status=='retired'and not reassembly_requested then")
 
     # LoadMap also occurs after Esc/F10, with no active receipt. Retire that idle
@@ -302,6 +307,81 @@ def payload(root=ROOT):
            "                                log('ACTIVE_WORLD_TRIAL_PREPARED',true)")
     change('owned_arena.lua', 'F12; reload exact captured current map once; isolated developer validation',
            'F12; restore once for native map menu travel; isolated developer validation')
+
+    # Capture already verified wrappers with their receipt. Retirement can then
+    # prove engine invalidity without a global name/class scan for every object.
+    # A different cached identity still takes the independent census fallback.
+    change('ue_calls.lua', 'object_cache = {}, cache_size = 0',
+           'object_cache = {}, retirement_cache = {}, cache_size = 0')
+    change('ue_calls.lua', '    return { name = object:GetFullName(), address = object:GetAddress(), class = object:GetClass():GetFullName() }',
+           '    local ref={name=object:GetFullName(),address=object:GetAddress(),class=object:GetClass():GetFullName()}\n'
+           '    local path=assert(ref.name:match("^[^ ]+ (.+)$"),"full object name required")\n'
+           '    if self.object_cache[path]==nil then\n'
+           '        if self.cache_size>=256 then self.object_cache={};self.retirement_cache={};self.cache_size=0 end\n'
+           '        self.cache_size=self.cache_size+1\n'
+           '    end\n'
+           '    self.object_cache[path]=object\n'
+           '    self.retirement_cache[path]={reference=ref,object=object}\n'
+           '    return ref')
+    change('ue_calls.lua', '    local named=self.api.find_exact(path)',
+           '    local saved=self.retirement_cache[path]\n'
+           '    local identity=saved and saved.reference\n'
+           '    local cached=identity and identity.name==reference.name and identity.address==reference.address\n'
+           '        and identity.class==reference.class and saved.object\n'
+           '    if cached then\n'
+           '        local weak=cached:IsValid()\n'
+           '        assert(type(weak)=="boolean","retirement weak validity unreadable")\n'
+           '        if not weak then return nil end\n'
+           '        if cached:GetFullName()==reference.name and cached:GetAddress()==reference.address\n'
+           '            and cached:GetClass():GetFullName()==reference.class then\n'
+           '            if self.api.usable then\n'
+           '                local usable=self.api.usable(cached)\n'
+           '                assert(type(usable)=="boolean","retirement validity unreadable")\n'
+           '                if not usable then return nil end\n'
+           '            end\n'
+           '            return cached\n'
+           '        end\n'
+           '    end\n'
+           '    local named=self.api.find_exact(path)')
+    text=files[PREFIX+'ue_calls.lua'].decode('utf-8')
+    files[PREFIX+'ue_calls.lua']=text.replace('self.object_cache={};self.cache_size=0',
+        'self.object_cache={};self.retirement_cache={};self.cache_size=0').encode('utf-8')
+    # Only pending retirement checks are throttled. Never reuse a cached 'same'
+    # result to authorize input or reuse a cached 'retired' result as disposal.
+    change('world_boundary.lua', 'function Boundary.inspect(calls,receipt)',
+           'local pending_checks=setmetatable({},{__mode="k"})\n'
+           'function Boundary.inspect(calls,receipt,now)\n'
+           '    if now~=nil then\n'
+           '        assert(type(now)=="number"and now==now and math.abs(now)<math.huge,"retirement clock invalid")\n'
+           '        local previous=pending_checks[receipt]\n'
+           '        if previous and now>=previous.at and now<previous.at+1 then return "pending",previous.why end\n'
+           '        pending_checks[receipt]=nil\n'
+           '    end')
+    change('world_boundary.lua', "    if #surviving>0 then return 'pending',table.concat(surviving,',')end",
+           '    if #surviving>0 then\n'
+           '        local why=table.concat(surviving,",")\n'
+           '        if now~=nil then pending_checks[receipt]={at=now,why=why}end\n'
+           '        return "pending",why\n'
+           '    end')
+    change('control_bridge.lua', "    local ok,status,why=pcall(require('world_boundary').inspect,self.calls,receipt)",
+           "    local ok,status,why=pcall(require('world_boundary').inspect,self.calls,receipt,self.api.now())")
+
+    # Delayed observations and timeout cleanup belong to one assembly. Cancel
+    # them on cleanup; queued native callbacks must also check the retired epoch.
+    change('owned_arena.lua', 'local assembly_generation=0',
+           "local assembly_tasks=require('player_assembly_tasks').new(ExecuteInGameThreadWithDelay,CancelDelayedAction)\n"
+           'local assembly_generation=0')
+    change('owned_arena.lua', 'local function cleanup()\n    guard()',
+           'local function cleanup()\n    guard()\n    assembly_tasks:retire()')
+    for before, after in (
+        ('ExecuteInGameThreadWithDelay(100,observe_skill)', 'assembly_tasks:defer(100,observe_skill)'),
+        ('ExecuteInGameThreadWithDelay(delay,observe_camera)', 'assembly_tasks:defer(delay,observe_camera)'),
+        ('ExecuteInGameThreadWithDelay(500,verify_camera_cleanup)', 'assembly_tasks:defer(500,verify_camera_cleanup)'),
+        ('ExecuteInGameThreadWithDelay(duration*1000,function()', 'assembly_tasks:defer(duration*1000,function()'),
+    ):
+        text=files[PREFIX+'owned_arena.lua'].decode('utf-8')
+        assert before in text, 'assembly task anchor missing: '+before
+        files[PREFIX+'owned_arena.lua']=text.replace(before,after).encode('utf-8')
     return manifest, files
 
 
