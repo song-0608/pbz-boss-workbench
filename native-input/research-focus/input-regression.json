@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-17T23:44:22.367335+08:00",
+  "passed": true,
+  "compiler": "D:\\vs\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+  "output": "PASS: initial focus establishes baseline\r\nPASS: historical low bits do not generate keyboard or mouse events\r\nPASS: high bit generates one real press\r\nPASS: held key does not repeat\r\nPASS: released key may be pressed again\r\nPASS: next distinct press needs no idle sampling frame\r\nPASS: alternating keys preserve every new press\r\nPASS: unfocused window receives no events\r\nPASS: key held during focus return is suppressed\r\nPASS: same class in another process is rejected\r\nPASS: foreign process press cannot leak on focus return\r\nPASS: historical modifier bit is ignored\r\nPASS: held modifier remains functional\r\nPASS: input permission gate is preserved\r\nPASS: disallowed press is not replayed later\r\nPASS: reactivation resets focus baseline\r\nPASS: exact observed research class accepts a current press\r\nPASS: research class in another process stays rejected\r\nPASS: return from foreign research window seeds held keys\r\nPASS: other sandbox namespace stays rejected\r\nPASS: arbitrary class suffix is insufficient\r\nPASS: research window cannot replay historical low bits\r\nWIN32_ASYNC_INPUT_REGRESSION:PASS\r\n",
+  "source_sha256": {
+    "tests\\test_win32_async_input.cpp": "d7f0555d0b02c1739d1aecd5644f1424fa3627bfbf3b68d905bfca737a80472e",
+    "upstream\\RE-UE4SS\\deps\\first\\Input\\src\\Platform\\Win32AsyncInputSource.cpp": "61e033066801ad5a7fe09a73a0ddd3508c3400c5eafaade1fc4346b81d93b5b1",
+    "upstream\\RE-UE4SS\\deps\\first\\Input\\include\\Input\\Platform\\Win32AsyncInputSource.hpp": "d9f1247d3c5cedaca06f27f7a3e7345092a9e31e3432a8508ab128199eb0029f"
+  },
+  "scope": "Production C++ input implementation, deterministic Win32 API fixture; no game input sent"
+}

@@ -17,7 +17,7 @@ class TravelCandidateTests(unittest.TestCase):
         changed = {name for name, data in files.items()
             if name not in base['files'] or data != (ROOT / 'releases' / candidate.BASE / name).read_bytes()}
         self.assertEqual(changed, {candidate.PREFIX + name for name in (
-            'player_role_controls.lua', 'player_cross_map_trial.lua', 'player_controller_query.lua',
+            'player_role_controls.lua', 'player_cross_map_trial.lua', 'player_controller_query.lua', 'player_reassembly.lua',
             'control_bridge.lua', 'boss_catalog.lua', 'ue_calls.lua', 'world_boundary.lua',
             'idle_world_watch.lua', 'map_travel_guard.lua', 'owned_arena.lua', 'runtime.lua',
             'ue_host.lua', 'boss_workbench.lua', 'player_boss_picker.lua', 'player_hud.lua')})

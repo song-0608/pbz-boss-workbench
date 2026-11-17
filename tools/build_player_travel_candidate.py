@@ -13,7 +13,8 @@ PREFIX = 'PBZBossControl/Scripts/'
 SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls.lua',
            'tools/player_world_watch.lua', 'tools/player_cross_map_trial.lua', 'tools/player_controller_query.lua',
            'tests/test_player_travel_repair.lua', 'tests/test_player_controller_query.lua',
-           'tests/test_player_travel_candidate.py', 'tools/player_overlay.py', 'tests/test_player_overlay.py')
+           'tests/test_player_travel_candidate.py', 'tools/player_overlay.py', 'tests/test_player_overlay.py',
+           'tools/player_reassembly.lua', 'tests/test_player_reassembly.lua')
 
 
 def payload(root=ROOT):
@@ -31,6 +32,7 @@ def payload(root=ROOT):
     files[PREFIX + 'idle_world_watch.lua'] = (root / 'tools/player_world_watch.lua').read_bytes()
     files[PREFIX + 'player_cross_map_trial.lua'] = (root / 'tools/player_cross_map_trial.lua').read_bytes()
     files[PREFIX + 'player_controller_query.lua'] = (root / 'tools/player_controller_query.lua').read_bytes()
+    files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')
     end = original_bridge.index('\nfunction Bridge:world_id(', begin)
@@ -271,6 +273,28 @@ def payload(root=ROOT):
            "                no_gameplay_player=true;error('waiting for LoadMap to leave previous World')\n"
            '            end\n            travel_wait_world=nil\n        end\n'
            "        local identity=player:GetFullName()..'|'..tostring(player:GetAddress())")
+    # Role switching is queued; native LoadMap cleanup is synchronous. A queued
+    # old owner must not clean up whatever a later assembly put in runtime.
+    change('owned_arena.lua', '                        ExecuteInGameThreadWithDelay(250,function()\n'
+           '                            local restarted,problem=pcall(function()\n',
+           "                        require('player_reassembly').schedule({current=function()return runtime end,\n"
+           '                            defer=ExecuteInGameThreadWithDelay},old_runtime,function()\n'
+           '                            local restarted,problem=pcall(function()\n')
+    # The single LoadMap hook must resolve through the latest assembly's calls,
+    # including when a map with the same name is reloaded at a new address.
+    change('owned_arena.lua', 'local retire_idle_assembly',
+           'local retire_idle_assembly\nlocal current_assembly_world')
+    change('owned_arena.lua', '                    local captured_world=calls:world(pc)\n',
+           '                    local captured_world=calls:world(pc)\n'
+           '                    current_assembly_world=function(world,reference)\n'
+           '                        return lifecycle:usable(world)and calls:same(world,calls:resolve(reference))\n'
+           '                    end\n')
+    change('owned_arena.lua', '                                return lifecycle:usable(world)and calls:same(world,calls:resolve(reference))\n',
+           '                                return current_assembly_world(world,reference)\n')
+    # Native-route receipt distinguishes a missed native key edge from an action
+    # refused by Lua. Event-only logging adds no per-frame input polling.
+    change('ue_host.lua', '                    if route then route.fn()end\n',
+           "                    if route then g.print('[PBZBossControl] input_route key='..tostring(native_key)..'\\n');route.fn()end\n")
     change('owned_arena.lua', "                                statics:OpenLevel(pc,FName(package),true,'')",
            "                                local destination=require('player_cross_map_trial').destination(package)\n"
            "                                log('CROSS_MAP_TRIAL_ROUTE',package..'|'..destination)\n"

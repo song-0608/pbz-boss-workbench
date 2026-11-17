@@ -1,0 +1,17 @@
+--- a/upstream/RE-UE4SS/deps/first/Input/src/Platform/Win32AsyncInputSource.cpp
++++ b/upstream/RE-UE4SS/deps/first/Input/src/Platform/Win32AsyncInputSource.cpp
+@@ -21,6 +21,14 @@
+         for (const auto& active_window_class : m_active_window_classes)
+         {
+             if (wcscmp(current_window_class_name, active_window_class) == 0)
++            {
++                return true;
++            }
++            // Sandboxie may expose the registered research namespace instead
++            // of the original Unreal class. Keep the foreground-process check
++            // above and allow only this exact, observed research window class.
++            if (wcscmp(active_window_class, L"UnrealWindow") == 0 &&
++                wcscmp(current_window_class_name, L"Sandbox:PBZSteamLab:UnrealWindow") == 0)
+             {
+                 return true;
+             }

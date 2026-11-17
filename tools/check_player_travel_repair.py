@@ -29,7 +29,7 @@ def main():
         "print('PASS candidate Lua syntax: '..#files)\n", encoding='utf-8')
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     jobs = [('syntax', [str(executable), str(syntax)])]
-    for name in ('player_travel_repair', 'player_controller_query', 'runtime', 'ue_calls', 'world_boundary', 'idle_world_watch',
+    for name in ('player_travel_repair', 'player_controller_query', 'player_reassembly', 'runtime', 'ue_calls', 'world_boundary', 'idle_world_watch',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'target_transition', 'ue_host'):
         jobs.append((name, [str(executable), str(loader), '.', package.relative_to(ROOT).as_posix(),
