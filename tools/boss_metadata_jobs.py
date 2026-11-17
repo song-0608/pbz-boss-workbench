@@ -61,10 +61,16 @@ def jobs_for(candidate):
     return jobs
 
 
-def batches(candidates):
+def batches(candidates,job_keys=None):
+    grouped=[jobs_for(candidate) for candidate in candidates]
+    if job_keys is not None:
+        selected=set(job_keys)
+        assert selected<={job['key'] for group in grouped for job in group},'Observed retry job keys required'
+        grouped=[[job for job in group if job['key'] in selected] for group in grouped]
     result=[];current=[];identifiers=set()
-    for candidate in candidates:
-        candidate_jobs=jobs_for(candidate)
+    for candidate,candidate_jobs in zip(candidates,grouped):
+        if not candidate_jobs:
+            continue
         if current and len(candidate_jobs)<=64 and (len(current)+len(candidate_jobs)>64
                 or candidate['id'] not in identifiers and len(identifiers)==3):
             result.append(current);current=[];identifiers=set()

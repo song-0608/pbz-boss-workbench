@@ -43,7 +43,7 @@ def verify(path=None):
               'online_session_composition':17,
               'profile_policy_lifecycle':8,'boss_adapter_registry_python':12,'boss_adaptation_batch_python':9,
               'next_boss_identity_ok':1,'next_boss_identity_wrong_identity':1,'next_boss_identity_wrong_config':1,
-              'boss_metadata_jobs_python':12,
+              'boss_metadata_jobs_python':22,'boss_adapter_review_python':16,
               **{'boss_metadata_queue_'+mode:1 for mode in ('ok','subtree','foreign_config','unavailable',
                   'wrong_identity','lineage_cycle','expired','busy_timeout','frozen_clock_budget')},
               'patched_lua_compile_only': 67}
@@ -65,9 +65,13 @@ def verify(path=None):
     expansion=verify_expansion()
     assert expansion['adapters']==6 and expansion['metadata_ready']==3 and expansion['metadata_requests']==6
     assert expansion['combined_batches']==3 and expansion['combined_metadata_requests']==119
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 551
+    from boss_adapter_review import verify as verify_review
+    review=verify_review()
+    assert review['adapters']==6
+    assert review['pending_metadata_jobs']+review['verified_metadata_jobs']+review['conflicting_metadata_jobs']==119
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 577
     assert report['syntax_checked_lua_files']==67
-    return dict(passed=True, status='backend-milestone-only', groups=551, compiled_lua_files=67,
+    return dict(passed=True, status='backend-milestone-only', groups=577, compiled_lua_files=67,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

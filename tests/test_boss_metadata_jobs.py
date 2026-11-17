@@ -2,10 +2,10 @@
 import copy
 import json
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 import boss_metadata_jobs as jobs
@@ -18,13 +18,16 @@ def candidate(identifier='fixture',characters=1,abilities=1):
     assets=[dict(package=prefix+'ActorConfig/ActorC_'+identifier,role='actor_config_clue')]
     assets.extend(dict(package=prefix+'BP_Monster_'+str(i),role='character_blueprint_clue') for i in range(characters))
     assets.extend(dict(package=prefix+'Ability/GA_'+str(i),role='ability_clue') for i in range(abilities))
-    return dict(id=identifier,resource_folder=identifier,assets=assets)
+    for asset in assets:
+        asset['observations']=[]
+    return dict(id=identifier,resource_folder=identifier,reference_only=False,assets=assets)
 
 
 class MetadataTests(unittest.TestCase):
-    def manifest(self):
+    def manifest(self,manifest=None):
         rows=jobs.jobs_for(candidate())
-        manifest=dict(jobs=rows,batch_fingerprint='a'*20,script_sha256='b'*64)
+        manifest=manifest or dict(jobs=rows,batch_fingerprint='a'*20,script_sha256='b'*64)
+        rows=manifest['jobs']
         lines=['PBZ_ADAPTER_META:START='+manifest['batch_fingerprint']]
         for job in rows:
             prefix='PBZ_ADAPTER_META:OUTCOME='+job['key']+'|'+job['role']+'|'+job['lookup_path']
@@ -114,11 +117,19 @@ class MetadataTests(unittest.TestCase):
             with self.assertRaises(AssertionError):jobs.verify_batch(batch)
 
     def collection_fixture(self,root):
-        manifest,lines=self.manifest();session='20261117-000000';fingerprint=manifest['batch_fingerprint']
-        batch=root/'runtime'/('metadata-'+fingerprint);batch.mkdir(parents=True)
-        script=b'-- fixture metadata only\n';(batch/'metadata-probe.lua').write_bytes(script)
-        manifest['script_sha256']=sha(batch/'metadata-probe.lua')
-        metadata=batch/'metadata-probe-manifest.json';metadata.write_text(json.dumps(manifest),encoding='utf-8')
+        root=root.resolve()
+        for name in jobs.SOURCES:
+            destination=root/name;destination.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(ROOT/name,destination)
+        source=root/'evidence/adaptation/fixture.json';source.parent.mkdir(parents=True)
+        source.write_text('{"fixture_only":true}',encoding='utf-8')
+        catalog=root/'research/boss-adaptation/catalog.json';catalog.parent.mkdir(parents=True)
+        catalog.write_text(json.dumps(dict(target_build_sha256=BUILD,candidates=[candidate()],
+            sources=[dict(path=source.relative_to(root).as_posix(),sha256=sha(source))])),encoding='utf-8')
+        batch=jobs.freeze(jobs.jobs_for(candidate()),root/'runtime',root)
+        manifest,lines=self.manifest(jobs.verify_batch(batch,root))
+        session='20261117-000000';fingerprint=manifest['batch_fingerprint']
+        script=(batch/'metadata-probe.lua').read_bytes();metadata=batch/'metadata-probe-manifest.json'
         work=root/'evidence/official-validation'/session;work.mkdir(parents=True)
         state_path=root/'runtime'/('official-validation-'+session)/'state.json';state_path.parent.mkdir()
         state=dict(restored=True,work=str(work));state_path.write_text(json.dumps(state),encoding='utf-8')
@@ -129,7 +140,8 @@ class MetadataTests(unittest.TestCase):
         (work/'UE4SS.log').write_text('\n'.join(lines),encoding='utf-8')
         action=dict(state_file=str(state_path),metadata_only=True,metadata_kind='adapter_metadata_jobs',
             batch_fingerprint=fingerprint,script_sha256=manifest['script_sha256'],
-            batch_manifest_sha256=sha(metadata),lines=lines)
+            batch_manifest_sha256=sha(metadata),lines=lines,boss_control_verified=False,
+            all_metadata_requests_passed=True)
         (work/(fingerprint+'-adapter-metadata-results.json')).write_text(json.dumps(action),encoding='utf-8')
         return session,batch,manifest,state_path
 
@@ -137,21 +149,111 @@ class MetadataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);session,batch,manifest,state_path=self.collection_fixture(root)
             state=json.loads(state_path.read_bytes());state['restored']=False;state_path.write_text(json.dumps(state),encoding='utf-8')
-            with patch.object(collector,'ROOT',root),patch.object(collector,'OUT',root/'research/boss-adaptation'),patch.object(collector,'verify_batch',return_value=manifest):
-                with self.assertRaises(AssertionError):collector.collect(session,batch)
+            with self.assertRaises(AssertionError):collector.collect(session,batch,root)
             self.assertFalse((root/'research/boss-adaptation/adapter-metadata-receipts').exists())
 
     def test_collector_freezes_exact_batch_sources_and_never_updates_playable_registry(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);session,batch,manifest,state_path=self.collection_fixture(root)
-            with patch.object(collector,'ROOT',root),patch.object(collector,'OUT',root/'research/boss-adaptation'),patch.object(collector,'verify_batch',return_value=manifest):
-                target=collector.collect(session,batch)
-                self.assertEqual(collector.collect(session,batch),target)
+            target=collector.collect(session,batch,root)
+            self.assertEqual(collector.collect(session,batch,root),target)
             receipt=json.loads(target.read_bytes())
             self.assertFalse(receipt['playable']);self.assertFalse(receipt['control_verified'])
             self.assertEqual(receipt['batch_fingerprint'],manifest['batch_fingerprint'])
             self.assertEqual(len(receipt['outcomes']),2)
             self.assertFalse((root/'mod').exists())
+
+    def test_receipt_replays_real_frozen_fixture_without_mocking_verification(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve();session,batch,_,_=self.collection_fixture(root)
+            target=collector.collect(session,batch,root)
+            receipt=collector.verify_receipt(target,root)
+            self.assertEqual(receipt['schema_version'],2)
+            self.assertEqual(receipt['batch_directory'],batch.relative_to(root).as_posix())
+            self.assertTrue(all(row['metadata_verified'] for row in receipt['outcomes']))
+
+    def test_edited_flags_outcomes_and_source_graph_cannot_pass_receipt_replay(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve();session,batch,_,_=self.collection_fixture(root)
+            target=collector.collect(session,batch,root);original=json.loads(target.read_bytes())
+            for field in ('playable','control_verified','runtime_acceptance_current'):
+                changed=copy.deepcopy(original);changed[field]=True;target.write_text(json.dumps(changed),encoding='utf-8')
+                with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+            changed=copy.deepcopy(original);changed['outcomes'][0]['observed_config']='/Other.Config'
+            target.write_text(json.dumps(changed),encoding='utf-8')
+            with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+            changed=copy.deepcopy(original);changed['sources'].pop(next(iter(changed['sources'])))
+            target.write_text(json.dumps(changed),encoding='utf-8')
+            with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+
+    def test_receipt_paths_cannot_escape_or_be_relocated(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve();session,batch,_,_=self.collection_fixture(root)
+            target=collector.collect(session,batch,root);original=json.loads(target.read_bytes())
+            renamed=target.with_name('renamed.json');renamed.write_bytes(target.read_bytes())
+            with self.assertRaises(AssertionError):collector.verify_receipt(renamed,root)
+            for path in ('../outside','C:/outside','runtime/../outside','/outside','runtime\\outside'):
+                changed=copy.deepcopy(original);changed['batch_directory']=path
+                target.write_text(json.dumps(changed),encoding='utf-8')
+                with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+
+    def test_raw_attempt_cannot_hide_additional_results_or_repeat_start(self):
+        manifest,lines=self.manifest();fingerprint=manifest['batch_fingerprint']
+        for changed in (lines+[lines[0],*lines[1:]],lines[:-1]+[lines[1],lines[-1]],
+                lines[:-1]+['PBZ_ADAPTER_META:START='+'c'*20,lines[-1]],
+                lines+[lines[1]],[lines[1],*lines]):
+            with self.assertRaises(AssertionError):
+                extracted=collector.batch_lines('\n'.join(changed),fingerprint)
+                jobs.analyze(extracted,manifest)
+
+    def test_raw_batch_selection_ignores_complete_independent_batches(self):
+        manifest,lines=self.manifest();other=[line.replace('a'*20,'c'*20) for line in lines]
+        self.assertEqual(collector.batch_lines('\n'.join(other+lines+other),manifest['batch_fingerprint']),lines)
+
+    def test_stored_action_cannot_omit_or_shorten_a_raw_line(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve();session,batch,manifest,state_path=self.collection_fixture(root)
+            work=Path(json.loads(state_path.read_bytes())['work'])
+            action_path=work/(manifest['batch_fingerprint']+'-adapter-metadata-results.json')
+            original=json.loads(action_path.read_bytes())
+            for lines in (original['lines'][:1]+original['lines'][2:],
+                    ['prefix '+line for line in original['lines']]):
+                changed=copy.deepcopy(original);changed['lines']=lines
+                action_path.write_text(json.dumps(changed),encoding='utf-8')
+                with self.assertRaises(AssertionError):collector.collect(session,batch,root)
+
+    def test_replay_rejects_changed_raw_log_even_after_updating_its_digest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve();session,batch,manifest,_=self.collection_fixture(root)
+            target=collector.collect(session,batch,root);receipt=json.loads(target.read_bytes())
+            log=root/'evidence/official-validation'/session/'UE4SS.log'
+            lines=log.read_text(encoding='utf-8').splitlines()
+            log.write_text('\n'.join(lines[:-1]+[lines[1],lines[-1]]),encoding='utf-8')
+            receipt['sources'][log.relative_to(root).as_posix()]=sha(log)
+            target.write_text(json.dumps(receipt),encoding='utf-8')
+            with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+
+    def test_replay_checks_closed_session_and_current_probe_sources(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve();session,batch,_,state_path=self.collection_fixture(root)
+            target=collector.collect(session,batch,root)
+            original=state_path.read_bytes();state=json.loads(original);state['restored']=False
+            state_path.write_text(json.dumps(state),encoding='utf-8')
+            with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+            state_path.write_bytes(original)
+            source=root/jobs.SOURCES[0];source.write_bytes(source.read_bytes()+b'\n# changed\n')
+            with self.assertRaises(AssertionError):collector.verify_receipt(target,root)
+
+    def test_retry_batches_keep_only_requested_jobs_and_preserve_boss_grouping(self):
+        candidates=[candidate('c'+str(i),abilities=25) for i in range(5)]
+        selected=[job['key'] for c in candidates for job in jobs.jobs_for(c)[::2]]
+        result=jobs.batches(candidates,selected)
+        self.assertEqual([job['key'] for group in result for job in group],selected)
+        self.assertTrue(all(len(group)<=64 and len({j['id'] for j in group})<=3 for group in result))
+        self.assertEqual(jobs.batches(candidates,[]),[])
+
+    def test_retry_batch_rejects_unknown_job_keys(self):
+        with self.assertRaises(AssertionError):jobs.batches([candidate()],['unobserved'])
 
 
 if __name__=='__main__':

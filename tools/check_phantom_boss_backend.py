@@ -24,7 +24,8 @@ TESTS = ('tests/test_phantom_boss_protocol.lua', 'tests/test_phantom_boss_adapte
          'tests/test_phantom_boss_online_session.lua','tests/test_phantom_boss_optional_contracts.py',
          'tests/test_phantom_boss_profile_policy.lua','tests/test_boss_adapter_registry.py',
          'tests/test_boss_adaptation_batch.py','tests/test_boss_identity_probe.lua',
-         'tests/test_boss_metadata_jobs.py','tests/test_boss_metadata_jobs.lua')
+         'tests/test_boss_metadata_jobs.py','tests/test_boss_metadata_jobs.lua',
+         'tests/test_boss_adapter_review.py')
 LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_readonly.py',
     'tools/collect_phantom_boss_visual_contract.py','tools/prepare_phantom_boss_clients.py',
     'tools/check_phantom_boss_isolation.py','tools/phantom_boss_pair_bootstrap.cpp',
@@ -39,7 +40,8 @@ LAUNCH_SOURCES=('tools/phantom_boss_pair_session.py','tools/phantom_boss_online_
     'tools/inspect_phantom_boss_client_auth.py','tools/boss_adapter_registry.py',
     'tools/boss_adaptation_workflow.py','tools/build_boss_adaptation_batch.py','tools/build_boss_identity_probe.py',
     'research/boss-adaptation/expansion-queue.json','tools/boss_metadata_jobs.py',
-    'tools/collect_boss_metadata_jobs.py','tools/run_boss_identity_batch.py')
+    'tools/collect_boss_metadata_jobs.py','tools/run_boss_identity_batch.py',
+    'tools/boss_adapter_review.py')
 
 
 def protected_files():
@@ -56,6 +58,8 @@ def run():
     target = build()
     from boss_adapter_registry import build as build_expansion
     expansion=json.loads(build_expansion().read_bytes())
+    from boss_adapter_review import build as build_review
+    build_review()
     identity_probe=ROOT/expansion['batches'][0]['directory']/'identity-probe.lua'
     metadata_probe=ROOT/expansion['metadata_batches'][0]['directory']/'metadata-probe.lua'
     lab = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
@@ -93,7 +97,8 @@ def run():
         ('boss_adaptation_batch_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_boss_adaptation_batch.py', '-v'], 9),
         *[('next_boss_identity_'+mode, [str(lab),str(ROOT/TESTS[33]),str(identity_probe),mode],1)
             for mode in ('ok','wrong_identity','wrong_config')],
-        ('boss_metadata_jobs_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_boss_metadata_jobs.py', '-v'], 12),
+        ('boss_metadata_jobs_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_boss_metadata_jobs.py', '-v'], 22),
+        ('boss_adapter_review_python', [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_boss_adapter_review.py', '-v'], 16),
         *[('boss_metadata_queue_'+mode,[str(lab),str(ROOT/TESTS[35]),str(metadata_probe),mode],1)
             for mode in ('ok','subtree','foreign_config','unavailable','wrong_identity',
                 'lineage_cycle','expired','busy_timeout','frozen_clock_budget')],

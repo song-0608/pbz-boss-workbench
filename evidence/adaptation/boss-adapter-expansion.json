@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "offline-adapter-preparation",
   "passed": true,
-  "fingerprint": "b6111c6caef0d0fa3a2e",
-  "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e",
+  "fingerprint": "71410b9d4e96215d57f1",
+  "directory": "runtime/boss-expansion/71410b9d4e96215d57f1",
   "catalog": "research/boss-adaptation/catalog.json",
   "catalog_sha256": "bbab28b159eb5ed13392c61dc4f8d8fa029ef9580d13b211e1a38ea685bce9d1",
   "source_files": {
@@ -15,10 +15,10 @@
     "tests/test_boss_adaptation_batch.py": "0e53a0177371f0bc4d350c1494a81768ec8ceb91770cbdae50569c9afb3d78eb",
     "tests/test_boss_identity_probe.lua": "33dd04e0f9c5294bd8b155310a7ad0b9d4dcad826796d09f39b18f4c5ac57cb0",
     "research/boss-adaptation/expansion-queue.json": "077bd21f7c530ce39469e8f4fbeee9f3953aecbe9b2c586b0cca8d0ad6c85696",
-    "tools/boss_metadata_jobs.py": "e8d3c7c19f3362cee2b0552a488571f105205f82215bc4fb5bd4e8e7c750cd3d",
+    "tools/boss_metadata_jobs.py": "be5e127bc4ab2d506b785853e5520edde824ab5ff7d9d437e05818f376ce51b4",
     "tools/run_boss_identity_batch.py": "2536fe4d32c8da912d76482c9fd9a78ad447caeea69c302cddee0197e57afc79",
-    "tools/collect_boss_metadata_jobs.py": "2313c47f6108567ba005874b1e35060668c9c5c35cfd86a028227f7c15fcd473",
-    "tests/test_boss_metadata_jobs.py": "2f2d132c080954078e986d936380fdccdba2150cbf2c375d7847ea180cce735f",
+    "tools/collect_boss_metadata_jobs.py": "91821a20e5c0951ea3eac7c358262c371291a2433023ea79a646083d28f75ced",
+    "tests/test_boss_metadata_jobs.py": "5cd1bda32a070598aca9c9ac29986d1558699243be54ae118fab0f0a297f4cfb",
     "tests/test_boss_metadata_jobs.lua": "a7db032795eeab2574aff49a438f59f6c6ff3a1e9757576d74b3d69a7384cd20"
   },
   "registry": {
@@ -2840,14 +2840,14 @@
   },
   "batches": [
     {
-      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/batches/offline-0ee3447c989783c9",
+      "directory": "runtime/boss-expansion/71410b9d4e96215d57f1/batches/offline-0ee3447c989783c9",
       "candidate_ids": [
         "054_zuoshang",
         "066_rentuzi",
         "071_xianzhe"
       ],
-      "manifest_sha256": "50b74f7f911f76c7c072da249f66d870e65302cb0df0a52c5dfabd1695e6d5fb",
-      "probe_manifest_sha256": "861b14bd1e809c216487506eaea3c86c1104aa98a9973a1eddd1c2fe9d1e645e",
+      "manifest_sha256": "81ff1e49cc7a59ee30ca1e71f097d9e39ede94802a859699346733320b6f1ca4",
+      "probe_manifest_sha256": "a6b9097292e4749956711c5a01ab7ffb603236dfb789dab535afdab43b842723",
       "script_sha256": "2cda2b2e99949af19247632c36b812e36c405d4f674c183875bb1cd84e30f8ff",
       "requests": 6,
       "deployed": false,
@@ -2856,8 +2856,8 @@
   ],
   "metadata_batches": [
     {
-      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/metadata/metadata-c3e9740e9e90735276e1",
-      "manifest_sha256": "eecf5daddb331f9c1abd54be8f9bf410907d776ce17bfc69c6557bd2c42d96fe",
+      "directory": "runtime/boss-expansion/71410b9d4e96215d57f1/metadata/metadata-8e2bb30e7158df46abec",
+      "manifest_sha256": "d6ada1cad0a90c0433c04c683d3abc2b610b422966533e0fe7dd6f9ff1246461",
       "requests": 50,
       "candidate_ids": [
         "054_zuoshang",
@@ -2866,8 +2866,8 @@
       ]
     },
     {
-      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/metadata/metadata-32e236f7d45f6b8ab3e8",
-      "manifest_sha256": "f7e20b26a8d38f5d9ee21fe4c73808804e09951632093b24e0a4bee3313cd708",
+      "directory": "runtime/boss-expansion/71410b9d4e96215d57f1/metadata/metadata-360daae591e51f1dfd37",
+      "manifest_sha256": "ccd45cec05abb2d528065c1f1aab364e437b79a7da8f83cb19b61a70a539eaa7",
       "requests": 54,
       "candidate_ids": [
         "058_maddoctor",
@@ -2875,8 +2875,8 @@
       ]
     },
     {
-      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/metadata/metadata-845938255c7b1bd9b158",
-      "manifest_sha256": "abf5554105d58a1fb91cefb9d2ad20ae8f1a066f5c6f90f4a11e5c39eac25f32",
+      "directory": "runtime/boss-expansion/71410b9d4e96215d57f1/metadata/metadata-12306a27f634e63420ae",
+      "manifest_sha256": "f217178047064c0846c94ec79533130d7824f78b3f5ae6b36f81fcb6135c9c5e",
       "requests": 15,
       "candidate_ids": [
         "076_zuoshang_p2"
