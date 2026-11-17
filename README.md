@@ -6,28 +6,33 @@ for the verified local Phantom Blade Zero build.
 
 ## Current status
 
-Version `ahua-boss-workbench-v3-f7034432a74d819b` is released, installed, and
+Version `ahua-boss-workbench-v4-d2cb2593f6ea392e` is released, installed, and
 enabled for the supported local offline setup. Bride Ahua has 28 abilities and
-29 bindings; WanJun, YanQianSui, and YouLong each have four independent abilities
-and four bindings: **four playable Bosses, 40 abilities, 41 bindings**, with no
+29 bindings; WanJun, YanQianSui, and YouLong each have eight independent abilities
+and eight bindings: **four playable Bosses, 52 abilities, 53 bindings**, with no
 locked previews.
 
-All 12 four-Boss offline check groups passed. The publisher verified the inherited
-79 baseline groups, 13 three-Boss release groups, and source-matched skill and
-stability evidence. Session `20261116-173808` completed eight integration checks
-in the open area at Beiqi Valley's axe-Boss checkpoint: workbench restoration,
-selection and cleanup, historical skill revalidation, movement and camera,
-return to Ahua, pre-travel skill, native title/continue with a new World and real
-skill damage, and final return to Ahua. The closed-session collector and publisher
-independently passed. Formal files and host configuration remained unchanged.
-Historical evidence is reused only for unchanged behavior; this does not claim
-all old tests were repeated in the latest game session.
+All 13 v4 offline check groups passed. The publisher independently replayed the
+12 new skill receipts, including natural completion and cancellation. Ordinary
+session `20261117-152918` passed 24 new actions, Boss selection, movement and
+camera, and return to Ahua. Separate session `20261117-155229` passed native
+title/continue, new-World assembly, cleanup, real skill damage and restoration.
+The closed-session collectors and publisher passed; these are separate sessions.
+Unchanged execution, camera, input and restoration inherit the accepted v3
+baseline. This does not claim all historical tests were repeated.
 
 Start with `开始Boss工作台.cmd`. Controls and acceptance details are in
-[the v3 delivery and player guide](70-四Boss工作台v3操作说明.md).
+[the v4 delivery and player guide](72-四Boss技能扩展v4操作说明.md).
 The external launcher starts Ahua or WanJun; select YanQianSui or YouLong through
 `Insert` inside the game. YanQianSui requires open terrain; failed clearance
 preserves the current Boss. Historical releases and failed attempts are retained.
+
+The research environment and a fixed Beiqi Valley axe-Boss save snapshot live
+under `E:\项目\PBZ-Boss操控研究`; source remains on D:. Workbench preparation
+automatically applies the hash-checked scene snapshot and backs up the previous
+research progress. The subsequent cold-start visual confirmation was interrupted
+by a window-tool error and is not marked verified. Formal saves are unchanged.
+Network adaptation remains deferred.
 
 ## Performance
 

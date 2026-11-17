@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "release_id": "ahua-boss-workbench-v4-d2cb2593f6ea392e",
+  "installed_manifest_sha256": "a4bff25a22f303ff862796f88c641df93530dc61aac1a29c180be5965e6ffc2e",
+  "installed_and_enabled": true,
+  "bosses": 4,
+  "abilities": 52,
+  "bindings": 53,
+  "offline_groups": 13,
+  "ordinary_extra_actions": 24,
+  "ordinary_session": "20261117-152918",
+  "world_session": "20261117-155229",
+  "publisher_evidence_replayed": true,
+  "checkpoint_label": "悲泣溪谷—斧老大斩落处",
+  "checkpoint_file_count": 53,
+  "checkpoint_integrity_verified": true,
+  "checkpoint_reload_verified": false,
+  "default_entry_verified": true,
+  "game_started": false,
+  "source_sha256": {
+    "tools/verify_boss_skill_delivery.py": "dae302bc0847be3144c4665c3dd3161cbce5781f639a36aaaa96afa30c0b4738",
+    "开始Boss工作台.cmd": "f97c694bdbe7a14296317f395cf9c42e45fd16c23acf8c29fb768288502321f8",
+    "72-四Boss技能扩展v4操作说明.md": "176ea68dcc9946b8c7dcca94f4d82e224d7f62403a4011db17ef21cb7e751b82",
+    "71-后端优先与集中验收.md": "afe58594d2a30ba981b66fc47fd5355ca6597806976a774bf66344d6bf763762",
+    "AGENTS.md": "71add3fec5cefb260e66fd3e037437e6eeae9a4237b3bc0943db9bd1ce4416dc"
+  },
+  "e_project_bridge_verified": true
+}

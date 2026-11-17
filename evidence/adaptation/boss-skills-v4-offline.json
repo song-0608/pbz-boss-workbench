@@ -1,0 +1,101 @@
+{
+  "candidate": "D:\\mod文档\\PBZ-Boss操控研究\\runtime\\release-candidates\\ahua-boss-workbench-v4-dev-a227722bf96869e6",
+  "candidate_manifest_sha256": "08c7b26ef0e005f15e7cc232609ddd3335c73aea7ecea5eafc909d7001387ef3",
+  "inherited": {
+    "release": "ahua-boss-workbench-v3-f7034432a74d819b",
+    "manifest_sha256": "5cb110f21013baea5ae714ad334c54dcd7fb0215e35b697e6559004cd8235d0d",
+    "acceptance_sha256": "c323c0b3677d63bb093697121911af0e4dc1a45f4b2a1648610e446f66339623",
+    "unchanged_runtime_camera_input_restoration": true
+  },
+  "checks": [
+    {
+      "name": "four_role_catalog",
+      "passed": true,
+      "output": "Four Bosses, 52 native abilities, 53 ordinary bindings verified\n"
+    },
+    {
+      "name": "all_lua_syntax",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "name": "player_window_smoke",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "name": "test_boss_skill_workbench",
+      "passed": true,
+      "output": "test_all_extra_skills_keep_class_and_use_exact_player_slots (tests.test_boss_skill_workbench.SkillWorkbenchTests.test_all_extra_skills_keep_class_and_use_exact_player_slots) ... ok\ntest_missing_or_wrong_class_is_not_accepted (tests.test_boss_skill_workbench.SkillWorkbenchTests.test_missing_or_wrong_class_is_not_accepted) ... ok\ntest_missing_runtime_gate_cannot_enter_player_candidate (tests.test_boss_skill_workbench.SkillWorkbenchTests.test_missing_runtime_gate_cannot_enter_player_candidate) ... ok\ntest_no_damage_or_movement_is_not_accepted (tests.test_boss_skill_workbench.SkillWorkbenchTests.test_no_damage_or_movement_is_not_accepted) ... ok\ntest_real_four_boss_catalog_accepts_exact_eight_bindings (tests.test_boss_skill_workbench.SkillWorkbenchTests.test_real_four_boss_catalog_accepts_exact_eight_bindings) ... ok\ntest_rendered_lua_preserves_base_and_rejects_conflicts (tests.test_boss_skill_workbench.SkillWorkbenchTests.test_rendered_lua_preserves_base_and_rejects_conflicts) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.169s\n\nOK\n"
+    },
+    {
+      "name": "test_boss_skill_campaign",
+      "passed": true,
+      "output": "test_archived_base_ignores_current_installation_and_restores_resolvers (tests.test_boss_skill_campaign.SkillCampaignTests.test_archived_base_ignores_current_installation_and_restores_resolvers) ... ok\ntest_changed_archive_is_rejected (tests.test_boss_skill_campaign.SkillCampaignTests.test_changed_archive_is_rejected) ... ok\ntest_combines_only_whole_closed_assemblies (tests.test_boss_skill_campaign.SkillCampaignTests.test_combines_only_whole_closed_assemblies) ... ok\ntest_duplicate_accepted_boss_rejected (tests.test_boss_skill_campaign.SkillCampaignTests.test_duplicate_accepted_boss_rejected) ... ok\ntest_incomplete_assembly_cannot_contribute_actions (tests.test_boss_skill_campaign.SkillCampaignTests.test_incomplete_assembly_cannot_contribute_actions) ... ok\ntest_inconsistent_claim_rejected (tests.test_boss_skill_campaign.SkillCampaignTests.test_inconsistent_claim_rejected) ... ok\ntest_wrong_build_or_open_session_rejected (tests.test_boss_skill_campaign.SkillCampaignTests.test_wrong_build_or_open_session_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "name": "test_boss_skill_retry_session",
+      "passed": true,
+      "output": "test_any_takeover_or_missing_cleanup_rejected (tests.test_boss_skill_retry_session.RefusalRetentionTests.test_any_takeover_or_missing_cleanup_rejected) ... ok\ntest_clean_precondition_refusal_is_retained (tests.test_boss_skill_retry_session.RefusalRetentionTests.test_clean_precondition_refusal_is_retained) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "name": "test_boss_skill_player_workflow",
+      "passed": true,
+      "output": "test_render_preserves_historical_sources_and_registers_four_names (tests.test_boss_skill_player_workflow.PlayerSkillWorkflowTests.test_render_preserves_historical_sources_and_registers_four_names) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.016s\n\nOK\n"
+    },
+    {
+      "name": "test_boss_workbench_v4_window",
+      "passed": true,
+      "output": "test_development_build_is_not_offered_as_release (tests.test_boss_workbench_v4_window.V4WindowTests.test_development_build_is_not_offered_as_release) ... ok\ntest_render_explains_new_count_and_generic_native_skills (tests.test_boss_workbench_v4_window.V4WindowTests.test_render_explains_new_count_and_generic_native_skills) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "name": "test_boss_skill_release",
+      "passed": true,
+      "output": "test_changed_execution_or_forged_base_breaks_inheritance (tests.test_boss_skill_release.SkillReleaseInheritanceTests.test_changed_execution_or_forged_base_breaks_inheritance) ... ok\ntest_exact_profile_expansion_preserves_shared_runtime (tests.test_boss_skill_release.SkillReleaseInheritanceTests.test_exact_profile_expansion_preserves_shared_runtime) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.319s\n\nOK\n"
+    },
+    {
+      "name": "test_mod_installation",
+      "passed": true,
+      "output": "test_active_session_blocks_every_mutation (tests.test_mod_installation.InstallationTests.test_active_session_blocks_every_mutation) ... ok\ntest_development_fallback_only_before_first_install (tests.test_mod_installation.InstallationTests.test_development_fallback_only_before_first_install) ... ok\ntest_install_disable_enable_uninstall_preserves_personal_files (tests.test_mod_installation.InstallationTests.test_install_disable_enable_uninstall_preserves_personal_files) ... ok\ntest_receipt_cannot_select_an_external_directory (tests.test_mod_installation.InstallationTests.test_receipt_cannot_select_an_external_directory) ... ok\ntest_rejects_traversal_and_incomplete_package (tests.test_mod_installation.InstallationTests.test_rejects_traversal_and_incomplete_package) ... ok\ntest_restored_flag_without_loader_removal_still_blocks (tests.test_mod_installation.InstallationTests.test_restored_flag_without_loader_removal_still_blocks) ... ok\ntest_same_id_cannot_replace_different_package (tests.test_mod_installation.InstallationTests.test_same_id_cannot_replace_different_package) ... ok\ntest_tampered_installed_file_is_preserved_and_never_deployed (tests.test_mod_installation.InstallationTests.test_tampered_installed_file_is_preserved_and_never_deployed) ... ok\ntest_undeclared_file_prevents_uninstall_before_any_delete (tests.test_mod_installation.InstallationTests.test_undeclared_file_prevents_uninstall_before_any_delete) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.745s\n\nOK\n"
+    },
+    {
+      "name": "test_player_status_stream",
+      "passed": true,
+      "output": "test_append_only_and_no_reparse_without_changes (tests.test_player_status_stream.StreamTests.test_append_only_and_no_reparse_without_changes) ... ok\ntest_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected (tests.test_player_status_stream.StreamTests.test_backlog_is_bounded_and_nonfinite_or_boolean_times_rejected) ... ok\ntest_split_utf8_line_foreign_session_staleness_and_truncation (tests.test_player_status_stream.StreamTests.test_split_utf8_line_foreign_session_staleness_and_truncation) ... ok\ntest_waits_for_new_generation_status_and_recovers_missing_log (tests.test_player_status_stream.StreamTests.test_waits_for_new_generation_status_and_recovers_missing_log) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.037s\n\nOK\n"
+    },
+    {
+      "name": "test_performance_comparison",
+      "passed": true,
+      "output": "test_different_gameplay_source_is_rejected (tests.test_performance_comparison.PerformanceTests.test_different_gameplay_source_is_rejected) ... ok\ntest_endurance_rejects_heartbeat_gaps_and_off_intervals (tests.test_performance_comparison.PerformanceTests.test_endurance_rejects_heartbeat_gaps_and_off_intervals) ... ok\ntest_mixed_or_idle_windows_cannot_pass (tests.test_performance_comparison.PerformanceTests.test_mixed_or_idle_windows_cannot_pass) ... ok\ntest_other_loader_changes_cannot_borrow_cache_comparison (tests.test_performance_comparison.PerformanceTests.test_other_loader_changes_cannot_borrow_cache_comparison) ... ok\ntest_probe_parsing_does_not_merge_windows (tests.test_performance_comparison.PerformanceTests.test_probe_parsing_does_not_merge_windows) ... ok\ntest_three_complete_windows_are_required (tests.test_performance_comparison.PerformanceTests.test_three_complete_windows_are_required) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "name": "test_research_scene_checkpoint",
+      "passed": true,
+      "output": "已装载研究起点：悲泣溪谷—斧老大斩落处\ntest_apply_restores_arena_and_keeps_previous_research_backup (tests.test_research_scene_checkpoint.ResearchCheckpointTests.test_apply_restores_arena_and_keeps_previous_research_backup) ... ok\ntest_changed_snapshot_is_rejected_before_writing (tests.test_research_scene_checkpoint.ResearchCheckpointTests.test_changed_snapshot_is_rejected_before_writing) ... ok\ntest_destination_outside_research_box_is_rejected (tests.test_research_scene_checkpoint.ResearchCheckpointTests.test_destination_outside_research_box_is_rejected) ... ok\ntest_running_game_cannot_receive_checkpoint (tests.test_research_scene_checkpoint.ResearchCheckpointTests.test_running_game_cannot_receive_checkpoint) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.103s\n\nOK\n"
+    }
+  ],
+  "passed": true,
+  "game_started": false,
+  "sources": {
+    "tests/test_boss_skill_campaign.py": "3738adc0e73b4ebb1c50dece62db6a5d1aa2413df17b7c5ff59b63ca9c1d1548",
+    "tests/test_boss_skill_player_workflow.py": "e22507f4df523ac75d128f0bb32fd6a0d8da1fa0e4001300c9829acdd977d59b",
+    "tests/test_boss_skill_release.py": "ebf8e7b37bbdc8bf5106c49131c7b1354ecbc8d1c910d81e6ba9a0702578b33d",
+    "tests/test_boss_skill_retry_session.py": "fd94dedec4bcd7946f6c4b93ef2903d88c100e9fa7ab3cb1a02b131a41788e36",
+    "tests/test_boss_skill_workbench.py": "f0670b3551bdd020d7f431c7d3b7ff978444ec73d9f16e4c3defa3eef151e034",
+    "tests/test_boss_skill_workbench_candidate.lua": "230aef0a895ef8d2d1aa53457976b2d4b195523392b1bbb31cd9e3dcba03230a",
+    "tests/test_boss_workbench_v4_window.py": "90b9765581292936bd5d6dad4288d3e6bac2c0242ae8ad1849e7fb8a97db2105",
+    "tests/test_mod_installation.py": "e0c05b05d8d231aafe8027260aee9c60534f2e9645f163c83d8bdc0df8909559",
+    "tests/test_performance_comparison.py": "eb17c3a578e35155f6752c29404bac0a019c241ce266b69f64ef17c1010812e1",
+    "tests/test_player_status_stream.py": "58772f9674624b770231bd4247d1afb652d296821cad4ad1231e27022867f705",
+    "tests/test_research_scene_checkpoint.py": "286b8c5598f16d47d6e30d4aeb729be229a2e87e89d6c787efddee707b60db6b",
+    "tools/boss_skill_player_acceptance.py": "2d7c4d513ea961adea824b896b0fd8965ed8bdeebb0966a937d4486edcc75d81",
+    "tools/boss_skill_player_workflow.py": "b18b6f6ca89dd55eb40f5dd9b4371466a92934ea300665c5898de07743e4ff3b",
+    "tools/boss_skill_world_acceptance.py": "648571c162eb64ebf642a2af428340f5c77e1a5c882d4a7af2e26fd6931d2cf2",
+    "tools/boss_workbench_v4_window.py": "3d1b1796faef24536959aa48a3eeb13865023eec3a6eeda7ad036473aa6d0bd1",
+    "tools/build_boss_skill_workbench.py": "8fc9a4ab5816186e1960156d668a7fdc009ec63bfde4b36223627825d7231f47",
+    "tools/collect_boss_skill_campaign.py": "39db68f9a6b7667578efe8bc1c33981fa2350642cab53e987bfad2ca46381f64",
+    "tools/collect_boss_skill_retry_session.py": "1665721fef1a85802512699e919aa8810f8e93692477dd1efe2995d9f2995345",
+    "tools/release_boss_skill_workbench.py": "28837c35e0f5d4d1b6092d373636cc5e77ee041420553320b92b95ff3d0898fc",
+    "tools/research_scene_checkpoint.py": "75a5be05bd0771fe275f1c405000e1c906d7a7ffa9f03280abf2d6761add5ef7"
+  }
+}

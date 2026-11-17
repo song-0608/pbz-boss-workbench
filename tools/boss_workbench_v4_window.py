@@ -22,7 +22,9 @@ def render():
         ("if selected=='057_wanjun'and group=='skills'else player_settings.DESCRIPTIONS[action]",
          "if selected!='ahua_guitoudao'and group=='skills'else player_settings.DESCRIPTIONS[action]"),
         ('万钧开放四项独立能力。其余角色键位保留，保存仍检查整张按键表的冲突。',
-         '万钧开放八项独立能力；烟千岁和游龙在游戏内选择。保存检查全部键位冲突。'))
+         '万钧开放八项独立能力；烟千岁和游龙在游戏内选择。保存检查全部键位冲突。'),
+        ("command = [sys.executable, str(ROOT / 'tools/ahua_practice.py'), action]",
+         "command = [sys.executable, str(ROOT / ('tools/research_scene_checkpoint.py' if action=='prepare' else 'tools/ahua_practice.py')), action]"))
     for before,after in changes:
         assert source.count(before)==1,before
         source=source.replace(before,after)

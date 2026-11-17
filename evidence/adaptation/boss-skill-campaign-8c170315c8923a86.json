@@ -1,0 +1,1237 @@
+{
+  "schema": 1,
+  "sessions": [
+    "20261117-140425",
+    "20261117-143308"
+  ],
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "bosses": [
+    {
+      "id": "056_youlong",
+      "log_offset": 495073,
+      "log_end": 898585,
+      "skills": {
+        "skill_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02.GA_YouLong_MiddleAttack_02_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "heavy_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02.GA_YouLong_HeavyAttack_02_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "skill_02": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F.GA_YouLong_Dodge_F_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "dash": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B.GA_YouLong_Dodge_B_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        }
+      },
+      "accepted_skills": {
+        "skill_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02.GA_YouLong_MiddleAttack_02_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "heavy_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02.GA_YouLong_HeavyAttack_02_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "skill_02": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F.GA_YouLong_Dodge_F_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "dash": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B.GA_YouLong_Dodge_B_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        }
+      },
+      "actions": [
+        {
+          "natural_completion": {
+            "health_before": 9000.0,
+            "health_after": 8900.0,
+            "distance": 184.89028793661,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_MiddleAttack_02_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            184.89028793661,
+            184.89028793661
+          ],
+          "skill": "skill_01",
+          "interrupt": false,
+          "log_offset": 529964,
+          "log_end": 545332,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02.GA_YouLong_MiddleAttack_02_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8900.0,
+            "health_after": 8800.0,
+            "distance": 244.40485483004,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_HeavyAttack_02_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            244.40485483004,
+            244.40485483004
+          ],
+          "skill": "heavy_01",
+          "interrupt": false,
+          "log_offset": 545332,
+          "log_end": 560251,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02.GA_YouLong_HeavyAttack_02_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8800.0,
+            "health_after": 8800.0,
+            "distance": 192.65262571117,
+            "damage_observed": false,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_Dodge_F_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            192.65262571117,
+            192.65262571117
+          ],
+          "skill": "skill_02",
+          "interrupt": false,
+          "log_offset": 560251,
+          "log_end": 574963,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F.GA_YouLong_Dodge_F_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8800.0,
+            "health_after": 8800.0,
+            "distance": 500.98297325415,
+            "damage_observed": false,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_Dodge_B_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            500.98297325415,
+            500.98297325415
+          ],
+          "skill": "dash",
+          "interrupt": false,
+          "log_offset": 574963,
+          "log_end": 590289,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B.GA_YouLong_Dodge_B_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_MiddleAttack_02_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            20.691923141396
+          ],
+          "skill": "skill_01",
+          "interrupt": true,
+          "log_offset": 590289,
+          "log_end": 600767,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_MiddleAttack_02.GA_YouLong_MiddleAttack_02_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_HeavyAttack_02_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            56.705999401019
+          ],
+          "skill": "heavy_01",
+          "interrupt": true,
+          "log_offset": 600767,
+          "log_end": 611436,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_HeavyAttack_02.GA_YouLong_HeavyAttack_02_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_Dodge_F_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            101.15966796876
+          ],
+          "skill": "skill_02",
+          "interrupt": true,
+          "log_offset": 611436,
+          "log_end": 621554,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_F.GA_YouLong_Dodge_F_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YouLong_Dodge_B_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            38.336521148635
+          ],
+          "skill": "dash",
+          "interrupt": true,
+          "log_offset": 621554,
+          "log_end": 632551,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B.GA_YouLong_Dodge_B_C"
+        }
+      ],
+      "stability": {
+        "elapsed_seconds": 600.012744,
+        "declared_600_seconds": true,
+        "heartbeat_count": 624,
+        "heartbeat_span_seconds": 599,
+        "maximum_heartbeat_gap": 1,
+        "heartbeat_ordered": true,
+        "active_span_seconds": 564,
+        "longest_continuous_active_seconds": 492,
+        "statuses_valid": true,
+        "restoration": {
+          "label": "exit",
+          "reason": "",
+          "player_position_delta": 0.0,
+          "player_new_active_count": 0,
+          "camera_cleanup_verified": true,
+          "passed": true
+        },
+        "fault_absent": true,
+        "passed": true
+      },
+      "movement_camera": {
+        "movement_verified": true,
+        "camera_rotation_verified": true
+      },
+      "owned_cleanup_and_restoration_verified": true,
+      "rejected_layout_attempts": [
+        {
+          "attempt": 1,
+          "log_offset": 1897,
+          "log_end": 8198,
+          "cleanup_labels": [
+            "boss",
+            "boss_controller",
+            "target",
+            "target_controller"
+          ]
+        }
+      ],
+      "all_four_accepted": true,
+      "playable": false,
+      "milestone_passed": true,
+      "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\skill-bundles\\056_youlong-619888620406ce74",
+      "bundle_manifest_sha256": "fbdb9ed969b649abbbd6cba57c693cc2b5f7b9df61a35afbbed488b1b37ed33d",
+      "module_source_sha256": {
+        "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+        "boss_candidate.lua": "62477a457ba3d6dd46d7d21ab240abcb92a94664acda4b4b78462c100288eaed",
+        "boss_catalog.lua": "9a102bc4aba38bb22ab08b6944827549faca2eb44c845d1c7cce3102c6ff362c",
+        "boss_selection_preflight.lua": "00aa8165bd8e98fde9b68942a7233be5066683506bddc2b8c4991017707e9f8c",
+        "boss_workbench.lua": "1bb3317be749a39b04d1573a9eb7975054d375ff94fd88ed02c170787a894ea1",
+        "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+        "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+        "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+        "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+        "control_bridge.lua": "cc67e503ce4c42dc4b09f5c8c3e9e8ddc6f8b05fe7fa773249d89b2109c70658",
+        "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+        "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+        "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+        "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+        "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+        "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+        "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+        "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+        "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+        "owned_arena.lua": "315b4cb4ca7f91ce2e335969610484dcba3ca0991a2681a35394a74041381d69",
+        "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+        "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+        "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+        "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+        "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+        "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
+        "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+        "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+        "runtime.lua": "97a458ee2be9996e352a66fdff17b4c4359ea81794f1d64c262585213202010f",
+        "session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+        "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+        "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+        "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+        "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+        "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+        "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+        "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
+        "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
+        "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+        "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+        "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+        "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+        "workbench_catalog.lua": "fd1a438cdf75a44f63239ec852c10ffe47ff8412e4a64e60ba9d7c283de87d2a",
+        "workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+        "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+        "yanqiansui_arena_clearance.lua": "63fa8f29c47e206f23082ff1ef3ba5ecd0e3a2645fa848672652e8a70d918253",
+        "yanqiansui_clearance_core.lua": "947c6bc507670445e79658df3976fab16be709576fe64c7baac28013f5ba4567",
+        "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+        "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
+        "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138",
+        "profiles/yanqiansui.lua": "87984906d2627c4fecca86a3b33997b78742457e2e537faefd75887116483512",
+        "profiles/yanqiansui_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d",
+        "profiles/youlong.lua": "31d5344cfc2bef1b9d8c3543222f3a775bf6a9520b2ff878a7d7615a53b13b5a",
+        "profiles/youlong_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d"
+      },
+      "session": "20261117-143308",
+      "evidence": "evidence/official-validation/20261117-143308/boss-skill-session.json"
+    },
+    {
+      "id": "057_wanjun",
+      "log_offset": 62624,
+      "log_end": 454449,
+      "skills": {
+        "skill_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Attack_R.GA_WanJun_Attack_R_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "heavy_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_MiddleAttack_01.GA_WanJun_MiddleAttack_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "skill_02": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_LightAttack_01.GA_WanJun_LightAttack_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "dash": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_DodgeAttack_B.GA_WanJun_DodgeAttack_B_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        }
+      },
+      "accepted_skills": {
+        "skill_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Attack_R.GA_WanJun_Attack_R_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "heavy_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_MiddleAttack_01.GA_WanJun_MiddleAttack_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "skill_02": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_LightAttack_01.GA_WanJun_LightAttack_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "dash": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_DodgeAttack_B.GA_WanJun_DodgeAttack_B_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        }
+      },
+      "actions": [
+        {
+          "natural_completion": {
+            "health_before": 9000.0,
+            "health_after": 9000.0,
+            "distance": 93.321737330156,
+            "damage_observed": false,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_Attack_R_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            93.321737330156,
+            93.321737330156
+          ],
+          "skill": "skill_01",
+          "interrupt": false,
+          "log_offset": 88029,
+          "log_end": 103762,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Attack_R.GA_WanJun_Attack_R_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 9000.0,
+            "health_after": 8870.0,
+            "distance": 206.71226767679,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_MiddleAttack_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            206.71226767679,
+            206.71226767679
+          ],
+          "skill": "heavy_01",
+          "interrupt": false,
+          "log_offset": 103762,
+          "log_end": 120007,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_MiddleAttack_01.GA_WanJun_MiddleAttack_01_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8870.0,
+            "health_after": 8870.0,
+            "distance": 144.8304091512,
+            "damage_observed": false,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_LightAttack_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            144.8304091512,
+            144.8304091512
+          ],
+          "skill": "skill_02",
+          "interrupt": false,
+          "log_offset": 120007,
+          "log_end": 136757,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_LightAttack_01.GA_WanJun_LightAttack_01_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8870.0,
+            "health_after": 8740.0,
+            "distance": 930.01833840747,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_DodgeAttack_B_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            930.01833840747,
+            930.01833840747
+          ],
+          "skill": "dash",
+          "interrupt": false,
+          "log_offset": 136757,
+          "log_end": 154016,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_DodgeAttack_B.GA_WanJun_DodgeAttack_B_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_Attack_R_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            0.0
+          ],
+          "skill": "skill_01",
+          "interrupt": true,
+          "log_offset": 154459,
+          "log_end": 164760,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Attack_R.GA_WanJun_Attack_R_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_MiddleAttack_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            16.120890674956
+          ],
+          "skill": "heavy_01",
+          "interrupt": true,
+          "log_offset": 164760,
+          "log_end": 175330,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_MiddleAttack_01.GA_WanJun_MiddleAttack_01_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_LightAttack_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            30.181408827946
+          ],
+          "skill": "skill_02",
+          "interrupt": true,
+          "log_offset": 175330,
+          "log_end": 185893,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_LightAttack_01.GA_WanJun_LightAttack_01_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_WanJun_DodgeAttack_B_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            9.8731902203857
+          ],
+          "skill": "dash",
+          "interrupt": true,
+          "log_offset": 185893,
+          "log_end": 196475,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_DodgeAttack_B.GA_WanJun_DodgeAttack_B_C"
+        }
+      ],
+      "stability": {
+        "elapsed_seconds": 600.01608,
+        "declared_600_seconds": true,
+        "heartbeat_count": 625,
+        "heartbeat_span_seconds": 599,
+        "maximum_heartbeat_gap": 1,
+        "heartbeat_ordered": true,
+        "active_span_seconds": 565,
+        "longest_continuous_active_seconds": 481,
+        "statuses_valid": true,
+        "restoration": {
+          "label": "exit",
+          "reason": "",
+          "player_position_delta": 0.0,
+          "player_new_active_count": 0,
+          "camera_cleanup_verified": true,
+          "passed": true
+        },
+        "fault_absent": true,
+        "passed": true
+      },
+      "movement_camera": {
+        "movement_verified": true,
+        "camera_rotation_verified": true
+      },
+      "owned_cleanup_and_restoration_verified": true,
+      "rejected_layout_attempts": [],
+      "all_four_accepted": true,
+      "playable": false,
+      "milestone_passed": true,
+      "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\skill-bundles\\057_wanjun-f60f5ed55efe0e76",
+      "bundle_manifest_sha256": "30f4fe24ce88ad8717af0db4bbd363940e7f8c61c10cf2995e4b1198d3a3c6a2",
+      "module_source_sha256": {
+        "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+        "boss_candidate.lua": "d6863ec77e6feea4ed249fa882ba24caea8fa515942b56ff3d645f5902f47af7",
+        "boss_catalog.lua": "9a102bc4aba38bb22ab08b6944827549faca2eb44c845d1c7cce3102c6ff362c",
+        "boss_selection_preflight.lua": "00aa8165bd8e98fde9b68942a7233be5066683506bddc2b8c4991017707e9f8c",
+        "boss_workbench.lua": "1bb3317be749a39b04d1573a9eb7975054d375ff94fd88ed02c170787a894ea1",
+        "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+        "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+        "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+        "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+        "control_bridge.lua": "cc67e503ce4c42dc4b09f5c8c3e9e8ddc6f8b05fe7fa773249d89b2109c70658",
+        "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+        "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+        "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+        "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+        "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+        "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+        "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+        "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+        "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+        "owned_arena.lua": "315b4cb4ca7f91ce2e335969610484dcba3ca0991a2681a35394a74041381d69",
+        "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+        "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+        "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+        "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+        "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+        "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
+        "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+        "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+        "runtime.lua": "97a458ee2be9996e352a66fdff17b4c4359ea81794f1d64c262585213202010f",
+        "session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+        "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+        "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+        "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+        "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+        "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+        "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+        "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
+        "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
+        "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+        "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+        "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+        "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+        "workbench_catalog.lua": "fd1a438cdf75a44f63239ec852c10ffe47ff8412e4a64e60ba9d7c283de87d2a",
+        "workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+        "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+        "yanqiansui_arena_clearance.lua": "63fa8f29c47e206f23082ff1ef3ba5ecd0e3a2645fa848672652e8a70d918253",
+        "yanqiansui_clearance_core.lua": "947c6bc507670445e79658df3976fab16be709576fe64c7baac28013f5ba4567",
+        "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+        "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
+        "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138",
+        "profiles/yanqiansui.lua": "87984906d2627c4fecca86a3b33997b78742457e2e537faefd75887116483512",
+        "profiles/yanqiansui_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d",
+        "profiles/youlong.lua": "31d5344cfc2bef1b9d8c3543222f3a775bf6a9520b2ff878a7d7615a53b13b5a",
+        "profiles/youlong_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d"
+      },
+      "session": "20261117-140425",
+      "evidence": "evidence/official-validation/20261117-140425/boss-skill-session.json"
+    },
+    {
+      "id": "073_yanqiansui",
+      "log_offset": 103363,
+      "log_end": 495073,
+      "skills": {
+        "skill_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_05.GA_YanQianSui_Skill_05_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "heavy_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_06.GA_YanQianSui_Skill_06_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "skill_02": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_F_01.GA_YanQianSui_DodgeAttack_F_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "dash": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_B_01.GA_YanQianSui_DodgeAttack_B_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        }
+      },
+      "accepted_skills": {
+        "skill_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_05.GA_YanQianSui_Skill_05_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "heavy_01": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_06.GA_YanQianSui_Skill_06_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        },
+        "skill_02": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_F_01.GA_YanQianSui_DodgeAttack_F_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": false,
+          "movement_runtime_verified": true
+        },
+        "dash": {
+          "class_path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_B_01.GA_YanQianSui_DodgeAttack_B_01_C",
+          "activation_runtime_verified": true,
+          "natural_completion_verified": true,
+          "cancellation_runtime_verified": true,
+          "gameplay_verified": true,
+          "movement_runtime_verified": true
+        }
+      },
+      "actions": [
+        {
+          "natural_completion": {
+            "health_before": 9000.0,
+            "health_after": 8880.0,
+            "distance": 27.797371371482,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_Skill_05_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            27.797371371482,
+            27.797371371482
+          ],
+          "skill": "skill_01",
+          "interrupt": false,
+          "log_offset": 129879,
+          "log_end": 146129,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_05.GA_YanQianSui_Skill_05_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8880.0,
+            "health_after": 8720.0,
+            "distance": 1123.2447595953,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_Skill_06_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            1123.2447595953,
+            1123.2447595953
+          ],
+          "skill": "heavy_01",
+          "interrupt": false,
+          "log_offset": 146129,
+          "log_end": 163315,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_06.GA_YanQianSui_Skill_06_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8720.0,
+            "health_after": 8720.0,
+            "distance": 797.54197379874,
+            "damage_observed": false,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_DodgeAttack_F_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            797.54197379874,
+            797.54197379874
+          ],
+          "skill": "skill_02",
+          "interrupt": false,
+          "log_offset": 163315,
+          "log_end": 178604,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_F_01.GA_YanQianSui_DodgeAttack_F_01_C"
+        },
+        {
+          "natural_completion": {
+            "health_before": 8720.0,
+            "health_after": 8640.0,
+            "distance": 979.22265188423,
+            "damage_observed": true,
+            "movement_observed": true
+          },
+          "active_cancel_and_restoration": false,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_DodgeAttack_B_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            979.22265188423,
+            979.22265188423
+          ],
+          "skill": "dash",
+          "interrupt": false,
+          "log_offset": 178604,
+          "log_end": 193375,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_B_01.GA_YanQianSui_DodgeAttack_B_01_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_Skill_05_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            8.5775179985387
+          ],
+          "skill": "skill_01",
+          "interrupt": true,
+          "log_offset": 193818,
+          "log_end": 204110,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_05.GA_YanQianSui_Skill_05_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_Skill_06_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            56.635643005371
+          ],
+          "skill": "heavy_01",
+          "interrupt": true,
+          "log_offset": 204110,
+          "log_end": 214648,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_06.GA_YanQianSui_Skill_06_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_DodgeAttack_F_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            79.696212768567
+          ],
+          "skill": "skill_02",
+          "interrupt": true,
+          "log_offset": 214648,
+          "log_end": 225648,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_F_01.GA_YanQianSui_DodgeAttack_F_01_C"
+        },
+        {
+          "natural_completion": null,
+          "active_cancel_and_restoration": true,
+          "activation_instance_verified": true,
+          "ability_class_short": "GA_YanQianSui_DodgeAttack_B_01_C",
+          "restoration": {
+            "label": "exit",
+            "reason": "",
+            "player_position_delta": 0.0,
+            "player_new_active_count": 0,
+            "camera_cleanup_verified": true,
+            "passed": true
+          },
+          "foreign_keyed_activations": [],
+          "local_displacement_verified": true,
+          "local_displacement_limit_cm": 3000,
+          "observed_displacements_cm": [
+            112.73239415374
+          ],
+          "skill": "dash",
+          "interrupt": true,
+          "log_offset": 225648,
+          "log_end": 236185,
+          "exact_granted_class": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_B_01.GA_YanQianSui_DodgeAttack_B_01_C"
+        }
+      ],
+      "stability": {
+        "elapsed_seconds": 600.018806,
+        "declared_600_seconds": true,
+        "heartbeat_count": 624,
+        "heartbeat_span_seconds": 599,
+        "maximum_heartbeat_gap": 1,
+        "heartbeat_ordered": true,
+        "active_span_seconds": 564,
+        "longest_continuous_active_seconds": 483,
+        "statuses_valid": true,
+        "restoration": {
+          "label": "exit",
+          "reason": "",
+          "player_position_delta": 0.0,
+          "player_new_active_count": 0,
+          "camera_cleanup_verified": true,
+          "passed": true
+        },
+        "fault_absent": true,
+        "passed": true
+      },
+      "movement_camera": {
+        "movement_verified": true,
+        "camera_rotation_verified": true
+      },
+      "owned_cleanup_and_restoration_verified": true,
+      "rejected_layout_attempts": [],
+      "all_four_accepted": true,
+      "playable": false,
+      "milestone_passed": true,
+      "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\skill-bundles\\073_yanqiansui-844d83a24c18999d",
+      "bundle_manifest_sha256": "54d1bab8918b1ef1719b2999534d61a112fce09a53b06ca72a6754ab713e690b",
+      "module_source_sha256": {
+        "arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+        "boss_candidate.lua": "4ac4b7ced6f6719baff5283f4f248e508af2734b8c17e299eed0f51b37bb6106",
+        "boss_catalog.lua": "9a102bc4aba38bb22ab08b6944827549faca2eb44c845d1c7cce3102c6ff362c",
+        "boss_selection_preflight.lua": "00aa8165bd8e98fde9b68942a7233be5066683506bddc2b8c4991017707e9f8c",
+        "boss_workbench.lua": "1bb3317be749a39b04d1573a9eb7975054d375ff94fd88ed02c170787a894ea1",
+        "camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+        "combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+        "combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+        "config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+        "control_bridge.lua": "cc67e503ce4c42dc4b09f5c8c3e9e8ddc6f8b05fe7fa773249d89b2109c70658",
+        "death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+        "idle_world_watch.lua": "44922b915e9eef20a7c737919fba6b8987ee05eb21ad0db02833edc8dd1ae35b",
+        "incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+        "input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+        "input_driver.lua": "8aaea7f60da64cc49b4955c293d936f0a9e163313c2b8e328508d69d713013c9",
+        "keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+        "map_travel_guard.lua": "68a59afbab133a3678475aac05591b84d09cbb21e3418a434eb7a41f5b6708fb",
+        "object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+        "observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+        "owned_arena.lua": "315b4cb4ca7f91ce2e335969610484dcba3ca0991a2681a35394a74041381d69",
+        "owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+        "owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+        "owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+        "pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+        "player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+        "player_hud.lua": "75dec737896105cee44528342594c7a3532a2e7680bbc371f19a157678343dbc",
+        "player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+        "remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+        "runtime.lua": "97a458ee2be9996e352a66fdff17b4c4359ea81794f1d64c262585213202010f",
+        "session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+        "skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+        "subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+        "target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+        "ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+        "ue_calls.lua": "aab07bcd63d77bc0113c18341306901faaaa9f4019c9408d16719be664a6469f",
+        "ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+        "ue_combat.lua": "bee737a35d213608fe1826b0e88c723c9f9e571934bcfa3c96ed437a124ec6de",
+        "ue_host.lua": "3571f867c834962432f590f42a5f299e7a9992e77b44a945a3798eba1f5df3d0",
+        "ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+        "ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+        "ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+        "ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+        "workbench_catalog.lua": "fd1a438cdf75a44f63239ec852c10ffe47ff8412e4a64e60ba9d7c283de87d2a",
+        "workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+        "world_boundary.lua": "679437fdbbfaeebcafb96053a038baf0c2bca5c3d7afa512e6eba68c3f38b0f3",
+        "yanqiansui_arena_clearance.lua": "63fa8f29c47e206f23082ff1ef3ba5ecd0e3a2645fa848672652e8a70d918253",
+        "yanqiansui_clearance_core.lua": "947c6bc507670445e79658df3976fab16be709576fe64c7baac28013f5ba4567",
+        "profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+        "profiles/wanjun.lua": "f50c937a14468b5b58e9a1bcf267fb60009887c3572f40f38a388370cd4772ef",
+        "profiles/wanjun_bindings.lua": "f8ad7a2de36c3d1d456387559a778a31d786b204a27ea41302a0085b07f33138",
+        "profiles/yanqiansui.lua": "87984906d2627c4fecca86a3b33997b78742457e2e537faefd75887116483512",
+        "profiles/yanqiansui_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d",
+        "profiles/youlong.lua": "31d5344cfc2bef1b9d8c3543222f3a775bf6a9520b2ff878a7d7615a53b13b5a",
+        "profiles/youlong_bindings.lua": "248312ab2441c080cf98a9848ebcdc522d24605688e45a584467c8c2b688d51d"
+      },
+      "session": "20261117-143308",
+      "evidence": "evidence/official-validation/20261117-143308/boss-skill-session.json"
+    }
+  ],
+  "sources": {
+    "evidence/official-validation/20261117-140425/boss-skill-session.json": "9b9c222935c33b26665d2b07d66fd033fff455da0846fbb7e094857a420e9bd5",
+    "runtime/official-validation-20261117-140425/state.json": "92f8fa6707cc61c4f75760474e3e8effba39e2a288d4cb393edd7e55624642f0",
+    "evidence/official-validation/20261117-140425/postcheck.json": "f341ec3d81fe2a1feb7ab887e66853927ee9f4dfd1a7aaf80c4d1191e5eb72fb",
+    "evidence/official-validation/20261117-140425/UE4SS.log": "b04b0ff494af30cfb75c96626fe6ec79be9a2c3e3460155a8bafb283b79ea60e",
+    "evidence/official-validation/20261117-140425/player-extra-skill-actions.json": "e22aa529dbe57a8b3128cda5d805e99707798a4470e6a875cd098c11b9899983",
+    "evidence/official-validation/20261117-140425/boss-skill-milestone-057_wanjun.json": "9633c6dbb81ec54668f6160fa4b4f5c4b1008639d9efac893b43fb2678126227",
+    "evidence/official-validation/20261117-140425/control-lifecycle-deployment-1794896057539427200.json": "113e4bf8addb13f27d783e0babee04b64c27282e8c5a8dbb33bbc9384363a360",
+    "research/boss-adaptation/skill-bundles/057_wanjun-f60f5ed55efe0e76/manifest.json": "30f4fe24ce88ad8717af0db4bbd363940e7f8c61c10cf2995e4b1198d3a3c6a2",
+    "research/boss-adaptation/skill-bundles/057_wanjun-f60f5ed55efe0e76/boss_candidate.lua": "d6863ec77e6feea4ed249fa882ba24caea8fa515942b56ff3d645f5902f47af7",
+    "runtime/developer-workflows/skills-057_wanjun-3179aa03db289f29/manifest.json": "748d4afbd4f3182a8afacc779835fe9042ced99e08c6125107d348a93ddfa3c8",
+    "runtime/managed-mod/ahua-boss-workbench-v3-f7034432a74d819b/PBZBossControl/Experiments/spawn_lifecycle.lua": "71c3d08540464dc4c60e3f983fd8286de7de76b8c0e4831122f59d0c3cf0ed51",
+    "evidence/official-validation/20261117-140425/boss-skill-milestone-073_yanqiansui.json": "56217874694ff784dc8bda370c4008c71628d4ca375a4f606e206814f96fdc77",
+    "evidence/official-validation/20261117-140425/control-lifecycle-deployment-1794896699594940400.json": "6c8e515f10aba83c8675575617e448e5fabe24a16797c1637103a9309aadefe9",
+    "research/boss-adaptation/skill-bundles/073_yanqiansui-844d83a24c18999d/manifest.json": "54d1bab8918b1ef1719b2999534d61a112fce09a53b06ca72a6754ab713e690b",
+    "research/boss-adaptation/skill-bundles/073_yanqiansui-844d83a24c18999d/boss_candidate.lua": "4ac4b7ced6f6719baff5283f4f248e508af2734b8c17e299eed0f51b37bb6106",
+    "runtime/developer-workflows/skills-073_yanqiansui-faf4e56578877cca/manifest.json": "c53fd5cc4bc4a52233abd9bd1ea0372b9f5ad93ca6cfb62209ee42199789c384",
+    "evidence/official-validation/20261117-143308/boss-skill-session.json": "3423b6fb37d271d9d82bb385ec9b409ceef55a7e2f5cbee917b5abbca1e198d5",
+    "runtime/official-validation-20261117-143308/state.json": "33641ffe837e44493bbd603e4d52bb9bf22da8e65342fd8ac1dd9a043f65df99",
+    "evidence/official-validation/20261117-143308/postcheck.json": "a6871135a7b2e5cf80e525038cf20fc0985341be305e1a98aabf8e79c284f6f6",
+    "evidence/official-validation/20261117-143308/UE4SS.log": "2ae8341a24bcce7196eac4231b8221106cffd68710301f3f426210becc02f3f2",
+    "evidence/official-validation/20261117-143308/player-extra-skill-actions.json": "5cfafa090ca76719a076883bbeda71a318dcfe369d5b75eb039a1050a83bcf39",
+    "evidence/official-validation/20261117-143308/control-lifecycle-deployment-1794897493927108800.json": "8fddaae19af6c3f3980912af8675c6b67e8fa8dce0ba92ad72e5f146c8fdac17",
+    "evidence/official-validation/20261117-143308/boss-skill-milestone-073_yanqiansui.json": "133ec911f748da30065076289b3baf8b9943a06505940636235a0caeddcb25ba",
+    "evidence/official-validation/20261117-143308/control-lifecycle-deployment-1794898055890279700.json": "c8970e1e0b343c9b39a896ce11b04700221692c1d3a7a3d9b19a96de93ca3f13",
+    "evidence/official-validation/20261117-143308/boss-skill-milestone-056_youlong.json": "2ad4e189575d047084879f7293660c09a333eb2ba456dc50feb49dd34e4727d7",
+    "evidence/official-validation/20261117-143308/control-lifecycle-deployment-1794898697623031500.json": "91d32b6f4283a5e4d2a07cb21642bdb4a13351aa5973ff330794e428398d1264",
+    "research/boss-adaptation/skill-bundles/056_youlong-619888620406ce74/manifest.json": "fbdb9ed969b649abbbd6cba57c693cc2b5f7b9df61a35afbbed488b1b37ed33d",
+    "research/boss-adaptation/skill-bundles/056_youlong-619888620406ce74/boss_candidate.lua": "62477a457ba3d6dd46d7d21ab240abcb92a94664acda4b4b78462c100288eaed",
+    "runtime/developer-workflows/skills-056_youlong-29960dc2861f9b3b/manifest.json": "594f4bfb7d682bd7ebc6687ac1ecfd2dc3fbce9fd818dd26bd10c40c7a2383eb",
+    "tools/collect_boss_skill_retry_session.py": "1665721fef1a85802512699e919aa8810f8e93692477dd1efe2995d9f2995345"
+  },
+  "all_twelve_accepted": true,
+  "formal_postcheck_passed": true,
+  "playable": false,
+  "game_started_by_collector": false
+}

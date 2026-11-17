@@ -13,6 +13,7 @@ class V4WindowTests(unittest.TestCase):
         self.assertIn('四角色 · 52项能力',source)
         self.assertIn("selected!='ahua_guitoudao'",source)
         self.assertIn('72-四Boss技能扩展v4操作说明.md',source)
+        self.assertIn("'tools/research_scene_checkpoint.py' if action=='prepare'",source)
 
     def test_development_build_is_not_offered_as_release(self):
         data=dict(status='development',complete_mod=False,runtime_acceptance_current=False)

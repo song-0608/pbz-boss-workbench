@@ -117,7 +117,7 @@ def run(flow,finish_world=False):
         save();print(json.dumps({k:v for k,v in report.items() if k not in ('lines','world_proof')},ensure_ascii=False),flush=True)
 
 
-def collect(session,flow):
+def collect(session,flow,world_session=None):
     assert re.fullmatch(r'\d{8}-\d{6}',session)
     frozen=workflow.verify(flow);package=Path(frozen['candidate']);manifest=candidate.verify(package)
     work=ROOT/'evidence/official-validation'/session;state_path=ROOT/'runtime'/('official-validation-'+session)/'state.json'
@@ -129,15 +129,16 @@ def collect(session,flow):
     deployments=list(work.glob('control-lifecycle-deployment-*.json'));assert len(deployments)==1
     deployment=read(deployments[0]);assert deployment['player_entry'] and not deployment.get('boss_candidate')
     assert deployment['grant']['exe_sha256']==BUILD and deployment['module_source_sha256']==modules(manifest)
-    report=read(work/NAME);assert report['roundtrip_passed'] and report['world_finished'] and not report.get('error')
+    report=read(work/NAME);assert report['roundtrip_passed'] and not report.get('error')
+    assert report['world_finished'] or world_session
     assert report['state_file']==str(state_path) and report['workflow']==str(flow) and report['candidate']==str(package)
     assert report['candidate_manifest_sha256']==sha(package/'pbz-release.json')
     raw=(work/'UE4SS.log').read_text(encoding='utf-8',errors='replace')
     start,end=report['log_offset'],report['log_end'];assert 0<=start<end<=len(raw)
     segment=raw[start:end];assert report['lines']==segment.splitlines()
     assert not any(t in segment for t in ('state=FAULTED','ISSUE_','[Lua::execute_file]','HUD_UNAVAILABLE=','PBZ_CONTROL_RESTORE:FAILED='))
-    assert re.findall(r'WORKBENCH_BOSS_SELECTED=([^\r\n]+)',segment)==[IDS[1],IDS[2],IDS[3],IDS[0],IDS[3],IDS[0]]
-    assert re.findall(r'PLAYER_ENTRY_READY=([^\r\n]+)',segment)==[IDS[1],IDS[2],IDS[3],IDS[0],IDS[3],IDS[3],IDS[0]]
+    assert re.findall(r'WORKBENCH_BOSS_SELECTED=([^\r\n]+)',segment)==[IDS[1],IDS[2],IDS[3],IDS[0],IDS[3]]+([] if world_session else [IDS[0]])
+    assert re.findall(r'PLAYER_ENTRY_READY=([^\r\n]+)',segment)==[IDS[1],IDS[2],IDS[3],IDS[0],IDS[3]]+([] if world_session else [IDS[3],IDS[0]])
     campaign=read(ROOT/manifest['skill_session']);by_id={r['id']:r for r in campaign['bosses']}
     actions=read(work/'player-extra-skill-actions.json');proofs=[]
     assert [r['boss'] for r in report['checkpoints']]==list(IDS[1:])
@@ -162,23 +163,31 @@ def collect(session,flow):
         assert seen=={(s,i) for s in EXTRA for i in (False,True)}
     motion=movement_camera_proof(raw[report['movement_log_offset']:report['movement_log_end']])
     assert motion==report['movement_camera'] and motion['passed']
-    world=world_proof(raw[report['world_scope_offset']:report['world_action_end']])
-    assert world==report['world_proof'] and world['passed']
+    world_sources={}
+    if world_session:
+        assert world_session!=session and not report['world_finished']
+        from boss_skill_world_acceptance import collect as collect_world
+        world_report=collect_world(world_session,flow)
+        world=world_report['world_cycle'];world_sources=world_report['sources']
+    else:
+        world=world_proof(raw[report['world_scope_offset']:report['world_action_end']])
+        assert world==report['world_proof'] and world['passed']
     paths=[state_path,work/'postcheck.json',work/'UE4SS.log',work/NAME,work/'player-extra-skill-actions.json',
            deployments[0],flow/'manifest.json',package/'pbz-release.json',ROOT/'tools/boss_skill_player_acceptance.py']
     return dict(schema=1,session=session,passed=True,candidate=str(package),
         candidate_manifest_sha256=sha(package/'pbz-release.json'),module_source_sha256=modules(manifest),
         ordinary_extra_actions=proofs,movement_camera=motion,world_cycle=world,
-        formal_postcheck_passed=True,sources={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
+        world_session=world_session,formal_postcheck_passed=True,
+        sources={**world_sources,**{p.relative_to(ROOT).as_posix():sha(p) for p in paths}})
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action',choices=('run','finish-world','collect','verify'))
-    parser.add_argument('--workflow',type=Path,required=True);parser.add_argument('--session');args=parser.parse_args()
+    parser.add_argument('--workflow',type=Path,required=True);parser.add_argument('--session');parser.add_argument('--world-session');args=parser.parse_args()
     flow=args.workflow.resolve()
     if args.action in ('run','finish-world'):raise SystemExit(run(flow,args.action=='finish-world'))
-    result=collect(args.session,flow);path=ROOT/'evidence/official-validation'/args.session/'boss-skill-player-acceptance.json'
+    result=collect(args.session,flow,args.world_session);path=ROOT/'evidence/official-validation'/args.session/'boss-skill-player-acceptance.json'
     if args.action=='verify':assert json.loads(path.read_text(encoding='utf-8'))==result
     else:
         assert not path.exists(),'Preserve collected receipt';write_json(path,result)

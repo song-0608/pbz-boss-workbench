@@ -16,8 +16,10 @@ from mod_installation import MANIFEST,assert_closed,validate_package
 OFFLINE='evidence/adaptation/boss-skills-v4-offline.json'
 TESTS=('test_boss_skill_workbench','test_boss_skill_campaign','test_boss_skill_retry_session',
        'test_boss_skill_player_workflow','test_boss_workbench_v4_window','test_boss_skill_release','test_mod_installation',
-       'test_player_status_stream','test_performance_comparison')
+       'test_player_status_stream','test_performance_comparison','test_research_scene_checkpoint')
 SOURCES=('tools/release_boss_skill_workbench.py','tools/boss_skill_player_acceptance.py',
+    'tools/boss_skill_world_acceptance.py',
+    'tools/research_scene_checkpoint.py',
     'tools/boss_skill_player_workflow.py','tools/boss_workbench_v4_window.py',
     'tests/test_boss_skill_workbench_candidate.lua',*builder.SOURCES,
     *('tests/'+name+'.py' for name in TESTS))
@@ -60,13 +62,13 @@ def offline(package):
     return report
 
 
-def release(package,session,flow):
+def release(package,session,flow,world_session=None):
     assert_closed();manifest=builder.verify(package)
     checks=json.loads((ROOT/OFFLINE).read_text(encoding='utf-8'))
     assert checks['passed'] and checks['candidate']==str(package)
     assert checks['candidate_manifest_sha256']==sha(package/MANIFEST)
     assert checks['sources']=={n:sha(ROOT/n) for n in sorted(set(SOURCES))}
-    ordinary=collect(session,flow)
+    ordinary=collect(session,flow,world_session)
     evidence=ROOT/'evidence/official-validation'/session/'boss-skill-player-acceptance.json'
     assert json.loads(evidence.read_text(encoding='utf-8'))==ordinary
     assert ordinary['candidate']==str(package) and len(ordinary['ordinary_extra_actions'])==24
@@ -104,7 +106,7 @@ def release(package,session,flow):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action',choices=('check','release'));parser.add_argument('candidate',type=Path)
-    parser.add_argument('--session');parser.add_argument('--workflow',type=Path);args=parser.parse_args()
+    parser.add_argument('--session');parser.add_argument('--world-session');parser.add_argument('--workflow',type=Path);args=parser.parse_args()
     package=args.candidate.resolve()
-    result=offline(package) if args.action=='check' else release(package,args.session,args.workflow.resolve())
+    result=offline(package) if args.action=='check' else release(package,args.session,args.workflow.resolve(),args.world_session)
     print(json.dumps({k:v for k,v in result.items() if k!='checks'},ensure_ascii=False))
