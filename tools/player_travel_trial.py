@@ -53,9 +53,8 @@ def validate_action(action, owner, deployment, text):
         assembly = current[max(0, begin):]
         assert 'PLAYER_BINDING=slot1|skill_01|F1' in assembly
     if action == 'primary':
-        assert sum(row.get('slot') == 'primary_attack' and row.get('key') == 'LEFT_MOUSE_BUTTON'
-                   for row in owner.get('actual_bindings', [])) == 1, 'Current role has no primary mouse binding'
-        assert re.search(r'PLAYER_BINDING=primary_attack\|[^|]+\|LEFT_MOUSE_BUTTON', assembly)
+        bindings = re.findall(r'PLAYER_BINDING=primary_attack\|([^|\r\n]+)\|LEFT_MOUSE_BUTTON(?:\r?\n|$)', assembly)
+        assert len(bindings) == 1, 'Current assembly requires exactly one primary mouse binding'
     return actions[action]
 
 

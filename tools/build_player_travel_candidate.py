@@ -11,8 +11,9 @@ from mod_installation import MANIFEST, assert_closed, unlinked_path, validate_pa
 BASE = 'ahua-boss-workbench-v5-3f29975fe3b8826f'
 PREFIX = 'PBZBossControl/Scripts/'
 SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls.lua',
-           'tools/player_world_watch.lua', 'tools/player_cross_map_trial.lua', 'tests/test_player_travel_repair.lua',
-           'tests/test_player_travel_candidate.py')
+           'tools/player_world_watch.lua', 'tools/player_cross_map_trial.lua', 'tools/player_controller_query.lua',
+           'tests/test_player_travel_repair.lua', 'tests/test_player_controller_query.lua',
+           'tests/test_player_travel_candidate.py', 'tools/player_overlay.py', 'tests/test_player_overlay.py')
 
 
 def payload(root=ROOT):
@@ -29,6 +30,78 @@ def payload(root=ROOT):
     files[PREFIX + 'player_role_controls.lua'] = (root / 'tools/player_role_controls.lua').read_bytes()
     files[PREFIX + 'idle_world_watch.lua'] = (root / 'tools/player_world_watch.lua').read_bytes()
     files[PREFIX + 'player_cross_map_trial.lua'] = (root / 'tools/player_cross_map_trial.lua').read_bytes()
+    files[PREFIX + 'player_controller_query.lua'] = (root / 'tools/player_controller_query.lua').read_bytes()
+    original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
+    begin = original_bridge.index('function Bridge:player_controller()\n')
+    end = original_bridge.index('\nfunction Bridge:world_id(', begin)
+    change('control_bridge.lua', original_bridge[begin:end],
+           'function Bridge:player_controller()\n'
+           "    self.controller_query=self.controller_query or require('player_controller_query').new(self.calls,self.api)\n"
+           '    local pc,count=self.controller_query:get()\n'
+           '    assert(count==1 and pc,"exactly one local gameplay controller required")\n'
+           '    return pc\nend\n')
+
+    # Readiness samples health/velocity every 100 ms, but a full controller census
+    # is shared for one second, including negative results while a map is loading.
+    change('owned_arena.lua', 'local gate_started,stationary_polls=0,0',
+           "local readiness_query=require('player_controller_query').new(\n"
+           "    require('ue_calls').new({find_exact=StaticFindObject,usable=valid}),\n"
+           '    {find_all=FindAllOf,now=os.time,usable=valid})\n'
+           'local gate_started,stationary_polls=0,0')
+    change('owned_arena.lua', "        local player,count=nil,0\n"
+           "        for _,pc in ipairs(FindAllOf('PBZPlayerController')or{})do\n"
+           "            if valid(pc)and valid(pc.Pawn)and pc:GetFullName():find(':PersistentLevel.',1,true)then player=pc.Pawn;count=count+1 end\n"
+           '        end',
+           '        local ready_pc,count=readiness_query:get()\n'
+           '        local player=ready_pc and ready_pc.Pawn')
+
+    # A swallowed timer exception or a key held across travel must not leave a
+    # permanent callback and a permanently locked menu queue.
+    change('ue_host.lua', '        after_key_release = function(key,fn)',
+           '        after_key_release = function(key,fn,rejected)')
+    change('ue_host.lua', '                if finished then return end\n                frames=frames+1',
+           '                if finished or not pending_releases[handle]then return end\n                frames=frames+1')
+    change('ue_host.lua', '            local frames,handle,finished=0,nil,false',
+           '            local frames,handle,finished=0,nil,false\n'
+           '            local started_at=os.time()\n'
+           '            local function finish(problem)\n'
+           '                if finished then return end\n'
+           '                finished=true;g.CancelDelayedAction(handle);pending_releases[handle]=nil\n'
+           '                if problem then\n'
+           '                    if rejected then rejected(problem)end\n'
+           '                else fn()end\n'
+           '            end')
+    change('ue_host.lua', '                local pc=bridge:player_controller()\n'
+           "                if pc:IsInputKeyDown({KeyName=g.FName(names[key]or key)})then return end\n"
+           '                -- The delayed-action API ignores callback return values. Cancel explicitly\n'
+           '                -- before invoking an action which may replace or stop this host.\n'
+           '                finished=true\n'
+           '                g.CancelDelayedAction(handle)\n'
+           '                pending_releases[handle]=nil\n'
+           '                fn()',
+           '                if frames>=180 or os.time()-started_at>=3 then\n'
+           "                    finish('key release not observed within bounded wait');return\n"
+           '                end\n'
+           '                local ok,held=pcall(function()\n'
+           '                    local pc=bridge:player_controller()\n'
+           '                    return pc:IsInputKeyDown({KeyName=g.FName(names[key]or key)})\n'
+           '                end)\n'
+           '                if not ok then finish(held);return end\n'
+           "                if type(held)~='boolean'then finish('key state unreadable');return end\n"
+           '                if not held then finish()end')
+    change('runtime.lua', '    self.host.after_key_release(key,function()\n'
+           '        self.workbench_action_pending=false\n'
+           '        if self.running then self:action(label,fn)end\n'
+           '    end)',
+           '    local function rejected(problem)\n'
+           '        self.workbench_action_pending=false\n'
+           "        if self.running then self:report('workbench_release',false,problem)end\n"
+           '    end\n'
+           '    local ok,why=pcall(self.host.after_key_release,key,function()\n'
+           '        self.workbench_action_pending=false\n'
+           '        if self.running then self:action(label,fn)end\n'
+           '    end,rejected)\n'
+           '    if not ok then rejected(why)end')
     change('boss_catalog.lua', '    if keymap then require(\'keymap\').apply(config,keymap)end',
            "    require('player_role_controls').apply(config,profile)\n"
            "    if keymap then require('keymap').apply(config,keymap)end")

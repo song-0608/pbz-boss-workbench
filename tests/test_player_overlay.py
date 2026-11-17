@@ -20,4 +20,6 @@ assert menu['menu'] and menu['font_size']==18 and menu['wraplength']==1040
 assert not normal['menu'] and normal['font_size']==11 and normal['wraplength']==760
 assert overlay_layout('Boss 工作台  |  Insert 开关',800)['font_size']==14
 assert overlay_layout('Boss 工作台  |  Insert 开关',800)['wraplength']<=800-48
+alias_menu=overlay_layout('Boss 工作台  |  Insert / Shift+接管键 开关\n角色 1 / 6',2560)
+assert alias_menu==menu,'adding an alternate shortcut must not collapse the character menu into the compact HUD'
 print('Workbench uses a larger bounded centered presentation; compact HUD remains separate')

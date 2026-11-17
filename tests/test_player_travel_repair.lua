@@ -119,6 +119,48 @@ local function flush()while #game_queue>0 do table.remove(game_queue,1)()end end
 keys.F6();flush();assert(r.session.state=='ACTIVE'and not menu.opened)
 keys.F6();flush();assert(r.session.state=='OFF'and menu.opened,'active takeover key must restore and open chooser')
 keys.F6();flush();assert(r.session.state=='OFF'and not menu.opened,'same-role confirmation must close without reentering')
+-- Releasing a stuck or unreadable key must cancel the timer, reject the menu
+-- action and release its pending flag without interpreting failure as key-up.
+local saved_input=package.loaded.ue_input
+package.loaded.ue_input={new=function()return{read=function()return{}end}end}
+local timers,serial={},0
+local held,read_error=true,false
+local release_globals={EngineTickAvailable=true,Key={},print=function()end,
+    StaticFindObject=function()return{IsValid=function()return true end}end,
+    ExecuteInGameThread=function(fn)fn()end,RegisterKeyBind=function()end,FName=function(k)return k end,
+    LoopInGameThreadAfterFrames=function(_,fn)serial=serial+1;timers[serial]=fn;return serial end,
+    CancelDelayedAction=function(id)timers[id]=nil end}
+local release_bridge={player_controller=function()
+    if read_error then error('World loading')end
+    return{IsInputKeyDown=function()return held end}
+end}
+local release_host=Host.new(release_bridge,{},release_globals)
+local ran,rejected=0,0
+local function success()ran=ran+1 end
+local function reject()rejected=rejected+1 end
+local handle=release_host.after_key_release('INS',success,reject)
+local callback=timers[handle]
+for _=1,180 do callback()end
+assert(not timers[handle]and ran==0 and rejected==1,'held key wait must stop without invoking action')
+held=false;callback();assert(ran==0 and rejected==1,'a stale timed-out callback must be inert')
+handle=release_host.after_key_release('INS',success,reject)
+callback=timers[handle];read_error=true;callback();callback()
+assert(not timers[handle]and ran==0 and rejected==2,'World/loading exception must cancel release wait')
+read_error=false
+handle=release_host.after_key_release('INS',success,reject)
+callback=timers[handle];release_host.release_keys();callback();callback()
+assert(ran==0 and rejected==2,'callbacks queued before host release must be inert')
+local rejection
+runtime_host.after_key_release=function(_,_,failure)rejection=failure end
+r:workbench_action('workbench_close','ESCAPE',success)
+assert(r.workbench_action_pending and rejection)
+rejection('key state unavailable')
+assert(not r.workbench_action_pending and ran==0,'failed key wait must release the pending menu action')
+r:workbench_action('workbench_close','ESCAPE',success)
+assert(r.workbench_action_pending,'a later release attempt remains possible after rejection')
+rejection('test cleanup')
+package.loaded.ue_input=saved_input
 print('PASS five accepted damage shortcuts; live identity cache; bounded retirement census; current World change; idle/active travel cleanup')
 print('PASS Shift+takeover menu fallback preserves bare key and releases old assembly routes')
 print('PASS repeated takeover key restores ACTIVE and opens/confirms chooser without timing or extra key dependency')
+print('PASS key release timeout, World exception and retired callbacks reject safely and unlock the pending menu queue')

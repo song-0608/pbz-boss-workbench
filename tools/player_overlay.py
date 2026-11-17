@@ -26,7 +26,7 @@ def latest_status(data, session, now):
 
 def overlay_layout(text,client_width):
     """工作台使用更大字号；普通状态层保留紧凑显示。"""
-    menu=text.startswith('Boss 工作台  |  Insert 开关')
+    menu=text.startswith('Boss 工作台  |  ')
     return {'menu':menu,'font_size':(18 if client_width>=1600 else 14) if menu else 11,
             'wraplength':min(1040,max(240,client_width-96)) if menu else min(760,max(240,client_width-60)),
             'padx':24 if menu else 12,'pady':18 if menu else 8}

@@ -37,6 +37,21 @@ class TravelInputTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             validate_action('primary', self.owner, self.deployment, text)
 
+    def test_primary_follows_new_assembly_instead_of_initial_owner(self):
+        self.owner['actual_bindings'] = []
+        switched = self.active + 'PBZ_CONTROL_LIFECYCLE:WORKBENCH_BOSS_SELECTED=other\n' + self.active
+        self.assertEqual(validate_action('primary', self.owner, self.deployment, switched), 'LEFT_MOUSE_BUTTON')
+        missing = self.ready.replace('PLAYER_BINDING=primary_attack', 'UNBOUND=primary_attack')
+        text = switched + missing + '[PBZBossControl] enter success=true state=ACTIVE\n'
+        with self.assertRaises(AssertionError):
+            validate_action('primary', self.owner, self.deployment, text)
+
+    def test_duplicate_primary_binding_is_rejected(self):
+        duplicate = self.active.replace('PLAYER_ENTRY_READY=role',
+            'PLAYER_BINDING=primary_attack|other|LEFT_MOUSE_BUTTON\nPLAYER_ENTRY_READY=role')
+        with self.assertRaises(AssertionError):
+            validate_action('primary', self.owner, self.deployment, duplicate)
+
     def test_cross_map_is_explicit_and_once_only(self):
         text = self.active + ('PBZ_CONTROL_LIFECYCLE:TRANSITION_TRIAL_KEY=F12; native travel '
                               'between observed valley/forest packages once\n')

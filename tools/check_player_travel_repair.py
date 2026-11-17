@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import time
 
 from boss_adaptation_workflow import ROOT, sha, write_json
 from build_boss_profile_candidate import lua
@@ -28,14 +29,18 @@ def main():
         "print('PASS candidate Lua syntax: '..#files)\n", encoding='utf-8')
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     jobs = [('syntax', [str(executable), str(syntax)])]
-    for name in ('player_travel_repair', 'runtime', 'ue_calls', 'world_boundary', 'idle_world_watch',
+    for name in ('player_travel_repair', 'player_controller_query', 'runtime', 'ue_calls', 'world_boundary', 'idle_world_watch',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'target_transition', 'ue_host'):
         jobs.append((name, [str(executable), str(loader), '.', package.relative_to(ROOT).as_posix(),
                            'tests/test_' + name + '.lua']))
-    for name in ('player_travel_candidate', 'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry'):
-        jobs.append((name, [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', 'discover',
-                           '-s', 'tests', '-p', 'test_' + name + '.py']))
+    for name in ('player_travel_candidate', 'player_travel_trial', 'player_overlay', 'player_status_stream',
+                 'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry'):
+        command = ([sys.executable, '-B', '-X', 'utf8', 'tests/test_player_overlay.py']
+                   if name == 'player_overlay' else
+                   [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', 'discover',
+                    '-s', 'tests', '-p', 'test_' + name + '.py'])
+        jobs.append((name, command))
     checks = []
     for name, command in jobs:
         result = subprocess.run(command, cwd=ROOT, capture_output=True, encoding='utf-8', errors='replace', timeout=45)
@@ -48,6 +53,8 @@ def main():
         passed=all(row['passed'] for row in checks), game_started=False, installed=False,
         runtime_verified=False, native_travel_verified=False, all_boss_skills_complete=False)
     report = ROOT / 'evidence/adaptation' / (package.name + '-offline.json')
+    if report.exists():
+        report = report.with_name(package.name + '-offline-' + str(time.time_ns()) + '.json')
     write_json(report, record)
     print(json.dumps(dict(report=str(report), passed=record['passed'], workflow=str(flow)), ensure_ascii=False))
     return 0 if record['passed'] else 1
