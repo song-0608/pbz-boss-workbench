@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "windows_cmd_forwarders": [
+    {
+      "entry": "D:\\mod文档\\开始Boss工作台.cmd",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "entry": "E:\\项目\\PBZ-Boss操控研究\\开始Boss工作台.cmd",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "game_started": false,
+  "game_payload_modified": false
+}
