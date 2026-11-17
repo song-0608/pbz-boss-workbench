@@ -39,6 +39,7 @@ function M.new(o)
     end
     function self:invalidate(reason,automatic)
         self.pending=nil
+        self.applied_frame=nil
         if automatic and self.restore_pending then
             local now=recovery_clock()
             if not now or (self.retry_after and now<self.retry_after) then return false end
@@ -114,6 +115,10 @@ function M.new(o)
             self.pending=frame
         end
         if self.restore_pending then return end
+        -- One buffered packet owns one pose application. Timer jitter and relay
+        -- gaps must not repeat native transforms/skeleton work for that packet.
+        -- Freshness, World and generation checks still run before this shortcut.
+        if self.record and self.applied_frame==frame then return end
         if not self.record then
             local remembered
             local record=o.native.mount(frame.boss,world,function(row)
@@ -123,6 +128,7 @@ function M.new(o)
             assert(record==remembered and record~=nil,'visual Actor must be recorded before construction')
         end
         assert(o.native.update(self.record,frame,world)==true,'visual pose update not acknowledged')
+        self.applied_frame=frame
         self.pose_failures,self.pose_retry_at=0,nil
     end
     function self:tick()

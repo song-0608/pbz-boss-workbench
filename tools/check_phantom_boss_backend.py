@@ -64,7 +64,7 @@ def run():
         ('online_spawn_native_bindings', [str(lab), str(ROOT / TESTS[13]), str(ROOT), str(target)], 28),
         ('cold_startup_menu_loading', [str(lab), str(ROOT / TESTS[14]), str(ROOT), str(target)], 25),
         ('combat_runtime_composition', [str(lab), str(ROOT / TESTS[15]), str(ROOT), str(target)], 5),
-        ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 24),
+        ('visual_protocol_lifecycle', [str(lab), str(ROOT / TESTS[16]), str(ROOT)], 28),
         ('visual_native_bindings', [str(lab), str(ROOT / TESTS[17]), str(ROOT)], 17),
         ('visual_session_integration', [str(lab), str(ROOT / TESTS[18]), str(ROOT)], 9),
         ('deferred_launch_gate', [str(lab), str(ROOT / TESTS[19]), str(ROOT)], 15),
