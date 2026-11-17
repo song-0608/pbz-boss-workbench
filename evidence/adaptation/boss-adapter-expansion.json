@@ -2,19 +2,24 @@
   "schema_version": 1,
   "status": "offline-adapter-preparation",
   "passed": true,
-  "fingerprint": "d0bc3ded9baf0378665d",
-  "directory": "runtime/boss-expansion/d0bc3ded9baf0378665d",
+  "fingerprint": "b6111c6caef0d0fa3a2e",
+  "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e",
   "catalog": "research/boss-adaptation/catalog.json",
   "catalog_sha256": "bbab28b159eb5ed13392c61dc4f8d8fa029ef9580d13b211e1a38ea685bce9d1",
   "source_files": {
-    "tools/boss_adapter_registry.py": "dcfbbe5ab5aaadbbfeeb9ef02c53f3e0d5b29252b6122885590e09c72ce04c0d",
+    "tools/boss_adapter_registry.py": "b8cb1919ac07270c2f18cb9697d5e0c2b661e30de8ab2895d13494a92e7dee11",
     "tools/boss_adaptation_workflow.py": "1f3e81706dbb8b10bcac4d97a63dee0c5df4151fa29f5a42dc35db85d8e8d18a",
     "tools/build_boss_adaptation_batch.py": "0b754fa29a49be531cbe267716e97c264df24ed9afc5701f4f34587878e8c8de",
     "tools/build_boss_identity_probe.py": "ce5dc0e302b9928f507bbcf805168fd4c00c64fd55cf492d0ac35341a8943af5",
     "tests/test_boss_adapter_registry.py": "af8a8985b2dbf4dc121dcb7bd888541910a4799aae9bc688f7ef4d4c4c249b35",
     "tests/test_boss_adaptation_batch.py": "0e53a0177371f0bc4d350c1494a81768ec8ceb91770cbdae50569c9afb3d78eb",
     "tests/test_boss_identity_probe.lua": "33dd04e0f9c5294bd8b155310a7ad0b9d4dcad826796d09f39b18f4c5ac57cb0",
-    "research/boss-adaptation/expansion-queue.json": "077bd21f7c530ce39469e8f4fbeee9f3953aecbe9b2c586b0cca8d0ad6c85696"
+    "research/boss-adaptation/expansion-queue.json": "077bd21f7c530ce39469e8f4fbeee9f3953aecbe9b2c586b0cca8d0ad6c85696",
+    "tools/boss_metadata_jobs.py": "e8d3c7c19f3362cee2b0552a488571f105205f82215bc4fb5bd4e8e7c750cd3d",
+    "tools/run_boss_identity_batch.py": "2536fe4d32c8da912d76482c9fd9a78ad447caeea69c302cddee0197e57afc79",
+    "tools/collect_boss_metadata_jobs.py": "2313c47f6108567ba005874b1e35060668c9c5c35cfd86a028227f7c15fcd473",
+    "tests/test_boss_metadata_jobs.py": "2f2d132c080954078e986d936380fdccdba2150cbf2c375d7847ea180cce735f",
+    "tests/test_boss_metadata_jobs.lua": "a7db032795eeab2574aff49a438f59f6c6ff3a1e9757576d74b3d69a7384cd20"
   },
   "registry": {
     "schema_version": 1,
@@ -1709,6 +1714,1109 @@
         "071_xianzhe"
       ]
     ],
+    "metadata_job_batches": [
+      [
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEd_ZuoShang_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEd_ZuoShang_02.GA_Hun_BDEd_ZuoShang_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "dc5c37dda200769e651d"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_01.GA_Hun_BDEx_ZuoShang_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "946b0826699a8016f68e"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_02.GA_Hun_BDEx_ZuoShang_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "4fa25ddad73817eb80ff"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_CA_02_Fixed",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_Hun_BDEx_ZuoShang_CA_02_Fixed.GA_Hun_BDEx_ZuoShang_CA_02_Fixed_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b0bbf5e579e0d10ee7fa"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03.GA_ZuoShang_CA_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "8d5ed3da932f061ccd93"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03_QTE",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_03_QTE.GA_ZuoShang_CA_03_QTE_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b891a9fa300c613dc1b8"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_GEx_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_CA_GEx_01.GA_ZuoShang_CA_GEx_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "3099b82749390fea7601"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dash_B",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dash_B.GA_ZuoShang_Dash_B_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "1d67a8250f3b6fba3ef7"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dash_F",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dash_F.GA_ZuoShang_Dash_F_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "090765d4cec70441cfba"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_F_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_F_01.GA_ZuoShang_Dodge_F_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "6135bb14e81195b487ca"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_F_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_F_02.GA_ZuoShang_Dodge_F_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "9015c51942b27c99ac67"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_01.GA_ZuoShang_Dodge_R_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ec904dfa4041754e622c"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_02.GA_ZuoShang_Dodge_R_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "efcf3b0990964bb199a4"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Dodge_R_03.GA_ZuoShang_Dodge_R_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "040fbf678b0f1be20b9a"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Grab_Normal",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Grab_Normal.GA_ZuoShang_Grab_Normal_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b4718e0ed27fc13f3c05"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_HeavyAttack_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_HeavyAttack_02.GA_ZuoShang_HeavyAttack_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "820f65ce898249c0a115"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_LightAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_LightAttack_01.GA_ZuoShang_LightAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "962860156f260e986474"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_02.GA_ZuoShang_Skill_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "4a635ecb032367256d27"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_05_Child",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_05_Child.GA_ZuoShang_Skill_05_Child_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "29cb1f31de9eb5807303"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_06_Fast",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_06_Fast.GA_ZuoShang_Skill_06_Fast_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "384009ba3d9fc6f3416c"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_09",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_09.GA_ZuoShang_Skill_09_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ae9201d0db1c2a5baf54"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_12_Combo",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_12_Combo.GA_ZuoShang_Skill_12_Combo_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "1d5e2345d08ea1207f9f"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_02.GA_ZuoShang_SpecialAttack_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "596887f4adace1befcdb"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_07",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_07.GA_ZuoShang_SpecialAttack_07_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "62a9135424baede49c62"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_09",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_09.GA_ZuoShang_SpecialAttack_09_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "f6d5b0a5f50a495f2ca0"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_09_Gun",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_09_Gun.GA_ZuoShang_SpecialAttack_09_Gun_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "5fa0d4c270b13d6513f4"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_11_Ending",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_SpecialAttack_11_Ending.GA_ZuoShang_SpecialAttack_11_Ending_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "cd4814eef93ec7351f33"
+        },
+        {
+          "id": "054_zuoshang",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending.BP_Monster_ZuoShang_Ending_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang.ActorC_ZuoShang"
+          ],
+          "key": "2443b51e0cc2d932d0e6"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Buff",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Buff.GA_RenTuZi_Buff_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "11c32e7532974c66c205"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_CA_01_Ged",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_CA_01_Ged.GA_RenTuZi_CA_01_Ged_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b030d4c541c37719875a"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Dodge_B",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Dodge_B.GA_RenTuZi_Dodge_B_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b3036387b2c7e0263a30"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Intro_Golden",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Intro_Golden.GA_RenTuZi_Intro_Golden_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ee10100587acc4e839fb"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Skill_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Skill_02.GA_RenTuZi_Skill_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "23eb3700812155acbeeb"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Skill_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_Skill_05.GA_RenTuZi_Skill_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "0ad7978b911642696c90"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_01.GA_RenTuZi_SpecialAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2f9d14f7619b5a3c759c"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_03.GA_RenTuZi_SpecialAttack_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2e49e7729e9cb7602666"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_04",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_04.GA_RenTuZi_SpecialAttack_04_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "c0c379e18e4233eb0408"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_05.GA_RenTuZi_SpecialAttack_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "5b592f5a96bd3140ac71"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_06",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/Ability/Gou/Abilities/GA_RenTuZi_SpecialAttack_06.GA_RenTuZi_SpecialAttack_06_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "96a6b5158e20758da107"
+        },
+        {
+          "id": "066_rentuzi",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/BP_Monster_RenTuZi_AutoGolden",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/BP_Monster_RenTuZi_AutoGolden.BP_Monster_RenTuZi_AutoGolden_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/066_RenTuZi/ActorData/ActorC_RenTuZi_AutoGolden.ActorC_RenTuZi_AutoGolden"
+          ],
+          "key": "65deb1836fdd44e26ca4"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA_02.GA_XianZhe_CA_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "1db0d9cdef140046be48"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_B",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_B.GA_XianZhe_Dodge_B_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "5844b537d55a56799a2a"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_L",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_L.GA_XianZhe_Dodge_L_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "7384a09f9138ab9ef4ec"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_EnterCombat",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_EnterCombat.GA_XianZhe_EnterCombat_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "57eb2a7e69610b05ffc9"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_05.GA_XianZhe_Skill_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "55647660e8d988d498d1"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_06",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_06.GA_XianZhe_Skill_06_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ff0557da8ff3a366a1d3"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_07",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_07.GA_XianZhe_Skill_07_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "f5d726886c10bc4f96b4"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+          ],
+          "key": "05953fabadf52ffd5f8e"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BulletData/GA_XianZhe_EnergySpear_Blue",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BulletData/GA_XianZhe_EnergySpear_Blue.GA_XianZhe_EnergySpear_Blue_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "315ecc6db2cdfc375ba2"
+        },
+        {
+          "id": "071_xianzhe",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BulletData/GA_XianZhe_EnergySpear_Red",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BulletData/GA_XianZhe_EnergySpear_Red.GA_XianZhe_EnergySpear_Red_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "326643d2062ae9fce1cd"
+        }
+      ],
+      [
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/Ceremony/GA_SacrificeBase",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/Ceremony/GA_SacrificeBase.GA_SacrificeBase_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "256ea0c321053f440226"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctorBoss_Extract",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctorBoss_Extract.GA_MadDoctorBoss_Extract_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "0a45130819f60bcbd8fe"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex.GA_MadDoctor_CA_01_Gex_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2ff20623bdd74d7998e8"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B.GA_MadDoctor_Dodge_B_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "10c0de910f965a92c243"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_F",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_F.GA_MadDoctor_Dodge_F_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "4fbdd9ef5491fdb44cbb"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R.GA_MadDoctor_Dodge_R_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "a7d6853f0b87d4a6917c"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HealingBase",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HealingBase.GA_MadDoctor_HealingBase_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "f19de2708cf1b7041923"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HeavyAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_HeavyAttack_01.GA_MadDoctor_HeavyAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "acd12a55caea057a5e7e"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_LightAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_LightAttack_01.GA_MadDoctor_LightAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "50e3c31ce3a32c1fb8ad"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistResurrect",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistResurrect.GA_MadDoctor_RitualistResurrect_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "4e5626b0827c700c9bc3"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_03.GA_MadDoctor_Skill_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "857b184f56d478085a41"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_GroupResurrect",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_GroupResurrect.GA_MadDoctor_Skill_GroupResurrect_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b35b2bcead871fa1f5dd"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01.GA_MadDoctor_SpecialAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "bc25b7be54efab49107e"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave.GA_MadDoctor_SpecialAttack_02_4Wave_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "7ae7f3e8750d6e4a532d"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_MadDoctor",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_MadDoctor.BP_Monster_MadDoctor_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Sacrifice/Data/ActorC_EMei_Sacrifice.ActorC_EMei_Sacrifice"
+          ],
+          "key": "8fbdb05bc9b80d4e7f54"
+        },
+        {
+          "id": "058_maddoctor",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Sacrifice/Data/ActorC_EMei_Sacrifice.ActorC_EMei_Sacrifice"
+          ],
+          "key": "daa90b5018fa3f379f8a"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "7445fa360fe492c6815e"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2815504b5155f2515f53"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R.GA_MoTian_Dodge_R_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2bd84a389ca4ac46b37e"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/ExE/GA_Hun_BEd_MoYuan",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/ExE/GA_Hun_BEd_MoYuan.GA_Hun_BEd_MoYuan_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ba3b18f0c622f407ce82"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_Hun_BDEx_MoYuan_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_Hun_BDEx_MoYuan_01.GA_Hun_BDEx_MoYuan_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "381e371f5cd46d310f8e"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02.GA_MoTian_GEd_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "a798e859bc38c9f8e25e"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02_Short",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_02_Short.GA_MoTian_GEd_02_Short_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "6cb78f54e1ef80cbb9b6"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_03.GA_MoTian_GEd_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "0fd3ca3a5c01b6f9be62"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEd_05.GA_MoTian_GEd_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "26a6988c45ca68ec8e1d"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_02.GA_MoTian_GEx_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "7b6c5feff285b6aa27ce"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_03.GA_MoTian_GEx_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "f11bfc29c6182db73d9c"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_04",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_04.GA_MoTian_GEx_04_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "5cfeec33e83deeb44e02"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_GEx_05.GA_MoTian_GEx_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "6e298d6ddbe57015d8d0"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01.GA_MoTian_HeavyAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ec90564410ccad98370a"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01_Endure",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_HeavyAttack_01_Endure.GA_MoTian_HeavyAttack_01_Endure_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "6295afff104f9305926a"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Init_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Init_02.GA_MoTian_Init_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "1800ff385dc93fbddbfd"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_LightAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_LightAttack_01.GA_MoTian_LightAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "e0af6baeff2042ff6cbe"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02.GA_MoTian_Skill_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "73b7c98ff5c271d7df8c"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02_Endure",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_02_Endure.GA_MoTian_Skill_02_Endure_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "1f6bbc024cb5f946d69f"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_03.GA_MoTian_Skill_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "b533b1603c576e340f2b"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_07",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_07.GA_MoTian_Skill_07_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "73e2a48e20b56bf1a606"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_09_Endure",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Skill_09_Endure.GA_MoTian_Skill_09_Endure_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "e18c57430e47682e52cb"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_01.GA_MoTian_SpecialAttack_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "1175e21118acb0311bc3"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_03_Endure",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_03_Endure.GA_MoTian_SpecialAttack_03_Endure_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2cd0e3beab5ded814536"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_05.GA_MoTian_SpecialAttack_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "7813091974707163807f"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_06",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_06.GA_MoTian_SpecialAttack_06_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "3d2780699ae9469b7563"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_07",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SpecialAttack_07.GA_MoTian_SpecialAttack_07_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "40dd633ec5bbbc369964"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_02.GA_MoTian_Taunt_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "114cf19ea8ecf2b04717"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_Taunt_03.GA_MoTian_Taunt_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "27e731f48b8dea7fa5fc"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive/GA_MoYuan_Passive_LongZhu_01",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive/GA_MoYuan_Passive_LongZhu_01.GA_MoYuan_Passive_LongZhu_01_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "f0531487e0c5bb36d2d8"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_04",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_04.GA_MoTian_Tang_Skill_04_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "5500b56f45d4c2ce7151"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Skill_05.GA_MoTian_Tang_Skill_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "d855c331eed0eef4c2a7"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_02.GA_MoTian_Tang_SpecialAttack_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "51fa234c499609bbb2d0"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_05",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_05.GA_MoTian_Tang_SpecialAttack_05_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "890381a8da3b7299d8a9"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_06",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_SpecialAttack_06.GA_MoTian_Tang_SpecialAttack_06_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "9db6740d867053e715bc"
+        },
+        {
+          "id": "067_motian",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Stance",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Stance.GA_MoTian_Tang_Stance_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "ab18afedc66f7bb4d846"
+        },
+        {
+          "id": "067_motian",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_01.ActorC_MoTian_LongZhu_01",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_03.ActorC_MoTian_LongZhu_03"
+          ],
+          "key": "7cf838cab3395a6f25fe"
+        },
+        {
+          "id": "067_motian",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian_LongZhu_02",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian_LongZhu_02.BP_Monster_MoTian_LongZhu_02_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_01.ActorC_MoTian_LongZhu_01",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_03.ActorC_MoTian_LongZhu_03"
+          ],
+          "key": "bfe96e01a119fd59e299"
+        }
+      ],
+      [
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Attack_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Attack_03.GA_ZuoShang_P2_Attack_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "84cffc723c69a919aad1"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill.GA_ZuoShang_P2_Skill_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2f787251ed025a0e3f16"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_01_Hard",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_01_Hard.GA_ZuoShang_P2_Skill_01_Hard_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "91383860ca8513721d67"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_03",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_03.GA_ZuoShang_P2_Skill_03_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "c0754beb5b398932677c"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_09",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_09.GA_ZuoShang_P2_Skill_09_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "4975bfa975876f3c4418"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_14_WithSubtitle",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_14_WithSubtitle.GA_ZuoShang_P2_Skill_14_WithSubtitle_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "4ec52a35740dda37b0b8"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_17_NoCD",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_17_NoCD.GA_ZuoShang_P2_Skill_17_NoCD_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "20f2e737e8ef0b0c9acc"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_18_NoCD",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_18_NoCD.GA_ZuoShang_P2_Skill_18_NoCD_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "5c4ae80ed6e9ddce587f"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_20_GEd",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_20_GEd.GA_ZuoShang_P2_Skill_20_GEd_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "aa1ea484a2f27252ce85"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_20_NoCD",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_20_NoCD.GA_ZuoShang_P2_Skill_20_NoCD_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "23d45b8d95aa8dfc385a"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_23_Combined",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_23_Combined.GA_ZuoShang_P2_Skill_23_Combined_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "2eec005a823506546dcf"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_24_Combined",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_24_Combined.GA_ZuoShang_P2_Skill_24_Combined_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "349193f021d658690ac2"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Stance",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Stance.GA_ZuoShang_P2_Stance_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "76ca1407dec32f289a1f"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "ability",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Subtitle",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Subtitle.GA_ZuoShang_P2_Subtitle_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [],
+          "key": "7f5b4641840fc20f92bc"
+        },
+        {
+          "id": "076_zuoshang_p2",
+          "role": "character",
+          "package": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/BP_Monster_ZuoShang_P2_Stand",
+          "lookup_path": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/BP_Monster_ZuoShang_P2_Stand.BP_Monster_ZuoShang_P2_Stand_C",
+          "lookup_path_derivation": "Conventional Unreal class suffix; request only, not verified identity.",
+          "config_candidates": [
+            "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/ActorConfig/ActorC_ZuoShang_P2.ActorC_ZuoShang_P2",
+            "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/DragonPillar/ActorC_ZuoShang_P2_DragonPillar.ActorC_ZuoShang_P2_DragonPillar"
+          ],
+          "key": "9bd9e4cba44887b810b0"
+        }
+      ]
+    ],
+    "metadata_execution_policy": "Prefer combined metadata jobs; legacy identity batches are compatibility fallbacks, never run both.",
     "game_started": false,
     "installed": false,
     "complete_mod": false,
@@ -1721,7 +2829,7 @@
       "promotion": "independent identity, grants and runtime acceptance; never folder-name inference"
     }
   },
-  "registry_sha256": "5726d20318715464453f12a7b8c6fba3f2c417fd7eb74c4c2aa6ffac60cdbd88",
+  "registry_sha256": "b4fe417a81f88c0d2c59a0c8f9004ee2769448d57eb35fa345547146ed8daf65",
   "adapter_files": {
     "adapters/054_zuoshang.json": "2c3e0168ee838055cbad2bceab6063db51434df63a3a61b1de6cf9604ed908f3",
     "adapters/058_maddoctor.json": "205a3740bca327caaa0ca086475f3c3500c2274920971b1a6d6e3c461d6580bf",
@@ -1732,18 +2840,47 @@
   },
   "batches": [
     {
-      "directory": "runtime/boss-expansion/d0bc3ded9baf0378665d/batches/offline-0ee3447c989783c9",
+      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/batches/offline-0ee3447c989783c9",
       "candidate_ids": [
         "054_zuoshang",
         "066_rentuzi",
         "071_xianzhe"
       ],
-      "manifest_sha256": "bcd5d2a472773ddc8e5485812e58a3c759a33f9b81a6a511b287cf141b92a86e",
-      "probe_manifest_sha256": "52f1bb75bc1be959a75c46dbf29adcfdb7bb1f0b6162863e5d36b97511afb879",
+      "manifest_sha256": "50b74f7f911f76c7c072da249f66d870e65302cb0df0a52c5dfabd1695e6d5fb",
+      "probe_manifest_sha256": "861b14bd1e809c216487506eaea3c86c1104aa98a9973a1eddd1c2fe9d1e645e",
       "script_sha256": "2cda2b2e99949af19247632c36b812e36c405d4f674c183875bb1cd84e30f8ff",
       "requests": 6,
       "deployed": false,
       "game_started": false
+    }
+  ],
+  "metadata_batches": [
+    {
+      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/metadata/metadata-c3e9740e9e90735276e1",
+      "manifest_sha256": "eecf5daddb331f9c1abd54be8f9bf410907d776ce17bfc69c6557bd2c42d96fe",
+      "requests": 50,
+      "candidate_ids": [
+        "054_zuoshang",
+        "066_rentuzi",
+        "071_xianzhe"
+      ]
+    },
+    {
+      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/metadata/metadata-32e236f7d45f6b8ab3e8",
+      "manifest_sha256": "f7e20b26a8d38f5d9ee21fe4c73808804e09951632093b24e0a4bee3313cd708",
+      "requests": 54,
+      "candidate_ids": [
+        "058_maddoctor",
+        "067_motian"
+      ]
+    },
+    {
+      "directory": "runtime/boss-expansion/b6111c6caef0d0fa3a2e/metadata/metadata-845938255c7b1bd9b158",
+      "manifest_sha256": "abf5554105d58a1fb91cefb9d2ad20ae8f1a066f5c6f90f4a11e5c39eac25f32",
+      "requests": 15,
+      "candidate_ids": [
+        "076_zuoshang_p2"
+      ]
     }
   ],
   "game_started": false,

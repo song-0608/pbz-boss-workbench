@@ -43,6 +43,9 @@ def verify(path=None):
               'online_session_composition':17,
               'profile_policy_lifecycle':8,'boss_adapter_registry_python':12,'boss_adaptation_batch_python':9,
               'next_boss_identity_ok':1,'next_boss_identity_wrong_identity':1,'next_boss_identity_wrong_config':1,
+              'boss_metadata_jobs_python':12,
+              **{'boss_metadata_queue_'+mode:1 for mode in ('ok','subtree','foreign_config','unavailable',
+                  'wrong_identity','lineage_cycle','expired','busy_timeout','frozen_clock_budget')},
               'patched_lua_compile_only': 67}
     assert len(report['checks']) == len(counts)
     assert {row['name']: row['groups'] for row in report['checks']} == counts
@@ -57,13 +60,14 @@ def verify(path=None):
         elif row['name'] == 'patched_lua_compile_only':
             assert 'PASS syntax only: 67 candidate Lua files' in output
         else:
-            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session|profile policy|identity queue) groups', output)
+            assert re.search(r'PASS ' + str(row['groups']) + r' (?:protocol|adapter|entry|host|enemy fence|online scope|online control|network body|online arena|spawn native|startup|combat runtime|visual|visual native|visual session|launch gate|online workbench|workbench native|online session|profile policy|identity queue|metadata jobs) groups', output)
     from boss_adapter_registry import verify as verify_expansion
     expansion=verify_expansion()
     assert expansion['adapters']==6 and expansion['metadata_ready']==3 and expansion['metadata_requests']==6
-    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 530
+    assert expansion['combined_batches']==3 and expansion['combined_metadata_requests']==119
+    assert report['control_plane_test_groups'] == sum(list(counts.values())[:-1]) == 551
     assert report['syntax_checked_lua_files']==67
-    return dict(passed=True, status='backend-milestone-only', groups=530, compiled_lua_files=67,
+    return dict(passed=True, status='backend-milestone-only', groups=551, compiled_lua_files=67,
                 candidate=manifest['candidate_id'], complete_mod=False,
                 runtime_acceptance_current=False, game_started=False)
 

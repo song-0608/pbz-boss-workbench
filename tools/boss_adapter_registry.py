@@ -10,12 +10,13 @@ import re
 from boss_adaptation_workflow import ROOT, OUT, BUILD, GATES, sha, write_json
 from build_boss_adaptation_batch import candidate_work, freeze, select_batch
 from build_boss_identity_probe import build as build_probe, requests, render
+import boss_metadata_jobs as metadata
 
 QUEUE='research/boss-adaptation/expansion-queue.json'
 SOURCES=('tools/boss_adapter_registry.py','tools/boss_adaptation_workflow.py',
     'tools/build_boss_adaptation_batch.py','tools/build_boss_identity_probe.py',
     'tests/test_boss_adapter_registry.py','tests/test_boss_adaptation_batch.py',
-    'tests/test_boss_identity_probe.lua',QUEUE)
+    'tests/test_boss_identity_probe.lua',QUEUE,*metadata.SOURCES)
 
 
 def read(path):
@@ -71,7 +72,9 @@ def plan(catalog,identifiers):
     for batch in batches:
         select_batch(work,batch)
     return dict(schema_version=1,target_build_sha256=BUILD,adapters=adapters,
-        next_identity_batches=batches,game_started=False,installed=False,
+        next_identity_batches=batches,metadata_job_batches=metadata.batches([indexed[i] for i in identifiers]),
+        metadata_execution_policy='Prefer combined metadata jobs; legacy identity batches are compatibility fallbacks, never run both.',
+        game_started=False,installed=False,
         complete_mod=False,runtime_acceptance_current=False,new_playable_bosses=0,
         architecture=dict(discovery='observed catalog with source hashes',
             planning='per-Boss adapter manifests and bounded missing-evidence jobs',
@@ -104,12 +107,18 @@ def build(root=ROOT,catalog_path=None):
     for adapter in registry['adapters']:
         write_json(target/'adapters'/(adapter['id']+'.json'),adapter)
     write_json(target/'registry.json',registry)
+    metadata_batches=[]
+    for jobs in registry['metadata_job_batches']:
+        directory=metadata.freeze(jobs,target/'metadata',root)
+        metadata_batches.append(dict(directory=directory.relative_to(root).as_posix(),
+            manifest_sha256=sha(directory/'metadata-probe-manifest.json'),
+            requests=len(jobs),candidate_ids=list(dict.fromkeys(j['id'] for j in jobs))))
     report=dict(schema_version=1,status='offline-adapter-preparation',passed=True,
         fingerprint=fingerprint,directory=target.relative_to(root).as_posix(),
         catalog=catalog_path.relative_to(root).as_posix(),catalog_sha256=sha(catalog_path),
         source_files=sources,registry=registry,registry_sha256=sha(target/'registry.json'),
         adapter_files={p.relative_to(target).as_posix():sha(p) for p in sorted((target/'adapters').glob('*.json'))},
-        batches=batches,game_started=False,installed=False,new_playable_bosses=0,
+        batches=batches,metadata_batches=metadata_batches,game_started=False,installed=False,new_playable_bosses=0,
         complete_mod=False,runtime_acceptance_current=False)
     output=root/'evidence/adaptation/boss-adapter-expansion.json'
     write_json(output,report)
@@ -165,9 +174,18 @@ def verify(report_path=None,root=ROOT):
         assert (directory/'identity-probe.lua').read_bytes()==render(expected_requests).encode('utf-8')
         assert probe['auto_deploy'] is False and probe['runtime_verified'] is False
         assert batch['deployed'] is False and batch['game_started'] is False
+    assert len(report['metadata_batches'])==len(expected['metadata_job_batches'])
+    for row,jobs in zip(report['metadata_batches'],expected['metadata_job_batches']):
+        directory=safe(root,row['directory']);assert directory.is_relative_to(target/'metadata')
+        manifest=metadata.verify_batch(directory,root)
+        assert manifest['jobs']==jobs and len(jobs)==row['requests']
+        assert sha(directory/'metadata-probe-manifest.json')==row['manifest_sha256']
+        assert row['candidate_ids']==list(dict.fromkeys(j['id'] for j in jobs))
     return dict(passed=True,adapters=len(expected['adapters']),metadata_ready=sum(bool(a['identity_requests']) for a in expected['adapters']),
         variant_blocked=sum(not a['identity_requests'] for a in expected['adapters']),
-        metadata_requests=sum(b['requests'] for b in report['batches']),game_started=False,new_playable_bosses=0)
+        metadata_requests=sum(b['requests'] for b in report['batches']),
+        combined_metadata_requests=sum(b['requests'] for b in report['metadata_batches']),
+        combined_batches=len(report['metadata_batches']),game_started=False,new_playable_bosses=0)
 
 
 if __name__=='__main__':

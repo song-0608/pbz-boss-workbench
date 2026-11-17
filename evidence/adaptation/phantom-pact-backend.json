@@ -15,252 +15,322 @@
   "upstream_reviewed_sources": 19,
   "catalog_bosses": 4,
   "catalog_abilities": 40,
-  "control_plane_test_groups": 530,
+  "control_plane_test_groups": 551,
   "syntax_checked_lua_files": 67,
   "checks": [
     {
       "name": "protocol_simulation",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/protocol_simulation.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/protocol_simulation.txt",
       "output_sha256": "c60a6d3535af976ea71bfc4d3a5193fe8a7eb8679503ec0a2572f2d43ae31eae"
     },
     {
       "name": "adapter_mocked_api",
       "passed": true,
       "groups": 52,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/adapter_mocked_api.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/adapter_mocked_api.txt",
       "output_sha256": "eb1b921e69d74d5b1b55d2f1c64987612161f0671b2ddff4e0d77dc4900c77e7"
     },
     {
       "name": "candidate_python",
       "passed": true,
       "groups": 15,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/candidate_python.txt",
-      "output_sha256": "8b5a09bafb3eb475947a83ad42dc36b9436c8f08bd407ef0d4d90d2c3577e643"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/candidate_python.txt",
+      "output_sha256": "eab247551d31919603c60ed04d9d863d47a6bff6618c122337ac94d8a29b8f76"
     },
     {
       "name": "entry_mocked_research_lease",
       "passed": true,
       "groups": 15,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/entry_mocked_research_lease.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/entry_mocked_research_lease.txt",
       "output_sha256": "8b136818da7e078661f6bdafea5d31a0151b8b07e193dc73161ba6593cd32259"
     },
     {
       "name": "host_fake_uobjects",
       "passed": true,
       "groups": 17,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/host_fake_uobjects.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/host_fake_uobjects.txt",
       "output_sha256": "809c1f12f5a752d39e854bf4d6ac90a388d23e02215df7cb3fb425f9a16c706a"
     },
     {
       "name": "enemy_fence_patched_upstream",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/enemy_fence_patched_upstream.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/enemy_fence_patched_upstream.txt",
       "output_sha256": "f8b46603d7891818e54550044435d19817be703ffb81f40e051b0920b88b267a"
     },
     {
       "name": "same_pc_pair_python",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/same_pc_pair_python.txt",
-      "output_sha256": "46f0f6d4b55423ba1d021736ae72996c272200f9b1473fc7e3c55e4ef537c0b0"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/same_pc_pair_python.txt",
+      "output_sha256": "735d2115480107d5da44fe0833bd61e9877d4ae33df38d9a648b9ac194f781b2"
     },
     {
       "name": "online_scope_simulation",
       "passed": true,
       "groups": 12,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/online_scope_simulation.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/online_scope_simulation.txt",
       "output_sha256": "2b3245b5ee807943c4219a77797eb6259e6d787508f5b5b4b58b8516fff65bf0"
     },
     {
       "name": "online_control_fake_uobjects",
       "passed": true,
       "groups": 23,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/online_control_fake_uobjects.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/online_control_fake_uobjects.txt",
       "output_sha256": "3cbe562a0e2ab34b2e735371dace04e44db53cfcb867b3d2a8e14f96b80cca95"
     },
     {
       "name": "network_body_patched_upstream",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/network_body_patched_upstream.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/network_body_patched_upstream.txt",
       "output_sha256": "e601945a92b5cd1f6b82c94dcc682c7f9be7e107293cb84ee45fa3aee7f3ce2e"
     },
     {
       "name": "online_arena_lifecycle",
       "passed": true,
       "groups": 27,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/online_arena_lifecycle.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/online_arena_lifecycle.txt",
       "output_sha256": "c8eabe90111b67aeadf159ffd74b688015784eac4f5ee8b1dea5357d7cc6424c"
     },
     {
       "name": "online_spawn_native_bindings",
       "passed": true,
       "groups": 28,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/online_spawn_native_bindings.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/online_spawn_native_bindings.txt",
       "output_sha256": "5732de1bb87889609d94e0b6d5393682db7f33a76db6dbb72fbe68228802b85a"
     },
     {
       "name": "cold_startup_menu_loading",
       "passed": true,
       "groups": 25,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/cold_startup_menu_loading.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/cold_startup_menu_loading.txt",
       "output_sha256": "ffd917ca7504d86817c9cdb7ff2ddbe5fc3dd20fb7b274a10e40dc37a142f97d"
     },
     {
       "name": "combat_runtime_composition",
       "passed": true,
       "groups": 5,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/combat_runtime_composition.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/combat_runtime_composition.txt",
       "output_sha256": "aabd6dd8b00af17d4eecc94a2d2a39a865e8a2c9f112a057a1dea1c21fcca247"
     },
     {
       "name": "visual_protocol_lifecycle",
       "passed": true,
       "groups": 32,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/visual_protocol_lifecycle.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/visual_protocol_lifecycle.txt",
       "output_sha256": "834523638e9f7932500f08e8f6a433f3dd042ac4ee055034bf20781a3ef4df5c"
     },
     {
       "name": "visual_native_bindings",
       "passed": true,
       "groups": 17,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/visual_native_bindings.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/visual_native_bindings.txt",
       "output_sha256": "1df43087e7c6e39956308a558cbdef6927af98e4a1e5621a7e7e2988e6a58926"
     },
     {
       "name": "visual_session_integration",
       "passed": true,
       "groups": 9,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/visual_session_integration.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/visual_session_integration.txt",
       "output_sha256": "a37af87f69303ffa7c1b1668bec8891ae73cd1546b8cde3abfdb96cead213a07"
     },
     {
       "name": "deferred_launch_gate",
       "passed": true,
       "groups": 15,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/deferred_launch_gate.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/deferred_launch_gate.txt",
       "output_sha256": "deb534e1b193201ef124f34b4c3df0655274bc6ee68112b96620f09d5f41bf55"
     },
     {
       "name": "pair_session_python",
       "passed": true,
       "groups": 18,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/pair_session_python.txt",
-      "output_sha256": "8bc3b7e23f6d75d06ae6f038f19aa20a77e937085d74c8ce180293beb84c13a4"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/pair_session_python.txt",
+      "output_sha256": "d3fd4f44296cf6cf351e268b70ad6ec659dfd586b06e7cb4cff713eb5709287a"
     },
     {
       "name": "online_workbench_lifecycle",
       "passed": true,
       "groups": 28,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/online_workbench_lifecycle.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/online_workbench_lifecycle.txt",
       "output_sha256": "2903bde9989f8a69749d28c2aa7764371d21ecc4571ac8c691d058891685ac7b"
     },
     {
       "name": "workbench_native_umg",
       "passed": true,
       "groups": 16,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/workbench_native_umg.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/workbench_native_umg.txt",
       "output_sha256": "8246fae8d88502b0619d154cb643bad6adfc84d218276e3697aa9860a4dd3b9a"
     },
     {
       "name": "control_contract_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/control_contract_python.txt",
-      "output_sha256": "b3fadf72d526090b5267367d915a446b5d8f027787a17c7c305c01694d307a90"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/control_contract_python.txt",
+      "output_sha256": "823b4303b246be1bc7f93bedd11b0806b363c0b970cc51c55fdd8c129ed2ca11"
     },
     {
       "name": "contract_bundle_python",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/contract_bundle_python.txt",
-      "output_sha256": "a4a9729723e3617273ebaa2b671097b97a8d4cbf293df1b3ea608b13dfb61c8b"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/contract_bundle_python.txt",
+      "output_sha256": "342452f70d628fb9d605f78bd1eb00243e880f7a57e369f57f1ff4bec6478430"
     },
     {
       "name": "control_abi_python",
       "passed": true,
       "groups": 18,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/control_abi_python.txt",
-      "output_sha256": "3d15b38a68fb436ebee68c872e438713f2b15e8c274e037664e1d12edcdaa588"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/control_abi_python.txt",
+      "output_sha256": "8882973c3ae04ac2e139a4ac138732e81f642332c9a964d17b0ed7b8fdd3338e"
     },
     {
       "name": "control_binding_python",
       "passed": true,
       "groups": 13,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/control_binding_python.txt",
-      "output_sha256": "4f15641b54346752fddd246974e2a9cb9610fe403e3c5673634a6a7a6a10296f"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/control_binding_python.txt",
+      "output_sha256": "52c5bfb4561ff702bf2bc29d20909217c196764797708629fa86efe4ccdf0c2f"
     },
     {
       "name": "client_auth_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/client_auth_python.txt",
-      "output_sha256": "99c4312a8074781a8a439fe7e1c295368d031bdc73dcc7440328fdc7c1c4ffac"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/client_auth_python.txt",
+      "output_sha256": "91c5eba4d5fa625459980166a12f0822bffc7cf4378c0eb8532a90cda5ffecc6"
     },
     {
       "name": "optional_contracts_python",
       "passed": true,
       "groups": 14,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/optional_contracts_python.txt",
-      "output_sha256": "f7d6de8808e0006dce68942205fe28e53cbecef01a17c2cd7b9910ccd1e696ff"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/optional_contracts_python.txt",
+      "output_sha256": "87d381a83d375c8991dfdf528401e8fd34dca0b29f6ab7d9a049181280fff817"
     },
     {
       "name": "online_session_composition",
       "passed": true,
       "groups": 17,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/online_session_composition.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/online_session_composition.txt",
       "output_sha256": "a0d06e898aa926e1df953e9e08d6989f746e3ad376fe4baf22bf9c0d357f1f35"
     },
     {
       "name": "profile_policy_lifecycle",
       "passed": true,
       "groups": 8,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/profile_policy_lifecycle.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/profile_policy_lifecycle.txt",
       "output_sha256": "0c037b7b7f23bc2dde7df0a705a864db7b772954149ae1871883b9f8c3c5d633"
     },
     {
       "name": "boss_adapter_registry_python",
       "passed": true,
       "groups": 12,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/boss_adapter_registry_python.txt",
-      "output_sha256": "92d261e6817339c7c90d94df8bd398c6347df49ab18e41ea70d077ab38cbf16c"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_adapter_registry_python.txt",
+      "output_sha256": "10b1a64261c816dd08c911195fb69f5290b87e3c62aa37c99b2abae235fdd098"
     },
     {
       "name": "boss_adaptation_batch_python",
       "passed": true,
       "groups": 9,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/boss_adaptation_batch_python.txt",
-      "output_sha256": "b0d9c9c4204e457373efba95c6466b3bd362f8e80099913e9f36a26411637526"
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_adaptation_batch_python.txt",
+      "output_sha256": "861e4f0eff019a90fccbb73fbcd23983be8858f38689e937eaf33988a822fe38"
     },
     {
       "name": "next_boss_identity_ok",
       "passed": true,
       "groups": 1,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/next_boss_identity_ok.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/next_boss_identity_ok.txt",
       "output_sha256": "a276101368e13f84df59ef7f570f180c2a409c373125a657a2777d8d4a453605"
     },
     {
       "name": "next_boss_identity_wrong_identity",
       "passed": true,
       "groups": 1,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/next_boss_identity_wrong_identity.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/next_boss_identity_wrong_identity.txt",
       "output_sha256": "cc9e0e8cc8771c8d9a2dce3677cb36a46092c1842da02e4abfd9588f9b95794d"
     },
     {
       "name": "next_boss_identity_wrong_config",
       "passed": true,
       "groups": 1,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/next_boss_identity_wrong_config.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/next_boss_identity_wrong_config.txt",
       "output_sha256": "55ae4fad74ed00680fe55ec6982436ea0d8976ab073df315ffb5d1982c7fd648"
+    },
+    {
+      "name": "boss_metadata_jobs_python",
+      "passed": true,
+      "groups": 12,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_jobs_python.txt",
+      "output_sha256": "098556d3889af955dc4d26723c814493c02cce6b46640a4eb864dae07fc6920e"
+    },
+    {
+      "name": "boss_metadata_queue_ok",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_ok.txt",
+      "output_sha256": "b4dcbed4b98f62df3abc312145c419d37560d38d8e0e3d988423c1dc17713a35"
+    },
+    {
+      "name": "boss_metadata_queue_subtree",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_subtree.txt",
+      "output_sha256": "3cb97bcb3527ae9f2aeeabc8cf62738f0451e0a37de5b118ab5f422b41acaa81"
+    },
+    {
+      "name": "boss_metadata_queue_foreign_config",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_foreign_config.txt",
+      "output_sha256": "65aa19bb90cf77523023438e0384f2370a23f26926b603b6f2d511f8072a2d8e"
+    },
+    {
+      "name": "boss_metadata_queue_unavailable",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_unavailable.txt",
+      "output_sha256": "57a3bbef1475f70d398e129de8de9366c340bdb9a78b7edfbdfdf65996a5d602"
+    },
+    {
+      "name": "boss_metadata_queue_wrong_identity",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_wrong_identity.txt",
+      "output_sha256": "a6e327b41fa8ccea8ef4df039e08a7e2e9463636deb88829a4ec449e50f6c75b"
+    },
+    {
+      "name": "boss_metadata_queue_lineage_cycle",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_lineage_cycle.txt",
+      "output_sha256": "75d1ab28d2b5feda3aaccb5d9d223830db86d07013b7aec51b9eb12de669aa4d"
+    },
+    {
+      "name": "boss_metadata_queue_expired",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_expired.txt",
+      "output_sha256": "d118955f4593c808e56fad3e743f1497a3b50b5adf93386cc9587cb18e521ee4"
+    },
+    {
+      "name": "boss_metadata_queue_busy_timeout",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_busy_timeout.txt",
+      "output_sha256": "4f2068ff4efc8390033888190c7fc23f803a8937b9ec37e22a14d5b8e8f3a0be"
+    },
+    {
+      "name": "boss_metadata_queue_frozen_clock_budget",
+      "passed": true,
+      "groups": 1,
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/boss_metadata_queue_frozen_clock_budget.txt",
+      "output_sha256": "924e0937e3a0bea6388dad771920f8a9c9b713bdb72652929460b372369236d1"
     },
     {
       "name": "patched_lua_compile_only",
       "passed": true,
       "groups": 67,
-      "output": "runtime/online-checks/ca896e23292d4ec48d5929220b381269/patched_lua_compile_only.txt",
+      "output": "runtime/online-checks/6f99d99997a349e783ff1f0205929060/patched_lua_compile_only.txt",
       "output_sha256": "47de02e10e6b8b7170c44dabae9e3768703ceeba9d7429a134cdd6dee9354df3"
     }
   ],
@@ -330,6 +400,8 @@
     "tests/test_boss_adapter_registry.py": "af8a8985b2dbf4dc121dcb7bd888541910a4799aae9bc688f7ef4d4c4c249b35",
     "tests/test_boss_adaptation_batch.py": "0e53a0177371f0bc4d350c1494a81768ec8ceb91770cbdae50569c9afb3d78eb",
     "tests/test_boss_identity_probe.lua": "33dd04e0f9c5294bd8b155310a7ad0b9d4dcad826796d09f39b18f4c5ac57cb0",
+    "tests/test_boss_metadata_jobs.py": "2f2d132c080954078e986d936380fdccdba2150cbf2c375d7847ea180cce735f",
+    "tests/test_boss_metadata_jobs.lua": "a7db032795eeab2574aff49a438f59f6c6ff3a1e9757576d74b3d69a7384cd20",
     "tools/phantom_boss_pair_session.py": "827fbb299cb33a95c4c2adb618a247de55cb88b92658da2aca42d83c3474998a",
     "tools/phantom_boss_online_readonly.py": "7eb4dc6f43e0280bdf9dea3cc4c3b17af018867567d3a031500ae0cc109865e3",
     "tools/collect_phantom_boss_visual_contract.py": "6632795817a8198ed45298aa72283864569234d6fcc3e1f11481ee1b17def53c",
@@ -355,12 +427,15 @@
     "tools/build_phantom_boss_native.py": "8169fb5c98464ada9679b312098f4cf052954c02ba75eb5f5db070aa8a4b2387",
     "tools/check_phantom_boss_native.py": "82587a3c9010e7adecf8242bde3d993e5e2152d28ed7b69a7f283b1d00ff6d23",
     "tools/inspect_phantom_boss_client_auth.py": "1d8883a929ebdf89bada7f485436052a333634a1ed8a0e58e2975b5d2dca2e69",
-    "tools/boss_adapter_registry.py": "dcfbbe5ab5aaadbbfeeb9ef02c53f3e0d5b29252b6122885590e09c72ce04c0d",
+    "tools/boss_adapter_registry.py": "b8cb1919ac07270c2f18cb9697d5e0c2b661e30de8ab2895d13494a92e7dee11",
     "tools/boss_adaptation_workflow.py": "1f3e81706dbb8b10bcac4d97a63dee0c5df4151fa29f5a42dc35db85d8e8d18a",
     "tools/build_boss_adaptation_batch.py": "0b754fa29a49be531cbe267716e97c264df24ed9afc5701f4f34587878e8c8de",
     "tools/build_boss_identity_probe.py": "ce5dc0e302b9928f507bbcf805168fd4c00c64fd55cf492d0ac35341a8943af5",
     "research/boss-adaptation/expansion-queue.json": "077bd21f7c530ce39469e8f4fbeee9f3953aecbe9b2c586b0cca8d0ad6c85696",
-    "tools/check_phantom_boss_backend.py": "217f1321cd0f86bb94beba6ad96c1ffe85dcc70ded68f1e66600cff1fcc8ac88",
-    "tools/verify_phantom_boss_backend.py": "12c0f8d1bfb66753a5eacee5d1bdc44fa8631c09b9a50bb30ad100a023812277"
+    "tools/boss_metadata_jobs.py": "e8d3c7c19f3362cee2b0552a488571f105205f82215bc4fb5bd4e8e7c750cd3d",
+    "tools/collect_boss_metadata_jobs.py": "2313c47f6108567ba005874b1e35060668c9c5c35cfd86a028227f7c15fcd473",
+    "tools/run_boss_identity_batch.py": "2536fe4d32c8da912d76482c9fd9a78ad447caeea69c302cddee0197e57afc79",
+    "tools/check_phantom_boss_backend.py": "33bce4d0b589f2e3b4bad86f54b4b169181aade1037f6980f374959585bbf6e5",
+    "tools/verify_phantom_boss_backend.py": "686cb7bb504fbbe9b6f1c8c890d44db4539bd60e102f2e48c574af7399712f86"
   }
 }
