@@ -196,3 +196,7 @@ tools/record_login_preparation.py -text whitespace=cr-at-eol
 tools/reload_readonly_observer.py -text whitespace=cr-at-eol
 tools/stage_phantom_boss_pair.py -text whitespace=cr-at-eol
 tools/test_isolation.py -text whitespace=cr-at-eol
+tools/build_boss_skill_workbench.py -text whitespace=cr-at-eol
+tools/collect_boss_skill_campaign.py -text whitespace=cr-at-eol
+tests/test_boss_skill_workbench.py -text whitespace=cr-at-eol
+tests/test_boss_skill_campaign.py -text whitespace=cr-at-eol
