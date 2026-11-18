@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "sources": {
+    "tools/boss_skill_repeat_audit.py": "10bdcc329f0e637a075f9757a5502dad3fcb499e6568d71c58b7f50b6b5d26e9",
+    "tests/test_boss_skill_repeat_audit.py": "214d896110c69011740d6f06a75f289de49108052d4b759f04070f75b65a59b2",
+    "tools/stage_readonly_contracts.py": "5f48b281d8e597eafd54902df1ebad77beedd043f0b622336140aca45d57ef30",
+    "tests/test_stage_readonly_contracts.py": "abd524b22d31fd31fd754cf00288105c78fb551e619b6489696d60d13dc1fab4",
+    "tools/native_grant_skill_gate.py": "fc347f4a474fa705e30c2b9de9cafcfa459830e53077743136f9c313155c5342",
+    "tests/test_native_grant_skill_gate.py": "7327fa3692ac1cf97f90b81197143dc2733bbbb8853b9629dbda5d8a2312dd17"
+  },
+  "passed": true,
+  "tests": 15,
+  "command": "python -B -X utf8 -m unittest tests.test_boss_skill_repeat_audit tests.test_stage_readonly_contracts tests.test_native_grant_skill_gate",
+  "observed_result": "Ran 15 tests; OK",
+  "game_started": false,
+  "installed": false,
+  "playable": false,
+  "runtime_acceptance_current": false,
+  "historical_replays": [
+    "evidence/adaptation/boss-skill-repeat-135c1e7a208ac877.json",
+    "evidence/adaptation/boss-skill-repeat-834aab29175f6a9d.json"
+  ]
+}

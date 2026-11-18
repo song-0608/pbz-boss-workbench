@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "skill": "skill_07",
+  "expected_class_short": "GA_WanJun_LightAttack_01_C",
+  "action_kind": "attack",
+  "requested_repetitions": 5,
+  "observed_attempts": 1,
+  "attempts": [
+    {
+      "ordinal": 1,
+      "skill": "skill_07",
+      "target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147466390",
+      "log_start": 30162,
+      "log_end": 101955,
+      "interval_sha256": "b2f0cc9a9fbf5ff0f3df09806fcb3b86744d50be7c543610eb9b0d6650cefdee",
+      "lifecycle_verified": true,
+      "short_class_matches": true,
+      "natural": {
+        "health_before": 9000.0,
+        "health_after": 9000.0,
+        "distance": 46.283534457917,
+        "damage_observed": false,
+        "movement_observed": true
+      },
+      "observed_health_decrease": 0.0,
+      "local_displacement_verified": true,
+      "attack_health_decrease_observed": false,
+      "dodge_displacement_observed": true
+    }
+  ],
+  "identity": {
+    "world_id": "official-validation-20261118-182949|World /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP|74441567936",
+    "participants": {
+      "player_controller": {
+        "name": "BP_PlayerController_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_PlayerController_C_2147479663",
+        "address": 73411104752,
+        "class": "BlueprintGeneratedClass /Game/PBZContent/Blueprint/Character/Player/BP_PlayerController.BP_PlayerController_C"
+      },
+      "player": {
+        "name": "BP_Renewal_Hun_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Renewal_Hun_C_2147479619",
+        "address": 75771636432,
+        "class": "BlueprintGeneratedClass /Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C"
+      },
+      "boss": {
+        "name": "BP_Monster_WanJun_JinGua_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_WanJun_JinGua_C_2147466734",
+        "address": 73427599552,
+        "class": "BlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C"
+      }
+    }
+  },
+  "foreign_keyed_activations": [],
+  "native_rejection_or_failure_seen": false,
+  "post_recovery_skill_events": false,
+  "same_control_verified": true,
+  "consecutive_natural_uses_verified": false,
+  "every_use_health_decrease_observed": false,
+  "every_use_dodge_displacement_observed": false,
+  "restoration": {
+    "passed": false,
+    "reason": "one recovery required"
+  },
+  "explicit_player_exit_verified": false,
+  "repeated_effect_and_recovery_observed": false,
+  "exact_native_grant_path_verified": false,
+  "cancellation_verified": false,
+  "playable": false,
+  "release_accepted": false,
+  "scope": "One captured control cycle and runtime short class only; observed health change is not source-attributed damage.",
+  "session": "20261118-182949",
+  "cycle": 1,
+  "log_character_start": 564894,
+  "log_character_end": 666849,
+  "historical_observation_only": true,
+  "runtime_acceptance_current": false,
+  "sources": {
+    "runtime/official-validation-20261118-182949/state.json": "e8eaea0fe7b80fdb6e4e7859d3752832e57464a381047dfd5dd4faf366c45216",
+    "evidence/official-validation/20261118-182949/postcheck.json": "b572e2b1f7bcae425489ec0210e8923f9be51075ef85957f60471ab9c0b45a8e",
+    "evidence/official-validation/20261118-182949/UE4SS.log": "ad74087490e84ac9b17da105901e109d6350605225efcfb98321b13c5cb8154f"
+  },
+  "audit_source_sha256": {
+    "tools/boss_skill_repeat_audit.py": "10bdcc329f0e637a075f9757a5502dad3fcb499e6568d71c58b7f50b6b5d26e9",
+    "tests/test_boss_skill_repeat_audit.py": "214d896110c69011740d6f06a75f289de49108052d4b759f04070f75b65a59b2",
+    "tools/control_action_evidence.py": "12d550224d138690694ab6c1288f082341e1dadb6625c6e7cf925c470b5ebd19",
+    "tools/collect_skill_acceptance.py": "abd648ef4a6243c9df0c3145782fdb017ea3966792a5f18b3bd15d0733648c81",
+    "tools/candidate_effect_scope.py": "776a956d1fd77b18e3419fe943080f936d4d037f5f1d23f98433ac65bafd840a"
+  }
+}
