@@ -21,7 +21,9 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tools/player_controller_owner.lua', 'tests/test_player_controller_owner.lua',
            'tools/inspect_player_controller_contract.py', 'tools/check_player_travel_repair.py',
            'tests/test_player_source_checks.py', 'tools/player_travel_trial.py', 'tests/test_player_travel_trial.py',
-           'tools/player_action_queue.lua', 'tests/test_player_action_queue.lua', 'tests/test_runtime.lua')
+           'tools/player_action_queue.lua', 'tests/test_player_action_queue.lua', 'tests/test_runtime.lua',
+           'tools/player_remote_control.lua', 'tests/test_remote_control.lua', 'tests/test_player_remote_performance.lua',
+           'tests/test_player_primary_routes.lua')
 
 
 def payload(root=ROOT):
@@ -43,6 +45,7 @@ def payload(root=ROOT):
     files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
     files[PREFIX + 'player_assembly_tasks.lua'] = (root / 'tools/player_assembly_tasks.lua').read_bytes()
     files[PREFIX + 'player_action_queue.lua'] = (root / 'tools/player_action_queue.lua').read_bytes()
+    files[PREFIX + 'remote_control.lua'] = (root / 'tools/player_remote_control.lua').read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')

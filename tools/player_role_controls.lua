@@ -8,8 +8,8 @@ function Controls.apply(config,profile)
     if not id then return config end
     assert(not config.skills.primary_attack,'primary shortcut already present')
     local d=assert(profile.skills[id],'primary ability absent')
-    assert(d.binding_verified and d.activation_runtime_verified and d.natural_completion_verified
-        and d.cancellation_runtime_verified and d.gameplay_verified,
+    assert(d.binding_verified==true and d.activation_runtime_verified==true and d.natural_completion_verified==true
+        and d.cancellation_runtime_verified==true and d.gameplay_verified==true,
         'primary shortcut requires accepted native damage and cancellation')
     config.skills.primary_attack={id=id,key='LEFT_MOUSE_BUTTON',
         name='主攻击：'..d.name,verified=true}

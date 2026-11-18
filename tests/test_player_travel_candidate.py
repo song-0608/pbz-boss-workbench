@@ -21,7 +21,7 @@ class TravelCandidateTests(unittest.TestCase):
             'player_assembly_tasks.lua', 'player_action_queue.lua', 'player_map_lifecycle.lua', 'player_controller_owner.lua',
             'control_bridge.lua', 'boss_catalog.lua', 'ue_calls.lua', 'ue_combat.lua', 'world_boundary.lua',
             'idle_world_watch.lua', 'map_travel_guard.lua', 'owned_arena.lua', 'runtime.lua',
-            'ue_host.lua', 'boss_workbench.lua', 'player_boss_picker.lua', 'player_hud.lua')})
+            'ue_host.lua', 'remote_control.lua', 'boss_workbench.lua', 'player_boss_picker.lua', 'player_hud.lua')})
         manifest, _ = candidate.expected()
         self.assertFalse(manifest['complete_mod'])
         self.assertFalse(manifest['runtime_acceptance_current'])
