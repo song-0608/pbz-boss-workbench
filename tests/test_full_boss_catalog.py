@@ -9,7 +9,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from tests.test_boss_metadata_jobs import candidate
 import boss_metadata_jobs as metadata
-from prepare_full_boss_catalog import select
+from prepare_full_boss_catalog import select, build
 import stage_full_boss_catalog as collector
 from boss_adaptation_workflow import write_json
 
@@ -57,6 +57,20 @@ class FullCatalogTests(unittest.TestCase):
         batches, _ = select(catalog, inventory)
         self.assertEqual(sum(map(len, batches)), 7)
 
+    def test_fully_resolved_inventory_still_freezes_an_empty_queue(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve()
+            (root / 'tools').mkdir()
+            for name in ('prepare_full_boss_catalog.py', 'full_boss_catalog_probe.lua'):
+                (root / 'tools' / name).write_bytes(b'-- empty queue fixture')
+            with patch('prepare_full_boss_catalog.inputs', return_value=(dict(characters=[]), dict(candidates=[]))):
+                directory, report = build(root)
+            self.assertTrue((directory / 'manifest.json').is_file())
+            self.assertTrue((directory / 'metadata-collector.lua').is_file())
+            self.assertEqual(report['batches'], [])
+            self.assertEqual(report['jobs'], [])
+            self.assertFalse(report['playable'])
+
     def test_collection_preserves_capture_when_shutdown_appends_unrelated_logs(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp).resolve()
@@ -65,17 +79,23 @@ class FullCatalogTests(unittest.TestCase):
             work = root / 'evidence/official-validation' / session
             state = root / 'runtime' / ('official-validation-' + session) / 'state.json'
             write_json(state, dict(restored=True, work=str(work)))
+            write_json(work / 'postcheck.json', dict(validation_state=str(state), research_box_empty=True,
+                       research_loader_removed=True, host_registry_unchanged=True,
+                       formal_files_changed=[], host_config_files_changed=[]))
             report = dict(fingerprint='a'*20, script_sha256=hashlib.sha256(b'fixture').hexdigest(), batches=[])
             write_json(directory / 'manifest.json', report)
             def file(suffix):
                 return work / f"{collector.LABEL}-{report['fingerprint']}-{suffix}"
             stage = dict(state_file=str(state), research_pid=12, script_sha256=report['script_sha256'],
+                         batch=report['fingerprint'], metadata_only=True, input_sent=False,
                          manifest_sha256=collector.sha(directory/'manifest.json'), log_byte_offset=0,
                          log_prefix_sha256=hashlib.sha256(b'').hexdigest())
             write_json(file('staged.json'), stage)
             write_json(file('intent.json'), stage)
+            write_json(file('manifest.json'), report)
             file('metadata.lua').write_bytes(b'fixture')
             write_json(file('results.json'), dict(state_file=str(state), research_pid=12, outcomes=[],
+                       fingerprint=report['fingerprint'],
                        lines=['query complete'], metadata_only=True, playable=False))
             (work/'UE4SS.log').write_bytes(b'query complete\nEvent loop end\n')
             with patch.object(collector, 'ROOT', root), patch.object(collector, 'verify', return_value=(report,b'fixture')), \

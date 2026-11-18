@@ -50,6 +50,7 @@ def build(root=ROOT):
                     jobs=[[job['key'] for job in batch] for batch in batches])
     fingerprint = hashlib.sha256(metadata.canonical(identity)).hexdigest()[:20]
     target = root / 'runtime/full-boss-catalog' / fingerprint
+    target.mkdir(parents=True, exist_ok=True)
     frozen = []
     for jobs in batches:
         path = metadata.freeze(jobs, target, root)

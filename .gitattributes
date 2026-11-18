@@ -480,3 +480,6 @@ evidence/adaptation/boss-repeat-window-gates-offline-d743ca5ce1ba3b4a.json -text
 evidence/adaptation/boss-skill-repeat-135c1e7a208ac877.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-skill-repeat-834aab29175f6a9d.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-followup-preparation-20261118-211942.json -text whitespace=cr-at-eol
+tests/test_full_catalog_progress.py -text whitespace=cr-at-eol
+evidence/adaptation/boss-background-milestone-05360e2a48373edb-1795013476701754800.json -text whitespace=cr-at-eol
+evidence/adaptation/ahua-player-travel-dev-1f2c42bcdd04cdf0-source-offline-1795013201964334200.json -text whitespace=cr-at-eol

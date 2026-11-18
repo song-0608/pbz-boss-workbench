@@ -29,6 +29,15 @@ if mode=='expired'then
     clock=121;tick();queue[1]()
     assert(#loads==0 and table.concat(events):find('PBZ_FULL_CATALOG:STOP=',1,true))
     assert(not table.concat(events):find('PBZ_FULL_CATALOG:END=',1,true))
+elseif mode=='partial'then
+    table.remove(queue,1)();tick();tick();tick()
+    assert(#loads==1 and #queue==1,'only the first child may complete')
+    clock=121;tick();table.remove(queue,1)()
+    local log=table.concat(events)
+    assert(#loads==1 and log:find('PBZ_ADAPTER_META:END=first',1,true))
+    assert(log:find('PBZ_FULL_CATALOG:STOP=',1,true)
+        and not log:find('PBZ_ADAPTER_META:END=second',1,true)
+        and not log:find('PBZ_FULL_CATALOG:END=',1,true))
 else
     for _=1,10 do
         if #queue>0 then table.remove(queue,1)()end

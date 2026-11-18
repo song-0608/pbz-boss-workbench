@@ -114,4 +114,20 @@ test('successful buffered skill suppresses movement and keeps same-frame camera'
     s.flush_buffered_skill=function()s.current_skill='new native token';return true end
     assert(d:step());assert(#s.moves==0 and #s.looks==1 and s.restores==0)
 end)
+test('target-follow camera yaw takes precedence over sampled and post-look yaw',function()
+    for _,look_yaw in ipairs({0,2})do
+        local d,s=fixture({allowed=true,forward=true,yaw_degrees=0,look_yaw=look_yaw})
+        s.bridge.look=function()return true,20 end
+        s.bridge.update_camera=function()return true,90 end
+        assert(d:step())
+        assert(math.abs(s.moves[1].x)<1e-10 and math.abs(s.moves[1].y-1)<1e-10)
+    end
+end)
+test('invalid post-camera yaw restores before moving',function()
+    for _,yaw in ipairs({0/0,math.huge,'bad'})do
+        local d,s=fixture({allowed=true,forward=true,yaw_degrees=0})
+        s.bridge.update_camera=function()return true,yaw end
+        assert(not d:step());assert(s.restores==1 and #s.moves==0)
+    end
+end)
 print("Input driver fixtures: "..total.." passed; no runtime movement verification claimed.")

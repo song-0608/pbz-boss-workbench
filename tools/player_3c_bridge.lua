@@ -53,6 +53,7 @@ function Extension.extend(Bridge)
     local update,look,restore=Bridge.update_camera,Bridge.look,Bridge.restore
     function Bridge:update_camera(receipt)
         self:check(receipt)
+        local followed=false
         if receipt.camera_rig and receipt.combat and receipt.remote_control then
             local lock=self:camera_lock(receipt)
             if not receipt.player_lock_initialized then
@@ -65,9 +66,17 @@ function Extension.extend(Bridge)
             if not receipt.target_transition then
                 local ok,why=lock:update()
                 if not ok and self.api.experience_log then self.api.experience_log('TARGET_CAMERA_LOST',why)end
+                followed=ok and lock.enabled
             end
         end
-        return update(self,receipt)
+        local ok,why=update(self,receipt)
+        if ok~=true then return ok,why end
+        if followed then
+            -- Target following may rotate after mouse sampling. Forward movement
+            -- must use this frame's final orientation, not the previous heading.
+            return true,self.api.remote.native.rotation(self:check(receipt)).Yaw
+        end
+        return true
     end
     function Bridge:look(receipt,yaw,pitch)
         self:check(receipt)

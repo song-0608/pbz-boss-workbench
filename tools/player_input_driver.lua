@@ -68,7 +68,13 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
             end
         end
         if session.bridge.update_camera then
-            assert(session.bridge:update_camera(session.receipt)==true,'camera update failed')
+            local accepted,actual_yaw=session.bridge:update_camera(session.receipt)
+            assert(accepted==true,'camera update failed')
+            if actual_yaw~=nil then
+                assert(type(actual_yaw)=='number'and actual_yaw==actual_yaw
+                    and math.abs(actual_yaw)<=1000000,'post-camera yaw unreadable')
+                move_yaw=actual_yaw
+            end
         end
         if length > 0 and not session.current_skill then
             forward, right = forward / length, right / length

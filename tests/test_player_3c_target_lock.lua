@@ -68,4 +68,14 @@ local bridge=setmetatable({profile={id='056_youlong',camera={pivot_height=80}},
 assert(bridge:update_camera(receipt)and clock_reads==0 and rotation.Yaw==0,'free camera stays outside timed lock')
 assert(bridge:toggle_target_lock(receipt));assert(bridge:update_camera(receipt))
 assert(clock_reads==1 and math.abs(rotation.Yaw-8.75)<1e-8,'bridge must use current Boss native frame time')
+local Driver=require('input_driver')
+local moved
+bridge.move=function(_,r,x,y)assert(r==receipt);moved={x,y};return true end
+local session={state='ACTIVE',receipt=receipt,bridge=bridge,poll=function()return true end,
+    restore=function()error('valid locked movement must not restore')end}
+local driver=Driver.new(session,{read_input=function()return{allowed=true,forward=true,yaw_degrees=0}end})
+assert(driver:step())
+assert(clock_reads==2 and math.abs(rotation.Yaw-13.671875)<1e-8)
+assert(math.abs(moved[1]-math.cos(math.rad(rotation.Yaw)))<1e-9
+    and math.abs(moved[2]-math.sin(math.rad(rotation.Yaw)))<1e-9,'locked movement must follow the final camera yaw')
 print('PASS legacy negative control, 30/60/120 Hz timed camera response, 10 Hz target checks, wrap, zero/hitch/invalid time and target loss')
