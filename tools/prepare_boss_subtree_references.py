@@ -8,7 +8,7 @@ import re
 import boss_metadata_jobs as metadata
 import boss_subtree_inventory as subtrees
 from boss_adaptation_workflow import ROOT, BUILD, sha, write_json
-from boss_offline_inventory import inputs
+from boss_offline_inventory import inputs, exact_requests, closed
 from build_boss_profile_candidate import lua
 from collect_boss_subtree_progress import history
 from mod_installation import unlinked_path
@@ -77,16 +77,78 @@ def chunks(jobs):
     return result
 
 
+def merge_grant_followups(jobs, characters):
+    """Join exact observed grants and tree references without duplicate loads.
+
+    A historical grant is query provenance only. It does not grant the class to
+    a new Actor, prove activation or replace the current-process native gate.
+    """
+    combined = {job['lookup_path']: dict(job) for job in jobs}
+    assert len(combined) == len(jobs)
+    deferred, candidates = [], []
+    folders = {character['id']: character['folder'] for character in characters}
+    for character in characters:
+        selected = []
+        for ability in character['abilities']:
+            if ability.get('route') != 'exact_grant_needs_metadata':
+                continue
+            if ability['metadata'] in ('rejected', 'conflict'):
+                deferred.append(dict(path=ability['path'], reason='historical grant type needs review before an explicit retry'))
+                continue
+            assert ability['metadata'] != 'verified', 'verified grants must not be queried again'
+            selected.append(ability)
+        candidates.append(dict(character, abilities=selected))
+    for batch in exact_requests(candidates):
+        for observed in batch:
+            prefix = '/PBZCombatAsset/ActorData/Mobs/' + folders[observed['id']] + '/'
+            path = observed['lookup_path']
+            assert path.startswith(prefix), 'exact same-folder native grant required'
+            assert observed['historical_grants'], 'a native grant query needs closed provenance'
+            job = combined.get(path)
+            if job is None:
+                job = dict(id=observed['id'], role='ability', package=observed['package'],
+                    lookup_path=path, config_candidates=[], reference_only=True,
+                    native_grant_verified=False, activation_allowed=False, origins=[])
+                combined[path] = job
+            assert job['id'] == observed['id'], 'conflicting owner for the same exact class'
+            job['historical_grants'] = observed['historical_grants']
+            job['key'] = hashlib.sha256(metadata.canonical({k: v for k, v in job.items() if k != 'key'})).hexdigest()[:20]
+    result = sorted(combined.values(), key=lambda job: job['lookup_path'])
+    assert len(result) <= 2048
+    return result, deferred
+
+
+def request_counts(jobs):
+    references = sum(bool(job['origins']) for job in jobs)
+    grants = sum(bool(job.get('historical_grants')) for job in jobs)
+    shared = sum(bool(job['origins']) and bool(job.get('historical_grants')) for job in jobs)
+    return dict(tree_references=references, historical_grants=grants, shared=shared,
+                grant_only=grants - shared, unique_queries=len(jobs))
+
+
 def expected(root=ROOT):
     inventory, *_ = inputs(root)
     audits = history(root)
     jobs, deferred, verified = plan(inventory['characters'], audits)
+    jobs, deferred_grants = merge_grant_followups(jobs, inventory['characters'])
+    deferred.extend(row for row in deferred_grants if row['path'] not in {d['path'] for d in deferred})
     evidence = {}
     for audit in audits:
         for path, digest in audit['sources'].items():
             assert path not in evidence or evidence[path] == digest
             assert sha(root / path) == digest
             evidence[path] = digest
+    for session in sorted({grant['session'] for job in jobs for grant in job.get('historical_grants', [])}):
+        assert re.fullmatch(r'\d{8}-\d{6}', session)
+        state = root / ('runtime/official-validation-' + session) / 'state.json'
+        work = root / 'evidence/official-validation' / session
+        assert closed(state, work / 'postcheck.json', work), 'historical grant session must be cleanly closed'
+        for path in (state, work / 'postcheck.json', work / 'UE4SS.log'):
+            name = path.relative_to(root).as_posix()
+            digest = inventory['sources'][name]
+            assert sha(path) == digest, 'historical native grant provenance changed'
+            assert name not in evidence or evidence[name] == digest
+            evidence[name] = digest
     identity = dict(schema=1, kind='boss_subtree_reference_metadata', build=BUILD,
         inventory_sha256=hashlib.sha256(metadata.canonical(inventory)).hexdigest(),
         evidence_sha256=evidence, source_sha256={p: sha(root / p) for p in SOURCES},
@@ -103,7 +165,7 @@ def expected(root=ROOT):
     header = 'local fingerprint=' + lua(key) + '\nlocal budget_seconds=480\nlocal batches='
     header += lua([dict(key=b['fingerprint'], source=files[b['script']].decode('utf-8')) for b in batches]) + '\n'
     files['metadata-collector.lua'] = header.encode('utf-8') + (root / 'tools/full_boss_catalog_probe.lua').read_bytes()
-    manifest = dict(identity, fingerprint=key, batches=batches,
+    manifest = dict(identity, fingerprint=key, batches=batches, request_counts=request_counts(jobs),
         collector_sha256=hashlib.sha256(files['metadata-collector.lua']).hexdigest(),
         script_sha256=hashlib.sha256(files['metadata-collector.lua']).hexdigest(),
         budget_seconds=480, cleanup_seconds=120,
@@ -141,6 +203,7 @@ def frozen(directory, root=ROOT, *, source_root=None):
         path = unlinked_path(root / name)
         assert path.is_relative_to(root) and sha(path) == digest, 'reference origin evidence changed'
     jobs = manifest['jobs']
+    assert manifest['request_counts'] == request_counts(jobs)
     assert 0 <= len(jobs) <= 2048 and len(jobs) == len({j['lookup_path'] for j in jobs})
     assert len(jobs) == len({j['key'] for j in jobs})
     for job in jobs:
@@ -151,11 +214,23 @@ def frozen(directory, root=ROOT, *, source_root=None):
         assert job['lookup_path'].startswith('/PBZCombatAsset/ActorData/Mobs/')
         assert job['package'] == job['lookup_path'].split('.', 1)[0] and job['config_candidates'] == []
         assert job['reference_only'] is True and job['activation_allowed'] is False
-        assert job['native_grant_verified'] is False and job['origins']
+        assert job['native_grant_verified'] is False and (job['origins'] or job.get('historical_grants'))
         for origin in job['origins']:
             assert re.fullmatch(r'\d{8}-\d{6}', origin['session'])
             assert re.fullmatch(r'[0-9a-f]{20}', origin['parent_key'])
             assert subtrees.OBJECT.fullmatch(origin['parent_class'])
+        for grant in job.get('historical_grants', []):
+            assert grant['count'] == 1 and re.fullmatch(r'\d{8}-\d{6}', grant['session'])
+            assert type(grant['grant_count_line']) is int and grant['grant_count_line'] > 0
+            assert grant['identity_source'] in ('explicit_candidate_identity', 'spawn_cdo_and_v5_config')
+            folder = job['lookup_path'].split('/')[4]
+            prefix = '/PBZCombatAsset/ActorData/Mobs/' + folder + '/'
+            assert all(subtrees.OBJECT.fullmatch(grant[k]) and grant[k].startswith(prefix) for k in ('actor', 'config'))
+            assert grant['actor'].endswith('_C')
+            for name in ('runtime/official-validation-' + grant['session'] + '/state.json',
+                         'evidence/official-validation/' + grant['session'] + '/postcheck.json',
+                         'evidence/official-validation/' + grant['session'] + '/UE4SS.log'):
+                assert name in manifest['evidence_sha256'], 'closed grant provenance must be frozen'
     groups = chunks(jobs)
     assert len(groups) == len(manifest['batches'])
     files = {}
@@ -208,6 +283,7 @@ if __name__ == '__main__':
         assert args.directory is None
         directory, manifest = build()
     print(json.dumps(dict(directory=str(directory), requests=len(manifest['jobs']),
+        request_counts=manifest['request_counts'],
         batches=len(manifest['batches']), deferred=len(manifest['deferred']),
         already_verified=len(manifest['already_verified']), game_started=False,
         stage_supported=manifest['stage_supported'], playable=False), ensure_ascii=False, indent=2))

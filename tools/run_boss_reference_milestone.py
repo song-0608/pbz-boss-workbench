@@ -48,7 +48,7 @@ def run():
         verified = sum(row['metadata_verified'] for row in outcomes)
         wanted = len(manifest['jobs']) if mode in ('ok', 'subtree') else 0
         passed = result.returncode == 0 and accepted is expected and verified == wanted
-        check = dict(name='Generated 14-child collector: ' + mode, passed=passed,
+        check = dict(name=f"Generated {len(manifest['batches'])}-child collector: " + mode, passed=passed,
             simulated=True, queries=len(outcomes), verified=verified, accepted=accepted)
         if not passed:
             check['output'] = result.stdout + result.stderr
@@ -61,7 +61,8 @@ def run():
         changed_base_sources=[p for p, h in base['source_sha256'].items() if sources[p] != h],
         source_sha256=sources, checks=checks,
         reference_plan=dict(directory=directory.relative_to(ROOT).as_posix(), manifest_sha256=manifest_sha,
-            queries=len(manifest['jobs']), batches=len(manifest['batches']), stage_supported=True,
+            queries=len(manifest['jobs']), request_counts=manifest['request_counts'],
+            batches=len(manifest['batches']), stage_supported=True,
             native_type_queries_executed=False, native_grants_verified=False, playable=False),
         passed=all(check['passed'] for check in checks), game_started=False,
         ui_input_sent=False, live_carrier_staged=False, installed=False,
