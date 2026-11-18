@@ -1,0 +1,1042 @@
+{
+  "fingerprint": "f17be43eb81e7fb53ac7",
+  "resource_folders": 104,
+  "character_folders": 103,
+  "variants": 198,
+  "catalog_ability_clues": 2104,
+  "historical_grant_snapshots": 235,
+  "historical_sessions": 131,
+  "ignored_sessions": {
+    "missing closure files": 1
+  },
+  "v5_profiles": 6,
+  "ability_routes": {
+    "needs_variant_grant": 1894,
+    "utility_or_dependency_review": 186,
+    "in_v5_profile": 58,
+    "exact_grant_needs_metadata": 66,
+    "metadata_or_subtree_review": 5,
+    "leaf_with_historical_grant": 11
+  },
+  "queued_character_requests": 187,
+  "queued_character_batches": 22,
+  "first_character_batch": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/metadata/metadata-ff67c599fa42f9547ce1",
+  "first_batch": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/exact-grant-metadata/8dcaab6a19d20cd7aead",
+  "first_batch_requests": 48,
+  "leaf_review_queue": [
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex.GA_MadDoctor_CA_01_Gex_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B.GA_MadDoctor_Dodge_B_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R.GA_MadDoctor_Dodge_R_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01.GA_MadDoctor_SpecialAttack_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave.GA_MadDoctor_SpecialAttack_02_4Wave_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "067_motian",
+      "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "067_motian",
+      "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "067_motian",
+      "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "067_motian",
+      "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "071_xianzhe",
+      "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    },
+    {
+      "id": "071_xianzhe",
+      "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+        ]
+      ],
+      "disposition": "review exact variant before candidate activation"
+    }
+  ],
+  "exact_grant_metadata_gaps": [
+    {
+      "id": "042_ahua",
+      "path": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_PunishCounter_01.GA_AHua_PunishCounter_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/042_AHua/BP_Monster_AHua_GuiTouDao.BP_Monster_AHua_GuiTouDao_C",
+          "/PBZCombatAsset/ActorData/Mobs/042_AHua/ActorData/ActorC_AHua_GuiTouDao.ActorC_AHua_GuiTouDao"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": false
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_01.GA_AquaKiller_Special_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_02.GA_AquaKiller_Special_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_03.GA_AquaKiller_Special_03_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_05.GA_AquaKiller_Special_05_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_09.GA_AquaKiller_Special_09_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_10.GA_AquaKiller_Special_10_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/YuCha/GA_AquaKiller_Skill_03.GA_AquaKiller_Skill_03_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01_Mad.GA_YouLong_CACombo_01_Mad_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B_Hard.GA_YouLong_Dodge_B_Hard_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_L.GA_YouLong_Dodge_L_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_R.GA_YouLong_Dodge_R_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Drive.GA_YouLong_Drive_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_FrontRecovery.GA_YouLong_FrontRecovery_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_02_Hard.GA_YouLong_Skill_02_Hard_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03.GA_YouLong_Skill_03_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04.GA_YouLong_Skill_04_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04_Hard.GA_YouLong_Skill_04_Hard_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_A.GA_YouLong_Skill_05_A_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_B.GA_YouLong_Skill_05_B_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_C.GA_YouLong_Skill_05_C_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01_Front.GA_YouLong_SpecialAttack_01_Front_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad.GA_YouLong_SpecialAttack_02_Mad_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad_Hard.GA_YouLong_SpecialAttack_02_Mad_Hard_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_04.GA_YouLong_SpecialAttack_04_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_A.GA_YouLong_SpecialAttack_05_A_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_B.GA_YouLong_SpecialAttack_05_B_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_C.GA_YouLong_SpecialAttack_05_C_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "056_youlong",
+      "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/GA_YouLong_SummonPassive_General.GA_YouLong_SummonPassive_General_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+          "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_CA_01_Gex.GA_WanJun_CA_01_Gex_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_NightMareCombo.GA_WanJun_NightMareCombo_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_02_A.GA_WanJun_Skill_02_A_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_02_B.GA_WanJun_Skill_02_B_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_03.GA_WanJun_Skill_03_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_04.GA_WanJun_Skill_04_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_08.GA_WanJun_Skill_08_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_09.GA_WanJun_Skill_09_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_01.GA_WanJun_SpecialAttack_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_01_Hard.GA_WanJun_SpecialAttack_01_Hard_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_02.GA_WanJun_SpecialAttack_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_03_B.GA_WanJun_SpecialAttack_03_B_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_04.GA_WanJun_SpecialAttack_04_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_05.GA_WanJun_SpecialAttack_05_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_06_01.GA_WanJun_SpecialAttack_06_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_06_02.GA_WanJun_SpecialAttack_06_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_07.GA_WanJun_SpecialAttack_07_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "057_wanjun",
+      "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_11.GA_WanJun_SpecialAttack_11_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+          "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_DodgeAttack_B.GA_MadDoctor_DodgeAttack_B_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_L.GA_MadDoctor_Dodge_L_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_MiddleAttack_01.GA_MadDoctor_MiddleAttack_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistHeal.GA_MadDoctor_RitualistHeal_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_01.GA_MadDoctor_Skill_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_02.GA_MadDoctor_Skill_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_04.GA_MadDoctor_Skill_04_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02.GA_MadDoctor_SpecialAttack_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "058_maddoctor",
+      "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_XieQiuDong_SubTitles.GA_XieQiuDong_SubTitles_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "071_xianzhe",
+      "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_F.GA_XianZhe_Dodge_F_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "071_xianzhe",
+      "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_R.GA_XianZhe_Dodge_R_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": true
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_CA_GEx_01.GA_YanQianSui_CA_GEx_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_L_01.GA_YanQianSui_DodgeAttack_L_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_R_01.GA_YanQianSui_DodgeAttack_R_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": true,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_02.GA_YanQianSui_Skill_02_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_09.GA_YanQianSui_Skill_09_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_10.GA_YanQianSui_Skill_10_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_12.GA_YanQianSui_Skill_12_C",
+      "grant_variants": [
+        [
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+          "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+        ]
+      ],
+      "in_catalog": false,
+      "in_first_batch": false
+    }
+  ],
+  "skill_pools": [
+    {
+      "id": "058_maddoctor",
+      "skills": [
+        "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01.GA_MadDoctor_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave.GA_MadDoctor_SpecialAttack_02_4Wave_C",
+        "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B.GA_MadDoctor_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R.GA_MadDoctor_Dodge_R_C"
+      ],
+      "directory": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/skill-pools/058_maddoctor",
+      "manifest_sha256": "d1a4bad7537aa11c247161ed9660ee0b5c7bc080dba2df5a3ce0284de14903d1"
+    },
+    {
+      "id": "067_motian",
+      "skills": [
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C"
+      ],
+      "directory": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/skill-pools/067_motian",
+      "manifest_sha256": "212575f8f0dabf7b2eff7dd58321a89dfc333d708204026245bae1361d9908d2"
+    },
+    {
+      "id": "071_xianzhe",
+      "skills": [
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C"
+      ],
+      "directory": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/skill-pools/071_xianzhe",
+      "manifest_sha256": "e4fc6d2ab8ab181c7fb1f057f7f540af0d632cc9c60e24563c3ecf3540a1afae"
+    }
+  ],
+  "exact_grant_batches": [
+    {
+      "directory": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/exact-grant-metadata/8dcaab6a19d20cd7aead",
+      "requests": 48,
+      "manifest_sha256": "17bd7e9cf46ab7e930de8cf7b37bc44701e3c5c9cc08e876a8e889798a99b0ab"
+    },
+    {
+      "directory": "runtime/boss-offline-inventory/f17be43eb81e7fb53ac7/exact-grant-metadata/897e63ad2a32043bba24",
+      "requests": 18,
+      "manifest_sha256": "07d8762031a0d3bef399c11be34e1be8b10ba8744ea2eba5538322e274b69606"
+    }
+  ],
+  "named_variants_for_grant_review": [
+    {
+      "id": "054_zuoshang",
+      "actor": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending.BP_Monster_ZuoShang_Ending_C",
+      "display_name": "“组织”冥主：左殇",
+      "config": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang_Ending.ActorC_ZuoShang_Ending"
+    },
+    {
+      "id": "067_motian",
+      "actor": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian_LongZhu_02.BP_Monster_MoTian_LongZhu_02_C",
+      "display_name": "金面具黑衣人",
+      "config": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_02.ActorC_MoTian_LongZhu_02"
+    },
+    {
+      "id": "076_zuoshang_p2",
+      "actor": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/BP_Monster_ZuoShang_P2_Stand.BP_Monster_ZuoShang_P2_Stand_C",
+      "display_name": "左殇：真龙之躯",
+      "config": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/ActorConfig/ActorC_ZuoShang_P2.ActorC_ZuoShang_P2"
+    }
+  ],
+  "game_started": false,
+  "installed": false,
+  "new_playable_bosses": 0,
+  "schema": 1,
+  "checks": {
+    "python_tests_passed": 33,
+    "lua_candidate_checks_passed": 3,
+    "metadata_batches_verified_offline": 2
+  },
+  "source_sha256": {
+    "research/boss-adaptation/catalog.json": "bbab28b159eb5ed13392c61dc4f8d8fa029ef9580d13b211e1a38ea685bce9d1",
+    "tools/boss_offline_inventory.py": "05ca420e4019892bc289e65ac261102093f0347563e4af4b87523fcfc2242161",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/build_boss_profile_candidate.py": "71016a704b8804545823df72a85833e77c2fc700b0945b2f86ce085cbe979522",
+    "tools/boss_metadata_jobs.py": "be5e127bc4ab2d506b785853e5520edde824ab5ff7d9d437e05818f376ce51b4",
+    "tools/collect_boss_metadata_jobs.py": "91821a20e5c0951ea3eac7c358262c371291a2433023ea79a646083d28f75ced",
+    "tools/native_grant_metadata_workflow.py": "6f3747b610198c151b9258a73045e7ed674e9a61a2e85ee7a5fecdc7c7aba198",
+    "tools/stage_boss_inventory_metadata.py": "36aee677171ad547551ca83e324da21d4a9f99283035d4d47af09e2a195d8b49",
+    "tests/test_boss_offline_inventory.py": "db29e8a69ee3c2b28af2fc998ac23024918dff5adedf80ca9803a308a833af71",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/pbz-release.json": "c5d4d049989687a401ee6e8fa7cc49a50211f042f1aa9a88ea65e5cd933fe295",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/profiles/wanjun.lua": "8164945d1b393fda20aa81f8ddd01ad2288625cf6ca2d39fd80be6091841b715",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/profiles/yanqiansui.lua": "33b6def9a16b686c0f71e782bdc91212d91a47e71f01564945a2b0f947026c6d",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/profiles/youlong.lua": "ffeb9984640e07bf343d18bbaa1e129aa8a64e8e320eb4632a7ed1505510b02d",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/profiles/xianzhe.lua": "2cdaa6f597dd05da2eeddfa5621ed62d66610bd2f65cfccc1c61b1be16b35ab0",
+    "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/profiles/maddoctor.lua": "d477e210a4118cf6e0722987d03afe975e29b1d75821afa3f836e969eff25e9f",
+    "research/boss-adaptation/adapter-metadata-receipts/20261117-182116-12306a27f634e63420ae.json": "c62e205d3e9ab33fe887fedfebe2bc4c06888693f418f31a68399929af041d1b",
+    "research/boss-adaptation/adapter-metadata-receipts/20261117-182116-360daae591e51f1dfd37.json": "b7370aa62b008fa397cdec0bc8a595eabfa6296ab3264236af939a5baf816502",
+    "research/boss-adaptation/adapter-metadata-receipts/20261117-182116-8e2bb30e7158df46abec.json": "31f9e0abaa339bbecaceb3bfaa83163f928cadc03d4b7e375bddf736f7011f62",
+    "research/boss-adaptation/native-grant-metadata-receipts/20261118-185553-adc62361d82826f37842.json": "907b99501d23e99ccc6e86b82fbf8650bc9867829825b5c991f04159a52f9386"
+  },
+  "local_raw_evidence_replayed": true,
+  "runtime_verified": false,
+  "complete_mod": false
+}
