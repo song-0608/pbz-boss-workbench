@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "session": "20261118-093947",
+  "status": "closed-partial-development-observations",
+  "log_sha256": "fbefc611bb3a7e65c1ee8c37386525abe85d2a640fc6280768eecbddbcc72107",
+  "primary_observations": [
+    {
+      "role": "058_maddoctor",
+      "dispatch_line": 1183,
+      "active": true,
+      "skill": "skill_01",
+      "end_line": 1209,
+      "natural": true,
+      "health_before": 9000.0,
+      "health_after": 8900.0,
+      "observed_damage": 100.0
+    }
+  ],
+  "restoration": {
+    "label": "auto_exit",
+    "reason": "native map menu trial",
+    "player_position_delta": 0.0,
+    "player_new_active_count": 0,
+    "camera_cleanup_verified": true,
+    "passed": true
+  },
+  "performance": {
+    "windows": 17,
+    "seconds": 85.181,
+    "frames": 5344,
+    "game_thread_ticks_per_second": 62.73699533933624,
+    "callback_mean_ms": 3.24008228873503,
+    "callback_worst_ms": 11.0,
+    "lookup_ms_per_frame": 0.0,
+    "median_window_ticks_per_second": 61.301916932907346
+  },
+  "runtime_fault_lines": [],
+  "native_travel_verified": false,
+  "overall_smoothness_verified": false,
+  "release_accepted": false,
+  "closed_cleanly": true,
+  "restored_at": "2026-11-18T09:54:27.152423+08:00",
+  "human_travel_request_expired": true,
+  "limits": [
+    "Native Tab/E/Escape short presses produced no observed menu; no travel observed.",
+    "Callback samples are not GPU FPS or end-to-end input latency.",
+    "One role damage observation does not verify all roles or full native combos."
+  ],
+  "candidate": "ahua-player-travel-dev-2fd31be3bbd8cac1",
+  "workflow": "travel-repair-424484df8650499e",
+  "candidate_manifest_sha256": "115aa1b84f2200f711e7b97fcf6d772b577b4051b8e065fb47c55f2f6af4d474",
+  "formal_files_changed_count": 0,
+  "host_config_unchanged": true,
+  "research_box_empty": true,
+  "recorded_at": "2026-11-18T10:16:15.323784+08:00"
+}
