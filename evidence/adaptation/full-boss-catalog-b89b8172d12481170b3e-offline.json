@@ -1,0 +1,671 @@
+{
+  "schema": 1,
+  "fingerprint": "b89b8172d12481170b3e",
+  "queue": "runtime\\full-boss-catalog\\b89b8172d12481170b3e\\queue.json",
+  "queue_sha256": "dd94e9ad035612b2afabb40141275ba7f963ecf7ce3497a38af54970e952a6bc",
+  "collector_sha256": "25d26ecf2baa2663eaab3766edea69290b73a870d9ae66b2de442dc50e968409",
+  "collector_budget_seconds": 480,
+  "counts": {
+    "pending_ability": 1939,
+    "pending_character": 187,
+    "verified_or_conflicting_metadata": 115,
+    "dedicated_exact_grant_batch": 20,
+    "existing_spawn_or_v5_mapping": 21
+  },
+  "batches": [
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-1f594f8f86d686d7abd3",
+      "requests": 18,
+      "roles": {
+        "ability": 16,
+        "character": 2
+      },
+      "ids": [
+        "000_hun",
+        "001_arrowman"
+      ],
+      "manifest_sha256": "89fc029a3857acf7eb8f84db68aefcca964873c24a95d86f9fffc8e2937ff78f",
+      "script_sha256": "35c8bd32b7d1f8356ea959277d8aa19e2ef9ae60bf08be9d15047173907d6b59"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-e1e063e0d18299b28318",
+      "requests": 49,
+      "roles": {
+        "ability": 42,
+        "character": 7
+      },
+      "ids": [
+        "003_malethug"
+      ],
+      "manifest_sha256": "566a5102455a5a55957ee526c505c0611c2be633927cdb5c90184ff3e784cd4d",
+      "script_sha256": "b708cde33e1db0fc7df0d13a5c8263af071d62c2d77966edfc8eccf7f558ddbc"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-56fb903e52d95823cf3d",
+      "requests": 40,
+      "roles": {
+        "ability": 35,
+        "character": 5
+      },
+      "ids": [
+        "005_moddog",
+        "006_goldmaskman",
+        "007_arrowman_bow"
+      ],
+      "manifest_sha256": "e844537436188c0346f721e4e4a65a02ff48f876d301a48eb5d0e829f3fe834d",
+      "script_sha256": "2c448d00fbbe074a1461d6f33ea539a9969ff4e25cd032f6baae0d63a0e78ffc"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-2e36a215fb33d4b7372b",
+      "requests": 57,
+      "roles": {
+        "ability": 57
+      },
+      "ids": [
+        "008_greatblademan",
+        "008_greatblademan_hard"
+      ],
+      "manifest_sha256": "d2aa9a776a1b0b351f5f0781b76ec450806c25b605149c35ec5b7f9c20a9baf3",
+      "script_sha256": "60815b4f053cad7ad364cd350f61bba31b3aec8a30e643c1fcd8101f5cba010c"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-4b14b6d38c78a5df45cd",
+      "requests": 44,
+      "roles": {
+        "ability": 41,
+        "character": 3
+      },
+      "ids": [
+        "009_heavycrossbowmannew",
+        "010_bombman",
+        "011_ironmaskman"
+      ],
+      "manifest_sha256": "93a245da68d8a5ff30c62e581ddbeb688943bd8e20cbab451bfbbe90c52e5941",
+      "script_sha256": "6182246156fae0e0ffeafd0d714fe3f96a99fa6244f597abcb3181fc2ec8cef6"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-eb2b523e0cd62b15b3cb",
+      "requests": 59,
+      "roles": {
+        "ability": 59
+      },
+      "ids": [
+        "012_mboss",
+        "013_mbossvariants",
+        "014_jademaskman"
+      ],
+      "manifest_sha256": "c3ac73c4f87175cd82bc2cc9ce31650627983d36eab342b3537da4870180728c",
+      "script_sha256": "89ffadc1afad215a29b39ed8ec5fd1c384e042c9ffa5914f655f3f6bd345ccd1"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-d9cbe8b05c94414fb9d4",
+      "requests": 51,
+      "roles": {
+        "ability": 49,
+        "character": 2
+      },
+      "ids": [
+        "015_powerman",
+        "016_mobmanelite",
+        "017_illnesscrow"
+      ],
+      "manifest_sha256": "23183c8a90417333f9bc4c4443f4c6436d0294b13c72b18efce22e6e1c2fea8f",
+      "script_sha256": "3c93fd7e70e4061da53db1ea63d2e1f40359855058f724516e364d2016669e75"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-dd7f652eeb226ac6585e",
+      "requests": 22,
+      "roles": {
+        "ability": 18,
+        "character": 4
+      },
+      "ids": [
+        "019_vessel_vagrant",
+        "020_vessel_woman",
+        "021_vessel_man"
+      ],
+      "manifest_sha256": "c11d5417d40e7b329a69e79bdbe0463ed6350bb505f8b3ba116d8e9773edeac7",
+      "script_sha256": "111dd73b4873cf70299ae579be4e22e0acaa24083ff3f23b2e1800e57ca9a635"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-04a896a310e14e657b5d",
+      "requests": 30,
+      "roles": {
+        "ability": 27,
+        "character": 3
+      },
+      "ids": [
+        "022_vessel_elder",
+        "023_vessel_child",
+        "024_vessel_giant"
+      ],
+      "manifest_sha256": "2e85bfd46d1774f1a33913a73ecc3aa4fff8be129363db3112d7479ce3d6b38a",
+      "script_sha256": "df10ae5c50a73854f43bc72329801f1f2a970cf72065f1e502e420db2ac459c2"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-39cf037cdf95bcda9b7c",
+      "requests": 51,
+      "roles": {
+        "ability": 42,
+        "character": 9
+      },
+      "ids": [
+        "025_femalethug",
+        "027_xiaoxue"
+      ],
+      "manifest_sha256": "1c2809dd148db17434305c6e5b8f521db12de627aeff1406c69ca47da37f3361",
+      "script_sha256": "c22c4d85358f0a648b3569cf1c2a13da441150aa7617e63171ec8c6c4aafb347"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-1e79eae447d015011c3a",
+      "requests": 38,
+      "roles": {
+        "ability": 38
+      },
+      "ids": [
+        "028_yanyan"
+      ],
+      "manifest_sha256": "4d76ce51014db895882a3ddd7477ec8ea03e834faf06ebc8f370c2406616ea44",
+      "script_sha256": "a55d3391dcb89b50f13ba1b3cb0d0cac6d785f4100435a8ebb3cacc44c63e7c1"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-d48093a333755bd0f32e",
+      "requests": 64,
+      "roles": {
+        "ability": 54,
+        "character": 10
+      },
+      "ids": [
+        "034_emei",
+        "035_huashan"
+      ],
+      "manifest_sha256": "6841514d6319056829a1ff75d3e540113895c64d9ce6dca2bf66724068dc2268",
+      "script_sha256": "7c6834491d3de776bc426d8947e6b53d075bb50aeadb36e0f2b51ccd44c00804"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-4a606ba56c304da36376",
+      "requests": 64,
+      "roles": {
+        "ability": 64
+      },
+      "ids": [
+        "035_huashan"
+      ],
+      "manifest_sha256": "d43430ad4328b226f3e1d2caecf9ca939284d32f319231d89b01cac05b7c06d4",
+      "script_sha256": "28d99845aa119a1767234d35d1e3eee4638a36a46881429f1d0ccb7fce7f51a1"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-12b89cc540f6f2ed33d2",
+      "requests": 48,
+      "roles": {
+        "ability": 36,
+        "character": 12
+      },
+      "ids": [
+        "035_huashan"
+      ],
+      "manifest_sha256": "dab0ce90a14f9e2beebeff5eecfb268aa5641b414ffbaf4f33b54b085f80ac28",
+      "script_sha256": "fede27521382245fdf8653a7a2b31ec915398b96801e8c128f9373f289178000"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-a7d538ba6434c1b9c30b",
+      "requests": 40,
+      "roles": {
+        "ability": 35,
+        "character": 5
+      },
+      "ids": [
+        "036_spearman"
+      ],
+      "manifest_sha256": "d705b362c26e9de711d3a8011c2b36d240dbdd7396766f90fdc0295008ebb488",
+      "script_sha256": "c95af76cb32a6d81b84bdd7df99dcd836203863e0950c5f4196ede2198a65bc0"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-54701beb21f7411d1661",
+      "requests": 54,
+      "roles": {
+        "ability": 49,
+        "character": 5
+      },
+      "ids": [
+        "037_guichai"
+      ],
+      "manifest_sha256": "f4f19468086fe8648b2c7d1696f94e0ce64e1eb52e5464140c27422800792e05",
+      "script_sha256": "042e46c1af79c914525c1364423f606a292502a41cc537263d22852803e619ac"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-335a301bb891c7adde5a",
+      "requests": 56,
+      "roles": {
+        "ability": 47,
+        "character": 9
+      },
+      "ids": [
+        "038_aquakiller",
+        "039_guichai_white",
+        "040_horse"
+      ],
+      "manifest_sha256": "4ee51152b64edd3e5c11f8487633932f8e63e645d4ef515a25f746e439df5e73",
+      "script_sha256": "7bd2c0ed932302b7dc898eb9f88ea12b19d00ae133b66b2102cbc1a10a3b880b"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-ebb934f3c4170fdc0fde",
+      "requests": 50,
+      "roles": {
+        "ability": 49,
+        "character": 1
+      },
+      "ids": [
+        "041_bandit",
+        "043_scavenger"
+      ],
+      "manifest_sha256": "d9ad7c7a5a150bb71e8dea232ad788524b5fe602ceba8d154945ecd973fb56be",
+      "script_sha256": "1d85de43ca2b46fe95233f5385e25d8a3a6d64bf117acf40bee2e35eeb0b367e"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-182107c848d91d72ea87",
+      "requests": 52,
+      "roles": {
+        "ability": 48,
+        "character": 4
+      },
+      "ids": [
+        "044_pengmeng",
+        "045_jingye"
+      ],
+      "manifest_sha256": "d75c035c9ded684cdd02ec33874adb1cdaf401c45153abcdee2a6a66a590e8d3",
+      "script_sha256": "928f020cd22391f834310ca0d3527decf1010e0d42c5c0b418f1b0b85e472a15"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-fc02ceb8416680f2ecc8",
+      "requests": 40,
+      "roles": {
+        "ability": 39,
+        "character": 1
+      },
+      "ids": [
+        "046_yuu",
+        "047_leidang"
+      ],
+      "manifest_sha256": "16ddbc804c7836399defaf618d9a81d700548e32ac0ff6b19c22b066f74a2bfd",
+      "script_sha256": "6c7285d24d7b64a7491b49e4c58b40eb4a57ceb0b0df1a2c9bc94da639f4525b"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-7d0a237b6f2245b4be81",
+      "requests": 52,
+      "roles": {
+        "ability": 49,
+        "character": 3
+      },
+      "ids": [
+        "048_hookman",
+        "049_changhong"
+      ],
+      "manifest_sha256": "8d6a9f9cf43515766e9a4f7e50815276d088923c5f16e3dcb8b53dc245d39d2d",
+      "script_sha256": "974ca904a8c3dd8532466965be72a0e01a00967c0d8f37ee7a5eb9f6a4cd4084"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-c22f11104ab366407269",
+      "requests": 36,
+      "roles": {
+        "ability": 34,
+        "character": 2
+      },
+      "ids": [
+        "050_leidang_p2",
+        "051_hookman_p2"
+      ],
+      "manifest_sha256": "feadee586a4e41310d7538174089b11207de812ba81fda21e234fe06a0490a44",
+      "script_sha256": "9209985c0e53735d651133b01b893a3d3d80c5b32857023273a6e6d1ef23016e"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-70475d8e0fd87e0a0b03",
+      "requests": 61,
+      "roles": {
+        "ability": 59,
+        "character": 2
+      },
+      "ids": [
+        "052_baihedisciple",
+        "053_changhong_p2"
+      ],
+      "manifest_sha256": "8c22b382fdb65b2b19b50f8eef22207f2399e3f9c24f2289accb33cd7e6d3502",
+      "script_sha256": "0852423e09101ddbc5975e6e0faccba26e723a026152835046e4a17444721100"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-70ad4e7dcd90356d3c7e",
+      "requests": 30,
+      "roles": {
+        "ability": 29,
+        "character": 1
+      },
+      "ids": [
+        "055_zuoshang_young",
+        "056_youlong",
+        "057_wanjun"
+      ],
+      "manifest_sha256": "c5bd19902dbb867bc45911681e836902c9f8bd968e01c09258c48275a90315f3",
+      "script_sha256": "67b93bf1193e36647ea4ace1018046e50351df3e4dae549db6905cf7abfae282"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-e966e57243b562cfaa6e",
+      "requests": 62,
+      "roles": {
+        "character": 3,
+        "ability": 59
+      },
+      "ids": [
+        "058_maddoctor",
+        "059_duyan",
+        "060_guichai_yellow"
+      ],
+      "manifest_sha256": "d626d614398a1a5b29b0d06c2a9aa44a246c8de7fd7afd0ef6f277723f8934c3",
+      "script_sha256": "a7bb73babf4479d7468a46f44c62bc876aac4d27a25436c39daa375ddafcf8bc"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-c36fe79743bfe7f132b2",
+      "requests": 60,
+      "roles": {
+        "ability": 55,
+        "character": 5
+      },
+      "ids": [
+        "061_guwanyue",
+        "062_muxiaokui",
+        "063_chilian_p1"
+      ],
+      "manifest_sha256": "c06b4652962fc54fdeb19894cc3f2efab54bab444e80528fe6c0b5bb1a0507b0",
+      "script_sha256": "30917f6aa2f2ef2f89589eb5acdb42f20ca79042830cee2169a2c8a3375c3675"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-6b87e7de3c96d659a799",
+      "requests": 54,
+      "roles": {
+        "ability": 50,
+        "character": 4
+      },
+      "ids": [
+        "064_muxiaokui_p2",
+        "065_chilian_p2",
+        "068_yuzan"
+      ],
+      "manifest_sha256": "376a37064635b49074b54542e6b920b5b9017b965ebd5a65fd2fe30ae16808c1",
+      "script_sha256": "ad2c8df166ba26911b7c0801b2a30dba8f936390c73b13cbda6980671176e8a8"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-8a25358658e5b10e996e",
+      "requests": 43,
+      "roles": {
+        "ability": 38,
+        "character": 5
+      },
+      "ids": [
+        "069_guichai_red",
+        "070_guichai_cyan",
+        "071_xianzhe"
+      ],
+      "manifest_sha256": "b6e2b03d8f916bac47c2085db86ea0918ef671fee5e415c335e022312af79a28",
+      "script_sha256": "2bb7cfae9633c723045787701262a6afd22f26d67a2f3a39791813c6d2e405a1"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-f17f0fb73ad4ddb93aa7",
+      "requests": 38,
+      "roles": {
+        "ability": 37,
+        "character": 1
+      },
+      "ids": [
+        "072_canqu_biyuan",
+        "073_yanqiansui",
+        "074_wulengshuang"
+      ],
+      "manifest_sha256": "07ec6958dc3d1329c02619a56a54464a4b55490f9b447c87d2be3d7d1122da59",
+      "script_sha256": "74d9527808f72f4cf4f7ed27a1338ac5a04e37233514bbdf1edb3f221a64be21"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-f517b3d42c387aed4d5d",
+      "requests": 17,
+      "roles": {
+        "ability": 17
+      },
+      "ids": [
+        "075_guichai_red_p2",
+        "076_zuoshang_p2"
+      ],
+      "manifest_sha256": "303dfcf326400f45194083224b630c292c0a1591f24b0c8e8d29ed569682856c",
+      "script_sha256": "372ac859e3b111eedb60c076fb210053848c50301bc0e10a86e1bede6c568d9f"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-b6d6ec2346fc36e754cb",
+      "requests": 52,
+      "roles": {
+        "ability": 50,
+        "character": 2
+      },
+      "ids": [
+        "077_lengtu"
+      ],
+      "manifest_sha256": "06b67a3d838d5e1ffcff4ad37d5b1f899aff7836c57355c9dbfd344ecc24e227",
+      "script_sha256": "3de8ade207421fc6a55b5c4ed9f4ca4681bd096c711a83bcbc4a02dba33244fe"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-5c6cf7f8f86ba3162fbd",
+      "requests": 60,
+      "roles": {
+        "ability": 58,
+        "character": 2
+      },
+      "ids": [
+        "078_menghua",
+        "079_xukong",
+        "888_ultimateboss"
+      ],
+      "manifest_sha256": "85c0b703c4ee6513728c0be45840cfaab0cefa06aff6de7161584738f6fff9c2",
+      "script_sha256": "c75ff210c52bbb4519592cdd940df715d91dbaffaef6ebfcf7c18967d7cf62ab"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-7b0965e5067fd2a965ef",
+      "requests": 57,
+      "roles": {
+        "ability": 52,
+        "character": 5
+      },
+      "ids": [
+        "canqu_bihai",
+        "datouwawa"
+      ],
+      "manifest_sha256": "8b1b2a2a0c934ece71202b48284ce63d4cec465949372492fcb47a297ced9c7a",
+      "script_sha256": "ba2ae788f355de85d8d06955ea683d5fe9648644480fc09c07080b7ea7d5f669"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-0b98d310c3c5f821beca",
+      "requests": 51,
+      "roles": {
+        "ability": 45,
+        "character": 6
+      },
+      "ids": [
+        "danghui",
+        "feizei"
+      ],
+      "manifest_sha256": "c3535d3b886256d98cf481c600be0c178731abf2d851a7677ae57a5f3aea5406",
+      "script_sha256": "dc4b59c29cf61cf2bbe4b4c7640476cfe8e01f8af9b6e3aa52bcccbabe49a6d1"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-ae5650986e4a29d86df9",
+      "requests": 64,
+      "roles": {
+        "ability": 51,
+        "character": 13
+      },
+      "ids": [
+        "femaledoll"
+      ],
+      "manifest_sha256": "6c6205c5a1e4abc2cc5bfb52eb9b4d3d21782ab42fcba39f487c53b3ac0f2b45",
+      "script_sha256": "12c65c610b0af73626f1b42af4cfeae98c3065fdef345bd28248b562c1f76e86"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-2f48f3d29445e6dc63db",
+      "requests": 53,
+      "roles": {
+        "ability": 50,
+        "character": 3
+      },
+      "ids": [
+        "fengxuedaoke",
+        "huaqianxiao",
+        "huwei"
+      ],
+      "manifest_sha256": "186be53960b0c3f868361f357d31dd65abd0e2ab3ed3b64a32524e9345f80c5c",
+      "script_sha256": "c96221449436da839ecd388e9e1aea015b06be55d57754846f4d85716a5fb890"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-deac4c419bfe72b06942",
+      "requests": 48,
+      "roles": {
+        "ability": 35,
+        "character": 13
+      },
+      "ids": [
+        "huotongren"
+      ],
+      "manifest_sha256": "fb0cecc19ee4e53950c6e5550c93bc7dd34e67838bc1b325ac1bf78a77983dd1",
+      "script_sha256": "15eb63d4ec79bfc0ccefea85ce137bc97187af4ef4b497ef38eaa728f971376e"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-5411252dc60cc023a33a",
+      "requests": 56,
+      "roles": {
+        "ability": 55,
+        "character": 1
+      },
+      "ids": [
+        "jiangjun",
+        "liondancer"
+      ],
+      "manifest_sha256": "524ea0b58a78c9c63960896bd73af8e1e5f0f784dbc2547ab272c08fb301bf15",
+      "script_sha256": "be160b29b1ef1c8c9e0894a963a6fb67549bc9119cdcdd40dd974bcaf22b60ab"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-94035ca008ed8eed5558",
+      "requests": 19,
+      "roles": {
+        "ability": 19
+      },
+      "ids": [
+        "liondancer_p2"
+      ],
+      "manifest_sha256": "54ba1f96c5760496b3e690ec93e63a9057545b159bb4f07f08ea50d4464753df",
+      "script_sha256": "56c70217099bc560e9a4a014f9c6e1946e72301fffa0483763df6a43c0f4fa1e"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-776334d8800558e43677",
+      "requests": 60,
+      "roles": {
+        "ability": 55,
+        "character": 5
+      },
+      "ids": [
+        "luanshi"
+      ],
+      "manifest_sha256": "7af225a7dacc795b41d709153cc5b530ac96e17bbba91af5724419ba843a6eb5",
+      "script_sha256": "5f4a97ec1c3930782d782dd63e68685f09398e32fb10de4e97c1e501fc6cef63"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-55161b7ee9eeeca0bebc",
+      "requests": 62,
+      "roles": {
+        "ability": 49,
+        "character": 13
+      },
+      "ids": [
+        "maledoll"
+      ],
+      "manifest_sha256": "1e2d28114069600dfe8c9f1798e62abd7492d293b708a432d539a26d62bc3c4b",
+      "script_sha256": "08a6a5661d385ae7167282042b4d89d1999f838332bee68094e6a1cdb635b740"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-e32e032f73110f80cb3a",
+      "requests": 41,
+      "roles": {
+        "ability": 34,
+        "character": 7
+      },
+      "ids": [
+        "qishu",
+        "vesselrenoujiao"
+      ],
+      "manifest_sha256": "c36c4c6c2e0c8572eed3b8f5d13a29605ec89e4d0b6b98dda196ea45bd11d1d2",
+      "script_sha256": "2358e62479767383c8259d1914c96be43e1a31866ad1ffd9a3c5c90bc6ca81bd"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-491a665c3dc7d57c6332",
+      "requests": 42,
+      "roles": {
+        "ability": 41,
+        "character": 1
+      },
+      "ids": [
+        "yingmei"
+      ],
+      "manifest_sha256": "1be098e7a2dc7a2f5e5e8ff0864a0fad9e20705fe622b6eebd25b027ba18da09",
+      "script_sha256": "af45679b740d85bb7f0dce4081d4c5e3811ba5781252c1ea2d5d2184f8c52e0f"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-0914eabb8325f3bfbdcc",
+      "requests": 64,
+      "roles": {
+        "ability": 59,
+        "character": 5
+      },
+      "ids": [
+        "yubi",
+        "yucong"
+      ],
+      "manifest_sha256": "dabd1819cd9f1bcf335de9a73908748ec06129db01464fef87810b29ff25ed1e",
+      "script_sha256": "b0151e2f990c17373ff9cbb97344fcc920755f5f3b0e2af316bd138e5a8d0f0d"
+    },
+    {
+      "directory": "runtime/full-boss-catalog/b89b8172d12481170b3e/metadata-ebc9a8004fcd0d65f279",
+      "requests": 17,
+      "roles": {
+        "ability": 14,
+        "character": 3
+      },
+      "ids": [
+        "yuding_00",
+        "zhigaozhe"
+      ],
+      "manifest_sha256": "0a7f995900a735a902ac431f83b3c865fe58471c6b8779619f0a5e47a5056d61",
+      "script_sha256": "b83c2350d250492053a1b739d6bec75820140dd6a02e2957f6071a94ca2d1641"
+    }
+  ],
+  "all_requested_metadata_queries": 2126,
+  "source_sha256": {
+    "tools/prepare_full_boss_catalog.py": "e8274a373a6610784574ecf4e52a83ef3afd5a55684bb268b9a38d673a800e7c",
+    "tools/full_boss_catalog_probe.lua": "10eeb0d108ec2e4483aa2e831354ccd4864202ae0730e7a5a74f9f7c5b182856",
+    "tools/stage_full_boss_catalog.py": "38bd4cf264afcc11d74529a5da97bcb57c03a12b76065dfbb7f82d4d54e55814",
+    "tools/stage_boss_inventory_metadata.py": "36aee677171ad547551ca83e324da21d4a9f99283035d4d47af09e2a195d8b49",
+    "tools/boss_offline_inventory.py": "05ca420e4019892bc289e65ac261102093f0347563e4af4b87523fcfc2242161",
+    "tools/boss_metadata_jobs.py": "be5e127bc4ab2d506b785853e5520edde824ab5ff7d9d437e05818f376ce51b4",
+    "tools/collect_boss_metadata_jobs.py": "91821a20e5c0951ea3eac7c358262c371291a2433023ea79a646083d28f75ced",
+    "tests/test_full_boss_catalog.py": "547bda2b3955ac0f92449f3ceaa1ff6ebea391f5e3ad395b4c15ac4653d9a169",
+    "tests/test_full_boss_catalog.lua": "c148ca6523e66c54eef508ed668360c2497fc0e3059e104e9507a5853d3e7059",
+    "后台批量适配Boss.cmd": "7de3af87f7e8fdc20419c40f62feecd3d979111b8fa62e2538993e5db6b37c5d"
+  },
+  "offline_checks": {
+    "python_tests_passed": 4,
+    "lua_simulation_modes_passed": [
+      "sequential",
+      "deadline"
+    ],
+    "lua_scripts_compile_passed": 46,
+    "generated_skill_workflows_verified": 3
+  },
+  "game_started": false,
+  "ui_input_sent": false,
+  "assets_loaded_in_engine": false,
+  "all_boss_skills_complete": false,
+  "installed": false,
+  "complete_mod": false
+}
