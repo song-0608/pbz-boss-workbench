@@ -20,7 +20,8 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tests/test_player_map_initialization.lua', 'tests/test_player_target_diagnostics.lua',
            'tools/player_controller_owner.lua', 'tests/test_player_controller_owner.lua',
            'tools/inspect_player_controller_contract.py', 'tools/check_player_travel_repair.py',
-           'tests/test_player_source_checks.py', 'tools/player_travel_trial.py', 'tests/test_player_travel_trial.py')
+           'tests/test_player_source_checks.py', 'tools/player_travel_trial.py', 'tests/test_player_travel_trial.py',
+           'tools/player_action_queue.lua', 'tests/test_player_action_queue.lua', 'tests/test_runtime.lua')
 
 
 def payload(root=ROOT):
@@ -41,6 +42,7 @@ def payload(root=ROOT):
     files[PREFIX + 'player_controller_owner.lua'] = (root / 'tools/player_controller_owner.lua').read_bytes()
     files[PREFIX + 'player_reassembly.lua'] = (root / 'tools/player_reassembly.lua').read_bytes()
     files[PREFIX + 'player_assembly_tasks.lua'] = (root / 'tools/player_assembly_tasks.lua').read_bytes()
+    files[PREFIX + 'player_action_queue.lua'] = (root / 'tools/player_action_queue.lua').read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')
@@ -121,6 +123,14 @@ def payload(root=ROOT):
            '        if self.running then self:action(label,fn)end\n'
            '    end,rejected)\n'
            '    if not ok then rejected(why)end')
+    change('runtime.lua', '    self.host.on_game_thread(function()\n',
+           "    self.action_queue=self.action_queue or require('player_action_queue').new({\n"
+           '        now=self.host.action_time or os.time,schedule=self.host.on_game_thread,\n'
+           '        live=function()return self.running end})\n'
+           '    return self.action_queue:dispatch(label,function()\n')
+    change('runtime.lua', '    self.running = false\n',
+           '    self.running = false\n'
+           '    if self.action_queue then self.action_queue:retire()end\n')
     change('boss_catalog.lua', '    if keymap then require(\'keymap\').apply(config,keymap)end',
            "    require('player_role_controls').apply(config,profile)\n"
            "    if keymap then require('keymap').apply(config,keymap)end")

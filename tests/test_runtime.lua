@@ -45,7 +45,8 @@ end)
 
 test('queued repeated F10 restores once and reports one complete event',function()
     local f=fixture();f.runtime:start();f.keys.F6();f.queue[1]()
-    f.keys.F10();f.keys.F10();f.queue[2]();f.queue[3]()
+    f.keys.F10();f.keys.F10()
+    for index=2,#f.queue do f.queue[index]()end
     assert(f.restores==1 and f.runtime.session.state=='OFF')
     local exits=0;for _,line in ipairs(f.log)do if line:find('exit success=true',1,true)then exits=exits+1 end end
     assert(exits==1)
