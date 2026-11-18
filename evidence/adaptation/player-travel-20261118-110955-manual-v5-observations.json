@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "session": "20261118-110955",
+  "status": "closed-manual-v5-observations",
+  "release_provenance": "ahua-boss-workbench-v5-3f29975fe3b8826f",
+  "exact_module_hashes_match": true,
+  "sources": {
+    "evidence/official-validation/20261118-110955/UE4SS.log": "a3ff25c835b2e2c991abe1e8acaca2929e6f4440b1c80b032c4957a9046c4886",
+    "evidence/official-validation/20261118-110955/control-lifecycle-deployment.json": "390ef2a3fb032c3ea89d09efd731ede2df856aeaae25acf6d581b9c8a0088521",
+    "evidence/official-validation/20261118-110955/postcheck.json": "1adb8d9959f85d28c1c5731c52cdaf581ff84bfecff7b8c67a4c1afa460b5700"
+  },
+  "closed_cleanly": true,
+  "isolated_function_key_sample": {
+    "role": "056_youlong",
+    "begin_line": 1343,
+    "active": true,
+    "target_distance": 589.44167150008,
+    "skill": "skill_01",
+    "end_line": 1425,
+    "natural": true,
+    "health_before": 9000.0,
+    "health_after": 8900.0,
+    "observed_damage": 100.0
+  },
+  "ambiguous_same_skill_end_count": 5,
+  "youlong_primary_mouse_proven": false,
+  "native_travel_proven": false,
+  "new_candidate_accepted": false,
+  "limits": [
+    "Manual v5 function-key sample does not validate the developer candidate mouse binding.",
+    "Overlapping activation tails have no instance ids and are retained as ambiguous; health deltas are not summed.",
+    "No native map transition observed."
+  ]
+}

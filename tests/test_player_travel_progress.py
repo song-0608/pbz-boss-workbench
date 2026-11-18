@@ -58,6 +58,29 @@ class TravelProgressTests(unittest.TestCase):
         self.assertEqual(data['lifecycle'], [])
         self.assertNotIn('passed', data)
 
+    def test_overlapping_same_skill_tails_cannot_be_paired_to_newer_primary(self):
+        text = (self.ready+self.active+self.begin+self.primary+self.begin
+                +self.end+self.end.replace('8900.0', '8800.0'))
+        data = observe(text)
+        self.assertEqual(data['primary_observations'], [])
+        self.assertEqual(data['skill_observations'], [])
+        self.assertEqual(len(data['ambiguous_skill_observations']), 2)
+        self.assertEqual(data['ambiguous_skill_observations'][0]['candidate_begin_lines'], [4, 6])
+
+    def test_isolated_sample_after_all_overlapping_tails_is_preserved(self):
+        text = (self.ready+self.active+self.begin+self.begin+self.end+self.end
+                +self.primary+self.begin+self.end)
+        data = observe(text)
+        self.assertEqual(len(data['ambiguous_skill_observations']), 2)
+        self.assertEqual(len(data['primary_observations']), 1)
+
+    def test_new_assembly_clears_overlap_ambiguity(self):
+        text = (self.ready+self.active+self.begin+self.begin+self.ready+self.active
+                +self.primary+self.begin+self.end)
+        data = observe(text)
+        self.assertEqual(data['ambiguous_skill_observations'], [])
+        self.assertEqual(len(data['primary_observations']), 1)
+
 
 if __name__ == '__main__':
     unittest.main()

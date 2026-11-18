@@ -15,10 +15,12 @@ def observe(text):
     pending = {}
     geometry = {}
     skill_pending = {}
-    attacks, skills, roles, routes, events = [], [], [], [], []
+    attacks, skills, roles, routes, events, ambiguous = [], [], [], [], [], []
+    ambiguous_pending = {}
     for number, line in enumerate(text.splitlines(), 1):
         if 'PBZ_CONTROL_LIFECYCLE:SPAWN_ATTEMPT=' in line:
             role, active, primary, pending, geometry, skill_pending = None, False, None, {}, {}, {}
+            ambiguous_pending = {}
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:PLAYER_ENTRY_READY=([^\r\n]+)', line)
         if match:
             role = match[1]; roles.append(dict(role=role, ready_line=number))
@@ -34,13 +36,38 @@ def observe(text):
             geometry[match[1]] = float(match[2])
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:KEY_SKILL_BEGIN=([^|]+)\|', line)
         if match:
-            pending[match[1]] = primary
-            skill_pending[match[1]] = dict(role=role, begin_line=number, active=active,
+            skill = match[1]
+            observation = dict(role=role, begin_line=number, active=active,
                 target_distance=geometry.pop(match[1], None))
+            # Logs have no activation id. Never overwrite an unfinished sample
+            # and then attribute the older tail's END to the newer activation.
+            if skill in ambiguous_pending:
+                ambiguous_pending[skill]['begin_lines'].append(number)
+                ambiguous_pending[skill]['remaining'] += 1
+            elif skill in skill_pending:
+                previous = skill_pending.pop(skill)
+                pending.pop(skill, None)
+                ambiguous_pending[skill] = dict(
+                    begin_lines=[previous['begin_line'], number], remaining=2)
+            else:
+                pending[skill] = primary
+                skill_pending[skill] = observation
             primary = None
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:KEY_SKILL_END=([^|]+)\|.*?natural=(true|false)\|'
                           r'health_before=([\d.]+)\|health_after=([\d.]+)', line)
         if match:
+            collision = ambiguous_pending.get(match[1])
+            if collision:
+                before, after = float(match[3]), float(match[4])
+                ambiguous.append(dict(role=role, skill=match[1], end_line=number,
+                    candidate_begin_lines=list(collision['begin_lines']),
+                    natural=match[2] == 'true', health_before=before,
+                    health_after=after, observed_health_delta=before-after,
+                    reason='overlapping same-skill windows without activation ids'))
+                collision['remaining'] -= 1
+                if collision['remaining'] == 0:
+                    del ambiguous_pending[match[1]]
+                continue
             observation = skill_pending.pop(match[1], None)
             if observation:
                 before, after = float(match[3]), float(match[4])
@@ -61,6 +88,7 @@ def observe(text):
             if 'PBZ_CONTROL_LIFECYCLE:' + event + '=' in line:
                 events.append(dict(event=event, role=role, line=number))
     return dict(ready_roles=roles, primary_observations=attacks, skill_observations=skills,
+        ambiguous_skill_observations=ambiguous,
         cross_map_requests=routes, lifecycle=events,
         runtime_fault_lines=[i for i,line in enumerate(text.splitlines(),1)
             if 'state=FAULTED' in line or 'PBZ_CONTROL_LIFECYCLE:ISSUE_' in line])

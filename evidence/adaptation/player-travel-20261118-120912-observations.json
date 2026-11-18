@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "session": "20261118-120912",
+  "status": "closed-partial-development-observations",
+  "candidate": "ahua-player-travel-dev-2fd31be3bbd8cac1",
+  "log_sha256": "9ef066ed79345ec21f7c79bb6a114a67c6e3b953e0882f6400eddb175f602c1b",
+  "primary_observations": [
+    {
+      "role": "056_youlong",
+      "dispatch_line": 1221,
+      "active": true,
+      "skill": "skill_01",
+      "end_line": 1249,
+      "natural": true,
+      "health_before": 9000.0,
+      "health_after": 8900.0,
+      "observed_damage": 100.0
+    }
+  ],
+  "restoration": {
+    "label": "auto_exit",
+    "reason": "native map menu trial",
+    "player_position_delta": 0.0,
+    "player_new_active_count": 0,
+    "camera_cleanup_verified": true,
+    "passed": true
+  },
+  "performance": {
+    "windows": 12,
+    "seconds": 60.085,
+    "frames": 4390,
+    "game_thread_ticks_per_second": 73.063160522593,
+    "callback_mean_ms": 2.7127561886104785,
+    "callback_worst_ms": 7.0,
+    "lookup_ms_per_frame": 0.0,
+    "median_window_ticks_per_second": 73.28976516723645
+  },
+  "native_travel_verified": false,
+  "overall_smoothness_verified": false,
+  "closed_cleanly": true,
+  "release_accepted": false,
+  "manual_menu_request_expired": true,
+  "limits": [
+    "Left-button skill shortcut hit does not prove a full native normal-attack combo.",
+    "No native menu or map transition observed.",
+    "Mod callback costs and EngineTick callback cadence are not GPU FPS, input latency, or overall smoothness acceptance.",
+    "No performance-loader-settings.ini snapshot for this session; these are descriptive timing observations, not a controlled loader-only before/after comparison."
+  ],
+  "source_hashes": {
+    "evidence\\official-validation\\20261118-120912\\UE4SS.log": "9ef066ed79345ec21f7c79bb6a114a67c6e3b953e0882f6400eddb175f602c1b",
+    "evidence\\official-validation\\20261118-120912\\control-lifecycle-deployment.json": "1f23353b84e4532d60340a115517718f6ea57a1a513008ca31d657bbaa7a360e",
+    "evidence\\official-validation\\20261118-120912\\postcheck.json": "642c93c85a00ac007e1263d7cd3c111ed07051538eecc8bf82a2ea87d025d7cf"
+  }
+}
