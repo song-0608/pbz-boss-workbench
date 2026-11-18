@@ -101,3 +101,11 @@ tools/check_native_grant_followups.py
 本批 33 项 Python 回归和三组生成模块 Lua 检查通过。研究版仍待核验实际攻击伤害、连放、取消、跨图和操作手感。离线结果见 `evidence/adaptation/boss-offline-inventory-f17be43eb81e7fb53ac7.json`。
 
 `tools/prepare_boss_inventory_workflow.py <skill-pool目录>` 为这三个候选生成独立的研究入口。候选校验从历史授予与元数据重新构建临时模块，再与冻结件逐字节比较。部署前核对 v5 基线及本角色唯一模块覆盖。生成的 `inventory_ui_controller.py` 负责装配、窗口凭据和捕获，`inventory_skill_gate.py` 保留每次接管、动作及恢复检查。候选装配仍需空闲载体，每次按现有研究租约验证一个角色。三个入口均已执行 `verify`，并核对实际安装的 v5 模块摘要。尚未发起本批实机装配。
+
+## 后台统一入口
+
+新增 `运行Boss后台适配.cmd`，或执行本机 Python 的 `-B -X utf8 tools/run_boss_background_milestone.py`。入口一次完成历史资源/授予盘点、三组独立技能候选生成、研究入口静态核验、精确授予补查批次重放及离线回归；不运行 Steam、不启动游戏、不向研究载体部署、不发送输入。测试中出现的 staged 日志来自临时目录内的假会话，不代表已操作真实游戏。
+
+本次 63 项 Python 测试通过，另有三组生成候选的 Lua 原生对象模拟、三个生成研究入口的 verify 和两批元数据的 verify 通过。新增边界回归覆盖跨装配借用、截断/超额授予、重复实例、外角色路径、发布配置到 CDO 的精确对应、元数据矛盾和多批次请求上限。
+
+报告：`evidence/adaptation/boss-background-milestone-a0017d16444ba8da-1795012475175627800.json`。仍以 `f17be43eb81e7fb53ac7` 盘点为输入，保持已安装 v5 未变。本轮没有进入实机；新增候选的真实伤害、重复释放、取消恢复、3C 手感和跨图仍待集中验收。当前已有名称快照不能证明提取了游戏包中的全部 Boss/技能，报告保留这个范围缺口。
