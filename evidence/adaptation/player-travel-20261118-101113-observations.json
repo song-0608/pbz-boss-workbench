@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-18T11:13:27.984594+08:00",
+  "session": "20261118-101113",
+  "candidate": "ahua-player-travel-dev-2fd31be3bbd8cac1",
+  "status": "interrupted-development-trial",
+  "computer_use_stop_observed": true,
+  "primary_observations": [],
+  "cross_map_requests": [],
+  "runtime_fault_lines": [],
+  "closed_cleanly": true,
+  "release_accepted": false,
+  "native_travel_verified": false,
+  "overall_smoothness_verified": false,
+  "limits": [
+    "Physical Escape stopped the Computer Use turn at the workbench action; input outcome was unknown.",
+    "No subsequent takeover or attack was observed.",
+    "Automatic ten-minute cleanup completed at 10:28 without formal file changes."
+  ]
+}
