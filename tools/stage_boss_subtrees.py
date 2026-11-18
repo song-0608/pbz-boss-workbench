@@ -48,7 +48,7 @@ def archive_sources(manifest, work, *, create=False, root=None):
 def stage(batch):
     manifest, script = subtrees.verify(batch)
     assert manifest['jobs'], 'do not deploy an empty subtree query'
-    assert len(manifest['jobs']) <= 64, 'stage a bounded continuation, not the complete parent inventory'
+    assert len(manifest['jobs']) <= subtrees.MAX_STAGE_JOBS, 'stage a bounded continuation, not the complete parent inventory'
     practice, validation, state, work, carrier, pid = current()
     assert not list(work.glob(LABEL + '*')), 'preserve the session subtree attempt'
     assert time.time() + manifest['max_seconds'] + 120 < state['deadline_unix'], 'reserve query and cleanup time'

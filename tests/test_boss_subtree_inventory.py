@@ -235,6 +235,15 @@ class SubtreeTests(unittest.TestCase):
                         (work / 'subtree-source-snapshot' / name).write_bytes(b'changed')
                         with self.assertRaises(AssertionError): stage.snapshot(batch)
 
+    def test_oversized_inventory_is_rejected_before_live_carrier_access(self):
+        _, manifest, _ = self.fixture()
+        self.assertEqual(subtree.MAX_STAGE_JOBS, 96)
+        manifest['jobs'] *= subtree.MAX_STAGE_JOBS + 1
+        with patch.object(subtree, 'verify', return_value=(manifest, b'fixture')), \
+             patch.object(stage, 'current') as current:
+            with self.assertRaises(AssertionError): stage.stage(Path('fixture'))
+            current.assert_not_called()
+
 
 if __name__ == '__main__':
     unittest.main()

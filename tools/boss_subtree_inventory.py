@@ -14,6 +14,7 @@ from mod_installation import unlinked_path
 
 OUTPUT = 'runtime/boss-subtree-inventory'
 PREFIX = 'PBZ_SUBTREE_META:'
+MAX_STAGE_JOBS = 96  # 384 seconds of checked job work within the 480-second outer budget.
 SOURCES = ('tools/boss_subtree_inventory.py', 'tools/boss_subtree_probe.lua',
            'tools/stage_boss_subtrees.py', 'tests/test_boss_subtree_inventory.py',
            'tests/test_boss_subtree_probe.lua', 'tools/collect_boss_subtree_progress.py',
@@ -209,7 +210,7 @@ if __name__ == '__main__':
     parser.add_argument('--limit', type=int, default=32)
     args = parser.parse_args()
     assert bool(args.session) == bool(args.previous_batch), 'session and previous batch must be supplied together'
-    assert 1 <= args.limit <= 64, 'bounded continuation contains 1 to 64 jobs'
+    assert 1 <= args.limit <= MAX_STAGE_JOBS, 'bounded continuation contains 1 to 96 jobs'
     keys = None
     if args.session:
         from collect_boss_subtree_progress import history, replay, unstarted_keys
