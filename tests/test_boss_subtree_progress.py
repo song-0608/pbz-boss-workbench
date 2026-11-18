@@ -64,6 +64,23 @@ class SubtreeProgressTests(unittest.TestCase):
         self.assertEqual(collector.unstarted_keys(progress, prior), list('acf'))
         self.assertEqual(progress['unstarted_job_keys'], list('abcdef'))
 
+    def test_pending_selection_skips_exact_attempted_classes_after_receipt_key_changes(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            key = 'e' * 20
+            original = [dict(key=str(i) * 20, id='fixture', path=f'/Game/GA_{i}.GA_{i}_C') for i in range(4)]
+            manifest = root / subtree.OUTPUT / key / 'manifest.json'
+            collector.write_json(manifest, dict(jobs=original))
+            audit = dict(metadata_only=True, playable=False, batch=key,
+                outcomes=[dict(key=j['key'], id=j['id'], parent_class=j['path'], mapping_observed=i == 0)
+                          for i, j in enumerate(original[:2])], interrupted_job=original[2]['key'],
+                sources={manifest.relative_to(root).as_posix(): collector.sha(manifest)})
+            current = [dict(job, key='new-' + job['key']) for job in original]
+            self.assertEqual(collector.unattempted_jobs(current, [audit], root), current[3:])
+            manifest.write_bytes(manifest.read_bytes() + b' ')
+            with self.assertRaisesRegex(AssertionError, 'identities changed'):
+                collector.unattempted_jobs(current, [audit], root)
+
     def closed_fixture(self, root, *, complete=False):
         _, manifest, lines = fixtures.SubtreeTests().fixture()
         second = dict(manifest['jobs'][0], key='c' * 20)

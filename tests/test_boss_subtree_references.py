@@ -62,6 +62,14 @@ class SubtreeReferenceTests(unittest.TestCase):
         self.assertEqual(len(jobs), 2)
         self.assertTrue(all(len(j['origins']) == 2 for j in jobs))
 
+    def test_rejected_exact_type_is_not_automatically_requeried(self):
+        characters, audit, paths = self.fixture()
+        characters[0]['abilities'][2]['metadata'] = 'rejected'
+        jobs, deferred, _ = references.plan(characters, [audit])
+        self.assertEqual([job['lookup_path'] for job in jobs], paths[3:])
+        self.assertEqual(deferred, [dict(path=paths[2],
+            reason='exact type lookup already rejected; review before an explicit retry')])
+
     def test_batch_bounds_preserve_order_and_never_mix_more_than_three_folders(self):
         jobs = [dict(key=str(i), id='role_' + str(i // 70)) for i in range(290)]
         batches = references.chunks(jobs)

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "kind": "subtree_default_dedup_observations",
+  "offline_milestone": "evidence/adaptation/boss-reference-controller-milestone-1bb2d317e735bdf5.json",
+  "offline_milestone_sha256": "7457bd3bde59e3799a9f900c1bd6d1cd28b6be04b29aea9892a1aa096975bfca",
+  "current_parent_classes": 144,
+  "unattempted_parent_classes": 0,
+  "default_queue": "runtime/boss-subtree-inventory/57800075bbc64c273ff9",
+  "default_manifest_sha256": "c9e94d69c3f53e9b5eae2d86442a8c6e6ee6fb79cc83b96e3b9b41e0c87dab53",
+  "closed_history": [
+    {
+      "session": "20261119-014731",
+      "batch": "8679b3c521dcdc7cb2ce",
+      "complete": false,
+      "successful": 10,
+      "rejected": 5,
+      "interrupted": true
+    },
+    {
+      "session": "20261119-021103",
+      "batch": "07691e5b7b55a0e2b11d",
+      "complete": true,
+      "successful": 27,
+      "rejected": 5,
+      "interrupted": false
+    },
+    {
+      "session": "20261119-022757",
+      "batch": "b4e3b55f26a0bcc86e6c",
+      "complete": true,
+      "successful": 72,
+      "rejected": 24,
+      "interrupted": false
+    }
+  ],
+  "no_automatic_retries": true,
+  "native_queries_executed": false,
+  "game_started": false,
+  "playable": false
+}

@@ -32,12 +32,14 @@ def verify(directory):
 
 
 @contextmanager
-def controller(manifest=None):
+def controller(manifest=None, expected_session=None):
     old_verify, old_label, old_current = core.verify, core.QUERY_LABEL, core.current
     core.verify, core.QUERY_LABEL = verify, LABEL
     if manifest is not None:
         def reserved_current():
             result = old_current()
+            if expected_session is not None:
+                assert session_identity(result) == expected_session, 'research session changed while archiving sources'
             reserve(manifest, result[2])
             return result
         core.current = reserved_current
@@ -63,20 +65,29 @@ def archive_sources(manifest, work, *, create=False, root=ROOT):
 
 
 def reserve(manifest, state):
-    assert time.time() + manifest['budget_seconds'] + manifest['cleanup_seconds'] < state['deadline_unix'], \
+    now = time.time()
+    assert now + manifest['budget_seconds'] + manifest['cleanup_seconds'] < state['deadline_unix'], \
         'reserve the full query and cleanup budget'
+    return now
+
+
+def session_identity(current):
+    _, _, state, work, carrier, pid = current
+    return state['state_file'], state['deadline_unix'], str(work), str(carrier), pid
 
 
 def stage(directory):
     manifest, _ = verify(directory)
     assert manifest['jobs'] and manifest['batches'], 'do not stage an empty reference query'
-    _, _, state, work, *_ = core.current()
+    current = core.current()
+    _, _, state, work, *_ = current
+    expected_session = session_identity(current)
     assert not list(work.glob(LABEL + '-*')), 'preserve the session reference attempt'
     reserve(manifest, state)
     archive_sources(manifest, work, create=True)
     # The shared core rechecks ownership, idle/offline state, isolation, PID,
     # formal files and carrier hashes immediately before writing the carrier.
-    with controller(manifest):
+    with controller(manifest, expected_session):
         result = core.stage(directory)
     reserve(manifest, state)
     return result
@@ -94,8 +105,7 @@ def reload_gate(directory):
     assert not any(prefix in tail for prefix in PREFIXES), 'reference query already has events'
     reserve(manifest, state)
     window = core.foreground_window(validation, staged['research_pid'])
-    reserve(manifest, state)  # Foreground inspection can consume time.
-    now = time.time()
+    now = reserve(manifest, state)  # Foreground inspection can consume time.
     gate = dict(window_id=window, research_pid=staged['research_pid'], batch=manifest['fingerprint'],
         state_file=state['state_file'], key='Control_L+r', purpose=LABEL,
         gate_expires_at=now + 10, input_sent=False, metadata_only=True,

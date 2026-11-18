@@ -123,6 +123,28 @@ class SubtreeTests(unittest.TestCase):
                 (full / 'manifest.json').write_text(json.dumps(saved), encoding='utf-8')
                 with self.assertRaises(AssertionError): subtree.verify(full, root)
 
+    def test_default_pending_builder_can_freeze_a_verified_empty_queue_without_rescanning(self):
+        characters, _, _ = self.fixture()
+        snapshot = dict(characters=characters, sources={'metadata.json': 'a' * 64})
+        import collect_boss_subtree_progress as progress
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            for name in subtree.SOURCES:
+                target = root / name; target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((subtree.ROOT / name).read_bytes())
+            with patch.object(subtree, 'inputs', return_value=(snapshot,)), \
+                 patch.object(progress, 'history', return_value=[]), \
+                 patch.object(progress, 'unattempted_jobs', return_value=[]):
+                directory, manifest = subtree.build_pending(root)
+                self.assertEqual(manifest['jobs'], [])
+                self.assertEqual(subtree.verify(directory, root)[0], manifest)
+                self.assertFalse(manifest['activation_allowed'])
+                with patch.object(subtree, 'verify', return_value=(manifest, b'')), \
+                     patch.object(stage, 'current') as current:
+                    with self.assertRaisesRegex(AssertionError, 'empty'):
+                        stage.stage(directory)
+                    current.assert_not_called()
+
     def test_actual_lua_probe_roundtrip_and_serial_timeout_boundaries(self):
         _, manifest, _ = self.fixture()
         with tempfile.TemporaryDirectory(dir=subtree.ROOT / 'runtime') as directory:

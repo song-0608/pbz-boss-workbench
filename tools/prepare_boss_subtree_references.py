@@ -53,6 +53,9 @@ def plan(characters, audits):
         if record and record['metadata'] == 'conflict':
             deferred.append(dict(path=path, reason='conflicting metadata needs review'))
             continue
+        if record and record['metadata'] == 'rejected':
+            deferred.append(dict(path=path, reason='exact type lookup already rejected; review before an explicit retry'))
+            continue
         job = dict(id=folders[match[1]], role='ability', package=path.split('.', 1)[0],
             lookup_path=path, config_candidates=[], reference_only=True,
             native_grant_verified=False, activation_allowed=False,

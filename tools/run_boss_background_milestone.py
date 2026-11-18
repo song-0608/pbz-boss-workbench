@@ -82,7 +82,7 @@ def main():
     spawn_fixture.write_bytes(workflows.spawn_repair.payload())
     checks.append(invoke('Current inventory target spawn assets', [str(executable),
                          'tests/test_inventory_spawn_assets.lua', spawn_fixture.relative_to(ROOT).as_posix()]))
-    subtree_directory, subtree_manifest = subtrees.build()
+    subtree_directory, subtree_manifest = subtrees.build_pending()
     reference_directory, reference_manifest = subtree_references.build()
     checks.append(invoke('Subtree reference type plan verification', [sys.executable, '-B', '-X', 'utf8',
         'tools/prepare_boss_subtree_references.py', 'verify', str(reference_directory)]))

@@ -52,11 +52,11 @@ def payload(jobs, fingerprint, root=ROOT):
     return header.encode('utf-8') + (root / 'tools/boss_subtree_probe.lua').read_bytes()
 
 
-def expected(root=ROOT, *, job_keys=None):
+def expected(root=ROOT, *, job_keys=None, allow_empty=False):
     snapshot, *_ = inputs(root)
     jobs = jobs_for(snapshot['characters'], snapshot['sources'])
     if job_keys is not None:
-        assert job_keys and len(job_keys) == len(set(job_keys)), 'nonempty unique observed job keys required'
+        assert (job_keys or allow_empty) and len(job_keys) == len(set(job_keys)), 'nonempty unique observed job keys required'
         selected = set(job_keys)
         assert selected <= {job['key'] for job in jobs}, 'unknown subtree query key'
         jobs = [job for job in jobs if job['key'] in selected]
@@ -73,8 +73,8 @@ def expected(root=ROOT, *, job_keys=None):
     return manifest, raw
 
 
-def build(root=ROOT, *, job_keys=None):
-    manifest, raw = expected(root, job_keys=job_keys)
+def build(root=ROOT, *, job_keys=None, allow_empty=False):
+    manifest, raw = expected(root, job_keys=job_keys, allow_empty=allow_empty)
     target = unlinked_path(root / OUTPUT / manifest['fingerprint'])
     if not target.exists():
         target.mkdir(parents=True)
@@ -84,10 +84,20 @@ def build(root=ROOT, *, job_keys=None):
     return target, manifest
 
 
+def build_pending(root=ROOT, *, limit=MAX_STAGE_JOBS):
+    """Default to genuinely unstarted classes, never an automatic native retry."""
+    assert type(limit) is int and 1 <= limit <= MAX_STAGE_JOBS
+    from collect_boss_subtree_progress import history, unattempted_jobs
+    snapshot, *_ = inputs(root)
+    jobs = jobs_for(snapshot['characters'], snapshot['sources'])
+    pending = unattempted_jobs(jobs, history(root), root)
+    return build(root, job_keys=[job['key'] for job in pending[:limit]], allow_empty=True)
+
+
 def verify(target, root=ROOT):
     target = unlinked_path(target)
     saved = json.loads((target / 'manifest.json').read_bytes())
-    manifest, raw = expected(root, job_keys=[job['key'] for job in saved['jobs']] if saved['jobs'] else None)
+    manifest, raw = expected(root, job_keys=[job['key'] for job in saved['jobs']], allow_empty=True)
     assert target == unlinked_path(root / OUTPUT / manifest['fingerprint'])
     assert {p.name for p in target.iterdir()} == {'manifest.json', 'subtree-probe.lua'}
     assert json.loads((target / 'manifest.json').read_bytes()) == manifest
@@ -218,6 +228,6 @@ if __name__ == '__main__':
         assert not progress['batch_complete'], 'complete batches use the normal collection workflow'
         keys = unstarted_keys(progress, history())[:args.limit]
         assert keys, 'no unstarted jobs; rejected and interrupted jobs require separate review'
-    directory, manifest = build(job_keys=keys)
+    directory, manifest = build(job_keys=keys) if keys is not None else build_pending(limit=args.limit)
     print(json.dumps(dict(directory=str(directory), queries=len(manifest['jobs']), game_started=False,
                           playable=False, execution_order_proven=False), ensure_ascii=False, indent=2))

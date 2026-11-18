@@ -6,7 +6,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
-import time
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -114,6 +114,99 @@ class ReferenceCollectorTests(unittest.TestCase):
                 with self.assertRaisesRegex(AssertionError, 'already has events'):
                     collector.reload_gate(Path('fixture'))
                 foreground.assert_not_called()
+
+    def stage_fixture(self, root):
+        work = root / 'work'; work.mkdir()
+        target = root / 'mirror/main.lua'; target.parent.mkdir(); target.write_bytes(b'-- original idle\n')
+        log = root / 'mirror/UE4SS.log'; log.write_bytes(b'old prefix\n')
+        directory = root / 'plan'; directory.mkdir()
+        script = b'-- fixture exact metadata query\n'
+        manifest = dict(self.manifest, script_sha256=hashlib.sha256(script).hexdigest(),
+            budget_seconds=480, cleanup_seconds=120,
+            source_sha256={name: collector.sha(references.ROOT / name) for name in references.SOURCES})
+        collector.write_json(directory / 'manifest.json', manifest)
+        state = dict(state_file=str(root / 'state.json'), deadline_unix=1000,
+            ue4ss_loader_manifest=[dict(physical_path=str(target), sha256=collector.sha(target))])
+        saved = []
+        def verify_build(rows):
+            self.assertEqual(rows[0]['sha256'], collector.sha(target))
+        validation = SimpleNamespace(save=lambda path, value: saved.append(copy.deepcopy(value)),
+            state_path=lambda: Path(state['state_file']), verify_build=verify_build)
+        practice = SimpleNamespace(log_path=lambda state: log)
+        current = (practice, validation, state, work, target, 123)
+        return directory, manifest, script, current, saved
+
+    def test_real_shared_stage_retains_sources_prior_carrier_and_rejects_retry(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory, manifest, script, current, saved = self.stage_fixture(Path(temporary).resolve())
+            with patch.object(collector, 'verify', return_value=(manifest, script)), \
+                 patch.object(collector.core, 'current', return_value=current), \
+                 patch.object(collector.time, 'time', return_value=100):
+                result = collector.stage(directory)
+                work, carrier = current[3:5]
+                self.assertFalse(result['input_sent']); self.assertEqual(carrier.read_bytes(), script)
+                self.assertEqual(collector.location(work, manifest, 'before.lua').read_bytes(), b'-- original idle\n')
+                self.assertEqual(len(saved), 1)
+                collector.snapshot(directory)
+                collector.archive_sources(manifest, work)
+                with self.assertRaisesRegex(AssertionError, 'preserve'):
+                    collector.stage(directory)
+                self.assertEqual(len(saved), 1)
+
+    def test_time_consumed_during_source_archiving_cannot_reach_carrier_write(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory, manifest, script, current, saved = self.stage_fixture(Path(temporary).resolve())
+            with patch.object(collector, 'verify', return_value=(manifest, script)), \
+                 patch.object(collector.core, 'current', return_value=current), \
+                 patch.object(collector.time, 'time', side_effect=[100, 401]):
+                with self.assertRaisesRegex(AssertionError, 'budget'):
+                    collector.stage(directory)
+            work, carrier = current[3:5]
+            self.assertEqual(carrier.read_bytes(), b'-- original idle\n'); self.assertFalse(saved)
+            self.assertFalse(list(work.glob(collector.LABEL + '-*')))
+
+    def test_session_change_during_archive_cannot_write_to_another_carrier(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            directory, manifest, script, current, saved = self.stage_fixture(root)
+            other = root / 'other.lua'; other.write_bytes(b'-- preserve another session\n')
+            different = (*current[:4], other, 124)
+            with patch.object(collector, 'verify', return_value=(manifest, script)), \
+                 patch.object(collector.core, 'current', side_effect=[current, different]), \
+                 patch.object(collector.time, 'time', return_value=100):
+                with self.assertRaisesRegex(AssertionError, 'session changed'):
+                    collector.stage(directory)
+            self.assertFalse(saved)
+            self.assertEqual(current[4].read_bytes(), b'-- original idle\n')
+            self.assertEqual(other.read_bytes(), b'-- preserve another session\n')
+            self.assertFalse(list(current[3].glob(collector.LABEL + '-*')))
+
+    def test_shared_snapshot_rejects_changed_pid_carrier_prefix_or_lease(self):
+        for mutation in ('pid', 'carrier', 'prefix', 'lease'):
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as temporary:
+                directory, manifest, script, current, saved = self.stage_fixture(Path(temporary).resolve())
+                active = [current]
+                with patch.object(collector, 'verify', return_value=(manifest, script)), \
+                     patch.object(collector.core, 'current', side_effect=lambda: active[0]), \
+                     patch.object(collector.time, 'time', return_value=100):
+                    collector.stage(directory)
+                    if mutation == 'pid': active[0] = (*current[:-1], 124)
+                    elif mutation == 'carrier': current[4].write_bytes(b'changed carrier')
+                    elif mutation == 'prefix': (current[4].parent / 'UE4SS.log').write_bytes(b'changed log')
+                    else: current[2]['deadline_unix'] += 1
+                    with self.assertRaises(AssertionError):
+                        collector.snapshot(directory)
+
+    def test_capture_does_not_write_partial_or_repeated_results(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work = Path(temporary)
+            manifest = dict(self.manifest, script_sha256='f' * 64)
+            state = dict(state_file='fixture'); staged = dict(research_pid=123)
+            for tail in ('\n'.join(self.events()[:-1]), '\n'.join(self.events() + self.events())):
+                with self.subTest(tail=tail), patch.object(collector, 'snapshot',
+                    return_value=(manifest, None, state, work, staged, tail)):
+                    with self.assertRaises(AssertionError): collector.capture(work)
+                    self.assertFalse(list(work.iterdir()))
 
     def make_frozen(self, root):
         for name in set(references.SOURCES):

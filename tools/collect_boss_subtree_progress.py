@@ -101,6 +101,30 @@ def unstarted_keys(progress, prior):
     return [key for key in progress['unstarted_job_keys'] if key not in attempted]
 
 
+def unattempted_jobs(jobs, audits, root=ROOT):
+    """Select by exact class identity, even when its receipt-derived key changes.
+
+    Completed rejections and interrupted native calls remain attempted. Retrying
+    them needs a separately reviewed explicit selection, never a fresh default.
+    """
+    root = unlinked_path(root)
+    attempted = set()
+    for audit in audits:
+        assert audit['metadata_only'] is True and audit['playable'] is False
+        assert re.fullmatch(r'[0-9a-f]{20}', audit['batch'])
+        path = unlinked_path(root / subtrees.OUTPUT / audit['batch'] / 'manifest.json')
+        assert audit['sources'][path.relative_to(root).as_posix()] == sha(path), 'historical job identities changed'
+        original = {job['key']: job for job in read(path)['jobs']}
+        for row in audit['outcomes']:
+            job = original[row['key']]
+            assert row['id'] == job['id'] and row['parent_class'] == job['path']
+            attempted.add((job['id'], job['path']))
+        if audit['interrupted_job'] is not None:
+            job = original[audit['interrupted_job']]
+            attempted.add((job['id'], job['path']))
+    return [job for job in jobs if (job['id'], job['path']) not in attempted]
+
+
 def collect(session, batch, root=ROOT):
     report = replay(session, batch, root)
     destination = root / 'evidence/official-validation' / session / 'subtree-interrupted-progress.json'
