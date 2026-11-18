@@ -23,7 +23,11 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tests/test_player_source_checks.py', 'tools/player_travel_trial.py', 'tests/test_player_travel_trial.py',
            'tools/player_action_queue.lua', 'tests/test_player_action_queue.lua', 'tests/test_runtime.lua',
            'tools/player_remote_control.lua', 'tests/test_remote_control.lua', 'tests/test_player_remote_performance.lua',
-           'tests/test_player_primary_routes.lua')
+           'tests/test_player_primary_routes.lua', 'tools/player_3c_tuning.lua', 'tools/player_input_driver.lua',
+           'tools/player_ue_input.lua', 'tools/player_3c_bridge.lua', 'tools/player_skill_buffer.lua',
+           'tools/player_locomotion.lua', 'tools/player_locomotion_native.lua', 'tools/player_3c_contract.py',
+           'tests/test_player_3c.lua', 'tests/test_player_skill_buffer.lua', 'tests/test_player_locomotion.lua',
+           'tests/test_player_3c_contract.py')
 
 
 def payload(root=ROOT):
@@ -46,6 +50,12 @@ def payload(root=ROOT):
     files[PREFIX + 'player_assembly_tasks.lua'] = (root / 'tools/player_assembly_tasks.lua').read_bytes()
     files[PREFIX + 'player_action_queue.lua'] = (root / 'tools/player_action_queue.lua').read_bytes()
     files[PREFIX + 'remote_control.lua'] = (root / 'tools/player_remote_control.lua').read_bytes()
+    for source, target in (
+        ('player_3c_tuning', 'player_3c_tuning'), ('player_input_driver', 'input_driver'),
+        ('player_ue_input', 'ue_input'), ('player_3c_bridge', 'player_experience_bridge'),
+        ('player_skill_buffer', 'player_skill_buffer'), ('player_locomotion', 'player_locomotion'),
+        ('player_locomotion_native', 'player_locomotion_native')):
+        files[PREFIX + target + '.lua'] = (root / 'tools' / (source + '.lua')).read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')
@@ -136,7 +146,26 @@ def payload(root=ROOT):
            '    if self.action_queue then self.action_queue:retire()end\n')
     change('boss_catalog.lua', '    if keymap then require(\'keymap\').apply(config,keymap)end',
            "    require('player_role_controls').apply(config,profile)\n"
+           "    config.control_tuning=require('player_3c_tuning').resolve(profile.id)\n"
            "    if keymap then require('keymap').apply(config,keymap)end")
+    change('runtime.lua', '    self.driver = Driver.new(self.session, { read_input = self.host.read_input })',
+           "    if self.config.control_tuning then\n"
+           "        require('player_skill_buffer').attach(self.session,{now=self.host.control_time or os.clock,\n"
+           "            ttl=self.config.control_tuning.skill_buffer_seconds,\n"
+           "            on_result=function(slot,ok,why)self:report(slot,ok,why)end})\n"
+           "    end\n"
+           '    self.driver = Driver.new(self.session, { read_input = self.host.read_input })')
+    change('runtime.lua', '                    return self.session:skill(selected)',
+           '                    if self.session.request_skill then return self.session:request_skill(selected)end\n'
+           '                    return self.session:skill(selected)')
+    change('owned_arena.lua', "                    api.remote=require('remote_control').new(calls,require('ue_remote').new(experiment_remote_binding),binding)",
+           "                    api.remote=require('remote_control').new(calls,require('ue_remote').new(experiment_remote_binding),binding)\n"
+           '                    if experiment_player_entry then\n'
+           "                        api.locomotion=require('player_locomotion').new(calls,\n"
+           "                            require('player_locomotion_native').new(_G,experiment_remote_binding),\n"
+           "                            require('player_3c_tuning').resolve(profile.id),api.experience_log)\n"
+           '                        api.remote.locomotion=api.locomotion\n'
+           '                    end')
     for name in ('wanjun', 'yanqiansui', 'youlong'):
         change('boss_catalog.lua', "bindings='profiles." + name + "_bindings',abilities=8,bindings_count=8",
                "bindings='profiles." + name + "_bindings',abilities=8,bindings_count=9")
@@ -410,7 +439,9 @@ def expected(root=ROOT):
         complete_mod=False, runtime_acceptance_current=False, integration_only=True, files=hashes,
         bosses=bosses, skill_binding_count=old['skill_binding_count'] + 4,
         travel_repair_base=BASE, travel_repair_identity=identity,
-        pending=['native primary mouse input and cancellation', 'native cross-map travel and frame-time comparison'],
+        pending=['native repeated skill activation and completion', 'native walking speed, free camera and facing',
+                 'native primary mouse input and cancellation', 'native cross-map travel and frame-time comparison',
+                 'additional Boss native grants and skill acceptance'],
         travel_repair_runtime_verified=False)
     manifest.pop('acceptance_report', None); manifest.pop('acceptance_report_sha256', None)
     return manifest, files

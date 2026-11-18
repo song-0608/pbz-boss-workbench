@@ -36,11 +36,12 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'player_assembly_tasks', 'player_action_queue', 'player_retirement_budget', 'player_map_lifecycle', 'player_map_initialization',
                  'player_target_diagnostics', 'runtime', 'ue_calls', 'ue_combat', 'world_boundary', 'idle_world_watch',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
-                 'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host'):
+                 'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
+                 'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion'):
         jobs.append((name, [str(executable), str(loader), '.', test_path(package),
                            'tests/test_' + name + '.lua']))
     for name in ('player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',
-                 'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry', 'player_source_checks'):
+                 'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry', 'player_source_checks', 'player_3c_contract'):
         command = ([sys.executable, '-B', '-X', 'utf8', 'tests/test_player_overlay.py']
                    if name == 'player_overlay' else
                    [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', 'discover',

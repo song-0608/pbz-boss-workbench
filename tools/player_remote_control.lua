@@ -45,6 +45,7 @@ function Remote:capture(pc,player,boss,ai)
     for key,component in pairs({game_ai=ai.SGameAIComponent,brain=ai.BrainComponent})do
         if component and component:IsValid()then ticket[key]=self.calls:reference(component)end
     end
+    if self.locomotion then ticket.locomotion=self.locomotion:capture(boss)end
     return ticket
 end
 function Remote:apply(t)
@@ -116,6 +117,7 @@ function Remote:brain_suspended(t)return not self.native.brain_tick(self.calls:r
 function Remote:move(t,x,y,scale)
     assert(self:verify(t),'remote control lost')
     assert(type(x)=='number'and type(y)=='number'and x*x+y*y<=1.000001 and type(scale)=='number'and math.abs(scale)<=1,'bounded direction required')
+    if self.locomotion and t.locomotion then self.locomotion:step(t.locomotion,x,y,scale)end
     self.native.move(self.calls:resolve(t.boss),x,y,scale);return true
 end
 function Remote:look(t,yaw,pitch)
@@ -142,6 +144,9 @@ function Remote:restore(t,disposed_owner)
         if t.mutations.brain_tick then attempt('brain_tick',function()self.native.set_brain_tick(self.calls:resolve(t.ai),t.brain_tick_initial)end)end
         if t.mutations.ai_tick then attempt('ai_tick',function()self.native.set_ai_tick(self.calls:resolve(t.ai),t.ai_tick_initial)end)end
         if t.mutations.ai_started then attempt('ai_started',function()self.native.set_ai_started(self.calls:resolve(t.ai),t.ai_started_initial)end)end
+    end
+    if self.locomotion and t.locomotion then
+        attempt('locomotion',function()assert(self.locomotion:restore(t.locomotion,ai_disposed))end)
     end
     attempt('rotation',function()self.native.set_rotation(pc,t.initial.rotation)end)
     assert(#errors==0,table.concat(errors,'; '))

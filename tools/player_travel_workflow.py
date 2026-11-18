@@ -24,11 +24,20 @@ def expected(directory):
     files[name] = replace(files[name].decode('utf-8'),
         'from published_boss_workflow import installed_mod_root as candidate_mod_root',
         'from player_travel_workflow import candidate_mod_root').encode('utf-8')
+    source = files[name].decode('utf-8')
+    source = replace(source, "        remote_binding={'binding_verified':True}",
+        "        remote_binding={'binding_verified':True}\n"
+        "        if args.player_entry:\n"
+        "            from player_3c_contract import collect as collect_3c\n"
+        "            remote_binding.update(collect_3c(work,contract['pid']))")
+    source = replace(source, "    if remote_binding:prefix+='local experiment_remote_binding={binding_verified=true}\\n'",
+        "    if remote_binding:prefix+='local experiment_remote_binding={binding_verified=true,locomotion_verified=' + ('true' if remote_binding.get('locomotion_verified') else 'false') + '}\\n'")
+    files[name] = source.encode('utf-8')
     for name, data in files.items():
         ast.parse(data.decode('utf-8'), filename=name)
     record = dict(schema=1, candidate=str(directory), candidate_manifest_sha256=sha(directory / MANIFEST),
         files={name: hashlib.sha256(data).hexdigest() for name, data in files.items()},
-        sources={name: sha(ROOT / name) for name in ('tools/player_travel_workflow.py',)},
+        sources={name: sha(ROOT / name) for name in ('tools/player_travel_workflow.py', 'tools/player_3c_contract.py')},
         developer_only=True, installed=False, runtime_verified=False)
     key = hashlib.sha256(json.dumps(record, sort_keys=True).encode()).hexdigest()[:16]
     return record, files, 'travel-repair-' + key

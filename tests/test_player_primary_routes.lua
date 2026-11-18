@@ -72,6 +72,11 @@ for cycle=1,3 do
             press('LEFT_MOUSE_BUTTON',true);flush();assert(#f.casts==1,'running native action stays exclusive')
             f.finished=true;press('LEFT_MOUSE_BUTTON',true);flush()
             assert(#f.casts==2 and f.casts[2]==primary.id,'Shift+left click must use the same current role action')
+            for repeat_cast=3,20 do
+                press('LEFT_MOUSE_BUTTON',repeat_cast%2==0);flush()
+                assert(#f.casts==repeat_cast and f.casts[repeat_cast]==primary.id,
+                    'current-role software routing must remain available after repeated casts: '..role.id)
+            end
             if cycle==1 then attacking=attacking+1 end
         else
             assert(role.id=='071_xianzhe'and #f.casts==0,'dodge-only role cannot inherit the previous attack route')
