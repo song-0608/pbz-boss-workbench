@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "kind": "native_grant_ui_stage_offline",
+  "sources": {
+    "tools/native_grant_ui_stage.py": "dc59c77abe28d62747c35744e29f1f2381780d6bd6eacea3e953730a558bc0fa",
+    "tests/test_native_grant_ui_stage.py": "9806f87555f76de4423cd99fc8390ee01789b01b50ae3cfe98cbe80d016a64a3",
+    "tools/check_native_grant_ui_stage.py": "2591c7ecd42adc92a6c00a1cecd1697e5e005e547d38d27da127bcaba5f4d073"
+  },
+  "packages": [
+    {
+      "id": "071_xianzhe",
+      "bundle": "research/boss-adaptation/developer-bundles/native-grant-071_xianzhe-25e29c3614cad7a2",
+      "workflow": "runtime/developer-workflows/native-grant-ui-071_xianzhe-dc9f98a8b4db6b3e",
+      "workflow_manifest_sha256": "066d595c96f443111a7d887842ca792e28213e7b2984086e95852b1686de1794",
+      "manifest": {
+        "schema": 1,
+        "kind": "native_grant_ui_stage",
+        "id": "071_xianzhe",
+        "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\developer-bundles\\native-grant-071_xianzhe-25e29c3614cad7a2",
+        "bundle_manifest_sha256": "b2796fea3903f240ae4e4dc42b83591a67b08b24b81f64f4089330c954d1b7e7",
+        "parent_workflow_manifest": {
+          "schema": 1,
+          "kind": "native_grant_developer_workflow",
+          "id": "071_xianzhe",
+          "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\developer-bundles\\native-grant-071_xianzhe-25e29c3614cad7a2",
+          "bundle_manifest_sha256": "b2796fea3903f240ae4e4dc42b83591a67b08b24b81f64f4089330c954d1b7e7",
+          "candidate_grant": {
+            "boss_candidate": "071_xianzhe",
+            "identity_receipt_sha256": "31f9e0abaa339bbecaceb3bfaa83163f928cadc03d4b7e375bddf736f7011f62",
+            "ability_metadata_receipt_sha256": "907b99501d23e99ccc6e86b82fbf8650bc9867829825b5c991f04159a52f9386",
+            "developer_max_displacement_cm": 3000,
+            "developer_bundle_sha256": "b2796fea3903f240ae4e4dc42b83591a67b08b24b81f64f4089330c954d1b7e7"
+          },
+          "source_files": {
+            "tools/native_grant_developer_workflow.py": "6b0ea8516015b24fe3b0021da3e9168ad8bd6dab9f71e316f9afdaf3813635c2",
+            "tools/expanded_boss_developer_workflow.py": "7d6f9ba41a4c0135007a82fe06b1a7707da5c7a45d8044b4c851f51e183aea0c",
+            "tests/test_native_grant_developer.py": "b09c3d9f2a219f34816921d0ad15d9fc95d30f423323a757d3396cca45240287"
+          },
+          "files": {
+            "ahua_practice.py": "dc40f9c0e627cd47a131ccc078d192bf718b653559df3d7927669a38e82e2413",
+            "run_control_lifecycle_probe.py": "37b273fafa95cc06e6da2ecb991b3be667bfddbda8052250ee6966f1a6a6f6ad",
+            "test_player_skill_batch.py": "1001ba62ac45a84f5881f892fe855f0bb58343471bd81e2c021e6439c5c9e9c6",
+            "run_boss_candidate_milestone.py": "40487bdab436cfcfe49ccf7bcd29d52aa76314071c60552e13207ae0838110e7",
+            "collect_boss_candidate_acceptance.py": "503303d0fe3aecce88a37f92a4dac646f0c74159d5d53b30e5fcefa73fe2e5af",
+            "boss_candidate_gate.py": "2c35d0a56146258a429fac6dcda61f1f7a3b6817d3a32272ec2d1797f881407b"
+          },
+          "developer_only": true,
+          "playable": false,
+          "game_started": false,
+          "runtime_acceptance_current": false
+        },
+        "source_files": {
+          "tools/native_grant_ui_stage.py": "dc59c77abe28d62747c35744e29f1f2381780d6bd6eacea3e953730a558bc0fa",
+          "tests/test_native_grant_ui_stage.py": "9806f87555f76de4423cd99fc8390ee01789b01b50ae3cfe98cbe80d016a64a3"
+        },
+        "files": {
+          "stage_candidate.py": "d4ca1e88b88143a761d8ddafc11ea92bb3fc9251d4b267ba72bdba653fdd07ce",
+          "boss_candidate_gate.py": "2c35d0a56146258a429fac6dcda61f1f7a3b6817d3a32272ec2d1797f881407b"
+        },
+        "developer_only": true,
+        "playable": false,
+        "game_started": false,
+        "ui_input_sent": false
+      },
+      "staged_on_game": false,
+      "native_grants_current": false,
+      "activation_verified": false,
+      "damage_verified": false,
+      "playable": false
+    },
+    {
+      "id": "067_motian",
+      "bundle": "research/boss-adaptation/developer-bundles/native-grant-067_motian-5ccfc469f429501e",
+      "workflow": "runtime/developer-workflows/native-grant-ui-067_motian-9e80f7525a7bcfa3",
+      "workflow_manifest_sha256": "b2e668eea9c8302923e8cc6bbcf32db58598a66d96f216b3818d82d735cf50f2",
+      "manifest": {
+        "schema": 1,
+        "kind": "native_grant_ui_stage",
+        "id": "067_motian",
+        "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\developer-bundles\\native-grant-067_motian-5ccfc469f429501e",
+        "bundle_manifest_sha256": "a584e62124869e16a92330c5732cd48349a145ab3880f586e07c51393613d33f",
+        "parent_workflow_manifest": {
+          "schema": 1,
+          "kind": "native_grant_developer_workflow",
+          "id": "067_motian",
+          "bundle": "D:\\mod文档\\PBZ-Boss操控研究\\research\\boss-adaptation\\developer-bundles\\native-grant-067_motian-5ccfc469f429501e",
+          "bundle_manifest_sha256": "a584e62124869e16a92330c5732cd48349a145ab3880f586e07c51393613d33f",
+          "candidate_grant": {
+            "boss_candidate": "067_motian",
+            "identity_receipt_sha256": "b7370aa62b008fa397cdec0bc8a595eabfa6296ab3264236af939a5baf816502",
+            "ability_metadata_receipt_sha256": "907b99501d23e99ccc6e86b82fbf8650bc9867829825b5c991f04159a52f9386",
+            "developer_max_displacement_cm": 3000,
+            "developer_bundle_sha256": "a584e62124869e16a92330c5732cd48349a145ab3880f586e07c51393613d33f"
+          },
+          "source_files": {
+            "tools/native_grant_developer_workflow.py": "6b0ea8516015b24fe3b0021da3e9168ad8bd6dab9f71e316f9afdaf3813635c2",
+            "tools/expanded_boss_developer_workflow.py": "7d6f9ba41a4c0135007a82fe06b1a7707da5c7a45d8044b4c851f51e183aea0c",
+            "tests/test_native_grant_developer.py": "b09c3d9f2a219f34816921d0ad15d9fc95d30f423323a757d3396cca45240287"
+          },
+          "files": {
+            "ahua_practice.py": "dc40f9c0e627cd47a131ccc078d192bf718b653559df3d7927669a38e82e2413",
+            "run_control_lifecycle_probe.py": "37b273fafa95cc06e6da2ecb991b3be667bfddbda8052250ee6966f1a6a6f6ad",
+            "test_player_skill_batch.py": "1001ba62ac45a84f5881f892fe855f0bb58343471bd81e2c021e6439c5c9e9c6",
+            "run_boss_candidate_milestone.py": "40487bdab436cfcfe49ccf7bcd29d52aa76314071c60552e13207ae0838110e7",
+            "collect_boss_candidate_acceptance.py": "503303d0fe3aecce88a37f92a4dac646f0c74159d5d53b30e5fcefa73fe2e5af",
+            "boss_candidate_gate.py": "2c35d0a56146258a429fac6dcda61f1f7a3b6817d3a32272ec2d1797f881407b"
+          },
+          "developer_only": true,
+          "playable": false,
+          "game_started": false,
+          "runtime_acceptance_current": false
+        },
+        "source_files": {
+          "tools/native_grant_ui_stage.py": "dc59c77abe28d62747c35744e29f1f2381780d6bd6eacea3e953730a558bc0fa",
+          "tests/test_native_grant_ui_stage.py": "9806f87555f76de4423cd99fc8390ee01789b01b50ae3cfe98cbe80d016a64a3"
+        },
+        "files": {
+          "stage_candidate.py": "d4ca1e88b88143a761d8ddafc11ea92bb3fc9251d4b267ba72bdba653fdd07ce",
+          "boss_candidate_gate.py": "2c35d0a56146258a429fac6dcda61f1f7a3b6817d3a32272ec2d1797f881407b"
+        },
+        "developer_only": true,
+        "playable": false,
+        "game_started": false,
+        "ui_input_sent": false
+      },
+      "staged_on_game": false,
+      "native_grants_current": false,
+      "activation_verified": false,
+      "damage_verified": false,
+      "playable": false
+    }
+  ],
+  "passed": true,
+  "output": "{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n.......................\n----------------------------------------------------------------------\nRan 23 tests in 4.672s\n\nOK\n",
+  "game_started": false,
+  "ui_input_sent": false,
+  "installed": false,
+  "new_playable_bosses": 0,
+  "runtime_acceptance_current": false
+}
