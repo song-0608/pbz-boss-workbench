@@ -119,7 +119,7 @@ def captured_grants(tail, definition, bindings):
         'every binding needs exactly one observed native grant'
     return dict(native_grant_counts=observed['grants'],
         missing_native_grants=[path for path in allowed if path not in observed['grants']],
-        unbound_candidates=[path for path in allowed if path not in bound],
+        unbound_candidates=[path for path in allowed if observed['grants'].get(path) == 1 and path not in bound],
         duplicate_native_candidates=[path for path in allowed if observed['grants'].get(path, 0) > 1])
 
 

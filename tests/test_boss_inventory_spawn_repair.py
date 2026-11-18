@@ -44,6 +44,24 @@ class InventorySpawnRepairTests(unittest.TestCase):
                     repair.payload(root)
             self.assertEqual(path.read_bytes(), b'changed arena')
 
+    def test_deployment_hashes_bind_both_current_resolver_and_accepted_modules(self):
+        import prepare_boss_inventory_workflow as workflow
+        modules = workflow.expected_modules({'module_sha256': 'exact-candidate'})
+        self.assertEqual(modules['boss_candidate.lua'], 'exact-candidate')
+        self.assertEqual(modules['owned_arena.lua'], hashlib.sha256(repair.payload()).hexdigest())
+        files = workflow.bundle.read(repair.ROOT / 'releases' / repair.BASE / 'pbz-release.json')['files']
+        prefix = 'PBZBossControl/Scripts/'
+        expected = {name.removeprefix(prefix) for name in files
+                    if name.startswith(prefix) and name.endswith('.lua') and name != prefix + 'main.lua'}
+        self.assertEqual(set(modules), expected)
+        for name in expected - {'owned_arena.lua', 'boss_candidate.lua'}:
+            self.assertEqual(modules[name], files[prefix + name])
+        sources = workflow.source_hashes()
+        for path in repair.SOURCES:
+            self.assertEqual(sources[path], repair.sha(repair.ROOT / path))
+        self.assertIn('tools/prepare_boss_inventory_workflow.py', sources)
+        self.assertIn('tools/native_grant_skill_gate.py', sources)
+
 
 if __name__ == '__main__':
     unittest.main()

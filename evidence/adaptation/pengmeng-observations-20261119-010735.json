@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "session": "20261119-010735",
+  "role": "044_pengmeng",
+  "actor": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BP_Monster_PengMeng_Axe.BP_Monster_PengMeng_Axe_C",
+  "status": "partial-development-observations",
+  "closed_cleanly": true,
+  "formal_file_count": 56,
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "formal_files_changed": [],
+  "host_config_files_changed": [],
+  "host_registry_unchanged": true,
+  "target_spawn_verified_count": 2,
+  "skills": [
+    {
+      "skill": "skill_01",
+      "expected_class_short": "GA_PengMeng_Skill_03_C",
+      "natural_uses": 5,
+      "observed_health_decreases": [
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0
+      ],
+      "consecutive_natural_uses_verified": true,
+      "explicit_player_exit_verified": true,
+      "repeated_effect_and_recovery_observed": true,
+      "audit": "evidence/adaptation/boss-skill-repeat-ab4bea8031effad3.json",
+      "audit_sha256": "50e9ea3ce54fadeba05f4dbeee0e12eac7ff3a89ff70e68509edf3a1ecdbe399"
+    },
+    {
+      "skill": "heavy_01",
+      "expected_class_short": "GA_PengMeng_Skill_04_C",
+      "natural_uses": 3,
+      "observed_health_decreases": [
+        324.0,
+        324.0,
+        324.0
+      ],
+      "consecutive_natural_uses_verified": true,
+      "explicit_player_exit_verified": true,
+      "repeated_effect_and_recovery_observed": true,
+      "audit": "evidence/adaptation/boss-skill-repeat-33829427325f3a46.json",
+      "audit_sha256": "72b71a9cb0d19d8bdafc963588854aa77ea5b1d256a3aa4fc85ced404587fde4"
+    },
+    {
+      "skill": "skill_02",
+      "expected_class_short": "GA_PengMeng_Skill_07_C",
+      "natural_uses": 1,
+      "observed_health_decreases": [
+        492.0
+      ],
+      "consecutive_natural_uses_verified": false,
+      "explicit_player_exit_verified": false,
+      "repeated_effect_and_recovery_observed": false,
+      "audit": "evidence/adaptation/boss-skill-repeat-e8427047deeb8498.json",
+      "audit_sha256": "ab19638cb04f26cfa1e96f0a9414b5a9c65c4b5dd1ff317dc04fbc183a661b2d"
+    }
+  ],
+  "third_cycle_recovery": "Exit gate refused at its 30 second restoration reserve; no F10 was sent. Closed through the existing stop workflow, not counted as an explicit player restore.",
+  "camera_observation": "Close elevated camera observed while controlling this character; 3C tuning is pending.",
+  "sustained_movement_verified": false,
+  "free_camera_verified": false,
+  "normal_attack_combo_verified": false,
+  "cross_map_verified": false,
+  "active_cancellation_verified": false,
+  "damage_source_attributed": false,
+  "playable": false,
+  "release_accepted": false,
+  "runtime_acceptance_current": false,
+  "complete_mod": false,
+  "sources": {
+    "evidence/official-validation/20261119-010735/postcheck.json": "dcd6f49b4be4556bc846989dbaa99c192641bfe6add1086c3dc68676f5c2e465",
+    "evidence/official-validation/20261119-010735/inventory-skill-ui-stage-capture.json": "28048d09b4b0e4872b28bca2906297bebe4eaef3351d21d1f46f342b218577cf",
+    "evidence/official-validation/20261119-010735/control-lifecycle-deployment.json": "a3cc59141e033c5cf0ff3d6d4b95c7803d8ee01fc49eec2d9da930534a5577db"
+  }
+}

@@ -103,6 +103,10 @@ class BossVariantCandidatesTests(unittest.TestCase):
         self.assertIn('inventory_ui_controller', runner)
         self.assertNotIn('menu.click', runner)
         self.assertIn('controller.begin_stage', runner)
+        self.assertIn('from boss_inventory_spawn_repair import overrides', runner)
+        self.assertIn('module_overrides.update(overrides())', runner)
+        self.assertIn('source_files=previous.source_hashes(root)',
+                      files['inventory_ui_controller.py'].decode('utf-8'))
         gate = {}
         exec(compile(files['boss_candidate_gate.py'], 'generated-variant-gate', 'exec'), gate)
         with patch.object(bundle, 'validate', return_value={'exact_bundle': True}) as validate:
@@ -130,9 +134,10 @@ class BossVariantCandidatesTests(unittest.TestCase):
         bindings = [dict(class_path=path) for path in paths[:4]]
         result = variants.captured_grants(tail, definition, bindings)
         self.assertEqual(result['missing_native_grants'], paths[6:])
-        self.assertEqual(result['unbound_candidates'], paths[4:])
+        self.assertEqual(result['unbound_candidates'], paths[4:6])
         self.assertEqual(result['duplicate_native_candidates'], [])
         self.assertNotIn(paths[4], result['missing_native_grants'])
+        self.assertTrue(set(result['unbound_candidates']).isdisjoint(result['missing_native_grants']))
         for broken in (tail.replace('GRANTED_COUNT=6', 'GRANTED_COUNT=7'),
                        tail.replace(definition['config_path'], '/Other.Config'),
                        tail.replace('INTERACTIVE_READY=true', '')):
@@ -140,6 +145,24 @@ class BossVariantCandidatesTests(unittest.TestCase):
                 variants.captured_grants(broken, definition, bindings)
         with self.assertRaises(AssertionError):
             variants.captured_grants(tail, definition, [dict(class_path=paths[-1])])
+
+    def test_duplicate_grants_are_separate_from_missing_or_unbound_candidates(self):
+        characters, sources = self.fixture()
+        pools, _ = definitions(characters, sources)
+        definition = pools[0]['definition']
+        paths = definition['ability_pool']
+        events = ['SPAWN_ATTEMPT=1', 'CANDIDATE_IDENTITY_READY=fixture|'
+            + definition['class_path'] + '|' + definition['config_path'], 'GRANTED_COUNT=4']
+        events += ['GRANTED_ABILITY=BlueprintGeneratedClass ' + path
+                   for path in (paths[0], paths[1], paths[1], paths[2])]
+        events += ['INTERACTIVE_READY=true']
+        tail = '\n'.join('[Lua] PBZ_CONTROL_LIFECYCLE:' + event for event in events)
+        result = variants.captured_grants(tail, definition, [dict(class_path=paths[0])])
+        self.assertEqual(result['unbound_candidates'], [paths[2]])
+        self.assertEqual(result['duplicate_native_candidates'], [paths[1]])
+        self.assertEqual(result['missing_native_grants'], paths[3:])
+        with self.assertRaises(AssertionError):
+            variants.captured_grants(tail, definition, [dict(class_path=paths[1])])
 
 
 if __name__ == '__main__':

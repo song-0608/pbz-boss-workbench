@@ -30,6 +30,7 @@ TEST_MODULES = (
     'tests.test_research_scene_checkpoint', 'tests.test_stage_readonly_contracts',
     'tests.test_native_grant_skill_gate',
     'tests.test_boss_variant_candidates',
+    'tests.test_boss_inventory_spawn_repair',
 )
 
 
@@ -65,9 +66,14 @@ def main():
         source_files[name] = sha(ROOT / name)
     for name in variant_candidates.SOURCES:
         source_files[name] = sha(ROOT / name)
+    source_files.update(workflows.source_hashes())
     checks = [invoke('Python regressions', [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', *TEST_MODULES])]
     packages = []
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
+    spawn_fixture = directory / 'current-inventory-target-spawn.lua'
+    spawn_fixture.write_bytes(workflows.spawn_repair.payload())
+    checks.append(invoke('Current inventory target spawn assets', [str(executable),
+                         'tests/test_inventory_spawn_assets.lua', spawn_fixture.relative_to(ROOT).as_posix()]))
     queue, catalog = full_catalog.build()
     checks.append(invoke('Full catalog queue verification', [sys.executable, '-B', '-X', 'utf8',
                          'tools/stage_full_boss_catalog.py', 'verify', str(queue)]))

@@ -166,4 +166,18 @@ tools/check_native_grant_followups.py
 
 报告 `evidence/adaptation/boss-background-milestone-88a111c8955a689a-1795021404175085100.json` 的 122 组检查全部通过：其中 Python 回归 120 项，58 个池分别通过 Lua 原生对象模拟与生成研究入口核验，另有全目录队列、脚本语法和三种串行调度检查。报告绑定 36 项源码/测试摘要，结束时确认输入盘点与源码未变；本轮没有启动或装配游戏。开发池目录为 `runtime/boss-variant-candidates/b3fdeaece5f0c5b1dbec`，固定技能页目录为 `runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7`。后续修改会重新生成摘要，不改写本报告。
 
-独立的 `tools/boss_inventory_spawn_repair.py` 已完成两项 Python 检查及生成函数的 Lua 模拟：延迟目标生成前重新核验租约并取得当前类、CDO 配置、控制器和引擎库，连续两次不访问旧闭包中的资源对象；关闭租约后拒绝生成。它只生成新的开发覆盖，不改已验收 v5 或历史冻结流程。此项仍待接入新研究入口并在引擎内观察，不宣称已证明此前原生崩溃的根因。
+独立的 `tools/boss_inventory_spawn_repair.py` 已接入新生成的研究入口：延迟目标生成前重新核验租约并取得当前类、CDO 配置、控制器和引擎库，连续两次不访问旧闭包中的资源对象；关闭租约后拒绝生成。生成器仅覆盖 `owned_arena.lua`，其余基线模块及候选模块仍逐项核对。共享资源解析源码、生成器、动作门槛与测试均纳入新流程摘要，不改已验收 v5 或历史冻结流程。三项 Python 检查及实际生成函数的 Lua 模拟已通过；这项修正仍需引擎观察，不能证明此前原生崩溃的根因。
+
+捕获报告进一步将候选分为互不混用的三组：`missing_native_grants` 为本次完整授予表没有的路径，`duplicate_native_candidates` 为重复授予，`unbound_candidates` 只含确实唯一授予、但未占四个实验键位的路径。新增重复授予负对照，避免把“尚未绑定”误解成“技能缺失”。
+
+## 彭猛集中验证与后台修正闭合
+
+当前修正后的离线报告为 `evidence/adaptation/boss-background-milestone-cb3d0a8f28a75475-1795022099975418100.json`：123 组全部通过，其中 Python 124 项，58 个池的原生绑定模拟和生成入口核验均通过。报告绑定 40 项源码/测试摘要。候选目录为 `runtime/boss-variant-candidates/05ff0d74147ca5e6f424`。
+
+会话 `20261119-010735` 使用固定溪谷的彭猛斧头变体。延迟生成两个训练目标均取得新鲜资源，实际原生授予 35 项，三个候选各唯一、空闲且绑定；本次未观察到此前初始化崩溃，但尚不能据此确认崩溃根因或所有生成路径稳定。
+
+- 第一回合 `GA_PengMeng_Skill_03_C` 在同一次接管中连续自然结束五次，各观察到目标血量下降 300；明确 F10 恢复主角、镜头和计数核对通过。审计：`boss-skill-repeat-ab4bea8031effad3.json`。
+- 第二回合 `GA_PengMeng_Skill_04_C` 在同一次接管中自然结束三次，各观察到目标血量下降 324；明确 F10 恢复核对通过。审计：`boss-skill-repeat-33829427325f3a46.json`。
+- 第三回合 `GA_PengMeng_Skill_07_C` 只自然结束一次，观察到血量下降 492。F10 窗口凭据因不足 30 秒恢复预留而拒绝，没有发送该按键；随后使用原有 stop 流程关闭研究箱。本回合不计连续释放或明确玩家恢复通过。审计：`boss-skill-repeat-e8427047deeb8498.json`。
+
+关闭核对确认研究箱为空、加载器移除、56 项正式文件、主机配置与注册表无本轮变化。精选摘要：`evidence/adaptation/pengmeng-observations-20261119-010735.json`。血量变化仍非独立伤害归因。彭猛镜头实际观察偏近且俯视，移动、自由镜头、完整普攻连段、活动取消和跨图均未验收；不新增玩家菜单角色、不视作完成交付。

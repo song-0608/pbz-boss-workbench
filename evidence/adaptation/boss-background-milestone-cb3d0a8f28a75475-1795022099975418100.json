@@ -1,0 +1,2509 @@
+{
+  "schema": 1,
+  "inventory": "runtime/boss-offline-inventory/4890f9dd28cd69a44085",
+  "inventory_sha256": "d123c6c12601b0d3f58cb45b60205f2a2fcb584136595703e16cb94c7f52f67d",
+  "source_sha256": {
+    "tools/boss_offline_inventory.py": "05ca420e4019892bc289e65ac261102093f0347563e4af4b87523fcfc2242161",
+    "tools/boss_developer_candidate.lua": "2d75815715c056ab561c125c851021f254d185aa995873cd010b35487c8fdf4b",
+    "tools/build_boss_profile_candidate.py": "71016a704b8804545823df72a85833e77c2fc700b0945b2f86ce085cbe979522",
+    "tools/boss_metadata_jobs.py": "be5e127bc4ab2d506b785853e5520edde824ab5ff7d9d437e05818f376ce51b4",
+    "tools/collect_boss_metadata_jobs.py": "91821a20e5c0951ea3eac7c358262c371291a2433023ea79a646083d28f75ced",
+    "tools/native_grant_metadata_workflow.py": "6f3747b610198c151b9258a73045e7ed674e9a61a2e85ee7a5fecdc7c7aba198",
+    "tools/stage_boss_inventory_metadata.py": "36aee677171ad547551ca83e324da21d4a9f99283035d4d47af09e2a195d8b49",
+    "tests/test_boss_offline_inventory.py": "db29e8a69ee3c2b28af2fc998ac23024918dff5adedf80ca9803a308a833af71",
+    "tools/run_boss_background_milestone.py": "ee9308fa5bf1bf33f29374f13317a688cf6470e842d55e53b35ec49a7f48b9a5",
+    "tools/boss_inventory_bundle.py": "92fe223cecf8c097296c5c4d36d96abd426b43b7715543cd182d37695dc7b63b",
+    "tools/prepare_boss_inventory_workflow.py": "4258bda624280887db199227553ec6c484d2299bada4c87a76a2ad1f8eef3d29",
+    "tools/native_grant_skill_gate.py": "fc347f4a474fa705e30c2b9de9cafcfa459830e53077743136f9c313155c5342",
+    "tools/prepare_full_boss_catalog.py": "2f8582858b23a8fb7640666d4b2ff412ca085ba583ff9a077752f5a121bf6679",
+    "tools/full_boss_catalog_probe.lua": "10eeb0d108ec2e4483aa2e831354ccd4864202ae0730e7a5a74f9f7c5b182856",
+    "tools/stage_full_boss_catalog.py": "b26ce05277404e8206280b4ad4027000d36eb6e0a79e4f7a7ca08dacc463d9dd",
+    "tests/test_full_boss_catalog.lua": "6fea02dfa1771278236b951c63dc27297167a218bd850820bd22f2bebd88e208",
+    "tests/test_boss_inventory_boundaries.py": "0f97c7774424bd1790bd3891a29548a690e6bc30c3f61b5410a54f1d687df311",
+    "tests/test_native_grant_candidate.lua": "6162d1f04db2c72d530ff8a48bbf2d862f470fb0bfa4ff5d8d47efeb01257a0f",
+    "tests/test_expanded_boss_candidate.lua": "d1c045fdc9800e2e247dba4d4578fff457806db884991d5693b297b9421f855d",
+    "tools/native_grant_ui_stage.py": "a148a78ef8d6fa003a69c104be7f73a77c84ef4ae53ac708179e518fbcecb2e3",
+    "tests/test_native_grant_ui_stage.py": "499ead8d0cdfe0fc94ff2b81f790f2015c606a3c15aa7d49e351d85f60c7be11",
+    "tests/test_boss_metadata_jobs.py": "5cd1bda32a070598aca9c9ac29986d1558699243be54ae118fab0f0a297f4cfb",
+    "tests/test_boss_native_grant_followup.py": "bd90b5d2972117b31162d49ffe968146750a82f99fc402a96c9b9af2723676eb",
+    "tests/test_native_grant_metadata_workflow.py": "00bd6731f26b9c83fa6ea1acd4908f15c9da09fcd12ed21df976e93e9c005145",
+    "tests/test_native_grant_developer.py": "b09c3d9f2a219f34816921d0ad15d9fc95d30f423323a757d3396cca45240287",
+    "tests/test_expanded_boss_developer.py": "0bb9708bceab98482a03e81c87367e9bc70456562190aa17f932855136186e8a",
+    "tests/test_full_boss_catalog.py": "3c1520f1422197c417527ac6967e59168709746bc7a61cdbc14bb2c0a3702d72",
+    "tests/test_full_catalog_progress.py": "3ff3361f641a2aa9be1bdd327db53d103343d17a120d13c91d0315e1e63f9f1c",
+    "tests/test_boss_skill_pages.py": "c15fdeb2ec8a8eab852724a035d259da9dbb281b502516167aa9eb694cf0f65f",
+    "tests/test_prepare_research_ui.py": "48952fae59bc4723356765ee12528e7ba4da0ad26b3d85a4b59316be2e572c6c",
+    "tests/test_research_scene_checkpoint.py": "286b8c5598f16d47d6e30d4aeb729be229a2e87e89d6c787efddee707b60db6b",
+    "tests/test_stage_readonly_contracts.py": "abd524b22d31fd31fd754cf00288105c78fb551e619b6489696d60d13dc1fab4",
+    "tests/test_native_grant_skill_gate.py": "7327fa3692ac1cf97f90b81197143dc2733bbbb8853b9629dbda5d8a2312dd17",
+    "tests/test_boss_variant_candidates.py": "23f452e5387da27ed1a422bf0aa6d846a36a1deccce0668b44313623d14dbf81",
+    "tests/test_boss_inventory_spawn_repair.py": "aea4e269ddef925d2a81a9bfc1a0a2bc3553590b0aeab5599fb5eb59d1015bad",
+    "tools/prepare_boss_skill_pages.py": "b5e05cf67db67bce75a96127cbee0a998a89de0a35fe769be842ae995db7096a",
+    "tools/prepare_boss_variant_candidates.py": "ba865e3c9d6729690d2bc2226d0fee1f6fa35d6c024734a5c2c8c78ca6825d23",
+    "tools/boss_inventory_spawn_repair.py": "f93c2c3ee954f873cf13eca01c1e82107944ad70afa5a44917860c5a6b9dada2",
+    "tools/player_spawn_assets.lua": "28960f32673d1b4c2f9d6480ae88da04bfbdc71c666552ae06d27b1009ca8b53",
+    "tests/test_inventory_spawn_assets.lua": "e81999c88d4f4a390df4a16c4ea5d05bea5ea300309e3cf3a7d45bf4c71eaabd"
+  },
+  "summary": {
+    "fingerprint": "4890f9dd28cd69a44085",
+    "resource_folders": 104,
+    "character_folders": 103,
+    "variants": 198,
+    "catalog_ability_clues": 2104,
+    "historical_grant_snapshots": 236,
+    "historical_sessions": 132,
+    "ignored_sessions": {
+      "missing closure files": 1
+    },
+    "v5_profiles": 6,
+    "ability_routes": {
+      "needs_variant_grant": 1761,
+      "metadata_or_subtree_review": 144,
+      "utility_or_dependency_review": 186,
+      "in_v5_profile": 58,
+      "leaf_with_historical_grant": 71
+    },
+    "queued_character_requests": 131,
+    "queued_character_batches": 14,
+    "first_character_batch": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/metadata/metadata-ff67c599fa42f9547ce1",
+    "first_batch": null,
+    "first_batch_requests": 0,
+    "leaf_review_queue": [
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_01.GA_AquaKiller_Special_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_02.GA_AquaKiller_Special_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_03.GA_AquaKiller_Special_03_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_05.GA_AquaKiller_Special_05_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_09.GA_AquaKiller_Special_09_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_10.GA_AquaKiller_Special_10_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/YuCha/GA_AquaKiller_Skill_03.GA_AquaKiller_Skill_03_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_B_Hard.GA_YouLong_Dodge_B_Hard_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_L.GA_YouLong_Dodge_L_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Dodge_R.GA_YouLong_Dodge_R_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_FrontRecovery.GA_YouLong_FrontRecovery_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_02_Hard.GA_YouLong_Skill_02_Hard_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03.GA_YouLong_Skill_03_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04.GA_YouLong_Skill_04_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_04_Hard.GA_YouLong_Skill_04_Hard_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_A.GA_YouLong_Skill_05_A_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_B.GA_YouLong_Skill_05_B_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_C.GA_YouLong_Skill_05_C_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01_Front.GA_YouLong_SpecialAttack_01_Front_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad.GA_YouLong_SpecialAttack_02_Mad_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_Mad_Hard.GA_YouLong_SpecialAttack_02_Mad_Hard_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_04.GA_YouLong_SpecialAttack_04_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_A.GA_YouLong_SpecialAttack_05_A_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_B.GA_YouLong_SpecialAttack_05_B_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_05_C.GA_YouLong_SpecialAttack_05_C_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/GA_YouLong_SummonPassive_General.GA_YouLong_SummonPassive_General_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C",
+            "/PBZCombatAsset/ActorData/Mobs/056_YouLong/ActorData/ActorC_YouLong_Harpoon.ActorC_YouLong_Harpoon"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_CA_01_Gex.GA_WanJun_CA_01_Gex_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_02_A.GA_WanJun_Skill_02_A_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_02_B.GA_WanJun_Skill_02_B_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_03.GA_WanJun_Skill_03_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_04.GA_WanJun_Skill_04_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_01.GA_WanJun_SpecialAttack_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_01_Hard.GA_WanJun_SpecialAttack_01_Hard_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_02.GA_WanJun_SpecialAttack_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_03_B.GA_WanJun_SpecialAttack_03_B_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_04.GA_WanJun_SpecialAttack_04_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_05.GA_WanJun_SpecialAttack_05_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_06_01.GA_WanJun_SpecialAttack_06_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_06_02.GA_WanJun_SpecialAttack_06_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_07.GA_WanJun_SpecialAttack_07_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_SpecialAttack_11.GA_WanJun_SpecialAttack_11_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/BP_Monster_WanJun_JinGua.BP_Monster_WanJun_JinGua_C",
+            "/PBZCombatAsset/ActorData/Mobs/057_WanJun/ActorData/ActorC_WanJun_JinGua.ActorC_WanJun_JinGua"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex.GA_MadDoctor_CA_01_Gex_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_DodgeAttack_B.GA_MadDoctor_DodgeAttack_B_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B.GA_MadDoctor_Dodge_B_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_L.GA_MadDoctor_Dodge_L_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R.GA_MadDoctor_Dodge_R_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_MiddleAttack_01.GA_MadDoctor_MiddleAttack_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistHeal.GA_MadDoctor_RitualistHeal_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_01.GA_MadDoctor_Skill_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_02.GA_MadDoctor_Skill_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_04.GA_MadDoctor_Skill_04_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01.GA_MadDoctor_SpecialAttack_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02.GA_MadDoctor_SpecialAttack_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave.GA_MadDoctor_SpecialAttack_02_4Wave_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_XieQiuDong_SubTitles.GA_XieQiuDong_SubTitles_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BP_Monster_Maddoctor_Elite.BP_Monster_Maddoctor_Elite_C",
+            "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/ActorData/ActorC_MadDoctor_Elite.ActorC_MadDoctor_Elite"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "067_motian",
+        "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "067_motian",
+        "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "067_motian",
+        "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "067_motian",
+        "path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+            "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "071_xianzhe",
+        "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "071_xianzhe",
+        "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_F.GA_XianZhe_Dodge_F_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "071_xianzhe",
+        "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_R.GA_XianZhe_Dodge_R_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "071_xianzhe",
+        "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+            "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_CA_GEx_01.GA_YanQianSui_CA_GEx_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_L_01.GA_YanQianSui_DodgeAttack_L_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_DodgeAttack_R_01.GA_YanQianSui_DodgeAttack_R_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_02.GA_YanQianSui_Skill_02_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_09.GA_YanQianSui_Skill_09_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_10.GA_YanQianSui_Skill_10_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_12.GA_YanQianSui_Skill_12_C",
+        "grant_variants": [
+          [
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/BP_Monster_YanQianSui.BP_Monster_YanQianSui_C",
+            "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/ActorConfig/ActorC_YanQianSui.ActorC_YanQianSui"
+          ]
+        ],
+        "disposition": "review exact variant before candidate activation"
+      }
+    ],
+    "exact_grant_metadata_gaps": [],
+    "skill_pools": [
+      {
+        "id": "058_maddoctor",
+        "skills": [
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_01.GA_MadDoctor_SpecialAttack_01_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_SpecialAttack_02_4Wave.GA_MadDoctor_SpecialAttack_02_4Wave_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_B.GA_MadDoctor_Dodge_B_C",
+          "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Dodge_R.GA_MadDoctor_Dodge_R_C"
+        ],
+        "directory": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/skill-pools/058_maddoctor",
+        "manifest_sha256": "b52d5c437ded58541a220f81dc02707d22a14854c8ac4e32046d44ab3b6bd429"
+      },
+      {
+        "id": "067_motian",
+        "skills": [
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+          "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C"
+        ],
+        "directory": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/skill-pools/067_motian",
+        "manifest_sha256": "4d9dcde99abc8147e96e2358b78f7b66e83f586207dec250fe8cc1c989558b56"
+      },
+      {
+        "id": "071_xianzhe",
+        "skills": [
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+          "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C"
+        ],
+        "directory": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/skill-pools/071_xianzhe",
+        "manifest_sha256": "767306efecf7190726818e13784cf608748a406e97b4e5c07ce8862908fea949"
+      }
+    ],
+    "exact_grant_batches": [],
+    "named_variants_for_grant_review": [
+      {
+        "id": "027_xiaoxue",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/027_XiaoXue/BP_Monster_XiaoXue.BP_Monster_XiaoXue_C",
+        "display_name": "吞噬尸体的小雪",
+        "config": "/PBZCombatAsset/ActorData/Mobs/027_XiaoXue/ActorData/ActorC_XiaoXue.ActorC_XiaoXue"
+      },
+      {
+        "id": "034_emei",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/034_EMei/BP_Monster_EMei_Sword_JianZhen.BP_Monster_EMei_Sword_JianZhen_C",
+        "display_name": "红衣女剑客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/034_EMei/ActorData/ActorC_EMei_Sword_JianZhen.ActorC_EMei_Sword_JianZhen"
+      },
+      {
+        "id": "034_emei",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/034_EMei/BP_Monster_EMei_Sword_Top.BP_Monster_EMei_Sword_Top_C",
+        "display_name": "红衣女剑客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/034_EMei/ActorData/ActorC_EMei_Sword_Top.ActorC_EMei_Sword_Top"
+      },
+      {
+        "id": "035_huashan",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BP_Monster_HuaShan_Blue_NPC.BP_Monster_HuaShan_Blue_NPC_C",
+        "display_name": "七星剑阵：大师兄",
+        "config": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/ActorData/Troop/ActorC_HuaShan_Troop_Blue_NPC.ActorC_HuaShan_Troop_Blue_NPC"
+      },
+      {
+        "id": "035_huashan",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BP_Monster_HuaShan_TwinSword_BuMieXiaDan_ZDDY.BP_Monster_HuaShan_TwinSword_BuMieXiaDan_ZDDY_C",
+        "display_name": "鬼斩客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/ActorData/ActorC_HuaShan_TwinSword.ActorC_HuaShan_TwinSword"
+      },
+      {
+        "id": "035_huashan",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BP_Monster_HuaShan_TwinSword_NpcHelper_PangZhen.BP_Monster_HuaShan_TwinSword_NpcHelper_PangZhen_C",
+        "display_name": "鬼斩客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/ActorData/ActorC_HuaShan_TwinSword.ActorC_HuaShan_TwinSword"
+      },
+      {
+        "id": "035_huashan",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BP_Monster_HuaShan_TwinSword_Summon.BP_Monster_HuaShan_TwinSword_Summon_C",
+        "display_name": "鬼斩客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/ActorData/ActorC_HuaShan_TwinSword_Summon.ActorC_HuaShan_TwinSword_Summon"
+      },
+      {
+        "id": "036_spearman",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BP_Monster_SpearMan_Spear_White.BP_Monster_SpearMan_Spear_White_C",
+        "display_name": "无面枪兵",
+        "config": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/ActorData/ActorC_SpearMan_Normal.ActorC_SpearMan_Normal"
+      },
+      {
+        "id": "036_spearman",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BP_Monster_SpearMan_Spear_White_Tutorial.BP_Monster_SpearMan_Spear_White_Tutorial_C",
+        "display_name": "无面枪兵",
+        "config": "/PBZCombatAsset/ActorData/Mobs/Tutorial/ActorC_TutorialMonster_SpearMan.ActorC_TutorialMonster_SpearMan"
+      },
+      {
+        "id": "043_scavenger",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/043_Scavenger/BP_Monster_Scavenger.BP_Monster_Scavenger_C",
+        "display_name": "活人偶清道夫",
+        "config": "/PBZCombatAsset/ActorData/Mobs/043_Scavenger/ActorData/ActorC_Scavenger.ActorC_Scavenger"
+      },
+      {
+        "id": "044_pengmeng",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BP_Monster_PengMeng_Axe.BP_Monster_PengMeng_Axe_C",
+        "display_name": "斧老大：彭猛",
+        "config": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/ActorData/ActorC_PengMeng_Axe.ActorC_PengMeng_Axe"
+      },
+      {
+        "id": "045_jingye",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BP_Monster_JingYe.BP_Monster_JingYe_C",
+        "display_name": "亡命徒：荆野",
+        "config": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/ActorData/ActorC_JingYe.ActorC_JingYe"
+      },
+      {
+        "id": "045_jingye",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BP_Monster_JingYe_HumanoidTest.BP_Monster_JingYe_HumanoidTest_C",
+        "display_name": "亡命徒：荆野",
+        "config": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/ActorData/ActorC_JingYe_HumanoidTest.ActorC_JingYe_HumanoidTest"
+      },
+      {
+        "id": "047_leidang",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/047_LeiDang/BP_Monster_LeiDang_ForSeq.BP_Monster_LeiDang_ForSeq_C",
+        "display_name": "“虎炮”：雷当",
+        "config": "/PBZCombatAsset/ActorData/Mobs/047_LeiDang/ActorData/ActorC_LeiDang.ActorC_LeiDang"
+      },
+      {
+        "id": "050_leidang_p2",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/050_LeiDang_P2/BP_Monster_LeiDang_P2_ForSeq.BP_Monster_LeiDang_P2_ForSeq_C",
+        "display_name": "雷当：独臂虎",
+        "config": "/PBZCombatAsset/ActorData/Mobs/050_LeiDang_P2/ActorData/ActorC_LeiDang_P2.ActorC_LeiDang_P2"
+      },
+      {
+        "id": "051_hookman_p2",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/BP_Monster_HookMan_P2.BP_Monster_HookMan_P2_C",
+        "display_name": "追命：六绝凶镰",
+        "config": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/ActorData/ActorC_HookMan_P2.ActorC_HookMan_P2"
+      },
+      {
+        "id": "054_zuoshang",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/BP_Monster_ZuoShang_Ending.BP_Monster_ZuoShang_Ending_C",
+        "display_name": "“组织”冥主：左殇",
+        "config": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/ActorConfig/ActorC_ZuoShang_Ending.ActorC_ZuoShang_Ending"
+      },
+      {
+        "id": "055_zuoshang_young",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/BP_Monster_ZuoShang_Young.BP_Monster_ZuoShang_Young_C",
+        "display_name": "左殇",
+        "config": "/PBZCombatAsset/ActorData/Mobs/055_ZuoShang_Young/ActorConfig/ActorC_ZuoShang_Young.ActorC_ZuoShang_Young"
+      },
+      {
+        "id": "060_guichai_yellow",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BP_Monster_GuiChai_Yellow_MoDao_LengTu.BP_Monster_GuiChai_Yellow_MoDao_LengTu_C",
+        "display_name": "鬼差高手：斩骑",
+        "config": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/ActorConfig/ActorC_GuiChai_Yellow_MoDao_LengTu.ActorC_GuiChai_Yellow_MoDao_LengTu"
+      },
+      {
+        "id": "060_guichai_yellow",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BP_Monster_GuiFengKe.BP_Monster_GuiFengKe_C",
+        "display_name": "鬼斩客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/ActorConfig/ActorC_GuiChai_Yellow_GuiFengKe.ActorC_GuiChai_Yellow_GuiFengKe"
+      },
+      {
+        "id": "061_guwanyue",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/061_GuWanYue/BP_Monster_GuWanYue.BP_Monster_GuWanYue_C",
+        "display_name": "女妖骨婉约",
+        "config": "/PBZCombatAsset/ActorData/Mobs/061_GuWanYue/ActorConfig/ActorC_GuWanYue.ActorC_GuWanYue"
+      },
+      {
+        "id": "062_muxiaokui",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/BP_Monster_MuXiaoKui.BP_Monster_MuXiaoKui_C",
+        "display_name": "“组织”少主：沐小葵",
+        "config": "/PBZCombatAsset/ActorData/Mobs/062_MuXiaoKui/ActorData/ActorC_MuXiaoKui.ActorC_MuXiaoKui"
+      },
+      {
+        "id": "063_chilian_p1",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/063_ChiLian_P1/BP_Monster_ChiLian.BP_Monster_ChiLian_C",
+        "display_name": "双蛇夫人：白赤练",
+        "config": "/PBZCombatAsset/ActorData/Mobs/063_ChiLian_P1/ActorConfig/ActorC_ChiLian.ActorC_ChiLian"
+      },
+      {
+        "id": "064_muxiaokui_p2",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/064_MuXiaoKui_P2/BP_Monster_MuXiaoKui_P2.BP_Monster_MuXiaoKui_P2_C",
+        "display_name": "沐小葵：铁玉女王",
+        "config": "/PBZCombatAsset/ActorData/Mobs/064_MuXiaoKui_P2/ActorData/ActorC_MuXiaoKui_P2.ActorC_MuXiaoKui_P2"
+      },
+      {
+        "id": "065_chilian_p2",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/065_ChiLian_P2/BP_Monster_ChiLian_P2.BP_Monster_ChiLian_P2_C",
+        "display_name": "白赤练：献祭之蛇",
+        "config": "/PBZCombatAsset/ActorData/Mobs/065_ChiLian_P2/ActorConfig/ActorC_ChiLian_P2.ActorC_ChiLian_P2"
+      },
+      {
+        "id": "067_motian",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian_LongZhu_02.BP_Monster_MoTian_LongZhu_02_C",
+        "display_name": "金面具黑衣人",
+        "config": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian_LongZhu_02.ActorC_MoTian_LongZhu_02"
+      },
+      {
+        "id": "070_guichai_cyan",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/070_GuiChai_Cyan/BP_Monster_GuiChai_Cyan_ShuangYue_LengTu.BP_Monster_GuiChai_Cyan_ShuangYue_LengTu_C",
+        "display_name": "鬼差高手：断肠",
+        "config": "/PBZCombatAsset/ActorData/Mobs/070_GuiChai_Cyan/ActorConfig/ActorC_GuiChai_Cyan_ShuangYue_LengTu.ActorC_GuiChai_Cyan_ShuangYue_LengTu"
+      },
+      {
+        "id": "074_wulengshuang",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/BP_Monster_WuLengShuang.BP_Monster_WuLengShuang_C",
+        "display_name": "软剑：乌冷霜",
+        "config": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/ActorConfig/ActorC_WuLengShuang.ActorC_WuLengShuang"
+      },
+      {
+        "id": "076_zuoshang_p2",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/BP_Monster_ZuoShang_P2_Stand.BP_Monster_ZuoShang_P2_Stand_C",
+        "display_name": "左殇：真龙之躯",
+        "config": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/ActorConfig/ActorC_ZuoShang_P2.ActorC_ZuoShang_P2"
+      },
+      {
+        "id": "077_lengtu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/077_LengTu/BP_Monster_LengTu.BP_Monster_LengTu_C",
+        "display_name": "梦差：冷荼",
+        "config": "/PBZCombatAsset/ActorData/Mobs/077_LengTu/ActorConfig/ActorC_Lengtu.ActorC_Lengtu"
+      },
+      {
+        "id": "077_lengtu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/077_LengTu/BP_Monster_LengTu_Preview.BP_Monster_LengTu_Preview_C",
+        "display_name": "梦差：冷荼",
+        "config": "/PBZCombatAsset/ActorData/Mobs/077_LengTu/ActorConfig/ActorC_Lengtu_EditorPreview.ActorC_Lengtu_EditorPreview"
+      },
+      {
+        "id": "078_menghua",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/078_MengHua/BP_Monster_MengHua.BP_Monster_MengHua_C",
+        "display_name": "救苦救难梦华圣母娘娘",
+        "config": "/PBZCombatAsset/ActorData/Mobs/078_MengHua/ActorConfig/ActorC_MengHua.ActorC_MengHua"
+      },
+      {
+        "id": "079_xukong",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/079_XuKong/BP_Monster_XuKong.BP_Monster_XuKong_C",
+        "display_name": "虚空幻象",
+        "config": "/PBZCombatAsset/ActorData/Mobs/079_XuKong/ActorConfig/ActorC_XuKong.ActorC_XuKong"
+      },
+      {
+        "id": "datouwawa",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/DaTouWaWa/BP_Monster_DaTouWaWa_HeiHeiHei_LingGu.BP_Monster_DaTouWaWa_HeiHeiHei_LingGu_C",
+        "display_name": "幽怨女娃：呜呜呜",
+        "config": "/PBZCombatAsset/ActorData/Mobs/DaTouWaWa/ActorData/ActorC_DaTouWaWa_HeiHeiHei_LingGu.ActorC_DaTouWaWa_HeiHeiHei_LingGu"
+      },
+      {
+        "id": "danghui",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/DangHui/BP_Monster_Danghui_StuntDouble.BP_Monster_Danghui_StuntDouble_C",
+        "display_name": "操偶师：荡秽",
+        "config": "/PBZCombatAsset/ActorData/Mobs/DangHui/ActorData/ActorC_DangHui_Summon_Self.ActorC_DangHui_Summon_Self"
+      },
+      {
+        "id": "fengxuedaoke",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/BP_Monster_FengXueDaoKe_NPC.BP_Monster_FengXueDaoKe_NPC_C",
+        "display_name": "风雪刀客",
+        "config": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/ActorConfig/ActorC_FengXueDaoKe_NPC.ActorC_FengXueDaoKe_NPC"
+      },
+      {
+        "id": "huaqianxiao",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/BP_Monster_HuaQianXIao.BP_Monster_HuaQianXIao_C",
+        "display_name": "剑痴：花千笑",
+        "config": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/ActorData/ActorC_HuaQianXiao.ActorC_HuaQianXiao"
+      },
+      {
+        "id": "luanshi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BP_Monster_LuanShi.BP_Monster_LuanShi_C",
+        "display_name": "拳痴：铁狂",
+        "config": "/PBZCombatAsset/ActorData/Mobs/Luanshi/ActorData/ActorC_Luanshi.ActorC_Luanshi"
+      },
+      {
+        "id": "luanshi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BP_Monster_Quan_Base.BP_Monster_Quan_Base_C",
+        "display_name": "拳痴：铁狂",
+        "config": "/PBZCombatAsset/ActorData/Mobs/Luanshi/ActorData/ActorC_Luanshi.ActorC_Luanshi"
+      },
+      {
+        "id": "luanshi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BP_Monster_TieGui.BP_Monster_TieGui_C",
+        "display_name": "少主护卫：铁鬼",
+        "config": "/PBZCombatAsset/ActorData/Mobs/Luanshi/ActorData/ActorC_TieGui.ActorC_TieGui"
+      },
+      {
+        "id": "luanshi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BP_Monster_TieGui_Solo.BP_Monster_TieGui_Solo_C",
+        "display_name": "少主护卫：铁鬼",
+        "config": "/PBZCombatAsset/ActorData/Mobs/Luanshi/ActorData/ActorC_TieGui_Solo.ActorC_TieGui_Solo"
+      },
+      {
+        "id": "luanshi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BP_Monster_TieGui_Stand.BP_Monster_TieGui_Stand_C",
+        "display_name": "少主护卫：铁鬼",
+        "config": "/PBZCombatAsset/ActorData/Mobs/Luanshi/ActorData/ActorC_TieGui.ActorC_TieGui"
+      },
+      {
+        "id": "qishu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Bing_Phantom.BP_Monster_QiShu_Bing_Phantom_C",
+        "display_name": "灭法之法：蛊鹤",
+        "config": "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData/ActorC_QiShu_Bing_Phantom.ActorC_QiShu_Bing_Phantom"
+      },
+      {
+        "id": "qishu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Du.BP_Monster_QiShu_Du_C",
+        "display_name": "灭法之法：蛊鹤",
+        "config": "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData/ActorC_QiShu_Du.ActorC_QiShu_Du"
+      },
+      {
+        "id": "qishu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Du_Phantom.BP_Monster_QiShu_Du_Phantom_C",
+        "display_name": "灭法之法：蛊鹤",
+        "config": "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData/ActorC_QiShu_Du_Phantom.ActorC_QiShu_Du_Phantom"
+      },
+      {
+        "id": "qishu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Lei.BP_Monster_QiShu_Lei_C",
+        "display_name": "灭法之法：雷婷",
+        "config": "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData/ActorC_QiShu_Lei.ActorC_QiShu_Lei"
+      },
+      {
+        "id": "qishu",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/QiShu/BP_Monster_QiShu_Lei_Stand.BP_Monster_QiShu_Lei_Stand_C",
+        "display_name": "灭法之法：雷婷",
+        "config": "/PBZCombatAsset/ActorData/Mobs/QiShu/ActorData/ActorC_QiShu_Lei.ActorC_QiShu_Lei"
+      },
+      {
+        "id": "vesselrenoujiao",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/VesselRenOuJiao/BP_Monster_SepcialVessel_RenOuJiao.BP_Monster_SepcialVessel_RenOuJiao_C",
+        "display_name": "鬼差高手：斩骑",
+        "config": "/PBZCombatAsset/ActorData/Mobs/VesselRenOuJiao/ActorC_SepcialVessel_RenOuJiao.ActorC_SepcialVessel_RenOuJiao"
+      },
+      {
+        "id": "yubi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuBi/BP_Monster_YuBi.BP_Monster_YuBi_C",
+        "display_name": "廿一号·剑偶：“玉璧”",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuBi/ActorData/ActorC_YuBi.ActorC_YuBi"
+      },
+      {
+        "id": "yubi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuBi/BP_Monster_YuBi_LengTu.BP_Monster_YuBi_LengTu_C",
+        "display_name": "廿一号·剑偶：“玉璧”",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuBi/ActorData/ActorC_YuBi_LengTu.ActorC_YuBi_LengTu"
+      },
+      {
+        "id": "yubi",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuBi/BP_Monster_YuBi_Stand.BP_Monster_YuBi_Stand_C",
+        "display_name": "廿一号·剑偶：“玉璧”",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuBi/ActorData/ActorC_YuBi_Stand.ActorC_YuBi_Stand"
+      },
+      {
+        "id": "yucong",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuCong/BP_Monster_YuCong_HunDun.BP_Monster_YuCong_HunDun_C",
+        "display_name": "“玉琮”：混沌",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuCong/ActorData/ActorC_YuCong_HunDun.ActorC_YuCong_HunDun"
+      },
+      {
+        "id": "yucong",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuCong/BP_Monster_YuCong_P1.BP_Monster_YuCong_P1_C",
+        "display_name": "卅四号·混沌魔偶：“玉琮”",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuCong/ActorData/ActorC_YuCong_P1.ActorC_YuCong_P1"
+      },
+      {
+        "id": "yuding_00",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/BP_Monster_FemaleVessel_YuDing.BP_Monster_FemaleVessel_YuDing_C",
+        "display_name": "十二号·偃月刀偶：“玉鼎”",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/ActorData/ActorC_YuDing.ActorC_YuDing"
+      },
+      {
+        "id": "yuding_00",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/BP_Monster_FemaleVessel_YuDing_LengTu.BP_Monster_FemaleVessel_YuDing_LengTu_C",
+        "display_name": "十二号·偃月刀偶：“玉鼎”",
+        "config": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/ActorData/ActorC_YuDing_LengTu.ActorC_YuDing_LengTu"
+      },
+      {
+        "id": "zhigaozhe",
+        "actor": "/PBZCombatAsset/ActorData/Mobs/ZhiGaoZhe/BP_Monster_ZhiGaoZhe.BP_Monster_ZhiGaoZhe_C",
+        "display_name": "至高者",
+        "config": "/PBZCombatAsset/ActorData/Mobs/ZhiGaoZhe/ActorData/ActorC_ZhiGaoZhe_Normal.ActorC_ZhiGaoZhe_Normal"
+      }
+    ],
+    "game_started": false,
+    "installed": false,
+    "new_playable_bosses": 0
+  },
+  "packages": [
+    {
+      "id": "058_maddoctor",
+      "pool": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/skill-pools/058_maddoctor",
+      "skills": 4,
+      "page": null,
+      "variant": null,
+      "pool_manifest_sha256": "b52d5c437ded58541a220f81dc02707d22a14854c8ac4e32046d44ab3b6bd429",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-058_maddoctor-3761835d3ab78ba6",
+      "workflow_manifest_sha256": "a12cdae3a313553fc721229bdf49a7ed977120e1924d80d373f4108d558eeaac"
+    },
+    {
+      "id": "067_motian",
+      "pool": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/skill-pools/067_motian",
+      "skills": 4,
+      "page": null,
+      "variant": null,
+      "pool_manifest_sha256": "4d9dcde99abc8147e96e2358b78f7b66e83f586207dec250fe8cc1c989558b56",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-067_motian-4cbd50bb14df589c",
+      "workflow_manifest_sha256": "af86dc3dddb6246e165e5855f5010a8e3a65d099838134639694b9ce2267367c"
+    },
+    {
+      "id": "071_xianzhe",
+      "pool": "runtime/boss-offline-inventory/4890f9dd28cd69a44085/skill-pools/071_xianzhe",
+      "skills": 2,
+      "page": null,
+      "variant": null,
+      "pool_manifest_sha256": "767306efecf7190726818e13784cf608748a406e97b4e5c07ce8862908fea949",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-071_xianzhe-3db87d987c75a306",
+      "workflow_manifest_sha256": "33ed47197920af2bc88498c9132d6a379e17f7ae0a51748be4f1ff87a0433b55"
+    },
+    {
+      "id": "056_youlong",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/056_youlong/427e1e58e7406001",
+      "skills": 4,
+      "page": "427e1e58e7406001",
+      "variant": null,
+      "pool_manifest_sha256": "a2d0eec6b107b0daab2d040526dfca42ac06d041671e25b6d73307f251ef23c9",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-056_youlong-35dba1f7e0e1c6a5",
+      "workflow_manifest_sha256": "bec708ad1e724009ed64270918a1165b6c83085df8649ec1fdbd7f655c60641f"
+    },
+    {
+      "id": "056_youlong",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/056_youlong/41922e65b3fb02a5",
+      "skills": 4,
+      "page": "41922e65b3fb02a5",
+      "variant": null,
+      "pool_manifest_sha256": "4d79e8672fb2577b09be16145a53d14384cf417b863bede587b1699fd47cccee",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-056_youlong-6a0245cfdd8508c8",
+      "workflow_manifest_sha256": "3ea1800ee718a1fcfcfa4e19be22506e513e99425d62c7a95325e10fa7a59fbb"
+    },
+    {
+      "id": "056_youlong",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/056_youlong/438bdebad873b860",
+      "skills": 4,
+      "page": "438bdebad873b860",
+      "variant": null,
+      "pool_manifest_sha256": "927879dc3d005cce16c13fb4d2754f368aae0b0d8ea8570f0ed2253cf5e0d3c0",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-056_youlong-556f9490ede91722",
+      "workflow_manifest_sha256": "df33bfc840a8a3dfeca3a180fbf7e37414aee3c37ab8ca32b59aa60374eb3f29"
+    },
+    {
+      "id": "056_youlong",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/056_youlong/621eb746bb0db8be",
+      "skills": 4,
+      "page": "621eb746bb0db8be",
+      "variant": null,
+      "pool_manifest_sha256": "32610314c7448cc19cbd05ce1545fd1347f904bc130b7337bca411e742b7e22c",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-056_youlong-b4e75cfbc2657d32",
+      "workflow_manifest_sha256": "d629a7a1deb2b68c914bd75eadc4ebc48ab67b7aaa06dac1a90e9044e934ffaf"
+    },
+    {
+      "id": "056_youlong",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/056_youlong/4e3c40fcc69ae03c",
+      "skills": 4,
+      "page": "4e3c40fcc69ae03c",
+      "variant": null,
+      "pool_manifest_sha256": "e2a1985a0b72f809387c511b102cc85360e4bc5d356ea328b06245cfdac8be67",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-056_youlong-0b60fee3dae2227c",
+      "workflow_manifest_sha256": "0508fb0d04c36a093fea8fae1e7772379a6e634f2f7e18d28befefbf084c8758"
+    },
+    {
+      "id": "056_youlong",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/056_youlong/48dc3e70356c1b88",
+      "skills": 4,
+      "page": "48dc3e70356c1b88",
+      "variant": null,
+      "pool_manifest_sha256": "89ac8db737f31bf0e3b2fd845ca17c1c6cb0fdb067dc0db4fdd84b88ac37c8e6",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-056_youlong-743c57d609df5732",
+      "workflow_manifest_sha256": "29e00d53b5e967e9f7eead67845840e8bf0ce4fecf5397ae98efa2d1b7956cac"
+    },
+    {
+      "id": "057_wanjun",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/057_wanjun/e459f3fdae11da96",
+      "skills": 4,
+      "page": "e459f3fdae11da96",
+      "variant": null,
+      "pool_manifest_sha256": "52a2f04e333239b637dfe5371424d9259e514dcb2565c73182d90fc9a534c8a2",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-057_wanjun-237e64760af6f9e4",
+      "workflow_manifest_sha256": "b05d5fcb72d33c91b3ed685fc39b9bcd80f6749f883c9884cd7161608c9daec8"
+    },
+    {
+      "id": "057_wanjun",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/057_wanjun/a21311b9e0300ce1",
+      "skills": 4,
+      "page": "a21311b9e0300ce1",
+      "variant": null,
+      "pool_manifest_sha256": "8d761adb37f9b3dfdbbafeebfcc1cf2dc564f0eb8f5706081d4d3f2a87d9393f",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-057_wanjun-da6206be244c9aa3",
+      "workflow_manifest_sha256": "26ac5a50d49d62093658b4dd65e2923a66a0e4bbc02c220592d758360c9bf19f"
+    },
+    {
+      "id": "057_wanjun",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/057_wanjun/d1f678720788e865",
+      "skills": 4,
+      "page": "d1f678720788e865",
+      "variant": null,
+      "pool_manifest_sha256": "53e424db4eb7a8210cc8c1fe51acffaa3aad2f19dceb018bc31def77dadc8182",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-057_wanjun-2e2f00290ca67c43",
+      "workflow_manifest_sha256": "e7f4f4af632758c802f9376f7a2bfb4abff03d17867e03fd41c1828c7a3c5aa8"
+    },
+    {
+      "id": "057_wanjun",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/057_wanjun/071b694292350c60",
+      "skills": 2,
+      "page": "071b694292350c60",
+      "variant": null,
+      "pool_manifest_sha256": "abbba7ab3079f58cf72cc53c787573176a953026befe3d4e92f2d02850b21759",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-057_wanjun-9303724b7dfd7710",
+      "workflow_manifest_sha256": "536b5cf577880cd1b819c178ce0fc4265bee55924b2636fa2455110c86bc0d32"
+    },
+    {
+      "id": "058_maddoctor",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/058_maddoctor/3eba47aa50935662",
+      "skills": 4,
+      "page": "3eba47aa50935662",
+      "variant": null,
+      "pool_manifest_sha256": "189a700e458d82caae5cd665f1827ec82d823b56bafcbc046ee13d6f95963bde",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-058_maddoctor-69b0b0239d34ba3b",
+      "workflow_manifest_sha256": "871be5e055d1eab6b38de58d38939b202e7e6132139425d19208b9f88b85576e"
+    },
+    {
+      "id": "058_maddoctor",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/058_maddoctor/4cc2dc1b68ae7827",
+      "skills": 4,
+      "page": "4cc2dc1b68ae7827",
+      "variant": null,
+      "pool_manifest_sha256": "e93ab378863458435347d6dd0fdb0cd625183b503ac45b279b12310ef0cba7b0",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-058_maddoctor-c5ecc4f87b91cf1b",
+      "workflow_manifest_sha256": "60c6cbf70a1938df5ae5aee59841f11816e36c0b1a0642bd1e59402f393178a1"
+    },
+    {
+      "id": "058_maddoctor",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/058_maddoctor/3504e8cf238b8751",
+      "skills": 3,
+      "page": "3504e8cf238b8751",
+      "variant": null,
+      "pool_manifest_sha256": "c3e203c0652dae02c929623b693d772c474c72b82dc8ef1859745dbcf2e2df8f",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-058_maddoctor-10142b877661c516",
+      "workflow_manifest_sha256": "15084a971a383f04dca0d946ec69b8c7d110842e6607fe9cf0a7db9dc776297f"
+    },
+    {
+      "id": "067_motian",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/067_motian/ac3ec721160f4d08",
+      "skills": 4,
+      "page": "ac3ec721160f4d08",
+      "variant": null,
+      "pool_manifest_sha256": "e4433e86895a009534a811d90fe4302733f6655cb1292dd91622b8d21f65afbf",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-067_motian-f5ada2dc55c2cd6d",
+      "workflow_manifest_sha256": "4abb6bef95725549861c478913456483d82e15e3feaf32b26678c5d1ec139a69"
+    },
+    {
+      "id": "071_xianzhe",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/071_xianzhe/5d1729aaf593455e",
+      "skills": 3,
+      "page": "5d1729aaf593455e",
+      "variant": null,
+      "pool_manifest_sha256": "7cd369556d50209017be7d1243233df90f8b01cec0995c4c75401011773e6e02",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-071_xianzhe-94441437427bb1ae",
+      "workflow_manifest_sha256": "559dd2eed7373cd8febf984494a174bb76830f83bb8cf53767d448db2472e727"
+    },
+    {
+      "id": "073_yanqiansui",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/073_yanqiansui/efc0f8b12c50a4cc",
+      "skills": 4,
+      "page": "efc0f8b12c50a4cc",
+      "variant": null,
+      "pool_manifest_sha256": "eb803b4ce05f45445b79d46ae9313ffe916314ab0adad1e20cd9cc3b5f18d52d",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-073_yanqiansui-3f34e99815c07702",
+      "workflow_manifest_sha256": "46df809e4f2ff643200ab44e17481c60847c8ed3eb609a3eb6954559a9086b6f"
+    },
+    {
+      "id": "073_yanqiansui",
+      "pool": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7/skill-pages/073_yanqiansui/f3722a29456d64e9",
+      "skills": 2,
+      "page": "f3722a29456d64e9",
+      "variant": null,
+      "pool_manifest_sha256": "cc544a85aeffac1359b918bd4d969a1b9ab0021923214c58d0bb3f2214559cb4",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-073_yanqiansui-cfec725b21bc828e",
+      "workflow_manifest_sha256": "0b41b6b49a5d477787cd3fe97cca24dc254b7089ca9f9a176bad04ad2a3daf40"
+    },
+    {
+      "id": "027_xiaoxue",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/027_xiaoxue/dc290dc36c795b2e",
+      "skills": 1,
+      "page": null,
+      "variant": "dc290dc36c795b2e",
+      "pool_manifest_sha256": "01914c53042e2dc877e4da28c26d40d3a15438a83c36aa391f80cdcd61e892db",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-027_xiaoxue-442441bf3a89578c",
+      "workflow_manifest_sha256": "2e88ac342e3f298a300d90b87d2e1ad244fe991623f2cf2e2fc489cd20e31a87"
+    },
+    {
+      "id": "034_emei",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/034_emei/4e0309860beccf75",
+      "skills": 10,
+      "page": null,
+      "variant": "4e0309860beccf75",
+      "pool_manifest_sha256": "5f3aecb79368c42f2eb4e07300212e5b26d3615364adc6fd56d2294ecc394c37",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-034_emei-13a6acfd04279202",
+      "workflow_manifest_sha256": "091881580a65b3af33c47342321dabca8492a9ec63740068af1a2bebbefbc447"
+    },
+    {
+      "id": "034_emei",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/034_emei/e52a609e87bfda3b",
+      "skills": 10,
+      "page": null,
+      "variant": "e52a609e87bfda3b",
+      "pool_manifest_sha256": "f68e63d5b57a25919543e22be5723f8198543352d22e7e79cbb17093c52bdf49",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-034_emei-193b1f00fb3d804c",
+      "workflow_manifest_sha256": "14eb8d0c1dbda4b770e739cfc1aea22bdbacc38cd97c45a5c3315f669351012a"
+    },
+    {
+      "id": "035_huashan",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/035_huashan/9cfcf7796e1374ac",
+      "skills": 32,
+      "page": null,
+      "variant": "9cfcf7796e1374ac",
+      "pool_manifest_sha256": "24d9743b272d3b7f7f403ce2d9d2100d39cf41dc4128fdc88be45231d2d9a40c",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-035_huashan-01841733edc0e015",
+      "workflow_manifest_sha256": "8878ceae777a45aef2b05786a5c14328b1a34c832a78c9717e900a10c611d562"
+    },
+    {
+      "id": "035_huashan",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/035_huashan/42753e3a314a3e06",
+      "skills": 18,
+      "page": null,
+      "variant": "42753e3a314a3e06",
+      "pool_manifest_sha256": "8b8d90622c84fe04dd9b7f231aa43d12f70ba1bc6d0d2bde7557b8efda2a2e66",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-035_huashan-52ff6eb6f8b452e9",
+      "workflow_manifest_sha256": "abbc3c2935aa6ef02a656c17eba3c6cbe73d87d75c5fe168a502ece30afdfa8d"
+    },
+    {
+      "id": "036_spearman",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/036_spearman/f06023794fbbe8ca",
+      "skills": 14,
+      "page": null,
+      "variant": "f06023794fbbe8ca",
+      "pool_manifest_sha256": "b2e53b8ce9f720f19846467a1df082fa2c612afe1ff25b47e1211a3d2a3a659c",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-036_spearman-6b2fe569e9a06bbb",
+      "workflow_manifest_sha256": "0fa3d20afe81563e60d51d4bb3998383b0adb47203df8aa18e3b114a412d8d6f"
+    },
+    {
+      "id": "043_scavenger",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/043_scavenger/72b63e20997bcce8",
+      "skills": 19,
+      "page": null,
+      "variant": "72b63e20997bcce8",
+      "pool_manifest_sha256": "a031e56c61b9ac2bc422b48eab2fcd514d0da301cee48645ba9c54e06d5f9357",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-043_scavenger-31f4f6558223a361",
+      "workflow_manifest_sha256": "d602406d07ff3f6604bf24b3aa8693b47b5aa6b194830bee9a6c62b9102c8195"
+    },
+    {
+      "id": "044_pengmeng",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/044_pengmeng/c90dec3ec32a82df",
+      "skills": 3,
+      "page": null,
+      "variant": "c90dec3ec32a82df",
+      "pool_manifest_sha256": "2da582e4ed73397cd895a70476815befd2f0866c51dc9ccf2da9ebbd8e72950e",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-044_pengmeng-4108711ef3131d9f",
+      "workflow_manifest_sha256": "1c44bcfca73f01b7d8cd7f09a7c1c4c0dd3151da2104b2d13c28dd45d1142851"
+    },
+    {
+      "id": "045_jingye",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/045_jingye/d85b555f318e2654",
+      "skills": 15,
+      "page": null,
+      "variant": "d85b555f318e2654",
+      "pool_manifest_sha256": "6f1a86ce37ef2391055717d484a1e33005c354845c4c2fd9807cb696a604f447",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-045_jingye-530b57aca730ec2f",
+      "workflow_manifest_sha256": "04305830bb9deaf7c6ba709667ab625764f398dd2897bb0560212db0fa0d09ad"
+    },
+    {
+      "id": "045_jingye",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/045_jingye/8696bb2c340e3b20",
+      "skills": 15,
+      "page": null,
+      "variant": "8696bb2c340e3b20",
+      "pool_manifest_sha256": "53adee625cc47d3082fc5fe4932ac6936e3cfd203dfb69ff5c8b7fd7e2adea9b",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-045_jingye-1d871d3572f3bb89",
+      "workflow_manifest_sha256": "4464d3b51fc1d9047a7c9739840282846659ad1f5cf15fffeac96496b794b9de"
+    },
+    {
+      "id": "051_hookman_p2",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/051_hookman_p2/bfcd18afdaaccd74",
+      "skills": 13,
+      "page": null,
+      "variant": "bfcd18afdaaccd74",
+      "pool_manifest_sha256": "846759af2fe4131608be8d21cfbabc8ac2719911e2ede4a4e995ad060e80c0c6",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-051_hookman_p2-4b41373b76ada56c",
+      "workflow_manifest_sha256": "7a3ba57211de185a33071f91b7a3986e283ce2cb2617a6bc5a7153fde9eb9852"
+    },
+    {
+      "id": "055_zuoshang_young",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/055_zuoshang_young/42e87b44eb3fc02c",
+      "skills": 5,
+      "page": null,
+      "variant": "42e87b44eb3fc02c",
+      "pool_manifest_sha256": "6cf7ec2d0bcd96eb68a1c6e2652d7664965eb2ee9c01365023766c79efa986d7",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-055_zuoshang_young-43c3761fecd20e1c",
+      "workflow_manifest_sha256": "7fd92685e1fd7e4338e1411e6ae540f8a3d73f33a6a96a318c60141d7c4c8684"
+    },
+    {
+      "id": "060_guichai_yellow",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/060_guichai_yellow/5e63985188945ebf",
+      "skills": 26,
+      "page": null,
+      "variant": "5e63985188945ebf",
+      "pool_manifest_sha256": "7c6074bde37123b21a63b6341aea19414af610fdefbf0023cc0690de538c6204",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-060_guichai_yellow-5643d63be65fc50f",
+      "workflow_manifest_sha256": "100c4e6846266789a534b8cd881df5b7b0eac0900f2cd2b78487b56c1b938452"
+    },
+    {
+      "id": "060_guichai_yellow",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/060_guichai_yellow/34b63f96eeb8568f",
+      "skills": 26,
+      "page": null,
+      "variant": "34b63f96eeb8568f",
+      "pool_manifest_sha256": "12ab6991406d87cbfc7eef9ca109ffeb25c42df2ee2c73f3154496445255f721",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-060_guichai_yellow-8b4f9487ba3457e7",
+      "workflow_manifest_sha256": "76f55a9cc877aac188966e78e4518b81c6e95f8edd05202b3d06bb333a8c9dff"
+    },
+    {
+      "id": "061_guwanyue",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/061_guwanyue/02ce800f8a7e7521",
+      "skills": 12,
+      "page": null,
+      "variant": "02ce800f8a7e7521",
+      "pool_manifest_sha256": "dd9abad56a1992658027758686902fb70ddb125aaefd58925bfdf3be18fc8b26",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-061_guwanyue-a3680e9f6067e8d4",
+      "workflow_manifest_sha256": "57c9dc56344a1eeeeed1326f5d87ffe82b7e4328cbea46acf47766c51afd9547"
+    },
+    {
+      "id": "062_muxiaokui",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/062_muxiaokui/c3b5dd3e227d0655",
+      "skills": 8,
+      "page": null,
+      "variant": "c3b5dd3e227d0655",
+      "pool_manifest_sha256": "4e6284837b024d1ed6377d185da70515f1a06be031091983d45f16510193de8f",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-062_muxiaokui-50e612dc094ff84b",
+      "workflow_manifest_sha256": "71c09bd2804b69583bf64a4d0647d7200c5f2905fc23b376c464190868dc8789"
+    },
+    {
+      "id": "063_chilian_p1",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/063_chilian_p1/e3667683bb58d941",
+      "skills": 13,
+      "page": null,
+      "variant": "e3667683bb58d941",
+      "pool_manifest_sha256": "c7fad8385935985411829497f1a2f077ccbab498bf738e5db87f657982a073d2",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-063_chilian_p1-356be353b36a5af0",
+      "workflow_manifest_sha256": "40fcca51b184866217d931e8fc02187fd98e3ef4505ece8cd28a61c08cbad692"
+    },
+    {
+      "id": "064_muxiaokui_p2",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/064_muxiaokui_p2/b1e38d19b9fbdee4",
+      "skills": 10,
+      "page": null,
+      "variant": "b1e38d19b9fbdee4",
+      "pool_manifest_sha256": "a0d86d05d078905b077952648f33937d5d0c6767f981b1e1917921b753855c72",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-064_muxiaokui_p2-a52918a43138c86f",
+      "workflow_manifest_sha256": "7fe35d4d6119da4a0ad320a82e0b58744eca1ff713a8c06a0c28c1655ad33801"
+    },
+    {
+      "id": "065_chilian_p2",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/065_chilian_p2/e49451ed76eeb4d7",
+      "skills": 4,
+      "page": null,
+      "variant": "e49451ed76eeb4d7",
+      "pool_manifest_sha256": "d155358107c38491a37fc6552298f7713e601d00fd7db75a3f7fdfbbe7bccb69",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-065_chilian_p2-9c091eac02f00fca",
+      "workflow_manifest_sha256": "cd799967426c499c571ada97dbf084aafb21c69ad917298ba39c1c5a166ba2f2"
+    },
+    {
+      "id": "067_motian",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/067_motian/8e1e670bff8b7a15",
+      "skills": 18,
+      "page": null,
+      "variant": "8e1e670bff8b7a15",
+      "pool_manifest_sha256": "a9b5c4320a509d67d1109f23916c3e5515cc6deedc1970bddaa56342434ce9b9",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-067_motian-fb5525cda7a1e3a0",
+      "workflow_manifest_sha256": "0477ca842e0cc5174f21b5275ef08b4778bc63912f54e0772cc254debb3d7b7a"
+    },
+    {
+      "id": "070_guichai_cyan",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/070_guichai_cyan/545027dd855f9212",
+      "skills": 13,
+      "page": null,
+      "variant": "545027dd855f9212",
+      "pool_manifest_sha256": "eed7a06695ca89168bc9a683aba00f9f396d717dc3f5fabd91c3e9713d473423",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-070_guichai_cyan-6410ecac0aff327d",
+      "workflow_manifest_sha256": "564010ba7ce04b5660665e9182c26abaee8e251f386c54260fceb848bcfc4442"
+    },
+    {
+      "id": "074_wulengshuang",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/074_wulengshuang/deb36905bfc535f9",
+      "skills": 8,
+      "page": null,
+      "variant": "deb36905bfc535f9",
+      "pool_manifest_sha256": "ac652100a3a2d7155ae50115082ab920ecea35701df4066d2a655cf0a1df3ff5",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-074_wulengshuang-6bc3ab23c6dd883b",
+      "workflow_manifest_sha256": "1f9d33f88cf277572af5195949b6d53e739c6c8bab5610a2e627d3ab3323b4d7"
+    },
+    {
+      "id": "077_lengtu",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/077_lengtu/fc3eeb77a13fb9b2",
+      "skills": 11,
+      "page": null,
+      "variant": "fc3eeb77a13fb9b2",
+      "pool_manifest_sha256": "a14bd8f318a8895389211b0ded80499c1e8ad37f6e76072791fe6af9160c7633",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-077_lengtu-36ee8d6add308d29",
+      "workflow_manifest_sha256": "4e38d98fb1d0be886b3fc4cc25f29c35237e774fbcbf6f5de4f1f2a1fd3c6729"
+    },
+    {
+      "id": "078_menghua",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/078_menghua/1a388b7897b73a94",
+      "skills": 16,
+      "page": null,
+      "variant": "1a388b7897b73a94",
+      "pool_manifest_sha256": "c435c670c026217b92bd7e5d9e8ea7f41d59d662fff5e26a1a62c899cac7b5cc",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-078_menghua-a4607fbe001d7295",
+      "workflow_manifest_sha256": "f9371f7f4eabd321f1ec76cb7b7bccbe35338e5b78bd9b847af005e42f3edf86"
+    },
+    {
+      "id": "079_xukong",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/079_xukong/44ef97dd12111cc9",
+      "skills": 2,
+      "page": null,
+      "variant": "44ef97dd12111cc9",
+      "pool_manifest_sha256": "78875ff875304524c22cecde0904dc3de4e3a6164e928a612071b027062e0f54",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-079_xukong-be078f612b05bb3e",
+      "workflow_manifest_sha256": "350ec52d8ab046f677d56dc26a9cf86f267c0bccc5883715827c8dccf43216d0"
+    },
+    {
+      "id": "datouwawa",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/datouwawa/5d574943a448a1d7",
+      "skills": 14,
+      "page": null,
+      "variant": "5d574943a448a1d7",
+      "pool_manifest_sha256": "df9888c1c587d37d61f1aae1c2ac51e348d006fea7b371fd2cacd582f52bb55a",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-datouwawa-5f01548f12577603",
+      "workflow_manifest_sha256": "87e738c3ddfad46dec404e93eff6c8e4038bd760f73e339e4ea54234830e2ab3"
+    },
+    {
+      "id": "huaqianxiao",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/huaqianxiao/b9a7ee08a2b087f9",
+      "skills": 6,
+      "page": null,
+      "variant": "b9a7ee08a2b087f9",
+      "pool_manifest_sha256": "0ad1911558fc082d52d46287c8473775d7b256f275e710b94ab94b59ce87852a",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-huaqianxiao-49edbf4293aa6bbe",
+      "workflow_manifest_sha256": "23231965cefa96010c923c7df2f12906a0554e83036a94b5a4430ff188f95a54"
+    },
+    {
+      "id": "luanshi",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/luanshi/d841171d3d6369e4",
+      "skills": 31,
+      "page": null,
+      "variant": "d841171d3d6369e4",
+      "pool_manifest_sha256": "bb25570dbc9d50ce75e125068805e295250bc2427c2fa0a5084de11858bdc99b",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-luanshi-284a75cf82bc0831",
+      "workflow_manifest_sha256": "4197183965b0fe76e22a9c75e5976754d97eb2b90bd3f24f1bc3d209589fb3ff"
+    },
+    {
+      "id": "luanshi",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/luanshi/ac574b767317c73e",
+      "skills": 31,
+      "page": null,
+      "variant": "ac574b767317c73e",
+      "pool_manifest_sha256": "bcdb63f555ea859ec902f09f89671f920109574a28b3dabcca6996bb652fe855",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-luanshi-c45b663d578fb118",
+      "workflow_manifest_sha256": "e1d094ad8dc9a093553ea5469f6b158ed01ee59292002359ab2ca28c6aa8a877"
+    },
+    {
+      "id": "luanshi",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/luanshi/2461264c90ba4b88",
+      "skills": 31,
+      "page": null,
+      "variant": "2461264c90ba4b88",
+      "pool_manifest_sha256": "fc2c213ad21acfc370e9c39f2ba221bcf339879ea156cc386217746becbd18cd",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-luanshi-51a8d37788abf2e1",
+      "workflow_manifest_sha256": "5cdd57211b3bf84128915796529c6bbae6dfbcf06e5a8a9d2a95d5205ca4df8f"
+    },
+    {
+      "id": "qishu",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/qishu/97b103adc773d741",
+      "skills": 4,
+      "page": null,
+      "variant": "97b103adc773d741",
+      "pool_manifest_sha256": "e0c955910482e539cf74c8c3519b896a0d240b829d999dcb472f9af2a615bc7c",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-qishu-36d9f363503f08d3",
+      "workflow_manifest_sha256": "6029bd3a11439c481794e6bcae138a9e11d5c34c6cef90aa8e6db688e87c2916"
+    },
+    {
+      "id": "qishu",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/qishu/6068dc69180b71eb",
+      "skills": 4,
+      "page": null,
+      "variant": "6068dc69180b71eb",
+      "pool_manifest_sha256": "8924f93af1575786758456cc15a1da2e58799b22c04065a55cac9d69885e1561",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-qishu-479dbc3f49acaa3c",
+      "workflow_manifest_sha256": "9c42129ebefbe412679058a49bc2539bc32dcc1869fec6e954ca384f8d139788"
+    },
+    {
+      "id": "yubi",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/yubi/e33307e3c9da13e8",
+      "skills": 20,
+      "page": null,
+      "variant": "e33307e3c9da13e8",
+      "pool_manifest_sha256": "74f23ff2f76166a489d91bf1f132c3c703c3accaef63e5d85bbe4f184167d12f",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-yubi-05c05245e6fb4a7d",
+      "workflow_manifest_sha256": "5f7fccf37b7629b5917d1863ee58b9ab5dcac0ef67a294e13920c3a806f9fb0a"
+    },
+    {
+      "id": "yubi",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/yubi/50868d169cb1f7fd",
+      "skills": 20,
+      "page": null,
+      "variant": "50868d169cb1f7fd",
+      "pool_manifest_sha256": "94d7949519d7d2760c37b3e27b2453186bb34a2b4e9a7f64ec43c7c11969e361",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-yubi-7542819dce3930fc",
+      "workflow_manifest_sha256": "631bcf3fd16532c3c40adf3ba97c8fddda279ab6d907a1ce8266318ab42bd848"
+    },
+    {
+      "id": "yucong",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/yucong/c0534ef010de9ab0",
+      "skills": 8,
+      "page": null,
+      "variant": "c0534ef010de9ab0",
+      "pool_manifest_sha256": "f4797fae4b195246621831c91666271684bbc53f5b1fd8d27112dc4950a8b5d6",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-yucong-35ac206f36145352",
+      "workflow_manifest_sha256": "b6d9ea7a7594e08572ec85d0631f6b20a5b5626a62a33675051b557ccba0d0c1"
+    },
+    {
+      "id": "yucong",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/yucong/4e0b446568e88305",
+      "skills": 8,
+      "page": null,
+      "variant": "4e0b446568e88305",
+      "pool_manifest_sha256": "b000e7a031fda486f66bb8d5a70e948a387215f81466a436f38a3bdb655e24d5",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-yucong-87fc6bdc3225da6c",
+      "workflow_manifest_sha256": "ad423832052e289532a9116e041f331c2a7e1983ea8ce7fd1bd95f6bb726993e"
+    },
+    {
+      "id": "yuding_00",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/yuding_00/de9dd9851a8b6146",
+      "skills": 6,
+      "page": null,
+      "variant": "de9dd9851a8b6146",
+      "pool_manifest_sha256": "7e7559f5a958fac1c311b1cd6900d1a09ddac0db677713bac7a68ee1baad94c7",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-yuding_00-2fe83dcab7b41fb0",
+      "workflow_manifest_sha256": "11beab5e0b75883b808768ae22d6bf503a4b73d659ad6d40e95d75fdd5da84fd"
+    },
+    {
+      "id": "yuding_00",
+      "pool": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424/yuding_00/984e3a42f5bdd6cc",
+      "skills": 6,
+      "page": null,
+      "variant": "984e3a42f5bdd6cc",
+      "pool_manifest_sha256": "def9e79fc94fc49377d7814ff3c307ccb2e44b640ad0a48786d19a151494fd90",
+      "workflow": "runtime/developer-workflows/inventory-skill-ui-yuding_00-140f9d76e83bfb68",
+      "workflow_manifest_sha256": "4628cc4e53c7b002592c89546b03cc9b0c40d48c76e78b5e3efd6f202bab3d35"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Python regressions",
+      "passed": true,
+      "output": "{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n{\"staged\": true, \"id\": \"071_xianzhe\", \"ui_input_sent\": false, \"reload_required\": true, \"playable\": false}\n已装载研究起点：悲泣溪谷—斧老大斩落处\n............................................................................................................................\n----------------------------------------------------------------------\nRan 124 tests in 7.496s\n\nOK"
+    },
+    {
+      "name": "Current inventory target spawn assets",
+      "passed": true,
+      "output": "PASS actual inventory target closure resolves fresh assets twice and rejects a closed lease"
+    },
+    {
+      "name": "Full catalog queue verification",
+      "passed": true,
+      "output": "{\n  \"fingerprint\": \"4cba9d4de165f05d9c61\",\n  \"requests\": 237\n}"
+    },
+    {
+      "name": "Full catalog and child Lua syntax",
+      "passed": true,
+      "output": "PASS catalog syntax: 23"
+    },
+    {
+      "name": "Full catalog serial scheduling ok",
+      "passed": true,
+      "output": "PASS sequential metadata collector: ok"
+    },
+    {
+      "name": "Full catalog serial scheduling expired",
+      "passed": true,
+      "output": "PASS sequential metadata collector: expired"
+    },
+    {
+      "name": "Full catalog serial scheduling partial",
+      "passed": true,
+      "output": "PASS sequential metadata collector: partial"
+    },
+    {
+      "name": "058_maddoctor native binding fixture",
+      "passed": true,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "058_maddoctor staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"058_maddoctor\"\n}"
+    },
+    {
+      "name": "067_motian native binding fixture",
+      "passed": true,
+      "output": "PASS 067_motian: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "067_motian staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"067_motian\"\n}"
+    },
+    {
+      "name": "071_xianzhe native binding fixture",
+      "passed": true,
+      "output": "PASS 071_xianzhe: two exact follow-ups, fresh grants, atomic rejection; no engine verification"
+    },
+    {
+      "name": "071_xianzhe staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"071_xianzhe\"\n}"
+    },
+    {
+      "name": "056_youlong native binding fixture",
+      "passed": true,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "056_youlong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"056_youlong\"\n}"
+    },
+    {
+      "name": "056_youlong native binding fixture",
+      "passed": true,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "056_youlong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"056_youlong\"\n}"
+    },
+    {
+      "name": "056_youlong native binding fixture",
+      "passed": true,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "056_youlong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"056_youlong\"\n}"
+    },
+    {
+      "name": "056_youlong native binding fixture",
+      "passed": true,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "056_youlong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"056_youlong\"\n}"
+    },
+    {
+      "name": "056_youlong native binding fixture",
+      "passed": true,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "056_youlong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"056_youlong\"\n}"
+    },
+    {
+      "name": "056_youlong native binding fixture",
+      "passed": true,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "056_youlong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"056_youlong\"\n}"
+    },
+    {
+      "name": "057_wanjun native binding fixture",
+      "passed": true,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "057_wanjun staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"057_wanjun\"\n}"
+    },
+    {
+      "name": "057_wanjun native binding fixture",
+      "passed": true,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "057_wanjun staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"057_wanjun\"\n}"
+    },
+    {
+      "name": "057_wanjun native binding fixture",
+      "passed": true,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "057_wanjun staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"057_wanjun\"\n}"
+    },
+    {
+      "name": "057_wanjun native binding fixture",
+      "passed": true,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "057_wanjun staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"057_wanjun\"\n}"
+    },
+    {
+      "name": "058_maddoctor native binding fixture",
+      "passed": true,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "058_maddoctor staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"058_maddoctor\"\n}"
+    },
+    {
+      "name": "058_maddoctor native binding fixture",
+      "passed": true,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "058_maddoctor staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"058_maddoctor\"\n}"
+    },
+    {
+      "name": "058_maddoctor native binding fixture",
+      "passed": true,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "058_maddoctor staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"058_maddoctor\"\n}"
+    },
+    {
+      "name": "067_motian native binding fixture",
+      "passed": true,
+      "output": "PASS 067_motian: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "067_motian staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"067_motian\"\n}"
+    },
+    {
+      "name": "071_xianzhe native binding fixture",
+      "passed": true,
+      "output": "PASS 071_xianzhe: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "071_xianzhe staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"071_xianzhe\"\n}"
+    },
+    {
+      "name": "073_yanqiansui native binding fixture",
+      "passed": true,
+      "output": "PASS 073_yanqiansui: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "073_yanqiansui staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"073_yanqiansui\"\n}"
+    },
+    {
+      "name": "073_yanqiansui native binding fixture",
+      "passed": true,
+      "output": "PASS 073_yanqiansui: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "073_yanqiansui staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"073_yanqiansui\"\n}"
+    },
+    {
+      "name": "027_xiaoxue native binding fixture",
+      "passed": true,
+      "output": "PASS 027_xiaoxue: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "027_xiaoxue staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"027_xiaoxue\"\n}"
+    },
+    {
+      "name": "034_emei native binding fixture",
+      "passed": true,
+      "output": "PASS 034_emei: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "034_emei staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"034_emei\"\n}"
+    },
+    {
+      "name": "034_emei native binding fixture",
+      "passed": true,
+      "output": "PASS 034_emei: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "034_emei staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"034_emei\"\n}"
+    },
+    {
+      "name": "035_huashan native binding fixture",
+      "passed": true,
+      "output": "PASS 035_huashan: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "035_huashan staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"035_huashan\"\n}"
+    },
+    {
+      "name": "035_huashan native binding fixture",
+      "passed": true,
+      "output": "PASS 035_huashan: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "035_huashan staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"035_huashan\"\n}"
+    },
+    {
+      "name": "036_spearman native binding fixture",
+      "passed": true,
+      "output": "PASS 036_spearman: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "036_spearman staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"036_spearman\"\n}"
+    },
+    {
+      "name": "043_scavenger native binding fixture",
+      "passed": true,
+      "output": "PASS 043_scavenger: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "043_scavenger staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"043_scavenger\"\n}"
+    },
+    {
+      "name": "044_pengmeng native binding fixture",
+      "passed": true,
+      "output": "PASS 044_pengmeng: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "044_pengmeng staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"044_pengmeng\"\n}"
+    },
+    {
+      "name": "045_jingye native binding fixture",
+      "passed": true,
+      "output": "PASS 045_jingye: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "045_jingye staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"045_jingye\"\n}"
+    },
+    {
+      "name": "045_jingye native binding fixture",
+      "passed": true,
+      "output": "PASS 045_jingye: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "045_jingye staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"045_jingye\"\n}"
+    },
+    {
+      "name": "051_hookman_p2 native binding fixture",
+      "passed": true,
+      "output": "PASS 051_hookman_p2: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "051_hookman_p2 staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"051_hookman_p2\"\n}"
+    },
+    {
+      "name": "055_zuoshang_young native binding fixture",
+      "passed": true,
+      "output": "PASS 055_zuoshang_young: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "055_zuoshang_young staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"055_zuoshang_young\"\n}"
+    },
+    {
+      "name": "060_guichai_yellow native binding fixture",
+      "passed": true,
+      "output": "PASS 060_guichai_yellow: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "060_guichai_yellow staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"060_guichai_yellow\"\n}"
+    },
+    {
+      "name": "060_guichai_yellow native binding fixture",
+      "passed": true,
+      "output": "PASS 060_guichai_yellow: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "060_guichai_yellow staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"060_guichai_yellow\"\n}"
+    },
+    {
+      "name": "061_guwanyue native binding fixture",
+      "passed": true,
+      "output": "PASS 061_guwanyue: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "061_guwanyue staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"061_guwanyue\"\n}"
+    },
+    {
+      "name": "062_muxiaokui native binding fixture",
+      "passed": true,
+      "output": "PASS 062_muxiaokui: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "062_muxiaokui staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"062_muxiaokui\"\n}"
+    },
+    {
+      "name": "063_chilian_p1 native binding fixture",
+      "passed": true,
+      "output": "PASS 063_chilian_p1: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "063_chilian_p1 staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"063_chilian_p1\"\n}"
+    },
+    {
+      "name": "064_muxiaokui_p2 native binding fixture",
+      "passed": true,
+      "output": "PASS 064_muxiaokui_p2: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "064_muxiaokui_p2 staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"064_muxiaokui_p2\"\n}"
+    },
+    {
+      "name": "065_chilian_p2 native binding fixture",
+      "passed": true,
+      "output": "PASS 065_chilian_p2: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "065_chilian_p2 staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"065_chilian_p2\"\n}"
+    },
+    {
+      "name": "067_motian native binding fixture",
+      "passed": true,
+      "output": "PASS 067_motian: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "067_motian staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"067_motian\"\n}"
+    },
+    {
+      "name": "070_guichai_cyan native binding fixture",
+      "passed": true,
+      "output": "PASS 070_guichai_cyan: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "070_guichai_cyan staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"070_guichai_cyan\"\n}"
+    },
+    {
+      "name": "074_wulengshuang native binding fixture",
+      "passed": true,
+      "output": "PASS 074_wulengshuang: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "074_wulengshuang staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"074_wulengshuang\"\n}"
+    },
+    {
+      "name": "077_lengtu native binding fixture",
+      "passed": true,
+      "output": "PASS 077_lengtu: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "077_lengtu staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"077_lengtu\"\n}"
+    },
+    {
+      "name": "078_menghua native binding fixture",
+      "passed": true,
+      "output": "PASS 078_menghua: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "078_menghua staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"078_menghua\"\n}"
+    },
+    {
+      "name": "079_xukong native binding fixture",
+      "passed": true,
+      "output": "PASS 079_xukong: two exact follow-ups, fresh grants, atomic rejection; no engine verification"
+    },
+    {
+      "name": "079_xukong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"079_xukong\"\n}"
+    },
+    {
+      "name": "datouwawa native binding fixture",
+      "passed": true,
+      "output": "PASS datouwawa: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "datouwawa staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"datouwawa\"\n}"
+    },
+    {
+      "name": "huaqianxiao native binding fixture",
+      "passed": true,
+      "output": "PASS huaqianxiao: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "huaqianxiao staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"huaqianxiao\"\n}"
+    },
+    {
+      "name": "luanshi native binding fixture",
+      "passed": true,
+      "output": "PASS luanshi: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "luanshi staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"luanshi\"\n}"
+    },
+    {
+      "name": "luanshi native binding fixture",
+      "passed": true,
+      "output": "PASS luanshi: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "luanshi staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"luanshi\"\n}"
+    },
+    {
+      "name": "luanshi native binding fixture",
+      "passed": true,
+      "output": "PASS luanshi: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "luanshi staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"luanshi\"\n}"
+    },
+    {
+      "name": "qishu native binding fixture",
+      "passed": true,
+      "output": "PASS qishu: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "qishu staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"qishu\"\n}"
+    },
+    {
+      "name": "qishu native binding fixture",
+      "passed": true,
+      "output": "PASS qishu: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "qishu staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"qishu\"\n}"
+    },
+    {
+      "name": "yubi native binding fixture",
+      "passed": true,
+      "output": "PASS yubi: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "yubi staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"yubi\"\n}"
+    },
+    {
+      "name": "yubi native binding fixture",
+      "passed": true,
+      "output": "PASS yubi: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "yubi staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"yubi\"\n}"
+    },
+    {
+      "name": "yucong native binding fixture",
+      "passed": true,
+      "output": "PASS yucong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "yucong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"yucong\"\n}"
+    },
+    {
+      "name": "yucong native binding fixture",
+      "passed": true,
+      "output": "PASS yucong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "yucong staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"yucong\"\n}"
+    },
+    {
+      "name": "yuding_00 native binding fixture",
+      "passed": true,
+      "output": "PASS yuding_00: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "yuding_00 staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"yuding_00\"\n}"
+    },
+    {
+      "name": "yuding_00 native binding fixture",
+      "passed": true,
+      "output": "PASS yuding_00: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "name": "yuding_00 staged workflow verification",
+      "passed": true,
+      "output": "{\n  \"verified\": true,\n  \"id\": \"yuding_00\"\n}"
+    }
+  ],
+  "skill_pages": {
+    "directory": "runtime/boss-skill-pages/10c2bb3c19ed01d3c6f7",
+    "summary_sha256": "cdb5b497cabc9fc68df207c6e8bc16edba60b2be92b7e6b8879a09f4fc23559a",
+    "pages": 17,
+    "skills": 62,
+    "deferred": [
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_FrontRecovery.GA_YouLong_FrontRecovery_C",
+        "reason": "passive, story, heal, recovery or summon needs separate review"
+      },
+      {
+        "id": "056_youlong",
+        "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/GA_YouLong_SummonPassive_General.GA_YouLong_SummonPassive_General_C",
+        "reason": "passive, story, heal, recovery or summon needs separate review"
+      },
+      {
+        "id": "057_wanjun",
+        "path": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_CA_01_Gex.GA_WanJun_CA_01_Gex_C",
+        "reason": "counter-context ability needs a separately verified native trigger"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_CA_01_Gex.GA_MadDoctor_CA_01_Gex_C",
+        "reason": "counter-context ability needs a separately verified native trigger"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_RitualistHeal.GA_MadDoctor_RitualistHeal_C",
+        "reason": "passive, story, heal, recovery or summon needs separate review"
+      },
+      {
+        "id": "058_maddoctor",
+        "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_XieQiuDong_SubTitles.GA_XieQiuDong_SubTitles_C",
+        "reason": "passive, story, heal, recovery or summon needs separate review"
+      },
+      {
+        "id": "071_xianzhe",
+        "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C",
+        "reason": "counter-context ability needs a separately verified native trigger"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_CA_GEx_01.GA_YanQianSui_CA_GEx_01_C",
+        "reason": "counter-context ability needs a separately verified native trigger"
+      },
+      {
+        "id": "073_yanqiansui",
+        "path": "/PBZCombatAsset/ActorData/Mobs/073_YanQianSui/Ability/GA_YanQianSui_Skill_01.GA_YanQianSui_Skill_01_C",
+        "reason": "historical nonlocal displacement; scene dependency unresolved"
+      }
+    ],
+    "runtime_verified": false
+  },
+  "variant_candidates": {
+    "directory": "runtime/boss-variant-candidates/05ff0d74147ca5e6f424",
+    "summary_sha256": "dfff9e8605ea5e3b4ccf19f2ec7e312c73e145f56148c3be181a0c1ddbd4fbfa",
+    "pools": 38,
+    "variants": 37,
+    "resource_folders": 28,
+    "historical_native_grants_verified": false,
+    "runtime_verified": false,
+    "playable": false
+  },
+  "full_catalog": {
+    "directory": "runtime/full-boss-catalog/4cba9d4de165f05d9c61",
+    "manifest_sha256": "abd8c9034bcb98c9201cffe9370fd6747d9094b2300450a0d8a31e9567ab419c",
+    "batches": 22,
+    "requests": 237,
+    "complete_package_inventory": false,
+    "playable": false
+  },
+  "passed": true,
+  "game_started": false,
+  "ui_input_sent": false,
+  "live_carrier_staged": false,
+  "installed": false,
+  "all_boss_skills_complete": false,
+  "runtime_acceptance_current": false
+}

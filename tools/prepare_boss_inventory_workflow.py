@@ -9,6 +9,7 @@ from pathlib import Path
 from boss_adaptation_workflow import ROOT, sha, write_json
 from build_player_experience_candidate import replace
 import boss_inventory_bundle as bundle
+import boss_inventory_spawn_repair as spawn_repair
 from mod_installation import unlinked_path
 import native_grant_ui_stage as previous
 
@@ -18,6 +19,11 @@ def render(root=ROOT):
     runner = files['stage_candidate.py'].decode()
     runner = replace(runner, 'import native_grant_ui_stage as controller', 'import inventory_ui_controller as controller')
     runner = replace(runner, repr(('071_xianzhe', '067_motian')), repr(bundle.candidate_ids(root)))
+    runner = replace(runner,
+        "            module_overrides['boss_candidate.lua']=(args.boss_candidate_bundle/'boss_candidate.lua').read_bytes()",
+        "            module_overrides['boss_candidate.lua']=(args.boss_candidate_bundle/'boss_candidate.lua').read_bytes()\n"
+        '            from boss_inventory_spawn_repair import overrides\n'
+        '            module_overrides.update(overrides())')
     gate = files['boss_candidate_gate.py'].decode().replace('native_grant_developer_bundle', 'boss_inventory_bundle')
     gate = replace(gate, 'import REVIEWS,validate as verify', 'import candidate_ids,validate as verify')
     gate = replace(gate, 'identifier not in REVIEWS', 'identifier not in candidate_ids(root)')
@@ -29,6 +35,8 @@ def render(root=ROOT):
     controller = replace(controller, "kind='native_grant_ui_stage'", "kind='inventory_skill_ui_stage'")
     controller = replace(controller, "'native-grant-ui-' + parent['id']", "'inventory-skill-ui-' + parent['id']")
     controller = replace(controller, 'files = render(root)\n    manifest', 'files = previous.render(root)\n    manifest')
+    controller = replace(controller, 'source_files={n: sha(root / n) for n in SOURCES},',
+                         'source_files=previous.source_hashes(root),')
     controller = replace(controller,
         "    expected_modules = {p.removeprefix('Scripts/'): h for p, h in recorded['base_mod_files'].items()\n"
         "                        if p.startswith('Scripts/') and p != 'Scripts/main.lua'}\n"
@@ -61,7 +69,15 @@ def expected_modules(record, root=ROOT):
     modules = {name.removeprefix(prefix): digest for name, digest in files.items()
                if name.startswith(prefix) and name.endswith('.lua') and name != prefix + 'main.lua'}
     modules['boss_candidate.lua'] = record['module_sha256']
+    modules.update({name: hashlib.sha256(raw).hexdigest() for name, raw in spawn_repair.overrides(root).items()})
     return modules
+
+
+def source_hashes(root=ROOT):
+    names = (*previous.SOURCES, *spawn_repair.SOURCES,
+             'tools/prepare_boss_inventory_workflow.py', 'tools/boss_inventory_bundle.py',
+             'tools/native_grant_skill_gate.py', 'tests/test_boss_variant_candidates.py')
+    return {name: sha(root / name) for name in names}
 
 
 def expected(path, root=ROOT):
@@ -75,7 +91,7 @@ def build(path, root=ROOT):
     path = unlinked_path(path)
     parent, _, _ = expected(path, root)
     files = render(root)
-    sources = {name: sha(root / name) for name in previous.SOURCES}
+    sources = source_hashes(root)
     record = dict(schema=1, kind='inventory_skill_ui_stage', id=parent['id'], bundle=str(path),
                   bundle_manifest_sha256=sha(path / 'manifest.json'), parent_workflow_manifest=parent,
                   source_files=sources, files={name: hashlib.sha256(raw).hexdigest() for name, raw in files.items()},
