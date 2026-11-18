@@ -460,3 +460,4 @@ tests/test_native_grant_skill_gate.py -text whitespace=cr-at-eol
 evidence/adaptation/boss-repeat-window-gates-offline-d743ca5ce1ba3b4a.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-skill-repeat-135c1e7a208ac877.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-skill-repeat-834aab29175f6a9d.json -text whitespace=cr-at-eol
+evidence/adaptation/boss-followup-preparation-20261118-211942.json -text whitespace=cr-at-eol

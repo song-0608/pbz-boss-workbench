@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "session": "20261118-211942",
+  "status": "closed-before-game-launch",
+  "reason": "Research Steam main window unavailable; preparation refused to capture login content.",
+  "game_started": false,
+  "boss_assembled": false,
+  "skills_activated": false,
+  "ui_gameplay_input_sent": false,
+  "research_box_empty": true,
+  "research_loader_removed": true,
+  "formal_files_checked": 56,
+  "formal_files_changed": 0,
+  "host_config_files_changed": 0,
+  "host_registry_unchanged": true,
+  "checkpoint_applied": false,
+  "retries": 0,
+  "runtime_acceptance_current": false,
+  "release_accepted": false,
+  "sources": {
+    "runtime/official-validation-20261118-211942/state.json": "650d5bce9b532d0fd64af17f318a816db6901b6a8f17bf59283aa5769072fb5a",
+    "evidence/official-validation/20261118-211942/postcheck.json": "30cb58a0b7a1c94b3956194f228b78b820bc6c9a133f3fd70748fa93f1b9bd8b",
+    "evidence/official-validation/20261118-211942/preparation-failure.json": "afc4787096bf11d46e9e992b289a5bcf731584146dcb8f5fc0b7be8da538c815"
+  }
+}
