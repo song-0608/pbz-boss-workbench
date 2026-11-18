@@ -81,7 +81,9 @@ class SubtreeReferenceTests(unittest.TestCase):
             with patch.object(references, 'history', return_value=[audit]), \
                  patch.object(references, 'inputs', return_value=(snapshot,)):
                 directory, manifest = references.build(root)
-                self.assertEqual(len(manifest['jobs']), 2); self.assertFalse(manifest['stage_supported'])
+                self.assertEqual(len(manifest['jobs']), 2); self.assertTrue(manifest['stage_supported'])
+                self.assertEqual(references.frozen(directory, root), (manifest,
+                    {p.name: p.read_bytes() for p in directory.glob('*.lua')}))
                 for path in directory.glob('*.lua'):
                     checker = root / 'syntax.lua'
                     checker.write_text('assert(loadfile(' + json.dumps(path.relative_to(references.ROOT).as_posix()) + '))', encoding='utf-8')

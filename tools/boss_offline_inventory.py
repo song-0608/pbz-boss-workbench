@@ -161,9 +161,13 @@ def release_profiles(root, sources):
 
 
 def observations(root, sources):
+    # The reference verifier only replays original closed sources. It must never
+    # regenerate its plan via inputs(), including after these types are imported.
+    from stage_boss_subtree_references import verify_receipt as verify_reference_receipt
     indexed = defaultdict(list)
     for directory, verify in (('adapter-metadata-receipts', verify_receipt),
-                              ('native-grant-metadata-receipts', verify_grant_receipt)):
+                              ('native-grant-metadata-receipts', verify_grant_receipt),
+                              ('subtree-reference-receipts', verify_reference_receipt)):
         for path in sorted((root / 'research/boss-adaptation' / directory).glob('*.json')):
             receipt = verify(path, root)
             name = path.relative_to(root).as_posix()
@@ -429,6 +433,7 @@ def inputs(root):
                'tools/boss_developer_candidate.lua', 'tools/build_boss_profile_candidate.py',
                'tools/boss_metadata_jobs.py', 'tools/collect_boss_metadata_jobs.py',
                'tools/native_grant_metadata_workflow.py', 'tools/stage_boss_inventory_metadata.py',
+               'tools/prepare_boss_subtree_references.py', 'tools/stage_boss_subtree_references.py',
                'tests/test_boss_offline_inventory.py')}
     catalog = read(root / CATALOG)
     assert catalog['target_build_sha256'] == BUILD

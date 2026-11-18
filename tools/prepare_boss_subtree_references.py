@@ -15,7 +15,14 @@ from mod_installation import unlinked_path
 
 OUTPUT = 'runtime/boss-subtree-references'
 SOURCES = ('tools/prepare_boss_subtree_references.py', 'tests/test_boss_subtree_references.py',
-           'tools/boss_metadata_jobs.py', 'tools/full_boss_catalog_probe.lua', *subtrees.SOURCES)
+           'tools/stage_boss_subtree_references.py', 'tests/test_stage_boss_subtree_references.py',
+           'tests/test_boss_subtree_reference_collector.lua',
+           'tools/stage_boss_inventory_metadata.py', 'tools/stage_readonly_contracts.py',
+           'tools/native_grant_ui_stage.py', 'tools/full_boss_catalog_probe.lua',
+           'tools/boss_offline_inventory.py',
+           *metadata.SOURCES, *subtrees.SOURCES)
+IDENTITY = ('schema', 'kind', 'build', 'inventory_sha256', 'evidence_sha256',
+            'source_sha256', 'jobs', 'deferred', 'already_verified')
 
 
 def plan(characters, audits):
@@ -95,9 +102,71 @@ def expected(root=ROOT):
     files['metadata-collector.lua'] = header.encode('utf-8') + (root / 'tools/full_boss_catalog_probe.lua').read_bytes()
     manifest = dict(identity, fingerprint=key, batches=batches,
         collector_sha256=hashlib.sha256(files['metadata-collector.lua']).hexdigest(),
-        metadata_only=True, game_started=False, deployed=False, stage_supported=False,
+        script_sha256=hashlib.sha256(files['metadata-collector.lua']).hexdigest(),
+        budget_seconds=480, cleanup_seconds=120,
+        metadata_only=True, game_started=False, deployed=False, stage_supported=True,
         native_grant_verified=False, activation_allowed=False, playable=False,
         execution_order_proven=False, all_boss_skills_complete=False)
+    return manifest, files
+
+
+def frozen(directory, root=ROOT, *, source_root=None):
+    """Verify original bytes without rebuilding from later inventory receipts.
+
+    Live staging additionally uses verify(). Closed-session replay uses archived
+    sources and the original manifest, so importing its receipt cannot recurse
+    through inputs() or silently substitute a newly generated query.
+    """
+    root, directory = unlinked_path(root), unlinked_path(directory)
+    manifest = json.loads((directory / 'manifest.json').read_bytes())
+    identity = {key: manifest[key] for key in IDENTITY}
+    key = hashlib.sha256(metadata.canonical(identity)).hexdigest()[:20]
+    assert manifest['schema'] == 1 and manifest['kind'] == 'boss_subtree_reference_metadata'
+    assert manifest['build'] == BUILD and manifest['fingerprint'] == key
+    assert directory == unlinked_path(root / OUTPUT / key)
+    assert manifest['metadata_only'] is True and manifest['stage_supported'] is True
+    for flag in ('game_started', 'deployed', 'native_grant_verified', 'activation_allowed',
+                 'playable', 'execution_order_proven', 'all_boss_skills_complete'):
+        assert manifest[flag] is False, flag
+    assert manifest['budget_seconds'] == 480 and manifest['cleanup_seconds'] == 120
+    assert re.fullmatch(r'[0-9a-f]{64}', manifest['inventory_sha256'])
+    source_root = unlinked_path(source_root or root)
+    assert set(manifest['source_sha256']) == set(SOURCES)
+    for name, digest in manifest['source_sha256'].items():
+        assert sha(unlinked_path(source_root / name)) == digest, 'original reference query source changed'
+    for name, digest in manifest['evidence_sha256'].items():
+        path = unlinked_path(root / name)
+        assert path.is_relative_to(root) and sha(path) == digest, 'reference origin evidence changed'
+    jobs = manifest['jobs']
+    assert 0 <= len(jobs) <= 2048 and len(jobs) == len({j['lookup_path'] for j in jobs})
+    assert len(jobs) == len({j['key'] for j in jobs})
+    for job in jobs:
+        unsigned = {k: v for k, v in job.items() if k != 'key'}
+        assert job['key'] == hashlib.sha256(metadata.canonical(unsigned)).hexdigest()[:20]
+        assert re.fullmatch(r'[a-z0-9_]{1,80}', job['id']) and job['role'] == 'ability'
+        assert subtrees.OBJECT.fullmatch(job['lookup_path']) and job['lookup_path'].endswith('_C')
+        assert job['lookup_path'].startswith('/PBZCombatAsset/ActorData/Mobs/')
+        assert job['package'] == job['lookup_path'].split('.', 1)[0] and job['config_candidates'] == []
+        assert job['reference_only'] is True and job['activation_allowed'] is False
+        assert job['native_grant_verified'] is False and job['origins']
+        for origin in job['origins']:
+            assert re.fullmatch(r'\d{8}-\d{6}', origin['session'])
+            assert re.fullmatch(r'[0-9a-f]{20}', origin['parent_key'])
+            assert subtrees.OBJECT.fullmatch(origin['parent_class'])
+    groups = chunks(jobs)
+    assert len(groups) == len(manifest['batches'])
+    files = {}
+    for index, (group, row) in enumerate(zip(groups, manifest['batches']), 1):
+        child = hashlib.sha256(metadata.canonical(dict(parent=key, jobs=[j['key'] for j in group]))).hexdigest()[:20]
+        assert row['fingerprint'] == child and row['jobs'] == [j['key'] for j in group]
+        assert row['script'] == f'metadata-probe-{index:03d}.lua'
+        raw = unlinked_path(directory / row['script']).read_bytes()
+        assert hashlib.sha256(raw).hexdigest() == row['script_sha256']
+        files[row['script']] = raw
+    script = unlinked_path(directory / 'metadata-collector.lua').read_bytes()
+    assert hashlib.sha256(script).hexdigest() == manifest['collector_sha256'] == manifest['script_sha256']
+    files['metadata-collector.lua'] = script
+    assert {p.name for p in directory.iterdir()} == {'manifest.json', *files}
     return manifest, files
 
 
@@ -138,4 +207,4 @@ if __name__ == '__main__':
     print(json.dumps(dict(directory=str(directory), requests=len(manifest['jobs']),
         batches=len(manifest['batches']), deferred=len(manifest['deferred']),
         already_verified=len(manifest['already_verified']), game_started=False,
-        stage_supported=False, playable=False), ensure_ascii=False, indent=2))
+        stage_supported=manifest['stage_supported'], playable=False), ensure_ascii=False, indent=2))

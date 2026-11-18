@@ -36,6 +36,7 @@ TEST_MODULES = (
     'tests.test_boss_subtree_inventory',
     'tests.test_boss_subtree_progress',
     'tests.test_boss_subtree_references',
+    'tests.test_stage_boss_subtree_references',
 )
 
 
@@ -149,7 +150,7 @@ def main():
                   subtree_reference_queries=dict(directory=reference_directory.relative_to(ROOT).as_posix(),
                       manifest_sha256=sha(reference_directory / 'manifest.json'),
                       requests=len(reference_manifest['jobs']), batches=len(reference_manifest['batches']),
-                      stage_supported=False, runtime_verified=False, playable=False),
+                      stage_supported=reference_manifest['stage_supported'], runtime_verified=False, playable=False),
                   passed=all(check['passed'] for check in checks), game_started=False, ui_input_sent=False,
                   live_carrier_staged=False, installed=False, all_boss_skills_complete=False,
                   runtime_acceptance_current=False)
