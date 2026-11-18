@@ -99,3 +99,5 @@ tools/check_native_grant_followups.py
 第一批查询为游龙、万钧与弦儿的 48 项，第二批为阿花、神医与烟千岁的 18 项。仅在固定溪谷研究会话的空闲载体使用 `tools/stage_boss_inventory_metadata.py`。依次运行 `verify`、`stage`、`reload-gate` 并传入 `summary.json` 所指目录，在已核对的研究窗口用一次 Ctrl+R 执行该批，再用 `capture` 归档。关闭会话后再次运行离线盘点，会重放该批原始日志和关闭凭据，核对已查到的结果并生成剩余缺口。顺序执行两批允许复用同一研究会话。
 
 本批 33 项 Python 回归和三组生成模块 Lua 检查通过。研究版仍待核验实际攻击伤害、连放、取消、跨图和操作手感。离线结果见 `evidence/adaptation/boss-offline-inventory-f17be43eb81e7fb53ac7.json`。
+
+`tools/prepare_boss_inventory_workflow.py <skill-pool目录>` 为这三个候选生成独立的研究入口。候选校验从历史授予与元数据重新构建临时模块，再与冻结件逐字节比较。部署前核对 v5 基线及本角色唯一模块覆盖。生成的 `inventory_ui_controller.py` 负责装配、窗口凭据和捕获，`inventory_skill_gate.py` 保留每次接管、动作及恢复检查。候选装配仍需空闲载体，每次按现有研究租约验证一个角色。三个入口均已执行 `verify`，并核对实际安装的 v5 模块摘要。尚未发起本批实机装配。
