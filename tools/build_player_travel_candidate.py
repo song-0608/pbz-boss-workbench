@@ -20,7 +20,7 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tests/test_player_map_initialization.lua', 'tests/test_player_target_diagnostics.lua',
            'tools/player_controller_owner.lua', 'tests/test_player_controller_owner.lua',
            'tools/inspect_player_controller_contract.py', 'tools/check_player_travel_repair.py',
-           'tests/test_player_source_checks.py')
+           'tests/test_player_source_checks.py', 'tools/player_travel_trial.py', 'tests/test_player_travel_trial.py')
 
 
 def payload(root=ROOT):

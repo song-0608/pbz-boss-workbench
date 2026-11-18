@@ -2,6 +2,7 @@
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from player_travel_trial import validate_action
@@ -81,6 +82,26 @@ class TravelInputTests(unittest.TestCase):
                         text+'[PBZBossControl] exit success=true state=OFF\n'):
             with self.assertRaises(AssertionError):
                 validate_action('native_retreat', self.owner, self.deployment, changed)
+
+    def test_repositioning_requires_the_current_takeover(self):
+        for action, key in (('forward', 'w'), ('backward', 's'), ('strafe_left', 'a'), ('strafe_right', 'd')):
+            self.assertEqual(validate_action(action, self.owner, self.deployment, self.active), key)
+            for text in (self.ready, self.active + '[PBZBossControl] exit success=true state=OFF\n',
+                         self.active + 'PBZ_CONTROL_LIFECYCLE:WORKBENCH_BOSS_SELECTED=other\n'):
+                with self.assertRaises(AssertionError):
+                    validate_action(action, self.owner, self.deployment, text)
+
+    def test_native_map_uses_the_existing_menu_restoration_gate(self):
+        with patch('research_game_menu.validate_control_menu_transition') as menu:
+            with self.assertRaises(AssertionError):
+                validate_action('native_map', self.owner, self.deployment, self.active)
+            menu.assert_not_called()
+            restored = self.active + '[PBZBossControl] auto_exit success=true state=OFF\n'
+            self.assertEqual(validate_action('native_map', self.owner, self.deployment, restored), 'Tab')
+            menu.assert_called_once_with(self.owner, restored)
+        with patch('research_game_menu.validate_control_menu_transition', side_effect=RuntimeError('restoration missing')):
+            with self.assertRaisesRegex(RuntimeError, 'restoration missing'):
+                validate_action('native_map', self.owner, self.deployment, self.ready)
 
 
 if __name__ == '__main__':

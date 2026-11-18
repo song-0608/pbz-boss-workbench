@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "source_only": true,
+  "candidate": null,
+  "candidate_manifest_sha256": null,
+  "workflow": null,
+  "workflow_manifest_sha256": null,
+  "source_sha256": {
+    "tools/build_player_travel_candidate.py": "31e60f8aa096ad816b1dbc8bfaacec8b28246e02be82755abfdfbca2bec6e50f",
+    "tools/player_role_controls.lua": "fed88c6a7e732663afe15c05e0a7381eae966bfea27d4982b1bf2198272a1a8c",
+    "tools/player_world_watch.lua": "35ae57d42ea3655fc33a2488f964bc5687947b9ae44f850c734fe803d0dfc11f",
+    "tools/player_native_travel_trial.lua": "85178bdc95da8b2246b5ba687be17948351dbb9d569892be4209fc069fd62a14",
+    "tools/player_controller_query.lua": "e407eef9675315d48b08e3af23ba5e6102433a37820c84b5be049c886913769b",
+    "tests/test_player_travel_repair.lua": "a81b8839ed43257be9b7f6a2542f9635ef21c668f619ef459277bcdc62e4f862",
+    "tests/test_player_controller_query.lua": "22a6ead8dcf94481d14cdfe13a44db117441fdf760428e0b0c002f8e508314d1",
+    "tests/test_player_travel_candidate.py": "c724b0d942426d8c21f5bbc54e452d3918bcdf7b04a16879248a512ae6f910f6",
+    "tools/player_overlay.py": "da5a999c1d346f9f8b0c1b4d7bd89964818f0f2b6f28aefda9cba5feb3b8f973",
+    "tests/test_player_overlay.py": "8cefb8a91afc6210d683c2a34241ff9520b06315149722c7e59e5422277bd432",
+    "tools/player_reassembly.lua": "7ad4b617a48c11c61f3dcac168ca04b27fee7ff9bfc96ba0124de0fc961e0031",
+    "tests/test_player_reassembly.lua": "86681d1391dc50fd478d577acb7caa73e4aea04f07025e4fb9820d984b4a8741",
+    "tests/test_player_native_travel_trial.lua": "c251f3ae1795bbd588f5f1a83528dee103a1ed51bf380fc392d790ef149d2e80",
+    "tools/player_assembly_tasks.lua": "b4bb05773fb2a82a52f3605c00c57ba84e23d358c391c409080d2a48a115e60d",
+    "tests/test_player_assembly_tasks.lua": "3317f249175b697ab7ba412f48be011044cc7350c19189827e54d2cd3464b4a8",
+    "tests/test_player_retirement_budget.lua": "de55778dcbe5b040882dda5192067a940bc5a6382bc78954a9ae15494792111d",
+    "tools/player_map_lifecycle.lua": "881f4a48661405f4a05f82dec3a2c493b8350f775442e1e87433c3df8a8f268f",
+    "tools/player_map_lifecycle_binding.lua": "7db686aca7c765a0a7820886cf5f1f14afe336177d3a54f4383f4925511a8699",
+    "tests/test_player_map_lifecycle.lua": "8b01b73af92d35935ea59f467fbf7c6dfb4168a364b1ca065c600ce56f8a505b",
+    "tests/test_player_map_initialization.lua": "9558798c85f5c053f475fde4f29b3662554b5d1bbd2403fd133251077793d6e3",
+    "tests/test_player_target_diagnostics.lua": "dad31cc571b8377d463458dd56b55f767e0d83296b327c0ccd0b6dac1022890e",
+    "tools/player_controller_owner.lua": "31d4808ebf6a304af1e23436f3e85c06e5cbe3cd2f7382c21a198a12496bf13c",
+    "tests/test_player_controller_owner.lua": "4f443382282df0e39935c450856bf22ed3997d6918c091995ee02bb87d5c2853",
+    "tools/inspect_player_controller_contract.py": "1750af4f2c635eb02a121af2dabad7298d1a833b23c854e2373bd8aec304cdbe",
+    "tools/check_player_travel_repair.py": "21da59cb93567185c6a78fcb758b84ad6293eb706952a1687b270d3a7a8767c9",
+    "tests/test_player_source_checks.py": "1561050190e4851ca73d0bb9591f41b63b58b5ec40e4727a98a0ddbfd3cc7392",
+    "tools/player_travel_trial.py": "073ad6ec896e88ccd923e4a09af79945269ecf7e3feb42dc8383bfb20a71638f",
+    "tests/test_player_travel_trial.py": "1e563ca511db58629832acee7d8bbab8da2ffebcf46aaf287fa21ca5f0585c2e"
+  },
+  "payload_sha256": {
+    "PBZBossControl/Experiments/bind_assets.lua": "5a76778dec1b73280508ac363bec9dd0a6627955f8e1f098d332cb09e5e58c7f",
+    "PBZBossControl/Experiments/camera_cleanup_probe.lua": "c807be65ead81a67cf31a21f9d0ff3d8122ecff17227a977b5cecb086207e5f2",
+    "PBZBossControl/Experiments/camera_contract.lua": "314a9877571fdbd76a372dabff5ef4b2db0b0451d529bdb0e41ac5b489aaf8e4",
+    "PBZBossControl/Experiments/combat_contract.lua": "b92f92e6c08f96f4e8d2c8d924df81448e40c0eb0551a76850451de4b4c23ed3",
+    "PBZBossControl/Experiments/control_contract.lua": "275ed641dfb8c3ed6685989042b8c13757c55dbcf8d914977f7516577d1eb182",
+    "PBZBossControl/Experiments/spawn_lifecycle.lua": "71c3d08540464dc4c60e3f983fd8286de7de76b8c0e4831122f59d0c3cf0ed51",
+    "PBZBossControl/README.md": "ab940372ebae5690949cf79f62dca110cb9b43b50dca3500187294c61923cbd5",
+    "PBZBossControl/Scripts/arena_layout.lua": "7e805fbafdb0770e040bcd1ef985b19af236021e25b7f153bff1ebe753724d10",
+    "PBZBossControl/Scripts/boss_candidate.lua": "4b848bc35c20c36eec01fdb4025ac34363fdb7221059b8787b74f777dc52b1d1",
+    "PBZBossControl/Scripts/boss_catalog.lua": "b0187830019787921b11aa29e84d529c41004d237c6651bf8c258c6beaf30cc7",
+    "PBZBossControl/Scripts/boss_selection_preflight.lua": "00aa8165bd8e98fde9b68942a7233be5066683506bddc2b8c4991017707e9f8c",
+    "PBZBossControl/Scripts/boss_workbench.lua": "7b56a86715ea5ae49f909ace37a8efcd4733eab0339592bfdcef5fdf5a477869",
+    "PBZBossControl/Scripts/camera_rig.lua": "563c9808c1214bed6a63353999e4548ca0b94681089b1033e7b984a20a4879e0",
+    "PBZBossControl/Scripts/combat_identity.lua": "d67faf9349bc8df771b695fb9303a72f4495a7e8fa1364a86cf5bd519801acdf",
+    "PBZBossControl/Scripts/combo_scheduler.lua": "d9f13268b71f9efa39c0d8345f5eaa6c7667a3ff082a05b00f3ed5186119099a",
+    "PBZBossControl/Scripts/config.lua": "d6d551f1977fd27a3c55c6d6a666f166cd46bc5b5f6d72726fc49d76e2e24548",
+    "PBZBossControl/Scripts/control_bridge.lua": "1a720a1e247a50258071b31392b33efd7f83fdf0616b4e02726b7f33b847fcc1",
+    "PBZBossControl/Scripts/death_trial_guard.lua": "c907efe19c8006b69156a5b13cb15c6a5a6cbe794edd65d014f71a67e76c7fb2",
+    "PBZBossControl/Scripts/idle_world_watch.lua": "35ae57d42ea3655fc33a2488f964bc5687947b9ae44f850c734fe803d0dfc11f",
+    "PBZBossControl/Scripts/incoming_combat_trial.lua": "5ffd3eb1396f067626d045740b8198b933ed5548f5d0cd491746d61e825a03fe",
+    "PBZBossControl/Scripts/input_barrier.lua": "07112e30eb116ab8d86d5fdedfeb54132ab77cfce9072fa73b45df3d1f07a276",
+    "PBZBossControl/Scripts/input_driver.lua": "0e88d81c19deab9917895a2a6e6b2ffc50010bddb1a0485e5ba869620ef7466a",
+    "PBZBossControl/Scripts/keymap.lua": "5a7e6a073b71405e73185a062f5125f9c3b7af76ea453d9f37a3a7234298eb8e",
+    "PBZBossControl/Scripts/main.lua": "b0ae326ccd9b87dc683c985b067a3998cf143e21a8d40aec8ddce8fabc4261b4",
+    "PBZBossControl/Scripts/map_travel_guard.lua": "9111415af3f7b23360b502a6738d77e454071e754c9cb8545940401d90f60360",
+    "PBZBossControl/Scripts/object_lifecycle.lua": "a30004e9a5f164750200b88b574c6f144e188fab671dd9ffe64995e0ded32c16",
+    "PBZBossControl/Scripts/observation_scope.lua": "a11f2606db6eba4f447d18cc731ec4f7e980c7a57679c2c63a109636dee83ebd",
+    "PBZBossControl/Scripts/owned_arena.lua": "9305d8a1c149c192ef97f54032fb189edd65e04b25b121491775f0123436a512",
+    "PBZBossControl/Scripts/owned_disposal_trial.lua": "52d3311ff4abe9b3962f935c707399f1922280d16a507305860f0c7e785fa2d4",
+    "PBZBossControl/Scripts/owned_initialization.lua": "c64fc64b5c8689eae48b11d83fc2671bd7b1411cc63d7467e8620471a90a9166",
+    "PBZBossControl/Scripts/owned_readiness.lua": "eb3067fdad0a3934002661bdaff3a1a5c81220029c1a7ffabd5de1fa123919e0",
+    "PBZBossControl/Scripts/pbz_bridge.lua": "66c6a4303f25e0fc4d703e1ea341ab4d87d5367671984c316729670381c9449c",
+    "PBZBossControl/Scripts/player_action_input.lua": "f21a0644a36354d0e611f2a19be7d0a176166f308874e4b50239c2de041dd663",
+    "PBZBossControl/Scripts/player_assembly_tasks.lua": "b4bb05773fb2a82a52f3605c00c57ba84e23d358c391c409080d2a48a115e60d",
+    "PBZBossControl/Scripts/player_boss_picker.lua": "be8dde2f7365dd3e1f3e2a9f59b7139e661f3b17dd01771add8f3d732bdc633e",
+    "PBZBossControl/Scripts/player_controller_owner.lua": "31d4808ebf6a304af1e23436f3e85c06e5cbe3cd2f7382c21a198a12496bf13c",
+    "PBZBossControl/Scripts/player_controller_query.lua": "e407eef9675315d48b08e3af23ba5e6102433a37820c84b5be049c886913769b",
+    "PBZBossControl/Scripts/player_entry.lua": "c5a8be8e58e6139da0c20a59d6bfe897d41f351b273d65754b66d285a18b258e",
+    "PBZBossControl/Scripts/player_experience_bridge.lua": "ab6ddf50b1d529236edd5518cebd0ffef5da7c3664d9a01cb4b2c6a703823023",
+    "PBZBossControl/Scripts/player_hud.lua": "5de16b769246ecfd4985323e96f178a67a8126f6df63fc5016b5c15a04646f3f",
+    "PBZBossControl/Scripts/player_map_lifecycle.lua": "881f4a48661405f4a05f82dec3a2c493b8350f775442e1e87433c3df8a8f268f",
+    "PBZBossControl/Scripts/player_native_travel_trial.lua": "85178bdc95da8b2246b5ba687be17948351dbb9d569892be4209fc069fd62a14",
+    "PBZBossControl/Scripts/player_protection.lua": "29a1b9fd3461d0b092edd13ca636e05229359b2b1d65c172491ff0443d3003c6",
+    "PBZBossControl/Scripts/player_reassembly.lua": "7ad4b617a48c11c61f3dcac168ca04b27fee7ff9bfc96ba0124de0fc961e0031",
+    "PBZBossControl/Scripts/player_role_controls.lua": "fed88c6a7e732663afe15c05e0a7381eae966bfea27d4982b1bf2198272a1a8c",
+    "PBZBossControl/Scripts/player_target_lock.lua": "5f7058398875844a1326383522aade6828d54d5976ce823679548f4e3e54d5e4",
+    "PBZBossControl/Scripts/profiles/ahua.lua": "4a7f323cbb9ab54fa53fc3306e00a8665398471791e12fc4097c2ee12e4bf0ab",
+    "PBZBossControl/Scripts/profiles/maddoctor.lua": "d477e210a4118cf6e0722987d03afe975e29b1d75821afa3f836e969eff25e9f",
+    "PBZBossControl/Scripts/profiles/maddoctor_bindings.lua": "f3bf014f26e825af21182b2c9e28fddb1fe4d2a7d0078573ef0a6a469c04de3a",
+    "PBZBossControl/Scripts/profiles/wanjun.lua": "8164945d1b393fda20aa81f8ddd01ad2288625cf6ca2d39fd80be6091841b715",
+    "PBZBossControl/Scripts/profiles/wanjun_bindings.lua": "ba43aa59ebb20944c8a512c853562c76bfc78e15ea8d5511eb80631417852e54",
+    "PBZBossControl/Scripts/profiles/xianzhe.lua": "2cdaa6f597dd05da2eeddfa5621ed62d66610bd2f65cfccc1c61b1be16b35ab0",
+    "PBZBossControl/Scripts/profiles/xianzhe_bindings.lua": "10d8ff66bd8e50ead33d2a503360fa93779f2e0d6cdb3262cd1bf549bdfbc0d2",
+    "PBZBossControl/Scripts/profiles/yanqiansui.lua": "33b6def9a16b686c0f71e782bdc91212d91a47e71f01564945a2b0f947026c6d",
+    "PBZBossControl/Scripts/profiles/yanqiansui_bindings.lua": "96e89e5cf49de6d28bedef7e34c595d90f1cd84760a2cf32cdbacdb3b9a2ab82",
+    "PBZBossControl/Scripts/profiles/youlong.lua": "ffeb9984640e07bf343d18bbaa1e129aa8a64e8e320eb4632a7ed1505510b02d",
+    "PBZBossControl/Scripts/profiles/youlong_bindings.lua": "96e89e5cf49de6d28bedef7e34c595d90f1cd84760a2cf32cdbacdb3b9a2ab82",
+    "PBZBossControl/Scripts/remote_control.lua": "afd8778804166ae5898a0295265fde6aa0a30ba8668ba954873883af90349c12",
+    "PBZBossControl/Scripts/runtime.lua": "fba17c9932bdce229bdea023e9acb8ebaa862316406b5b434de358679dfe5672",
+    "PBZBossControl/Scripts/session.lua": "7f1ddb4d95158986ff76511a5461c2741b284dad466de769f49dcd55a78cc432",
+    "PBZBossControl/Scripts/skill_lab.lua": "d3b15e6e8ecd235c6bb4ebd3dd1dc151d5af6b6930c7b44e7c52febcd64b8ecd",
+    "PBZBossControl/Scripts/subtree_contracts.lua": "02b191ff4258e33170abeef5d2635e7caa2b390c68d67c76328e9d12e889bf44",
+    "PBZBossControl/Scripts/target_selector.lua": "50598002d4cb13560575c6989017225151e9b0f3a236e1681fc196ae09dcec34",
+    "PBZBossControl/Scripts/ue_arena_layout.lua": "28e93b7f26b2df1d649602bfc63f423d7fbea0d740d57214bc1748a6af773b31",
+    "PBZBossControl/Scripts/ue_calls.lua": "40a336add0960ed39c39249d303927dea151ac51d7837fe1fc9b104b8771a189",
+    "PBZBossControl/Scripts/ue_camera.lua": "1078545cddabcb93a81b72f36ec8587c1e772b15fb6cf582f5f3fad79a198643",
+    "PBZBossControl/Scripts/ue_combat.lua": "4576e2a55e8e8486895b225383cf0626261f5198a6aba0392c553445f01705db",
+    "PBZBossControl/Scripts/ue_host.lua": "efa17d1210b029326aada495a619b3ff9477c6677e4a1319394fb335165d0efc",
+    "PBZBossControl/Scripts/ue_input.lua": "4568c7123210d99dd4dec66fbc22d217d7ab20bd19ed44924e513f97d76ca2a7",
+    "PBZBossControl/Scripts/ue_input_barrier.lua": "cdcf8de99186e809591467408a151790a3896cb72510cba11cdda1f5e6d4523f",
+    "PBZBossControl/Scripts/ue_player_ui.lua": "fff0a1cb9e13806a155919cb7537a57028e37d72d4dd93eba95cde2ad2e59637",
+    "PBZBossControl/Scripts/ue_remote.lua": "9b17f440ddd0db4e9e755d377f8c598f9f6298de56fa14a6f5494af74c5bd0ce",
+    "PBZBossControl/Scripts/workbench_catalog.lua": "28f1f32c8ea331358b9daef0917ffe5194537642dc25474978f164d036606441",
+    "PBZBossControl/Scripts/workbench_input.lua": "d90dadc9a37e7dcb9f44cd1c0ce9a962b64e4dbfcfee499b2a763cc3b30d6ef6",
+    "PBZBossControl/Scripts/world_boundary.lua": "f6fb5f3035f62cc4577e2ed94f148c40750affd24b3431cb337d88ae0e1c211c",
+    "PBZBossControl/Scripts/yanqiansui_arena_clearance.lua": "63fa8f29c47e206f23082ff1ef3ba5ecd0e3a2645fa848672652e8a70d918253",
+    "PBZBossControl/Scripts/yanqiansui_clearance_core.lua": "947c6bc507670445e79658df3976fab16be709576fe64c7baac28013f5ba4567"
+  },
+  "checks": [
+    {
+      "name": "syntax",
+      "passed": true,
+      "output": "PASS candidate Lua syntax: 76"
+    },
+    {
+      "name": "player_travel_repair",
+      "passed": true,
+      "output": "PASS five accepted damage shortcuts; live identity cache; bounded retirement census; current World change; idle/active travel cleanup\nPASS Shift+takeover menu fallback preserves bare key and releases old assembly routes\nPASS repeated takeover key restores ACTIVE and opens/confirms chooser without timing or extra key dependency\nPASS key release timeout, World exception and retired callbacks reject safely and unlock the pending menu queue"
+    },
+    {
+      "name": "player_controller_query",
+      "passed": true,
+      "output": "PASS controller census shared and bounded; negative loading cache; full identity and possession validation; World change rejection"
+    },
+    {
+      "name": "player_controller_owner",
+      "passed": true,
+      "output": "PASS current engine/viewport/local-player ownership, no recurring global census, live PC replacement and ambiguity/identity refusals"
+    },
+    {
+      "name": "player_reassembly",
+      "passed": true,
+      "output": "PASS queued selection vs synchronous map cleanup; stopped owner; live switch; duplicate delivery"
+    },
+    {
+      "name": "player_native_travel_trial",
+      "passed": true,
+      "output": "PASS real restoration before native-menu readiness; skill, target, time and runtime gates; no raw map opening"
+    },
+    {
+      "name": "player_assembly_tasks",
+      "passed": true,
+      "output": "PASS stale camera/skill observations and cleanup are cancelled and inert after assembly retirement"
+    },
+    {
+      "name": "player_retirement_budget",
+      "passed": true,
+      "output": "PASS captured retirement avoids global scans; pending scans bounded to one per second; same state checked immediately"
+    },
+    {
+      "name": "player_map_lifecycle",
+      "passed": true,
+      "output": "PASS pre/post World transaction, same-World cancellation, nested loads, old callbacks, cleanup/grant refusal and native hook signatures"
+    },
+    {
+      "name": "player_map_initialization",
+      "passed": true,
+      "output": "PASS generated Arena installs hooks before readiness, cancels queued begin, waits for post and rechecks gameplay"
+    },
+    {
+      "name": "player_target_diagnostics",
+      "passed": true,
+      "output": "PASS repeated target diagnostics deduplicated; live reads, identity changes and independent actors preserved"
+    },
+    {
+      "name": "runtime",
+      "passed": true,
+      "output": "PASS only verified skill keys are registered\nPASS enter is queued onto the game thread\nPASS queued repeated F10 restores once and reports one complete event\nPASS inactive frame does not read input\nPASS idle world watch runs while OFF and suspends old HUD while pending\nPASS active frame polls and drives movement\nPASS skill action dispatches configured slot\nPASS stop restores and invalidates queued actions\nPASS duplicate keys are rejected before registration\nPASS frame exception restores and reports failure\nPASS automatic health exit is reported separately from the F10 callback\nPASS Esc restores active session once and stays quiet when already OFF\nPASS optional F7 queues a target request on game thread\nPASS target key conflict is rejected before registering any key\nPASS lab candidate dispatch stays on game thread and cannot change mid-skill\nPASS default config never registers developer candidate keys\nPASS F11 restores ACTIVE before opening and blocks queued skills and takeover\nPASS workbench routes arrows and Enter and serializes duplicate switch input\nPASS preview selection stays quarantined and F10 closes workbench while OFF\nPASS Escape closes only workbench and stop invalidates pending workbench actions\nPASS workbench keys conflict before any native registration\nPASS workbench stop refuses a false native cleanup result\nPASS native key preflight rejects before any callback is registered\nRuntime fixtures: 23 passed; no PBZ runtime integration claimed."
+    },
+    {
+      "name": "ue_calls",
+      "passed": true,
+      "output": "PASS active cancellable instance reaches native cancel\nPASS unverified cancel binding cannot call the instance\nPASS uncancellable skill remains active and reports failure\nPASS class defaults are never treated as active skill instances\nPASS cancel must clear the actual activity count\nPASS unbounded instance arrays are rejected before native calls\nPASS cancel diagnostic distinguishes blocked instance from no-match\nPASS failing diagnostic cannot prevent real cancellation\nPASS optional resolution distinguishes disposal from replacement and unreadable validity\nNative call fixtures: 9 passed; cancellation not runtime verified."
+    },
+    {
+      "name": "ue_combat",
+      "passed": true,
+      "output": "PBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=false\n\nPASS native success avoids reflected fallback\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPASS dead target stale component is cleared with exact empty socket\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPASS whole struct nil table reproduces the observed skipped pointer\nPASS ignored reflected cleanup never reports success\nPASS reflected cleanup error propagates\nPBZ_COMBAT_TARGET:STALE_LOCK_CLEARED=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=true\n\nPBZ_COMBAT_TARGET:CLEAR_VERIFIED=true|fallback=false\n\nPASS repeat cleanup leaves empty target empty\nNative combat cleanup checks passed: 6"
+    },
+    {
+      "name": "world_boundary",
+      "passed": true,
+      "output": "PASS world boundary disposal, surviving component, identity reuse and unreadable validity\nPASS transition suspends input, preserves pending receipt, retires disposed state and fails on timeout\nPASS same-name new World independently enumerates old identity without accepting replacement"
+    },
+    {
+      "name": "idle_world_watch",
+      "passed": true,
+      "output": "PASS idle scene disposal waits for all owned objects, bounds queries and rejects ambiguous identity"
+    },
+    {
+      "name": "map_travel_guard",
+      "passed": true,
+      "output": "PASS travel pre-hook synchronous restoration, current World, lease, idle, stopped runtime and restoration failures"
+    },
+    {
+      "name": "workbench_input",
+      "passed": true,
+      "output": "PASS workbench input ownership, rollback, retirement and identity guards"
+    },
+    {
+      "name": "player_experience_runtime",
+      "passed": true,
+      "output": "PASS moving cast, native activity exclusion, fresh completion, lock key and restore gates"
+    },
+    {
+      "name": "player_action_input",
+      "passed": true,
+      "output": "PASS bare/Shift skills, mouse variants, native focus path, bounded routes and owner cleanup"
+    },
+    {
+      "name": "target_transition",
+      "passed": true,
+      "output": "PASS request is pending until actual query matches\nPASS pending switch blocks skill and repeat requests\nPASS active skill blocks switch before mutation\nPASS timeout requests old target and clears pending\nPASS lost requested object rolls back without fault\nPASS dead previous target clears target rather than selecting it\nPASS exit clears pending target state\nPASS partial native target write triggers restoration\nTarget transition fixtures passed: 8"
+    },
+    {
+      "name": "ue_host",
+      "passed": true,
+      "output": "PASS native workbench key enumeration and side-effect-free validation"
+    },
+    {
+      "name": "player_travel_candidate",
+      "passed": true,
+      "output": ".\n----------------------------------------------------------------------\nRan 1 test in 0.195s\n\nOK"
+    },
+    {
+      "name": "player_travel_trial",
+      "passed": true,
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.002s\n\nOK"
+    },
+    {
+      "name": "player_travel_progress",
+      "passed": true,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK"
+    },
+    {
+      "name": "player_overlay",
+      "passed": true,
+      "output": "Overlay accepts only current bounded well-formed live status\nWorkbench uses a larger bounded centered presentation; compact HUD remains separate"
+    },
+    {
+      "name": "player_status_stream",
+      "passed": true,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.040s\n\nOK"
+    },
+    {
+      "name": "workbench_roster",
+      "passed": true,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.246s\n\nOK"
+    },
+    {
+      "name": "workbench_session_status",
+      "passed": true,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.646s\n\nOK"
+    },
+    {
+      "name": "workbench_cmd_entry",
+      "passed": true,
+      "output": ".\n----------------------------------------------------------------------\nRan 1 test in 1.142s\n\nOK"
+    },
+    {
+      "name": "player_source_checks",
+      "passed": true,
+      "output": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.004s\n\nOK"
+    }
+  ],
+  "passed": true,
+  "game_started": false,
+  "installed": false,
+  "runtime_verified": false,
+  "native_travel_verified": false,
+  "all_boss_skills_complete": false
+}

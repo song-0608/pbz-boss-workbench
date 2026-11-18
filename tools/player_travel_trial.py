@@ -8,13 +8,16 @@ import player_travel_workflow as workflow
 import build_player_travel_candidate as candidate
 
 NATIVE_ACTIONS = {'native_interact': 'e', 'native_confirm': 'Return', 'native_down': 'Down',
-                  'native_up': 'Up', 'native_back': 'Escape', 'native_choose': 'LEFT_MOUSE_BUTTON'}
+                  'native_up': 'Up', 'native_back': 'Escape', 'native_choose': 'LEFT_MOUSE_BUTTON',
+                  'native_map': 'Tab'}
+MOVEMENT_ACTIONS = {'forward': 'w', 'backward': 's', 'strafe_left': 'a', 'strafe_right': 'd'}
 
 def validate_action(action, owner, deployment, text):
     actions = dict(inherited.ACTIONS, **NATIVE_ACTIONS, primary='LEFT_MOUSE_BUTTON',
                    workbench_alias='Shift_L+F6', workbench_active='F6',
                    picker_up='F1', picker_down='F2', picker_confirm='F6', prepare_native_travel='F12', native_light='F9',
                    native_retreat='Q')
+    actions.update(MOVEMENT_ACTIONS)
     assert action in actions, 'Bounded trial action required'
     assert owner.get('phase') == 'armed' and owner.get('player_entry')
     assert not any(owner.get(k) for k in ('skill_lab', 'expanded', 'boss_candidate'))
@@ -32,7 +35,7 @@ def validate_action(action, owner, deployment, text):
     exited = max([current.rfind('PBZ_CONTROL_LIFECYCLE:' + label + '=') for label in
                   ('PLAYER_ENTRY_READY', 'WORKBENCH_BOSS_SELECTED', 'MAP_TRAVEL_IDLE_CLEANED')] + off)
     active = entered >= 0 and entered > exited
-    if action in ('lock', 'cycle_target', 'cast', 'shift_cast', 'exit', 'primary', 'workbench_active', 'prepare_native_travel', 'native_light', 'native_retreat'):
+    if action in MOVEMENT_ACTIONS or action in ('lock', 'cycle_target', 'cast', 'shift_cast', 'exit', 'primary', 'workbench_active', 'prepare_native_travel', 'native_light', 'native_retreat'):
         assert active, 'Current successful active takeover required'
     if action in ('enter', 'down', 'up', 'confirm', 'close', 'picker_up', 'picker_down', 'picker_confirm'):
         assert not active, 'Restore the player before selecting or entering'
@@ -82,7 +85,7 @@ def gate(flow, action):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('workflow', type=Path)
-    parser.add_argument('action', choices=(*inherited.ACTIONS, *NATIVE_ACTIONS,
+    parser.add_argument('action', choices=(*inherited.ACTIONS, *NATIVE_ACTIONS, *MOVEMENT_ACTIONS,
                                          'primary', 'workbench_alias', 'workbench_active',
                                          'picker_up', 'picker_down', 'picker_confirm', 'prepare_native_travel', 'native_light',
                                          'native_retreat'))
