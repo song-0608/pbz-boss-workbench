@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "kind": "native_grant_metadata_receipt",
+  "session": "20261118-185553",
+  "fingerprint": "adc62361d82826f37842",
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "batch_directory": "research/boss-adaptation/native-grant-followups/adc62361d82826f37842",
+  "metadata_only": true,
+  "playable": false,
+  "control_verified": false,
+  "runtime_acceptance_current": false,
+  "outcomes": [
+    {
+      "key": "bc2327eecef6430ea5b3",
+      "id": "071_xianzhe",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+      "role": "ability",
+      "metadata_verified": true,
+      "identity_verified": false,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false,
+      "ability_kind": "leaf"
+    },
+    {
+      "key": "ab33422aa78342e9dcd4",
+      "id": "071_xianzhe",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C",
+      "role": "ability",
+      "metadata_verified": true,
+      "identity_verified": false,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false,
+      "ability_kind": "leaf"
+    },
+    {
+      "key": "3f84e75463bc6d91ac18",
+      "id": "067_motian",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+      "role": "ability",
+      "metadata_verified": true,
+      "identity_verified": false,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false,
+      "ability_kind": "leaf"
+    },
+    {
+      "key": "eb00bd1346d05bcfe341",
+      "id": "067_motian",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+      "role": "ability",
+      "metadata_verified": true,
+      "identity_verified": false,
+      "live_grant_verified": false,
+      "activation_verified": false,
+      "playable": false,
+      "ability_kind": "leaf"
+    }
+  ],
+  "sources": {
+    "runtime/official-validation-20261118-185553/state.json": "973021256850eacca6a80e3be82b8ed64237d90c0bdb0f1e08cdf422c4b5a2ff",
+    "evidence/official-validation/20261118-185553/postcheck.json": "35e77e82e3ff6a69d157873592ecbd3e1bb9f1ea87f49cc5d2fcc94070f6df73",
+    "evidence/official-validation/20261118-185553/adc62361d82826f37842-native-grant-metadata-staged.json": "8168954fb2a9af415f805180863b01d8f4ee2f7a7ebc7abc6957d7f5a5914ec8",
+    "evidence/official-validation/20261118-185553/adc62361d82826f37842-native-grant-metadata-results.json": "abd4f1aa283945e9e71a8f0ad34180db85712e3d827b974fb39df078e95ce2aa",
+    "evidence/official-validation/20261118-185553/adc62361d82826f37842-native-grant-metadata.lua": "be0794856e383b99cef09571c74decfb8bcf7507bd09fa1719d61d0c5ffec9df",
+    "evidence/official-validation/20261118-185553/UE4SS.log": "d259d2454571217f00a7b87c052dcff9f86424a3086c7c09004342c3231eb922",
+    "research/boss-adaptation/native-grant-followups/adc62361d82826f37842/manifest.json": "4722ab46a6249fbe49b7a4cb49ae3d9187dc34561297690c801c23ba048926bf",
+    "research/boss-adaptation/native-grant-followups/adc62361d82826f37842/metadata-probe.lua": "be0794856e383b99cef09571c74decfb8bcf7507bd09fa1719d61d0c5ffec9df"
+  }
+}

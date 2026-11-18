@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "target_build_sha256": "4415933ce33476f14c837abb61a1b60af8b78cd81783896501913a7aac69e423",
+  "jobs": [
+    {
+      "id": "071_xianzhe",
+      "role": "ability",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+      "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01",
+      "source_session": "20261117-190547",
+      "historical_grant_only": true,
+      "current_leaf_verified": false,
+      "activation_allowed": false,
+      "config_candidates": [],
+      "key": "bc2327eecef6430ea5b3"
+    },
+    {
+      "id": "071_xianzhe",
+      "role": "ability",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C",
+      "package": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA",
+      "source_session": "20261117-190547",
+      "historical_grant_only": true,
+      "current_leaf_verified": false,
+      "activation_allowed": false,
+      "config_candidates": [],
+      "key": "ab33422aa78342e9dcd4"
+    },
+    {
+      "id": "067_motian",
+      "role": "ability",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+      "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02",
+      "source_session": "20261117-194042",
+      "historical_grant_only": true,
+      "current_leaf_verified": false,
+      "activation_allowed": false,
+      "config_candidates": [],
+      "key": "3f84e75463bc6d91ac18"
+    },
+    {
+      "id": "067_motian",
+      "role": "ability",
+      "lookup_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+      "package": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02",
+      "source_session": "20261117-194042",
+      "historical_grant_only": true,
+      "current_leaf_verified": false,
+      "activation_allowed": false,
+      "config_candidates": [],
+      "key": "eb00bd1346d05bcfe341"
+    }
+  ],
+  "roles": [
+    {
+      "id": "071_xianzhe",
+      "session": "20261117-190547",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BP_Monster_XianZhe.BP_Monster_XianZhe_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/ActorConfig/ActorC_XianZhe.ActorC_XianZhe",
+      "observed_native_grants": [
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_B.GA_XianZhe_Dodge_B_C",
+        "/Script/SGameLocomotionDriver.GA_SpaceState",
+        "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.GA_LocomotionDriver_3DDefault_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dialogue_Passive.GA_XianZhe_Dialogue_Passive_C",
+        "/PBZCombatAsset/Prototypes/Abilities/Base/BP_MonsterSubtitlesBase.BP_MonsterSubtitlesBase_C",
+        "/PBZCombatAsset/Prototypes/Abilities/GA_MobUtilitiesPassive.GA_MobUtilitiesPassive_C",
+        "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.GA_CommonUtilitiesPassive_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_F.GA_XianZhe_Dodge_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_L.GA_XianZhe_Dodge_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_R.GA_XianZhe_Dodge_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_01.GA_XianZhe_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA.GA_XianZhe_CA_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA_02.GA_XianZhe_CA_02_C"
+      ],
+      "playable": false,
+      "attack_adaptation_complete": false
+    },
+    {
+      "id": "067_motian",
+      "session": "20261117-194042",
+      "class_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/BP_Monster_MoTian.BP_Monster_MoTian_C",
+      "config_path": "/PBZCombatAsset/ActorData/Mobs/067_MoTian/ActorConfig/ActorC_MoTian.ActorC_MoTian",
+      "observed_native_grants": [
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_B_03.GA_MoTian_Dodge_B_03_C",
+        "/Script/SGameCombatSystem.GA_CombatAimPassive",
+        "/Script/SGameLocomotionDriver.GA_SpaceState",
+        "/SGameLocomotionDriver/Drivers/GA_LocomotionDriver_3DDefault.GA_LocomotionDriver_3DDefault_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Passive/GA_MoYuan_Passive.GA_MoYuan_Passive_C",
+        "/PBZCombatAsset/Prototypes/Abilities/Base/BP_MonsterSubtitlesBase.BP_MonsterSubtitlesBase_C",
+        "/PBZCombatAsset/Prototypes/Abilities/GA_MobUtilitiesPassive.GA_MobUtilitiesPassive_C",
+        "/PBZCombatAsset/Prototypes/Abilities/GA_CommonUtilitiesPassive.GA_CommonUtilitiesPassive_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Retarget/GA_MoTian_Tang_Stance.GA_MoTian_Tang_Stance_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_F_02.GA_MoTian_Dodge_F_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_L_02.GA_MoTian_Dodge_L_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/Dodge/GA_MoTian_Dodge_R_02.GA_MoTian_Dodge_R_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/067_MoTian/Ability/GA_MoTian_SwitchPhase.GA_MoTian_SwitchPhase_C"
+      ],
+      "playable": false,
+      "attack_adaptation_complete": false
+    }
+  ],
+  "evidence": {
+    "runtime/official-validation-20261117-190547/state.json": "21ae4a3aac16703d372c29da411294f3e5123dd9051f9ccae3bc0179853884e0",
+    "evidence/official-validation/20261117-190547/postcheck.json": "af272be7e7e983359453ff95fa018d0ac545514ba36158b13bfaa38135bcb72b",
+    "evidence/official-validation/20261117-190547/UE4SS.log": "7782835ee5a29c685d3deaa45510286373c3f663ce577df88e9ed3375fa9584f",
+    "runtime/official-validation-20261117-194042/state.json": "6e9f6eb4bb191773363200e6ce5119c89f63d7d74e3f90353804505942123826",
+    "evidence/official-validation/20261117-194042/postcheck.json": "4c558893b2a7ed168bb231503e36744268da86ec59ce2f2a382f36d4779847c5",
+    "evidence/official-validation/20261117-194042/UE4SS.log": "5337875e2cc4a3801a2d1e3364458a82e3e0382b8fb6e3a54f15b86d617b9212"
+  },
+  "sources": {
+    "tools/boss_native_grant_followup.py": "7e5d8cd90b0db2786519bbd72e84f47548aba350741744580b28433522d392a3",
+    "tools/boss_metadata_jobs.py": "be5e127bc4ab2d506b785853e5520edde824ab5ff7d9d437e05818f376ce51b4",
+    "tools/native_grant_metadata_workflow.py": "6f3747b610198c151b9258a73045e7ed674e9a61a2e85ee7a5fecdc7c7aba198",
+    "tools/collect_boss_metadata_jobs.py": "91821a20e5c0951ea3eac7c358262c371291a2433023ea79a646083d28f75ced",
+    "tests/test_boss_native_grant_followup.py": "bd90b5d2972117b31162d49ffe968146750a82f99fc402a96c9b9af2723676eb",
+    "tests/test_native_grant_metadata_workflow.py": "00bd6731f26b9c83fa6ea1acd4908f15c9da09fcd12ed21df976e93e9c005145"
+  },
+  "metadata_only": true,
+  "playable": false,
+  "deployed": false,
+  "installed": false,
+  "ability_activation_allowed": false,
+  "fingerprint": "adc62361d82826f37842",
+  "script_sha256": "be0794856e383b99cef09571c74decfb8bcf7507bd09fa1719d61d0c5ffec9df",
+  "scope": "Historical native grants require current CDO kind and live grant checks; no gameplay promotion."
+}

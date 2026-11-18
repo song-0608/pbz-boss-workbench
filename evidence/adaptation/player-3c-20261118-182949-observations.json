@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "session": "20261118-182949",
+  "status": "closed-partial-development-observations",
+  "candidate": "ahua-player-travel-dev-63a7afe33e133119",
+  "strict_locomotion_declarations_passed": true,
+  "skill_observations": [
+    {
+      "role": "056_youlong",
+      "begin_line": 1603,
+      "active": true,
+      "target_distance": 250.13397486232,
+      "skill": "skill_01",
+      "end_line": 1631,
+      "natural": true,
+      "health_before": 9000.0,
+      "health_after": 8900.0,
+      "observed_damage": 100.0
+    },
+    {
+      "role": "056_youlong",
+      "begin_line": 1705,
+      "active": true,
+      "target_distance": 390.40343557327,
+      "skill": "skill_01",
+      "end_line": 1732,
+      "natural": true,
+      "health_before": 8900.0,
+      "health_after": 8800.0,
+      "observed_damage": 100.0
+    },
+    {
+      "role": "056_youlong",
+      "begin_line": 1805,
+      "active": true,
+      "target_distance": 385.14494563652,
+      "skill": "skill_01",
+      "end_line": 1823,
+      "natural": true,
+      "health_before": 8800.0,
+      "health_after": 8700.0,
+      "observed_damage": 100.0
+    },
+    {
+      "role": "056_youlong",
+      "begin_line": 1908,
+      "active": true,
+      "target_distance": 376.34812866872,
+      "skill": "skill_01",
+      "end_line": 1935,
+      "natural": true,
+      "health_before": 8700.0,
+      "health_after": 8600.0,
+      "observed_damage": 100.0
+    },
+    {
+      "role": "056_youlong",
+      "begin_line": 2009,
+      "active": true,
+      "target_distance": 368.67980211071,
+      "skill": "skill_01",
+      "end_line": 2036,
+      "natural": true,
+      "health_before": 8600.0,
+      "health_after": 8500.0,
+      "observed_damage": 100.0
+    },
+    {
+      "role": "057_wanjun",
+      "begin_line": 2836,
+      "active": true,
+      "target_distance": 279.95853794872,
+      "skill": "skill_07",
+      "end_line": 2876,
+      "natural": true,
+      "health_before": 9000.0,
+      "health_after": 9000.0,
+      "observed_damage": 0.0
+    }
+  ],
+  "primary_observations": [],
+  "performance": {
+    "windows": 101,
+    "seconds": 505.761,
+    "frames": 37139,
+    "game_thread_ticks_per_second": 73.43191744717366,
+    "callback_mean_ms": 2.4813000018309594,
+    "callback_worst_ms": 8.0,
+    "lookup_ms_per_frame": 0.0,
+    "median_window_ticks_per_second": 74.28115015974441
+  },
+  "closed_cleanly": true,
+  "release_accepted": false,
+  "installed": false,
+  "native_travel_verified": false,
+  "overall_smoothness_verified": false,
+  "walking_speed_verified": false,
+  "facing_verified": false,
+  "free_mouse_look_verified": false,
+  "manual_camera_lock_observed": true,
+  "workbench_switch_to_wanjun_observed": true,
+  "verified_walking_limit_events": 0,
+  "limits": [
+    "Five YouLong skill_01 activations ended naturally with 100 damage each in this scene; other skills are not accepted.",
+    "WanJun skill_07 ended naturally but the observed target health did not decrease; native light damage remains unverified.",
+    "Short automated movement taps did not leave verified walking-limit events; walking speed and facing remain unmeasured.",
+    "No sustained manual mouse test or native cross-map traversal was completed.",
+    "Callback costs and EngineTick callback cadence are descriptive and are not GPU FPS or overall input smoothness.",
+    "The final control round ended through the bounded probe; process cleanup is not a separate F10 restoration trial."
+  ],
+  "sources": {
+    "evidence/official-validation/20261118-182949/UE4SS.log": "ad74087490e84ac9b17da105901e109d6350605225efcfb98321b13c5cb8154f",
+    "evidence/official-validation/20261118-182949/player-travel-progress.json": "514708ed73322e936de6da60a277b2da994d3ee5ef5a6e09decb86e4844a5699",
+    "evidence/official-validation/20261118-182949/postcheck.json": "b572e2b1f7bcae425489ec0210e8923f9be51075ef85957f60471ab9c0b45a8e",
+    "evidence/official-validation/20261118-182949/control-lifecycle-deployment.json": "898d65b8a3f2aa3ec0029e943f8a73b43d284c3d96843d3ae2bfd393a2a6a59f",
+    "evidence/official-validation/20261118-182949/player-3c-native-contract.json": "aeb7dac10b1d9822a1e5d6896673cc6b45ea504b941a9cc7702cbff8ab2ff84a"
+  }
+}

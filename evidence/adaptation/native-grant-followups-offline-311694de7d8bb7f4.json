@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "passed": true,
+  "checks": [
+    {
+      "id": "071_xianzhe",
+      "passed": true,
+      "output": "PASS 071_xianzhe: two exact follow-ups, fresh grants, atomic rejection; no engine verification\n"
+    },
+    {
+      "id": "067_motian",
+      "passed": true,
+      "output": "PASS 067_motian: two exact follow-ups, fresh grants, atomic rejection; no engine verification\n"
+    },
+    {
+      "id": "python_regressions",
+      "passed": true,
+      "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 2.176s\n\nOK\n"
+    }
+  ],
+  "packages": [
+    {
+      "id": "071_xianzhe",
+      "action_kind": "attack-candidate",
+      "bundle": "research/boss-adaptation/developer-bundles/native-grant-071_xianzhe-25e29c3614cad7a2",
+      "manifest_sha256": "b2796fea3903f240ae4e4dc42b83591a67b08b24b81f64f4089330c954d1b7e7",
+      "workflow": "runtime/developer-workflows/native-grant-071_xianzhe-af309df717ace5c5",
+      "workflow_manifest_sha256": "3a4e2caad5660c6a2ee00dc7d39860d2ed7ed708066371b5d3f9f2bdbe044dbb",
+      "metadata_pool": 2,
+      "native_grants_current": false,
+      "activation_verified": false,
+      "damage_verified": false,
+      "playable": false
+    },
+    {
+      "id": "067_motian",
+      "action_kind": "dodge-only-candidate",
+      "bundle": "research/boss-adaptation/developer-bundles/native-grant-067_motian-5ccfc469f429501e",
+      "manifest_sha256": "a584e62124869e16a92330c5732cd48349a145ab3880f586e07c51393613d33f",
+      "workflow": "runtime/developer-workflows/native-grant-067_motian-5dbc4e7744d56416",
+      "workflow_manifest_sha256": "2d5477c507848abf5dba66dbe19cac33778a8532703f99ed7ae4912f0e377f0d",
+      "metadata_pool": 2,
+      "native_grants_current": false,
+      "activation_verified": false,
+      "damage_verified": false,
+      "playable": false
+    }
+  ],
+  "sources": {
+    "tests/test_native_grant_candidate.lua": "6162d1f04db2c72d530ff8a48bbf2d862f470fb0bfa4ff5d8d47efeb01257a0f",
+    "tests/test_native_grant_developer.py": "b09c3d9f2a219f34816921d0ad15d9fc95d30f423323a757d3396cca45240287",
+    "tools/boss_developer_candidate.lua": "cb4a99e647480fa264252c89a671bfe27095612b1fbe68ee28d5c197195c97f2",
+    "tools/check_native_grant_followups.py": "8068fe96ea687bfaaa509334ca1c3c9d736bcf08bf1046dd66c1607a3149c022",
+    "tools/expanded_boss_developer_bundle.py": "15693a2c5851eb1b9b22261cca2096fec84c746c7c6ef795f5aeda1ba07d59e0",
+    "tools/expanded_boss_developer_workflow.py": "7d6f9ba41a4c0135007a82fe06b1a7707da5c7a45d8044b4c851f51e183aea0c",
+    "tools/native_grant_developer_bundle.py": "6019bcbc6448b821ec5e2455771eda4d8c2b27b52c0bb4ba2c4a97168816b89f",
+    "tools/native_grant_developer_workflow.py": "6b0ea8516015b24fe3b0021da3e9168ad8bd6dab9f71e316f9afdaf3813635c2",
+    "tools/native_grant_metadata_workflow.py": "6f3747b610198c151b9258a73045e7ed674e9a61a2e85ee7a5fecdc7c7aba198"
+  },
+  "game_started": false,
+  "installed": false,
+  "new_playable_bosses": 0,
+  "runtime_acceptance_current": false
+}
