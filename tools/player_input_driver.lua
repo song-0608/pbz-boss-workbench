@@ -48,7 +48,12 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
         session:restore("invalid camera rotation"); return false, "invalid camera rotation"
     end
     local result, reason = pcall(function()
+        local receipt_before=session.receipt
         if session.flush_buffered_skill then assert(session:flush_buffered_skill()==true,'skill input buffer failed')end
+        -- Starting a queued skill can restore/fault the session or replace its
+        -- receipt. Never continue this sampled frame on that obsolete owner.
+        assert(session.state=='ACTIVE'and session.receipt==receipt_before,
+            'control changed while flushing buffered skill')
         -- Process this frame's look before orienting movement and drawing the arm.
         -- A verified bridge may return its actual post-input yaw (locked or free).
         local yaw, pitch = input.look_yaw or 0, input.look_pitch or 0
@@ -73,7 +78,10 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
             assert(session.bridge:move(session.receipt, x, y, 1), "move rejected")
         end
     end)
-    if not result then session:restore("movement or look failed"); return false, tostring(reason) end
+    if not result then
+        if session.state~='OFF'or session.receipt then session:restore("movement or look failed")end
+        return false, tostring(reason)
+    end
     return true
 end
 

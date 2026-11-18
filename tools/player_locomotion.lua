@@ -60,7 +60,7 @@ function Motion:step(ticket,x,y,scale)
         local target=math.deg(math.atan(y,x))+(scale<0 and 180 or 0)
         local limit=self.settings.turn_rate_degrees_s*math.min(dt,1/15)
         local delta=math.max(-limit,math.min(limit,angle(target-yaw)))
-        self.native.face(boss,angle(yaw+delta))
+        if math.abs(delta)>0.000001 then self.native.face(boss,angle(yaw+delta))end
     end
     return true
 end

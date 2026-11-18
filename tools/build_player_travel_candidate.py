@@ -27,7 +27,8 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tools/player_ue_input.lua', 'tools/player_3c_bridge.lua', 'tools/player_skill_buffer.lua',
            'tools/player_locomotion.lua', 'tools/player_locomotion_native.lua', 'tools/player_3c_contract.py',
            'tests/test_player_3c.lua', 'tests/test_player_skill_buffer.lua', 'tests/test_player_locomotion.lua',
-           'tests/test_player_3c_contract.py')
+           'tests/test_player_3c_contract.py', 'tools/player_3c_target_lock.lua',
+           'tests/test_player_3c_target_lock.lua', 'tests/test_input_driver.lua')
 
 
 def payload(root=ROOT):
@@ -54,7 +55,7 @@ def payload(root=ROOT):
         ('player_3c_tuning', 'player_3c_tuning'), ('player_input_driver', 'input_driver'),
         ('player_ue_input', 'ue_input'), ('player_3c_bridge', 'player_experience_bridge'),
         ('player_skill_buffer', 'player_skill_buffer'), ('player_locomotion', 'player_locomotion'),
-        ('player_locomotion_native', 'player_locomotion_native')):
+        ('player_locomotion_native', 'player_locomotion_native'), ('player_3c_target_lock', 'player_target_lock')):
         files[PREFIX + target + '.lua'] = (root / 'tools' / (source + '.lua')).read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')

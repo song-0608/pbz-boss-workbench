@@ -32,6 +32,11 @@ function Extension.extend(Bridge)
             set_rotation=function(rotation)
                 self.api.remote.native.set_rotation(self:check(receipt),rotation)
             end,
+            frame_seconds=function()
+                self:check(receipt)
+                assert(self.api.locomotion,'verified locomotion clock required for camera following')
+                return self.api.locomotion.native.frame_seconds(self.calls:resolve(receipt.boss))
+            end,
         })
         return receipt.player_target_lock
     end

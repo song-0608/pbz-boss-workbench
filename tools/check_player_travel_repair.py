@@ -37,7 +37,7 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'player_target_diagnostics', 'runtime', 'ue_calls', 'ue_combat', 'world_boundary', 'idle_world_watch',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
-                 'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion'):
+                 'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):
         jobs.append((name, [str(executable), str(loader), '.', test_path(package),
                            'tests/test_' + name + '.lua']))
     for name in ('player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',

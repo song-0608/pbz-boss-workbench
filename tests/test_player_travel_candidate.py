@@ -23,7 +23,7 @@ class TravelCandidateTests(unittest.TestCase):
             'idle_world_watch.lua', 'map_travel_guard.lua', 'owned_arena.lua', 'runtime.lua',
             'ue_host.lua', 'remote_control.lua', 'boss_workbench.lua', 'player_boss_picker.lua', 'player_hud.lua',
             'player_3c_tuning.lua', 'input_driver.lua', 'ue_input.lua', 'player_experience_bridge.lua',
-            'player_skill_buffer.lua', 'player_locomotion.lua', 'player_locomotion_native.lua')})
+            'player_skill_buffer.lua', 'player_locomotion.lua', 'player_locomotion_native.lua', 'player_target_lock.lua')})
         manifest, _ = candidate.expected()
         self.assertFalse(manifest['complete_mod'])
         self.assertFalse(manifest['runtime_acceptance_current'])

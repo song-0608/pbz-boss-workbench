@@ -443,3 +443,7 @@ tools/player_skill_buffer.lua -text whitespace=cr-at-eol
 tools/player_travel_trial.py -text whitespace=cr-at-eol
 tools/player_ue_input.lua -text whitespace=cr-at-eol
 tools/player_world_watch.lua -text whitespace=cr-at-eol
+tools/player_3c_target_lock.lua -text whitespace=cr-at-eol
+tests/test_player_3c_target_lock.lua -text whitespace=cr-at-eol
+tests/test_input_driver.lua -text whitespace=cr-at-eol
+evidence/adaptation/ahua-player-travel-dev-f651f78bbbd4e30e-offline.json -text whitespace=cr-at-eol

@@ -94,4 +94,24 @@ test('rejected maintenance restores without sampling player input',function()
     d.api.read_input=function()error('must not sample after maintenance failure')end
     assert(not d:step());assert(s.restores==1 and #s.moves==0)
 end)
+test('buffer failure cannot move or turn an obsolete control receipt',function()
+    for _,mode in ipairs({'restored','faulted','replacement'})do
+        local d,s=fixture({allowed=true,forward=true,yaw_degrees=0,look_yaw=2})
+        local cameras=0;s.bridge.update_camera=function()cameras=cameras+1;return true end
+        s.flush_buffered_skill=function()
+            if mode=='restored'then s:restore();s.receipt=nil
+            elseif mode=='faulted'then s.state='FAULTED'
+            else s.receipt={}end
+            return true
+        end
+        assert(not d:step(),mode)
+        assert(#s.moves==0 and #s.looks==0 and cameras==0,'no stale frame may reach bridge input: '..mode)
+        assert(s.restores==1,'restore once, including when the buffered skill already restored')
+    end
+end)
+test('successful buffered skill suppresses movement and keeps same-frame camera',function()
+    local d,s=fixture({allowed=true,forward=true,yaw_degrees=0,look_yaw=2})
+    s.flush_buffered_skill=function()s.current_skill='new native token';return true end
+    assert(d:step());assert(#s.moves==0 and #s.looks==1 and s.restores==0)
+end)
 print("Input driver fixtures: "..total.." passed; no runtime movement verification claimed.")
