@@ -58,7 +58,11 @@ function Lock:update()
             return angle(a+math.max(-limit,math.min(limit,delta)))
         end
         local rotation={Yaw=approach(current.Yaw,desired_yaw),Pitch=approach(current.Pitch,desired_pitch),Roll=0}
-        self.native.set_rotation(rotation);self.target=target
+        if math.abs(angle(rotation.Yaw-current.Yaw))>0.000001
+            or math.abs(rotation.Pitch-current.Pitch)>0.000001 then
+            self.native.set_rotation(rotation)
+        end
+        self.target=target
     end)
     if not ok then self:clear(tostring(why));return false,self.reason end
     return true

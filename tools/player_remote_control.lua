@@ -122,7 +122,8 @@ function Remote:move(t,x,y,scale)
 end
 function Remote:look(t,yaw,pitch)
     assert(self:verify(t),'remote control lost')
-    assert(type(yaw)=='number'and type(pitch)=='number'and math.abs(yaw)<=10 and math.abs(pitch)<=10,'bounded look required')
+    local limit=self.locomotion and require('player_3c_tuning').look_limit(self.locomotion)or 10
+    assert(type(yaw)=='number'and type(pitch)=='number'and math.abs(yaw)<=limit and math.abs(pitch)<=limit,'bounded look required')
     local pc=self.calls:resolve(t.pc);local r=self.native.rotation(pc)
     self.native.set_rotation(pc,{Pitch=math.max(-60,math.min(20,r.Pitch+pitch)),Yaw=(r.Yaw+yaw+180)%360-180,Roll=0})
     return true

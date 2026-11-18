@@ -39,4 +39,27 @@ local pc={IsMoveInputIgnored=function()return false end,IsLookInputIgnored=funct
 local input=require('ue_input').new({profile={id='058_maddoctor'},check=function()return pc end},
     {make_name=function(s)return s end,game_paused=function()return false end},binding):read({})
 assert(input.look_yaw==2.2 and binding.mouse_scale==0.1,'tuning must not edit historical profile data')
+local OldInput=assert(loadfile(root..'/releases/ahua-boss-workbench-v5-3f29975fe3b8826f/PBZBossControl/Scripts/ue_input.lua'))()
+local function turn_at_rate(Class,fps,tuned,rate)
+    local delta=rate/fps/0.22
+    local controller={IsMoveInputIgnored=function()return false end,IsLookInputIgnored=function()return false end,
+        IsInputKeyDown=function()return false end,GetControlRotation=function()return{Yaw=0}end,
+        GetInputMouseDelta=function(_,x,y)x.DeltaX=delta;y.DeltaY=0 end}
+    local bridge={check=function()return controller end,api={}}
+    if tuned then bridge.profile={id='056_youlong'};bridge.api.locomotion={settings=Tuning.resolve('056_youlong')}end
+    local reader=Class.new(bridge,{make_name=function(v)return v end,game_paused=function()return false end},
+        {input_verified=true,mouse_scale=0.22})
+    local degrees=0
+    for _=1,fps do degrees=degrees+reader:read({}).look_yaw end
+    return degrees
+end
+assert(math.abs(turn_at_rate(OldInput,30,false,600)-300)<1e-8
+    and math.abs(turn_at_rate(OldInput,120,false,600)-600)<1e-8,'negative control must expose discarded low-fps mouse motion')
+for _,fps in ipairs({30,60,120})do
+    assert(math.abs(turn_at_rate(require('ue_input'),fps,true,600)-600)<1e-8,
+        '3C sampler must retain the same finite mouse displacement at '..fps..' Hz')
+end
+assert(turn_at_rate(require('ue_input'),30,true,100000)==1350,'extreme mouse input remains capped at 45 degrees per callback')
+assert(not pcall(Tuning.resolve,'056_youlong',{look_step_degrees=46}))
 print('PASS old-camera negative control, same-frame mouse/movement, free camera, manual lock override, six-role tuning and native rejection diagnostics')
+print('PASS 30/60/120 Hz mouse-displacement retention, legacy negative control and paired native bounds; no engine smoothness claim')

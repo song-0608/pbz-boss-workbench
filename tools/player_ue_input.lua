@@ -10,6 +10,7 @@ function Input.new(bridge, api, binding)
     assert(type(binding.mouse_scale) == "number" and binding.mouse_scale > 0 and binding.mouse_scale <= 1,
         "bounded mouse scale required")
     local tuned={};for key,value in pairs(binding)do tuned[key]=value end
+    tuned.look_step_degrees=require('player_3c_tuning').look_limit(bridge.api and bridge.api.locomotion)
     if bridge.profile and bridge.profile.id then
         tuned.mouse_scale=require('player_3c_tuning').resolve(bridge.profile.id).mouse_scale
     end
@@ -36,7 +37,8 @@ function Input:read(receipt)
     local function look_delta(value)
         assert(value==value and math.abs(value)<math.huge,'nonfinite mouse input')
         -- 用途：低帧率或快速甩鼠标会积累大位移；限制单帧转角，不因此退回主角。
-        return math.max(-10,math.min(10,value*self.binding.mouse_scale))
+        local limit=self.binding.look_step_degrees
+        return math.max(-limit,math.min(limit,value*self.binding.mouse_scale))
     end
     return { allowed = true, forward = down("W"), backward = down("S"), left = down("A"), right = down("D"),
         yaw_degrees = rotation.Yaw,

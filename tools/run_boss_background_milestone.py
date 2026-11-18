@@ -16,6 +16,8 @@ import boss_offline_inventory as inventory
 from build_boss_profile_candidate import lua
 import prepare_boss_inventory_workflow as workflows
 import prepare_full_boss_catalog as full_catalog
+import prepare_boss_skill_pages as skill_pages
+import prepare_boss_variant_candidates as variant_candidates
 
 
 TEST_MODULES = (
@@ -24,6 +26,10 @@ TEST_MODULES = (
     'tests.test_native_grant_metadata_workflow', 'tests.test_native_grant_developer',
     'tests.test_native_grant_ui_stage', 'tests.test_expanded_boss_developer',
     'tests.test_full_boss_catalog', 'tests.test_full_catalog_progress',
+    'tests.test_boss_skill_pages', 'tests.test_prepare_research_ui',
+    'tests.test_research_scene_checkpoint', 'tests.test_stage_readonly_contracts',
+    'tests.test_native_grant_skill_gate',
+    'tests.test_boss_variant_candidates',
 )
 
 
@@ -41,6 +47,8 @@ def main():
     directory, summary = inventory.build()
     print('Inventory frozen: ' + summary['fingerprint'], flush=True)
     snapshot = inventory.read(directory / 'inventory.json')
+    page_directory, page_report = skill_pages.build()
+    variant_directory, variant_report = variant_candidates.build()
     source_files = {name: digest for name, digest in snapshot['sources'].items()
                     if name.startswith(('tools/', 'tests/'))}
     for name in ('tools/run_boss_background_milestone.py', 'tools/boss_inventory_bundle.py',
@@ -53,6 +61,10 @@ def main():
     for module in TEST_MODULES:
         path = module.replace('.', '/') + '.py'
         source_files[path] = sha(ROOT / path)
+    for name in skill_pages.SOURCES:
+        source_files[name] = sha(ROOT / name)
+    for name in variant_candidates.SOURCES:
+        source_files[name] = sha(ROOT / name)
     checks = [invoke('Python regressions', [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', *TEST_MODULES])]
     packages = []
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
@@ -68,19 +80,22 @@ def main():
     for mode in ('ok', 'expired', 'partial'):
         checks.append(invoke('Full catalog serial scheduling ' + mode, [str(executable),
                              'tests/test_full_boss_catalog.lua', '.', mode]))
-    for pool in summary['skill_pools']:
+    for pool in [*summary['skill_pools'], *page_report['pages'], *variant_report['candidates']]:
         path = ROOT / pool['directory']
         identifier = pool['id']
         definition = inventory.read(path / 'manifest.json')['definition']
-        config = directory / (identifier + '-fixture.lua')
+        config = directory / (identifier + '-' + pool.get('page', pool.get('variant', 'legacy')) + '-fixture.lua')
         config.write_bytes(('return ' + lua(definition) + '\n').encode('utf-8'))
-        fixture = 'tests/test_native_grant_candidate.lua' if len(pool['skills']) == 2 else 'tests/test_expanded_boss_candidate.lua'
+        fixture = ('tests/test_native_grant_candidate.lua' if len(pool['skills']) == 2 and 'page' not in pool
+                   else 'tests/test_expanded_boss_candidate.lua')
         checks.append(invoke(identifier + ' native binding fixture', [str(executable), fixture,
                              str(path / 'boss_candidate.lua'), str(config)]))
         flow = workflows.build(path)
         checks.append(invoke(identifier + ' staged workflow verification', [sys.executable, '-B', '-X', 'utf8',
                              str(flow / 'inventory_ui_controller.py'), 'verify', str(flow)]))
         packages.append(dict(id=identifier, pool=pool['directory'], skills=len(pool['skills']),
+                             page=pool.get('page'),
+                             variant=pool.get('variant'),
                              pool_manifest_sha256=sha(path / 'manifest.json'),
                              workflow=flow.relative_to(ROOT).as_posix(), workflow_manifest_sha256=sha(flow / 'manifest.json')))
     for batch in summary['exact_grant_batches']:
@@ -91,6 +106,15 @@ def main():
     assert unchanged, 'Source or inventory changed during this milestone; retain incomplete output'
     report = dict(schema=1, inventory=directory.relative_to(ROOT).as_posix(), inventory_sha256=sha(directory / 'inventory.json'),
                   source_sha256=source_files, summary=summary, packages=packages, checks=checks,
+                  skill_pages=dict(directory=page_directory.relative_to(ROOT).as_posix(),
+                      summary_sha256=sha(page_directory / 'summary.json'), pages=len(page_report['pages']),
+                      skills=sum(len(page['skills']) for page in page_report['pages']),
+                      deferred=page_report['deferred'], runtime_verified=False),
+                  variant_candidates=dict(directory=variant_directory.relative_to(ROOT).as_posix(),
+                      summary_sha256=sha(variant_directory / 'summary.json'), pools=len(variant_report['candidates']),
+                      variants=len({row['class_path'] for row in variant_report['candidates']}),
+                      resource_folders=len({row['id'] for row in variant_report['candidates']}),
+                      historical_native_grants_verified=False, runtime_verified=False, playable=False),
                   full_catalog=dict(directory=queue.relative_to(ROOT).as_posix(),
                       manifest_sha256=sha(queue / 'manifest.json'), batches=len(catalog['batches']),
                       requests=sum(row['requests'] for row in catalog['batches']),

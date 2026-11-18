@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "session": "20261119-002616",
+  "candidate": "ahua-player-travel-dev-be852f12b1c01ea7",
+  "status": "partial-development-observations",
+  "source_progress": "evidence/official-validation/20261119-002616/player-travel-progress.json",
+  "source_progress_sha256": "1eb973d153473deb0c92833041a69545bd0c457eb489302929634dcd0882bff0",
+  "closed_cleanly": true,
+  "role": "056_youlong",
+  "same_takeover_natural_skill_uses": 5,
+  "health_before": 9000,
+  "health_after": 8500,
+  "health_decrease_per_use": 100,
+  "mouse_primary_dispatches": 4,
+  "shift_w_f1_dispatches": 1,
+  "active_workbench_restored_player": true,
+  "sustained_walking_speed_verified": false,
+  "cross_map_verified": false,
+  "complete_mod": false,
+  "release_accepted": false,
+  "runtime_acceptance_current": false,
+  "scope": "Five observed skill windows and subsequent workbench restore; not complete native normal attack combos or damage source attribution."
+}

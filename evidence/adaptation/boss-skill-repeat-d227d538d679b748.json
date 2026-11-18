@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "skill": "skill_01",
+  "expected_class_short": "GA_YouLong_MiddleAttack_01_C",
+  "action_kind": "attack",
+  "requested_repetitions": 5,
+  "observed_attempts": 5,
+  "attempts": [
+    {
+      "ordinal": 1,
+      "skill": "skill_01",
+      "target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147469873",
+      "log_start": 49194,
+      "log_end": 109577,
+      "interval_sha256": "bbd841fdbb294498d9d490087051221a441e66a0c8e0499c1d7d34e294f757ac",
+      "lifecycle_verified": true,
+      "short_class_matches": true,
+      "natural": {
+        "health_before": 9000.0,
+        "health_after": 8900.0,
+        "distance": 187.79116782763,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "observed_health_decrease": 100.0,
+      "local_displacement_verified": true,
+      "attack_health_decrease_observed": true,
+      "dodge_displacement_observed": true
+    },
+    {
+      "ordinal": 2,
+      "skill": "skill_01",
+      "target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147469873",
+      "log_start": 109577,
+      "log_end": 145342,
+      "interval_sha256": "e708d74d54aff949d596825aea4337880797dff6112dfb54bc54a77dce1939c3",
+      "lifecycle_verified": true,
+      "short_class_matches": true,
+      "natural": {
+        "health_before": 8900.0,
+        "health_after": 8800.0,
+        "distance": 332.54496426468,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "observed_health_decrease": 100.0,
+      "local_displacement_verified": true,
+      "attack_health_decrease_observed": true,
+      "dodge_displacement_observed": true
+    },
+    {
+      "ordinal": 3,
+      "skill": "skill_01",
+      "target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147469873",
+      "log_start": 145342,
+      "log_end": 181537,
+      "interval_sha256": "cb69ab446b229d96001913259fcb44ee348308d90ed6d0af757e104d994fadc8",
+      "lifecycle_verified": true,
+      "short_class_matches": true,
+      "natural": {
+        "health_before": 8800.0,
+        "health_after": 8700.0,
+        "distance": 337.89504703879,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "observed_health_decrease": 100.0,
+      "local_displacement_verified": true,
+      "attack_health_decrease_observed": true,
+      "dodge_displacement_observed": true
+    },
+    {
+      "ordinal": 4,
+      "skill": "skill_01",
+      "target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147469873",
+      "log_start": 181537,
+      "log_end": 217306,
+      "interval_sha256": "a9202e353d6acfb5d6024074ab1c5dd509ad0270cf43b5e3e5d5b24f1940279e",
+      "lifecycle_verified": true,
+      "short_class_matches": true,
+      "natural": {
+        "health_before": 8700.0,
+        "health_after": 8600.0,
+        "distance": 338.05073105353,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "observed_health_decrease": 100.0,
+      "local_displacement_verified": true,
+      "attack_health_decrease_observed": true,
+      "dodge_displacement_observed": true
+    },
+    {
+      "ordinal": 5,
+      "skill": "skill_01",
+      "target": "BP_Monster_AHua_GuiTouDao_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_AHua_GuiTouDao_C_2147469873",
+      "log_start": 217306,
+      "log_end": 323489,
+      "interval_sha256": "901d852939565823b1144f186e728afc2500c438e6ea386ed8f7cf0da08c9101",
+      "lifecycle_verified": true,
+      "short_class_matches": true,
+      "natural": {
+        "health_before": 8600.0,
+        "health_after": 8500.0,
+        "distance": 335.76730435658,
+        "damage_observed": true,
+        "movement_observed": true
+      },
+      "observed_health_decrease": 100.0,
+      "local_displacement_verified": true,
+      "attack_health_decrease_observed": true,
+      "dodge_displacement_observed": true
+    }
+  ],
+  "identity": {
+    "world_id": "official-validation-20261119-002616|World /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP|74463978272",
+    "participants": {
+      "player_controller": {
+        "name": "BP_PlayerController_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_PlayerController_C_2147479663",
+        "address": 73423915904,
+        "class": "BlueprintGeneratedClass /Game/PBZContent/Blueprint/Character/Player/BP_PlayerController.BP_PlayerController_C"
+      },
+      "player": {
+        "name": "BP_Renewal_Hun_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Renewal_Hun_C_2147479619",
+        "address": 75849039904,
+        "class": "BlueprintGeneratedClass /Game/RenewalContent/Actors/Players/BP_Renewal_Hun.BP_Renewal_Hun_C"
+      },
+      "boss": {
+        "name": "BP_Monster_YouLong_Harpoon_C /Game/Maps/B02/PBZ_Xigu_WP.PBZ_Xigu_WP:PersistentLevel.BP_Monster_YouLong_Harpoon_C_2147470349",
+        "address": 83521917104,
+        "class": "BlueprintGeneratedClass /PBZCombatAsset/ActorData/Mobs/056_YouLong/BP_Monster_YouLong_Harpoon.BP_Monster_YouLong_Harpoon_C"
+      }
+    }
+  },
+  "foreign_keyed_activations": [],
+  "native_rejection_or_failure_seen": false,
+  "post_recovery_skill_events": false,
+  "same_control_verified": true,
+  "consecutive_natural_uses_verified": true,
+  "every_use_health_decrease_observed": true,
+  "every_use_dodge_displacement_observed": true,
+  "restoration": {
+    "label": "auto_exit",
+    "reason": "open Boss workbench",
+    "player_position_delta": 0.0,
+    "player_new_active_count": 0,
+    "camera_cleanup_verified": true,
+    "passed": true
+  },
+  "explicit_player_exit_verified": false,
+  "repeated_effect_and_recovery_observed": true,
+  "exact_native_grant_path_verified": false,
+  "cancellation_verified": false,
+  "playable": false,
+  "release_accepted": false,
+  "scope": "One captured control cycle and runtime short class only; observed health change is not source-attributed damage.",
+  "session": "20261119-002616",
+  "cycle": 0,
+  "log_character_start": 202464,
+  "log_character_end": 541058,
+  "historical_observation_only": true,
+  "runtime_acceptance_current": false,
+  "sources": {
+    "runtime/official-validation-20261119-002616/state.json": "1c6cd2ae8617b4d881cf7bec79c2a29a5681b472ffd5c106fd10681f645b75a6",
+    "evidence/official-validation/20261119-002616/postcheck.json": "2ceefcfcbec1c488ec98429ca04065309f719f0ca31950fe04bf11e65d486796",
+    "evidence/official-validation/20261119-002616/UE4SS.log": "cadeb9181a166506d039dd081771faa3f4e237ead0b60d0c0d2bca7bba8593e9"
+  },
+  "audit_source_sha256": {
+    "tools/boss_skill_repeat_audit.py": "10bdcc329f0e637a075f9757a5502dad3fcb499e6568d71c58b7f50b6b5d26e9",
+    "tests/test_boss_skill_repeat_audit.py": "214d896110c69011740d6f06a75f289de49108052d4b759f04070f75b65a59b2",
+    "tools/control_action_evidence.py": "12d550224d138690694ab6c1288f082341e1dadb6625c6e7cf925c470b5ebd19",
+    "tools/collect_skill_acceptance.py": "abd648ef4a6243c9df0c3145782fdb017ea3966792a5f18b3bd15d0733648c81",
+    "tools/candidate_effect_scope.py": "776a956d1fd77b18e3419fe943080f936d4d037f5f1d23f98433ac65bafd840a"
+  }
+}

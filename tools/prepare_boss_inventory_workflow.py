@@ -17,8 +17,10 @@ def render(root=ROOT):
     files = previous.render(root)
     runner = files['stage_candidate.py'].decode()
     runner = replace(runner, 'import native_grant_ui_stage as controller', 'import inventory_ui_controller as controller')
-    runner = replace(runner, repr(('071_xianzhe', '067_motian')), repr(tuple(bundle.REVIEWS)))
+    runner = replace(runner, repr(('071_xianzhe', '067_motian')), repr(bundle.candidate_ids(root)))
     gate = files['boss_candidate_gate.py'].decode().replace('native_grant_developer_bundle', 'boss_inventory_bundle')
+    gate = replace(gate, 'import REVIEWS,validate as verify', 'import candidate_ids,validate as verify')
+    gate = replace(gate, 'identifier not in REVIEWS', 'identifier not in candidate_ids(root)')
     controller = (root / 'tools/native_grant_ui_stage.py').read_text(encoding='utf-8')
     controller = replace(controller, 'import native_grant_developer_bundle as bundle', 'import boss_inventory_bundle as bundle')
     controller = replace(controller, 'import native_grant_developer_workflow as previous',
@@ -32,6 +34,14 @@ def render(root=ROOT):
         "                        if p.startswith('Scripts/') and p != 'Scripts/main.lua'}\n"
         "    expected_modules['boss_candidate.lua'] = recorded['overrides']['Scripts/boss_candidate.lua']",
         "    expected_modules = previous.expected_modules(recorded)")
+    controller = replace(controller, "    result = dict(id=manifest['id'], state_file=state['state_file'],\n",
+        "    from prepare_boss_variant_candidates import captured_grants\n"
+        "    definition = bundle.read(Path(manifest['bundle']) / 'manifest.json')['definition']\n"
+        "    native_grants = captured_grants(tail, definition, rows)\n"
+        "    result = dict(id=manifest['id'], state_file=state['state_file'],\n")
+    controller = replace(controller,
+        "        missing_native_grants=[p for p in allowed if p not in {r['class_path'] for r in rows}],",
+        "        **native_grants,")
     validator = (root / 'tools/native_grant_skill_gate.py').read_text(encoding='utf-8')
     validator = replace(validator, 'import native_grant_ui_stage as flow', 'import inventory_ui_controller as flow')
     add_tools = 'import sys\nsys.dont_write_bytecode = True\nsys.path.append(' + repr(str(root / 'tools')) + ')\nimport argparse'

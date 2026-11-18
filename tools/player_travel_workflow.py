@@ -25,6 +25,12 @@ def expected(directory):
         'from published_boss_workflow import installed_mod_root as candidate_mod_root',
         'from player_travel_workflow import candidate_mod_root').encode('utf-8')
     source = files[name].decode('utf-8')
+    source = replace(source, 'import research_game_menu as menu\n', '')
+    source = replace(source,
+        "    menu.click(0,0,2560,1600,'control_reload')\n"
+        "    print('Bounded lifecycle experiment hot reload requested in existing isolated game; no restart.')",
+        "    print('Player candidate staged; use the separate fresh window reload gate.')")
+    assert 'menu.click' not in source and 'research_game_menu' not in source
     source = replace(source, "        remote_binding={'binding_verified':True}",
         "        remote_binding={'binding_verified':True}\n"
         "        if args.player_entry:\n"

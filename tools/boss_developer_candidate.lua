@@ -55,6 +55,12 @@ function Candidate.bind_granted(profile,items,valid,log)
             end
         end
     end
+    if definition.require_complete_pool then
+        assert(#profile.developer_ability_pool<=4,'skill page exceeds its four fixed slots')
+        for _,path in ipairs(profile.developer_ability_pool)do
+            assert(matches[path],'native skill page incomplete; fixed slots must not shift: '..path)
+        end
+    end
     -- Commit bindings only after the entire live list passed, never before a late rejection.
     local selected={};local ids={'skill_01','heavy_01','skill_02','dash'};local next_id=1
     for _,path in ipairs(profile.developer_ability_pool)do

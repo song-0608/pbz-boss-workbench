@@ -69,12 +69,19 @@ def apply():
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=('capture','apply','prepare'))
-    parser.add_argument('--acceptance',action='store_true');args=parser.parse_args()
+    parser.add_argument('--acceptance',action='store_true')
+    parser.add_argument('--observed-ui',action='store_true',help='Prepare without legacy UI control; complete via prepare_research_ui.py')
+    args=parser.parse_args()
     if args.action=='capture':capture()
     elif args.action=='apply':apply()
     else:
-        if args.acceptance:
+        if args.observed_ui:
+            from prepare_research_ui import prepare
+            print(json.dumps(prepare(args.acceptance),ensure_ascii=False,indent=2))
+        elif args.acceptance:
             from prepare_offline_acceptance import prepare
             prepare()
-        else:practice.prepare()
-        apply()
+            apply()
+        else:
+            practice.prepare()
+            apply()

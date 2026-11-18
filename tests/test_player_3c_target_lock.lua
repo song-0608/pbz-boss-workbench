@@ -47,6 +47,13 @@ f.destination={X=1000*math.cos(math.rad(-179)),Y=1000*math.sin(math.rad(-179)),Z
 assert(f.lock:update()and f.rotation.Yaw>179 and f.rotation.Yaw<180,'shortest yaw across wrap remains correct')
 f=fixture(Lock,60);f.lock.native.frame_seconds=function()error('disabled lock must not read native clock')end
 assert(f.lock:update()and f.writes==0)
+f=run(Lock,120,5)
+local settled=f.writes
+for _=1,600 do assert(f.lock:update())end
+assert(f.writes==settled,'stationary aligned target must not cause redundant native rotation writes')
+assert(f.validations==101,'settled camera must retain the same native target eligibility cadence')
+f.destination={X=0,Y=1000,Z=0};assert(f.lock:update())
+assert(f.writes==settled+1,'a moving target must immediately resume camera rotation')
 -- Exercise the actual bridge extension too: the timer must be read from this
 -- receipt's Boss, and free-camera frames must never run the follow clock.
 local rotation={Yaw=0,Pitch=-8};local clock_reads=0

@@ -34,11 +34,24 @@ local function valid(value)return value and value:IsValid()end
 local profile=prepare();local pool=profile.developer_ability_pool
 assert(#pool==#definition.ability_pool and not profile.playable and not profile.control_verified)
 candidate.bind_granted(profile,items(pool),valid,function()end)
-assert(profile.skills.skill_01.class_path==pool[1]and profile.skills.dash.class_path==pool[4])
+local slots={'skill_01','heavy_01','skill_02','dash'}
+assert(#pool>=1)
+for index=1,math.min(#pool,4)do assert(profile.skills[slots[index]].class_path==pool[index])end
 -- Ownership wins over metadata priority: only a real native grant can create a binding.
-profile=prepare();candidate.bind_granted(profile,items({pool[2],pool[#pool]}),valid,function()end)
-assert(profile.skills.skill_01.class_path==pool[2]and profile.skills.heavy_01.class_path==pool[#pool]
-    and not profile.skills.dash)
+if definition.require_complete_pool then
+    assert(#pool<=4)
+    for missing=1,#pool do
+        local subset={};for i,path in ipairs(pool)do if i~=missing then subset[#subset+1]=path end end
+        profile=prepare()
+        assert(not pcall(candidate.bind_granted,profile,items(subset),valid,function()end),'incomplete page must reject')
+        assert(next(profile.skills)==nil,'fixed page slots must not shift or partly bind')
+    end
+else
+    local subset={};for index,path in ipairs(pool)do if index==2 or index==#pool then subset[#subset+1]=path end end
+    profile=prepare();candidate.bind_granted(profile,items(subset),valid,function()end)
+    assert(profile.skills.skill_01.class_path==subset[1]and not profile.skills.dash)
+    if #subset==2 then assert(profile.skills.heavy_01.class_path==subset[2])else assert(not profile.skills.heavy_01)end
+end
 for _,mode in ipairs({'empty','duplicate','active','scheduler','changing'})do
     profile=prepare();local rows=items(pool)
     if mode=='empty'then rows=items({})

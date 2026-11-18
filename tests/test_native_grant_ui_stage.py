@@ -234,4 +234,26 @@ class StageTests(unittest.TestCase):
                 with self.assertRaises(AssertionError): flow.verify(output, root)
 
 
+class ResearchProcessSelectionTests(unittest.TestCase):
+    def test_exact_engine_with_or_without_its_own_launcher(self):
+        game = Path('fixture-game').resolve()
+        engine = dict(Name='PBZ.exe', ProcessId=22, ParentProcessId=11,
+                      ExecutablePath=str(game / 'platform/steam/PBZ.exe'))
+        launcher = dict(Name='PBZ.exe', ProcessId=11, ParentProcessId=1,
+                        ExecutablePath=str(game / 'steam/PBZ.exe'))
+        self.assertEqual(flow.select_research_pid([engine], game), 22)
+        self.assertEqual(flow.select_research_pid([launcher, engine], game), 22)
+
+    def test_foreign_duplicate_missing_or_unrelated_images_cannot_be_selected(self):
+        game = Path('fixture-game').resolve()
+        engine = dict(Name='PBZ.exe', ProcessId=22, ParentProcessId=11,
+                      ExecutablePath=str(game / 'platform/steam/PBZ.exe'))
+        cases = [[], [dict(engine, ExecutablePath=None)], [engine, dict(engine, ProcessId=33)],
+                 [engine, dict(engine, ProcessId=44, ExecutablePath=str(game / 'foreign/PBZ.exe'))],
+                 [engine, dict(engine, ProcessId=12, ExecutablePath=str(game / 'steam/PBZ.exe'))]]
+        for rows in cases:
+            with self.subTest(rows=rows), self.assertRaises(AssertionError):
+                flow.select_research_pid(rows, game)
+
+
 if __name__ == '__main__': unittest.main()

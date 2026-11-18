@@ -29,6 +29,9 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tests/test_player_3c.lua', 'tests/test_player_skill_buffer.lua', 'tests/test_player_locomotion.lua',
            'tests/test_player_3c_contract.py', 'tools/player_3c_target_lock.lua',
            'tests/test_player_3c_target_lock.lua', 'tests/test_input_driver.lua')
+SOURCES += ('tools/player_spawn_assets.lua', 'tests/test_player_spawn_assets.lua')
+SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stage.py',
+            'tools/player_travel_capture.py', 'tests/test_player_travel_capture.py')
 
 
 def payload(root=ROOT):
@@ -58,6 +61,19 @@ def payload(root=ROOT):
         ('player_locomotion_native', 'player_locomotion_native'), ('player_3c_target_lock', 'player_target_lock')):
         files[PREFIX + target + '.lua'] = (root / 'tools' / (source + '.lua')).read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
+    files[PREFIX + 'player_spawn_assets.lua'] = (root / 'tools/player_spawn_assets.lua').read_bytes()
+    change('owned_arena.lua', '        local target_class=class\n',
+           '        local target_class=class\n        local target_profile=assembly_profile\n')
+    change('owned_arena.lua', "            local target_profile=require(assembly_profile.training_target_profile)",
+           "            target_profile=require(assembly_profile.training_target_profile)")
+    change('owned_arena.lua', '        local function spawn_training_target(index)\n',
+           '        local function spawn_training_target(index)\n'
+           '            guard()\n'
+           "            local target_class,controller_class,maths,statics=require('player_spawn_assets').target(\n"
+           '                _G,target_profile,valid,log)\n')
+    change('owned_arena.lua', '            local pawn=statics:BeginDeferredActorSpawnFromClass(pc,target_class,target_transform,3,nil,0)',
+           "            log('TARGET_SPAWN_BEGIN',tostring(index or 1))\n"
+           '            local pawn=statics:BeginDeferredActorSpawnFromClass(pc,target_class,target_transform,3,nil,0)')
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
     begin = original_bridge.index('function Bridge:player_controller()\n')
     end = original_bridge.index('\nfunction Bridge:world_id(', begin)

@@ -23,6 +23,16 @@ local function test(name,fn)local ok,why=pcall(fn);assert(ok,name..': '..tostrin
 test('AI and player ownership remain unchanged',function()local f=fixture();f.service:apply(f.ticket);assert(f.service:verify(f.ticket));assert(f.ai.pawn==f.boss and f.pc.pawn==f.player and not f.player.enabled)end)
 test('movement goes to boss while original input is disabled',function()local f=fixture();f.service:apply(f.ticket);assert(f.service:move(f.ticket,1,0,1));assert(f.moved.x==1 and not f.player.enabled)end)
 test('camera look changes rotation without original player input',function()local f=fixture();f.service:apply(f.ticket);f.service:look(f.ticket,5,-3);assert(f.rotation.Yaw==15 and f.rotation.Pitch==-3)end)
+test('3C mouse bounds agree with the input sampler and legacy control stays narrow',function()
+    local f=fixture();f.service:apply(f.ticket)
+    assert(not pcall(f.service.look,f.service,f.ticket,20,0)and f.rotation.Yaw==10)
+    f.service.locomotion={settings=require('player_3c_tuning').resolve('056_youlong')}
+    assert(f.service:look(f.ticket,40,-40)and f.rotation.Yaw==50 and f.rotation.Pitch==-40)
+    assert(not pcall(f.service.look,f.service,f.ticket,46,0)and f.rotation.Yaw==50)
+    assert(not pcall(f.service.look,f.service,f.ticket,0/0,0)and f.rotation.Yaw==50)
+    f.service.locomotion.settings.look_step_degrees=90
+    assert(not pcall(f.service.look,f.service,f.ticket,20,0)and f.rotation.Yaw==50)
+end)
 test('exit balances only its own input blocks and restores rotation',function()local f=fixture();f.service:apply(f.ticket);f.service:look(f.ticket,2,1);assert(f.service:restore(f.ticket));assert(f.move_blocks==0 and f.look_blocks==0 and f.player.enabled and f.rotation.Yaw==10 and f.ticket.restored)end)
 test('repeated restore does not decrement input blocks twice',function()local f=fixture();f.service:apply(f.ticket);f.service:restore(f.ticket);f.service:restore(f.ticket);assert(f.move_blocks==0 and f.look_blocks==0)end)
 test('lost boss controller blocks movement',function()local f=fixture();f.service:apply(f.ticket);f.boss.controller=f.pc;assert(not pcall(function()f.service:move(f.ticket,1,0,1)end));assert(not f.moved)end)

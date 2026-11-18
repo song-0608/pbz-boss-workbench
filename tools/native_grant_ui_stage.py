@@ -231,14 +231,34 @@ def staged_guard(flow):
     return manifest, state, receipt, raw[offset:].decode('utf-8', errors='strict')
 
 
+def select_research_pid(processes, game):
+    """Accept one exact engine image, optionally with its own Steam launcher.
+
+    Both PBZ images share a filename. A filename-only count must neither reject
+    the legitimate parent/child pair nor pick an arbitrary process from it.
+    """
+    rows = [row for row in processes if row['Name'].lower() == 'pbz.exe']
+    engine = (Path(game) / 'platform/steam/PBZ.exe').resolve()
+    launcher = (Path(game) / 'steam/PBZ.exe').resolve()
+    def image(row):
+        value = row.get('ExecutablePath')
+        assert isinstance(value, str) and value, 'research image path unreadable'
+        return Path(value).resolve()
+    engines = [row for row in rows if image(row) == engine]
+    assert len(engines) == 1, 'one exact owned research engine required'
+    selected = engines[0]
+    for row in rows:
+        assert row is selected or (image(row) == launcher
+            and row['ProcessId'] == selected.get('ParentProcessId')), 'unexpected additional research game'
+    return selected['ProcessId']
+
+
 def research_pid(validation):
     c = validation.c
     c.isolation.select_box('PBZSteamLab'); dll = c.isolation.api()
     c.isolation.check_policy(dll, allow_offline_validation=True)
     assert not c.host_steam_pids(dll), 'preserve host Steam'
-    pids = {p['ProcessId'] for p in c.box_processes(dll) if p['Name'].lower() == 'pbz.exe'}
-    assert len(pids) == 1, 'one owned research game required'
-    return next(iter(pids))
+    return select_research_pid(c.box_processes(dll), c.baseline.GAME)
 
 
 def foreground_window(validation, expected_pid):
