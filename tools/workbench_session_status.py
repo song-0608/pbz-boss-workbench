@@ -1,6 +1,8 @@
 """Read launcher state and serialize UI commands without changing game/session grants."""
 from dataclasses import dataclass
+from datetime import datetime
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -40,6 +42,52 @@ def _bindings(owner):
         + '；'.join(r['key'] + ' ' + r['skill'] for r in rows))
 
 
+def _state_path(pointer, runtime, prefix):
+    path = Path(pointer['state_file']).resolve()
+    if (path.name != 'state.json' or path.parent.parent != runtime or
+            not re.fullmatch(prefix + r'-\d{8}-\d{6}', path.parent.name)):
+        raise ValueError('Unexpected state path')
+    return path
+
+
+def _cleaned(root, path, state):
+    """Only a completed, matching postcheck can retire a foreign session."""
+    if state.get('restored') is not True or state.get('remaining_box_pids') != []:
+        return False
+    report = _read(root / 'evidence/official-validation' /
+                   path.parent.name.removeprefix('official-validation-') / 'postcheck.json')
+    if Path(report['validation_state']).resolve() != path:
+        return False
+    restored = datetime.fromisoformat(state['restored_at'])
+    checked = datetime.fromisoformat(report['checked_at'])
+    if restored.utcoffset() is None or checked.utcoffset() is None or checked < restored:
+        return False
+    return (all(report.get(key) is True for key in (
+        'validation_restored', 'research_box_empty', 'research_loader_removed',
+        'all_temporary_network_removed', 'host_registry_unchanged')) and
+        all(report.get(key) == [] for key in (
+            'remaining_games', 'formal_files_changed', 'host_config_files_changed')))
+
+
+def _login_view(runtime, now):
+    pointer = runtime / 'latest-login-preparation.json'
+    if not pointer.exists():
+        return None
+    state = _read(_state_path(_read(pointer), runtime, 'auth-preparation'))
+    if state.get('restored') is True:
+        if (state.get('remaining_box_pids') == [] and state.get('formal_files_changed') == []
+                and state.get('host_steam_registry_unchanged') is True):
+            return None
+        raise ValueError('Login cleanup is incomplete')
+    deadline = state['deadline_unix']
+    if isinstance(deadline, bool) or not isinstance(deadline, (int, float)) or not math.isfinite(deadline):
+        raise ValueError('Invalid login deadline')
+    if now >= deadline:
+        return SessionView('login_cleanup', '登录准备已到时，等待恢复离线规则和清理核对；暂不开始研究会话。', ('status',))
+    return SessionView('login_preparation', '独立Steam正在限时准备本人登录，剩余 '
+        + _remaining(deadline, now) + '。完成并结束登录准备后，再开始第1步。', ('status',))
+
+
 def snapshot(root, now=None):
     """Fail closed on partial writes, foreign owners and unresolved cleanup."""
     root = Path(root).resolve(); runtime = root / 'runtime'
@@ -47,19 +95,25 @@ def snapshot(root, now=None):
     pointer = runtime / 'latest-official-validation.json'
     owner_path = runtime / 'ahua-practice.json'
     idle = SessionView('idle', '尚未开始。请先完成第1步准备。', ('prepare', 'status'))
-    if not pointer.exists():
-        if owner_path.exists():
-            return SessionView('unavailable', '会话指针缺失，请查看状态；暂不开始新会话。', ('status',))
-        return idle
     try:
-        state_path = Path(_read(pointer)['state_file']).resolve()
-        if (state_path.name != 'state.json' or state_path.parent.parent != runtime or
-                not re.fullmatch(r'official-validation-\d{8}-\d{6}', state_path.parent.name)):
-            raise ValueError('Unexpected state path')
+        login = _login_view(runtime, now)
+        if login is not None:
+            return login
+        if not pointer.exists():
+            if owner_path.exists():
+                return SessionView('unavailable', '会话指针缺失，请查看状态；暂不开始新会话。', ('status',))
+            return idle
+        state_path = _state_path(_read(pointer), runtime, 'official-validation')
         state = _read(state_path)
         owner = _read(owner_path) if owner_path.exists() else {}
         matches = bool(owner.get('state_file')) and Path(owner['state_file']).resolve() == state_path
         if not matches:
+            if _cleaned(root, state_path, state):
+                if owner:
+                    old_path = _state_path(owner, runtime, 'official-validation')
+                    if not _cleaned(root, old_path, _read(old_path)):
+                        return SessionView('foreign', '其他窗口的会话尚未完成清理核对，请回原窗口操作。', ('status',))
+                return idle
             return SessionView('foreign', '当前会话属于其他窗口或工具。保留它，请回原窗口操作。', ('status',))
         if state.get('restored') is True:
             if owner.get('postcheck_review_required'):

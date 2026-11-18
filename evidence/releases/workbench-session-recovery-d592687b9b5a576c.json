@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "passed": true,
+  "scope": "workbench UI cleanup recovery and manual-login status only",
+  "base_release": "ahua-boss-workbench-v5-3f29975fe3b8826f",
+  "source_files": {
+    "tools/workbench_session_status.py": "a051954dbbb0e2ce16fb60750bcddb944311e5c6163ffdddf50432d4c3cd3ba2",
+    "tests/test_workbench_session_status.py": "f9b5991d59618904cd1129d97aa7822cc7e09de910abdd6c831b6e34e66bad76",
+    "tools/workbench_status_bootstrap.py": "7ed832bd454d423eeff9df0b1efc5276c5dd88ba2d54da60b6e7b94d844c3013"
+  },
+  "offline_report": "evidence/adaptation/ahua-player-travel-dev-e82dc1d64ddca9ab-source-offline-1794963136335439900.json",
+  "offline_sha256": "6773a23c27c7374593aca953660863cb89b09c2a6a6349fbad45cb8d65436089",
+  "workbench_tests_passed": 23,
+  "offline_groups_passed": 31,
+  "test_output": {
+    "workbench_session_status": "......................\n----------------------------------------------------------------------\nRan 22 tests in 1.035s\n\nOK",
+    "workbench_cmd_entry": ".\n----------------------------------------------------------------------\nRan 1 test in 1.066s\n\nOK"
+  },
+  "verified_base_entry_unchanged": true,
+  "frozen_game_lua_modified": false,
+  "game_commands_dispatched": 0,
+  "lease_extended": false,
+  "authentication_completed": false,
+  "runtime_verified": false,
+  "native_travel_verified": false,
+  "all_boss_skills_complete": false
+}

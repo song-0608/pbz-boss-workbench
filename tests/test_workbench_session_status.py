@@ -78,6 +78,105 @@ class SessionStatusTests(unittest.TestCase):
         self.assertEqual(self.view().phase, 'foreign')
         self.assertEqual(self.view().allowed, ('status',))
 
+    def cleaned(self, path, state):
+        state.update(restored=True, remaining_box_pids=[], restored_at='2026-11-18T08:30:00+08:00')
+        self.save_json(path, state)
+        report = dict(validation_state=str(path), checked_at='2026-11-18T08:31:00+08:00',
+            validation_restored=True, research_box_empty=True, research_loader_removed=True,
+            all_temporary_network_removed=True, host_registry_unchanged=True,
+            remaining_games=[], formal_files_changed=[], host_config_files_changed=[])
+        target = self.root / 'evidence/official-validation' / path.parent.name.removeprefix('official-validation-') / 'postcheck.json'
+        self.save_json(target, report)
+        return target, report
+
+    def foreign_cleaned(self):
+        old = self.root / 'runtime/official-validation-20261117-190000/state.json'
+        self.owner['state_file'] = str(old)
+        self.save()
+        self.cleaned(old, {})
+        return self.cleaned(self.state_path, self.state)
+
+    def test_verified_failed_preparation_releases_stale_owner(self):
+        self.foreign_cleaned()
+        before = {path: path.read_bytes() for path in self.root.rglob('*.json')}
+        self.assertEqual(self.view().phase, 'idle')
+        self.assertEqual(self.view().allowed, ('prepare', 'status'))
+        self.assertEqual(before, {path: path.read_bytes() for path in self.root.rglob('*.json')})
+
+    def test_cleaned_unowned_preparation_allows_retry(self):
+        self.cleaned(self.state_path, self.state)
+        (self.root / 'runtime/ahua-practice.json').unlink()
+        self.assertEqual(self.view().phase, 'idle')
+
+    def test_foreign_cleanup_requires_complete_matching_fresh_proof(self):
+        target, report = self.foreign_cleaned()
+        variants = [dict(research_box_empty=False), dict(research_loader_removed=False),
+            dict(formal_files_changed=['changed']), dict(host_config_files_changed=['changed']),
+            dict(remaining_games=[123]), dict(all_temporary_network_removed=False),
+            dict(host_registry_unchanged=False), dict(validation_restored=False),
+            dict(validation_state=str(self.root / 'outside.json')),
+            dict(checked_at='2026-11-18T08:29:00+08:00'), dict(checked_at='2026-11-18T08:31:00')]
+        for changed in variants:
+            with self.subTest(changed=changed):
+                self.save_json(target, dict(report, **changed))
+                self.assertEqual(self.view().allowed, ('status',))
+        target.unlink()
+        self.assertEqual(self.view().phase, 'unavailable')
+
+    def test_latest_cleanup_does_not_retire_an_active_older_owner(self):
+        self.foreign_cleaned()
+        old_path = Path(self.owner['state_file'])
+        self.save_json(old_path, dict(restored=False, deadline_unix=2000))
+        self.assertEqual(self.view().phase, 'foreign')
+        self.assertEqual(self.view().allowed, ('status',))
+
+    def test_foreign_restored_flag_alone_is_not_cleanup(self):
+        self.owner['state_file'] = str(self.root / 'runtime/official-validation-20261117-190000/state.json')
+        self.state['restored'] = True
+        self.save()
+        self.assertEqual(self.view().allowed, ('status',))
+
+    def login(self, **changes):
+        path = self.root / 'runtime/auth-preparation-20261118-084641/state.json'
+        state = dict(restored=False, deadline_unix=1200)
+        state.update(changes)
+        self.save_json(path, state)
+        self.save_json(self.root / 'runtime/latest-login-preparation.json', dict(state_file=str(path)))
+        return path
+
+    def test_active_login_blocks_all_game_steps_even_without_validation_pointer(self):
+        self.login()
+        (self.root / 'runtime/latest-official-validation.json').unlink()
+        view = self.view()
+        self.assertEqual(view.phase, 'login_preparation')
+        self.assertEqual(view.allowed, ('status',))
+        self.assertIn('03:20', view.message)
+
+    def test_expired_login_does_not_imply_cleanup_or_extend_deadline(self):
+        path = self.login(deadline_unix=999)
+        before = path.read_bytes()
+        self.assertEqual(self.view().phase, 'login_cleanup')
+        self.assertEqual(self.view().allowed, ('status',))
+        self.assertEqual(path.read_bytes(), before)
+
+    def test_verified_login_cleanup_returns_to_existing_session_view(self):
+        self.login(restored=True, remaining_box_pids=[], formal_files_changed=[], host_steam_registry_unchanged=True)
+        self.assertEqual(self.view().phase, 'prepared')
+
+    def test_login_partial_or_uncertain_cleanup_fails_closed(self):
+        for changed in [dict(restored=True), dict(deadline_unix=True), dict(deadline_unix=float('nan')),
+                dict(deadline_unix=float('inf')),
+                dict(restored=True, remaining_box_pids=[], formal_files_changed=['changed'], host_steam_registry_unchanged=True)]:
+            with self.subTest(changed=changed):
+                self.login(**changed)
+                self.assertEqual(self.view().phase, 'unavailable')
+                self.assertEqual(self.view().allowed, ('status',))
+        path = self.login()
+        path.write_text('{', encoding='utf-8')
+        self.assertEqual(self.view().phase, 'unavailable')
+        self.save_json(self.root / 'runtime/latest-login-preparation.json', dict(state_file=str(self.root / 'outside.json')))
+        self.assertEqual(self.view().phase, 'unavailable')
+
     def test_partial_json_and_unexpected_paths_fail_closed(self):
         self.state_path.write_text('{', encoding='utf-8')
         self.assertEqual(self.view().allowed, ('status',))
