@@ -74,5 +74,10 @@ while #f.queue>0 do
     f.now=f.now+item.ms/1000;item.fn()
 end
 assert(f.loads==1,'post-load still requires complete new gameplay readiness before assets')
+local accepted=false
+for _,line in ipairs(f.logs)do
+    if line:find('MAP_TRAVEL_READINESS_ACCEPTED=World /New.New',1,true)then accepted=true end
+end
+assert(accepted,'generated initialization must retire the completed post-load identity fence')
 assert(f.pre_count==1 and f.post_count==1,'reassembly must not accumulate native hooks')
 print('PASS generated Arena installs hooks before readiness, cancels queued begin, waits for post and rechecks gameplay')

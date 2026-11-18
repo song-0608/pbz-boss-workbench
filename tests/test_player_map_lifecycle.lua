@@ -32,6 +32,18 @@ assert(f.resumed==0,'a new World before post is not native load completion')
 f.map:after(world(2),'')
 assert(f.resumed==1 and not f.map:suspended()and not f.map:ready(world(1))and f.map:ready(world(2)))
 stale();f.timers[2]();assert(f.mutations==1)
+assert(not pcall(f.map.accept_readiness,f.map,world(1)),
+    'readiness cannot accept a World different from the native post-load identity')
+assert(f.map.phase=='waiting'and f.map.expected,'refused readiness must preserve the pending fence')
+assert(f.map:accept_readiness(world(2))and f.map.phase=='ready'and not f.map.expected)
+assert(f.map:ready(world(3)),
+    'completed readiness must not permanently pin later ownership-driven reassembly to the old World')
+local accepted=#f.events
+assert(not f.map:accept_readiness(world(2))and #f.events==accepted,
+    'accepting an already complete readiness transaction must not repeat its event')
+f.map:before(world(2));assert(not pcall(f.map.accept_readiness,f.map,world(2)))
+f.map:after(world(3),'');assert(not f.map:ready(world(2))and f.map:ready(world(3)),
+    'the next native load must establish its own destination fence')
 
 f=fixture();f.map:before(world(1));f.map:after(world(1),'native travel cancelled')
 assert(f.map:ready(world(1))and f.resumed==1 and f.map.native_error~='',
@@ -52,6 +64,10 @@ assert(not pcall(f.map.before,f.map,world(1)))
 f.map:after(world(2),'');assert(f.map:suspended()and f.resumed==0,'cleanup failure must never authorize reassembly')
 f=fixture();f.map:before(world(1));f.expired=true
 assert(not pcall(f.map.after,f.map,world(2),''));assert(f.resumed==0 and f.map:suspended())
+f=fixture();f.map:before(world(1));f.map:after(world(2),'');f.expired=true
+assert(not pcall(f.map.accept_readiness,f.map,world(2))and f.map.phase=='waiting'and f.map.expected,
+    'expired leases cannot complete pending readiness')
+f=fixture();assert(not pcall(f.map.accept_readiness,f.map,nil),'missing gameplay World cannot complete readiness')
 
 f=fixture();local pre,post
 local g={RegisterLoadMapPreHook=function(fn)pre=fn end,RegisterLoadMapPostHook=function(fn)post=fn end}

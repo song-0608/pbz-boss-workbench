@@ -52,6 +52,19 @@ function Map:ready(world)
     end
     return true
 end
+function Map:accept_readiness(world)
+    -- The post-load identity fences only this readiness transaction. Keeping it
+    -- forever would reject a later ownership-driven World change which does not
+    -- invoke LoadMap (the idle watcher still performs its own cleanup first).
+    self.api.attest()
+    assert(not self:suspended(),'native map transaction still suspended')
+    local actual=reference(self.api.reference(world))
+    assert(actual and self:ready(world),'native post-load World not ready')
+    if self.phase~='waiting'then return false end
+    self.phase='ready';self.expected=nil
+    self.api.log('MAP_TRAVEL_READINESS_ACCEPTED',actual.name)
+    return true
+end
 function Map.attach(g,api)
     assert(type(g.RegisterLoadMapPreHook)=='function'and type(g.RegisterLoadMapPostHook)=='function',
         'current loader requires native LoadMap pre and post hooks')

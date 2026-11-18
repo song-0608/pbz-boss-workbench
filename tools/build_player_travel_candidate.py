@@ -19,7 +19,8 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tools/player_map_lifecycle.lua', 'tools/player_map_lifecycle_binding.lua', 'tests/test_player_map_lifecycle.lua',
            'tests/test_player_map_initialization.lua', 'tests/test_player_target_diagnostics.lua',
            'tools/player_controller_owner.lua', 'tests/test_player_controller_owner.lua',
-           'tools/inspect_player_controller_contract.py')
+           'tools/inspect_player_controller_contract.py', 'tools/check_player_travel_repair.py',
+           'tests/test_player_source_checks.py')
 
 
 def payload(root=ROOT):
@@ -276,7 +277,8 @@ def payload(root=ROOT):
            '        if experiment_player_entry then\n'
            "            assert(not map_lifecycle:suspended()and map_lifecycle:ready(player:GetWorld()),'native map transaction still pending')\n"
            "            assembly_calls=require('ue_calls').new({find_exact=StaticFindObject,usable=valid})\n"
-           '            assembly_world=assembly_calls:world(pc)\n        end\n')
+           '            assembly_world=assembly_calls:world(pc)\n'
+           '            map_lifecycle:accept_readiness(player:GetWorld())\n        end\n')
     change('owned_arena.lua', 'wait_for_player=function()\n',
            'wait_for_player=function()\n'
            '    if experiment_player_entry and map_lifecycle:suspended()then return end\n')
