@@ -14,7 +14,7 @@ from mod_installation import unlinked_path
 from stage_boss_subtrees import location, lines_for
 
 
-def replay(session, batch, root=ROOT):
+def replay(session, batch, root=ROOT, *, allow_complete=False):
     root = unlinked_path(root)
     assert re.fullmatch(r'\d{8}-\d{6}', session)
     work = unlinked_path(root / 'evidence/official-validation' / session)
@@ -58,9 +58,17 @@ def replay(session, batch, root=ROOT):
     assert hashlib.sha256(raw[:offset]).hexdigest() == staged['log_prefix_sha256']
     progress = subtrees.analyze(lines_for(raw[offset:].decode('utf-8', errors='strict'), fingerprint),
                                 manifest, allow_incomplete=True)
-    assert not progress['batch_complete'], 'complete queries use the ordinary capture/collect workflow'
+    captured_path = location(work, manifest, 'capture.json')
+    if progress['batch_complete']:
+        assert allow_complete, 'complete queries use the ordinary capture/collect workflow'
+        lines = lines_for(raw[offset:].decode('utf-8', errors='strict'), fingerprint)
+        assert read(captured_path) == dict(state_file=str(state), research_pid=staged['research_pid'],
+            batch=fingerprint, script_sha256=manifest['script_sha256'], metadata_only=True,
+            playable=False, execution_order_proven=False, lines=lines, outcomes=progress['outcomes'])
     for path in (state, post, manifest_path, staged_path, intent_path, archived_manifest, script, log):
         sources[path.relative_to(root).as_posix()] = sha(path)
+    if progress['batch_complete']:
+        sources[captured_path.relative_to(root).as_posix()] = sha(captured_path)
     report = dict(schema=1, session=session, batch=fingerprint, **progress, metadata_only=True,
         native_grant_verified=False, activation_verified=False, playable=False,
         execution_order_proven=False, runtime_acceptance_current=False, sources=sources,
@@ -68,6 +76,29 @@ def replay(session, batch, root=ROOT):
             'tools/collect_boss_subtree_progress.py', 'tools/boss_subtree_inventory.py',
             'tools/stage_boss_subtrees.py', 'tests/test_boss_subtree_progress.py')})
     return report
+
+
+def history(root=ROOT):
+    """Replay each closed attempt, including complete batches, without changing receipts."""
+    results = []
+    for staged_path in sorted((root / 'evidence/official-validation').glob('*/boss-subtree-query-*-staged.json')):
+        session = staged_path.parent.name
+        assert re.fullmatch(r'\d{8}-\d{6}', session)
+        state = root / ('runtime/official-validation-' + session) / 'state.json'
+        post = staged_path.parent / 'postcheck.json'
+        if not post.exists():
+            continue  # A running attempt is not closed history or a reusable result.
+        assert closed(state, post, staged_path.parent), 'preserve failed cleanup history'
+        fingerprint = read(staged_path)['batch']
+        results.append(replay(session, root / subtrees.OUTPUT / fingerprint, root, allow_complete=True))
+    return results
+
+
+def unstarted_keys(progress, prior):
+    """Do not repeat any begun query, including rejections and interrupted queries."""
+    attempted = {row['key'] for report in prior for row in report['outcomes']}
+    attempted.update(report['interrupted_job'] for report in prior if report['interrupted_job'])
+    return [key for key in progress['unstarted_job_keys'] if key not in attempted]
 
 
 def collect(session, batch, root=ROOT):

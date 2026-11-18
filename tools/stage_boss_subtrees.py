@@ -118,6 +118,7 @@ def capture(batch):
 
 
 def collect(batch, session, root=ROOT):
+    root, batch = unlinked_path(root), unlinked_path(batch)
     assert re.fullmatch(r'\d{8}-\d{6}', session)
     manifest, script = subtrees.verify(batch, root)
     state_path = unlinked_path(root / ('runtime/official-validation-' + session + '/state.json'))

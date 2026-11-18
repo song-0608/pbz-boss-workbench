@@ -167,7 +167,7 @@ class SubtreeTests(unittest.TestCase):
         return manifest, script, batch, work, state_path, carrier, log, state, practice, validation, lines
 
     def test_stage_gate_capture_and_closed_replay_are_input_free(self):
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=subtree.ROOT / 'runtime') as directory:
             root = Path(directory).resolve()
             m, raw, batch, work, state_path, carrier, log, state, practice, validation, lines = self.fake_stage(root)
             with patch.object(subtree, 'verify', return_value=(m, raw)), \
@@ -189,7 +189,7 @@ class SubtreeTests(unittest.TestCase):
                     research_loader_removed=True, host_registry_unchanged=True,
                     formal_files_changed=[], host_config_files_changed=[])
                 (work / 'postcheck.json').write_text(json.dumps(post), encoding='utf-8')
-                result = stage.collect(batch, '20261119-000000', root)
+                result = stage.collect(batch.relative_to(subtree.ROOT), '20261119-000000', root)
                 self.assertFalse(result['playable']); self.assertEqual(result['mappings'], 1)
                 captured = stage.location(work, m, 'capture.json')
                 value = json.loads(captured.read_bytes()); value['outcomes'][0]['playable'] = True

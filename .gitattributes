@@ -520,3 +520,5 @@ tools/boss_combat_candidate_policy.py -text whitespace=cr-at-eol
 evidence/adaptation/boss-background-milestone-efca2b765425dd6a-1795024712715904800.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-background-delta-90e54f9880f035e6.json -text whitespace=cr-at-eol
 evidence/adaptation/subtree-observations-20261119-014731.json -text whitespace=cr-at-eol
+evidence/adaptation/subtree-observations-20261119-021103.json -text whitespace=cr-at-eol
+evidence/adaptation/boss-background-delta-3a6c8f71bd8870ee.json -text whitespace=cr-at-eol

@@ -57,7 +57,14 @@ class SubtreeProgressTests(unittest.TestCase):
         row, = subtree.analyze(lines, manifest)
         self.assertTrue(row['mapping_observed']); self.assertFalse(row['activation_verified'])
 
-    def closed_fixture(self, root):
+    def test_continuation_skips_complete_rejected_and_interrupted_history_without_reordering(self):
+        progress = dict(unstarted_job_keys=list('abcdef'))
+        prior = [dict(outcomes=[dict(key='b', mapping_observed=True), dict(key='d', mapping_observed=False)],
+                      interrupted_job='e')]
+        self.assertEqual(collector.unstarted_keys(progress, prior), list('acf'))
+        self.assertEqual(progress['unstarted_job_keys'], list('abcdef'))
+
+    def closed_fixture(self, root, *, complete=False):
         _, manifest, lines = fixtures.SubtreeTests().fixture()
         second = dict(manifest['jobs'][0], key='c' * 20)
         manifest['jobs'].append(second)
@@ -70,6 +77,9 @@ class SubtreeProgressTests(unittest.TestCase):
                         activation_allowed=False, execution_order_proven=False)
         lines = [line.replace('b' * 20, key) for line in lines]
         segment = lines[:-1] + [subtree.PREFIX + 'JOB_BEGIN=' + second['key'] + '|fixture|' + second['path']]
+        if complete:
+            first_key = manifest['jobs'][0]['key']
+            segment = lines[:-1] + [line.replace(first_key, second['key']) for line in lines[1:-1]] + [lines[-1]]
         work = root / 'evidence/official-validation/20261119-000000'; work.mkdir(parents=True)
         state = root / 'runtime/official-validation-20261119-000000/state.json'; state.parent.mkdir(parents=True)
         state.write_text(json.dumps(dict(restored=True, work=str(work))), encoding='utf-8')
@@ -82,12 +92,17 @@ class SubtreeProgressTests(unittest.TestCase):
         location(work, manifest, 'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
         location(work, manifest, 'probe.lua').write_bytes(b'-- frozen fixture')
         prefix = b'prefix\n'
-        staged = dict(state_file=str(state), batch=key, metadata_only=True, ui_input_sent=False,
+        staged = dict(state_file=str(state), batch=key, research_pid=77, metadata_only=True, ui_input_sent=False,
             manifest_sha256=collector.sha(batch / 'manifest.json'), script_sha256=manifest['script_sha256'],
             log_byte_offset=len(prefix), log_prefix_sha256=hashlib.sha256(prefix).hexdigest())
         for suffix in ('intent.json', 'staged.json'):
             location(work, manifest, suffix).write_text(json.dumps(staged), encoding='utf-8')
         (work / 'UE4SS.log').write_bytes(prefix + ('\n'.join(segment) + '\n').encode())
+        if complete:
+            captured = dict(state_file=str(state), research_pid=77, batch=key,
+                script_sha256=manifest['script_sha256'], metadata_only=True, playable=False,
+                execution_order_proven=False, lines=segment, outcomes=subtree.analyze(segment, manifest))
+            location(work, manifest, 'capture.json').write_text(json.dumps(captured), encoding='utf-8')
         for name in source_map:
             path = work / 'subtree-source-snapshot' / name; path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(('fixture ' + name).encode())
@@ -95,6 +110,19 @@ class SubtreeProgressTests(unittest.TestCase):
                      'tools/stage_boss_subtrees.py', 'tests/test_boss_subtree_progress.py'):
             path = root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(b'current audit fixture')
         return work, batch
+
+    def test_complete_history_requires_exact_capture_without_creating_partial_audit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve(); work, batch = self.closed_fixture(root, complete=True)
+            with self.assertRaises(AssertionError): collector.replay('20261119-000000', batch, root)
+            report = collector.replay('20261119-000000', batch, root, allow_complete=True)
+            self.assertTrue(report['batch_complete']); self.assertEqual(len(report['outcomes']), 2)
+            self.assertEqual(collector.history(root), [report])
+            self.assertFalse((work / 'subtree-interrupted-progress.json').exists())
+            manifest = json.loads((batch / 'manifest.json').read_bytes())
+            path = location(work, manifest, 'capture.json'); value = json.loads(path.read_bytes())
+            value['playable'] = True; path.write_text(json.dumps(value), encoding='utf-8')
+            with self.assertRaises(AssertionError): collector.history(root)
 
     def test_closed_replay_requires_original_sources_prefix_script_and_postcheck(self):
         for mutation in ('none', 'source', 'prefix', 'script', 'postcheck'):

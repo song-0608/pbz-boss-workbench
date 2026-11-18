@@ -212,10 +212,10 @@ if __name__ == '__main__':
     assert 1 <= args.limit <= 64, 'bounded continuation contains 1 to 64 jobs'
     keys = None
     if args.session:
-        from collect_boss_subtree_progress import replay
+        from collect_boss_subtree_progress import history, replay, unstarted_keys
         progress = replay(args.session, args.previous_batch)
         assert not progress['batch_complete'], 'complete batches use the normal collection workflow'
-        keys = progress['unstarted_job_keys'][:args.limit]
+        keys = unstarted_keys(progress, history())[:args.limit]
         assert keys, 'no unstarted jobs; rejected and interrupted jobs require separate review'
     directory, manifest = build(job_keys=keys)
     print(json.dumps(dict(directory=str(directory), queries=len(manifest['jobs']), game_started=False,
