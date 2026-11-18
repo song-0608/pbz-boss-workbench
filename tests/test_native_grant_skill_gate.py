@@ -9,6 +9,20 @@ from tests.test_boss_skill_repeat_audit import entry, cast, restore
 
 
 class SkillGateTests(unittest.TestCase):
+    def test_new_work_cannot_consume_the_existing_restoration_reserve(self):
+        receipt, state = dict(grant_expires_at=1000), dict(deadline_unix=2000)
+        for purpose, reserve in (('enter', 120), ('cast', 90), ('exit', 30)):
+            with self.subTest(purpose=purpose):
+                self.assertEqual(gate.remaining_budget(receipt, state, purpose, 999-reserve), (reserve, reserve+1))
+                with self.assertRaises(AssertionError): gate.remaining_budget(receipt, state, purpose, 1000-reserve)
+        # The observed late-cast case: still enough for F10, insufficient to
+        # start another skill and subsequently pass a new F10 validation.
+        with self.assertRaises(AssertionError): gate.remaining_budget(receipt, state, 'cast', 950)
+        self.assertEqual(gate.remaining_budget(receipt, state, 'exit', 950), (30, 50))
+        # The session's independent cleanup deadline can be the shorter bound.
+        with self.assertRaises(AssertionError):
+            gate.remaining_budget(receipt, dict(deadline_unix=1100), 'cast', 900)
+
     def fixture(self):
         manifest = {'id': '071_xianzhe'}
         state = {'state_file': str(Path('official-validation-20261118-220000/state.json'))}

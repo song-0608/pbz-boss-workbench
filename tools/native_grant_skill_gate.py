@@ -11,6 +11,16 @@ from player_target_readiness import latest_target_status
 import native_grant_ui_stage as flow
 
 
+def remaining_budget(receipt, state, purpose, now):
+    # Keep the existing exit reserve. New work also needs the ten-second key
+    # window, the developer module's 30-second skill timeout and another fresh
+    # validation before restoration. A late cast must not consume that reserve.
+    reserve = {'enter': 120, 'cast': 90, 'exit': 30}[purpose]
+    remaining = min(receipt['grant_expires_at'], state['deadline_unix'] - 120) - now
+    assert remaining > reserve, 'reserve time for action and restoration'
+    return reserve, remaining
+
+
 def choose_action(tail, manifest, capture, definition, state, purpose, skill, now):
     assert purpose in ('enter', 'cast', 'exit')
     assert capture['id'] == manifest['id'] and capture['state_file'] == state['state_file']
@@ -62,14 +72,15 @@ def gate(workflow, purpose, skill=None):
     capture = dict(capture, workflow=str(workflow.resolve()))
     definition = flow.bundle.read(Path(manifest['bundle']) / 'manifest.json')['definition']
     now = time.time()
-    assert now + 30 < min(receipt['grant_expires_at'], state['deadline_unix'] - 120), 'reserve time for restoration'
+    remaining_budget(receipt, state, purpose, now)
     action = choose_action(tail, manifest, capture, definition, state, purpose, skill, now)
     hwnd = flow.foreground_window(validation, receipt['research_pid'])
     issued = time.time()
-    assert issued + 30 < min(receipt['grant_expires_at'], state['deadline_unix'] - 120)
+    reserve, remaining = remaining_budget(receipt, state, purpose, issued)
     result = dict(action, window_id=hwnd, research_pid=receipt['research_pid'],
         state_file=state['state_file'], gate_expires_at=issued + 10, input_sent=False,
         workflow_manifest_sha256=receipt['workflow_manifest_sha256'], capture_sha256=sha(capture_path),
+        action_and_restore_reserve_seconds=reserve, remaining_seconds_at_issue=remaining,
         observed_log_tail_sha256=__import__('hashlib').sha256(tail.encode()).hexdigest())
     write_json(work / ('native-grant-skill-gate-' + str(time.time_ns()) + '.json'), result)
     return result

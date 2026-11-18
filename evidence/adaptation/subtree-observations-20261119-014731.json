@@ -1,0 +1,676 @@
+{
+  "schema": 1,
+  "kind": "interrupted_boss_subtree_observations",
+  "session": "20261119-014731",
+  "batch": "8679b3c521dcdc7cb2ce",
+  "queries": 144,
+  "complete_jobs": 15,
+  "successful_mappings": 10,
+  "rejected_jobs": 5,
+  "interrupted_job": "510f9638f49b683d448f",
+  "unstarted_jobs": 128,
+  "unstarted_job_keys": [
+    "34158a04d6ce4b08910c",
+    "9498387d442510f2e555",
+    "f7ca15c8522f1fc563f8",
+    "47e7e7693f85777cd46c",
+    "5bfbcdfae2d5e6e5dfc2",
+    "88e05ef6184a4774f58d",
+    "9aac79851ceac87da800",
+    "23c108017e38d7a17ef3",
+    "6acb71e00d2f2da1fe60",
+    "3dd558dd51586b5ec22a",
+    "45bf0cfab0018644b907",
+    "159b97f8808f4de681c8",
+    "4650b068b166aefd72f0",
+    "a4659317f8e18f9a940c",
+    "912753439a20a46678b7",
+    "789ea8187b922d9f5d41",
+    "c1bd201aaa3ab832ad51",
+    "63c9569e158dfcc4124f",
+    "965cfe2064abdff95596",
+    "377a334de0c13ad39c9e",
+    "e7174b9da478163ab6c7",
+    "d5f2b4894f9db03190ca",
+    "cd0b6dffe33e63a8924c",
+    "17d028c0e84ec8fc25f6",
+    "2066d27d179f809aaef8",
+    "01dc2ce4358acf4849c9",
+    "614f0cf2af64f76484c9",
+    "81e94a1fd6d12bef5625",
+    "7a805440396efd5796e8",
+    "598af02095e3e4a2eb0a",
+    "cbe3fca374b317c86a72",
+    "042c2a62d3e22159018c",
+    "b113c0253eadef473af3",
+    "f4d1be26f356040b1230",
+    "90db6fa88b2697b8358d",
+    "ff118948f2193d2a38be",
+    "71f5a7b30be76307a8e3",
+    "c5ca007988b8a3c7980d",
+    "e7be7a64eb8235c1116d",
+    "1976f3fa6d14b2863bc6",
+    "4c457041cb54bb6948a5",
+    "bc07cac097f3830c7e57",
+    "1115424648d7a8d94756",
+    "f25eff089ff70e8cadc3",
+    "956a97590c0e13e5f0d8",
+    "580778bfbf47872ef74a",
+    "93aac7e97fe80c29a5df",
+    "54f726d0eaf2caea3aa7",
+    "5dd3f634b68dace44d72",
+    "f03fd01427e8076221aa",
+    "9bb7c042a42e62b2d959",
+    "3f56959a0adea9110030",
+    "499974bb7a40dd9d7335",
+    "fdcf63f89b354a0460f5",
+    "adee2035c2cf38d77a43",
+    "43b51ac813766dc36135",
+    "b6741da97bdb9840fde7",
+    "a82f5444f1b83bd5623d",
+    "eec0e7e4ddd7802e67cc",
+    "9064787d05560db2dae6",
+    "c99c39e5979bfef55024",
+    "738e126b0464f0702430",
+    "86dbb28cdf4eb5947d62",
+    "852a9d94f98ed7da4891",
+    "40af11643092663a141c",
+    "0a0502463b0d67e90442",
+    "256ea44c872e48281fb7",
+    "c997078746ea233910ff",
+    "8501c23214825e4de29b",
+    "4ecea61939aaf42e2b5b",
+    "2ab565917f3358d7e86c",
+    "a98aa1e85af43100ac6c",
+    "b0b77db4797da57a3725",
+    "e100937cb8ea7dfb7697",
+    "78942b2e6e4f55f09822",
+    "eb5112e3abcc3a7d1b64",
+    "26cbd9ec085c5a6003ed",
+    "f837ce16c7df4974bf3a",
+    "01f903d002b98cc17609",
+    "9c86e04b1828ccb1035b",
+    "856eb94d83e9f7262ffb",
+    "a46ca64bfbe2283b52d6",
+    "c305d8c1a25a020ac032",
+    "e100f2f67e7a9b3db317",
+    "b8bc5113dd50a060299f",
+    "cccc290536d12604a3ad",
+    "1590b42a412ad54fac62",
+    "a3facf96bd7ff936ac8a",
+    "6b9e91ed0a525c8c3e2f",
+    "f75d2db1b79e43370913",
+    "5acc65515647331c4b41",
+    "e6055f4fdb945bf7c28f",
+    "c06f656c820c4629f187",
+    "92557ad8e0ab9b6b7f32",
+    "fb7bbe6d92937303f697",
+    "a4849cd4b096fa99dd5e",
+    "c379397f2aa2c030d58b",
+    "2523cc76149304c41ca0",
+    "4c1f8bbc43c2698bc986",
+    "0327343e73bcf134dce8",
+    "71e2512e413d062dbb9f",
+    "9ae1607c0c95f3277b95",
+    "1e9b53de954d3a586746",
+    "7844b23562e58ddecd05",
+    "42eebf4259341645f577",
+    "dda109731fc1613e2663",
+    "534df22419ab33ca15df",
+    "f221a048809c7faea871",
+    "8e86a5027994bdee2480",
+    "6949d647c76a913ed16c",
+    "008107061c0acb77ec12",
+    "01b59e17bb37a06aee31",
+    "a0dc100cbffe4ba86206",
+    "d77b226e12d3860eb3c2",
+    "e2e09851fa84a1f1620f",
+    "2a5993ee031d5bc93bcf",
+    "8ee54daceac259810eab",
+    "480349b81013cc95e34b",
+    "24bc961bde7e0b9da665",
+    "11dc6e4716cfdcbe70eb",
+    "bdebeeebabbd6c0d8c01",
+    "3dbd49851a414640e20f",
+    "35cc8b6421fdc1b68c63",
+    "0957ed4d98ad6a295fc1",
+    "821df0520572f007fea6",
+    "05908cd69b627767782b",
+    "3ce941af3f2235c435b4",
+    "464d71bc7c1f9eef24de"
+  ],
+  "batch_complete": false,
+  "observed_event_counts": {
+    "EDGE": 265,
+    "JOB_BEGIN": 16,
+    "JOB_END": 10,
+    "NODE": 292,
+    "REF": 702,
+    "REJECTED": 5,
+    "START": 1,
+    "TREE": 27,
+    "TREE_END": 23
+  },
+  "retained_graphs": {
+    "trees": 22,
+    "nodes": 217,
+    "edges": 195,
+    "references": 528,
+    "distinct_referenced_abilities": 81
+  },
+  "discarded_interrupted_job_trees": 1,
+  "outcomes": [
+    {
+      "key": "bf6e2458440f8a8ac015",
+      "id": "057_wanjun",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_NightMareCombo.GA_WanJun_NightMareCombo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false,
+      "rejection_category": "property_name_guard",
+      "raw_rejection_sha256": "6b79c3cb17dd193052d7d70e0e92573f95c9db69f603350bf1dfcf18d4b3b896",
+      "discarded_tree_count": 2
+    },
+    {
+      "key": "f982e4558698454ecaf2",
+      "id": "057_wanjun",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_08.GA_WanJun_Skill_08_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false,
+      "rejection_category": "unavailable_native_map",
+      "raw_rejection_sha256": "058c21eac8567e53b1ee00f751af45052083d6c4217c8468a9e41343bb956484",
+      "discarded_tree_count": 0
+    },
+    {
+      "key": "bf51a34f78188a895ed9",
+      "id": "057_wanjun",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/057_WanJun/Ability/JinGua/Abilities/GA_WanJun_Skill_09.GA_WanJun_Skill_09_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false,
+      "rejection_category": "unavailable_native_map",
+      "raw_rejection_sha256": "058c21eac8567e53b1ee00f751af45052083d6c4217c8468a9e41343bb956484",
+      "discarded_tree_count": 0
+    },
+    {
+      "key": "afc16587e57e7dd93b2b",
+      "id": "044_pengmeng",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_AutoCombo_Normal.GA_PengMeng_AutoCombo_Normal_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_02.BT_PengMeng_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 21,
+          "edges": 20,
+          "references": 51
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_03.BT_PengMeng_AutoCombo_03",
+          "weight": 130.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 17
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_Solo.BT_PengMeng_AutoCombo_Solo",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 6
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_AutoCombo_04.BT_PengMeng_AutoCombo_04",
+          "weight": 130.0,
+          "nodes": 12,
+          "edges": 11,
+          "references": 30
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/CA/GA_PengMeng_CA_01_GEx.GA_PengMeng_CA_01_GEx_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/CA/GA_PengMeng_CA_02_GEx.GA_PengMeng_CA_02_GEx_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_01_F.GA_PengMeng_Skill_01_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_02.GA_PengMeng_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_03.GA_PengMeng_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_05.GA_PengMeng_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_06_Child.GA_PengMeng_Skill_06_Child_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_07.GA_PengMeng_Skill_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_09.GA_PengMeng_Skill_09_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_10.GA_PengMeng_Skill_10_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_03_fast.GA_PengMeng_Special_03_fast_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_05.GA_PengMeng_Special_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_06_fast.GA_PengMeng_Special_06_fast_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_09.GA_PengMeng_Special_09_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "a730db66aa37946747d4",
+      "id": "044_pengmeng",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special05_Combo.GA_PengMeng_Special05_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/BehaviorTree/Axe/Tactic/AutoCombo/BT_PengMeng_Special_05_Combo.BT_PengMeng_Special_05_Combo",
+          "weight": 100.0,
+          "nodes": 12,
+          "edges": 11,
+          "references": 27
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_05.GA_PengMeng_Special_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_A.GA_PengMeng_Special_12_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_B_LeftAttack.GA_PengMeng_Special_12_B_LeftAttack_C",
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_B_RightAttack.GA_PengMeng_Special_12_B_RightAttack_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "9272ba3cfcb06db3e19e",
+      "id": "056_youlong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01.GA_YouLong_CACombo_01_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BehaviorTree/AutoCombo/BT_YouLong_CACombo_01.BT_YouLong_CACombo_01",
+          "weight": 100.0,
+          "nodes": 9,
+          "edges": 8,
+          "references": 23
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CA_01.GA_YouLong_CA_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_02.GA_YouLong_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03.GA_YouLong_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01_Normal.GA_YouLong_SpecialAttack_01_Normal_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_02_01.GA_YouLong_SpecialAttack_02_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_03.GA_YouLong_SpecialAttack_03_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "e1e8dd5fdef65e646da5",
+      "id": "056_youlong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CACombo_01_Mad.GA_YouLong_CACombo_01_Mad_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/BehaviorTree/AutoCombo/BT_YouLong_CACombo_01_Mad.BT_YouLong_CACombo_01_Mad",
+          "weight": 100.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 33
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/Dao/GA_AquaKiller_Special_02.GA_AquaKiller_Special_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/AquaKiller/YuCha/GA_AquaKiller_Skill_03.GA_AquaKiller_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_CA_01_Mad.GA_YouLong_CA_01_Mad_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_02_Hard.GA_YouLong_Skill_02_Hard_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_03.GA_YouLong_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Skill_05_B.GA_YouLong_Skill_05_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_01.GA_YouLong_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_SpecialAttack_03.GA_YouLong_SpecialAttack_03_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "947bedd7387019c8a1f0",
+      "id": "056_youlong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/056_YouLong/Ability/Abilities/GA_YouLong_Drive.GA_YouLong_Drive_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false,
+      "rejection_category": "property_name_guard",
+      "raw_rejection_sha256": "607b3f03c81cf764602d869ff6cac45d896ec525626a84db71b4236788fa0718",
+      "discarded_tree_count": 1
+    },
+    {
+      "key": "de822bae6b1cc564a07b",
+      "id": "042_ahua",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_PunishCounter_01.GA_AHua_PunishCounter_01_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_PunishCounter_01.BT_AHua_PunishCounter_01",
+          "weight": 100.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 26
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/042_AHua/BehaviorTree/GuiTouDao/BT_AHua_PunishCounter_02.BT_AHua_PunishCounter_02",
+          "weight": 100.0,
+          "nodes": 11,
+          "edges": 10,
+          "references": 28
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Skill_03.GA_AHua_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Special_03.GA_AHua_Special_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/GA_AHua_Special_08.GA_AHua_Special_08_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/Grab/GA_AHua_CA_01_GEx_Trap.GA_AHua_CA_01_GEx_Trap_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05.GA_AHua_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_05_Hard.GA_AHua_Skill_05_Hard_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_06.GA_AHua_Skill_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_06_Hard.GA_AHua_Skill_06_Hard_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_07.GA_AHua_Skill_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Skill_07_Hard.GA_AHua_Skill_07_Hard_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_SpecialAttack_12.GA_AHua_SpecialAttack_12_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_SpecialAttack_13.GA_AHua_SpecialAttack_13_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_SpecialAttack_14.GA_AHua_SpecialAttack_14_C",
+        "/PBZCombatAsset/ActorData/Mobs/042_AHua/Ability/GuiTouDao/Abilities/New/GA_AHua_Teleport_Right.GA_AHua_Teleport_Right_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "85c5105a751321e7f994",
+      "id": "000_hun",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/000_Hun/Ability/GA_Hun_Summon_InitCombo.GA_Hun_Summon_InitCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/000_Hun/BehaviorTree/BT_Hun_Summon_InitCombo.BT_Hun_Summon_InitCombo",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 11
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/000_Hun/Ability/GA_Hun_Summon_Clone.GA_Hun_Summon_Clone_C",
+        "/PBZCombatAsset/ActorData/Players/Hun/Abilities/DoubleBalde/Default/GA_Hun_Double_A_Snap.GA_Hun_Double_A_Snap_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "1ec56a1be76a80126190",
+      "id": "003_malethug",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_ComboGroups.GA_MaleThug_Axe_ComboGroups_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo_5Hit.BT_MaleThug_Axe_Combo_5Hit",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 6
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo4.BT_MaleThug_Axe_Combo4",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 15
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo1.BT_MaleThug_Axe_Combo1",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 12
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo2.BT_MaleThug_Axe_Combo2",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 12
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/BehaviorTree/Weapon_Axe/Combo/BT_MaleThug_Axe_Combo5.BT_MaleThug_Axe_Combo5",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 12
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_HeavyAttack_01.GA_MaleThug_Axe_HeavyAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_RangeAttack_01.GA_MaleThug_Axe_RangeAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_RangeAttack_02.GA_MaleThug_Axe_RangeAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_Skill_02.GA_MaleThug_Axe_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_Skill_03.GA_MaleThug_Axe_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_Skill_05.GA_MaleThug_Axe_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_SpecialAttack_01.GA_MaleThug_Axe_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/003_MaleThug/Ability/Weapon_Axe/Abilities/GA_MaleThug_Axe_SpecialAttack_03.GA_MaleThug_Axe_SpecialAttack_03_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "73dbcd8a8d50d440989f",
+      "id": "005_moddog",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/005_ModDog/Abilities/Golden_Dog/Abilitie/GA_Golden_Dog_AutoCombo_01.GA_Golden_Dog_AutoCombo_01_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false,
+      "rejection_category": "property_name_guard",
+      "raw_rejection_sha256": "6b79c3cb17dd193052d7d70e0e92573f95c9db69f603350bf1dfcf18d4b3b896",
+      "discarded_tree_count": 1
+    },
+    {
+      "key": "12172e4e282c9badc0c3",
+      "id": "006_goldmaskman",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_AutoCombo.GA_GoldMaskMan_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_AutoCombo_01.BT_GoldMaskMan_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 10
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_AutoCombo_02.BT_GoldMaskMan_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 10
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_AutoCombo_03.BT_GoldMaskMan_AutoCombo_03",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 7
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/AI/BT_GoldMaskMan_AutoCombo_04.BT_GoldMaskMan_AutoCombo_04",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 10
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_MidAttack_01.GA_GoldMaskMan_MidAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_01.GA_GoldMaskMan_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_02.GA_GoldMaskMan_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_05.GA_GoldMaskMan_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_06.GA_GoldMaskMan_Skill_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_07.GA_GoldMaskMan_Skill_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_10.GA_GoldMaskMan_Skill_10_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_12.GA_GoldMaskMan_Skill_12_C",
+        "/PBZCombatAsset/ActorData/Mobs/006_GoldMaskMan/Abilities/GA_GoldMaskMan_Skill_13.GA_GoldMaskMan_Skill_13_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "04bd92f338b24ce38107",
+      "id": "008_greatblademan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_AutoCombo.GA_GreatBladeMan_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/BehaviorTree/BT_BladeMan_AutoCombo_01.BT_BladeMan_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 25,
+          "edges": 24,
+          "references": 60
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/BehaviorTree/BT_BladeMan_AutoCombo_02.BT_BladeMan_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 31,
+          "edges": 30,
+          "references": 75
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_CA_01_Gex_Normal.GA_GreatBladeMan_CA_01_Gex_Normal_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_DodgeAttack_B_01.GA_GreatBladeMan_DodgeAttack_B_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_DodgeAttack_B_02.GA_GreatBladeMan_DodgeAttack_B_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_DodgeAttack_L_01.GA_GreatBladeMan_DodgeAttack_L_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_DodgeAttack_R_01.GA_GreatBladeMan_DodgeAttack_R_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_HeavyAttack_02.GA_GreatBladeMan_HeavyAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_HeavyAttack_03.GA_GreatBladeMan_HeavyAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_HeavyAttack_04.GA_GreatBladeMan_HeavyAttack_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_SpecialAttack_01.GA_GreatBladeMan_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_SpecialAttack_02.GA_GreatBladeMan_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_SpecialAttack_03.GA_GreatBladeMan_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_Skill_02.GA_GreatBladeMan_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_Skill_02_Charge.GA_GreatBladeMan_Skill_02_Charge_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_SpecialAttack_01.GA_GreatBladeMan_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_SpecialAttack_04.GA_GreatBladeMan_SpecialAttack_04_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    },
+    {
+      "key": "de80378db81459dff9e7",
+      "id": "008_greatblademan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_Juhe_CA_Hard.GA_GreatBladeMan_Juhe_CA_Hard_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/BehaviorTree/combo/BT_GreatBladeMan_Juhe_Ca_Hard.BT_GreatBladeMan_Juhe_Ca_Hard",
+          "weight": 100.0,
+          "nodes": 19,
+          "edges": 18,
+          "references": 47
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_CA_01_Gex_Normal.GA_GreatBladeMan_CA_01_Gex_Normal_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_HeavyAttack_02.GA_GreatBladeMan_HeavyAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/GA_GreatBladeMan_SpecialAttack_03.GA_GreatBladeMan_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_LightAttack_01_ForCa.GA_GreatBladeMan_LightAttack_01_ForCa_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_LightAttack_02_ForCa.GA_GreatBladeMan_LightAttack_02_ForCa_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_Skill_01_0_CA.GA_GreatBladeMan_Skill_01_0_CA_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_Skill_02_Charge.GA_GreatBladeMan_Skill_02_Charge_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_SpecialAttack_01.GA_GreatBladeMan_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/008_GreatBladeMan/Ability/Abilities/NewUsing/GA_GreatBladeMan_SpecialAttack_07_ForCa.GA_GreatBladeMan_SpecialAttack_07_ForCa_C"
+      ],
+      "metadata_only": true,
+      "playable": false,
+      "native_grant_verified": false,
+      "activation_verified": false,
+      "execution_order_proven": false
+    }
+  ],
+  "crash": {
+    "exception_code": "0xc0000005",
+    "module_location": "UE4SS.dll+0xb7a69d",
+    "dump_sha256": "b94fee1b6c34bee8fe2c7b7d3a76c7d335f05a4bf948ab2b75763532c5591f08",
+    "root_cause_identified": false
+  },
+  "isolation_postcheck": {
+    "research_box_empty": true,
+    "research_loader_removed": true,
+    "formal_files_changed": [],
+    "host_config_files_changed": [],
+    "host_registry_unchanged": true
+  },
+  "private_evidence_sha256": {
+    "subtree-interrupted-progress.json": "e3a4a9599b7ff8df51fe8536f92e3f1bc200282624ae2337240cc59568f1420c",
+    "subtree-crash-structured-summary.json": "728e89a676bd89c0f137917f2ba28789b1a67cf7b6b169024fedf993c006344b",
+    "postcheck.json": "c8bd5d373c8d41275d174170878772f5c171dddf9b841e7a110c08750821d687"
+  },
+  "probe_source_sha256": {
+    "tools/boss_subtree_inventory.py": "5750f2d45fb96426edc0c509e063ff1620c475b1ac001293c09fcb0bdcfc7c52",
+    "tools/boss_subtree_probe.lua": "bfc023e83578fce6b49f67a4ecf49f9ebed86c65755608013cf288b170355a29",
+    "tools/stage_boss_subtrees.py": "a986af784f37bc4eee69d58b6af43e59913966fb62111fc494695da6afbb94d2",
+    "tests/test_boss_subtree_inventory.py": "0016f37989be47ba384ff5ccf066f7d9aed8718cdcb92095b6686ed46d0ed05e",
+    "tests/test_boss_subtree_probe.lua": "85630ad3641ba632943905357a6ec639aa53dc7c1e96f772e14ba8eb786eaf17"
+  },
+  "audit_source_sha256": {
+    "tools/collect_boss_subtree_progress.py": "8701db0eb278e4786857b3f29f412828a5560d7bbc5502c14c23a6b6ff61310d",
+    "tools/boss_subtree_inventory.py": "d409e13f7620c01ae4a3772538158ba9fc7ef5de3f30c03c26add2645b278765",
+    "tools/stage_boss_subtrees.py": "06bf6865ff5c62c174279b6178c0ed55bc725dcbd4b6708a04ec0847c0246c87",
+    "tests/test_boss_subtree_progress.py": "95dd61f741084f8c5da58882eeae65839c29cffb2d167ea617e68b98ed78457c"
+  },
+  "metadata_only": true,
+  "complete_package_inventory": false,
+  "all_boss_skills_complete": false,
+  "native_grant_verified": false,
+  "activation_verified": false,
+  "playable": false,
+  "execution_order_proven": false,
+  "runtime_acceptance_current": false
+}

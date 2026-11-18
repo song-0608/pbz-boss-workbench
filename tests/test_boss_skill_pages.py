@@ -1,7 +1,10 @@
 import copy
+import hashlib
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from prepare_boss_skill_pages import page_definitions, deferred_reason
@@ -86,6 +89,66 @@ class SkillPageTests(unittest.TestCase):
         self.assertIn('counter-context', deferred[0]['reason'])
         for name in ('GA_WanJun_CA_01_C', 'GA_YanQianSui_CA_01_Gex_C'):
             self.assertIn('counter-context', deferred_reason(BASE + 'Ability/Test.' + name))
+
+    def test_new_role_moves_from_variant_pool_to_exact_pages_without_disappearing(self):
+        from tests.test_boss_variant_candidates import BossVariantCandidatesTests
+        from prepare_boss_variant_candidates import definitions
+        characters, sources = BossVariantCandidatesTests().fixture()
+        c = characters[0]
+        c['abilities'] = c['abilities'][:3]
+        self.assertEqual(len(definitions(characters, sources)[0]), 1)
+        actor = c['variants'][0]['path']; config = c['variants'][0]['observation']['observed_config']
+        c['variants'][0]['spawn_configs'] = [config]
+        for ability in c['abilities']:
+            ability.update(route='leaf_with_historical_grant', grants=[dict(actor=actor, config=config, count=1,
+                session='closed', identity_source='explicit_candidate_identity')])
+        self.assertFalse(definitions(characters, sources)[0])
+        pages, deferred = page_definitions(characters, {}, sources)
+        self.assertFalse(deferred)
+        self.assertEqual([p['definition']['ability_pool'] for p in pages], [[a['path'] for a in c['abilities']]])
+        for change in ('lineage', 'metadata', 'actor_context', 'missing_grant', 'child'):
+            candidate = copy.deepcopy(c)
+            if change == 'lineage': candidate['variants'][0]['observation']['lineage'] = []
+            elif change == 'metadata': candidate['variants'][0]['metadata'] = 'conflict'
+            elif change == 'actor_context':
+                candidate['variants'][0]['path'] += '_ForSeq'
+                for a in candidate['abilities']: a['grants'][0]['actor'] = candidate['variants'][0]['path']
+            elif change == 'missing_grant':
+                for a in candidate['abilities']: a['grants'] = []
+            else:
+                for a in candidate['abilities']: a['path'] = a['path'].replace('_C', '_Child_C')
+            with self.subTest(change=change):
+                self.assertFalse(page_definitions([candidate], {}, sources)[0])
+
+    def test_new_role_page_passes_exact_reconstruction_without_legacy_role_whitelist(self):
+        import boss_inventory_bundle as bundle
+        import prepare_boss_skill_pages as pages
+        from boss_metadata_jobs import canonical
+        from tests.test_boss_variant_candidates import BossVariantCandidatesTests
+        characters, sources = BossVariantCandidatesTests().fixture()
+        c = characters[0]; c['abilities'] = c['abilities'][:3]
+        actor = c['variants'][0]['path']; config = c['variants'][0]['observation']['observed_config']
+        for a in c['abilities']:
+            a.update(route='leaf_with_historical_grant', grants=[dict(actor=actor, config=config, count=1)])
+        identity = dict(characters=characters, sources=sources)
+        key = hashlib.sha256(canonical(identity)).hexdigest()[:20]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            for name in pages.SOURCES:
+                target = root / name; target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((pages.ROOT / name).read_bytes())
+            (root / bundle.OUTPUT / key).mkdir(parents=True)
+            page_root = root / 'runtime/boss-skill-pages/fixture'
+            rows, _ = pages.write_pages(characters, {}, sources, page_root, root)
+            pool = root / rows[0]['directory']
+            with patch.object(bundle, 'inputs', return_value=(identity,)), \
+                 patch.object(bundle, 'candidate_ids', return_value=('fixture',)), \
+                 patch.object(pages, 'inputs', return_value=(identity, {}, sources, 'fixture')):
+                self.assertEqual(bundle.historical_pool('fixture', pool, root)['definition']['id'], 'fixture')
+                module = pool / 'boss_candidate.lua'; original = module.read_bytes()
+                module.write_bytes(original + b'-- changed')
+                with self.assertRaises(AssertionError): bundle.historical_pool('fixture', pool, root)
+                self.assertEqual(module.read_bytes(), original + b'-- changed')
 
 
 if __name__ == '__main__':

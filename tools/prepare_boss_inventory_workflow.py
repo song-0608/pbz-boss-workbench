@@ -76,7 +76,8 @@ def expected_modules(record, root=ROOT):
 def source_hashes(root=ROOT):
     names = (*previous.SOURCES, *spawn_repair.SOURCES,
              'tools/prepare_boss_inventory_workflow.py', 'tools/boss_inventory_bundle.py',
-             'tools/native_grant_skill_gate.py', 'tests/test_boss_variant_candidates.py')
+             'tools/native_grant_skill_gate.py', 'tests/test_native_grant_skill_gate.py',
+             'tests/test_boss_variant_candidates.py')
     return {name: sha(root / name) for name in names}
 
 

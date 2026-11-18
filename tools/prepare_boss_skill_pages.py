@@ -16,27 +16,14 @@ from boss_adaptation_workflow import ROOT, BUILD, sha, write_json
 from build_boss_profile_candidate import lua
 from collect_boss_identity import analyze as identity_outcomes
 from collect_boss_metadata_jobs import repository_path
+from boss_combat_candidate_policy import ACTOR_CONTEXTS, ability_reason, deferred_reason
 
 
 REVIEWED_ROLES = ('056_youlong', '057_wanjun', '058_maddoctor',
                   '067_motian', '071_xianzhe', '073_yanqiansui')
 SOURCES = ('tools/prepare_boss_skill_pages.py', 'tools/boss_developer_candidate.lua',
+           'tools/boss_combat_candidate_policy.py',
            'tests/test_boss_skill_pages.py')
-
-
-def deferred_reason(path):
-    short = path.rsplit('.', 1)[-1].casefold()
-    if inventory.special_ability(path):
-        return 'utility, phase or dependency needs separate review'
-    if '_gex' in short or '_ca_' in short:
-        return 'counter-context ability needs a separately verified native trigger'
-    if any(token in short for token in ('passive', 'subtitle', 'ritualistheal', 'frontrecovery', 'summon')):
-        return 'passive, story, heal, recovery or summon needs separate review'
-    # The earlier closed attempt observed this exact move leaving the local
-    # training area by over 1.6 km. New leaf metadata cannot erase that failure.
-    if short == 'ga_yanqiansui_skill_01_c':
-        return 'historical nonlocal displacement; scene dependency unresolved'
-    return None
 
 
 def closed_identities(root, sources):
@@ -85,14 +72,13 @@ def page_definitions(characters, identities, sources):
     pages, deferred = [], []
     for character in characters:
         identifier = character['id']
-        if identifier not in REVIEWED_ROLES:
-            continue
+        metadata_first = identifier not in REVIEWED_ROLES
         groups = defaultdict(list)
         for ability in character['abilities']:
             if ability['route'] != 'leaf_with_historical_grant':
                 continue
             path = ability['path']
-            reason = deferred_reason(path)
+            reason = ability_reason(path) if metadata_first else deferred_reason(path)
             if reason:
                 deferred.append(dict(id=identifier, path=path, reason=reason))
                 continue
@@ -108,9 +94,18 @@ def page_definitions(characters, identities, sources):
             for variant in character['variants']:
                 fact = variant['observation']
                 if variant['path'] == actor and fact and fact['observed_config'] == config:
+                    if metadata_first:
+                        lineage = fact.get('lineage', [])
+                        if (variant.get('metadata') != 'verified' or not variant['receipts']
+                                or not lineage or lineage[0] != actor
+                                or '/Script/ProjectPBZ.PBZCharacter_NPC' not in lineage
+                                or '/Script/Engine.Character' not in lineage
+                                or any(token in actor.rsplit('.', 1)[-1].casefold() for token in ACTOR_CONTEXTS)):
+                            continue
                     observations.extend(dict(display_name=fact['display_name'], receipt=receipt)
                                         for receipt in variant['receipts'])
-            observations.extend(identities.get((identifier, actor, config), ()))
+            if not metadata_first:
+                observations.extend(identities.get((identifier, actor, config), ()))
             names = {row['display_name'] for row in observations}
             if len(names) != 1 or names & {'', 'None', 'NA', 'N/A'}:
                 deferred.extend(dict(id=identifier, path=a['path'], reason='missing or conflicting exact CDO identity')

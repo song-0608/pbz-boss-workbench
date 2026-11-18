@@ -1,5 +1,6 @@
 """The new preparation separates UI observation without weakening lease or save gates."""
 from contextlib import ExitStack
+import base64
 import copy
 import hashlib
 import os
@@ -33,7 +34,9 @@ class ObservedPreparationTests(unittest.TestCase):
         prepare.validation.save(self.work / 'observed-ui-preparation.json', dict(
             state_file=str(self.state_path), source_sha256=prepare.source_sha(), phase='awaiting-properties-observation'))
         self.screenshot = self.root / 'runtime/steam-menu-private.png'
-        self.screenshot.write_bytes(b'\x89PNG\r\n\x1a\nfixture')
+        # A real 1x1 PNG keeps the proof format independent of escaped literals.
+        self.screenshot.write_bytes(base64.b64decode(
+            'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+j7XcAAAAASUVORK5CYII='))
         os.utime(self.screenshot, (self.now, self.now))
         self.observation = dict(captured_at=self.now, state_file=str(self.state_path),
             window=dict(id=88, title='[#] 影之刃零 [#]'),
@@ -142,6 +145,17 @@ class ObservedPreparationTests(unittest.TestCase):
         os.utime(self.screenshot, (self.now, self.now))
         self.observation['screenshot_sha256'] = hashlib.sha256(self.screenshot.read_bytes()).hexdigest()
         with self.assertRaises(AssertionError):
+            prepare.observed_screenshot(self.observation, self.screenshot)
+
+    def test_jpeg_and_clock_errors_are_distinct_without_relaxing_freshness(self):
+        original = self.screenshot.read_bytes()
+        self.screenshot.write_bytes(b'\xff\xd8\xff\xe0JPEG fixture')
+        os.utime(self.screenshot, (self.now, self.now))
+        with self.assertRaisesRegex(AssertionError, 'PNG encoded observation'):
+            prepare.observed_screenshot(self.observation, self.screenshot)
+        self.screenshot.write_bytes(original)
+        os.utime(self.screenshot, (self.now+0.001, self.now+0.001))
+        with self.assertRaisesRegex(AssertionError, 'observed file age -'):
             prepare.observed_screenshot(self.observation, self.screenshot)
 
     def test_login_main_window_or_foreign_process_cannot_substitute_for_properties(self):

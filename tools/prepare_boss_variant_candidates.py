@@ -8,7 +8,6 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import re
 from tempfile import TemporaryDirectory
 
 import boss_metadata_jobs as metadata
@@ -16,26 +15,13 @@ import boss_offline_inventory as inventory
 from boss_adaptation_workflow import ROOT, BUILD, sha, write_json
 from build_boss_profile_candidate import lua
 from mod_installation import unlinked_path
-from prepare_boss_skill_pages import deferred_reason
+from boss_combat_candidate_policy import ACTOR_CONTEXTS, ability_reason
 
 
 OUTPUT = 'runtime/boss-variant-candidates'
 SOURCES = ('tools/prepare_boss_variant_candidates.py', 'tests/test_boss_variant_candidates.py',
+           'tools/boss_combat_candidate_policy.py',
            'tools/boss_developer_candidate.lua', 'tools/prepare_boss_skill_pages.py')
-ACTOR_CONTEXTS = ('_forseq', '_ending', '_tutorial', '_teaching', '_summon', '_phantom',
-                  '_stuntdouble', '_preview', '_stand', '_npchelper', '_npc', '_base')
-
-
-def ability_reason(path):
-    reason = deferred_reason(path)
-    if reason:
-        return reason
-    name = path.rsplit('.', 1)[-1].casefold()
-    if any(token in name for token in ('_child', '_ged', '_bed', '_behit', '_qte', '_seq')):
-        return 'child, victim or sequence context requires a separate trigger'
-    if not re.search(r'(?:lightattack|middleattack|heavyattack|specialattack|dodge|skill)_', name):
-        return 'not a reviewed independent combat-input family'
-    return None
 
 
 def definitions(characters, sources):

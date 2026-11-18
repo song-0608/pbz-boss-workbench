@@ -26,7 +26,7 @@ def historical_pool(identifier, bundle, root):
     identity, *_ = inputs(root)
     key = hashlib.sha256(metadata.canonical(identity)).hexdigest()[:20]
     target = root / OUTPUT / key
-    assert identifier in REVIEWS
+    assert identifier in candidate_ids(root), 'observed catalog candidate required'
     legacy = bundle == target / 'skill-pools' / identifier
     if not legacy:
         page_identity, identities, sources, page_key = skill_pages.inputs(root)

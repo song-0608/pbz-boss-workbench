@@ -88,7 +88,9 @@ def observed_screenshot(observation, screenshot):
     now = time.time()
     assert type(observation['captured_at']) in (int, float) and 0 <= now-observation['captured_at'] <= 60, \
         'fresh computer-use observation required'
-    assert raw.startswith(b'\x89PNG\r\n\x1a\n') and 0 <= now-modified_at <= 60
+    assert raw.startswith(b'\x89PNG\r\n\x1a\n'), 'PNG encoded observation required'
+    file_age = now-modified_at
+    assert 0 <= file_age <= 60, f'fresh PNG file required; observed file age {file_age:.9f} seconds'
     digest = hashlib.sha256(raw).hexdigest()
     assert digest == observation['screenshot_sha256'], 'observed screenshot changed'
     return digest
