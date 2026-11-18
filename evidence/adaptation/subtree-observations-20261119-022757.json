@@ -1,0 +1,2176 @@
+{
+  "schema": 1,
+  "kind": "completed_boss_subtree_observations",
+  "session": "20261119-022757",
+  "batch": "b4e3b55f26a0bcc86e6c",
+  "source_commit": "12a6783f0d5bb44411510964bc959d4bfe886a52",
+  "queries": 96,
+  "batch_complete": true,
+  "successful_mappings": 72,
+  "rejected_jobs": 24,
+  "successful_resource_folders": [
+    "035_huashan",
+    "036_spearman",
+    "037_guichai",
+    "038_aquakiller",
+    "045_jingye",
+    "046_yuu",
+    "048_hookman",
+    "051_hookman_p2",
+    "052_baihedisciple",
+    "058_maddoctor",
+    "059_duyan",
+    "060_guichai_yellow",
+    "068_yuzan",
+    "071_xianzhe",
+    "072_canqu_biyuan",
+    "074_wulengshuang",
+    "075_guichai_red_p2",
+    "canqu_bihai",
+    "danghui",
+    "datouwawa",
+    "feizei",
+    "femaledoll",
+    "fengxuedaoke",
+    "huaqianxiao",
+    "huotongren",
+    "jiangjun",
+    "liondancer",
+    "luanshi",
+    "maledoll",
+    "qishu",
+    "yingmei",
+    "yuding_00"
+  ],
+  "observed_graphs": {
+    "parents": 72,
+    "trees": 111,
+    "nodes": 1042,
+    "edges": 931,
+    "references": 505,
+    "distinct_referenced_abilities": 306
+  },
+  "outcomes": [
+    {
+      "key": "b113c0253eadef473af3",
+      "id": "035_huashan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/RedTroop/GA_HuaShan_RedTroop_Skill_05.GA_HuaShan_RedTroop_Skill_05_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BehaviorTree/RedTroop/Skill_05/BT_HuaShan_RedTroop_Skill_05.BT_HuaShan_RedTroop_Skill_05",
+          "weight": 100.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 1
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/Troop/G/GA_HuaShan_Troop_Eye_SpecialAttack_G.GA_HuaShan_Troop_Eye_SpecialAttack_G_C"
+      ]
+    },
+    {
+      "key": "f4d1be26f356040b1230",
+      "id": "035_huashan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/RedTroop/GA_HuaShan_RedTroop_Skill_08.GA_HuaShan_RedTroop_Skill_08_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BehaviorTree/RedTroop/Skill_08/BT_HuaShan_RedTroop_Skill_08.BT_HuaShan_RedTroop_Skill_08",
+          "weight": 100.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/RedTroop/GA_HuaShan_RedTroop_BigBro_Buff_01.GA_HuaShan_RedTroop_BigBro_Buff_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/RedTroop/GA_HuaShan_RedTroop_BigBro_Skill_08_01.GA_HuaShan_RedTroop_BigBro_Skill_08_01_C"
+      ]
+    },
+    {
+      "key": "90db6fa88b2697b8358d",
+      "id": "035_huashan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_Huashan_TwinSword_EnterP2.GA_Huashan_TwinSword_EnterP2_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BehaviorTree/TwinSword/BT_HuaShan_TwinSword_EnterP2.BT_HuaShan_TwinSword_EnterP2",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 1
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_HuaShan_TwinSword_Skill_08.GA_HuaShan_TwinSword_Skill_08_C"
+      ]
+    },
+    {
+      "key": "ff118948f2193d2a38be",
+      "id": "035_huashan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_Huashan_TwinSword_EnterP2_Summon.GA_Huashan_TwinSword_EnterP2_Summon_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BehaviorTree/TwinSword/BT_HuaShan_TwinSword_EnterP2_Summon.BT_HuaShan_TwinSword_EnterP2_Summon",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 1
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/Summon/GA_HuaShan_TwinSword_Skill_08_Summon.GA_HuaShan_TwinSword_Skill_08_Summon_C"
+      ]
+    },
+    {
+      "key": "71f5a7b30be76307a8e3",
+      "id": "035_huashan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_Huashan_TwinSword_Skill_09.GA_Huashan_TwinSword_Skill_09_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/BehaviorTree/TwinSword/BT_HuaShan_TwinSword_Skill_09_01.BT_HuaShan_TwinSword_Skill_09_01",
+          "weight": 100.0,
+          "nodes": 11,
+          "edges": 10,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_HuaShan_TwinSword_MiddleAttack_07.GA_HuaShan_TwinSword_MiddleAttack_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_HuaShan_TwinSword_Skill_08.GA_HuaShan_TwinSword_Skill_08_C",
+        "/PBZCombatAsset/ActorData/Mobs/035_HuaShan/Abilities/TwinSword/GA_HuaShan_TwinSword_Skill_11.GA_HuaShan_TwinSword_Skill_11_C"
+      ]
+    },
+    {
+      "key": "c5ca007988b8a3c7980d",
+      "id": "036_spearman",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_ComboGroup_Elite.GA_SpearMan_ComboGroup_Elite_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BehaviorTree/Combo/BT_SpearMan_Combo_01.BT_SpearMan_Combo_01",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BehaviorTree/Combo/BT_SpearMan_Combo_02.BT_SpearMan_Combo_02",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BehaviorTree/Combo/BT_SpearMan_Combo_03.BT_SpearMan_Combo_03",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BehaviorTree/Combo/BT_SpearMan_Combo_04.BT_SpearMan_Combo_04",
+          "weight": 200.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BehaviorTree/Combo/BT_SpearMan_Combo_05.BT_SpearMan_Combo_05",
+          "weight": 200.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_DodgeAttack_01.GA_SpearMan_DodgeAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Dodge_B.GA_SpearMan_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_HeavyAttack_02.GA_SpearMan_HeavyAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_MiddleAttack_01.GA_SpearMan_MiddleAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_MiddleAttack_02.GA_SpearMan_MiddleAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_01.GA_SpearMan_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_02.GA_SpearMan_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_03.GA_SpearMan_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_04.GA_SpearMan_Skill_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_05.GA_SpearMan_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_06.GA_SpearMan_Skill_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_SpecialAttack_01.GA_SpearMan_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_SpecialAttack_02.GA_SpearMan_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_SpecialAttack_04.GA_SpearMan_SpecialAttack_04_C"
+      ]
+    },
+    {
+      "key": "e7be7a64eb8235c1116d",
+      "id": "036_spearman",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_02.GA_SpearMan_Skill_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/BehaviorTree/Combo/BT_SpearManElite_Skill_02.BT_SpearManElite_Skill_02",
+          "weight": 100.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_02_1.GA_SpearMan_Skill_02_1_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_02_2.GA_SpearMan_Skill_02_2_C",
+        "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/GA_SpearMan_Skill_05.GA_SpearMan_Skill_05_C"
+      ]
+    },
+    {
+      "key": "1976f3fa6d14b2863bc6",
+      "id": "036_spearman",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/036_SpearMan/Ability/Abilities/Ride/GA_SpearMan_Ride_DogeAttack_F_01.GA_SpearMan_Ride_DogeAttack_F_01_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "4c457041cb54bb6948a5",
+      "id": "037_guichai",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_ReversalRun.GA_GuiChai_Black_Gun_ReversalRun_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/Gun/Tactic/BT_GuiChai_Black_Gun_ReversalRun.BT_GuiChai_Black_Gun_ReversalRun",
+          "weight": 100.0,
+          "nodes": 2,
+          "edges": 1,
+          "references": 1
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/Gun/Abilities/GA_GuiChai_Black_Gun_SpecialAttack_03.GA_GuiChai_Black_Gun_SpecialAttack_03_C"
+      ]
+    },
+    {
+      "key": "bc07cac097f3830c7e57",
+      "id": "037_guichai",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_DodgeBackAtk_Sp.GA_GuiChai_Black_TwinBlade_DodgeBackAtk_Sp_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/TwinBlade/Tactic/BT_Tactic_GuiChaiTwinBlade_DodgeBackAtk_Sp.BT_Tactic_GuiChaiTwinBlade_DodgeBackAtk_Sp",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 1
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_Skill_03.GA_GuiChai_Black_TwinBlade_Skill_03_C"
+      ]
+    },
+    {
+      "key": "1115424648d7a8d94756",
+      "id": "037_guichai",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/Ability/TwinBlade/Abilities/GA_GuiChai_Black_TwinBlade_DodgeLRAtk_Skill.GA_GuiChai_Black_TwinBlade_DodgeLRAtk_Skill_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/037_GuiChai/BehaviorTree/TwinBlade/Tactic/BT_Tactic_GuiChaiTwinBlade_DodgeLRAtk_Skill.BT_Tactic_GuiChaiTwinBlade_DodgeLRAtk_Skill",
+          "weight": 100.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 0
+        }
+      ],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "f25eff089ff70e8cadc3",
+      "id": "038_aquakiller",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Sickle/Abilities/GA_SnowKiller_AutoCombo_02.GA_SnowKiller_AutoCombo_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/BehaviorTree/Sickle/BT_SnowKiller_AutoCombo_02.BT_SnowKiller_AutoCombo_02",
+          "weight": 1.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Sickle/Abilities/GA_SnowKiller_Middle_01.GA_SnowKiller_Middle_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Sickle/Abilities/GA_SnowKiller_Middle_02.GA_SnowKiller_Middle_02_C"
+      ]
+    },
+    {
+      "key": "956a97590c0e13e5f0d8",
+      "id": "038_aquakiller",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Weapon_YuCha/Abilities/GA_AquaKiller_AutoCombo_02.GA_AquaKiller_AutoCombo_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/BehaviorTree/Weapon_YuCha/BT_AquaKiller_Attack_03.BT_AquaKiller_Attack_03",
+          "weight": 0.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Weapon_YuCha/Abilities/GA_AquaKiller_Middle_01.GA_AquaKiller_Middle_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Weapon_YuCha/Abilities/GA_AquaKiller_Middle_02.GA_AquaKiller_Middle_02_C"
+      ]
+    },
+    {
+      "key": "580778bfbf47872ef74a",
+      "id": "038_aquakiller",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Weapon_YuCha/Abilities/GA_AquaKiller_AutoCombo_Dive.GA_AquaKiller_AutoCombo_Dive_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/BehaviorTree/Weapon_YuCha/TaskBT/BT_AquaKiller_Dive.BT_AquaKiller_Dive",
+          "weight": 100.0,
+          "nodes": 31,
+          "edges": 30,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Weapon_Dao/Abilities/Child/GA_AquaKiller_Skill_05_Jump_R_Child.GA_AquaKiller_Skill_05_Jump_R_Child_C",
+        "/PBZCombatAsset/ActorData/Mobs/038_AquaKiller/Ability/Weapon_Dao/Abilities/GA_AquaKiller_Skill_05_Jump_L.GA_AquaKiller_Skill_05_Jump_L_C"
+      ]
+    },
+    {
+      "key": "93aac7e97fe80c29a5df",
+      "id": "045_jingye",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/AutoCombo/GA_Jingye_Attack_Shield_01.GA_Jingye_Attack_Shield_01_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BehaviorTree/AutoCombo/Normal/BT_JingYe_AttackCombo_Shield_01.BT_JingYe_AttackCombo_Shield_01",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BehaviorTree/AutoCombo/Normal/BT_JingYe_AttackCombo_Shield_02.BT_JingYe_AttackCombo_Shield_02",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BehaviorTree/AutoCombo/Normal/BT_JingYe_AttackCombo_Shield_03.BT_JingYe_AttackCombo_Shield_03",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BehaviorTree/AutoCombo/Normal/BT_JingYe_AttackCombo_Shield_04.BT_JingYe_AttackCombo_Shield_04",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BehaviorTree/AutoCombo/Normal/BT_JingYe_AttackCombo_Shield_05.BT_JingYe_AttackCombo_Shield_05",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_GEx.GA_JingYe_GEx_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_HeavyAttack_01.GA_JingYe_HeavyAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_HeavyAttack_02.GA_JingYe_HeavyAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_HeavyAttack_03.GA_JingYe_HeavyAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_MiddleAttack_03.GA_JingYe_MiddleAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_02.GA_JingYe_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_03.GA_JingYe_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_04.GA_JingYe_Skill_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_06.GA_JingYe_Skill_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_02.GA_JingYe_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_07_SkipRunning.GA_JingYe_SpecialAttack_07_SkipRunning_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_09.GA_JingYe_SpecialAttack_09_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_10.GA_JingYe_SpecialAttack_10_C"
+      ]
+    },
+    {
+      "key": "54f726d0eaf2caea3aa7",
+      "id": "045_jingye",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/AutoCombo/GA_Jingye_CA.GA_Jingye_CA_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/045_JingYe/BehaviorTree/AutoCombo/Normal/BT_JingYe_CA_New.BT_JingYe_CA_New",
+          "weight": 100.0,
+          "nodes": 26,
+          "edges": 25,
+          "references": 12
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/Archive/GA_JingYe_Dodge_B_02_Short.GA_JingYe_Dodge_B_02_Short_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_CA.GA_Jingye_CA_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_MiddleAttack_03.GA_JingYe_MiddleAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_01.GA_JingYe_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_06.GA_JingYe_Skill_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_Skill_09.GA_JingYe_Skill_09_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_01.GA_JingYe_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_07.GA_JingYe_SpecialAttack_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/045_JingYe/Ability/Abilities/GA_JingYe_SpecialAttack_10.GA_JingYe_SpecialAttack_10_C"
+      ]
+    },
+    {
+      "key": "5dd3f634b68dace44d72",
+      "id": "046_yuu",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_AllOutAttack.GA_Yuu_AllOutAttack_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/046_Yuu/BehaviorTree/AllOutAttack/01/BT_Yuu_AllOutAttack_01.BT_Yuu_AllOutAttack_01",
+          "weight": 1.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/046_Yuu/BehaviorTree/AllOutAttack/BT_Yuu_AllOutAttack_02.BT_Yuu_AllOutAttack_02",
+          "weight": 1.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/046_Yuu/BehaviorTree/AllOutAttack/BT_Yuu_AllOutAttack_03.BT_Yuu_AllOutAttack_03",
+          "weight": 1.0,
+          "nodes": 9,
+          "edges": 8,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_Dodge_B_02.GA_Yuu_Dodge_B_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_Dodge_R.GA_Yuu_Dodge_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_Skill_01.GA_Yuu_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_SpecialAttack_01.GA_Yuu_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_SpecialAttack_03.GA_Yuu_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_SpecialAttack_04.GA_Yuu_SpecialAttack_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_SpecialAttack_06.GA_Yuu_SpecialAttack_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/046_Yuu/Abilities/GA_Yuu_SpecialAttack_08.GA_Yuu_SpecialAttack_08_C"
+      ]
+    },
+    {
+      "key": "f03fd01427e8076221aa",
+      "id": "048_hookman",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/048_HookMan/Abilities/AutoCombo/GA_HookMan_DodgeAttack_B_01.GA_HookMan_DodgeAttack_B_01_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "9bb7c042a42e62b2d959",
+      "id": "048_hookman",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/048_HookMan/Abilities/AutoCombo/GA_HookMan_Skill_DodgeAttack_F_02.GA_HookMan_Skill_DodgeAttack_F_02_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "3f56959a0adea9110030",
+      "id": "050_leidang_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/050_LeiDang_P2/Ability/Abilities/GA_LeiDang_P2_AutoCombo_Close.GA_LeiDang_P2_AutoCombo_Close_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "bounded_native_object_name"
+    },
+    {
+      "key": "499974bb7a40dd9d7335",
+      "id": "050_leidang_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/050_LeiDang_P2/Ability/Abilities/GA_LeiDang_P2_AutoCombo_Mid.GA_LeiDang_P2_AutoCombo_Mid_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "bounded_native_object_name"
+    },
+    {
+      "key": "fdcf63f89b354a0460f5",
+      "id": "051_hookman_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_Skill_07_Combined.GA_HookMan_P2_Skill_07_Combined_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "adee2035c2cf38d77a43",
+      "id": "051_hookman_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/051_HookMan_P2/Ability/GA_HookMan_P2_SpecialAttack_06_Combined.GA_HookMan_P2_SpecialAttack_06_Combined_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "43b51ac813766dc36135",
+      "id": "052_baihedisciple",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Common/GA_BaiheDisciple_DIveNoAttack.GA_BaiheDisciple_DIveNoAttack_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/FishingNet/SubBT/BT_BaiheDisciple_Dive_New.BT_BaiheDisciple_Dive_New",
+          "weight": 100.0,
+          "nodes": 19,
+          "edges": 18,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_JumpIn_01.GA_BaiheDisciple_JumpIn_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_JumpIn_02.GA_BaiheDisciple_JumpIn_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_JumpIn_04.GA_BaiheDisciple_JumpIn_04_C"
+      ]
+    },
+    {
+      "key": "b6741da97bdb9840fde7",
+      "id": "052_baihedisciple",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Skill_06.GA_BaiheDisciple_FishingNet_Skill_06_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/FishingNet/BT_BaiheDisciple_FishingNet_Skill_06_01.BT_BaiheDisciple_FishingNet_Skill_06_01",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/FishingNet/BT_BaiheDisciple_FishingNet_Skill_06_02.BT_BaiheDisciple_FishingNet_Skill_06_02",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Middle_01.GA_BaiheDisciple_FishingNet_Middle_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Middle_02.GA_BaiheDisciple_FishingNet_Middle_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Middle_03.GA_BaiheDisciple_FishingNet_Middle_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Special_01.GA_BaiheDisciple_FishingNet_Special_01_C"
+      ]
+    },
+    {
+      "key": "a82f5444f1b83bd5623d",
+      "id": "052_baihedisciple",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Skill_07.GA_BaiheDisciple_FishingNet_Skill_07_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/FishingNet/BT_BaiheDisciple_FishingNet_Skill_07.BT_BaiheDisciple_FishingNet_Skill_07",
+          "weight": 0.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Skill_01.GA_BaiheDisciple_FishingNet_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Skill_03.GA_BaiheDisciple_FishingNet_Skill_03_C"
+      ]
+    },
+    {
+      "key": "eec0e7e4ddd7802e67cc",
+      "id": "052_baihedisciple",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_AutoCombo_01.GA_BaiheDisciple_AutoCombo_01_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/Knife/SubBT/BT_BaiheDisciple_Knife_AutoCombo_01.BT_BaiheDisciple_Knife_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/Knife/SubBT/BT_BaiheDisciple_Knife_AutoCombo_02.BT_BaiheDisciple_Knife_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/Knife/SubBT/BT_BaiheDisciple_Knife_AutoCombo_03.BT_BaiheDisciple_Knife_AutoCombo_03",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/Knife/SubBT/BT_BaiheDisciple_Knife_AutoCombo_04.BT_BaiheDisciple_Knife_AutoCombo_04",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/Knife/SubBT/BT_BaiheDisciple_Knife_AutoCombo_05.BT_BaiheDisciple_Knife_AutoCombo_05",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 5
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/BehaviorTree/Knife/SubBT/BT_BaiheDisciple_Knife_AutoCombo_06.BT_BaiheDisciple_Knife_AutoCombo_06",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 5
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Middle_01.GA_BaiheDisciple_FishingNet_Middle_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Middle_02.GA_BaiheDisciple_FishingNet_Middle_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Skill_01.GA_BaiheDisciple_FishingNet_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Skill_02.GA_BaiheDisciple_FishingNet_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Special_02.GA_BaiheDisciple_FishingNet_Special_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/FishingNet/Abilities/GA_BaiheDisciple_FishingNet_Special_03.GA_BaiheDisciple_FishingNet_Special_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Dodge_B.GA_BaiheDisciple_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Dodge_L.GA_BaiheDisciple_Dodge_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Dodge_R.GA_BaiheDisciple_Dodge_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Frightened.GA_BaiheDisciple_Frightened_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Middle_01.GA_BaiheDisciple_Middle_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Skill_01.GA_BaiheDisciple_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_SpecialMove_B_01.GA_BaiheDisciple_SpecialMove_B_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_SpecialMove_B_02.GA_BaiheDisciple_SpecialMove_B_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Special_02.GA_BaiheDisciple_Special_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Special_03_R.GA_BaiheDisciple_Special_03_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Special_04.GA_BaiheDisciple_Special_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/052_BaiheDisciple/Ability/Knife/Abilities/GA_BaiheDisciple_Special_05.GA_BaiheDisciple_Special_05_C"
+      ]
+    },
+    {
+      "key": "9064787d05560db2dae6",
+      "id": "054_zuoshang",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/054_ZuoShang/Ability/Abilities/GA_ZuoShang_Skill_12_Combo.GA_ZuoShang_Skill_12_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "c99c39e5979bfef55024",
+      "id": "058_maddoctor",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctorBoss_Extract.GA_MadDoctorBoss_Extract_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/BehaviorTree/BT_XieQiuDong_Extract.BT_XieQiuDong_Extract",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_MiddleAttack_01.GA_MadDoctor_MiddleAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/058_MadDoctor/Ability/Abilities/GA_MadDoctor_Skill_04.GA_MadDoctor_Skill_04_C"
+      ]
+    },
+    {
+      "key": "738e126b0464f0702430",
+      "id": "059_duyan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_AutoCombo_P2.GA_DuYan_AutoCombo_P2_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/AutoCombo/BT_DuYan_AutoCombo_01.BT_DuYan_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/AutoCombo/BT_DuYan_AutoCombo_02_P2.BT_DuYan_AutoCombo_02_P2",
+          "weight": 100.0,
+          "nodes": 11,
+          "edges": 10,
+          "references": 6
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/AutoCombo/BT_DuYan_AutoCombo_03.BT_DuYan_AutoCombo_03",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/AutoCombo/BT_DuYan_AutoCombo_04_P2.BT_DuYan_AutoCombo_04_P2",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_LightAttack_01.GA_DuYan_LightAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_MiddleAttack_01.GA_DuYan_MiddleAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_01_A.GA_DuYan_Skill_01_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_03.GA_DuYan_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_04.GA_DuYan_Skill_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_05_Child.GA_DuYan_Skill_05_Child_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_SpecialAttack_01.GA_DuYan_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_SpecialAttack_02.GA_DuYan_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_SpecialAttack_04_A.GA_DuYan_SpecialAttack_04_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/SecondStage/Bow/GA_ArrowMan_Bow_Skill_02.GA_ArrowMan_Bow_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/SecondStage/Bow/GA_ArrowMan_DuYan_Skill_02.GA_ArrowMan_DuYan_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/SecondStage/GA_DuYan_Skill_01_B.GA_DuYan_Skill_01_B_C"
+      ]
+    },
+    {
+      "key": "86dbb28cdf4eb5947d62",
+      "id": "059_duyan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_CA_02_Hard.GA_DuYan_CA_02_Hard_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/BT_DuYan_CA_02_Hard.BT_DuYan_CA_02_Hard",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_02_Snap.GA_DuYan_Skill_02_Snap_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/SecondStage/GA_DuYan_CA_02_Hard.GA_DuYan_CA_02_Hard_C"
+      ]
+    },
+    {
+      "key": "852a9d94f98ed7da4891",
+      "id": "059_duyan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_CA_Hard.GA_DuYan_CA_Hard_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/BT_DuYan_CA_Hard.BT_DuYan_CA_Hard",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_02_Snap.GA_DuYan_Skill_02_Snap_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/SecondStage/GA_DuYan_CA_01_Hard.GA_DuYan_CA_01_Hard_C"
+      ]
+    },
+    {
+      "key": "40af11643092663a141c",
+      "id": "059_duyan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Grab.GA_DuYan_Grab_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/059_DuYan/BehaviorTree/AutoCombo/BT_DuYan_AutoCombo_06.BT_DuYan_AutoCombo_06",
+          "weight": 150.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 7
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_CA_01_Gex.GA_DuYan_CA_01_Gex_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_LightAttack_01.GA_DuYan_LightAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_MiddleAttack_01.GA_DuYan_MiddleAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_01_B.GA_DuYan_Skill_01_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_Skill_03.GA_DuYan_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/059_DuYan/Ability/Boss/Abilities/GA_DuYan_SpecialAttack_03_B.GA_DuYan_SpecialAttack_03_B_C"
+      ]
+    },
+    {
+      "key": "0a0502463b0d67e90442",
+      "id": "060_guichai_yellow",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_GEx_02.GA_GuiChai_Yellow_GEx_02_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "256ea44c872e48281fb7",
+      "id": "060_guichai_yellow",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_GEx_02_hard.GA_GuiChai_Yellow_GEx_02_hard_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "c997078746ea233910ff",
+      "id": "060_guichai_yellow",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_AutoCombo.GA_GuiChai_Yellow_ShuangGou_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Normal/BT_GuiChai_Yellow_ShuangGou_Attack_Close_01.BT_GuiChai_Yellow_ShuangGou_Attack_Close_01",
+          "weight": 100.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 7
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Normal/BT_GuiChai_Yellow_ShuangGou_Attack_Close_02.BT_GuiChai_Yellow_ShuangGou_Attack_Close_02",
+          "weight": 100.0,
+          "nodes": 12,
+          "edges": 11,
+          "references": 7
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Normal/BT_GuiChai_Yellow_ShuangGou_Attack_Close_03.BT_GuiChai_Yellow_ShuangGou_Attack_Close_03",
+          "weight": 100.0,
+          "nodes": 19,
+          "edges": 18,
+          "references": 10
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Normal/BT_GuiChai_Yellow_ShuangGou_Attack_Close_04.BT_GuiChai_Yellow_ShuangGou_Attack_Close_04",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 5
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Dodge_B.GA_GuiChai_Yellow_ShuangGou_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Dodge_F.GA_GuiChai_Yellow_ShuangGou_Dodge_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_HeavyAttack_03.GA_GuiChai_Yellow_ShuangGou_HeavyAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_MiddleAttack_01.GA_GuiChai_Yellow_ShuangGou_MiddleAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_MiddleAttack_02.GA_GuiChai_Yellow_ShuangGou_MiddleAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_MiddleAttack_03.GA_GuiChai_Yellow_ShuangGou_MiddleAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_01.GA_GuiChai_Yellow_ShuangGou_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_03_Short.GA_GuiChai_Yellow_ShuangGou_Skill_03_Short_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_05.GA_GuiChai_Yellow_ShuangGou_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_05_Short.GA_GuiChai_Yellow_ShuangGou_Skill_05_Short_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_07.GA_GuiChai_Yellow_ShuangGou_Skill_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_08.GA_GuiChai_Yellow_ShuangGou_Skill_08_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_02.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_03.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_04.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_06.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_07.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_09.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_09_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10_B.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_12.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_12_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_14.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_14_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_15.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_15_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_16.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_16_C"
+      ]
+    },
+    {
+      "key": "8501c23214825e4de29b",
+      "id": "060_guichai_yellow",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_AutoCombo_hard.GA_GuiChai_Yellow_ShuangGou_AutoCombo_hard_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Nightmare/BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_01.BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_01",
+          "weight": 100.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 7
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Nightmare/BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_02.BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_02",
+          "weight": 100.0,
+          "nodes": 27,
+          "edges": 26,
+          "references": 14
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Nightmare/BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_03.BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_03",
+          "weight": 100.0,
+          "nodes": 20,
+          "edges": 19,
+          "references": 10
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/BehaviorTree/ShuangGou/Nightmare/BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_04.BT_GuiChai_Yellow_ShuangGou_Nightmare_Attack_Close_04",
+          "weight": 100.0,
+          "nodes": 11,
+          "edges": 10,
+          "references": 6
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Dodge_B.GA_GuiChai_Yellow_ShuangGou_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Dodge_F.GA_GuiChai_Yellow_ShuangGou_Dodge_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_HeavyAttack_03.GA_GuiChai_Yellow_ShuangGou_HeavyAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_MiddleAttack_01.GA_GuiChai_Yellow_ShuangGou_MiddleAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_MiddleAttack_02.GA_GuiChai_Yellow_ShuangGou_MiddleAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_MiddleAttack_03.GA_GuiChai_Yellow_ShuangGou_MiddleAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_01.GA_GuiChai_Yellow_ShuangGou_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_03_Short.GA_GuiChai_Yellow_ShuangGou_Skill_03_Short_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_05.GA_GuiChai_Yellow_ShuangGou_Skill_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_05_Short.GA_GuiChai_Yellow_ShuangGou_Skill_05_Short_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_06_Short.GA_GuiChai_Yellow_ShuangGou_Skill_06_Short_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_07.GA_GuiChai_Yellow_ShuangGou_Skill_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_Skill_08.GA_GuiChai_Yellow_ShuangGou_Skill_08_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_01.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_02.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_03.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_04.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_07.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_09.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_09_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10_B.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_10_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_12.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_12_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_14.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_14_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_15.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_15_C",
+        "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_ShuangGou_SpecialAttack_16.GA_GuiChai_Yellow_ShuangGou_SpecialAttack_16_C"
+      ]
+    },
+    {
+      "key": "4ecea61939aaf42e2b5b",
+      "id": "060_guichai_yellow",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/060_GuiChai_Yellow/Ability/ShuangGou/Abilities/ShuangGou/GA_GuiChai_Yellow_SpecialAttack_13_Combo.GA_GuiChai_Yellow_SpecialAttack_13_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "2ab565917f3358d7e86c",
+      "id": "063_chilian_p1",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/063_ChiLian_P1/Ability/GA_ChiLian_HiddenAttack.GA_ChiLian_HiddenAttack_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "a98aa1e85af43100ac6c",
+      "id": "063_chilian_p1",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/063_ChiLian_P1/Ability/GA_ChiLian_Skill_09_SubTree.GA_ChiLian_Skill_09_SubTree_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "b0b77db4797da57a3725",
+      "id": "064_muxiaokui_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/064_MuXiaoKui_P2/Ability/Abilities/GA_MuXiaoKui_ShunYuSha.GA_MuXiaoKui_ShunYuSha_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "e100937cb8ea7dfb7697",
+      "id": "068_yuzan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/GA_YuZan_CA.GA_YuZan_CA_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_CA.BT_YuZan_CA",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/CA/GA_YuZan_CA_P1.GA_YuZan_CA_P1_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Dodge/GA_YuZan_Dodge_CACancel.GA_YuZan_Dodge_CACancel_C"
+      ]
+    },
+    {
+      "key": "78942b2e6e4f55f09822",
+      "id": "068_yuzan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/GA_YuZan_CA_02.GA_YuZan_CA_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_CA_02.BT_YuZan_CA_02",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/CA/GA_YuZan_CA_P2.GA_YuZan_CA_P2_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Dodge/GA_YuZan_Dodge_CACancel.GA_YuZan_Dodge_CACancel_C"
+      ]
+    },
+    {
+      "key": "eb5112e3abcc3a7d1b64",
+      "id": "068_yuzan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/GA_YuZan_Grab.GA_YuZan_Grab_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_Grab.BT_YuZan_Grab",
+          "weight": 100.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03.GA_YuZan_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03_A_L_Start.GA_YuZan_Skill_03_A_L_Start_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03_A_R_Start.GA_YuZan_Skill_03_A_R_Start_C"
+      ]
+    },
+    {
+      "key": "26cbd9ec085c5a6003ed",
+      "id": "068_yuzan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/GA_YuZan_Grab_Hard.GA_YuZan_Grab_Hard_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_Grab_Hard.BT_YuZan_Grab_Hard",
+          "weight": 100.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03.GA_YuZan_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03_A_L_Start_Hard.GA_YuZan_Skill_03_A_L_Start_Hard_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03_A_R_Start_Hard.GA_YuZan_Skill_03_A_R_Start_Hard_C"
+      ]
+    },
+    {
+      "key": "f837ce16c7df4974bf3a",
+      "id": "068_yuzan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Unuse/GA_YuZan_AutoCombo.GA_YuZan_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_AutoCombo_01.BT_YuZan_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_AutoCombo_02.BT_YuZan_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_AutoCombo_03.BT_YuZan_AutoCombo_03",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/068_YuZan/BehaviorTree/BT_YuZan_AutoCombo_04.BT_YuZan_AutoCombo_04",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/GA_YuZan_Skill_01.GA_YuZan_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/SepicalAttack/GA_YuZan_SpecialAttack_02.GA_YuZan_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/SepicalAttack/GA_YuZan_SpecialAttack_03.GA_YuZan_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/SepicalAttack/GA_YuZan_SpecialAttack_05_Far.GA_YuZan_SpecialAttack_05_Far_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/SepicalAttack/GA_YuZan_SpecialAttack_06_Far.GA_YuZan_SpecialAttack_06_Far_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/SepicalAttack/GA_YuZan_SpecialAttack_07_Far.GA_YuZan_SpecialAttack_07_Far_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_03_A_R_Start.GA_YuZan_Skill_03_A_R_Start_C",
+        "/PBZCombatAsset/ActorData/Mobs/068_YuZan/Ability/PiPa/Abilities/Skill/GA_YuZan_Skill_04_RedEye.GA_YuZan_Skill_04_RedEye_C"
+      ]
+    },
+    {
+      "key": "01f903d002b98cc17609",
+      "id": "071_xianzhe",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_CA_02.GA_XianZhe_CA_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/BehaviorTree/BT_XianZhe_CA_02_React.BT_XianZhe_CA_02_React",
+          "weight": 100.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Dodge_B.GA_XianZhe_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_02.GA_XianZhe_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/071_XianZhe/Ability/GA_XianZhe_Skill_10.GA_XianZhe_Skill_10_C"
+      ]
+    },
+    {
+      "key": "9c86e04b1828ccb1035b",
+      "id": "072_canqu_biyuan",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_AutoCombo_Normal.GA_BiYuan_AutoCombo_Normal_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/BehaviorTree/BT_BiYuan_AutoCombo_02.BT_BiYuan_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 11,
+          "edges": 10,
+          "references": 6
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/BehaviorTree/BT_BiYuan_AutoCombo_01.BT_BiYuan_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 8,
+          "edges": 7,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/BehaviorTree/BT_BiYuan_AutoCombo_04.BT_BiYuan_AutoCombo_04",
+          "weight": 100.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 5
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/BehaviorTree/BT_BiYuan_AutoCombo_05.BT_BiYuan_AutoCombo_05",
+          "weight": 100.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 6
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/BehaviorTree/BT_BiYuan_AutoCombo_Trap.BT_BiYuan_AutoCombo_Trap",
+          "weight": 200.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_DodgeAttack_B_01.GA_BiYuan_DodgeAttack_B_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_DodgeAttack_B_02.GA_BiYuan_DodgeAttack_B_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_DodgeAttack_F_01.GA_BiYuan_DodgeAttack_F_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_DodgeAttack_F_02.GA_BiYuan_DodgeAttack_F_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_DodgeAttack_L.GA_BiYuan_DodgeAttack_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_Dodge_F.GA_BiYuan_Dodge_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_Dodge_R.GA_BiYuan_Dodge_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_GP_01.GA_BiYuan_GP_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_MiddleAttack_01_A.GA_BiYuan_MiddleAttack_01_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_MiddleAttack_01_B.GA_BiYuan_MiddleAttack_01_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_MiddleAttack_02_A.GA_BiYuan_MiddleAttack_02_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_MiddleAttack_02_B.GA_BiYuan_MiddleAttack_02_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_RangeAttack_01.GA_BiYuan_RangeAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_RangeAttack_02.GA_BiYuan_RangeAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/072_CanQu_BiYuan/Ability/Abilities/GA_BiYuan_Skill_01.GA_BiYuan_Skill_01_C"
+      ]
+    },
+    {
+      "key": "856eb94d83e9f7262ffb",
+      "id": "074_wulengshuang",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_AutoCombo.GA_WuLengShuang_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/BehaviorTree/BT_WuLengShuang_AutoCombo_01.BT_WuLengShuang_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 15,
+          "edges": 14,
+          "references": 7
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/BehaviorTree/BT_WuLengShuang_AutoCombo_02.BT_WuLengShuang_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/BehaviorTree/BT_WuLengShuang_AutoCombo_03.BT_WuLengShuang_AutoCombo_03",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_AntiProjectile_Charge.GA_WuLengShuang_AntiProjectile_Charge_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_HeavyAttack_01.GA_WuLengShuang_HeavyAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_HeavyAttack_02.GA_WuLengShuang_HeavyAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_LightAttack_01_A.GA_WuLengShuang_LightAttack_01_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_LightAttack_01_B.GA_WuLengShuang_LightAttack_01_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_LightAttack_01_C.GA_WuLengShuang_LightAttack_01_C_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_LightAttack_01_D.GA_WuLengShuang_LightAttack_01_D_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_LightAttack_01_E.GA_WuLengShuang_LightAttack_01_E_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_08.GA_WuLengShuang_Skill_08_C",
+        "/PBZCombatAsset/ActorData/Mobs/074_WuLengShuang/Ability/GA_WuLengShuang_Skill_09.GA_WuLengShuang_Skill_09_C"
+      ]
+    },
+    {
+      "key": "a46ca64bfbe2283b52d6",
+      "id": "075_guichai_red_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_AutoCombo_Far.GA_GuiChai_Red_P2_AutoCombo_Far_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/BehaviorTree/BT_GuiChai_Red_P2_Attack_Far_01.BT_GuiChai_Red_P2_Attack_Far_01",
+          "weight": 100.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/BehaviorTree/BT_GuiChai_Red_P2_Attack_Far_02.BT_GuiChai_Red_P2_Attack_Far_02",
+          "weight": 100.0,
+          "nodes": 10,
+          "edges": 9,
+          "references": 5
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/BehaviorTree/BT_GuiChai_Red_P2_Attack_Far_03.BT_GuiChai_Red_P2_Attack_Far_03",
+          "weight": 100.0,
+          "nodes": 20,
+          "edges": 19,
+          "references": 10
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/BehaviorTree/BT_GuiChai_Red_P2_Attack_Far_04.BT_GuiChai_Red_P2_Attack_Far_04",
+          "weight": 100.0,
+          "nodes": 30,
+          "edges": 29,
+          "references": 15
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Dodge_F_01.GA_GuiChai_Red_P2_Dodge_F_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Dodge_L_01.GA_GuiChai_Red_P2_Dodge_L_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Dodge_L_02.GA_GuiChai_Red_P2_Dodge_L_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Dodge_R_01.GA_GuiChai_Red_P2_Dodge_R_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Dodge_R_02.GA_GuiChai_Red_P2_Dodge_R_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_GEx_01.GA_GuiChai_Red_P2_GEx_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_04.GA_GuiChai_Red_P2_Skill_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_06.GA_GuiChai_Red_P2_Skill_06_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_07.GA_GuiChai_Red_P2_Skill_07_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_08.GA_GuiChai_Red_P2_Skill_08_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_09.GA_GuiChai_Red_P2_Skill_09_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_10.GA_GuiChai_Red_P2_Skill_10_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_12_Combo.GA_GuiChai_Red_P2_Skill_12_Combo_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_SpecialAttack_01.GA_GuiChai_Red_P2_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_SpecialAttack_02.GA_GuiChai_Red_P2_SpecialAttack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_SpecialAttack_03.GA_GuiChai_Red_P2_SpecialAttack_03_C"
+      ]
+    },
+    {
+      "key": "c305d8c1a25a020ac032",
+      "id": "075_guichai_red_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_CA_02_Combo.GA_GuiChai_Red_P2_CA_02_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "e100f2f67e7a9b3db317",
+      "id": "075_guichai_red_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_CA_03_Combo.GA_GuiChai_Red_P2_CA_03_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "b8bc5113dd50a060299f",
+      "id": "075_guichai_red_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/075_GuiChai_Red_P2/Ability/GA_GuiChai_Red_P2_Skill_12_Combo.GA_GuiChai_Red_P2_Skill_12_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "cccc290536d12604a3ad",
+      "id": "076_zuoshang_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_23_Combined.GA_ZuoShang_P2_Skill_23_Combined_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "1590b42a412ad54fac62",
+      "id": "076_zuoshang_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/076_ZuoShang_P2/Ability/GA_ZuoShang_P2_Skill_24_Combined.GA_ZuoShang_P2_Skill_24_Combined_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "a3facf96bd7ff936ac8a",
+      "id": "077_lengtu",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/077_LengTu/Ability/Summons/NPC/GA_GuiChai_ShuangYue_EnterCombat_Combo.GA_GuiChai_ShuangYue_EnterCombat_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "6b9e91ed0a525c8c3e2f",
+      "id": "079_xukong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/079_XuKong/Ability/GA_XuKong_EnterCombat_Combo.GA_XuKong_EnterCombat_Combo_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "f75d2db1b79e43370913",
+      "id": "canqu_bihai",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/CanQu_BiHai/Ability/Abilities/GA_CanQu_BiHai_StartShield_02.GA_CanQu_BiHai_StartShield_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/CanQu_BiHai/BehaviorTree/BT_Monster_CanQu_BiHai_StartShield_02.BT_Monster_CanQu_BiHai_StartShield_02",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/CanQu_BiHai/Ability/Abilities/Dodge/GA_CanQu_BiHai_Dodge_B_ToCenter.GA_CanQu_BiHai_Dodge_B_ToCenter_C",
+        "/PBZCombatAsset/ActorData/Mobs/CanQu_BiHai/Ability/Abilities/GA_CanQu_BiHai_CallShield_Start_02.GA_CanQu_BiHai_CallShield_Start_02_C"
+      ]
+    },
+    {
+      "key": "5acc65515647331c4b41",
+      "id": "danghui",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/DangHui/Ability/Abilities/SummonDoll/GA_DangHui_Summon_P2.GA_DangHui_Summon_P2_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/DangHui/BehaviorTree/BT_Monster_DangHui_Summon_P2.BT_Monster_DangHui_Summon_P2",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/DangHui/Ability/Abilities/Dodge/GA_DangHui_Dodge_ToCenter.GA_DangHui_Dodge_ToCenter_C",
+        "/PBZCombatAsset/ActorData/Mobs/DangHui/Ability/Abilities/SummonDoll/GA_DangHui_Skill_01_02.GA_DangHui_Skill_01_02_C"
+      ]
+    },
+    {
+      "key": "e6055f4fdb945bf7c28f",
+      "id": "danghui",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/DangHui/Ability/Abilities/SummonDoll/GA_DangHui_Summon_P3.GA_DangHui_Summon_P3_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/DangHui/BehaviorTree/BT_Monster_DangHui_Summon_P3.BT_Monster_DangHui_Summon_P3",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 1
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/DangHui/Ability/Abilities/SummonDoll/GA_DangHui_Skill_SummonSelf.GA_DangHui_Skill_SummonSelf_C"
+      ]
+    },
+    {
+      "key": "c06f656c820c4629f187",
+      "id": "datouwawa",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/DaTouWaWa/Ability/Abilities/HeiHeiHei_Lingu/GA_DaTouWaWa_HeiHeiHei_LingGu_Escape_Combo.GA_DaTouWaWa_HeiHeiHei_LingGu_Escape_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/DaTouWaWa/BehaviorTree/BehaviorTree/HeiHeiHei_Lingu/BT_DaTouWaWa_HeiHeiHei_LingGu_Escape_Combo.BT_DaTouWaWa_HeiHeiHei_LingGu_Escape_Combo",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/DaTouWaWa/Ability/Abilities/HeiHeiHei_Lingu/GA_DaTouWaWa_HeiHeiHei_LingGu_Attack_01.GA_DaTouWaWa_HeiHeiHei_LingGu_Attack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/DaTouWaWa/Ability/Abilities/HeiHeiHei_Lingu/GA_DaTouWaWa_HeiHeiHei_LingGu_Escape.GA_DaTouWaWa_HeiHeiHei_LingGu_Escape_C"
+      ]
+    },
+    {
+      "key": "92557ad8e0ab9b6b7f32",
+      "id": "feizei",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_Fire_AutoCombo_Invisibility.GA_FeiZei_Fire_AutoCombo_Invisibility_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/FeiZei/BehaviorTree/FeiZei_Noraml/BT_Monster_FeiZei_RangeAttack_Invisibility.BT_Monster_FeiZei_RangeAttack_Invisibility",
+          "weight": 100.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Dodge_F_Invisibility_L.GA_FeiZei_Noraml_Dodge_F_Invisibility_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Dodge_F_Invisibility_R.GA_FeiZei_Noraml_Dodge_F_Invisibility_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/Dodge/GA_FeiZei_Noraml_Invisibility_Start.GA_FeiZei_Noraml_Invisibility_Start_C",
+        "/PBZCombatAsset/ActorData/Mobs/FeiZei/Ability/FeiZei_Noraml/Abilities/GA_FeiZei_SpecialAttack_08_OutAttack.GA_FeiZei_SpecialAttack_08_OutAttack_C"
+      ]
+    },
+    {
+      "key": "fb7bbe6d92937303f697",
+      "id": "femaledoll",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_AutoCombo_01.GA_FemaleDoll_Golden_AutoCombo_01_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/BehaviorTree/FemaleDoll_Golden/BT_Monster_FemaleDoll_Golden_AutoCombo_01.BT_Monster_FemaleDoll_Golden_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 38,
+          "edges": 37,
+          "references": 21
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge/GA_FemaleDoll_Golden_Dodge_B.GA_FemaleDoll_Golden_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge/GA_FemaleDoll_Golden_Dodge_B_Teleport.GA_FemaleDoll_Golden_Dodge_B_Teleport_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/Dodge/GA_FemaleDoll_Golden_Dodge_F_Teleport.GA_FemaleDoll_Golden_Dodge_F_Teleport_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_Attack_02.GA_FemaleDoll_Golden_Attack_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_Skill_01.GA_FemaleDoll_Golden_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_Skill_02.GA_FemaleDoll_Golden_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_SpecialAttack_01.GA_FemaleDoll_Golden_SpecialAttack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/FemaleDoll/Ability/FemaleDoll_Golden/Abilities/GA_FemaleDoll_Golden_SpecialAttack_01_FastStab.GA_FemaleDoll_Golden_SpecialAttack_01_FastStab_C"
+      ]
+    },
+    {
+      "key": "a4849cd4b096fa99dd5e",
+      "id": "fengxuedaoke",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_07_Combo.GA_FengXueDaoKe_Skill_07_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/BehaviorTree/BT_FengXueDaoKe_Skill_07.BT_FengXueDaoKe_Skill_07",
+          "weight": 1.0,
+          "nodes": 13,
+          "edges": 12,
+          "references": 5
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Skill_04.GA_PengMeng_Skill_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/FengXueDaoKe/Ability/Abilities/GA_FengXueDaoKe_Skill_07.GA_FengXueDaoKe_Skill_07_C"
+      ]
+    },
+    {
+      "key": "c379397f2aa2c030d58b",
+      "id": "huaqianxiao",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_Skill02A_Combo.GA_HuaQianXiao_Skill02A_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/BehaviorTree/GA/BT_HuaQianXiao_Skill02A.BT_HuaQianXiao_Skill02A",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_Skill02A.GA_HuaQianXiao_Skill02A_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_Skill02B.GA_HuaQianXiao_Skill02B_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_Skill_01C.GA_HuaQianXiao_Skill_01C_C"
+      ]
+    },
+    {
+      "key": "2523cc76149304c41ca0",
+      "id": "huaqianxiao",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_SpecialAttack_03_Combo.GA_HuaQianXiao_SpecialAttack_03_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/BehaviorTree/GA/GA_HuaQianXiao_SpecialAttack_03.GA_HuaQianXiao_SpecialAttack_03",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_SpecialAttack_03_Drink.GA_HuaQianXiao_SpecialAttack_03_Drink_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/GA_HuaQianXiao_SpecialAttack_03_NotDrink.GA_HuaQianXiao_SpecialAttack_03_NotDrink_C"
+      ]
+    },
+    {
+      "key": "4c1f8bbc43c2698bc986",
+      "id": "huaqianxiao",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/GA_HuaQianXiao_Attack_Heavy.GA_HuaQianXiao_Attack_Heavy_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/BT_HuaQianXiao_Attack_03.BT_HuaQianXiao_Attack_03",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/GA_RTG_HuaQianXiao_Normal_BBB.GA_RTG_HuaQianXiao_Normal_BBB_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Ga_RTG_HuaQianXiao_Tipsy_AAAA.Ga_RTG_HuaQianXiao_Tipsy_AAAA_C"
+      ]
+    },
+    {
+      "key": "0327343e73bcf134dce8",
+      "id": "huaqianxiao",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/GA_HuaQianXiao_Attack_Middle.GA_HuaQianXiao_Attack_Middle_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/BT_HuaQianXiao_Attack_02.BT_HuaQianXiao_Attack_02",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Ga_RTG_HuaQianXiao_Tipsy_AA.Ga_RTG_HuaQianXiao_Tipsy_AA_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Ga_RTG_HuaQianXiao_Tipsy_AAA.Ga_RTG_HuaQianXiao_Tipsy_AAA_C"
+      ]
+    },
+    {
+      "key": "71e2512e413d062dbb9f",
+      "id": "huaqianxiao",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/GA_HuaQianXiao_SpecialAttack_F_Combo.GA_HuaQianXiao_SpecialAttack_F_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/BT_HuaQianXiao_SpecialAttack_F_01.BT_HuaQianXiao_SpecialAttack_F_01",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Pack/BT_HuaQianXiao_SpecialAttack_F_02.BT_HuaQianXiao_SpecialAttack_F_02",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/GA_RTG_HuaQianXiao_Normal_BB.GA_RTG_HuaQianXiao_Normal_BB_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/GA_RTG_HuaQianXiao_Normal_BBB.GA_RTG_HuaQianXiao_Normal_BBB_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/GA_RTG_HuaQianXiao_Normal_BBBB.GA_RTG_HuaQianXiao_Normal_BBBB_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuaQianXiao/Ability/Abilities/RTG/Ga_RTG_HuaQianXiao_Tipsy_AAAA.Ga_RTG_HuaQianXiao_Tipsy_AAAA_C"
+      ]
+    },
+    {
+      "key": "9ae1607c0c95f3277b95",
+      "id": "huotongren",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_AutoCombo.GA_HuoTongRen_Fist_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop01/BT_Monster_HuoTongen_Fist_Troop_01_Call.BT_Monster_HuoTongen_Fist_Troop_01_Call",
+          "weight": 100.0,
+          "nodes": 19,
+          "edges": 18,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Dodge_B.GA_HuoTongRen_Fist_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Dodge/GA_HuoTongRen_Troops_01_Rally_Fist.GA_HuoTongRen_Troops_01_Rally_Fist_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitEnd_Fist.GA_HuoTongRen_Troops_01_Release_SplitEnd_Fist_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop01_Split/GA_HuoTongRen_Troops_01_Release_SplitStart_Fist.GA_HuoTongRen_Troops_01_Release_SplitStart_Fist_C"
+      ]
+    },
+    {
+      "key": "1e9b53de954d3a586746",
+      "id": "huotongren",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Troop_04.GA_HuoTongRen_Fist_Troop_04_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/Troop/Troop04/BT_Monster_HuoTongen_Fist_Troop_04_Call.BT_Monster_HuoTongen_Fist_Troop_04_Call",
+          "weight": 100.0,
+          "nodes": 16,
+          "edges": 15,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Dodge_B.GA_HuoTongRen_Fist_Dodge_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/DodgeFast/GA_HuoTongRen_Troops_04_Rally_Fist.GA_HuoTongRen_Troops_04_Rally_Fist_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_End_Fist.GA_HuoTongRen_Troop_04_Release_End_Fist_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Troop/Abilitys/Troop04/GA_HuoTongRen_Troop_04_Release_Start_Fist.GA_HuoTongRen_Troop_04_Release_Start_Fist_C"
+      ]
+    },
+    {
+      "key": "7844b23562e58ddecd05",
+      "id": "huotongren",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/Summon/GA_Monster_HuoTongRen_Summon_Init_AutoCombo.GA_Monster_HuoTongRen_Summon_Init_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/BehaviorTree/BT_Monster_HuoTongRen_Summon_Init.BT_Monster_HuoTongRen_Summon_Init",
+          "weight": 100.0,
+          "nodes": 9,
+          "edges": 8,
+          "references": 5
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_01_Combo01.GA_HuoTongRen_Fist_Skill_01_Combo01_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_02.GA_HuoTongRen_Fist_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_Skill_04.GA_HuoTongRen_Fist_Skill_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_SpecialAttack_03.GA_HuoTongRen_Fist_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/HuoTongRen/Ability/HuoTongRen_Fist/Abilities/GA_HuoTongRen_Fist_StartMetal.GA_HuoTongRen_Fist_StartMetal_C"
+      ]
+    },
+    {
+      "key": "42eebf4259341645f577",
+      "id": "jiangjun",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/JiangJun/Ability/WuXuan/Abilities/GA_WuXuan_Skill_01_SA.GA_WuXuan_Skill_01_SA_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/JiangJun/BehaviorTree/WuXuan/BT_WuXuan_Skill_01_SA.BT_WuXuan_Skill_01_SA",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/JiangJun/Ability/WuXuan/Abilities/GA_WuXuan_Skill_01.GA_WuXuan_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/JiangJun/Ability/WuXuan/Abilities/GA_WuXuan_Skill_01_Loop.GA_WuXuan_Skill_01_Loop_C",
+        "/PBZCombatAsset/ActorData/Mobs/JiangJun/Ability/WuXuan/Abilities/GA_WuXuan_Skill_1_End.GA_WuXuan_Skill_1_End_C"
+      ]
+    },
+    {
+      "key": "dda109731fc1613e2663",
+      "id": "jiangjun",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/JiangJun/Ability/ZhuoBi/Abilities/GA_ZhuoBi_CA_02.GA_ZhuoBi_CA_02_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "534df22419ab33ca15df",
+      "id": "liondancer",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/LionDancer/Ability/GA_LionDancer_CA_01.GA_LionDancer_CA_01_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "f221a048809c7faea871",
+      "id": "liondancer",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/LionDancer/Ability/GA_LionDancer_KaiChang.GA_LionDancer_KaiChang_C",
+      "mapping_observed": true,
+      "trees": [],
+      "referenced_ability_classes": []
+    },
+    {
+      "key": "8e86a5027994bdee2480",
+      "id": "liondancer_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/LionDancer_P2/Ability/Pole/GA_LionDancer_Perform_JumpToPole_01.GA_LionDancer_Perform_JumpToPole_01_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "6949d647c76a913ed16c",
+      "id": "liondancer_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/LionDancer_P2/Ability/Pole/GA_LionDancer_Perform_JumpToPole_02.GA_LionDancer_Perform_JumpToPole_02_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "008107061c0acb77ec12",
+      "id": "liondancer_p2",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/LionDancer_P2/Ability/Pole/GA_LionDancer_Perform_PoleAttack_01.GA_LionDancer_Perform_PoleAttack_01_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "01b59e17bb37a06aee31",
+      "id": "luanshi",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_AutoCombo.GA_Luanshi_AutoCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_AutoCombo_01_Punch.BT_Luanshi_AutoCombo_01_Punch",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_AutoCombo_02S_Claw.BT_Luanshi_AutoCombo_02S_Claw",
+          "weight": 150.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_AutoCombo_03_Dao.BT_Luanshi_AutoCombo_03_Dao",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_AutoCombo_04S_Eye.BT_Luanshi_AutoCombo_04S_Eye",
+          "weight": 200.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 2
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_AutoCombo_05S_Elbew.BT_Luanshi_AutoCombo_05S_Elbew",
+          "weight": 200.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_AutoCombo_06S_Hu.BT_Luanshi_AutoCombo_06S_Hu",
+          "weight": 200.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_Skill_06_Ying.GA_LuanShi_Skill_06_Ying_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_07_R_Hu_JumpTimeline.GA_LuanShi_SpecialAttack_07_R_Hu_JumpTimeline_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05A.GA_LuanShi_SpecialAttack_He_05A_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05B.GA_LuanShi_SpecialAttack_He_05B_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_He_05C.GA_LuanShi_SpecialAttack_He_05C_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_LuanShi_SpecialAttack_She_03B.GA_LuanShi_SpecialAttack_She_03B_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_Attack_Ying_01A.GA_Luanshi_Attack_Ying_01A_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_Ying_01B.GA_Luanshi_SpecialAttack_Ying_01B_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/Grab/GA_LuanShi_GEx_01.GA_LuanShi_GEx_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01.GA_TieGui_Attack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01_A.GA_TieGui_Attack_01_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_01_B.GA_TieGui_Attack_01_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Attack_02_B.GA_TieGui_Attack_02_B_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_BackTaunt_Combo.GA_TieGui_BackTaunt_Combo_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_03.GA_TieGui_SpecialAttack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_05.GA_TieGui_SpecialAttack_05_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_06_DirectJump.GA_TieGui_SpecialAttack_06_DirectJump_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_07.GA_TieGui_SpecialAttack_07_C"
+      ]
+    },
+    {
+      "key": "a0dc100cbffe4ba86206",
+      "id": "luanshi",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_InBuff_Combo.GA_Luanshi_InBuff_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Combo/BT_Luanshi_Inbuff_Combo.BT_Luanshi_Inbuff_Combo",
+          "weight": 100.0,
+          "nodes": 7,
+          "edges": 6,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_InBuff.GA_Luanshi_InBuff_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/Abilities/GA_Luanshi_SpecialAttack_08.GA_Luanshi_SpecialAttack_08_C"
+      ]
+    },
+    {
+      "key": "d77b226e12d3860eb3c2",
+      "id": "luanshi",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_BackTaunt_Combo.GA_TieGui_BackTaunt_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/Luanshi/BehaviorTree/Tiegui/Combo/BT_TieGui_BackTaunt_Combo.BT_TieGui_BackTaunt_Combo",
+          "weight": 1.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_Back_Taunt.GA_TieGui_Back_Taunt_C",
+        "/PBZCombatAsset/ActorData/Mobs/Luanshi/Ability/TieGui/Abilities/GA_TieGui_SpecialAttack_04_OnlyCombo.GA_TieGui_SpecialAttack_04_OnlyCombo_C"
+      ]
+    },
+    {
+      "key": "e2e09851fa84a1f1620f",
+      "id": "maledoll",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_AutoCombo_01.GA_MaleDoll_Cannon_AutoCombo_01_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BehaviorTree/MaleDoll_Cannon/BT_Monster_MaleDoll_Cannon_AutoCombo_01.BT_Monster_MaleDoll_Cannon_AutoCombo_01",
+          "weight": 100.0,
+          "nodes": 11,
+          "edges": 10,
+          "references": 6
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Attack_03.GA_MaleDoll_Cannon_Attack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Attack_04_C1.GA_MaleDoll_Cannon_Attack_04_C1_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Skill_01.GA_MaleDoll_Cannon_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Skill_03.GA_MaleDoll_Cannon_Skill_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Abilities/GA_MaleDoll_Half_Up_Attack_01.GA_MaleDoll_Half_Up_Attack_01_C"
+      ]
+    },
+    {
+      "key": "2a5993ee031d5bc93bcf",
+      "id": "maledoll",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_AutoCombo_02.GA_MaleDoll_Cannon_AutoCombo_02_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BehaviorTree/MaleDoll_Cannon/BT_Monster_MaleDoll_Cannon_AutoCombo_02.BT_Monster_MaleDoll_Cannon_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 17,
+          "edges": 16,
+          "references": 9
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Attack_01.GA_MaleDoll_Cannon_Attack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Attack_03.GA_MaleDoll_Cannon_Attack_03_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Attack_04.GA_MaleDoll_Cannon_Attack_04_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Skill_01.GA_MaleDoll_Cannon_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Skill_02.GA_MaleDoll_Cannon_Skill_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Cannon/Abilities/GA_MaleDoll_Cannon_Skill_03_C2.GA_MaleDoll_Cannon_Skill_03_C2_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Half_Up/Abilities/GA_MaleDoll_Half_Up_Attack_01.GA_MaleDoll_Half_Up_Attack_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Common_Dodge_B.GA_MaleDoll_Common_Dodge_B_C"
+      ]
+    },
+    {
+      "key": "8ee54daceac259810eab",
+      "id": "maledoll",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Weaponless_PunchCombo.GA_MaleDoll_Weaponless_PunchCombo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BehaviorTree/MaleDoll_Weaponless/BT_Monster_MaleDoll_Weaponless_Punch.BT_Monster_MaleDoll_Weaponless_Punch",
+          "weight": 100.0,
+          "nodes": 4,
+          "edges": 3,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Weaponless_Attack_FlyKick.GA_MaleDoll_Weaponless_Attack_FlyKick_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/MaleDoll_Weaponless/Abilities/GA_MaleDoll_Weaponless_Attack_NormalKick.GA_MaleDoll_Weaponless_Attack_NormalKick_C"
+      ]
+    },
+    {
+      "key": "480349b81013cc95e34b",
+      "id": "maledoll",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_YuGu_Skill_01_Combo.GA_YuGu_Skill_01_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/MaleDoll/BehaviorTree/MaleDoll_YuGu/BT_YuGu_Skill_01_Combo.BT_YuGu_Skill_01_Combo",
+          "weight": 100.0,
+          "nodes": 3,
+          "edges": 2,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_01.GA_MaleDoll_YuGu_Skill_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/MaleDoll/Ability/Abilities/YuGu/GA_MaleDoll_YuGu_Skill_01_B.GA_MaleDoll_YuGu_Skill_01_B_C"
+      ]
+    },
+    {
+      "key": "24bc961bde7e0b9da665",
+      "id": "qishu",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_L.GA_Qishu_Lei_Stand_Combo_L_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_L1.BT_Qishu_Lei_Stand_L1",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 4
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_L2.BT_Qishu_Lei_Stand_L2",
+          "weight": 80.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Common/GA_Qishu_Common_Walk_L.GA_Qishu_Common_Walk_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Black.GA_Qishu_Lei_Black_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_F.GA_Qishu_Lei_MoveAttack_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_L.GA_Qishu_Lei_MoveAttack_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_L_Short.GA_Qishu_Lei_MoveAttack_L_Short_C"
+      ]
+    },
+    {
+      "key": "11dc6e4716cfdcbe70eb",
+      "id": "qishu",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_L_Easy.GA_Qishu_Lei_Stand_Combo_L_Easy_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_L2.BT_Qishu_Lei_Stand_L2",
+          "weight": 1.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Black.GA_Qishu_Lei_Black_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_F.GA_Qishu_Lei_MoveAttack_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_L_Short.GA_Qishu_Lei_MoveAttack_L_Short_C"
+      ]
+    },
+    {
+      "key": "bdebeeebabbd6c0d8c01",
+      "id": "qishu",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_R.GA_Qishu_Lei_Stand_Combo_R_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_R.BT_Qishu_Lei_Stand_R",
+          "weight": 80.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 3
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_R2.BT_Qishu_Lei_Stand_R2",
+          "weight": 100.0,
+          "nodes": 6,
+          "edges": 5,
+          "references": 4
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Common/GA_Qishu_Common_Walk_R.GA_Qishu_Common_Walk_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Black.GA_Qishu_Lei_Black_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_F.GA_Qishu_Lei_MoveAttack_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_R.GA_Qishu_Lei_MoveAttack_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_R_Short.GA_Qishu_Lei_MoveAttack_R_Short_C"
+      ]
+    },
+    {
+      "key": "3dbd49851a414640e20f",
+      "id": "qishu",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Stand_Combo_R_Easy.GA_Qishu_Lei_Stand_Combo_R_Easy_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/QiShu/BehaviorTree/Lei/Combo/BT_Qishu_Lei_Stand_R.BT_Qishu_Lei_Stand_R",
+          "weight": 1.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 3
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_Black.GA_Qishu_Lei_Black_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_F.GA_Qishu_Lei_MoveAttack_F_C",
+        "/PBZCombatAsset/ActorData/Mobs/QiShu/Ability/Abilities/Lei/Stand/GA_Qishu_Lei_MoveAttack_R_Short.GA_Qishu_Lei_MoveAttack_R_Short_C"
+      ]
+    },
+    {
+      "key": "35cc8b6421fdc1b68c63",
+      "id": "yingmei",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_AutoCombo_Hard.GA_YingMei_AutoCombo_Hard_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/YingMei/BehaviorTree/BT_Monster_YingMei_AutoCombo_02.BT_Monster_YingMei_AutoCombo_02",
+          "weight": 100.0,
+          "nodes": 64,
+          "edges": 63,
+          "references": 32
+        },
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/YingMei/BehaviorTree/BT_Monster_YingMei_AutoCombo_03.BT_Monster_YingMei_AutoCombo_03",
+          "weight": 100.0,
+          "nodes": 92,
+          "edges": 91,
+          "references": 45
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_Common_Dodge_L.GA_YingMei_Common_Dodge_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_Common_Dodge_L_02.GA_YingMei_Common_Dodge_L_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_RedShadowBoneBlade_BackDash.GA_YingMei_RedShadowBoneBlade_BackDash_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_RedShadowBoneBlade_FastDash.GA_YingMei_RedShadowBoneBlade_FastDash_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Dodge/GA_YingMei_RedShadowBoneBlade_StraightDash.GA_YingMei_RedShadowBoneBlade_StraightDash_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_2Hit.GA_YingMei_RedShadowBoneBlade_Attack_2Hit_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_2Hit_B_Poke.GA_YingMei_RedShadowBoneBlade_Attack_2Hit_B_Poke_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_2Hit_R.GA_YingMei_RedShadowBoneBlade_Attack_2Hit_R_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_3Hit_L.GA_YingMei_RedShadowBoneBlade_Attack_3Hit_L_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_5Hit.GA_YingMei_RedShadowBoneBlade_Attack_5Hit_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch.GA_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch_A.GA_YingMei_RedShadowBoneBlade_Attack_5Hit_Punch_A_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_Poke_01.GA_YingMei_RedShadowBoneBlade_Attack_Poke_01_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_Rotate.GA_YingMei_RedShadowBoneBlade_Attack_Rotate_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack.GA_YingMei_RedShadowBoneBlade_Attack_RotateKnifeHack_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Skill_Poke_02.GA_YingMei_RedShadowBoneBlade_Skill_Poke_02_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Skill_Punch.GA_YingMei_RedShadowBoneBlade_Skill_Punch_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/GA_YingMei_RedShadowBoneBlade_Skill_PushPunch.GA_YingMei_RedShadowBoneBlade_Skill_PushPunch_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Sword/GA_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_FoolDraw.GA_YingMei_RedShadowBoneBlade_Attack_Skill_Sword_FoolDraw_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_2Wave.GA_YingMei_RedShadowBoneBlade_Attack_L_2Wave_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_2Wave_Fast.GA_YingMei_RedShadowBoneBlade_Attack_L_2Wave_Fast_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_5Wave.GA_YingMei_RedShadowBoneBlade_Attack_L_5Wave_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_5Wave_C3.GA_YingMei_RedShadowBoneBlade_Attack_L_5Wave_C3_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_L_Wave.GA_YingMei_RedShadowBoneBlade_Attack_L_Wave_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Attack_R_Wave.GA_YingMei_RedShadowBoneBlade_Attack_R_Wave_C",
+        "/PBZCombatAsset/ActorData/Mobs/YingMei/Ability/YingMei_RedShadowBoneBlade/Abilities/Wave/GA_YingMei_RedShadowBoneBlade_Skill_Back6Wave.GA_YingMei_RedShadowBoneBlade_Skill_Back6Wave_C"
+      ]
+    },
+    {
+      "key": "0957ed4d98ad6a295fc1",
+      "id": "yubi",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/YuBi/Ability/Abilities/V2/GA_YuBi_CA_03_Hard.GA_YuBi_CA_03_Hard_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "821df0520572f007fea6",
+      "id": "yucong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/Bing/GA_YuCong_Bing_CA_Combined.GA_YuCong_Bing_CA_Combined_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "05908cd69b627767782b",
+      "id": "yucong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_WuLi_Skill_03_Combined.GA_YuCong_WuLi_Skill_03_Combined_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "3ce941af3f2235c435b4",
+      "id": "yucong",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/YuCong/Abilities/WuLi/GA_YuCong_WuLi_Skill_03_Combined_hard.GA_YuCong_WuLi_Skill_03_Combined_hard_C",
+      "mapping_observed": false,
+      "trees": [],
+      "referenced_ability_classes": [],
+      "rejection_category": "unavailable_native_map"
+    },
+    {
+      "key": "464d71bc7c1f9eef24de",
+      "id": "yuding_00",
+      "parent_class": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/CA/GA_YuDing_CA_Combo.GA_YuDing_CA_Combo_C",
+      "mapping_observed": true,
+      "trees": [
+        {
+          "path": "/PBZCombatAsset/ActorData/Mobs/YuDing_00/BehaviorTree/Combo/BT_YuDing_CA.BT_YuDing_CA",
+          "weight": 100.0,
+          "nodes": 5,
+          "edges": 4,
+          "references": 2
+        }
+      ],
+      "referenced_ability_classes": [
+        "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/CA/GA_YuDing_CA.GA_YuDing_CA_C",
+        "/PBZCombatAsset/ActorData/Mobs/YuDing_00/Ability/Abilities/Grab/GA_YuDing_GEx_01.GA_YuDing_GEx_01_C"
+      ]
+    }
+  ],
+  "private_evidence_sha256": {
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tools/boss_subtree_inventory.py": "853d9564907bc32793016faada9e257a3059f6e48287e39364b5756b87611966",
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tools/boss_subtree_probe.lua": "690f88b55a5e0fc8501d307d87bf9873f40ecb0e6e2426966d589ba92170a453",
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tools/stage_boss_subtrees.py": "973a52161773cc1d600c4d61673934480f18da0d0fc0a6e93ceeaa158f634d3b",
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tests/test_boss_subtree_inventory.py": "8580a6bc48e5f20f1dfaed072691e8e18efcf36a135258c9d11ea28834cb0e4d",
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tests/test_boss_subtree_probe.lua": "04259f0c03239f7fc2d6b2589cf9b784c508bec6214de6098ff86c2e6bb4add4",
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tools/collect_boss_subtree_progress.py": "56cbfa38e5b5283a0443d5c4e3b1180f25c845e9ceefa82fe75fd1e8a1a09095",
+    "evidence/official-validation/20261119-022757/subtree-source-snapshot/tests/test_boss_subtree_progress.py": "16666a2cf280231c9c3ad95a37a65df9661a2e65ddfb99d9bd96189da89decd7",
+    "runtime/official-validation-20261119-022757/state.json": "17f9ecad444b4ff6da7a56f580b10d526d3e8a73a130b0346729ad276e7a6530",
+    "evidence/official-validation/20261119-022757/postcheck.json": "7c5b040e551b549cca042cef607321fed407f6f9f17a3fe4d9b2fcea7a8b3793",
+    "runtime/boss-subtree-inventory/b4e3b55f26a0bcc86e6c/manifest.json": "9a3a0ce2086e7e66895c8ef23509273ffb19865fe655e1d96fff57d14a39a812",
+    "evidence/official-validation/20261119-022757/boss-subtree-query-b4e3b55f26a0bcc86e6c-staged.json": "594534772c35d667658d9f4875d7b5fb5d5381a7142640867cd4c51f7790fc9c",
+    "evidence/official-validation/20261119-022757/boss-subtree-query-b4e3b55f26a0bcc86e6c-intent.json": "eead5f31a281c0478a396244cd91493896c9c7cb36996fc5bc37e8d6bca6668c",
+    "evidence/official-validation/20261119-022757/boss-subtree-query-b4e3b55f26a0bcc86e6c-manifest.json": "9a3a0ce2086e7e66895c8ef23509273ffb19865fe655e1d96fff57d14a39a812",
+    "evidence/official-validation/20261119-022757/boss-subtree-query-b4e3b55f26a0bcc86e6c-probe.lua": "236c2b65b06007a7d99f725faf72eaca612eaf5a6a88bc2369bd4d73ffdd976a",
+    "evidence/official-validation/20261119-022757/UE4SS.log": "0c9fec3f0c02a60c8e2dab53f7902a622800afe3ebf6b952904dfdb94d67bf93",
+    "evidence/official-validation/20261119-022757/boss-subtree-query-b4e3b55f26a0bcc86e6c-capture.json": "3d3012341133cf2b0c88d218d152bc64722b519521e55d83d49b1e280defa642"
+  },
+  "probe_source_sha256": {
+    "tools/boss_subtree_inventory.py": "853d9564907bc32793016faada9e257a3059f6e48287e39364b5756b87611966",
+    "tools/boss_subtree_probe.lua": "690f88b55a5e0fc8501d307d87bf9873f40ecb0e6e2426966d589ba92170a453",
+    "tools/stage_boss_subtrees.py": "973a52161773cc1d600c4d61673934480f18da0d0fc0a6e93ceeaa158f634d3b",
+    "tests/test_boss_subtree_inventory.py": "8580a6bc48e5f20f1dfaed072691e8e18efcf36a135258c9d11ea28834cb0e4d",
+    "tests/test_boss_subtree_probe.lua": "04259f0c03239f7fc2d6b2589cf9b784c508bec6214de6098ff86c2e6bb4add4",
+    "tools/collect_boss_subtree_progress.py": "56cbfa38e5b5283a0443d5c4e3b1180f25c845e9ceefa82fe75fd1e8a1a09095",
+    "tests/test_boss_subtree_progress.py": "16666a2cf280231c9c3ad95a37a65df9661a2e65ddfb99d9bd96189da89decd7"
+  },
+  "audit_source_sha256": {
+    "tools/collect_boss_subtree_progress.py": "56cbfa38e5b5283a0443d5c4e3b1180f25c845e9ceefa82fe75fd1e8a1a09095",
+    "tools/boss_subtree_inventory.py": "853d9564907bc32793016faada9e257a3059f6e48287e39364b5756b87611966",
+    "tools/stage_boss_subtrees.py": "973a52161773cc1d600c4d61673934480f18da0d0fc0a6e93ceeaa158f634d3b",
+    "tests/test_boss_subtree_progress.py": "16666a2cf280231c9c3ad95a37a65df9661a2e65ddfb99d9bd96189da89decd7"
+  },
+  "all_closed_attempts": {
+    "attempts": 3,
+    "graphs": {
+      "parents": 109,
+      "trees": 174,
+      "nodes": 1624,
+      "edges": 1450,
+      "references": 1204,
+      "distinct_referenced_abilities": 491
+    },
+    "rejected": 34,
+    "interrupted": 1,
+    "pending_parent_queries": 0,
+    "all_observed_queries_attempted": true,
+    "complete_game_package_inventory": false
+  },
+  "cleanup": {
+    "research_box_empty": true,
+    "research_loader_removed": true,
+    "formal_files_changed": [],
+    "host_config_files_changed": [],
+    "host_registry_unchanged": true
+  },
+  "no_native_crash_observed_this_attempt": true,
+  "previous_crash_root_cause_identified": false,
+  "metadata_only": true,
+  "playable": false,
+  "native_grant_verified": false,
+  "activation_verified": false,
+  "execution_order_proven": false,
+  "all_boss_skills_complete": false,
+  "runtime_acceptance_current": false
+}

@@ -523,3 +523,7 @@ evidence/adaptation/subtree-observations-20261119-014731.json -text whitespace=c
 evidence/adaptation/subtree-observations-20261119-021103.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-background-delta-3a6c8f71bd8870ee.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-subtree-bulk-delta-f87dac2f698caf65.json -text whitespace=cr-at-eol
+tools/prepare_boss_subtree_references.py -text whitespace=cr-at-eol
+tests/test_boss_subtree_references.py -text whitespace=cr-at-eol
+evidence/adaptation/subtree-observations-20261119-022757.json -text whitespace=cr-at-eol
+evidence/adaptation/boss-subtree-reference-delta-03a3da0f935731f9.json -text whitespace=cr-at-eol

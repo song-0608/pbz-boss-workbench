@@ -19,6 +19,7 @@ import prepare_full_boss_catalog as full_catalog
 import prepare_boss_skill_pages as skill_pages
 import prepare_boss_variant_candidates as variant_candidates
 import boss_subtree_inventory as subtrees
+import prepare_boss_subtree_references as subtree_references
 
 
 TEST_MODULES = (
@@ -34,6 +35,7 @@ TEST_MODULES = (
     'tests.test_boss_inventory_spawn_repair',
     'tests.test_boss_subtree_inventory',
     'tests.test_boss_subtree_progress',
+    'tests.test_boss_subtree_references',
 )
 
 
@@ -71,6 +73,7 @@ def main():
         source_files[name] = sha(ROOT / name)
     source_files.update(workflows.source_hashes())
     source_files.update({name: sha(ROOT / name) for name in subtrees.SOURCES})
+    source_files.update({name: sha(ROOT / name) for name in subtree_references.SOURCES})
     checks = [invoke('Python regressions', [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', *TEST_MODULES])]
     packages = []
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
@@ -79,6 +82,9 @@ def main():
     checks.append(invoke('Current inventory target spawn assets', [str(executable),
                          'tests/test_inventory_spawn_assets.lua', spawn_fixture.relative_to(ROOT).as_posix()]))
     subtree_directory, subtree_manifest = subtrees.build()
+    reference_directory, reference_manifest = subtree_references.build()
+    checks.append(invoke('Subtree reference type plan verification', [sys.executable, '-B', '-X', 'utf8',
+        'tools/prepare_boss_subtree_references.py', 'verify', str(reference_directory)]))
     checks.append(invoke('Subtree metadata queue verification', [sys.executable, '-B', '-X', 'utf8',
         'tools/stage_boss_subtrees.py', 'verify', str(subtree_directory)]))
     if subtree_manifest['jobs']:
@@ -140,6 +146,10 @@ def main():
                       manifest_sha256=sha(subtree_directory / 'manifest.json'),
                       requests=len(subtree_manifest['jobs']), runtime_verified=False,
                       execution_order_proven=False, playable=False),
+                  subtree_reference_queries=dict(directory=reference_directory.relative_to(ROOT).as_posix(),
+                      manifest_sha256=sha(reference_directory / 'manifest.json'),
+                      requests=len(reference_manifest['jobs']), batches=len(reference_manifest['batches']),
+                      stage_supported=False, runtime_verified=False, playable=False),
                   passed=all(check['passed'] for check in checks), game_started=False, ui_input_sent=False,
                   live_carrier_staged=False, installed=False, all_boss_skills_complete=False,
                   runtime_acceptance_current=False)
