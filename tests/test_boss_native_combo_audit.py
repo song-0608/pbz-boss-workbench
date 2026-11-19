@@ -46,6 +46,30 @@ class NativeComboAuditTests(unittest.TestCase):
         self.assertTrue(row['lifecycle_observation_passed'])
         self.assertFalse(row['every_use_health_decrease_observed'])
 
+    def test_synchronous_parent_observation_precedes_keyed_host_log(self):
+        text=cycle()
+        parent=ACTIVE.splitlines()[0]+'\n'
+        text=text.replace(parent,'').replace(START,START+parent)
+        self.assertTrue(audit.audit_cycle(text,DEFINITION)['lifecycle_observation_passed'])
+        # A parent observation outside its scheduler ticket must still fail.
+        text=text.replace(START+parent,parent+START,1)
+        self.assertFalse(audit.audit_cycle(text,DEFINITION)['lifecycle_observation_passed'])
+
+    def test_parent_end_does_not_replace_or_need_to_follow_child_closure(self):
+        text=cycle()
+        lines=text.splitlines(keepends=True)
+        moved=[]
+        for index,line in enumerate(lines):
+            if line==NATURAL_END:
+                self.assertIn('KEY_SKILL_END=',lines[index+1])
+                moved.append(lines[index+1]);moved.append(line)
+            elif index and lines[index-1]==NATURAL_END:
+                continue
+            else:moved.append(line)
+        text=''.join(moved)
+        self.assertTrue(audit.audit_cycle(text,DEFINITION)['lifecycle_observation_passed'])
+        self.assertFalse(audit.audit_cycle(text.replace(NATURAL_END,'',1),DEFINITION)['lifecycle_observation_passed'])
+
     def test_current_cancel_snapshot_and_full_recovery_are_required(self):
         row = audit.audit_cycle(cycle(1,cancel=True), DEFINITION, mode='cancel')
         self.assertTrue(row['active_native_cancellation_and_player_recovery_observed'])

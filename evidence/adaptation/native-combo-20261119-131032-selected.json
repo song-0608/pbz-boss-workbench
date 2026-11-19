@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "kind": "selected_native_combo_and_profile_metadata_observations",
+  "session": "20261119-131032",
+  "status": "development_observations_not_release",
+  "game_launches": 1,
+  "scene": "悲泣溪谷—斧老大斩落处",
+  "metadata": {
+    "queries": 46,
+    "verified": 46,
+    "types": {
+      "leaf": 43,
+      "subtree": 3
+    },
+    "characters": {
+      "042_ahua": 22,
+      "056_youlong": 8,
+      "057_wanjun": 8,
+      "073_yanqiansui": 8
+    },
+    "grant_or_activation_permission": false
+  },
+  "combo": {
+    "id": "044_pengmeng",
+    "parent_class": "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special05_Combo.GA_PengMeng_Special05_Combo_C",
+    "candidate": "runtime/boss-native-combo-candidates/044_pengmeng-2319ade1afae768cde35",
+    "same_takeover_natural_uses": 3,
+    "observed_selected_target_health_decreases": [
+      144.0,
+      384.0,
+      144.0
+    ],
+    "parent_and_child_closed_each_time": true,
+    "player_exit_and_full_recovery": true,
+    "initial_exact_parent_grant_observed": true,
+    "recorded_deployment_overrides_match_frozen_candidate": true,
+    "observed_leaf_classes": [
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_05.GA_PengMeng_Special_05_C",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_A.GA_PengMeng_Special_12_A_C",
+      "/PBZCombatAsset/ActorData/Mobs/044_PengMeng/Ability/Axe/Abilities/GA_PengMeng_Special_12_B_LeftAttack.GA_PengMeng_Special_12_B_LeftAttack_C"
+    ],
+    "active_cancellation_verified": false,
+    "all_declared_leaves_runtime_verified": false,
+    "temporary_leaf_retirement_events": 0,
+    "temporary_leaf_regrant_events": 0,
+    "source_attributed_damage": false,
+    "player_registration": false
+  },
+  "input_dispatch_observation": {
+    "source": "Computer-use tool replies, transcribed after closure; original gate files retained",
+    "actions": [
+      {
+        "key": "Control_L+r",
+        "sent_at_observed_in_computer_use_reply": 1795066661.478,
+        "gate_expires_at": 1795066671.3191724,
+        "gate": "evidence/official-validation/20261119-131032/native-combo-ui-stage-gate-1795066661319672500.json",
+        "gate_sha256": "0b3e72e51835866bbdfc2704d9de3501adb1b002c2e52c5bd1b2209fd8b8c82b"
+      },
+      {
+        "key": "F6",
+        "sent_at_observed_in_computer_use_reply": 1795066774.378,
+        "gate_expires_at": 1795066784.1909032,
+        "gate": "evidence/official-validation/20261119-131032/native-grant-skill-gate-1795066774191403400.json",
+        "gate_sha256": "bce2379797346cef72cb02de7714f79b93e58b2b83405f30c0f4eb598975da17"
+      },
+      {
+        "key": "F1",
+        "sent_at_observed_in_computer_use_reply": 1795066851.298,
+        "gate_expires_at": 1795066861.1062033,
+        "gate": "evidence/official-validation/20261119-131032/native-grant-skill-gate-1795066851109202600.json",
+        "gate_sha256": "5a6180c1efe8fdc74eb429d248f902676ff9d9b993ed6566055c4673beccb074"
+      },
+      {
+        "key": "F1",
+        "sent_at_observed_in_computer_use_reply": 1795066953.297,
+        "gate_expires_at": 1795066963.0874057,
+        "gate": "evidence/official-validation/20261119-131032/native-grant-skill-gate-1795066953114082700.json",
+        "gate_sha256": "4f5793c31813ba2d7ffd20bf6ec4f9e92ef2b0c554c5fb12df85201c5b0999a9"
+      },
+      {
+        "key": "F1",
+        "sent_at_observed_in_computer_use_reply": 1795067046.442,
+        "gate_expires_at": 1795067056.2450063,
+        "gate": "evidence/official-validation/20261119-131032/native-grant-skill-gate-1795067046250508600.json",
+        "gate_sha256": "961937c49447e0dd1a1e28365f3d127e86b9a8713c2e9c43ce3251c76c4cb251"
+      },
+      {
+        "key": "F10",
+        "sent_at_observed_in_computer_use_reply": 1795067155.834,
+        "gate_expires_at": 1795067165.618491,
+        "gate": "evidence/official-validation/20261119-131032/native-grant-skill-gate-1795067155648078400.json",
+        "gate_sha256": "cf0e8f44612182763b0922e595328704e3e96e2796e9bd76478cad5812684f2f"
+      }
+    ],
+    "all_listed_dispatches_before_expiry": true
+  },
+  "cleanup": {
+    "formal_files_checked": 56,
+    "formal_files_changed": [],
+    "host_config_files_changed": [],
+    "host_registry_unchanged": true,
+    "research_box_empty": true,
+    "research_loader_removed": true,
+    "temporary_network_removed": true
+  },
+  "offline": {
+    "python_tests": 216,
+    "passed": true,
+    "next_subtree_queries": 6,
+    "next_subtree_queue": "runtime/boss-subtree-inventory/1b9e51a87ce9e3094afa",
+    "next_subtree_manifest_sha256": "98c86ed47935ce095d956ce7a2688867179983b798e02830473c51378349fe2a"
+  },
+  "audit_source_sha256": {
+    "tools/boss_native_combo_audit.py": "77e87137657486846cbf8023e0afb1a3050cda03a3ae38e4e181ee434952c21b",
+    "tests/test_boss_native_combo_audit.py": "3b072aa4eb6539c29861bc37a6253db7e5089b80601dc8638cca63bad12d5ee7",
+    "tools/boss_skill_repeat_audit.py": "10bdcc329f0e637a075f9757a5502dad3fcb499e6568d71c58b7f50b6b5d26e9",
+    "tests/test_boss_skill_repeat_audit.py": "214d896110c69011740d6f06a75f289de49108052d4b759f04070f75b65a59b2",
+    "tools/control_action_evidence.py": "12d550224d138690694ab6c1288f082341e1dadb6625c6e7cf925c470b5ebd19",
+    "tools/collect_skill_acceptance.py": "abd648ef4a6243c9df0c3145782fdb017ea3966792a5f18b3bd15d0733648c81",
+    "tools/candidate_effect_scope.py": "776a956d1fd77b18e3419fe943080f936d4d037f5f1d23f98433ac65bafd840a"
+  },
+  "local_source_sha256": {
+    "evidence/adaptation/boss-native-combo-observation-d5e50a6da5f4e623.json": "94838cef61c5ac95f7c7f457a937fb70b76109b0d5d2bb6b016cf6c6dd97b68d",
+    "research/boss-adaptation/subtree-reference-receipts/20261119-131032-e98e3842a84a33f4cd1c.json": "52bd9d85e7e1eb91e250cedbaf686a16cfe2b2320513e986d2b1b73e82c636a3",
+    "evidence/adaptation/boss-reference-controller-milestone-1c23598462e95094.json": "b0d84d27e2423a6589e69af37112a5b27f915533b96117f00537b98a52223991",
+    "runtime/boss-subtree-inventory/1b9e51a87ce9e3094afa/manifest.json": "98c86ed47935ce095d956ce7a2688867179983b798e02830473c51378349fe2a",
+    "evidence/official-validation/20261119-131032/postcheck.json": "7a2c443aac0800a848a9a04be2ea75a03523a6b113bfe06cea97aa3b7f43d1b8",
+    "evidence/official-validation/20261119-131032/UE4SS.log": "26a6ae84521da4682c0388caa261b9d05d8f9c7619bf4c4470ad49ca10b6af0b",
+    "evidence/official-validation/20261119-131032/native-combo-ui-stage-capture.json": "3a295355c315767250ece2084853645b5b5e217a7815717084055c6611550076",
+    "evidence/official-validation/20261119-131032/native-combo-ui-stage-staged.json": "6d184d701b7afd5d10cf18ac54db33be44047dee6007a854df1ef617b5137fc9",
+    "evidence/official-validation/20261119-131032/control-lifecycle-deployment.json": "934d5a2e89a99cb238c1274792050c2940f9abc1984348c82070d784664d7e36",
+    "runtime/boss-native-combo-candidates/044_pengmeng-2319ade1afae768cde35/manifest.json": "151e6f7511dfc2fdaff4fdc953c13a160224ceeec97cb0efb362ff010ef5c3a4"
+  },
+  "unverified": [
+    "active cancellation during the new combo",
+    "fourth declared leaf runtime activity",
+    "Wanjun native light attack damage",
+    "other Boss skill completeness",
+    "continuous movement and free-camera feel",
+    "actual map transition stability",
+    "real frame rate and whole-game smoothness"
+  ],
+  "complete_mod": false,
+  "installed": false,
+  "release_accepted": false,
+  "runtime_acceptance_current": false
+}

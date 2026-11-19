@@ -92,12 +92,17 @@ def audit_cycle(text, definition, *, mode='natural', repetitions=5):
         paired = bool(start[1] == 'skill_01' and len(requests) == 1 and requests[0][1] == 'skill_01'
             and proof['activation_instance_verified'] and proof['ability_class_short'] == short
             and len(ends) == 1 and observed_shape and parent in classes and leaves.intersection(classes)
-            and all(requests[0].start() < m.start() < ends[0].start() for m in observed)
+            # The bridge samples the newly active parent synchronously before
+            # host.log emits KEY_SKILL_BEGIN; later children arrive on ticks.
+            # Both belong to this exact scheduler ticket, never a prior cast.
+            and all(start.end()-start.start() <= m.start() < ends[0].start() for m in observed)
             and len(ends) == segment.count('COMBO_SCHEDULER_END='))
         keyed_ends = list(re.finditer(r'KEY_SKILL_END=skill_01\|', segment))
         natural = bool(paired and ends[0][1] == 'natural' and not cancels
             and 'COMBO_CANCEL_BEGIN=' not in segment and len(keyed_ends) == 1
-            and ends[0].end() <= keyed_ends[0].start() and proof['natural_completion'])
+            # Parent sampling can finish before the final child returns to
+            # baseline. Require both closures in this same ticket interval.
+            and proof['natural_completion'])
         stops = list(re.finditer(r'COMBO_TREE_STOP=running_before=(?:true|false)(?=\r?$)', segment, re.M))
         cancel = bool(paired and ends[0][1] == 'cancelled' and len(cancels) == 1
             and segment.count('COMBO_CANCEL_BEGIN=') == 1 and cancels[0][1] == 'skill_01'
