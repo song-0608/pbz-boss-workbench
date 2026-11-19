@@ -55,7 +55,8 @@ class WorkbenchRosterTests(unittest.TestCase):
                     pending = list(window.winfo_children()); widgets=[]
                     while pending:
                         widget=pending.pop();widgets.append(widget);pending.extend(widget.winfo_children())
-                    box=next(w for w in widgets if isinstance(w,ttk.Combobox))
+                    box=next(w for w in widgets if isinstance(w,ttk.Combobox)
+                        and tuple(w.cget('values'))==tuple(roles.values()))
                     self.assertEqual(tuple(box.cget('values')), tuple(roles.values()))
                     for identifier, name in roles.items():
                         box.set(name); box.event_generate('<<ComboboxSelected>>');window.update_idletasks()

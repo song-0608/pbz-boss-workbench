@@ -9,3 +9,6 @@
 - Python 运行带 `-B -X utf8`，避免冻结工作流出现 `__pycache__`。
 - 当前交付为六角色工作台 v5（`ahua-boss-workbench-v5-3f29975fe3b8826f`）；说明见 `74-Boss工作台v5操作说明.md`，只读核验使用 `tools/verify_boss_workbench_v5.py`。弦儿仅两项闪避，魔渊未开放；联机暂缓。
 - 默认CMD通过 `tools/workbench_status_bootstrap.py` 包装原始且摘要匹配的v5窗口，增加状态提示、重复步骤拦截及新窗口间步骤锁。界面扩展不改冻结的v5窗口、研究流程或游戏Lua；不会热更新旧窗口或重启正在进行的研究会话。回归见 `tests/test_workbench_session_status.py` 与 `tests/test_workbench_cmd_entry.py`。
+- 同一默认CMD现在包含“Boss 开发与研究 / UE 创作与 3C / 统一集成与冲突”三页。UE作者工作区为 `E:\项目\PBZ-Boss操控研究\创作协作\UE工程\PBZCreative`，后台创作草稿为同目录的 `后台草稿\PBZCreative`；Mod代码仍在本仓库。双方各自保存、提交提案，工作台统一检查三方差异，不并发写同一份UE二进制资产，不把源码草稿直接装进研究箱。
+- 创作提案只接收各自 `Content/PBZCreative` 与三份 `Config/PBZCreative/*.json`；提案/集成快照带摘要、来源与基线。JSON按字段合并，UE资产按整文件处理；冲突必须在工作台明确取舍，并绑定预览时的集成版本。集成不覆盖双方的编辑文件；接收结果保存在不可变集成快照，进入下一次开发构建。工作区原始资产在E盘，不上传Git。
+- `tools/creative_workspace.py initialize|submit --lane ue|backend` 负责各自创作源；`preview <提案ID>` 与 `integrate <提案ID>` 只操作离线快照。新开发候选会固化一次已选集成的3C参数及来源摘要；未提交或未集成的草稿不能进入候选。新增视觉/场景资源仍是编辑器源，必须另行完成目标版本Cook、挂载/加载和集中实机验证，不得宣称已在PBZ生效。详见 `统一工作台协作说明.md`。

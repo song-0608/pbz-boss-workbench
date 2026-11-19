@@ -106,6 +106,11 @@ def render(source):
         job('stop', close_after=True)
 """)
     change('    pump()\n', '    refresh_session()\n    pump()\n')
+    change("    frame = ttk.Frame(window, padding=20)\n    frame.pack(fill='both', expand=True)\n",
+        "    window.title('PBZ 统一工作台 · Boss · UE 创作 · 集成')\n"
+        "    notebook=ttk.Notebook(window)\n    notebook.pack(fill='both',expand=True)\n"
+        "    frame=ttk.Frame(notebook,padding=20)\n    notebook.add(frame,text='Boss 开发与研究')\n"
+        "    from creative_workbench_ui import attach\n    creative_tabs=attach(window,notebook,ROOT,smoke=smoke)\n")
     return source
 
 

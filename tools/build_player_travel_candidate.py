@@ -7,6 +7,7 @@ from pathlib import Path
 from boss_adaptation_workflow import ROOT, sha, write_json
 from build_player_experience_candidate import replace
 from mod_installation import MANIFEST, assert_closed, unlinked_path, validate_package
+import creative_workspace
 
 BASE = 'ahua-boss-workbench-v5-3f29975fe3b8826f'
 PREFIX = 'PBZBossControl/Scripts/'
@@ -33,9 +34,11 @@ SOURCES += ('tools/player_spawn_assets.lua', 'tests/test_player_spawn_assets.lua
 SOURCES += ('tools/player_activity_probe.lua', 'tests/test_player_activity_probe.lua')
 SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stage.py',
             'tools/player_travel_capture.py', 'tests/test_player_travel_capture.py')
+SOURCES += ('tools/creative_workspace.py', 'tools/research_storage.py', 'tests/test_creative_workspace.py',
+            'tools/creative_workbench_ui.py', 'tests/test_creative_workbench.py', 'tools/workbench_status_bootstrap.py')
 
 
-def payload(root=ROOT):
+def payload(root=ROOT, *, creative=None):
     base = root / 'releases' / BASE
     manifest = validate_package(base)
     proof = root / manifest['acceptance_report']
@@ -61,6 +64,8 @@ def payload(root=ROOT):
         ('player_skill_buffer', 'player_skill_buffer'), ('player_locomotion', 'player_locomotion'),
         ('player_locomotion_native', 'player_locomotion_native'), ('player_3c_target_lock', 'player_target_lock')):
         files[PREFIX + target + '.lua'] = (root / 'tools' / (source + '.lua')).read_bytes()
+    tuning, _ = creative_workspace.render_tuning(files[PREFIX+'player_3c_tuning.lua'].decode('utf-8').replace('\r\n','\n'),selected=creative)
+    files[PREFIX+'player_3c_tuning.lua']=tuning.encode('utf-8')
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     files[PREFIX + 'player_spawn_assets.lua'] = (root / 'tools/player_spawn_assets.lua').read_bytes()
     files[PREFIX + 'player_activity_probe.lua'] = (root / 'tools/player_activity_probe.lua').read_bytes()
@@ -453,10 +458,14 @@ def payload(root=ROOT):
 
 
 def expected(root=ROOT):
-    old, files = payload(root)
+    # Pin once: an author can integrate in another window during a build.
+    selected=creative_workspace.tuning()
     sources = {name: sha(root / name) for name in SOURCES}
+    old, files = payload(root,creative=selected)
+    assert sources=={name:sha(root/name) for name in SOURCES},'源码在构建期间发生变化，请保存后重新构建'
     hashes = {name: hashlib.sha256(data).hexdigest() for name, data in sorted(files.items())}
     identity = dict(files=hashes, sources=sources, base_manifest_sha256=sha(root / 'releases' / BASE / MANIFEST))
+    identity['creative_integration']=selected[1]
     key = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:16]
     bosses = [dict(row, bindings=row['bindings'] + (row['id'] in
         ('057_wanjun', '073_yanqiansui', '056_youlong', '058_maddoctor'))) for row in old['bosses']]
@@ -468,6 +477,7 @@ def expected(root=ROOT):
                  'native primary mouse input and cancellation', 'native cross-map travel and frame-time comparison',
                  'additional Boss native grants and skill acceptance'],
         travel_repair_runtime_verified=False)
+    manifest['creative_integration']=selected[1]
     manifest.pop('acceptance_report', None); manifest.pop('acceptance_report_sha256', None)
     return manifest, files
 

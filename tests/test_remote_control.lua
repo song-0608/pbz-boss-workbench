@@ -27,11 +27,12 @@ test('3C mouse bounds agree with the input sampler and legacy control stays narr
     local f=fixture();f.service:apply(f.ticket)
     assert(not pcall(f.service.look,f.service,f.ticket,20,0)and f.rotation.Yaw==10)
     f.service.locomotion={settings=require('player_3c_tuning').resolve('056_youlong')}
-    assert(f.service:look(f.ticket,40,-40)and f.rotation.Yaw==50 and f.rotation.Pitch==-40)
-    assert(not pcall(f.service.look,f.service,f.ticket,46,0)and f.rotation.Yaw==50)
-    assert(not pcall(f.service.look,f.service,f.ticket,0/0,0)and f.rotation.Yaw==50)
+    local limit=f.service.locomotion.settings.look_step_degrees;local step=limit-5;local yaw=10+step
+    assert(f.service:look(f.ticket,step,-step)and f.rotation.Yaw==yaw and f.rotation.Pitch==-step)
+    assert(not pcall(f.service.look,f.service,f.ticket,limit+1,0)and f.rotation.Yaw==yaw)
+    assert(not pcall(f.service.look,f.service,f.ticket,0/0,0)and f.rotation.Yaw==yaw)
     f.service.locomotion.settings.look_step_degrees=90
-    assert(not pcall(f.service.look,f.service,f.ticket,20,0)and f.rotation.Yaw==50)
+    assert(not pcall(f.service.look,f.service,f.ticket,20,0)and f.rotation.Yaw==yaw)
 end)
 test('exit balances only its own input blocks and restores rotation',function()local f=fixture();f.service:apply(f.ticket);f.service:look(f.ticket,2,1);assert(f.service:restore(f.ticket));assert(f.move_blocks==0 and f.look_blocks==0 and f.player.enabled and f.rotation.Yaw==10 and f.ticket.restored)end)
 test('repeated restore does not decrement input blocks twice',function()local f=fixture();f.service:apply(f.ticket);f.service:restore(f.ticket);f.service:restore(f.ticket);assert(f.move_blocks==0 and f.look_blocks==0)end)

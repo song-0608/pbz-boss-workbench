@@ -11,6 +11,7 @@ from boss_adaptation_workflow import ROOT, sha, write_json
 from build_boss_profile_candidate import lua
 import build_player_travel_candidate as candidate
 import player_travel_workflow as workflow
+import creative_workspace
 
 
 def check(package, manifest, flow=None, *, source_only=False):
@@ -25,13 +26,48 @@ def check(package, manifest, flow=None, *, source_only=False):
     loader.write_text('local modules=' + lua(modules) + '\n'
         'for name,path in pairs(modules)do package.preload[name]=assert(loadfile(path))end\n'
         'dofile(assert(arg[3]))\n', encoding='utf-8')
+    # These two contracts deliberately exercise canonical numeric defaults.
+    # Test authored payload values separately rather than rejecting valid tuning.
+    fixed_loader=work/'fixed-tuning-contracts.lua'
+    fixed_modules=dict(modules,player_3c_tuning='tools/player_3c_tuning.lua')
+    fixed_loader.write_text('local modules='+lua(fixed_modules)+'\n'
+        'for name,path in pairs(modules)do package.preload[name]=assert(loadfile(path))end\n'
+        'dofile(assert(arg[3]))\n',encoding='utf-8')
+    identity=manifest['travel_repair_identity']['creative_integration']
+    profiles={}
+    if identity:
+        directory,creative=creative_workspace.checked_snapshot('integration',identity['integration'])
+        assert creative_workspace.digest(creative_workspace.canonical(creative))==identity['manifest_sha256']
+        profiles=creative_workspace.read(directory/'files'/creative_workspace.CONFIGS[0])['profiles']
+    authored=work/'creative-tuning-payload.lua'
+    authored.write_text('local actual=assert(loadfile('+lua(test_path(package/(candidate.PREFIX+'player_3c_tuning.lua')))+'))()\n'
+        "local reference=assert(loadfile('tools/player_3c_tuning.lua'))()\n"
+        "package.loaded['player_3c_tuning']=actual\n"
+        'local Input=assert(loadfile('+lua(test_path(package/(candidate.PREFIX+'ue_input.lua')))+'))()\n'
+        'local profiles='+lua(profiles)+'\nlocal roles='+lua(sorted(creative_workspace.ROLES-{'*'}))+'\n'
+        'for _,id in ipairs(roles)do\n'
+        ' local expected=reference.resolve(id)\n'
+        " for key,value in pairs(profiles['*']or{})do expected[key]=value end\n"
+        ' for key,value in pairs(profiles[id]or{})do expected[key]=value end\n'
+        ' local resolved=actual.resolve(id)\n'
+        " for key,value in pairs(expected)do assert(resolved[key]==value,'authored tuning mismatch: '..id..'/'..key)end\n"
+        ' assert(actual.resolve(id,{mouse_scale=.37}).mouse_scale==.37)\n'
+        ' local pc={IsMoveInputIgnored=function()return false end,IsLookInputIgnored=function()return false end,\n'
+        '  IsInputKeyDown=function()return false end,GetControlRotation=function()return{Yaw=0}end,\n'
+        '  GetInputMouseDelta=function(_,x,y)x.DeltaX=1000000;y.DeltaY=0 end}\n'
+        ' local bridge={profile={id=id},api={locomotion={settings=resolved}},check=function()return pc end}\n'
+        ' local input=Input.new(bridge,{make_name=function(v)return v end,game_paused=function()return false end},\n'
+        '  {input_verified=true,mouse_scale=.22}):read({})\n'
+        " assert(input.look_yaw==actual.look_limit(bridge.api.locomotion),'input and native look bounds differ: '..id)\n"
+        'end\n'
+        "print('PASS pinned creative tuning for six roles and explicit call overrides')\n",encoding='utf-8')
     syntax = work / 'syntax.lua'
     syntax.write_text('local files=' + lua([test_path(package / n)
         for n in manifest['files'] if n.endswith('.lua')]) + '\n'
         'for _,path in ipairs(files)do assert(loadfile(path))end\n'
         "print('PASS candidate Lua syntax: '..#files)\n", encoding='utf-8')
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
-    jobs = [('syntax', [str(executable), str(syntax)])]
+    jobs = [('syntax', [str(executable), str(syntax)]),('creative_tuning_payload',[str(executable),str(authored)])]
     for name in ('player_travel_repair', 'player_controller_query', 'player_controller_owner', 'player_reassembly', 'player_native_travel_trial',
                  'player_assembly_tasks', 'player_action_queue', 'player_retirement_budget', 'player_map_lifecycle', 'player_map_initialization',
                  'player_target_diagnostics', 'runtime', 'ue_calls', 'ue_combat', 'world_boundary', 'idle_world_watch',
@@ -40,11 +76,12 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
                  'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):
-        jobs.append((name, [str(executable), str(loader), '.', test_path(package),
+        selected_loader=fixed_loader if name in ('player_3c','player_locomotion') else loader
+        jobs.append((name, [str(executable), str(selected_loader), '.', test_path(package),
                            'tests/test_' + name + '.lua']))
     for name in ('player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',
                  'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry', 'player_source_checks', 'player_3c_contract',
-                 'player_travel_ui_stage', 'player_travel_capture'):
+                 'player_travel_ui_stage', 'player_travel_capture', 'creative_workspace', 'creative_workbench'):
         command = ([sys.executable, '-B', '-X', 'utf8', 'tests/test_player_overlay.py']
                    if name == 'player_overlay' else
                    [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', 'discover',
@@ -65,6 +102,8 @@ def check(package, manifest, flow=None, *, source_only=False):
         source_sha256=manifest['travel_repair_identity']['sources'], payload_sha256=manifest['files'], checks=checks,
         passed=all(row['passed'] for row in checks), game_started=False, installed=False,
         runtime_verified=False, native_travel_verified=False, all_boss_skills_complete=False)
+    record['creative_integration']=identity
+    record['canonical_tuning_contracts']=['player_3c','player_locomotion']
     report = ROOT / 'evidence/adaptation' / (key + ('-source-offline-' + str(time.time_ns()) if source_only else '-offline') + '.json')
     if report.exists():
         report = report.with_name(package.name + '-offline-' + str(time.time_ns()) + '.json')
