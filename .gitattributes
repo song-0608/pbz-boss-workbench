@@ -539,3 +539,6 @@ tests/test_boss_reference_milestone.py -text whitespace=cr-at-eol
 research/boss-adaptation/REFERENCE_TYPE_WORKFLOW.md -text whitespace=cr-at-eol
 evidence/adaptation/boss-reference-controller-milestone-26640ff3d389990c.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-skill-page-compatibility-2c2638d9c433267b.json -text whitespace=cr-at-eol
+evidence/adaptation/boss-reference-controller-milestone-4843160909e6cd52.json -text whitespace=cr-at-eol
+evidence/adaptation/boss-native-reference-import-60134f2d1a2215ea.json -text whitespace=cr-at-eol
+research/boss-adaptation/subtree-reference-receipts/20261119-110946-d5564caab809b679b141.json -text whitespace=cr-at-eol

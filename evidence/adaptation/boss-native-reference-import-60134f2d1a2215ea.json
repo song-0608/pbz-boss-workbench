@@ -1,0 +1,436 @@
+{
+  "schema": 1,
+  "kind": "boss_native_reference_import_milestone",
+  "native_session": "20261119-110946",
+  "native_receipt": "research/boss-adaptation/subtree-reference-receipts/20261119-110946-d5564caab809b679b141.json",
+  "native_receipt_sha256": "756348bdea3fdceb3df17d1f3d873166dc9c21ebf53c0a269aeaf0ece9844044",
+  "native_type_queries": 272,
+  "native_type_counts": {
+    "leaf": 269,
+    "subtree": 3
+  },
+  "native_query_resource_roles": 40,
+  "summaries": {
+    "runtime/boss-skill-pages/0ad3f45ee164f1ee5009/summary.json": "65e66ebe751ef6c7f066156e9d38f3c0824ae2d10fd7808507906523a130feab",
+    "runtime/boss-variant-candidates/633916c41d45a51d2a53/summary.json": "dd6240784877d9a44407992ec8ee5100c85bb2742b604fb2bc60b082e4ea5402"
+  },
+  "skill_pages": 22,
+  "skill_page_moves": 82,
+  "variant_pools": 44,
+  "variant_resource_roles": 27,
+  "source_sha256": {
+    "tests/test_boss_reference_milestone.py": "7d6340ba40cee8b78956529089b52fedf258218ed4ba2cb7444f70be257c0d49",
+    "tests/test_boss_skill_pages.py": "ed029b0c7bf8b9a615062ee2f760e96e49afe3f71b00f6f5b4a6e7450f8e7f5d",
+    "tests/test_boss_variant_candidates.py": "e90e6793a34b6527a1e6cee6dee8d77bd50d225ac990e7e8bc0401f1ea2daf65",
+    "tests/test_expanded_boss_candidate.lua": "d1c045fdc9800e2e247dba4d4578fff457806db884991d5693b297b9421f855d",
+    "tools/boss_combat_candidate_policy.py": "3744a1864fe2da872928884c0447c439499ffbee89967123ca4cca9ba8b9b597",
+    "tools/boss_developer_candidate.lua": "2d75815715c056ab561c125c851021f254d185aa995873cd010b35487c8fdf4b",
+    "tools/prepare_boss_skill_pages.py": "f5290ca11792e8e309310c0b90145fb087356bf798e866c15b77c4b59dab7ce8",
+    "tools/prepare_boss_variant_candidates.py": "ce1ec58d08701ef4927d13dd9113934eb5f7701de24964010dc529f9934680e8",
+    "tools/run_boss_reference_milestone.py": "79dda801358f3ae0222346b9b031c770991306354fcd8cf9abf6c552fa0eeb43"
+  },
+  "lua_checks": [
+    {
+      "id": "044_pengmeng",
+      "candidate": "9f5b8bc835eb2bb9",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "044_pengmeng",
+      "candidate": "b619046ca6b10282",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "044_pengmeng",
+      "candidate": "d54704a7c375e3c0",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "044_pengmeng",
+      "candidate": "2546acccb903b5a7",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "044_pengmeng",
+      "candidate": "6fbd672f0bc07e0c",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "056_youlong",
+      "candidate": "427e1e58e7406001",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "056_youlong",
+      "candidate": "41922e65b3fb02a5",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "056_youlong",
+      "candidate": "438bdebad873b860",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "056_youlong",
+      "candidate": "621eb746bb0db8be",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "056_youlong",
+      "candidate": "4e3c40fcc69ae03c",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "056_youlong",
+      "candidate": "48dc3e70356c1b88",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "057_wanjun",
+      "candidate": "e459f3fdae11da96",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "057_wanjun",
+      "candidate": "a21311b9e0300ce1",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "057_wanjun",
+      "candidate": "d1f678720788e865",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "057_wanjun",
+      "candidate": "071b694292350c60",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "058_maddoctor",
+      "candidate": "3eba47aa50935662",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "058_maddoctor",
+      "candidate": "4cc2dc1b68ae7827",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "058_maddoctor",
+      "candidate": "3504e8cf238b8751",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "067_motian",
+      "candidate": "ac3ec721160f4d08",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "071_xianzhe",
+      "candidate": "5d1729aaf593455e",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "073_yanqiansui",
+      "candidate": "efc0f8b12c50a4cc",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "073_yanqiansui",
+      "candidate": "f3722a29456d64e9",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "027_xiaoxue",
+      "candidate": "dc290dc36c795b2e",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "034_emei",
+      "candidate": "d4bc310ed634720c",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "034_emei",
+      "candidate": "bb5e09cd310ae1f1",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "034_emei",
+      "candidate": "f97597e8057dc189",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "034_emei",
+      "candidate": "9ea2e230be7c1594",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "035_huashan",
+      "candidate": "37c5e70fbf715cff",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "035_huashan",
+      "candidate": "1581800e94da4b9b",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "036_spearman",
+      "candidate": "51a472951678c4de",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "043_scavenger",
+      "candidate": "72b63e20997bcce8",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "045_jingye",
+      "candidate": "f95dd224f640355d",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "045_jingye",
+      "candidate": "0ba6e25d3b0a4339",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "051_hookman_p2",
+      "candidate": "bfcd18afdaaccd74",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "055_zuoshang_young",
+      "candidate": "42e87b44eb3fc02c",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "060_guichai_yellow",
+      "candidate": "0083f261290a181b",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "060_guichai_yellow",
+      "candidate": "b87f19565f4e5706",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "060_guichai_yellow",
+      "candidate": "9f443b22bd82760b",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "060_guichai_yellow",
+      "candidate": "6a98bac1d0dfdf4c",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "061_guwanyue",
+      "candidate": "02ce800f8a7e7521",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "062_muxiaokui",
+      "candidate": "c3b5dd3e227d0655",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "063_chilian_p1",
+      "candidate": "e3667683bb58d941",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "064_muxiaokui_p2",
+      "candidate": "b1e38d19b9fbdee4",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "065_chilian_p2",
+      "candidate": "e49451ed76eeb4d7",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "067_motian",
+      "candidate": "8e1e670bff8b7a15",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "070_guichai_cyan",
+      "candidate": "545027dd855f9212",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "074_wulengshuang",
+      "candidate": "8befcfe6a4dc3e63",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "077_lengtu",
+      "candidate": "fc3eeb77a13fb9b2",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "078_menghua",
+      "candidate": "1a388b7897b73a94",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "079_xukong",
+      "candidate": "44ef97dd12111cc9",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "datouwawa",
+      "candidate": "5c0098852c334072",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "huaqianxiao",
+      "candidate": "7a0877c398bd5b05",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "luanshi",
+      "candidate": "25c6e1e961bf8f4b",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "luanshi",
+      "candidate": "980bfb189ed91818",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "luanshi",
+      "candidate": "404bd689e5cf095b",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "luanshi",
+      "candidate": "b4f7784557ffbd65",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "luanshi",
+      "candidate": "d29b98e0c6c732a4",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "luanshi",
+      "candidate": "b86c59e90ea1f653",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "qishu",
+      "candidate": "be3dcfd563947a75",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "qishu",
+      "candidate": "860b3799a9316cfb",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "yubi",
+      "candidate": "6fb2720b90a3a04f",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "yubi",
+      "candidate": "1df2ae127d08e129",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "yucong",
+      "candidate": "bca32b5662526f93",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "yucong",
+      "candidate": "44488af77c6db445",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "yuding_00",
+      "candidate": "022f6d610f1d79d9",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "id": "yuding_00",
+      "candidate": "dc1773e6853d3396",
+      "passed": true,
+      "simulated": true
+    }
+  ],
+  "passed": true,
+  "offline_builder_started_game": false,
+  "new_playable_bosses": 0,
+  "installed": false,
+  "runtime_acceptance_current": false,
+  "all_boss_skills_complete": false
+}

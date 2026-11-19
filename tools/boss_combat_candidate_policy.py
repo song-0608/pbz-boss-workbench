@@ -26,6 +26,12 @@ def ability_reason(path):
     name = path.rsplit('.', 1)[-1].casefold()
     if any(token in name for token in ('_child', '_ged', '_bed', '_behit', '_qte', '_seq')):
         return 'child, victim or sequence context requires a separate trigger'
-    if not re.search(r'(?:lightattack|middleattack|heavyattack|specialattack|dodge|skill)_', name):
+    family = re.search(r'(?:^|_)(?:lightattack|middleattack|heavyattack|specialattack|dodge|skill)_', name)
+    # Exact verified leaf classes also use Attack_01 / Attack_L and
+    # Special_01_hard. These are candidate families, never runtime permission.
+    # Keep unnumbered utility names outside this path; context exclusions above
+    # still take precedence over an attack-looking resource name.
+    direct = re.search(r'(?:^|_)(?:attack_(?:\d+|[lrfb])|special_\d+)(?:_|$)', name)
+    if not (family or direct):
         return 'not a reviewed independent combat-input family'
     return None

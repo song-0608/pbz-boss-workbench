@@ -69,6 +69,33 @@ class BossVariantCandidatesTests(unittest.TestCase):
             self.assertTrue(ability_reason(prefix + short[:-2] + '.' + short), short)
         self.assertIsNone(ability_reason(prefix + 'GA_Fixture_MiddleAttack_01.GA_Fixture_MiddleAttack_01_C'))
 
+    def test_numbered_attacks_and_specials_are_candidates_with_context_exclusions_first(self):
+        prefix = '/PBZCombatAsset/ActorData/Mobs/Fixture/Ability/'
+        for short in ('GA_Fixture_Attack_01_C', 'GA_Fixture_Attack_L_C',
+                      'GA_PengMeng_Special_01_hard_C', 'GA_Fixture_Special_12_A_C'):
+            with self.subTest(short=short):
+                self.assertIsNone(ability_reason(prefix + short[:-2] + '.' + short))
+        for short in ('GA_Fixture_Attack_Start_C', 'GA_Fixture_Special_Utility_C',
+                      'GA_Fixture_CounterAttack_01_C', 'GA_Fixture_Special_01_Child_C',
+                      'GA_Fixture_Attack_01_GEx_C', 'GA_Fixture_Special_01_Seq_C'):
+            with self.subTest(short=short):
+                self.assertTrue(ability_reason(prefix + short[:-2] + '.' + short))
+        self.assertTrue(ability_reason(prefix + 'Grab/GA_Fixture_Attack_01.GA_Fixture_Attack_01_C'))
+
+    def test_new_attack_family_still_needs_exact_leaf_metadata_and_native_grants(self):
+        characters, sources = self.fixture()
+        c = characters[0]
+        c['abilities'] = c['abilities'][:1]
+        ability = c['abilities'][0]
+        ability['path'] = ability['path'].replace('Skill_01', 'Attack_01')
+        pools, deferred = definitions(characters, sources)
+        self.assertFalse(deferred)
+        self.assertEqual(pools[0]['definition']['ability_pool'], [ability['path']])
+        self.assertFalse(pools[0]['historical_native_grants_verified'] or pools[0]['playable'])
+        for state, kind in (('unqueried', None), ('rejected', 'leaf'), ('verified', 'subtree')):
+            ability.update(metadata=state, kind=kind)
+            self.assertFalse(definitions(characters, sources)[0])
+
     def test_verification_reconstructs_immutable_module_and_manifest(self):
         characters, sources = self.fixture()
         entries, deferred = definitions(characters, sources)

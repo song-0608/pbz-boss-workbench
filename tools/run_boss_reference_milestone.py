@@ -15,6 +15,10 @@ BASE = 'evidence/adaptation/boss-subtree-reference-delta-03a3da0f935731f9.json'
 CURRENT = 'runtime/next-boss-reference-query.json'
 
 
+def collector_modes(manifest):
+    return ('ok', 'subtree', 'unavailable', 'wrong_identity', 'expired', 'frozen_clock') if manifest['jobs'] else ()
+
+
 def record_report(report, root=ROOT):
     # Imported native receipts can change the plan without changing source
     # bytes. Keep both milestones instead of colliding on a source-only key.
@@ -32,8 +36,10 @@ def record_report(report, root=ROOT):
     else:
         write_json(target, report)
     plan = report['reference_plan']
-    write_json(root / CURRENT, dict(schema=1,
-        status='ready_for_isolated_metadata_session' if report['passed'] else 'offline_checks_failed',
+    status = 'offline_checks_failed'
+    if report['passed']:
+        status = 'ready_for_isolated_metadata_session' if plan['queries'] else 'reference_type_queue_complete'
+    write_json(root / CURRENT, dict(schema=1, status=status,
         report=target.relative_to(root).as_posix(), report_sha256=sha(target),
         plan=plan['directory'], plan_manifest_sha256=plan['manifest_sha256'],
         request_counts=plan['request_counts'], batches=plan['batches'],
@@ -64,7 +70,10 @@ def run():
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
     fixture = ROOT / 'runtime' / ('reference-fixture-' + manifest['fingerprint'] + '.lua')
     fixture.write_text('return ' + lua(manifest['jobs']), encoding='utf-8')
-    for mode in ('ok', 'subtree', 'unavailable', 'wrong_identity', 'expired', 'frozen_clock'):
+    if not manifest['jobs']:
+        checks.append(dict(name='No pending native reference queries; do not reload an empty collector',
+                           passed=True, queries=0, native_input_required=False))
+    for mode in collector_modes(manifest):
         result = subprocess.run([str(executable), 'tests/test_boss_subtree_reference_collector.lua',
             str(directory / 'metadata-collector.lua'), str(fixture), mode], cwd=ROOT,
             capture_output=True, encoding='utf-8', errors='replace', timeout=20)
