@@ -188,7 +188,7 @@ class SubtreeTests(unittest.TestCase):
         validation = SimpleNamespace(save=Mock(), state_path=lambda: state_path, verify_build=Mock())
         return manifest, script, batch, work, state_path, carrier, log, state, practice, validation, lines
 
-    def test_stage_gate_capture_and_closed_replay_are_input_free(self):
+    def test_stage_gate_and_capture_are_input_free(self):
         with tempfile.TemporaryDirectory(dir=subtree.ROOT / 'runtime') as directory:
             root = Path(directory).resolve()
             m, raw, batch, work, state_path, carrier, log, state, practice, validation, lines = self.fake_stage(root)
@@ -206,17 +206,6 @@ class SubtreeTests(unittest.TestCase):
                 with self.assertRaises(AssertionError): stage.reload_gate(batch)
                 self.assertEqual(stage.capture(batch)['mappings'], 1)
                 with self.assertRaises(FileExistsError): stage.capture(batch)
-                state['restored'] = True; state_path.write_text(json.dumps(state), encoding='utf-8')
-                post = dict(validation_state=str(state_path), validation_restored=True, research_box_empty=True,
-                    research_loader_removed=True, host_registry_unchanged=True,
-                    formal_files_changed=[], host_config_files_changed=[])
-                (work / 'postcheck.json').write_text(json.dumps(post), encoding='utf-8')
-                result = stage.collect(batch.relative_to(subtree.ROOT), '20261119-000000', root)
-                self.assertFalse(result['playable']); self.assertEqual(result['mappings'], 1)
-                captured = stage.location(work, m, 'capture.json')
-                value = json.loads(captured.read_bytes()); value['outcomes'][0]['playable'] = True
-                captured.write_text(json.dumps(value), encoding='utf-8')
-                with self.assertRaises(AssertionError): stage.collect(batch, '20261119-000000', root)
 
     def test_stage_rejects_idle_failure_short_lease_and_changed_log(self):
         with tempfile.TemporaryDirectory() as directory:

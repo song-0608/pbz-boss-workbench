@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
 import sys
+import tempfile
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import native_grant_skill_gate as gate
@@ -70,6 +73,86 @@ class SkillGateTests(unittest.TestCase):
         self.assertEqual(self.choose(live + cast().split('KEY_SKILL_END=')[0], 'exit')['key'], 'F10')
         self.assertEqual(self.choose(live.replace('生命 1000', '生命 0'), 'exit')['key'], 'F10')
         with self.assertRaises(AssertionError): self.choose(header, 'exit')
+
+    def cancel_fixture(self):
+        manifest, state, definition, capture, header, live = self.fixture()
+        manifest.update(kind='native_combo_ui_stage', developer_only=True, playable=False, bundle='fixture')
+        definition['parent_class'] = definition['ability_pool'][0]
+        return manifest, state, definition, capture, header, live
+
+    def test_cancel_pair_uses_current_registered_cast_and_same_takeover_recovery(self):
+        m, s, d, c, _, live = self.cancel_fixture()
+        actions = gate.choose_cancel_trial(live, m, c, d, s, 'skill_01', 100)
+        self.assertEqual([(r['purpose'], r['key']) for r in actions], [('cast', 'F1'), ('exit', 'F10')])
+        self.assertEqual(actions[0]['identity'], actions[1]['identity'])
+        for field, value in (('kind', 'inventory_skill_ui_stage'), ('developer_only', False), ('playable', True)):
+            changed = dict(m, **{field: value})
+            with self.subTest(field=field), self.assertRaises(AssertionError):
+                gate.choose_cancel_trial(live, changed, c, d, s, 'skill_01', 100)
+        for text in (live + cast().split('KEY_SKILL_END=')[0],
+                     live + 'SKILL_NATIVE_REJECTED=skill_01\n', live.replace('生命 1000', '生命 0')):
+            with self.assertRaises(AssertionError): gate.choose_cancel_trial(text, m, c, d, s, 'skill_01', 100)
+        with self.assertRaises(AssertionError): gate.choose_cancel_trial(live, m, c, d, s, None, 100)
+        with self.assertRaises(AssertionError):
+            gate.choose_cancel_trial(live, m, c, dict(d, parent_class='other parent'), s, 'skill_01', 100)
+
+    def test_paired_gate_replays_once_retains_cast_reserve_and_issues_only_ten_seconds(self):
+        m, s, d, c, header, live = self.cancel_fixture()
+        receipt = dict(workflow_manifest_sha256='frozen', research_pid=77, grant_expires_at=1000)
+        with tempfile.TemporaryDirectory() as directory:
+            s.update(work=directory, deadline_unix=2000)
+            c.update(workflow_manifest_sha256='frozen', initialization_observed=True, lines=header.splitlines())
+            capture_path = Path(directory) / (gate.flow.LABEL + '-capture.json')
+            capture_path.write_text(json.dumps(c), encoding='utf-8')
+            with patch.dict(sys.modules, {'official_validation': SimpleNamespace()}), \
+                    patch.object(gate.flow, 'staged_guard', return_value=(m, s, receipt, live)) as replay, \
+                    patch.object(gate.flow.bundle, 'read', return_value=dict(definition=d)), \
+                    patch.object(gate.flow, 'foreground_window', return_value=321) as foreground, \
+                    patch.object(gate.time, 'time', side_effect=[100, 106]), \
+                    patch.object(gate.time, 'time_ns', return_value=7), \
+                    patch.object(gate, 'uuid4', return_value=SimpleNamespace(hex='fixture')):
+                result = gate.gate(Path(directory), 'cast-cancel', 'skill_01')
+            replay.assert_called_once_with(Path(directory)); foreground.assert_called_once()
+            self.assertEqual(result['gate_expires_at'], 116)
+            self.assertEqual(result['action_and_restore_reserve_seconds'], 90)
+            self.assertFalse(result['input_sent'] or result['active_cancellation_observed'])
+            self.assertEqual(result['max_action_count'], 2)
+            self.assertEqual([r['key'] for r in result['actions']], ['F1', 'F10'])
+            saved = Path(directory) / 'native-grant-skill-gate-cast-cancel-7-fixture.json'
+            self.assertEqual(json.loads(saved.read_bytes()), result)
+            # Foreground checks cannot use up the remaining cast/recovery
+            # reserve and still issue a seemingly fresh permission.
+            with patch.dict(sys.modules, {'official_validation': SimpleNamespace()}), \
+                    patch.object(gate.flow, 'staged_guard', return_value=(m, s, receipt, live)), \
+                    patch.object(gate.flow.bundle, 'read', return_value=dict(definition=d)), \
+                    patch.object(gate.flow, 'foreground_window', return_value=321), \
+                    patch.object(gate.time, 'time', side_effect=[900, 910]):
+                with self.assertRaises(AssertionError): gate.gate(Path(directory), 'cast-cancel', 'skill_01')
+            self.assertEqual(list(Path(directory).glob('native-grant-skill-gate-*')), [saved])
+
+    def test_same_clock_tick_keeps_all_receipts_separate_and_never_overwrites(self):
+        m, s, d, c, header, live = self.fixture()
+        m['bundle'] = 'fixture'
+        receipt = dict(workflow_manifest_sha256='frozen', research_pid=77, grant_expires_at=1000)
+        with tempfile.TemporaryDirectory() as directory:
+            s.update(work=directory, deadline_unix=2000)
+            c.update(workflow_manifest_sha256='frozen', initialization_observed=True, lines=header.splitlines())
+            (Path(directory) / (gate.flow.LABEL + '-capture.json')).write_text(json.dumps(c), encoding='utf-8')
+            with patch.dict(sys.modules, {'official_validation': SimpleNamespace()}), \
+                    patch.object(gate.flow, 'staged_guard', return_value=(m, s, receipt, live)), \
+                    patch.object(gate.flow.bundle, 'read', return_value=dict(definition=d)), \
+                    patch.object(gate.flow, 'foreground_window', return_value=321), \
+                    patch.object(gate.time, 'time', return_value=100), \
+                    patch.object(gate.time, 'time_ns', return_value=7), \
+                    patch.object(gate, 'uuid4', side_effect=[SimpleNamespace(hex=v) for v in ('a', 'b', 'a', 'a')]):
+                first = gate.gate(Path(directory), 'cast', 'skill_01')
+                repeated = gate.gate(Path(directory), 'cast', 'skill_01')
+                second = gate.gate(Path(directory), 'exit')
+                with self.assertRaises(FileExistsError): gate.gate(Path(directory), 'cast', 'skill_01')
+            for purpose, suffix, value in (('cast', 'a', first), ('cast', 'b', repeated), ('exit', 'a', second)):
+                path = Path(directory) / ('native-grant-skill-gate-' + purpose + '-7-' + suffix + '.json')
+                self.assertEqual(json.loads(path.read_bytes()), value)
+            self.assertEqual(len(list(Path(directory).glob('native-grant-skill-gate-*'))), 3)
 
 
 if __name__ == '__main__': unittest.main()

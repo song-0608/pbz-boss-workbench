@@ -32,6 +32,11 @@ class NativeComboWorkflowTests(unittest.TestCase):
         gate=files['combo_skill_gate.py'].decode('utf-8')
         self.assertIn('import combo_ui_controller as flow',gate)
         self.assertIn('previous skill still active or unconfirmed',gate)
+        self.assertIn("purpose == 'cast-cancel'",gate)
+        self.assertIn('max_action_count=2',gate)
+        self.assertIn('gate_expires_at=issued + 10',gate)
+        self.assertIn("path.open('x', encoding='utf-8')",gate)
+        self.assertNotIn('sky.press_key',gate)
 
     def test_four_overrides_are_checked_and_every_other_accepted_module_retained(self):
         report,characters=fixture();definition=workflow.bundle.select('044_pengmeng',report,characters)

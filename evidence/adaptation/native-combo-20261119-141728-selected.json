@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "kind": "closed_subtree_and_native_combo_observation",
+  "session": "20261119-141728",
+  "raw_sources_sha256": {
+    "runtime/official-validation-20261119-141728/state.json": "f6904a6c53e91ec3802018e57ccfc438a737fa07adf80e4bb9fe46afce7637ef",
+    "evidence/official-validation/20261119-141728/postcheck.json": "e53710ea57074aebf67f391f0368c81bbd8d16c6ada761c915233ee777964456",
+    "evidence/official-validation/20261119-141728/UE4SS.log": "53cc13ce7fbf5fd93ce5b6f309797e582168a2107b0c33a3c632b2416dcc2717",
+    "runtime/boss-subtree-inventory/1b9e51a87ce9e3094afa/manifest.json": "98c86ed47935ce095d956ce7a2688867179983b798e02830473c51378349fe2a",
+    "runtime/boss-subtree-inventory/1b9e51a87ce9e3094afa/subtree-probe.lua": "ce2f9e404969cb87658e97319b82dabf71f6833407682da200205e5a4b76b72f",
+    "runtime/boss-native-combo-candidates/044_pengmeng-3f497643d0d7c14ac62a/manifest.json": "233bd56912e7db1dd754fb6da449a6ee67e6d7e37e6d5fdd06ab14922363af76",
+    "runtime/developer-workflows/native-combo-ui-044_pengmeng-ba6c6e4a8d513fb4/manifest.json": "0f116fa1cde5b19c11dd09770296c44c40a51505cc554d0c882ece857c706630",
+    "evidence/official-validation/20261119-141728/control-lifecycle-deployment.json": "48cab22bbd4dabe7a725a5f2e5dfd45d4db34b88b6ea9dc378d5eac6f8166b6e",
+    "research/boss-adaptation/subtree-receipts/20261119-141728-1b9e51a87ce9e3094afa.json": "ded1d30234abf331cfa74eb9875de58e10700d22af4ed7e290ace17fb8911868"
+  },
+  "source_sha256": {
+    "tools/native_grant_skill_gate.py": "f4c14e3664a77e7bc608d84af2d7dd14cf0bb96cfea342fdb187db096c83b884",
+    "tests/test_native_grant_skill_gate.py": "2acacc6d7a6a6b81a3b2403bf480550792881ce7f2f490e8680934cc5b136655",
+    "tools/stage_boss_subtrees.py": "c9f6d88e144c736994fe78e0bd30b01262cb6bc08b533ec0a52c22392707b03e",
+    "tests/test_boss_subtree_inventory.py": "09acfcb912a342962ad3f31669dd84d2b28a323ca603709c7853a3de341514e2",
+    "tests/test_boss_subtree_progress.py": "d080f29801a90b5a92293502d7af1ee7d47eb5dc276949e1cfbcaca3bece02e1",
+    "tests/test_boss_native_combo_workflow.py": "ad734158fe305f87887f0ef0b4eed08a512106f330c3149a7c2f70fad6022032"
+  },
+  "subtree_query": {
+    "queries": 6,
+    "closed_mappings": 6,
+    "trees": 9,
+    "independent_replay_passed": true,
+    "receipt_verified": true,
+    "current_inventory_not_rebuilt_for_collection": true
+  },
+  "exact_original_deployment_modules_verified": true,
+  "original_candidate": "runtime/boss-native-combo-candidates/044_pengmeng-3f497643d0d7c14ac62a",
+  "original_workflow": "runtime/developer-workflows/native-combo-ui-044_pengmeng-ba6c6e4a8d513fb4",
+  "takeovers": [
+    {
+      "zero_based_cycle": 0,
+      "observational_audit": "evidence/adaptation/native-combo-20261119-141728-cancel-not-sent-cycle-0.json",
+      "audit_sha256": "afe0aadce02326a3637e928d83eb1faee30cfdd7dcf2c508b30e00923dddd1a8",
+      "natural_parent_and_child_end_observed": true,
+      "health_before": 9000.0,
+      "health_after": 8856.0,
+      "observed_health_decrease": 144.0,
+      "player_recovery_observed": true,
+      "active_cancellation_observed": false,
+      "cancel_input_disposition": "not_sent_expired_gate",
+      "same_takeover_repeated_uses": 1
+    },
+    {
+      "zero_based_cycle": 1,
+      "observational_audit": "evidence/adaptation/native-combo-20261119-141728-cancel-not-sent-cycle-1.json",
+      "audit_sha256": "d9fb077672e0fea4743ffb01553fae09653bebce7535d599aa356fa3e5db41a3",
+      "natural_parent_and_child_end_observed": true,
+      "health_before": 8856.0,
+      "health_after": 8472.0,
+      "observed_health_decrease": 384.0,
+      "player_recovery_observed": true,
+      "active_cancellation_observed": false,
+      "cancel_input_disposition": "not_sent_expired_gate",
+      "same_takeover_repeated_uses": 1
+    }
+  ],
+  "invalid_historical_gate_files": [
+    {
+      "path": "evidence/official-validation/20261119-141728/native-grant-skill-gate-1795069865489520700.json",
+      "sha256": "55aec8ba1d3362ff7387d698f729e859bcfa23e7a9db47f74ee926f40e10dd92"
+    }
+  ],
+  "historical_gate_files_modified": false,
+  "native_cancellation_acceptance_passed": false,
+  "paired_cancel_gate_runtime_verified": false,
+  "installed_v5_lua_unchanged": true,
+  "cleanup": {
+    "formal_file_count": 56,
+    "formal_files_changed": [],
+    "host_config_files_changed": [],
+    "registry_unchanged": true,
+    "research_box_empty": true,
+    "research_loader_removed": true,
+    "temporary_network_removed": true
+  },
+  "offline_report_sha256": {
+    "evidence/adaptation/boss-reference-controller-milestone-4d674684308a5ed0.json": "baa41e279dd50b574d20b23d82f343ee5275a5e26b9fd92be2fa8983296e4c54",
+    "evidence/adaptation/boss-native-combo-offline-d3fc69b10d3a9314-1795070934178867900.json": "997b06c269a077a06ef6ac21d0f6bd97f104d8c10899b66ff0e51fa122621ba5"
+  },
+  "python_regressions": 223,
+  "reference_queries_prepared": 4,
+  "next_reference_plan": "runtime/boss-subtree-references/7857459a190402d28f72",
+  "all_boss_skills_complete": false,
+  "runtime_acceptance_current": false,
+  "playable": false,
+  "release_accepted": false
+}

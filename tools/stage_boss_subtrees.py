@@ -8,7 +8,7 @@ import time
 
 import boss_subtree_inventory as subtrees
 from boss_adaptation_workflow import ROOT, sha, write_json
-from boss_offline_inventory import read, closed
+from boss_offline_inventory import read
 from mod_installation import unlinked_path
 from native_grant_ui_stage import foreground_window
 from stage_readonly_contracts import current
@@ -120,30 +120,20 @@ def capture(batch):
 def collect(batch, session, root=ROOT):
     root, batch = unlinked_path(root), unlinked_path(batch)
     assert re.fullmatch(r'\d{8}-\d{6}', session)
-    manifest, script = subtrees.verify(batch, root)
+    # Closing a later control trial adds historical native grants. Rebuilding
+    # today's inventory here can then replace the original query identity.
+    # Replay the exact staged manifest, source snapshot, log and capture instead.
+    from collect_boss_subtree_progress import replay
+    assert {p.name for p in batch.iterdir()} == {'manifest.json', 'subtree-probe.lua'}
+    audit = replay(session, batch, root, allow_complete=True)
+    assert audit['batch_complete'], 'complete subtree capture required for collection'
+    manifest = read(batch / 'manifest.json')
     state_path = unlinked_path(root / ('runtime/official-validation-' + session + '/state.json'))
     work = unlinked_path(root / ('evidence/official-validation/' + session))
     post_path = unlinked_path(work / 'postcheck.json')
-    assert closed(state_path, post_path, work), 'cleanly closed research session required'
-    receipt = read(location(work, manifest, 'staged.json'))
-    assert receipt == read(location(work, manifest, 'intent.json'))
-    assert receipt['state_file'] == str(state_path) and receipt['batch'] == manifest['fingerprint']
-    assert receipt['metadata_only'] is True and receipt['ui_input_sent'] is False
-    assert receipt['manifest_sha256'] == sha(Path(batch) / 'manifest.json')
-    assert receipt['script_sha256'] == manifest['script_sha256']
-    archive_sources(manifest, work, root=root)
-    assert read(location(work, manifest, 'manifest.json')) == manifest
     archived = unlinked_path(location(work, manifest, 'probe.lua'))
-    assert archived.read_bytes() == script
-    log = unlinked_path(work / 'UE4SS.log'); raw = log.read_bytes(); offset = receipt['log_byte_offset']
-    assert type(offset) is int and 0 <= offset <= len(raw)
-    assert hashlib.sha256(raw[:offset]).hexdigest() == receipt['log_prefix_sha256']
-    lines = lines_for(raw[offset:].decode('utf-8', errors='strict'), manifest['fingerprint'])
-    outcomes = subtrees.analyze(lines, manifest)
-    captured = read(location(work, manifest, 'capture.json'))
-    assert captured == dict(state_file=str(state_path), research_pid=receipt['research_pid'],
-        batch=manifest['fingerprint'], script_sha256=manifest['script_sha256'],
-        metadata_only=True, playable=False, execution_order_proven=False, lines=lines, outcomes=outcomes)
+    log = unlinked_path(work / 'UE4SS.log')
+    outcomes = audit['outcomes']
     paths = (state_path, post_path, log, archived, Path(batch) / 'manifest.json',
              location(work, manifest, 'intent.json'), location(work, manifest, 'staged.json'),
              location(work, manifest, 'capture.json'))

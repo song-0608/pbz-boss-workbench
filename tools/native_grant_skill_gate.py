@@ -4,8 +4,9 @@ import json
 from pathlib import Path
 import re
 import time
+from uuid import uuid4
 
-from boss_adaptation_workflow import sha, write_json
+from boss_adaptation_workflow import sha
 from control_action_evidence import control_identity, restoration_result
 from player_target_readiness import latest_target_status
 import native_grant_ui_stage as flow
@@ -61,6 +62,22 @@ def choose_action(tail, manifest, capture, definition, state, purpose, skill, no
                 class_path=bound[0]['class_path'], identity=identity, target=status['target'])
 
 
+def choose_cancel_trial(tail, manifest, capture, definition, state, skill, now):
+    """Prepare one explicit cast and its recovery from the same fresh proof.
+
+    These are two bounded permissions, not an input sender or an observation
+    that cancellation happened. Native logs must still prove activity at F10.
+    """
+    assert manifest.get('kind') == 'native_combo_ui_stage', 'reviewed native combo workflow required'
+    assert manifest.get('developer_only') is True and manifest.get('playable') is False
+    assert skill == 'skill_01' and definition['ability_pool'] == [definition['parent_class']], \
+        'one exact reviewed native parent required'
+    cast = choose_action(tail, manifest, capture, definition, state, 'cast', skill, now)
+    restore = choose_action(tail, manifest, capture, definition, state, 'exit', None, now)
+    assert cast['identity'] == restore['identity'], 'one exact active takeover required'
+    return [cast, restore]
+
+
 def gate(workflow, purpose, skill=None):
     import official_validation as validation
     manifest, state, receipt, tail = flow.staged_guard(workflow)
@@ -72,22 +89,33 @@ def gate(workflow, purpose, skill=None):
     capture = dict(capture, workflow=str(workflow.resolve()))
     definition = flow.bundle.read(Path(manifest['bundle']) / 'manifest.json')['definition']
     now = time.time()
-    remaining_budget(receipt, state, purpose, now)
-    action = choose_action(tail, manifest, capture, definition, state, purpose, skill, now)
+    paired = purpose == 'cast-cancel'
+    budget_purpose = 'cast' if paired else purpose
+    remaining_budget(receipt, state, budget_purpose, now)
+    if paired:
+        action = dict(purpose=purpose, actions=choose_cancel_trial(
+            tail, manifest, capture, definition, state, skill, now),
+            max_action_count=2, active_cancellation_observed=False)
+    else:
+        action = choose_action(tail, manifest, capture, definition, state, purpose, skill, now)
     hwnd = flow.foreground_window(validation, receipt['research_pid'])
     issued = time.time()
-    reserve, remaining = remaining_budget(receipt, state, purpose, issued)
+    reserve, remaining = remaining_budget(receipt, state, budget_purpose, issued)
     result = dict(action, window_id=hwnd, research_pid=receipt['research_pid'],
         state_file=state['state_file'], gate_expires_at=issued + 10, input_sent=False,
         workflow_manifest_sha256=receipt['workflow_manifest_sha256'], capture_sha256=sha(capture_path),
         action_and_restore_reserve_seconds=reserve, remaining_seconds_at_issue=remaining,
         observed_log_tail_sha256=__import__('hashlib').sha256(tail.encode()).hexdigest())
-    write_json(work / ('native-grant-skill-gate-' + str(time.time_ns()) + '.json'), result)
+    # Simultaneous validators can share a clock tick, including for the same
+    # purpose. Never let their JSON writes overlap or overwrite prior evidence.
+    path = work / ('native-grant-skill-gate-' + purpose + '-' + str(time.time_ns()) + '-' + uuid4().hex + '.json')
+    with path.open('x', encoding='utf-8') as handle:
+        json.dump(result, handle, ensure_ascii=False, indent=2)
     return result
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('workflow', type=Path); parser.add_argument('purpose', choices=('enter', 'cast', 'exit'))
+    parser.add_argument('workflow', type=Path); parser.add_argument('purpose', choices=('enter', 'cast', 'exit', 'cast-cancel'))
     parser.add_argument('--skill'); args = parser.parse_args()
     print(json.dumps(gate(args.workflow, args.purpose, args.skill), ensure_ascii=False, indent=2))
