@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-19T08:37:38.617419+00:00",
+  "task": "Bring previously observed PBZ characters into the editable UE creative project",
+  "status": "blocked_missing_editable_assets_or_working_export_environment",
+  "roles": [
+    {
+      "id": "ahua_guitoudao",
+      "name": "新娘阿花",
+      "editable_mesh_available": false,
+      "editable_skeleton_available": false,
+      "editable_animations_available": false,
+      "imported_to_ue": false
+    },
+    {
+      "id": "057_wanjun",
+      "name": "巨锤客：万钧",
+      "editable_mesh_available": false,
+      "editable_skeleton_available": false,
+      "editable_animations_available": false,
+      "imported_to_ue": false
+    },
+    {
+      "id": "073_yanqiansui",
+      "name": "琴女烟千岁",
+      "editable_mesh_available": false,
+      "editable_skeleton_available": false,
+      "editable_animations_available": false,
+      "imported_to_ue": false
+    },
+    {
+      "id": "056_youlong",
+      "name": "发狂的水行帮主：游龙",
+      "editable_mesh_available": false,
+      "editable_skeleton_available": false,
+      "editable_animations_available": false,
+      "imported_to_ue": false
+    },
+    {
+      "id": "071_xianzhe",
+      "name": "弦儿",
+      "editable_mesh_available": false,
+      "editable_skeleton_available": false,
+      "editable_animations_available": false,
+      "imported_to_ue": false
+    },
+    {
+      "id": "058_maddoctor",
+      "name": "神医：谢秋冬",
+      "editable_mesh_available": false,
+      "editable_skeleton_available": false,
+      "editable_animations_available": false,
+      "imported_to_ue": false
+    }
+  ],
+  "role_source": {
+    "path": "releases/ahua-boss-workbench-v5-3f29975fe3b8826f/pbz-release.json",
+    "sha256": "c5d4d049989687a401ee6e8fa7cc49a50211f042f1aa9a88ea65e5cd933fe295"
+  },
+  "scanned_capture_scopes": [
+    {
+      "path": "research/boss-adaptation",
+      "json_files": 850,
+      "asset_source_files": {}
+    },
+    {
+      "path": "evidence/adaptation",
+      "json_files": 263,
+      "asset_source_files": {}
+    }
+  ],
+  "container_header": {
+    "path": "E:\\SteamLibrary\\steamapps\\common\\PBZ\\ProjectPBZ\\Content\\Paks\\ProjectPBZ-Windows.utoc",
+    "sha256": "d5c3764cdae2030361a7fa8ed1eb204787c77e767df92bbe947763b4a2d0186b",
+    "bytes": 47487278,
+    "toc_version": 8,
+    "container_flags": 11,
+    "encrypted_flag": true,
+    "flags_definition": "D:\\UE_5.8\\Engine\\Source\\Runtime\\Core\\Public\\IO\\IoDispatcher.h:EIoContainerFlags",
+    "header_definition": "D:\\UE_5.8\\Engine\\Source\\Runtime\\Core\\Internal\\IO\\IoStore.h:FIoStoreTocHeader"
+  },
+  "native_read_only_list": {
+    "tool": "D:\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealPak.exe",
+    "arguments": [
+      "ProjectPBZ-Windows.pak",
+      "-List"
+    ],
+    "returncode": 3,
+    "listed_files": 0,
+    "diagnostic": "Failed to find requested encryption key",
+    "raw_log_sha256": "a4ac566e7d12f5b9c2eaf013f057bfdde52fedd6e62b27758d10e6d5d437875b"
+  },
+  "required_input": [
+    "Editable character mesh and skeleton with usable animations, for example exported FBX files",
+    "Alternatively, a working resource export environment able to open this game build"
+  ],
+  "existing_capture_limit": "Character and skill references/metadata do not include editable geometry, bones or animation tracks",
+  "actions": {
+    "game_started": false,
+    "game_install_modified": false,
+    "save_modified": false,
+    "active_ue_world_modified": false,
+    "assets_exported": 0,
+    "assets_imported": 0,
+    "decryption_attempted": false
+  },
+  "all_character_imports_complete": false
+}
