@@ -12,12 +12,40 @@ from unittest.mock import Mock,patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tools'))
 import creative_workspace as cw
 import creative_workbench_ui as ui
+import creative_boss_library as library
 import boss_workbench_v5_window as base_window
 import workbench_status_bootstrap as bootstrap
 
 
 @unittest.skipUnless(os.name=='nt','Windows Tk integration')
 class CreativeWorkbenchTests(unittest.TestCase):
+    def test_role_directory_captures_selection_before_worker(self):
+        import tkinter as tk
+        from tkinter import ttk
+        with tempfile.TemporaryDirectory() as directory:
+            storage=Path(directory);cw.initialize(storage);p=cw.paths(storage)
+            window=tk.Tk();window.withdraw();self.addCleanup(window.destroy)
+            notebook=ttk.Notebook(window);notebook.pack()
+            with (patch.object(cw,'paths',return_value=p),
+                  patch.object(library,'status',return_value=dict(roles=[dict(name='阿花',role='AHua')]))):
+                tabs=ui.attach(window,notebook,ROOT,smoke=False)
+            widgets=[];todo=[tabs['creative']]
+            while todo:
+                widget=todo.pop();widgets.append(widget);todo.extend(widget.winfo_children())
+            button=next(w for w in widgets if isinstance(w,ttk.Button) and w.cget('text')=='打开角色目录')
+            main_thread=threading.get_ident();original=tk.StringVar.get;calls=[]
+            def main_get(variable):
+                self.assertEqual(threading.get_ident(),main_thread,'Tk values accessed by worker')
+                return original(variable)
+            def open_role(role):
+                self.assertNotEqual(threading.get_ident(),main_thread)
+                calls.append(role);return 'opened'
+            with patch.object(tk.StringVar,'get',main_get),patch.object(library,'open_selected',side_effect=open_role):
+                button.invoke();deadline=time.monotonic()+3
+                while time.monotonic()<deadline and not tabs['status'].get().startswith('完成：'):
+                    window.update();time.sleep(.01)
+            self.assertEqual(calls,['AHua'])
+
     def test_one_window_contains_original_boss_and_both_creative_tabs(self):
         import tkinter as tk
         from tkinter import ttk

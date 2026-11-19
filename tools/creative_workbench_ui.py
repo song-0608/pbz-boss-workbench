@@ -53,6 +53,23 @@ def attach(window,notebook,root,smoke=False):
     button(toolbar,'打开 UE 练习场',lambda:job('准备并打开 UE 练习场（首次会生成内容）',workspace.open_editor))
     button(toolbar,'打开创作目录',lambda:job('打开目录',lambda:open_path(p['workspace'])))
     button(toolbar,'提交已保存改动',lambda:job('冻结创作提案',workspace.submit,lambda key:(write('新提案：'+key),refresh())))
+    library_bar=ttk.LabelFrame(creative,text='真实角色资产库 · UE 创作源',padding=8)
+    library_bar.pack(fill='x',pady=5)
+    import creative_boss_library as boss_library
+    try:
+        library=boss_library.status();role_labels={r['name']+' ('+r['role']+')':r['role'] for r in library['roles']}
+        library_text='六个真实角色模型、18段原生动画；选择蓝图拖入场景。游戏技能事件和原版着色器仍须另行适配。'
+    except (OSError,ValueError,AssertionError):
+        role_labels={};library_text='角色资产尚未完成原生导入验收；保留当前创作工程。'
+    selected_library_role=tk.StringVar(value=next(iter(role_labels),''))
+    library_choices=ttk.Combobox(library_bar,textvariable=selected_library_role,values=list(role_labels),state='readonly',width=24)
+    library_choices.pack(side='left',padx=(0,6));inputs.append((library_choices,'readonly'))
+    button(library_bar,'接收已验证角色库',lambda:job('合并并添加角色资产',boss_library.publish,lambda value:(write(str(value)),refresh())))
+    def open_library_role():
+        selected_role=role_labels.get(selected_library_role.get())
+        job('打开角色资源目录',lambda:boss_library.open_selected(selected_role))
+    button(library_bar,'打开角色目录',open_library_role)
+    ttk.Label(creative,text=library_text,wraplength=790).pack(anchor='w',pady=3)
     controls=ttk.LabelFrame(creative,text='3C 参数草稿：集成后进入下一次开发构建',padding=12)
     controls.pack(fill='x',pady=8)
     role=tk.StringVar(value='*');known=sorted(workspace.ROLES)

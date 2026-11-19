@@ -14,3 +14,5 @@
 - `tools/creative_workspace.py initialize|submit --lane ue|backend` 负责各自创作源；`preview <提案ID>` 与 `integrate <提案ID>` 只操作离线快照。新开发候选会固化一次已选集成的3C参数及来源摘要；未提交或未集成的草稿不能进入候选。新增视觉/场景资源仍是编辑器源，必须另行完成目标版本Cook、挂载/加载和集中实机验证，不得宣称已在PBZ生效。详见 `统一工作台协作说明.md`。
 - “UE 创作与 3C”的“打开 UE 练习场”已接入 `tools/creative_starter_workspace.py`：首次后台调用本机UE原生命令生成并保存 `/Game/PBZCreative/Maps/L_PBZCreativeHub`、角色/GameMode子蓝图与Niagara喷泉，随后打开可见关卡。再次打开不得重建用户场景，工程正在运行时不得覆盖资产或再开同工程第二个编辑器。模板依赖保持 `Characters/Input/ThirdPerson/LevelPrototyping` 原包路径；只提交自有 `Content/PBZCreative` 和指定配置，Epic模板二进制不上传Git。
 - UE练习场是创作示例，不包含PBZ Boss或原地图；本轮仅观察到PIE启动、模板角色与粒子显示，键盘移动/跳跃仍未独立验收。用户正在人工预览时停止自动按键，不关闭PIE、不抢焦点。旧版指引文字迁移只在下次打开且关卡干净、未播放时处理可识别的未改动标签，不据此宣称原地图迁移已实测。
+- 六个真实Boss的编辑源另在作者工程 `/Game/PBZCreative/BossLibrary20261119`；活动展厅为 `L_PBZBossGallery_v3`，弦儿选 `BP_Boss_XianZhe_Clothed`。六角色共18段原生动画，属于SkeletalMeshActor编辑预览，不等于全部技能/伤害/玩家3C或游戏内Cook加载已恢复。说明见 `UE真实角色创作说明.md`。
+- 原生导入验收以E盘 `创作协作/资产接入检查/boss-library-native-result-v2.json` 为当前版本；首版收据及失败日志保留。`creative_boss_library.py publish|verify` 通过既有快照流程只添加缺失/相同文件，拒绝覆盖作者改动。不要整体提交后台探针资源；密钥、映射、SDK、模型和二进制不入Git。

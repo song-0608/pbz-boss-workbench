@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-19T10:07:14.541670+00:00",
+  "status": "six_real_role_editable_library_published",
+  "supersedes_current_status_of": "ue-character-source-audit-20261119.json",
+  "historical_audit_preserved": true,
+  "role_count": 6,
+  "active_animation_count": 18,
+  "exported_skeletal_parts": 23,
+  "roles": [
+    {
+      "role": "AHua",
+      "name": "阿花",
+      "blueprint": "/Game/PBZCreative/BossLibrary20261119/Characters/BP_Boss_AHua",
+      "animations": 2,
+      "editor_preview_only": true
+    },
+    {
+      "role": "WanJun",
+      "name": "巨贼克万钧",
+      "blueprint": "/Game/PBZCreative/BossLibrary20261119/Characters/BP_Boss_WanJun",
+      "animations": 4,
+      "editor_preview_only": true
+    },
+    {
+      "role": "YouLong",
+      "name": "游龙",
+      "blueprint": "/Game/PBZCreative/BossLibrary20261119/Characters/BP_Boss_YouLong",
+      "animations": 3,
+      "editor_preview_only": true
+    },
+    {
+      "role": "YanQianSui",
+      "name": "烟千岁",
+      "blueprint": "/Game/PBZCreative/BossLibrary20261119/Characters/BP_Boss_YanQianSui",
+      "animations": 4,
+      "editor_preview_only": true
+    },
+    {
+      "role": "XianZhe",
+      "name": "弦儿",
+      "blueprint": "/Game/PBZCreative/BossLibrary20261119/Characters/BP_Boss_XianZhe_Clothed",
+      "animations": 2,
+      "editor_preview_only": true
+    },
+    {
+      "role": "MadDocter",
+      "name": "谢秋冬",
+      "blueprint": "/Game/PBZCreative/BossLibrary20261119/Characters/BP_Boss_MadDocter",
+      "animations": 3,
+      "editor_preview_only": true
+    }
+  ],
+  "library": "/Game/PBZCreative/BossLibrary20261119",
+  "map": "/Game/PBZCreative/BossLibrary20261119/L_PBZBossGallery_v3",
+  "author_project": "E:\\项目\\PBZ-Boss操控研究\\创作协作\\UE工程\\PBZCreative\\PBZCreative.uproject",
+  "integration": "b987103db4dbe35555ee9693",
+  "published_native_assets": 228,
+  "assets_added_in_revision": 36,
+  "author_assets_overwritten": 0,
+  "author_editor_restarted": false,
+  "editor_menu_loads_on_next_author_start": true,
+  "native_report_sha256": "02ec8f57f8f58031001c855f34f8c95c231ee2328f39d645978b5bbc4f5948cf",
+  "published_receipt_sha256": "1ab875834374fb81b76164bea228bbdbed219ee85e4b3374d8dd345f948cfb47",
+  "visual_review": {
+    "file": "E:\\项目\\PBZ-Boss操控研究\\创作协作\\资产接入检查\\native-preview-20261119-180535\\visual-review.json",
+    "sha256": "c0dc0f8892ddb22786fbb564afced5224c72a00b760bf4fb396c46c8c2d89ca2",
+    "reviewed": true
+  },
+  "author_snapshot_verification": {
+    "completed": true,
+    "checked_files": 228,
+    "missing": [],
+    "locally_modified": [],
+    "integration": "b987103db4dbe35555ee9693",
+    "editor_menu_current": true,
+    "original_game_skills_verified": false
+  },
+  "native_pose_samples": 54,
+  "regression_tests": {
+    "command": "python -B -X utf8 -m unittest discover -s tests -p 'test_creative*.py' -v",
+    "passed": 36,
+    "log_sha256": "2ac7b2f31220c35de84bdfa51bce65455df5d330d38af8ce9adc08433ec680cd"
+  },
+  "usmap": {
+    "build": "ProjectPBZ-5.7.4-302256+b7c82f11b864",
+    "sha256": "b1f8cc13f5788f75242c00710b00bf5ee611265c0cc1ced8180348ccadac537a",
+    "native_game_sessions": 1,
+    "gameplay_input_sent": false
+  },
+  "retained_failures": [
+    "First gallery had no startup framing; fixed in editor menu",
+    "First XianZhe body lacked three clothing meshes and brow/lash card; added as native bound geometry",
+    "Loaded-world duplication aborted backend editor on world leak; v3 is constructed from a new level",
+    "Headless PIE query is unsupported; interactive-only guard added",
+    "Metadata is not inherited by duplicate_asset; fresh owned Clothed blueprint receives explicit tag",
+    "Automatic preview entry initially used class name instead of ScriptName; corrected using installed UE header"
+  ],
+  "current_limits": [
+    "SkeletalMeshActor previews, not finished player controllers",
+    "18 imported clips, not all Boss skills",
+    "Original shaders, UDIM/skin, hair and cloth behavior differ",
+    "No target-game Cook, mounting or gameplay-load validation"
+  ],
+  "full_mod_complete": false,
+  "models_mappings_keys_sdks_uploaded": false
+}
