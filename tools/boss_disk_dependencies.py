@@ -16,6 +16,7 @@ import boss_disk_declarations as disk
 import boss_disk_skill_index as skill_index
 
 MOBS = 'ProjectPBZ/Plugins/Secret/PBZCombatAsset/Content/ActorData/Mobs/'
+CINEMATIC_PRESTREAM = '/Game/Cinematics/Prestreaming/'
 SOURCES = ('boss_disk_declarations.py', 'boss_disk_dependencies.py', 'boss_disk_skill_index.py', 'boss_disk_scripts.py')
 PATH_TOKEN = re.compile(r"^(?:(?:/[A-Za-z0-9_/]+\.)?[A-Za-z_][A-Za-z0-9_]*')?(/[A-Za-z0-9_/-]+)(?:\.[A-Za-z0-9_:.-]+)?'?$" )
 
@@ -242,9 +243,30 @@ def ability_summaries(exports, package):
     return result
 
 
+def parent_class_summaries(exports, package):
+    """Keep plain BP ancestors as context, without labeling actors as abilities."""
+    result = []
+    for ordinal, obj in enumerate(exports):
+        if ('BlueprintGeneratedClass' not in obj.get('Type', '')
+                or not isinstance(obj.get('Package'), str)
+                or obj['Package'].casefold() != package.casefold()):
+            continue
+        props = obj.get('Properties', {})
+        timelines = props.get('AbilityTimelines')
+        override = ('missing_inherits' if 'AbilityTimelines' not in props else
+                    'invalid' if not isinstance(timelines, list) else
+                    'explicit_empty' if not timelines else 'parent_timeline_not_indexed')
+        result.append(dict(class_path=obj['Package']+'.'+obj['Name'],
+            export_index=ordinal, export_type=obj['Type'], serialized_super=obj.get('Super'),
+            timeline_override=override, declared_actions=0 if override == 'explicit_empty' else None))
+    return result
+
+
 def resolve_timeline_inheritance(packages):
     """Resolve only exact disk class/export identities, preserving empty overrides."""
-    classes = {a['class_path'].casefold(): a for row in packages for a in row['abilities'] if a['class_path']}
+    abilities = [a for row in packages for a in row['abilities'] if a['class_path']]
+    classes = {a['class_path'].casefold(): a for row in packages for a in row.get('parent_classes', [])}
+    classes.update({a['class_path'].casefold(): a for a in abilities})
     memo = {}
 
     def resolve(key, trail):
@@ -260,6 +282,8 @@ def resolve_timeline_inheritance(packages):
             value = ('own_declared' if override == 'declared' else 'own_empty', key)
         elif override == 'invalid':
             value = 'invalid_override', None
+        elif override == 'parent_timeline_not_indexed':
+            value = 'parent_timeline_not_indexed', None
         else:
             parent = ability.get('serialized_super')
             path = parent.get('ObjectPath', '') if isinstance(parent, dict) else ''
@@ -285,7 +309,8 @@ def resolve_timeline_inheritance(packages):
         return value
 
     counts = Counter()
-    for key, ability in classes.items():
+    for ability in abilities:
+        key = ability['class_path'].casefold()
         status, origin = resolve(key, set())
         ability['timeline_resolution'] = status
         ability['effective_timeline_class'] = classes[origin]['class_path'] if origin else None
@@ -317,13 +342,13 @@ def script_reference_map(sources, declarations, mapping_sha256):
     return result, identities, unresolved
 
 
-def scan(index, sources, script_sources=(), *, allow_incomplete=False):
+def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cinematic_cache=False):
     """One verified read per package; return a reusable local dependency graph."""
     assets = catalog(index)
     existing, identities, mapping = source_records(sources, disk.digest(index), allow_incomplete=allow_incomplete)
     failed_sources = {native_package(p).casefold() for i in identities for p in i['failed_packages']} - existing.keys()
     script_refs, script_identities, unresolved_scripts = script_reference_map(script_sources, existing, mapping)
-    edges, missing, native, unindexed = [], set(), set(), set()
+    edges, missing, native, unindexed, deferred = [], set(), set(), set(), set()
     types = Counter()
     by_folder = Counter()
     ability_count = timeline_count = action_count = issue_count = 0
@@ -361,10 +386,13 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False):
                 status = 'extracted'
             elif target in failed_sources:
                 status = 'extraction_failed'
+            elif defer_cinematic_cache and target.startswith(CINEMATIC_PRESTREAM.casefold()):
+                status = 'deferred_cinematic_prestream_cache'; deferred.add(target)
             else:
                 status = 'pending_extraction'; missing.add(target)
             dependencies.append(dict(reference=ref, status=status))
         edges.append(dict(item, folder=folder, abilities=abilities, references=dependencies,
+                          parent_classes=parent_class_summaries(exports, native_package(item['package'])),
                           function_count=sum(o.get('Type') == 'Function' for o in exports)))
         if (ordinal+1) % 1000 == 0:
             print(json.dumps(dict(scanned=ordinal+1, total=len(existing))), flush=True)
@@ -379,6 +407,9 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False):
         pending_roots=len(all_roots - existing.keys()),
         pending_dependencies=[dict(assets[k], folder='native_dependency') for k in sorted(missing)],
         pending_dependency_count=len(missing), native_code_packages=sorted(native),
+        deferred_dependencies=[dict(assets[k], folder='cinematic_prestream_cache') for k in sorted(deferred)],
+        deferred_dependency_count=len(deferred),
+        dependency_policy='defer_global_cinematic_prestream_cache' if defer_cinematic_cache else 'all_serialized_references',
         failed_dependencies=[dict(assets[k], folder='failed_native_dependency') for k in sorted(failed_sources)],
         failed_dependency_count=len(failed_sources),
         unindexed_references=sorted(unindexed), export_types=dict(sorted(types.items())),
@@ -388,8 +419,8 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False):
         declared_timelines=timeline_count, declared_actions=action_count, ability_indexing_issues=issue_count,
         packages=edges, disk_metadata_only=True, serialized_overrides_only=True,
         declaration_contents_verified=True,
-        indexed_package_closure_complete=not failed_sources and not missing and not (all_roots-existing.keys()),
-        serialized_package_closure_complete=not unindexed and not failed_sources and not missing and not (all_roots-existing.keys()),
+        indexed_package_closure_complete=not deferred and not failed_sources and not missing and not (all_roots-existing.keys()),
+        serialized_package_closure_complete=not deferred and not unindexed and not failed_sources and not missing and not (all_roots-existing.keys()),
         complete_package_inventory=False, all_boss_skills_complete=False,
         live_grant_verified=False, execution_verified=False, playable=False,
         game_started=False, installed=False)
@@ -435,6 +466,7 @@ def main():
             command.add_argument('--output', type=Path, required=True)
             command.add_argument('--script-source', type=Path, action='append', default=[])
             command.add_argument('--allow-incomplete-sources', action='store_true')
+            command.add_argument('--defer-cinematic-cache', action='store_true')
         if name == 'dependencies':
             command.add_argument('--scan', type=Path, required=True)
     args = parser.parse_args()
@@ -445,13 +477,15 @@ def main():
     elif args.action == 'collect':
         result = collect(args.target, args.exporter, args.paks, args.crypto)
     else:
-        result = scan(args.index, args.source, args.script_source, allow_incomplete=args.allow_incomplete_sources)
+        result = scan(args.index, args.source, args.script_source, allow_incomplete=args.allow_incomplete_sources,
+                      defer_cinematic_cache=args.defer_cinematic_cache)
         disk.write_new(args.output, result)
     if 'batches' in result:
         print(json.dumps(dict(requested_packages=len(result['packages']), batches=len(result['batches']))))
     print(json.dumps({k: v for k, v in result.items() if k not in (
         'packages', 'batches', 'pending_dependencies', 'native_code_packages',
-        'unindexed_references', 'export_types', 'sources', 'source_plans', 'failed_dependencies')}, ensure_ascii=False))
+        'unindexed_references', 'export_types', 'sources', 'source_plans', 'failed_dependencies',
+        'deferred_dependencies')}, ensure_ascii=False))
 
 
 if __name__ == '__main__':

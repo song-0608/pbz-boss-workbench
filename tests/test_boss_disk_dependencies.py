@@ -223,6 +223,62 @@ class DependencyTests(unittest.TestCase):
         ability['serialized_super'] = dict(ObjectName="Class'LegoAbility'", ObjectPath='/Script/LegoAbility')
         self.assertEqual(dep.resolve_timeline_inheritance(rows), dict(native_default_unobserved=1))
 
+    def test_plain_blueprint_parent_is_context_without_becoming_a_playable_ability(self):
+        parent, = dep.parent_class_summaries([dict(Type='BlueprintGeneratedClass', Name='BP_ShieldBase_C',
+            Package='/Game/BP_ShieldBase', Properties={})], '/Game/BP_ShieldBase')
+        child = dict(class_path='/Game/GA_Shield.GA_Shield_C', export_index=0,
+            export_type='BlueprintGeneratedClass', timeline_override='missing_inherits', declared_actions=0,
+            serialized_super=dict(ObjectName="BlueprintGeneratedClass'BP_ShieldBase_C'", ObjectPath='/Game/BP_ShieldBase.0'))
+        rows = [dict(abilities=[child], parent_classes=[parent])]
+        self.assertEqual(dep.resolve_timeline_inheritance(rows), dict(super_identity_unresolved=1))
+        self.assertEqual(len(rows[0]['abilities']), 1, 'ordinary BP context is not a new ability or live grant')
+        self.assertIsNone(child['effective_declared_actions'])
+
+    def test_cinematic_cache_deferral_is_explicit_and_does_not_filter_skills_or_similar_paths(self):
+        cache='ProjectPBZ/Content/Cinematics/Prestreaming/Scene/Cache.uasset'
+        attack='ProjectPBZ/Content/Abilities/GA_Attack.uasset'
+        similar='ProjectPBZ/Content/Cinematics/PrestreamingCombat/GA_Skill.uasset'
+        with self.index.open('w',encoding='utf-8',newline='') as stream:
+            writer=csv.DictWriter(stream,fieldnames=['Filename','ChunkType','Hash']);writer.writeheader()
+            for path in (self.paths[0],cache,attack,similar):
+                writer.writerow(dict(Filename='../../../'+path,ChunkType='ExportBundleData',Hash='hash'))
+        self.plan['index_sha256']=disk.digest(self.index)
+        (self.source/'plan.json').write_text(json.dumps(self.plan),encoding='utf-8')
+        self.exports[0]['Properties']={name:dep.native_package(path) for name,path in
+            (('cache',cache),('attack',attack),('similar',similar))}
+        self.write_receipt()
+        full=dep.scan(self.index,[self.source])
+        self.assertEqual(full['pending_dependency_count'],3)
+        self.assertEqual(full['deferred_dependency_count'],0)
+        focused=dep.scan(self.index,[self.source],defer_cinematic_cache=True)
+        self.assertEqual(focused['pending_dependency_count'],2)
+        self.assertEqual([r['package'] for r in focused['deferred_dependencies']],[cache])
+        self.assertEqual({r['package'] for r in focused['pending_dependencies']},{attack,similar})
+        self.exports[0]['Properties']={'cache':dep.native_package(cache)};self.write_receipt()
+        focused=dep.scan(self.index,[self.source],defer_cinematic_cache=True)
+        self.assertEqual((focused['pending_roots'],focused['pending_dependency_count']),(0,0))
+        self.assertFalse(focused['indexed_package_closure_complete'])
+        self.assertFalse(focused['serialized_package_closure_complete'])
+        self.assertFalse(focused['all_boss_skills_complete'])
+
+    def test_existing_cache_failure_is_preserved_instead_of_relabelled_as_deferred(self):
+        cache='ProjectPBZ/Content/Cinematics/Prestreaming/Scene/Cache.uasset'
+        with self.index.open('a',encoding='utf-8',newline='') as stream:
+            csv.DictWriter(stream,fieldnames=['Filename','ChunkType','Hash']).writerow(
+                dict(Filename='../../../'+cache,ChunkType='ExportBundleData',Hash='hash'))
+        self.plan['index_sha256']=disk.digest(self.index)
+        (self.source/'plan.json').write_text(json.dumps(self.plan),encoding='utf-8')
+        self.exports[0]['Properties']={'cache':dep.native_package(cache)};self.write_receipt()
+        failed=self.root/'failed-cache'
+        plan=dep.create_plan(self.index,self.mapping,failed,[dict(package=cache,folder='support')],{},'test')
+        batch=plan['batches'][0];directory=failed/batch['output'];directory.mkdir()
+        disk.write_new(directory/'conversion-result.json',dict(mode='declarations',game_started=False,
+            passed=False,input_job_sha256=batch['sha256'],mapping_sha256=disk.digest(self.mapping),
+            tool_sha256='a'*64,packages=[dict(package=cache,passed=False,error='preserved oversized cache')]))
+        focused=dep.scan(self.index,[self.source,failed],allow_incomplete=True,defer_cinematic_cache=True)
+        self.assertEqual((focused['failed_dependency_count'],focused['deferred_dependency_count']),(1,0))
+        self.assertEqual(focused['packages'][0]['references'][0]['status'],'extraction_failed')
+
 
 if __name__ == '__main__':
     unittest.main()
