@@ -10,6 +10,7 @@ from build_boss_profile_candidate import lua
 import prepare_boss_subtree_references as references
 import run_boss_background_milestone as background
 import stage_boss_subtree_references as collector
+import prepare_boss_native_combo_workflow as native_combo
 
 BASE = 'evidence/adaptation/boss-subtree-reference-delta-03a3da0f935731f9.json'
 CURRENT = 'runtime/next-boss-reference-query.json'
@@ -24,6 +25,8 @@ def record_report(report, root=ROOT):
     # bytes. Keep both milestones instead of colliding on a source-only key.
     identity = {key: report[key] for key in ('base_report', 'base_sha256',
                 'source_sha256', 'reference_plan', 'passed')}
+    if 'combo_dependencies' in report:
+        identity['combo_dependencies'] = report['combo_dependencies']
     identity['checks'] = [{key: value for key, value in check.items() if key != 'output'}
                           for check in report['checks']]
     key = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:16]
@@ -53,12 +56,17 @@ def record_report(report, root=ROOT):
 def run():
     base = json.loads((ROOT / BASE).read_bytes())
     names = set(base['source_sha256']) | set(references.SOURCES)
+    names.update(background.combo_dependencies.SOURCES)
+    names.update(native_combo.SOURCES)
+    names.update(native_combo.bundle.SOURCES)
     names.update(module.replace('.', '/') + '.py' for module in background.TEST_MODULES)
     names.add('tools/run_boss_reference_milestone.py')
     sources = {name: sha(ROOT / name) for name in sorted(names)}
     directory, manifest = references.build()
     manifest_sha = sha(directory / 'manifest.json')
     manifest, _ = collector.verify(directory)
+    dependency_path, dependency_report = background.combo_dependencies.build()
+    dependency_sha = sha(dependency_path)
     checks = []
     command = [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', *background.TEST_MODULES]
     result = subprocess.run(command, cwd=ROOT, capture_output=True, encoding='utf-8', errors='replace', timeout=120)
@@ -95,6 +103,7 @@ def run():
         print(check['name'] + ': ' + ('PASS' if passed else 'FAIL'), flush=True)
     assert all(sha(ROOT / name) == digest for name, digest in sources.items()), 'sources changed during milestone'
     assert sha(directory / 'manifest.json') == manifest_sha
+    assert sha(dependency_path) == dependency_sha, 'dependency graph changed during milestone'
     report = dict(schema=1, kind='boss_subtree_reference_controller_milestone',
         base_report=BASE, base_sha256=sha(ROOT / BASE),
         changed_base_sources=[p for p, h in base['source_sha256'].items() if sources[p] != h],
@@ -103,6 +112,9 @@ def run():
             queries=len(manifest['jobs']), request_counts=manifest['request_counts'],
             batches=len(manifest['batches']), stage_supported=True,
             native_type_queries_executed=False, native_grants_verified=False, playable=False),
+        combo_dependencies=dict(report=dependency_path.relative_to(ROOT).as_posix(),
+            report_sha256=dependency_sha, summary=dependency_report['summary'],
+            activation_allowed=False, execution_order_proven=False, playable=False),
         passed=all(check['passed'] for check in checks), game_started=False,
         ui_input_sent=False, live_carrier_staged=False, installed=False,
         runtime_acceptance_current=False, all_boss_skills_complete=False)

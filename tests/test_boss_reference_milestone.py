@@ -19,6 +19,18 @@ def fixture():
 
 
 class ReferenceMilestoneTests(unittest.TestCase):
+    def test_dependency_report_changes_are_retained_in_the_milestone_identity(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            first = fixture()
+            first['combo_dependencies'] = dict(report='dependencies.json', report_sha256='first')
+            one = record_report(first, root)
+            second = fixture()
+            second['combo_dependencies'] = dict(report='dependencies.json', report_sha256='second')
+            two = record_report(second, root)
+            self.assertNotEqual(one, two)
+            self.assertTrue(one.exists() and two.exists())
+
     def test_completed_queue_does_not_schedule_or_advertise_another_native_run(self):
         self.assertEqual(collector_modes(dict(jobs=[])), ())
         self.assertEqual(len(collector_modes(dict(jobs=[dict(key='fixture')]))), 6)

@@ -22,8 +22,11 @@ function Remote:begin_scheduler(t,id,seconds)
     self.native.set_brain_tick(self.calls:resolve(t.ai),true)
     assert(self:brain_policy_valid(t)and not self:brain_suspended(t),'scheduler enable did not verify')
 end
-function Remote:brain_policy_valid(t)
-    local enabled=self.native.brain_tick(self.calls:resolve(t.ai))
+function Remote:brain_policy_valid(t,enabled)
+    -- A caller may supply only the boolean from its current checks() call.
+    -- It never survives this validation or an intervening native write.
+    if enabled==nil then enabled=self.native.brain_tick(self.calls:resolve(t.ai))end
+    boolean(enabled,'brain tick')
     if t.scheduler then
         -- 用途：叶能力会自行暂停/恢复Brain（右瞬移已实测）；许可不强行重开它的暂停。
         -- 仍真实读取布尔值，逐帧验证其余控制约束，且不延长许可。
@@ -72,7 +75,7 @@ function Remote:checks(t)
 end
 local function verify_checks(self,t,checks)
     for name,value in pairs(checks)do
-        if name=='brain_tick_disabled'then value=self:brain_policy_valid(t)end
+        if name=='brain_tick_disabled'then value=self:brain_policy_valid(t,not checks.brain_tick_disabled)end
         if not value then
             -- 用途：只记录首次失效项目，定位异步游戏逻辑，不绕过控制权校验。
             if not t.failure_logged then print('PBZ_REMOTE_VERIFY:FAILED='..name);t.failure_logged=true end

@@ -36,6 +36,7 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'player_assembly_tasks', 'player_action_queue', 'player_retirement_budget', 'player_map_lifecycle', 'player_map_initialization',
                  'player_target_diagnostics', 'runtime', 'ue_calls', 'ue_combat', 'world_boundary', 'idle_world_watch',
                  'player_spawn_assets',
+                 'player_activity_probe',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
                  'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):

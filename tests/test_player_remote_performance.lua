@@ -46,12 +46,12 @@ local function fixture(implementation,scheduler)
 end
 local original,patched=fixture(Original),fixture(Remote)
 for _=1,1000 do assert(original.service:maintain(original.ticket));assert(patched.service:maintain(patched.ticket))end
-assert(original.reads==13000 and patched.reads==7000,
-    'no-write maintenance must avoid the second identical full snapshot, while keeping brain policy validation')
+assert(original.reads==13000 and patched.reads==6000,
+    'no-write maintenance must use its complete current snapshot, including its already-read brain policy')
 assert(original.writes==0 and patched.writes==0,'read optimization must not introduce state writes')
 assert(patched.read_counts.ai_started==1000 and patched.read_counts.ai_tick==1000
     and patched.read_counts.input_enabled==1000 and patched.read_counts.move_ignored==1000
-    and patched.read_counts.look_ignored==1000 and patched.read_counts.brain_tick==2000)
+    and patched.read_counts.look_ignored==1000 and patched.read_counts.brain_tick==1000)
 
 local f=fixture(Remote);f.ai.tick=true
 f.on_brain_write=function()f.boss.controller=f.pc end
@@ -84,5 +84,5 @@ local before=f.writes;assert(f.service:maintain(f.ticket)and f.writes==before)
 f.clock=125;assert(not f.service:maintain(f.ticket)and f.writes==before,
     'snapshot reuse must preserve exact scheduler expiry and must not renew it')
 f.service:end_scheduler(f.ticket);assert(f.service:restore(f.ticket)and f.player.enabled and f.ai.tick and f.ai.actor_tick)
-print('PASS 1000 no-write remote maintenance calls: original adapter reads=13000, candidate reads=7000; writes=0')
+print('PASS 1000 no-write remote maintenance calls: original adapter reads=13000, candidate reads=6000; writes=0')
 print('PASS fresh verification after writes and across calls, strict native booleans, ownership changes and scheduler expiry')

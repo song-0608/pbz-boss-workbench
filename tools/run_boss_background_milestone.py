@@ -20,6 +20,7 @@ import prepare_boss_skill_pages as skill_pages
 import prepare_boss_variant_candidates as variant_candidates
 import boss_subtree_inventory as subtrees
 import prepare_boss_subtree_references as subtree_references
+import boss_combo_dependencies as combo_dependencies
 
 
 TEST_MODULES = (
@@ -38,6 +39,9 @@ TEST_MODULES = (
     'tests.test_boss_subtree_references',
     'tests.test_stage_boss_subtree_references',
     'tests.test_boss_reference_milestone',
+    'tests.test_boss_combo_dependencies',
+    'tests.test_boss_native_combo_candidate',
+    'tests.test_boss_native_combo_workflow',
 )
 
 
@@ -76,6 +80,7 @@ def main():
     source_files.update(workflows.source_hashes())
     source_files.update({name: sha(ROOT / name) for name in subtrees.SOURCES})
     source_files.update({name: sha(ROOT / name) for name in subtree_references.SOURCES})
+    source_files.update({name: sha(ROOT / name) for name in combo_dependencies.SOURCES})
     checks = [invoke('Python regressions', [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', *TEST_MODULES])]
     packages = []
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'
@@ -85,6 +90,7 @@ def main():
                          'tests/test_inventory_spawn_assets.lua', spawn_fixture.relative_to(ROOT).as_posix()]))
     subtree_directory, subtree_manifest = subtrees.build_pending()
     reference_directory, reference_manifest = subtree_references.build()
+    dependency_report, dependencies = combo_dependencies.build()
     checks.append(invoke('Subtree reference type plan verification', [sys.executable, '-B', '-X', 'utf8',
         'tools/prepare_boss_subtree_references.py', 'verify', str(reference_directory)]))
     checks.append(invoke('Subtree metadata queue verification', [sys.executable, '-B', '-X', 'utf8',
@@ -152,6 +158,9 @@ def main():
                       manifest_sha256=sha(reference_directory / 'manifest.json'),
                       requests=len(reference_manifest['jobs']), batches=len(reference_manifest['batches']),
                       stage_supported=reference_manifest['stage_supported'], runtime_verified=False, playable=False),
+                  combo_dependencies=dict(report=dependency_report.relative_to(ROOT).as_posix(),
+                      report_sha256=sha(dependency_report), summary=dependencies['summary'],
+                      activation_allowed=False, execution_order_proven=False, playable=False),
                   passed=all(check['passed'] for check in checks), game_started=False, ui_input_sent=False,
                   live_carrier_staged=False, installed=False, all_boss_skills_complete=False,
                   runtime_acceptance_current=False)

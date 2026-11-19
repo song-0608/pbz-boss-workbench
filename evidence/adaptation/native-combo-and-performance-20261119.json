@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "kind": "selected_native_combo_and_performance_development",
+  "status": "offline_passed_runtime_pending",
+  "sources": {
+    "tools/boss_combo_dependencies.py": "15366c10df79225b0cfe58269e4781c8779dd6a95618ac676d615876bbb5dd4f",
+    "tests/test_boss_combo_dependencies.py": "56671573028cc2f196aaf8dd58f63dbaa49fdfe8079e087f86f78a7cc0f077fb",
+    "tools/boss_native_combo_candidate.py": "41d4f1915b94e1b53f79c5e323afeb9b9065431d7a93ead8384ca5a6b2b0a6c2",
+    "tools/boss_native_combo_candidate.lua": "b148b5aab92e1b9f6d8edf1445bd7fbfae262ae30887bf5d410d99dc536f1601",
+    "tests/test_boss_native_combo_candidate.py": "b3df7514b9947fdc4af1e05da964d880ee508c9f36e0a802d2bd1ebb561825b2",
+    "tests/test_boss_native_combo_candidate.lua": "f8a9223bc8ce64108908844bfc42a3fd79cdce2b88fcf258f435d7b24101dee9",
+    "tools/prepare_boss_native_combo_workflow.py": "7e72b8c46f0aa1e40e741b773a175043ff3b1d5e218bb6cbe3881d63a0e54c73",
+    "tests/test_boss_native_combo_workflow.py": "0d3f2ab6462a0cd026cf61d4e5e18edad52c96b8ec175fd5a29d4c20f3467b5a",
+    "tools/run_boss_native_combo_milestone.py": "92afb1403042341403fb0c46544ee892f9861041a0c2c72eead7c989fa7cc5f2",
+    "tools/run_boss_background_milestone.py": "4a655f4d61ec4aa284e0fd2c3e3fa44a327d9521bf00a194101c6fcfba0f3bfd",
+    "tools/run_boss_reference_milestone.py": "faca682355e4a8ec35141c4967aa7dc818fb951f18c74d72f91e23b8c26ec78e",
+    "tests/test_boss_reference_milestone.py": "1b5be4a30b23fa57bd49554927c66f1dc5acc2cdf6c9d8b8a37e7f6f6d4347fc",
+    "tools/player_activity_probe.lua": "6de6839f1ebdab18bc7dd38d8862825703a8e0bd068bb5f795b0ad147dbade3e",
+    "tests/test_player_activity_probe.lua": "60587911a69a461759448be6541da8ccd19bc7ddc243b691a947a5d02db079ba",
+    "tools/player_remote_control.lua": "5d5050ebc1ed2c45028c4631cea4c2908ad812c982b442222a28579e37c0eb6b",
+    "tests/test_player_remote_performance.lua": "90820b245478a3b97a5e1c8fdaff2d0ef7b6f37edcd505cd3e8d77ed7e5d266c",
+    "tools/build_player_travel_candidate.py": "1f45e20870ca7ac9062febef2f1a53da9fd986fc4a2f38afafd38e3a1adcc841",
+    "tools/check_player_travel_repair.py": "c7dfdc583d8eb1056dce9c5e35b1b739fbd3c935f5d807baab57199b1e5134b4",
+    "tests/test_player_travel_candidate.py": "5dd6e650fa6e6cbaaf4e96fe1f497e20c1b0bd491372a553fff4f136b42802aa"
+  },
+  "local_reports": {
+    "evidence/adaptation/boss-reference-controller-milestone-75f3d69f16ab3573.json": "39fba63c4918ea049f9ba0cc9a67e679e42a00e7ff87a1f1b2195eb56380a575",
+    "evidence/adaptation/boss-native-combo-offline-d858e6802ea6460d-1795061762850061100.json": "772ea54271ddf37dba4d09f00ebbede790d8305bc791a2492fb8786d10d4f9ca"
+  },
+  "native_combo": {
+    "id": "044_pengmeng",
+    "parent": "GA_PengMeng_Special05_Combo_C",
+    "candidate": "runtime/boss-native-combo-candidates/044_pengmeng-80391f92adf86a17c350",
+    "candidate_manifest_sha256": "eafae163ef5301d36193e7847799f2c8fd2b7d2c34faa9392e75317805f95390",
+    "workflow": "runtime/developer-workflows/native-combo-ui-044_pengmeng-c74214d637675738",
+    "workflow_manifest_sha256": "84892abe68697dfa4f05970825d2bd88ab4f8e10611c8a9a604f67fabeda4406",
+    "offline_check_groups": 4,
+    "lua_lifecycle_cases": 10,
+    "native_order_preserved": true,
+    "manual_grants": false,
+    "player_registration": false,
+    "observed_child_required_for_natural_completion": true,
+    "runtime_verified": false
+  },
+  "reference_controller": {
+    "passed": true,
+    "python_tests": 205,
+    "pending_queries": 0
+  },
+  "performance": {
+    "candidate": "ahua-player-travel-dev-e39d310c06b44984",
+    "offline_report": "evidence/adaptation/ahua-player-travel-dev-e39d310c06b44984-offline.json",
+    "offline_groups": 45,
+    "inactive_ability_queries_in_200_spec_fixture": {
+      "before": 200,
+      "after": 4
+    },
+    "maintenance_reads_in_1000_call_fixture": {
+      "before": 13000,
+      "after": 6000
+    },
+    "retains_full_per_frame_active_count_scan": true,
+    "native_writes_added": false,
+    "real_fps_verified": false
+  },
+  "prior_failed_offline_report": "evidence/adaptation/boss-native-combo-offline-f636da9deb5aa849-1795061686826408900.json",
+  "failure_resolution": "Lua harness file paths changed to repository-relative ASCII paths; original failed report preserved.",
+  "game_started": false,
+  "ui_input_sent": false,
+  "installed": false,
+  "all_boss_skills_complete": false,
+  "release_accepted": false
+}

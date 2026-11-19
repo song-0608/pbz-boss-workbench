@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "kind": "selected_development_observations",
+  "session": "20261119-113718",
+  "release_accepted": false,
+  "complete_mod": false,
+  "sources": {
+    "evidence/official-validation/20261119-113718/player-travel-progress.json": "8a49a8cff2c1c5c168d11a76bdb596c53a72ae5096eba59fda5d2d5958e8bb4b",
+    "evidence/official-validation/20261119-113718/postcheck.json": "d37d0ed005bcb7c6d20788dc6e238f315f3aa4036dd27abc473e0e3831649d43"
+  },
+  "candidate": "ahua-player-travel-dev-e8269bdcb9913990",
+  "observed": {
+    "workbench_switch_to_wanjun": true,
+    "wanjun_primary_damage": 195,
+    "wanjun_primary_is_heavy_shortcut": true,
+    "wanjun_light_attack_damage": 0,
+    "wanjun_light_attack_passed": false,
+    "youlong_observed_natural_ends": 3,
+    "youlong_damage_per_observed_end": 100,
+    "youlong_visibility_rejections": 2,
+    "native_travel_ready_observed": true,
+    "native_menu_open_observed": false,
+    "actual_map_travel_observed": false
+  },
+  "input_timing": {
+    "strict_acceptance": false,
+    "expired_gate_inputs": [
+      {
+        "action": "second F1",
+        "gate_at_local": "11:50:21",
+        "input_at_local": "11:50:35"
+      },
+      {
+        "action": "Shift+W+F1",
+        "gate_at_local": "11:50:54",
+        "input_at_local": "11:51:14"
+      },
+      {
+        "action": "youlong primary",
+        "gate_at_local": "11:51:21",
+        "input_at_local": "11:51:33"
+      }
+    ],
+    "limitation": "These observations are not strict acceptance actions; later inputs checked gate expiry inside the same orchestration call."
+  },
+  "cleanup": {
+    "session_closed": true,
+    "formal_files_unchanged": 56,
+    "loader_removed": true,
+    "host_config_unchanged": true,
+    "registry_unchanged": true
+  },
+  "not_verified": [
+    "native light attack damage",
+    "continuous movement and free camera feel",
+    "cross-map stability",
+    "all Boss skills"
+  ]
+}

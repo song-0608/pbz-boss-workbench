@@ -30,6 +30,7 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tests/test_player_3c_contract.py', 'tools/player_3c_target_lock.lua',
            'tests/test_player_3c_target_lock.lua', 'tests/test_input_driver.lua')
 SOURCES += ('tools/player_spawn_assets.lua', 'tests/test_player_spawn_assets.lua')
+SOURCES += ('tools/player_activity_probe.lua', 'tests/test_player_activity_probe.lua')
 SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stage.py',
             'tools/player_travel_capture.py', 'tests/test_player_travel_capture.py')
 
@@ -62,6 +63,13 @@ def payload(root=ROOT):
         files[PREFIX + target + '.lua'] = (root / 'tools' / (source + '.lua')).read_bytes()
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     files[PREFIX + 'player_spawn_assets.lua'] = (root / 'tools/player_spawn_assets.lua').read_bytes()
+    files[PREFIX + 'player_activity_probe.lua'] = (root / 'tools/player_activity_probe.lua').read_bytes()
+    change('owned_arena.lua',
+           '                        local found={};local specs=player.AbilitySystemComponent.ActivatableAbilities.Items\n'
+           "                        local size=specs:GetArrayNum();assert(size<=512,'player ability bound')\n"
+           '                        for i=1,size do local s=specs[i];if valid(s.Ability)and s.ActiveCount>0 then found[s.Ability:GetClass():GetFullName()]=true end end\n'
+           '                        return found',
+           "                        return require('player_activity_probe').snapshot(player,valid)")
     change('owned_arena.lua', '        local target_class=class\n',
            '        local target_class=class\n        local target_profile=assembly_profile\n')
     change('owned_arena.lua', "            local target_profile=require(assembly_profile.training_target_profile)",
