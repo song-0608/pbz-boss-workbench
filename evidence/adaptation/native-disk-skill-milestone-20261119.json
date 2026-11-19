@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "date": "2026-11-19",
+  "kind": "native_boss_disk_skill_offline_milestone",
+  "offline_milestone_passed": true,
+  "local_outputs": "E:\\项目\\PBZ-Boss操控研究\\创作协作\\原生技能声明\\20261119-offline-03",
+  "source_sha256": {
+    "tools/creative_asset_exporter/Program.cs": "78e4cf4b88b3fd50159a21db69dbe70db4169b33e4e4d9016fa376931258a0a1",
+    "tools/creative_asset_exporter/README.md": "5df48ef8f93882a631e6e932409a6018b1b2af7cbe27a46a39adba4deda4831e",
+    "tools/boss_disk_declarations.py": "b118bbe20b5811b36b1b65e29527e70e1fcfede1bcd36beb1e5208cd732dac94",
+    "tools/boss_disk_skill_index.py": "0eef986076ee64e685c81d14fa9ecbec7e75c4fda4b9e8e784f44e0097c66de9",
+    "tools/boss_disk_live_coverage.py": "998876eb4db26017fff91d9676a071e943d320490b9449ee5addc51c22619f00",
+    "tests/test_boss_disk_declarations.py": "b629965f09379794c50cac70242e566be0949f5cdadaccc8816bbf49cc43cc8b",
+    "tests/test_boss_disk_skill_index.py": "f5c8fd48511f9c0c44257a56bfa73756dd020a0e7b18b992b500651ac573bc16",
+    "tests/test_boss_disk_live_coverage.py": "4dc897f3c76b31f8ad9a8aa30a98ac4a6146887ffc6cd94d81fc586cf6e97df9",
+    "原生技能离线适配工作流.md": "767d01a8499cbf874801a7d7cb231c4b2f24b55094a55feb686a4c617912e716",
+    "双线协作交接.md": "b249008894f50ae5336ab15df599f80ce9daa236b3e9246275548a27a5d26307"
+  },
+  "local_evidence_sha256": {
+    "plan.json": "6ffdde752f7cbe62cadef5bfceb554c437290a9e09819a87e2404ef8bfef6ad8",
+    "skill-index-v1.json": "64adc9b68f823fbb7530577ea9779a88dc25eedf97f6c7693427d405f42c6503",
+    "live-coverage-v1.json": "abc92994a9e3276e5d4078048f49bc18280938ec35dd88702b1ae96df89e7969",
+    "offline-regression-final.txt": "8a9e08bb79b001736dea4f436b7e91d2aba4c89200024ad2804cdb7b7a41821c",
+    "prepared-native-pages.json": "d006ebc7c8f052d19c16ed9e05b44ed766b3a37f1b83b20b264c5400b4445698",
+    "prepared-native-pages-offline.json": "75df8265518e20ef2a5db26a5fd44b3aaecd2ad1b7520df9176a4ab74b4e9767",
+    "installed-payload-integrity.json": "e8fc9b56643d439cc322de5e65855eda956454ea6c9f41dda799a14a4c464987",
+    "accepted-v5-recheck.txt": "969ca849376c6e0b8dd2610a51179d23c3263f921f972f8ec5dea32602f6e381"
+  },
+  "packages": 7139,
+  "resource_folders": 76,
+  "extracted_packages": 7139,
+  "failed_packages": 0,
+  "pending_packages": 0,
+  "ability_classes": 3173,
+  "timelines": 3025,
+  "action_declarations": 71298,
+  "indexing_issues": 0,
+  "native_routes": {
+    "utility_or_dependency_review": 105,
+    "in_v5_profile": 58,
+    "needs_variant_grant": 1378,
+    "no_closed_native_record": 1430,
+    "metadata_or_subtree_review": 108,
+    "leaf_with_historical_grant": 94
+  },
+  "next_actions": {
+    "separate_context_review": 1218,
+    "keep_accepted_v5_mapping": 58,
+    "review_disk_parent_and_observe_exact_native_grant": 1797,
+    "review_exact_historical_actor_config_before_candidate": 79,
+    "review_native_subtree_dependencies": 21
+  },
+  "python_regressions": {
+    "passed": true,
+    "tests": 71
+  },
+  "candidate_page_fixtures": {
+    "passed": true,
+    "pages": 22,
+    "bindings": 82,
+    "resource_folders": 7
+  },
+  "installed_payload": {
+    "installed_payload_integrity_verified": true,
+    "release_id": "ahua-boss-workbench-v5-3f29975fe3b8826f",
+    "files": 70,
+    "game_started": false
+  },
+  "historical_v5_replay": {
+    "passed": false,
+    "log": "accepted-v5-recheck.txt",
+    "reason": "Frozen expansion developer bundle is recomputed against changed source/module/base dependencies; immutable payload and receipts preserved"
+  },
+  "raw_serialized_properties_stay_local": true,
+  "game_started": false,
+  "game_input_sent": false,
+  "installed": false,
+  "player_registry_modified": false,
+  "live_grant_verified": false,
+  "execution_verified": false,
+  "all_boss_skills_complete": false,
+  "ready_for_final_delivery": false
+}

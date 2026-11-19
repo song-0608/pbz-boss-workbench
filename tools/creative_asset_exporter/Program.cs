@@ -24,7 +24,10 @@ if (paths.Length is < 1 or > 64 || paths.Any(p => string.IsNullOrWhiteSpace(p)
     || p.Contains("..") || p.Contains(':') || p.Contains('\\') || !p.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase)))
     throw new ArgumentException("Bounded explicit asset paths required");
 var mode = job.RootElement.GetProperty("mode").GetString();
-if (mode is not ("inspect" or "export")) throw new ArgumentException("Unknown job mode");
+if (mode is not ("inspect" or "export" or "declarations")) throw new ArgumentException("Unknown job mode");
+if (mode == "declarations" && (!job.RootElement.TryGetProperty("usmap", out var requiredMapping)
+    || string.IsNullOrWhiteSpace(requiredMapping.GetString()) || !File.Exists(requiredMapping.GetString())))
+    throw new ArgumentException("An existing exact local type mapping is required for declarations");
 var gameName = job.RootElement.TryGetProperty("game", out var gameValue) ? gameValue.GetString()! : "GAME_UE5_7";
 var game = Enum.Parse<EGame>(gameName);
 // Keys are read from a local file, never from command arguments or printed.
@@ -55,6 +58,28 @@ foreach (var path in paths)
         var package = provider.LoadPackage(path);
         var exports = package.GetExports().ToArray();
         row["exports"] = exports.Select(v => new { name = v.Name, type = v.ExportType }).ToArray();
+        if (mode == "declarations")
+        {
+            // CUE4Parse's native UObject converters preserve named serialized
+            // properties/references. This is disk metadata, never a live grant
+            // or proof that a Blueprint action can execute on a player.
+            var declaration = Newtonsoft.Json.JsonConvert.SerializeObject(exports,
+                Newtonsoft.Json.Formatting.Indented, new Newtonsoft.Json.JsonSerializerSettings {
+                    MaxDepth = 128, ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Error
+                });
+            var bytes = System.Text.Encoding.UTF8.GetBytes(declaration);
+            if (bytes.Length > 16 * 1024 * 1024)
+                throw new InvalidDataException("Serialized declarations exceed the 16 MiB per-package bound");
+            var filename = $"declaration-{results.Count:D4}.json";
+            using (var stream = new FileStream(Path.Combine(output, filename), FileMode.CreateNew))
+                stream.Write(bytes);
+            row["declaration_file"] = filename;
+            row["declaration_sha256"] = Convert.ToHexString(
+                System.Security.Cryptography.SHA256.HashData(bytes)).ToLowerInvariant();
+            row["declaration_bytes"] = bytes.Length;
+            row["live_grant_verified"] = false;
+            row["execution_verified"] = false;
+        }
         if (mode == "export")
         {
             var meshFormat = job.RootElement.TryGetProperty("mesh_format", out var meshValue) ? meshValue.GetString()! : "ActorX";
@@ -91,6 +116,13 @@ foreach (var path in paths)
 }
 var report = new {
     schema = 1, mode, game = gameName, mounted_files = provider.Files.Count,
+    input_job_sha256 = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(
+        File.ReadAllBytes(args[2]))).ToLowerInvariant(),
+    mapping_sha256 = job.RootElement.TryGetProperty("usmap", out var reportMapping)
+        && File.Exists(reportMapping.GetString()) ? Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(
+            File.ReadAllBytes(reportMapping.GetString()!))).ToLowerInvariant() : null,
+    tool_sha256 = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(
+        File.ReadAllBytes(System.Reflection.Assembly.GetExecutingAssembly().Location))).ToLowerInvariant(),
     supported_mesh_formats = Enum.GetNames<EMeshFormat>(),
     packages = results, passed = failed == 0, game_started = false, imported_to_editor = false
 };

@@ -12,7 +12,9 @@ dotnet build tools/creative_asset_exporter/PBZCreativeExporter.csproj -c Release
 
 调用参数为 `dotnet <转换器.dll> <Paks目录> <本机私有Crypto文件> <job.json> <全新输出目录>`。Crypto文件只在本机读取；不要把密钥写入命令行、日志、示例或Git。输出目录非空即拒绝。
 
-job的字段：`mode: inspect|export`、`game: GAME_UE5_7`、`packages: [明确.uasset路径]`、`usmap: 本机精确映射路径`、`mesh_format: Gltf2|USD`、`export_materials: true|false`。每批1至64个明确路径；动画使用USD，Gltf2仅用于模型/贴图。骨骼资产不能只凭 `SK_`、`SM_` 前缀筛选，必须检查真实导出类型与SkinParts子目录。
+job的字段：`mode: inspect|export|declarations`、`game: GAME_UE5_7`、`packages: [明确.uasset路径]`、`usmap: 本机精确映射路径`、`mesh_format: Gltf2|USD`、`export_materials: true|false`。每批1至64个明确路径；动画使用USD，Gltf2仅用于模型/贴图。骨骼资产不能只凭 `SK_`、`SM_` 前缀筛选，必须检查真实导出类型与SkinParts子目录。
+
+`declarations` 要求本机精确映射，只使用CUE4Parse原生UObject序列化输出属性和引用，不运行蓝图或导出模型。每包声明上限16MiB，输出带包路径、声明摘要、作业摘要、映射摘要及转换器DLL摘要。原始属性留在E盘；`boss_disk_declarations.py` 负责64包分批、跳过已核验成功批次和保留失败，`boss_disk_skill_index.py` 解析原生时间线，`boss_disk_live_coverage.py` 与已关闭会话的原生证据精确关联。完整流程见仓库 `原生技能离线适配工作流.md`。声明只含序列化覆盖值，不能代替父类默认值、原生授予、伤害或实机验收。
 
 ## 本机原生依赖
 
