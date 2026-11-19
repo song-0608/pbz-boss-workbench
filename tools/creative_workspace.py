@@ -226,7 +226,10 @@ def submit(storage=PROJECT_STORAGE,lane='ue'):
         for name,source in saved.items():
             assert source.stat().st_size==rows[name]['bytes'] and file_digest(source)==rows[name]['sha256'], \
                 'editor changed saved content during submission; save and submit again: '+name
-    return freeze('proposal',files,dict(base=base['proposal'],origin='creative_authoring',lane=lane),storage,before_publish=unchanged)
+    metadata=dict(base=base['proposal'],origin='creative_authoring',lane=lane)
+    baseline=workspace/'Saved/PBZCreative/template-baseline.json'
+    if baseline.exists():metadata['editor_template_baseline_sha256']=file_digest(baseline)
+    return freeze('proposal',files,metadata,storage,before_publish=unchanged)
 
 
 def three_way(base,incoming,current,path='',resolutions=None):
@@ -342,8 +345,15 @@ def render_tuning(source,storage=PROJECT_STORAGE,selected=None):
 
 def open_editor(storage=PROJECT_STORAGE):
     project=plain(paths(storage)['workspace']/'PBZCreative.uproject');assert project.is_file(),'initialize workspace first'
+    from creative_starter_workspace import ensure,editor_processes,ready,MAP
+    running=editor_processes(project)
+    if running:
+        assert ready(project),'请先保存并关闭空白创作工程，再点击打开；首次将生成可操作练习场。'
+        return running[0]['ProcessId']
+    ensure(project)
     engine=Path(r'D:\UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe');assert engine.is_file(),'UE 5.8 editor not found'
-    return subprocess.Popen([str(engine),str(project)],cwd=project.parent,
+    return subprocess.Popen([str(engine),str(project),MAP],cwd=project.parent,
+        stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,
         creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0)).pid
 
 

@@ -36,6 +36,7 @@ SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stag
             'tools/player_travel_capture.py', 'tests/test_player_travel_capture.py')
 SOURCES += ('tools/creative_workspace.py', 'tools/research_storage.py', 'tests/test_creative_workspace.py',
             'tools/creative_workbench_ui.py', 'tests/test_creative_workbench.py', 'tools/workbench_status_bootstrap.py')
+SOURCES += ('tools/creative_starter_workspace.py','tools/creative_starter_assets.py','tools/creative_starter_view.py','tests/test_creative_starter_workspace.py')
 
 
 def payload(root=ROOT, *, creative=None):

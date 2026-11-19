@@ -50,7 +50,7 @@ def attach(window,notebook,root,smoke=False):
         assert Path(path).exists(),'请先初始化创作区'
         os.startfile(path);return '已打开 '+str(path)
     button(toolbar,'初始化创作区',lambda:job('初始化',workspace.initialize,lambda _:load_profile()))
-    button(toolbar,'打开 UE 工程',lambda:job('打开 UE 编辑器',workspace.open_editor))
+    button(toolbar,'打开 UE 练习场',lambda:job('准备并打开 UE 练习场（首次会生成内容）',workspace.open_editor))
     button(toolbar,'打开创作目录',lambda:job('打开目录',lambda:open_path(p['workspace'])))
     button(toolbar,'提交已保存改动',lambda:job('冻结创作提案',workspace.submit,lambda key:(write('新提案：'+key),refresh())))
     controls=ttk.LabelFrame(creative,text='3C 参数草稿：集成后进入下一次开发构建',padding=12)

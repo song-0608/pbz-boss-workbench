@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-19T08:21:14.749019+00:00",
+  "purpose": "Replace the empty UE authoring workspace with an editable starter hub",
+  "project": "E:\\项目\\PBZ-Boss操控研究\\创作协作\\UE工程\\PBZCreative\\PBZCreative.uproject",
+  "map": "/Game/PBZCreative/Maps/L_PBZCreativeHub",
+  "native_saved_report": {
+    "actor_count": 47,
+    "character_walk_speed": 480.0,
+    "completed": true,
+    "editor_only": true,
+    "game_mode": "/Game/PBZCreative/Characters/BP_CreativeGameMode",
+    "game_started": false,
+    "map": "/Game/PBZCreative/Maps/L_PBZCreativeHub",
+    "niagara": "/Game/PBZCreative/Effects/NS_CreativeFountain",
+    "pbz_game_assets_imported": false,
+    "playable_character": "/Game/PBZCreative/Characters/BP_CreativeCharacter",
+    "schema": 1,
+    "template_seed": {
+      "baseline_files": 169,
+      "copied": 166,
+      "preserved_modified": []
+    },
+    "layout_version": 2
+  },
+  "native_saved_report_sha256": "b9c22703f5971df35f38b602c50806db88fc70e565f21b6ddd431bee59a21637",
+  "native_executed_build_script_sha256": "40b202b186d64f38181dfdcee9bebd646077c6e0034612f44aaa9e1399e960c4",
+  "current_source_sha256": {
+    "tools/creative_starter_workspace.py": "57e7a1d0e4d6f3eec627cfa7189b4b581237006cf6501e3070eaddb90e4021e5",
+    "tools/creative_starter_assets.py": "c639578b8c8b146a9a1c9dd6aa10ede60b36b97e9c237335c7e8366f2b89e2d7",
+    "tools/creative_starter_view.py": "5c1ec5178f2ffaf408f9012ac00c6c9d9b92babd7ea6fa50e92b06fb5ff5c9e3",
+    "tests/test_creative_starter_workspace.py": "7b2e1480ebaf6b47375ccc5cfe95df73e3e0ddcbdac6bc28b2e46dbcecec7d5d",
+    "tools/creative_workspace.py": "c0efca39cb69d4030d6a2c508417d8111964ba6f8180d8246120be117717930b",
+    "tools/creative_workbench_ui.py": "b3e79ed8b74064e6c72b43520f4c62ed3fdde76b71e75e963d10cefc0accdcb1",
+    "tools/build_player_travel_candidate.py": "0e1e94b57d54ef17cd8e1632069647a1498503368341846a25bb46c92f71e46a",
+    "tools/check_player_travel_repair.py": "bb9a40a8b09489f446cd5fdd1bb56355755c7709cc9e78441b5b03915e8f80ac"
+  },
+  "generated_assets": {
+    "Content/PBZCreative/Characters/BP_CreativeCharacter.uasset": {
+      "bytes": 27893,
+      "sha256": "1d953ad6853535072a2f8180fecb05527a05fcc0f40222f796a3a65771b8ff9a"
+    },
+    "Content/PBZCreative/Characters/BP_CreativeGameMode.uasset": {
+      "bytes": 23498,
+      "sha256": "3db2e23d8ba6d6e37b4209d03c82e8cd1e8b5bd7158c0ad58868aa81eb793915"
+    },
+    "Content/PBZCreative/Effects/NS_CreativeFountain.uasset": {
+      "bytes": 137858,
+      "sha256": "035d85e943ade39520c6b3e3ed9026c8ea5a5232321d01c81ccbb2b13271af44"
+    },
+    "Content/PBZCreative/Maps/L_PBZCreativeHub.umap": {
+      "bytes": 92767,
+      "sha256": "73c9506dbad7fdc3f817f1d72ba958163d0e25fdde93770cee70aade564e228b"
+    },
+    "Content/PBZCreative/Materials/M_Cyan.uasset": {
+      "bytes": 4794,
+      "sha256": "13d51889c245c4eba2b680967a9004da61ade396b1986488378e962c878b092c"
+    },
+    "Content/PBZCreative/Materials/M_Floor.uasset": {
+      "bytes": 4672,
+      "sha256": "8d8023215605d75b6437822f75ef495c16317fd14a88555d85376aa8b7491e6c"
+    },
+    "Content/PBZCreative/Materials/M_Orange.uasset": {
+      "bytes": 4804,
+      "sha256": "34fdfee49e98386bc2d69a6f2cf8f9c09b14e10f9a099948df4ba649988c92c1"
+    },
+    "Content/PBZCreative/Materials/M_Slate.uasset": {
+      "bytes": 4672,
+      "sha256": "787ff250ff08a66979ca2c973244f9fb5f6569e088c013814aad79098e26b1de"
+    },
+    "Content/PBZCreative/Materials/M_White.uasset": {
+      "bytes": 4672,
+      "sha256": "941eec38613f1f8ea994129d6d1e0af3fe35827cb5ddf5bd40f7ee6ad58f1302"
+    }
+  },
+  "template_baseline": {
+    "files": 169,
+    "receipt_sha256": "3e5ade36b5d7efc380abf8f56e6a6e9ff6dfba7e59383bdd26c70d25c10b7625",
+    "source": "Local installed Epic UE 5.8 template packs",
+    "binaries_committed": false
+  },
+  "observations": {
+    "pie_started": true,
+    "third_person_character_visible": true,
+    "niagara_fountain_visible": true,
+    "source": "Editor UI observed during this task, before user input caused automated key input to stop",
+    "keyboard_movement_verified": false,
+    "jump_verified": false,
+    "active_preview_left_to_user": true
+  },
+  "label_facing": {
+    "saved_map_layout_version": 2,
+    "next_open_migration_version": 3,
+    "migration_installed": true,
+    "native_migration_verified": false,
+    "active_world_modified_for_migration": false
+  },
+  "offline": {
+    "passed": true,
+    "groups": 49,
+    "starter_unit_tests": 11,
+    "source_only": true,
+    "raw_report_name": "ahua-player-travel-dev-c5dacf82135d4e1d-source-offline-1795076427028977400.json",
+    "raw_report_sha256": "e5f94d316758466cea62601f007d7670273badd25463c9687ed0f2f687da0a80",
+    "checks": [
+      {
+        "name": "syntax",
+        "passed": true
+      },
+      {
+        "name": "creative_tuning_payload",
+        "passed": true
+      },
+      {
+        "name": "player_travel_repair",
+        "passed": true
+      },
+      {
+        "name": "player_controller_query",
+        "passed": true
+      },
+      {
+        "name": "player_controller_owner",
+        "passed": true
+      },
+      {
+        "name": "player_reassembly",
+        "passed": true
+      },
+      {
+        "name": "player_native_travel_trial",
+        "passed": true
+      },
+      {
+        "name": "player_assembly_tasks",
+        "passed": true
+      },
+      {
+        "name": "player_action_queue",
+        "passed": true
+      },
+      {
+        "name": "player_retirement_budget",
+        "passed": true
+      },
+      {
+        "name": "player_map_lifecycle",
+        "passed": true
+      },
+      {
+        "name": "player_map_initialization",
+        "passed": true
+      },
+      {
+        "name": "player_target_diagnostics",
+        "passed": true
+      },
+      {
+        "name": "runtime",
+        "passed": true
+      },
+      {
+        "name": "ue_calls",
+        "passed": true
+      },
+      {
+        "name": "ue_combat",
+        "passed": true
+      },
+      {
+        "name": "world_boundary",
+        "passed": true
+      },
+      {
+        "name": "idle_world_watch",
+        "passed": true
+      },
+      {
+        "name": "player_spawn_assets",
+        "passed": true
+      },
+      {
+        "name": "player_activity_probe",
+        "passed": true
+      },
+      {
+        "name": "map_travel_guard",
+        "passed": true
+      },
+      {
+        "name": "workbench_input",
+        "passed": true
+      },
+      {
+        "name": "player_experience_runtime",
+        "passed": true
+      },
+      {
+        "name": "player_action_input",
+        "passed": true
+      },
+      {
+        "name": "player_primary_routes",
+        "passed": true
+      },
+      {
+        "name": "remote_control",
+        "passed": true
+      },
+      {
+        "name": "player_remote_performance",
+        "passed": true
+      },
+      {
+        "name": "target_transition",
+        "passed": true
+      },
+      {
+        "name": "ue_host",
+        "passed": true
+      },
+      {
+        "name": "input_driver",
+        "passed": true
+      },
+      {
+        "name": "player_3c",
+        "passed": true
+      },
+      {
+        "name": "player_skill_buffer",
+        "passed": true
+      },
+      {
+        "name": "player_locomotion",
+        "passed": true
+      },
+      {
+        "name": "player_3c_target_lock",
+        "passed": true
+      },
+      {
+        "name": "player_travel_candidate",
+        "passed": true
+      },
+      {
+        "name": "player_travel_trial",
+        "passed": true
+      },
+      {
+        "name": "player_travel_progress",
+        "passed": true
+      },
+      {
+        "name": "player_overlay",
+        "passed": true
+      },
+      {
+        "name": "player_status_stream",
+        "passed": true
+      },
+      {
+        "name": "workbench_roster",
+        "passed": true
+      },
+      {
+        "name": "workbench_session_status",
+        "passed": true
+      },
+      {
+        "name": "workbench_cmd_entry",
+        "passed": true
+      },
+      {
+        "name": "player_source_checks",
+        "passed": true
+      },
+      {
+        "name": "player_3c_contract",
+        "passed": true
+      },
+      {
+        "name": "player_travel_ui_stage",
+        "passed": true
+      },
+      {
+        "name": "player_travel_capture",
+        "passed": true
+      },
+      {
+        "name": "creative_workspace",
+        "passed": true
+      },
+      {
+        "name": "creative_workbench",
+        "passed": true
+      },
+      {
+        "name": "creative_starter_workspace",
+        "passed": true
+      }
+    ]
+  },
+  "limits": {
+    "pbz_game_started": false,
+    "pbz_game_assets_imported": false,
+    "pbz_runtime_loading_verified": false,
+    "full_boss_mod_complete": false,
+    "movement_and_jump_acceptance_pending": true
+  }
+}

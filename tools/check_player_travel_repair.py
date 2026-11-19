@@ -81,7 +81,7 @@ def check(package, manifest, flow=None, *, source_only=False):
                            'tests/test_' + name + '.lua']))
     for name in ('player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',
                  'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry', 'player_source_checks', 'player_3c_contract',
-                 'player_travel_ui_stage', 'player_travel_capture', 'creative_workspace', 'creative_workbench'):
+                 'player_travel_ui_stage', 'player_travel_capture', 'creative_workspace', 'creative_workbench','creative_starter_workspace'):
         command = ([sys.executable, '-B', '-X', 'utf8', 'tests/test_player_overlay.py']
                    if name == 'player_overlay' else
                    [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', 'discover',

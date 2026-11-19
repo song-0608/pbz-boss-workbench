@@ -12,3 +12,5 @@
 - 同一默认CMD现在包含“Boss 开发与研究 / UE 创作与 3C / 统一集成与冲突”三页。UE作者工作区为 `E:\项目\PBZ-Boss操控研究\创作协作\UE工程\PBZCreative`，后台创作草稿为同目录的 `后台草稿\PBZCreative`；Mod代码仍在本仓库。双方各自保存、提交提案，工作台统一检查三方差异，不并发写同一份UE二进制资产，不把源码草稿直接装进研究箱。
 - 创作提案只接收各自 `Content/PBZCreative` 与三份 `Config/PBZCreative/*.json`；提案/集成快照带摘要、来源与基线。JSON按字段合并，UE资产按整文件处理；冲突必须在工作台明确取舍，并绑定预览时的集成版本。集成不覆盖双方的编辑文件；接收结果保存在不可变集成快照，进入下一次开发构建。工作区原始资产在E盘，不上传Git。
 - `tools/creative_workspace.py initialize|submit --lane ue|backend` 负责各自创作源；`preview <提案ID>` 与 `integrate <提案ID>` 只操作离线快照。新开发候选会固化一次已选集成的3C参数及来源摘要；未提交或未集成的草稿不能进入候选。新增视觉/场景资源仍是编辑器源，必须另行完成目标版本Cook、挂载/加载和集中实机验证，不得宣称已在PBZ生效。详见 `统一工作台协作说明.md`。
+- “UE 创作与 3C”的“打开 UE 练习场”已接入 `tools/creative_starter_workspace.py`：首次后台调用本机UE原生命令生成并保存 `/Game/PBZCreative/Maps/L_PBZCreativeHub`、角色/GameMode子蓝图与Niagara喷泉，随后打开可见关卡。再次打开不得重建用户场景，工程正在运行时不得覆盖资产或再开同工程第二个编辑器。模板依赖保持 `Characters/Input/ThirdPerson/LevelPrototyping` 原包路径；只提交自有 `Content/PBZCreative` 和指定配置，Epic模板二进制不上传Git。
+- UE练习场是创作示例，不包含PBZ Boss或原地图；本轮仅观察到PIE启动、模板角色与粒子显示，键盘移动/跳跃仍未独立验收。用户正在人工预览时停止自动按键，不关闭PIE、不抢焦点。旧版指引文字迁移只在下次打开且关卡干净、未播放时处理可识别的未改动标签，不据此宣称原地图迁移已实测。
