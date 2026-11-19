@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "native_combat_world_retirement_offline_milestone",
+  "source_only_report": "evidence/adaptation/ahua-player-travel-dev-f0a278255c5e3203-source-offline-1795095856226665400.json",
+  "source_only_sha256": "2dcb20b7657c5f6d1a0608920a2b601d8ce7a17bed0ed9bc6531a01d2c4eaab5",
+  "checks_passed": 59,
+  "sources_unchanged": true,
+  "combat_lifecycle_fixtures": 17,
+  "production_session_transition_test_passed": true,
+  "source_sha256": {
+    "tools/boss_combat_controls.lua": "c62a4ac75d1fcdcf75ef0c6a13b2ba2b62079ffcf95c1546bfaf0469b1562b4e",
+    "tests/test_boss_combat_controls.lua": "16d0ad1a8dd344d1af0d3eb088e8b0e3023884c15b64829ffe6510430af02f0a"
+  },
+  "session": "20261119-213651",
+  "postcheck": "evidence/official-validation/20261119-213651/postcheck.json",
+  "postcheck_sha256": "bf0911fe41211d5e263bfbf0ca83a631a68c3ab1d13c75b18573329cebd076fd",
+  "research_box_empty": true,
+  "formal_files_changed": 0,
+  "host_config_files_changed": 0,
+  "host_registry_unchanged": true,
+  "game_started": false,
+  "installed": false,
+  "defense_runtime_verified": false,
+  "cue_render_verified": false,
+  "cross_map_stability_verified": false,
+  "complete_mod": false
+}

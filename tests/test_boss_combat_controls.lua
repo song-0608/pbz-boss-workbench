@@ -123,6 +123,98 @@ test('unexpected World retirement forgets a disposed stance without native cance
     assert(f.session:world_boundary()=='retired')
     assert(c.receipt==nil and f.receipt.native_defense==nil and f.cancels==0)
 end)
+test('restore classifies retired World before attempting any stale defense cleanup',function()
+    local f=fixture();local context_checks=0
+    f.session.world_boundary=function(self)
+        f.receipt.world_retired=true;self.state='OFF';self.receipt=nil;self.bridge.active_receipt=nil
+        return'retired'
+    end
+    local c=f.attach();f.session:enter();f.session:sample_combat_input({allowed=true})
+    f.down=true;f.session:sample_combat_input({allowed=true});assert(f.active==1)
+    f.session.bridge.check=function()context_checks=context_checks+1;error('old World')end
+    assert(f.session:restore());assert(context_checks==0 and f.cancels==0 and f.restores==0)
+    assert(f.session.state=='OFF'and c.receipt==nil and not c.cleanup_pending)
+end)
+test('pending World restore preserves ownership without calling the previous native ability',function()
+    local f=fixture();local pending=false;local context_checks=0
+    f.session.world_boundary=function(self)
+        if pending then self.state='TRANSITIONING';return'pending'end
+        return'same'
+    end
+    local restore=f.session.restore
+    f.session.restore=function(self,...)
+        if self:world_boundary()~='same'then return false,'world transition pending or unverified'end
+        return restore(self,...)
+    end
+    local c=f.attach();f.session:enter();f.session:sample_combat_input({allowed=true})
+    f.down=true;f.session:sample_combat_input({allowed=true});pending=true
+    f.session.bridge.check=function()context_checks=context_checks+1;error('old World')end
+    assert(not f.session:restore());assert(context_checks==0 and f.cancels==0 and f.restores==0)
+    assert(c.receipt==f.receipt and c.defense.owned and f.session.state=='TRANSITIONING')
+end)
+test('failed disposal cleanup faults the session and can retry after base receipt retirement',function()
+    local f=fixture()
+    f.session.world_boundary=function(self)
+        if self.receipt then
+            f.receipt.world_retired=true;self.state='OFF';self.receipt=nil;self.bridge.active_receipt=nil
+            return'retired'
+        end
+        return'same'
+    end
+    local restore=f.session.restore
+    f.session.restore=function(self,...)
+        if not self.receipt then self.state='OFF';return true end
+        return restore(self,...)
+    end
+    local c=f.attach();f.session:enter();local fail=true;local attempts=0
+    c.cue={retire=function()
+        attempts=attempts+1;return not fail,{'hook removal pending'}
+    end}
+    local status,why=f.session:world_boundary()
+    assert(status=='faulted'and why:find('hook removal pending',1,true))
+    assert(f.session.state=='FAULTED'and c.receipt==f.receipt and c.disposal_verified)
+    assert(not f.session:restore());assert(f.session.state=='FAULTED'and c.receipt==f.receipt)
+    fail=false;assert(f.session:restore())
+    assert(f.session.state=='OFF'and c.receipt==nil and attempts==3 and f.cancels==0)
+end)
+test('direct restore cannot report success when World retirement leaves combat hooks behind',function()
+    local f=fixture()
+    f.session.world_boundary=function(self)
+        f.receipt.world_retired=true;self.state='OFF';self.receipt=nil;self.bridge.active_receipt=nil
+        return'retired'
+    end
+    local c=f.attach();f.session:enter()
+    c.cue={retire=function()return false,{'hook removal pending'}end}
+    local ok,why=f.session:restore()
+    assert(not ok and why:find('hook removal pending',1,true))
+    assert(f.session.state=='FAULTED'and c.cleanup_pending and c.receipt==f.receipt)
+    assert(f.restores==0 and f.cancels==0)
+end)
+test('production Session restores across pending and retired Worlds with retryable hook disposal',function()
+    local Base=require('session')
+    for _,fail_hook in ipairs({false,true})do
+        local f=fixture();local phase='pending';local hook_failed=fail_hook
+        f.session.restore=Base.restore;f.session.world_boundary=Base.world_boundary
+        f.session.record=Base.record;f.session.diagnostics={};f.session.world_id='world|lease'
+        function f.session.bridge:world_boundary(receipt)
+            assert(receipt==f.receipt)
+            if phase=='pending'then return'pending','old objects not yet disposed',1 end
+            self.active_receipt=nil;receipt.world_retired=true
+            return'retired'
+        end
+        local c=f.attach();f.session:enter();f.session:sample_combat_input({allowed=true})
+        f.down=true;f.session:sample_combat_input({allowed=true})
+        c.cue={retire=function()return not hook_failed,{'hook removal pending'}end}
+        f.session.bridge.check=function()error('previous World must not be queried')end
+        assert(not f.session:restore());assert(f.session.state=='TRANSITIONING'and c.defense.owned)
+        phase='retired';local ok=f.session:restore()
+        if fail_hook then
+            assert(not ok and f.session.state=='FAULTED'and not f.session.receipt)
+            hook_failed=false;assert(f.session:restore())
+        else assert(ok)end
+        assert(f.session.state=='OFF'and c.receipt==nil and not c.cleanup_pending and f.cancels==0)
+    end
+end)
 test('native helper supplies the monotonic clock and fresh fixed-key sample without editing the contract',function()
     local f=fixture()
     f.options.native_input={binding_verified=true,pid=42}

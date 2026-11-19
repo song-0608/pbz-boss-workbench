@@ -48,17 +48,30 @@ function Controls.attach(session,options)
         return ok,why
     end
     function session:restore(...)
+        -- Classify a map transition before touching the previous ASC/action.
+        -- Base retirement may already have proved disposal and retired combat.
+        if self.native_combat_controls.receipt and self.world_boundary then
+            local status,why=self:world_boundary()
+            if status=='retired'then return true end
+            if status~='same'then return false,why or'world transition pending or unverified'end
+        end
         local clean,errors=self.native_combat_controls:cleanup()
         -- Always attempt the original player/camera restoration, even on cleanup failure.
         local ok,why=restore(self,...)
-        if not clean then return false,table.concat(errors,'; ')end
+        if not clean then self.state='FAULTED';return false,table.concat(errors,'; ')end
         return ok,why
     end
     if boundary then
         function session:world_boundary(...)
             local status,why=boundary(self,...)
             if status=='retired'and self.native_combat_controls.receipt then
-                self.native_combat_controls:retire()
+                local ok,problem=pcall(self.native_combat_controls.retire,self.native_combat_controls)
+                if not ok then
+                    self.state='FAULTED'
+                    self.native_combat_controls.cleanup_pending=true
+                    self.native_combat_controls.failed='combat retirement: '..tostring(problem)
+                    return 'faulted',self.native_combat_controls.failed
+                end
             end
             return status,why
         end
@@ -160,6 +173,7 @@ function Controls:cleanup()
     if not self.receipt then return true,{}end
     if self.disposal_verified then
         local ok,why=pcall(self.retire,self)
+        self.cleanup_pending=not ok
         return ok,ok and{}or{tostring(why)}
     end
     local errors={}
@@ -183,7 +197,8 @@ function Controls:retire()
     -- The base World boundary has proved disposal of every modified participant.
     -- No cancellation through a dead ASC or effect cleanup in a replacement World.
     local r=assert(self.receipt,'retiring combat receipt required')
-    assert(r.world_retired==true and self.session.state=='OFF'and not self.session.receipt
+    assert(r.world_retired==true and(self.session.state=='OFF'
+        or self.disposal_verified and self.session.state=='FAULTED')and not self.session.receipt
         and self.session.bridge.active_receipt~=r,'base World disposal proof required')
     self.disposal_verified=true
     if self.cue then
