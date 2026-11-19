@@ -54,11 +54,12 @@ def number(value):
     return type(value) in (int,float) and math.isfinite(value)
 
 
-def abilities(exports, package):
+def abilities(exports, package, *, include_native_types=False):
     result=[]
     for index, obj in enumerate(exports):
-        if not ('BlueprintGeneratedClass' in obj.get('Type','')
-                and re.fullmatch(r'GA_[A-Za-z0-9_]+_C',obj.get('Name',''))):
+        named_ability = re.fullmatch(r'GA_[A-Za-z0-9_]+_C',obj.get('Name',''))
+        native_ability = include_native_types and obj.get('Type') == 'LegoAbilityBlueprintGeneratedClass'
+        if not ('BlueprintGeneratedClass' in obj.get('Type','') and (named_ability or native_ability)):
             continue
         issues=[]
         native_package=obj.get('Package')

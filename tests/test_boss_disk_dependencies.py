@@ -194,6 +194,35 @@ class DependencyTests(unittest.TestCase):
         self.assertEqual(process.call_count, 1)
         self.assertEqual(receipt.read_bytes(), before)
 
+    def test_inherited_timeline_requires_exact_export_identity_and_honors_empty(self):
+        base = dict(class_path='/Game/GA_Base.GA_Base_C', export_index=4,
+            export_type='LegoAbilityBlueprintGeneratedClass', timeline_override='declared', declared_actions=7)
+        child = dict(class_path='/Game/GA_Child.GA_Child_C', export_index=2,
+            export_type='LegoAbilityBlueprintGeneratedClass', timeline_override='missing_inherits', declared_actions=0,
+            serialized_super=dict(ObjectName="LegoAbilityBlueprintGeneratedClass'GA_Base_C'", ObjectPath='/Game/GA_Base.4'))
+        rows = [dict(abilities=[base, child])]
+        counts = dep.resolve_timeline_inheritance(rows)
+        self.assertEqual(counts, dict(inherited_declared=1, own_declared=1))
+        self.assertEqual(child['effective_declared_actions'], 7)
+        base['timeline_override'] = 'explicit_empty'; base['declared_actions'] = 0
+        dep.resolve_timeline_inheritance(rows)
+        self.assertEqual(child['timeline_resolution'], 'inherited_empty')
+        self.assertEqual(child['effective_declared_actions'], 0)
+        child['serialized_super']['ObjectPath'] = '/Game/GA_Base.99'
+        dep.resolve_timeline_inheritance(rows)
+        self.assertEqual(child['timeline_resolution'], 'super_identity_mismatch')
+        self.assertIsNone(child['effective_declared_actions'])
+
+    def test_native_defaults_and_inheritance_cycles_remain_unresolved(self):
+        ability = dict(class_path='/Game/GA_Loop.GA_Loop_C', export_index=0,
+            export_type='BlueprintGeneratedClass', timeline_override='missing_inherits', declared_actions=0,
+            serialized_super=dict(ObjectName="BlueprintGeneratedClass'GA_Loop_C'", ObjectPath='/Game/GA_Loop.0'))
+        rows = [dict(abilities=[ability])]
+        self.assertEqual(dep.resolve_timeline_inheritance(rows), dict(inheritance_cycle=1))
+        self.assertIsNone(ability['effective_timeline_class'])
+        ability['serialized_super'] = dict(ObjectName="Class'LegoAbility'", ObjectPath='/Script/LegoAbility')
+        self.assertEqual(dep.resolve_timeline_inheritance(rows), dict(native_default_unobserved=1))
+
 
 if __name__ == '__main__':
     unittest.main()

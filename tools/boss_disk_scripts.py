@@ -10,7 +10,7 @@ import boss_disk_declarations as disk
 import boss_disk_dependencies as dependencies
 
 
-def plan(scan, mapping, target):
+def plan(scan, mapping, target, reuse_sources=()):
     scan, mapping, target = Path(scan).resolve(), Path(mapping).resolve(), Path(target).resolve()
     report = json.loads(scan.read_bytes())
     if (report.get('kind') != 'offline_native_dependency_scan'
@@ -28,6 +28,31 @@ def plan(scan, mapping, target):
                              declaration_sha256=item['declaration_sha256']))
     if not rows or len({r['package'].casefold() for r in rows}) != len(rows):
         raise ValueError('Unique nonempty native function package list required')
+    reused, reuse_identities = {}, []
+    for source in reuse_sources:
+        source, prior = checked_plan(source)
+        if prior['mapping_sha256'] != report['mapping_sha256']:
+            raise ValueError('Exact mapping required for script reuse')
+        expected = {r['package']: r['functions'] for r in prior['packages']}
+        prior_rows = {r['package']: r for r in prior['packages']}
+        for batch in prior['batches']:
+            for item in checked_batch(source, batch, expected):
+                if item.get('passed') is not True:
+                    raise ValueError('Only successful script files may be reused')
+                reused[item['package'].casefold()] = prior_rows[item['package']]
+        reuse_identities.append(dict(path=str(source), plan_sha256=disk.digest(source/'plan.json')))
+    remaining, reused_count = [], 0
+    for row in rows:
+        old = reused.get(row['package'].casefold())
+        if old is None:
+            remaining.append(row)
+        elif old['functions'] != row['functions'] or old['declaration_sha256'] != row['declaration_sha256']:
+            raise ValueError('Script reuse requires the exact declaration and function count')
+        else:
+            reused_count += 1
+    rows = remaining
+    if not rows:
+        raise ValueError('No missing script packages; do not create an empty plan')
     target.mkdir(parents=True, exist_ok=False)
     batches = []
     for offset in range(0, len(rows), 64):
@@ -39,6 +64,7 @@ def plan(scan, mapping, target):
                             output=f'batch-{ordinal:04d}'))
     result = dict(schema=1, kind='offline_native_skill_script_plan',
         scan=str(scan), scan_sha256=disk.digest(scan), mapping_sha256=disk.digest(mapping),
+        reuse_sources=reuse_identities, reused_package_count=reused_count,
         source_sha256=disk.digest(__file__),
         exporter_sources={n: disk.digest(Path(__file__).parent/'boss_skill_bytecode_exporter'/n)
                           for n in ('Program.cs', 'PBZSkillBytecode.csproj')},
@@ -174,6 +200,7 @@ def main():
     create = commands.add_parser('plan')
     for name in ('scan', 'mapping', 'target'):
         create.add_argument('--'+name, type=Path, required=True)
+    create.add_argument('--reuse-source', type=Path, action='append', default=[])
     execute = commands.add_parser('run')
     execute.add_argument('target', type=Path)
     for name in ('exporter', 'paks', 'crypto'):
@@ -184,7 +211,7 @@ def main():
     inspect.add_argument('--output', type=Path)
     args = parser.parse_args()
     if args.action == 'plan':
-        result = plan(args.scan, args.mapping, args.target)
+        result = plan(args.scan, args.mapping, args.target, args.reuse_source)
         print(json.dumps(dict(packages=len(result['packages']), functions=sum(r['functions'] for r in result['packages']),
                               batches=len(result['batches']), game_started=False)))
     elif args.action == 'run':

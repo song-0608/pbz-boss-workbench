@@ -100,6 +100,17 @@ class SkillIndexTests(unittest.TestCase):
         self.assertEqual(action['start_seconds'],-2.9802322e-08)
         self.assertTrue(action['has_pre_roll'])
 
+    def test_native_type_opt_in_includes_non_ga_base_without_renaming(self):
+        package = '/PBZCombatAsset/Prototypes/Abilities/PBZ_NativeBase'
+        exports = [dict(Type='PBZ_NativeBase_C', Name='Default__PBZ_NativeBase_C', Properties={}),
+            dict(Type='LegoAbilityBlueprintGeneratedClass', Name='PBZ_NativeBase_C', Package=package,
+                 ClassDefaultObject=dict(ObjectName="PBZ_NativeBase_C'Default__PBZ_NativeBase_C'", ObjectPath=package+'.0')),
+            dict(Type='BlueprintGeneratedClass', Name='BP_OrdinaryActor_C', Package=package)]
+        self.assertEqual(skills.abilities(exports, package), [], 'legacy named-GA selection stays unchanged')
+        ability, = skills.abilities(exports, package, include_native_types=True)
+        self.assertEqual(ability['class_path'], package+'.PBZ_NativeBase_C')
+        self.assertEqual(ability['issues'], [])
+
 
 if __name__=='__main__':
     unittest.main()

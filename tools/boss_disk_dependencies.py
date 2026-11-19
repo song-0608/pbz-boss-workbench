@@ -16,7 +16,7 @@ import boss_disk_declarations as disk
 import boss_disk_skill_index as skill_index
 
 MOBS = 'ProjectPBZ/Plugins/Secret/PBZCombatAsset/Content/ActorData/Mobs/'
-SOURCES = ('boss_disk_declarations.py', 'boss_disk_dependencies.py', 'boss_disk_skill_index.py')
+SOURCES = ('boss_disk_declarations.py', 'boss_disk_dependencies.py', 'boss_disk_skill_index.py', 'boss_disk_scripts.py')
 PATH_TOKEN = re.compile(r"^(?:(?:/[A-Za-z0-9_/]+\.)?[A-Za-z_][A-Za-z0-9_]*')?(/[A-Za-z0-9_/-]+)(?:\.[A-Za-z0-9_:.-]+)?'?$" )
 
 
@@ -225,7 +225,7 @@ def referenced_packages(value):
 
 def ability_summaries(exports, package):
     result = []
-    for ability in skill_index.abilities(exports, package):
+    for ability in skill_index.abilities(exports, package, include_native_types=True):
         properties = ability['serialized_class_properties']
         override = properties.get('AbilityTimelines')
         override_kind = ('missing_inherits' if 'AbilityTimelines' not in properties else
@@ -233,12 +233,65 @@ def ability_summaries(exports, package):
                          'explicit_empty' if not override else 'declared')
         actions = [action for timeline in ability['timelines'] for action in timeline['actions']]
         result.append(dict(class_path=ability['class_path'],
+            export_index=ability['export_index'], export_type=exports[ability['export_index']]['Type'],
             serialized_super=ability['serialized_super'], timeline_override=override_kind,
             cdo_resolved=ability['serialized_cdo_properties'] is not None,
             declared_timelines=len(ability['timelines']), declared_actions=len(actions),
             action_types=dict(Counter(a['action_type'] for a in actions if a['action_type'])),
             issues=ability['issues'], live_grant_verified=False, playable=False))
     return result
+
+
+def resolve_timeline_inheritance(packages):
+    """Resolve only exact disk class/export identities, preserving empty overrides."""
+    classes = {a['class_path'].casefold(): a for row in packages for a in row['abilities'] if a['class_path']}
+    memo = {}
+
+    def resolve(key, trail):
+        if key in memo:
+            return memo[key]
+        if key in trail:
+            return 'inheritance_cycle', None
+        if len(trail) >= 128:
+            return 'inheritance_depth_limit', None
+        ability = classes[key]
+        override = ability['timeline_override']
+        if override in ('declared', 'explicit_empty'):
+            value = ('own_declared' if override == 'declared' else 'own_empty', key)
+        elif override == 'invalid':
+            value = 'invalid_override', None
+        else:
+            parent = ability.get('serialized_super')
+            path = parent.get('ObjectPath', '') if isinstance(parent, dict) else ''
+            name = skill_index.OBJECT_NAME.fullmatch(parent.get('ObjectName', '')) if isinstance(parent, dict) else None
+            if path.startswith('/Script/'):
+                value = 'native_default_unobserved', None
+            elif not name or '.' not in path:
+                value = 'super_identity_unresolved', None
+            else:
+                package, ordinal = path.rsplit('.', 1)
+                parent_key = (package + '.' + name[2]).casefold()
+                match = classes.get(parent_key)
+                if match is None:
+                    value = 'parent_declaration_missing', None
+                elif (not ordinal.isdigit() or int(ordinal) != match['export_index']
+                      or name[1] != match['export_type']):
+                    value = 'super_identity_mismatch', None
+                else:
+                    status, origin = resolve(parent_key, trail | {key})
+                    value = ('inherited_declared' if status in ('own_declared', 'inherited_declared') else
+                             'inherited_empty' if status in ('own_empty', 'inherited_empty') else status, origin)
+        memo[key] = value
+        return value
+
+    counts = Counter()
+    for key, ability in classes.items():
+        status, origin = resolve(key, set())
+        ability['timeline_resolution'] = status
+        ability['effective_timeline_class'] = classes[origin]['class_path'] if origin else None
+        ability['effective_declared_actions'] = classes[origin]['declared_actions'] if origin else None
+        counts[status] += 1
+    return dict(sorted(counts.items()))
 
 
 def script_reference_map(sources, declarations, mapping_sha256):
@@ -316,6 +369,7 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False):
         if (ordinal+1) % 1000 == 0:
             print(json.dumps(dict(scanned=ordinal+1, total=len(existing))), flush=True)
     all_roots = {k for k, r in assets.items() if r['package'].startswith(MOBS)}
+    inheritance = resolve_timeline_inheritance(edges)
     return dict(schema=1, kind='offline_native_dependency_scan',
         index_sha256=disk.digest(index), mapping_sha256=mapping, source_plans=identities,
         script_sources=script_identities, unresolved_script_functions=unresolved_scripts,
@@ -329,6 +383,8 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False):
         failed_dependency_count=len(failed_sources),
         unindexed_references=sorted(unindexed), export_types=dict(sorted(types.items())),
         ability_classes=ability_count, ability_classes_by_folder=dict(sorted(by_folder.items())),
+        ability_selector='named_GA_generated_or_native_LegoAbilityBlueprintGeneratedClass',
+        timeline_inheritance_resolution=inheritance,
         declared_timelines=timeline_count, declared_actions=action_count, ability_indexing_issues=issue_count,
         packages=edges, disk_metadata_only=True, serialized_overrides_only=True,
         declaration_contents_verified=True,

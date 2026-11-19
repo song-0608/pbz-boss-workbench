@@ -135,6 +135,22 @@ class ScriptTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'exact verified declaration'):
             dependencies.script_reference_map([self.target], declarations, disk.digest(self.mapping))
 
+    def test_script_extension_reuses_matching_success_instead_of_extracting_again(self):
+        self.receipt()
+        report = json.loads(self.scan.read_bytes())
+        extra = dict(report['packages'][0], package=self.package.replace('GA_Test.uasset', 'GA_Extra.uasset'), function_count=1)
+        report['packages'].append(extra)
+        next_scan = self.root/'next-scan.json'
+        disk.write_new(next_scan, report)
+        result = scripts.plan(next_scan, self.mapping, self.root/'extension', [self.target])
+        self.assertEqual(result['packages'][0]['package'], extra['package'])
+        self.assertEqual(result['reused_package_count'], 1)
+        report['packages'][0]['declaration_sha256'] = '0'*64
+        changed = self.root/'changed-scan.json'
+        disk.write_new(changed, report)
+        with self.assertRaisesRegex(ValueError, 'exact declaration'):
+            scripts.plan(changed, self.mapping, self.root/'bad-extension', [self.target])
+
 
 if __name__ == '__main__':
     unittest.main()
