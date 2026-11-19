@@ -279,6 +279,46 @@ class DependencyTests(unittest.TestCase):
         self.assertEqual((focused['failed_dependency_count'],focused['deferred_dependency_count']),(1,0))
         self.assertEqual(focused['packages'][0]['references'][0]['status'],'extraction_failed')
 
+    def test_reused_scan_matches_full_parse_and_still_rejects_content_tampering(self):
+        full=dep.scan(self.index,[self.source])
+        path=self.root/'previous.json';disk.write_new(path,full)
+        reused=dep.scan(self.index,[self.source],reuse_scan=path)
+        self.assertEqual(reused['reused_parsed_packages'],1)
+        self.assertEqual(reused['newly_parsed_packages'],0)
+        omit={'scan_cache','reused_parsed_packages','newly_parsed_packages'}
+        self.assertEqual({k:v for k,v in full.items() if k not in omit},
+                         {k:v for k,v in reused.items() if k not in omit})
+        self.declaration.write_bytes(self.declaration.read_bytes().replace(b'GA_Attack',b'GA_Broken'))
+        with self.assertRaisesRegex(ValueError,'digest changed'):
+            dep.scan(self.index,[self.source],reuse_scan=path)
+
+    def test_reuse_parses_new_package_and_recomputes_old_dependency_status(self):
+        path=self.root/'previous.json';disk.write_new(path,dep.scan(self.index,[self.source]))
+        extra=self.root/'extra'
+        plan=dep.create_plan(self.index,self.mapping,extra,[dict(package=self.paths[3],folder='support')],{},'test')
+        batch=plan['batches'][0];directory=extra/batch['output'];directory.mkdir()
+        declaration=directory/'declaration-0000.json'
+        disk.write_new(declaration,[dict(Type='DataAsset',Name='Guard',Package=dep.native_package(self.paths[3]))])
+        disk.write_new(directory/'conversion-result.json',dict(mode='declarations',game_started=False,
+            passed=True,input_job_sha256=batch['sha256'],mapping_sha256=disk.digest(self.mapping),
+            tool_sha256='a'*64,packages=[dict(package=self.paths[3],passed=True,
+                declaration_file=declaration.name,declaration_sha256=disk.digest(declaration),
+                declaration_bytes=declaration.stat().st_size)]))
+        reused=dep.scan(self.index,[self.source,extra],reuse_scan=path)
+        self.assertEqual((reused['reused_parsed_packages'],reused['newly_parsed_packages']),(1,1))
+        self.assertEqual(reused['export_types']['DataAsset'],1)
+        root=next(p for p in reused['packages'] if p['folder']=='042_AHua')
+        self.assertEqual(next(r['status'] for r in root['references']
+            if r['reference']=='/PBZDeflectSystem/Actions/Guard'),'extracted')
+
+    def test_new_verified_script_references_are_added_to_reused_declarations(self):
+        path=self.root/'previous.json';disk.write_new(path,dep.scan(self.index,[self.source]))
+        key=dep.native_package(self.paths[0]).casefold();new=dep.native_package(self.paths[1])
+        with patch.object(dep,'script_reference_map',return_value=({key:{new}},
+                [dict(path=str(self.root/'scripts-new'),plan_sha256='1'*64)],0)):
+            result=dep.scan(self.index,[self.source],['mock-new-script'],reuse_scan=path)
+        self.assertIn(dict(reference=new,status='pending_extraction'),result['packages'][0]['references'])
+
 
 if __name__ == '__main__':
     unittest.main()

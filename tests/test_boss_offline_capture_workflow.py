@@ -76,6 +76,27 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue(json.loads((self.target/'workflow.json').read_bytes())['defer_cinematic_cache'])
         self.assertFalse(result['ready_for_final_delivery'])
 
+    def test_next_round_reuses_previous_immutable_scan(self):
+        with patch.object(workflow.dependencies,'scan',side_effect=[self.report(pending=1),self.report()]) as scan, \
+                patch.object(workflow.dependencies,'dependencies'), \
+                patch.object(workflow.dependencies,'collect',return_value=dict(extracted=1,failed=0,pending=0)):
+            result=self.run_capture(max_rounds=2)
+        self.assertIsNone(scan.call_args_list[0].kwargs['reuse_scan'])
+        self.assertEqual(scan.call_args_list[1].kwargs['reuse_scan'],self.target/'scan-0001.json')
+        self.assertTrue(result['bounded_traversal_completed'])
+
+    def test_initial_scan_changes_stop_capture_before_next_round(self):
+        initial=self.root/'initial.json';initial.write_text('{}',encoding='utf-8')
+        def collect(*args):
+            initial.write_text('{"changed":true}',encoding='utf-8')
+            return dict(extracted=1,failed=0,pending=0)
+        with patch.object(workflow.dependencies,'scan',return_value=self.report(pending=1)), \
+                patch.object(workflow.dependencies,'dependencies'), \
+                patch.object(workflow.dependencies,'collect',side_effect=collect):
+            with self.assertRaisesRegex(ValueError,'Pinned initial scan changed'):
+                self.run_capture(reuse_scan=initial)
+        self.assertFalse((self.target/'result.json').exists())
+
 
 if __name__ == '__main__':
     unittest.main()

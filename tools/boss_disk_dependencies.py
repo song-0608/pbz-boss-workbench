@@ -5,6 +5,7 @@ All output is immutable metadata. No game, editor, input, or live grant API is u
 """
 import argparse
 from collections import Counter
+import copy
 import csv
 import hashlib
 import json
@@ -14,10 +15,12 @@ import subprocess
 
 import boss_disk_declarations as disk
 import boss_disk_skill_index as skill_index
+import boss_disk_scan_cache as scan_cache
 
 MOBS = 'ProjectPBZ/Plugins/Secret/PBZCombatAsset/Content/ActorData/Mobs/'
 CINEMATIC_PRESTREAM = '/Game/Cinematics/Prestreaming/'
-SOURCES = ('boss_disk_declarations.py', 'boss_disk_dependencies.py', 'boss_disk_skill_index.py', 'boss_disk_scripts.py')
+SOURCES = ('boss_disk_declarations.py', 'boss_disk_dependencies.py', 'boss_disk_skill_index.py',
+           'boss_disk_scripts.py', 'boss_disk_scan_cache.py')
 PATH_TOKEN = re.compile(r"^(?:(?:/[A-Za-z0-9_/]+\.)?[A-Za-z_][A-Za-z0-9_]*')?(/[A-Za-z0-9_/-]+)(?:\.[A-Za-z0-9_:.-]+)?'?$" )
 
 
@@ -342,14 +345,20 @@ def script_reference_map(sources, declarations, mapping_sha256):
     return result, identities, unresolved
 
 
-def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cinematic_cache=False):
+def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cinematic_cache=False,
+         reuse_scan=None):
     """One verified read per package; return a reusable local dependency graph."""
     assets = catalog(index)
     existing, identities, mapping = source_records(sources, disk.digest(index), allow_incomplete=allow_incomplete)
     failed_sources = {native_package(p).casefold() for i in identities for p in i['failed_packages']} - existing.keys()
     script_refs, script_identities, unresolved_scripts = script_reference_map(script_sources, existing, mapping)
+    source_identities={name:disk.digest(Path(__file__).parent/name) for name in SOURCES}
+    cached,cache_identity,reused={},None,0
+    types=Counter()
+    if reuse_scan is not None:
+        cached,types,cache_identity=scan_cache.load(reuse_scan,disk.digest(index),mapping,
+            source_identities,script_identities,existing,native_package)
     edges, missing, native, unindexed, deferred = [], set(), set(), set(), set()
-    types = Counter()
     by_folder = Counter()
     ability_count = timeline_count = action_count = issue_count = 0
     for ordinal, (key, item) in enumerate(sorted(existing.items())):
@@ -357,22 +366,34 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cin
         data = path.read_bytes()
         if hashlib.sha256(data).hexdigest() != item['declaration_sha256']:
             raise ValueError('Declaration digest changed: '+item['package'])
-        exports = json.loads(data)
-        if not isinstance(exports, list) or not exports or not all(isinstance(o, dict) for o in exports):
-            raise ValueError('Nonempty serialized object list required')
-        for obj in exports:
-            package = obj.get('Package')
-            if package is not None and (not isinstance(package, str) or package.casefold() != key):
-                raise ValueError('Serialized export belongs to a different package')
-        types.update(o.get('Type', '') for o in exports)
-        abilities = ability_summaries(exports, native_package(item['package']))
+        previous=cached.get(key)
+        if previous is not None:
+            # Hashing remains mandatory; only parsing is reused.
+            abilities=copy.deepcopy(previous['abilities'])
+            parents=previous['parent_classes']
+            function_count=previous['function_count']
+            declared_refs={r['reference'] for r in previous['references']}
+            reused+=1
+        else:
+            exports = json.loads(data)
+            if not isinstance(exports, list) or not exports or not all(isinstance(o, dict) for o in exports):
+                raise ValueError('Nonempty serialized object list required')
+            for obj in exports:
+                package = obj.get('Package')
+                if package is not None and (not isinstance(package, str) or package.casefold() != key):
+                    raise ValueError('Serialized export belongs to a different package')
+            types.update(o.get('Type', '') for o in exports)
+            abilities = ability_summaries(exports, native_package(item['package']))
+            parents=parent_class_summaries(exports,native_package(item['package']))
+            function_count=sum(o.get('Type')=='Function' for o in exports)
+            declared_refs=set(referenced_packages(exports))
         folder = item['package'][len(MOBS):].split('/', 1)[0] if item['package'].startswith(MOBS) else 'native_support'
         by_folder[folder] += len(abilities)
         ability_count += len(abilities)
         timeline_count += sum(a['declared_timelines'] for a in abilities)
         action_count += sum(a['declared_actions'] for a in abilities)
         issue_count += sum(len(a['issues']) for a in abilities)
-        refs = sorted(set(referenced_packages(exports)) | script_refs.get(key, set()), key=str.casefold)
+        refs = sorted(declared_refs | script_refs.get(key, set()), key=str.casefold)
         dependencies = []
         for ref in refs:
             target = ref.casefold()
@@ -392,8 +413,7 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cin
                 status = 'pending_extraction'; missing.add(target)
             dependencies.append(dict(reference=ref, status=status))
         edges.append(dict(item, folder=folder, abilities=abilities, references=dependencies,
-                          parent_classes=parent_class_summaries(exports, native_package(item['package'])),
-                          function_count=sum(o.get('Type') == 'Function' for o in exports)))
+                          parent_classes=parents,function_count=function_count))
         if (ordinal+1) % 1000 == 0:
             print(json.dumps(dict(scanned=ordinal+1, total=len(existing))), flush=True)
     all_roots = {k for k, r in assets.items() if r['package'].startswith(MOBS)}
@@ -401,7 +421,8 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cin
     return dict(schema=1, kind='offline_native_dependency_scan',
         index_sha256=disk.digest(index), mapping_sha256=mapping, source_plans=identities,
         script_sources=script_identities, unresolved_script_functions=unresolved_scripts,
-        sources={name: disk.digest(Path(__file__).parent/name) for name in SOURCES},
+        sources=source_identities,scan_cache=cache_identity,
+        reused_parsed_packages=reused,newly_parsed_packages=len(existing)-reused,
         extracted_packages=len(existing), root_packages=len(all_roots),
         extracted_roots=len(all_roots & existing.keys()),
         pending_roots=len(all_roots - existing.keys()),
@@ -467,6 +488,7 @@ def main():
             command.add_argument('--script-source', type=Path, action='append', default=[])
             command.add_argument('--allow-incomplete-sources', action='store_true')
             command.add_argument('--defer-cinematic-cache', action='store_true')
+            command.add_argument('--reuse-scan', type=Path)
         if name == 'dependencies':
             command.add_argument('--scan', type=Path, required=True)
     args = parser.parse_args()
@@ -478,7 +500,7 @@ def main():
         result = collect(args.target, args.exporter, args.paks, args.crypto)
     else:
         result = scan(args.index, args.source, args.script_source, allow_incomplete=args.allow_incomplete_sources,
-                      defer_cinematic_cache=args.defer_cinematic_cache)
+                      defer_cinematic_cache=args.defer_cinematic_cache,reuse_scan=args.reuse_scan)
         disk.write_new(args.output, result)
     if 'batches' in result:
         print(json.dumps(dict(requested_packages=len(result['packages']), batches=len(result['batches']))))

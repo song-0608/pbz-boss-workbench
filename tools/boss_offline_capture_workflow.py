@@ -9,7 +9,7 @@ import boss_disk_scripts as scripts
 
 
 def capture(index, mapping, source_dirs, script_dirs, target, exporter, script_exporter,
-            paks, crypto, *, max_rounds=12, defer_cinematic_cache=True):
+            paks, crypto, *, max_rounds=12, defer_cinematic_cache=True, reuse_scan=None):
     index, mapping, target = Path(index).resolve(), Path(mapping).resolve(), Path(target).resolve()
     exporter, script_exporter = Path(exporter).resolve(), Path(script_exporter).resolve()
     paks, crypto = Path(paks).resolve(), Path(crypto).resolve()
@@ -20,6 +20,9 @@ def capture(index, mapping, source_dirs, script_dirs, target, exporter, script_e
         raise ValueError('Existing local inputs and new output outside game packages required')
     sources = [Path(p).resolve() for p in source_dirs]
     script_sources = [Path(p).resolve() for p in script_dirs]
+    initial_scan=Path(reuse_scan).resolve() if reuse_scan is not None else None
+    initial_scan_sha256=disk.digest(initial_scan) if initial_scan is not None else None
+    previous_scan=initial_scan
     if not sources:
         raise ValueError('Explicit existing declaration sources required')
     # A separate immutable run never overwrites a failed or unfinished run.
@@ -28,11 +31,13 @@ def capture(index, mapping, source_dirs, script_dirs, target, exporter, script_e
         ('index', index), ('mapping', mapping), ('exporter', exporter), ('script_exporter', script_exporter))}
     code = {name: disk.digest(Path(__file__).parent/name) for name in (
         'boss_offline_capture_workflow.py', 'boss_disk_declarations.py',
-        'boss_disk_dependencies.py', 'boss_disk_skill_index.py', 'boss_disk_scripts.py')}
+        'boss_disk_dependencies.py', 'boss_disk_skill_index.py', 'boss_disk_scripts.py','boss_disk_scan_cache.py')}
     disk.write_new(target/'workflow.json', dict(schema=1, kind='offline_boss_dependency_workflow',
         identities=identities, source_sha256=code,
         initial_sources=[str(p) for p in sources], initial_script_sources=[str(p) for p in script_sources],
         max_rounds=max_rounds, defer_cinematic_cache=defer_cinematic_cache,
+        initial_scan=str(initial_scan) if initial_scan is not None else None,
+        initial_scan_sha256=initial_scan_sha256,
         game_started=False, computer_use_used=False, installed=False))
     rounds = []
     for ordinal in range(1, max_rounds+1):
@@ -41,10 +46,13 @@ def capture(index, mapping, source_dirs, script_dirs, target, exporter, script_e
                 raise ValueError('Pinned offline input changed: '+name)
         if any(disk.digest(Path(__file__).parent/name) != sha for name, sha in code.items()):
             raise ValueError('Offline workflow source changed during capture')
+        if initial_scan is not None and disk.digest(initial_scan)!=initial_scan_sha256:
+            raise ValueError('Pinned initial scan changed during capture')
         report = dependencies.scan(index, sources, script_sources, allow_incomplete=True,
-                                   defer_cinematic_cache=defer_cinematic_cache)
+                                   defer_cinematic_cache=defer_cinematic_cache,reuse_scan=previous_scan)
         scan = target/f'scan-{ordinal:04d}.json'
         disk.write_new(scan, report)
+        previous_scan=scan
         existing_scripts = set()
         for directory in script_sources:
             _, plan = scripts.checked_plan(directory)
@@ -55,6 +63,8 @@ def capture(index, mapping, source_dirs, script_dirs, target, exporter, script_e
             verified_packages=report['extracted_packages'], pending_dependencies=report['pending_dependency_count'],
             known_failed_dependencies=report['failed_dependency_count'], new_script_packages=len(missing_scripts),
             deferred_dependencies=report.get('deferred_dependency_count',0))
+        row.update(reused_parsed_packages=report.get('reused_parsed_packages',0),
+                   newly_parsed_packages=report.get('newly_parsed_packages',report['extracted_packages']))
         if not report['pending_dependency_count'] and not missing_scripts:
             status = ('converged_with_known_gaps' if report['failed_dependency_count']
                       or report['unindexed_references'] or report['unresolved_script_functions']
@@ -113,7 +123,8 @@ if __name__ == '__main__':
     parser.add_argument('--max-rounds', type=int, default=12)
     parser.add_argument('--include-cinematic-cache', action='store_true',
                         help='Explicitly include global cinematic prestream caches in the traversal')
+    parser.add_argument('--reuse-scan',type=Path)
     args = parser.parse_args()
     capture(args.index, args.mapping, args.source, args.script_source, args.target,
             args.exporter, args.script_exporter, args.paks, args.crypto, max_rounds=args.max_rounds,
-            defer_cinematic_cache=not args.include_cinematic_cache)
+            defer_cinematic_cache=not args.include_cinematic_cache,reuse_scan=args.reuse_scan)
