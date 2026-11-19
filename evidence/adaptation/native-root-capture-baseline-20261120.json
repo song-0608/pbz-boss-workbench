@@ -1,0 +1,1331 @@
+{
+  "schema": 1,
+  "kind": "native_boss_npc_root_disk_capture_baseline",
+  "created_at": "2026-11-20T01:35:33.921127+08:00",
+  "source_scan_sha256": "a6605eb0ec0f8af27675e26e8c61b4fff43d2e05d65bd47eac83d02fa1aa077e",
+  "source_scan_label": "20261120-offline-convergence-03/scan-0001.json",
+  "source_sha256": {
+    "tools/boss_disk_declarations.py": "b118bbe20b5811b36b1b65e29527e70e1fcfede1bcd36beb1e5208cd732dac94",
+    "tools/boss_disk_dependencies.py": "be3210224eb3983f3fbaee06a94e4a6cecf6bf557b5366d9eaa2597622a34238",
+    "tools/boss_disk_skill_index.py": "736ebc86d5d74a206d21fb267293a62f7efa1f7daeb0c89f8ffd9da0374ddb87",
+    "tools/boss_disk_scan_cache.py": "8b80daaf5ec429210567e8f1fbec40216d49a2e691f0ef201c5ef412b1229b40",
+    "tools/boss_offline_capture_workflow.py": "bdd7fa6896f5baa58febac048dccfce4b096beaeecf98caebc397e6baf73caad"
+  },
+  "root_folders": 106,
+  "root_packages": 15510,
+  "extracted_roots": 15510,
+  "pending_roots": 0,
+  "root_declaration_contents_verified": true,
+  "root_ability_classes": 4319,
+  "root_declared_timelines": 4052,
+  "root_declared_actions": 94446,
+  "folders": [
+    {
+      "folder": "000_Hun",
+      "packages": 16,
+      "ability_classes": 3,
+      "declared_timelines": 1,
+      "declared_actions": 5,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "inherited_declared": 1,
+        "own_declared": 1,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "001_ArrowMan",
+      "packages": 48,
+      "ability_classes": 26,
+      "declared_timelines": 30,
+      "declared_actions": 463,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 25,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "003_MaleThug",
+      "packages": 375,
+      "ability_classes": 78,
+      "declared_timelines": 93,
+      "declared_actions": 1708,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 72,
+        "inherited_declared": 1,
+        "super_identity_unresolved": 5
+      }
+    },
+    {
+      "folder": "004_DogTrainer",
+      "packages": 34,
+      "ability_classes": 5,
+      "declared_timelines": 3,
+      "declared_actions": 31,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 3,
+        "super_identity_unresolved": 2
+      }
+    },
+    {
+      "folder": "005_ModDog",
+      "packages": 100,
+      "ability_classes": 26,
+      "declared_timelines": 23,
+      "declared_actions": 253,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 22,
+        "super_identity_unresolved": 3,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "006_GoldMaskMan",
+      "packages": 172,
+      "ability_classes": 28,
+      "declared_timelines": 32,
+      "declared_actions": 422,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 27,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "007_ArrowMan_Bow",
+      "packages": 71,
+      "ability_classes": 18,
+      "declared_timelines": 16,
+      "declared_actions": 353,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 16,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "008_GreatBladeMan",
+      "packages": 303,
+      "ability_classes": 80,
+      "declared_timelines": 74,
+      "declared_actions": 1495,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 13,
+        "own_declared": 62,
+        "inherited_declared": 5
+      }
+    },
+    {
+      "folder": "008_GreatBladeMan_Hard",
+      "packages": 54,
+      "ability_classes": 22,
+      "declared_timelines": 23,
+      "declared_actions": 402,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 22
+      }
+    },
+    {
+      "folder": "009_HeavyCrossBowMan",
+      "packages": 6,
+      "ability_classes": 1,
+      "declared_timelines": 1,
+      "declared_actions": 20,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 1
+      }
+    },
+    {
+      "folder": "009_HeavyCrossBowManNew",
+      "packages": 41,
+      "ability_classes": 9,
+      "declared_timelines": 8,
+      "declared_actions": 93,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 8,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "010_BombMan",
+      "packages": 46,
+      "ability_classes": 11,
+      "declared_timelines": 14,
+      "declared_actions": 261,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 1,
+        "own_declared": 10
+      }
+    },
+    {
+      "folder": "011_IronMaskMan",
+      "packages": 118,
+      "ability_classes": 38,
+      "declared_timelines": 39,
+      "declared_actions": 666,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 34,
+        "super_identity_unresolved": 4
+      }
+    },
+    {
+      "folder": "012_MBoss",
+      "packages": 154,
+      "ability_classes": 42,
+      "declared_timelines": 42,
+      "declared_actions": 801,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 6,
+        "own_declared": 34,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "013_MBossVariants",
+      "packages": 108,
+      "ability_classes": 42,
+      "declared_timelines": 27,
+      "declared_actions": 1022,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 25,
+        "inherited_declared": 10,
+        "super_identity_unresolved": 7
+      }
+    },
+    {
+      "folder": "014_JadeMaskMan",
+      "packages": 105,
+      "ability_classes": 29,
+      "declared_timelines": 25,
+      "declared_actions": 515,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 22,
+        "super_identity_unresolved": 2,
+        "inherited_declared": 5
+      }
+    },
+    {
+      "folder": "015_PowerMan",
+      "packages": 273,
+      "ability_classes": 59,
+      "declared_timelines": 78,
+      "declared_actions": 3163,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 43,
+        "inherited_declared": 9,
+        "super_identity_unresolved": 7
+      }
+    },
+    {
+      "folder": "016_MobManElite",
+      "packages": 124,
+      "ability_classes": 34,
+      "declared_timelines": 40,
+      "declared_actions": 709,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 3,
+        "own_declared": 30,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "017_IllnessCrow",
+      "packages": 38,
+      "ability_classes": 7,
+      "declared_timelines": 7,
+      "declared_actions": 222,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 7
+      }
+    },
+    {
+      "folder": "018_ZhengDaoRenShi",
+      "packages": 10,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "019_Vessel_Vagrant",
+      "packages": 74,
+      "ability_classes": 12,
+      "declared_timelines": 11,
+      "declared_actions": 148,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 1,
+        "own_declared": 11
+      }
+    },
+    {
+      "folder": "020_Vessel_Woman",
+      "packages": 45,
+      "ability_classes": 10,
+      "declared_timelines": 10,
+      "declared_actions": 153,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 10
+      }
+    },
+    {
+      "folder": "021_Vessel_Man",
+      "packages": 59,
+      "ability_classes": 16,
+      "declared_timelines": 16,
+      "declared_actions": 265,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 15,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "022_Vessel_Elder",
+      "packages": 72,
+      "ability_classes": 17,
+      "declared_timelines": 17,
+      "declared_actions": 276,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 17
+      }
+    },
+    {
+      "folder": "023_Vessel_Child",
+      "packages": 39,
+      "ability_classes": 8,
+      "declared_timelines": 10,
+      "declared_actions": 124,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 8
+      }
+    },
+    {
+      "folder": "024_Vessel_Giant",
+      "packages": 80,
+      "ability_classes": 22,
+      "declared_timelines": 19,
+      "declared_actions": 400,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 2,
+        "own_declared": 18,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "025_FemaleThug",
+      "packages": 228,
+      "ability_classes": 53,
+      "declared_timelines": 63,
+      "declared_actions": 880,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 52,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "027_XiaoXue",
+      "packages": 80,
+      "ability_classes": 21,
+      "declared_timelines": 29,
+      "declared_actions": 573,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 1,
+        "own_declared": 20
+      }
+    },
+    {
+      "folder": "028_YanYan",
+      "packages": 102,
+      "ability_classes": 31,
+      "declared_timelines": 29,
+      "declared_actions": 591,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "inherited_declared": 5,
+        "own_declared": 24,
+        "super_identity_unresolved": 2
+      }
+    },
+    {
+      "folder": "034_EMei",
+      "packages": 331,
+      "ability_classes": 100,
+      "declared_timelines": 91,
+      "declared_actions": 1895,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 80,
+        "super_identity_unresolved": 9,
+        "inherited_declared": 11
+      }
+    },
+    {
+      "folder": "035_HuaShan",
+      "packages": 760,
+      "ability_classes": 227,
+      "declared_timelines": 157,
+      "declared_actions": 3089,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 140,
+        "inherited_declared": 59,
+        "super_identity_unresolved": 28
+      }
+    },
+    {
+      "folder": "036_SpearMan",
+      "packages": 225,
+      "ability_classes": 75,
+      "declared_timelines": 85,
+      "declared_actions": 1522,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 66,
+        "super_identity_unresolved": 4,
+        "inherited_declared": 5
+      }
+    },
+    {
+      "folder": "037_GuiChai",
+      "packages": 320,
+      "ability_classes": 95,
+      "declared_timelines": 99,
+      "declared_actions": 1993,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 7,
+        "own_declared": 86,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "038_AquaKiller",
+      "packages": 252,
+      "ability_classes": 80,
+      "declared_timelines": 72,
+      "declared_actions": 1299,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 69,
+        "super_identity_unresolved": 11
+      }
+    },
+    {
+      "folder": "039_GuiChai_White",
+      "packages": 130,
+      "ability_classes": 22,
+      "declared_timelines": 27,
+      "declared_actions": 787,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 22
+      }
+    },
+    {
+      "folder": "040_Horse",
+      "packages": 29,
+      "ability_classes": 10,
+      "declared_timelines": 10,
+      "declared_actions": 76,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 10
+      }
+    },
+    {
+      "folder": "041_Bandit",
+      "packages": 170,
+      "ability_classes": 48,
+      "declared_timelines": 52,
+      "declared_actions": 1074,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 46,
+        "super_identity_unresolved": 2
+      }
+    },
+    {
+      "folder": "042_AHua",
+      "packages": 124,
+      "ability_classes": 46,
+      "declared_timelines": 39,
+      "declared_actions": 1092,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 5,
+        "own_declared": 35,
+        "inherited_declared": 6
+      }
+    },
+    {
+      "folder": "043_Scavenger",
+      "packages": 264,
+      "ability_classes": 62,
+      "declared_timelines": 51,
+      "declared_actions": 2573,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 3,
+        "own_declared": 47,
+        "inherited_declared": 12
+      }
+    },
+    {
+      "folder": "044_PengMeng",
+      "packages": 169,
+      "ability_classes": 48,
+      "declared_timelines": 39,
+      "declared_actions": 1424,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 37,
+        "super_identity_unresolved": 8,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "045_JingYe",
+      "packages": 272,
+      "ability_classes": 73,
+      "declared_timelines": 72,
+      "declared_actions": 1817,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "inherited_declared": 4,
+        "own_declared": 60,
+        "super_identity_unresolved": 9
+      }
+    },
+    {
+      "folder": "046_Yuu",
+      "packages": 113,
+      "ability_classes": 35,
+      "declared_timelines": 35,
+      "declared_actions": 972,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 3,
+        "own_declared": 29,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "047_LeiDang",
+      "packages": 153,
+      "ability_classes": 53,
+      "declared_timelines": 49,
+      "declared_actions": 1447,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 42,
+        "inherited_declared": 10,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "048_HookMan",
+      "packages": 103,
+      "ability_classes": 52,
+      "declared_timelines": 40,
+      "declared_actions": 1484,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 10,
+        "own_declared": 32,
+        "inherited_declared": 10
+      }
+    },
+    {
+      "folder": "049_ChangHong",
+      "packages": 208,
+      "ability_classes": 54,
+      "declared_timelines": 55,
+      "declared_actions": 1514,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 48,
+        "super_identity_unresolved": 5,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "050_LeiDang_P2",
+      "packages": 115,
+      "ability_classes": 45,
+      "declared_timelines": 35,
+      "declared_actions": 1183,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 6,
+        "own_declared": 31,
+        "inherited_declared": 8
+      }
+    },
+    {
+      "folder": "051_HookMan_P2",
+      "packages": 181,
+      "ability_classes": 34,
+      "declared_timelines": 32,
+      "declared_actions": 1169,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 28,
+        "super_identity_unresolved": 3,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "052_BaiheDisciple",
+      "packages": 189,
+      "ability_classes": 71,
+      "declared_timelines": 63,
+      "declared_actions": 750,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 8,
+        "own_declared": 63
+      }
+    },
+    {
+      "folder": "053_ChangHong_P2",
+      "packages": 141,
+      "ability_classes": 44,
+      "declared_timelines": 39,
+      "declared_actions": 1015,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 4,
+        "own_declared": 37,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "054_ZuoShang",
+      "packages": 420,
+      "ability_classes": 84,
+      "declared_timelines": 87,
+      "declared_actions": 2692,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 5,
+        "own_declared": 76,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "055_ZuoShang_Young",
+      "packages": 119,
+      "ability_classes": 28,
+      "declared_timelines": 33,
+      "declared_actions": 583,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 28
+      }
+    },
+    {
+      "folder": "056_YouLong",
+      "packages": 159,
+      "ability_classes": 59,
+      "declared_timelines": 57,
+      "declared_actions": 1288,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 53,
+        "super_identity_unresolved": 4,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "057_WanJun",
+      "packages": 97,
+      "ability_classes": 33,
+      "declared_timelines": 28,
+      "declared_actions": 1143,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 27,
+        "super_identity_unresolved": 3,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "058_MadDoctor",
+      "packages": 105,
+      "ability_classes": 26,
+      "declared_timelines": 34,
+      "declared_actions": 432,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 22,
+        "inherited_declared": 2,
+        "super_identity_unresolved": 2
+      }
+    },
+    {
+      "folder": "059_DuYan",
+      "packages": 203,
+      "ability_classes": 56,
+      "declared_timelines": 49,
+      "declared_actions": 1148,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 43,
+        "inherited_declared": 4,
+        "super_identity_unresolved": 9
+      }
+    },
+    {
+      "folder": "060_GuiChai_Yellow",
+      "packages": 339,
+      "ability_classes": 78,
+      "declared_timelines": 78,
+      "declared_actions": 1896,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 68,
+        "super_identity_unresolved": 7,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "061_GuWanYue",
+      "packages": 164,
+      "ability_classes": 44,
+      "declared_timelines": 48,
+      "declared_actions": 1095,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 38,
+        "inherited_declared": 5,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "062_MuXiaoKui",
+      "packages": 97,
+      "ability_classes": 24,
+      "declared_timelines": 29,
+      "declared_actions": 750,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 24
+      }
+    },
+    {
+      "folder": "063_ChiLian_P1",
+      "packages": 141,
+      "ability_classes": 39,
+      "declared_timelines": 34,
+      "declared_actions": 1077,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 6,
+        "own_declared": 28,
+        "inherited_declared": 5
+      }
+    },
+    {
+      "folder": "064_MuXiaoKui_P2",
+      "packages": 91,
+      "ability_classes": 37,
+      "declared_timelines": 41,
+      "declared_actions": 712,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 5,
+        "own_declared": 31,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "065_ChiLian_P2",
+      "packages": 136,
+      "ability_classes": 20,
+      "declared_timelines": 16,
+      "declared_actions": 753,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 16,
+        "inherited_declared": 2,
+        "super_identity_unresolved": 2
+      }
+    },
+    {
+      "folder": "066_RenTuZi",
+      "packages": 80,
+      "ability_classes": 21,
+      "declared_timelines": 22,
+      "declared_actions": 613,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 21
+      }
+    },
+    {
+      "folder": "067_MoTian",
+      "packages": 408,
+      "ability_classes": 84,
+      "declared_timelines": 82,
+      "declared_actions": 2318,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 75,
+        "inherited_declared": 7,
+        "super_identity_unresolved": 2
+      }
+    },
+    {
+      "folder": "068_YuZan",
+      "packages": 149,
+      "ability_classes": 45,
+      "declared_timelines": 38,
+      "declared_actions": 1171,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 12,
+        "own_declared": 33
+      }
+    },
+    {
+      "folder": "069_GuiChai_Red",
+      "packages": 242,
+      "ability_classes": 46,
+      "declared_timelines": 44,
+      "declared_actions": 1065,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 39,
+        "inherited_declared": 2,
+        "super_identity_unresolved": 5
+      }
+    },
+    {
+      "folder": "070_GuiChai_Cyan",
+      "packages": 154,
+      "ability_classes": 27,
+      "declared_timelines": 31,
+      "declared_actions": 581,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 27
+      }
+    },
+    {
+      "folder": "071_XianZhe",
+      "packages": 61,
+      "ability_classes": 19,
+      "declared_timelines": 16,
+      "declared_actions": 387,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 16,
+        "super_identity_unresolved": 3
+      }
+    },
+    {
+      "folder": "072_CanQu_BiYuan",
+      "packages": 159,
+      "ability_classes": 25,
+      "declared_timelines": 25,
+      "declared_actions": 376,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 4,
+        "own_declared": 20,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "073_YanQianSui",
+      "packages": 205,
+      "ability_classes": 42,
+      "declared_timelines": 33,
+      "declared_actions": 981,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 30,
+        "inherited_declared": 11,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "074_WuLengShuang",
+      "packages": 83,
+      "ability_classes": 31,
+      "declared_timelines": 34,
+      "declared_actions": 818,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 28,
+        "inherited_declared": 2,
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "075_GuiChai_Red_P2",
+      "packages": 157,
+      "ability_classes": 37,
+      "declared_timelines": 43,
+      "declared_actions": 1150,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 6,
+        "own_declared": 29,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "076_ZuoShang_P2",
+      "packages": 84,
+      "ability_classes": 35,
+      "declared_timelines": 28,
+      "declared_actions": 735,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 5,
+        "own_declared": 23,
+        "inherited_declared": 7
+      }
+    },
+    {
+      "folder": "077_LengTu",
+      "packages": 274,
+      "ability_classes": 99,
+      "declared_timelines": 75,
+      "declared_actions": 1400,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 75,
+        "super_identity_unresolved": 23,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "078_MengHua",
+      "packages": 280,
+      "ability_classes": 75,
+      "declared_timelines": 61,
+      "declared_actions": 1246,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 55,
+        "inherited_declared": 14,
+        "super_identity_unresolved": 6
+      }
+    },
+    {
+      "folder": "079_XuKong",
+      "packages": 34,
+      "ability_classes": 14,
+      "declared_timelines": 13,
+      "declared_actions": 300,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 2,
+        "own_declared": 12
+      }
+    },
+    {
+      "folder": "888_UltimateBoss",
+      "packages": 63,
+      "ability_classes": 23,
+      "declared_timelines": 24,
+      "declared_actions": 399,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 21,
+        "super_identity_unresolved": 1,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "CanQu_BiHai",
+      "packages": 109,
+      "ability_classes": 41,
+      "declared_timelines": 31,
+      "declared_actions": 395,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 28,
+        "super_identity_unresolved": 10,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "Common",
+      "packages": 60,
+      "ability_classes": 1,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 1
+      }
+    },
+    {
+      "folder": "DaTouWaWa",
+      "packages": 206,
+      "ability_classes": 65,
+      "declared_timelines": 60,
+      "declared_actions": 1042,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 56,
+        "inherited_declared": 4,
+        "super_identity_unresolved": 5
+      }
+    },
+    {
+      "folder": "DangHui",
+      "packages": 138,
+      "ability_classes": 43,
+      "declared_timelines": 28,
+      "declared_actions": 433,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 28,
+        "inherited_declared": 4,
+        "super_identity_unresolved": 11
+      }
+    },
+    {
+      "folder": "FeiZei",
+      "packages": 162,
+      "ability_classes": 46,
+      "declared_timelines": 41,
+      "declared_actions": 987,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 41,
+        "super_identity_unresolved": 3,
+        "inherited_declared": 2
+      }
+    },
+    {
+      "folder": "FemaleDoll",
+      "packages": 396,
+      "ability_classes": 115,
+      "declared_timelines": 118,
+      "declared_actions": 2245,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 101,
+        "inherited_declared": 6,
+        "super_identity_unresolved": 8
+      }
+    },
+    {
+      "folder": "FengXueDaoKe",
+      "packages": 139,
+      "ability_classes": 38,
+      "declared_timelines": 36,
+      "declared_actions": 762,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 29,
+        "super_identity_unresolved": 6,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "HuWei",
+      "packages": 35,
+      "ability_classes": 15,
+      "declared_timelines": 24,
+      "declared_actions": 287,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "inherited_declared": 1,
+        "own_declared": 14
+      }
+    },
+    {
+      "folder": "HuaQianXiao",
+      "packages": 155,
+      "ability_classes": 54,
+      "declared_timelines": 48,
+      "declared_actions": 1358,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 39,
+        "super_identity_unresolved": 12,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "HuoTongRen",
+      "packages": 299,
+      "ability_classes": 84,
+      "declared_timelines": 79,
+      "declared_actions": 1350,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 10,
+        "own_declared": 73,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "JiangJun",
+      "packages": 174,
+      "ability_classes": 64,
+      "declared_timelines": 48,
+      "declared_actions": 1767,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 44,
+        "inherited_declared": 10,
+        "super_identity_unresolved": 10
+      }
+    },
+    {
+      "folder": "LionDancer",
+      "packages": 113,
+      "ability_classes": 49,
+      "declared_timelines": 38,
+      "declared_actions": 1267,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 8,
+        "own_declared": 37,
+        "inherited_declared": 4
+      }
+    },
+    {
+      "folder": "LionDancer_P2",
+      "packages": 66,
+      "ability_classes": 41,
+      "declared_timelines": 25,
+      "declared_actions": 858,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 8,
+        "own_declared": 25,
+        "inherited_declared": 8
+      }
+    },
+    {
+      "folder": "LuanShi",
+      "packages": 189,
+      "ability_classes": 66,
+      "declared_timelines": 62,
+      "declared_actions": 1394,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 51,
+        "super_identity_unresolved": 8,
+        "inherited_declared": 7
+      }
+    },
+    {
+      "folder": "MaleDoll",
+      "packages": 386,
+      "ability_classes": 106,
+      "declared_timelines": 101,
+      "declared_actions": 2084,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 95,
+        "super_identity_unresolved": 10,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "NPC_Common",
+      "packages": 4,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "NanMin",
+      "packages": 4,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "NiangNiangShengQu",
+      "packages": 2,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "Placeholder",
+      "packages": 9,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "QiShu",
+      "packages": 227,
+      "ability_classes": 82,
+      "declared_timelines": 69,
+      "declared_actions": 1289,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 64,
+        "super_identity_unresolved": 15,
+        "inherited_declared": 3
+      }
+    },
+    {
+      "folder": "Tutorial",
+      "packages": 12,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "VesselRenOuJiao",
+      "packages": 2,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "Vessel_Common",
+      "packages": 1,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "WuLengShuang",
+      "packages": 2,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "YingMei",
+      "packages": 294,
+      "ability_classes": 73,
+      "declared_timelines": 67,
+      "declared_actions": 1807,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 61,
+        "inherited_declared": 5,
+        "super_identity_unresolved": 7
+      }
+    },
+    {
+      "folder": "YuBi",
+      "packages": 335,
+      "ability_classes": 94,
+      "declared_timelines": 71,
+      "declared_actions": 2207,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 68,
+        "inherited_declared": 18,
+        "super_identity_unresolved": 8
+      }
+    },
+    {
+      "folder": "YuCong",
+      "packages": 142,
+      "ability_classes": 46,
+      "declared_timelines": 45,
+      "declared_actions": 934,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "super_identity_unresolved": 6,
+        "own_declared": 39,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "YuDing_00",
+      "packages": 112,
+      "ability_classes": 23,
+      "declared_timelines": 36,
+      "declared_actions": 682,
+      "indexing_issues": 0,
+      "timeline_resolution": {
+        "own_declared": 20,
+        "super_identity_unresolved": 2,
+        "inherited_declared": 1
+      }
+    },
+    {
+      "folder": "YuPing",
+      "packages": 4,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    },
+    {
+      "folder": "ZhiGaoZhe",
+      "packages": 5,
+      "ability_classes": 0,
+      "declared_timelines": 0,
+      "declared_actions": 0,
+      "indexing_issues": 0,
+      "timeline_resolution": {}
+    }
+  ],
+  "support_traversal_at_this_baseline": {
+    "terminal": false,
+    "extracted_packages": 68458,
+    "pending_indexed_dependencies": 10586,
+    "failed_dependencies": 823,
+    "deferred_cinematic_cache_dependencies": 11159
+  },
+  "folders_are_not_playable_boss_count": true,
+  "raw_declarations_stay_local": true,
+  "game_started": false,
+  "computer_use_used": false,
+  "installed": false,
+  "player_registry_modified": false,
+  "live_grant_verified": false,
+  "execution_verified": false,
+  "all_boss_skills_complete": false,
+  "ready_for_final_delivery": false
+}
