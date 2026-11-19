@@ -17,8 +17,8 @@ def candidate_mod_root(directory):
     return directory / 'PBZBossControl'
 
 
-def expected(directory):
-    manifest = candidate.verify(directory)
+def render(directory, manifest):
+    """Render source fixtures without building packages or inspecting a session."""
     files = published.render(directory, manifest)
     name = 'run_control_lifecycle_probe.py'
     files[name] = replace(files[name].decode('utf-8'),
@@ -41,6 +41,12 @@ def expected(directory):
     files[name] = source.encode('utf-8')
     for name, data in files.items():
         ast.parse(data.decode('utf-8'), filename=name)
+    return files
+
+
+def expected(directory):
+    manifest = candidate.verify(directory)
+    files = render(directory, manifest)
     record = dict(schema=1, candidate=str(directory), candidate_manifest_sha256=sha(directory / MANIFEST),
         files={name: hashlib.sha256(data).hexdigest() for name, data in files.items()},
         sources={name: sha(ROOT / name) for name in ('tools/player_travel_workflow.py', 'tools/player_3c_contract.py')},

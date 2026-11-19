@@ -107,8 +107,10 @@ class PlayerTravelUIStageTests(unittest.TestCase):
     def test_candidate_workflow_contains_no_legacy_ui_reload(self):
         import build_player_travel_candidate as candidate
         import player_travel_workflow as workflow
-        directory = candidate.build()
-        _, files, _ = workflow.expected(directory)
+        manifest, _ = candidate.expected()
+        with patch.object(candidate, 'build', side_effect=AssertionError('source test must not build a package')), \
+             patch.object(candidate, 'verify', side_effect=AssertionError('source test must not need a package')):
+            files = workflow.render(Path('uninstalled-source-fixture'), manifest)
         source = files['run_control_lifecycle_probe.py'].decode('utf-8')
         self.assertNotIn('research_game_menu', source)
         self.assertNotIn('menu.click', source)

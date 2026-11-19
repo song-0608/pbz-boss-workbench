@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "native_combat_host_binding_offline_milestone",
+  "source_only_report": "evidence/adaptation/ahua-player-travel-dev-a8810919264e8158-source-offline-1795101685032079700.json",
+  "source_only_sha256": "2aaebc403c4bb213041d469da64121e5921912ab4ec1758af6e646f7ed8101d6",
+  "check_groups": 60,
+  "passed": true,
+  "host_binding_fixtures": 7,
+  "generated_assembly_executed": true,
+  "undeclared_globals_rejected": true,
+  "source_only_checks_do_not_build_package": true,
+  "source_sha256": {
+    "tools/boss_combat_host.lua": "5efa3ae55eb71cab1b3ff70228ea62477dc48faa10ede014df3bcdc126874b9e",
+    "tests/test_boss_combat_host.lua": "56af5d69a83dd2ecaf0ce70b28cb9f3b05c97c0f82ba0b528c36faacb83770c4",
+    "tools/build_player_travel_candidate.py": "298afb6e819a03e7706b061da26bebbf6dc1a60e59da3e92a434d5dff5682d6b",
+    "tools/check_player_travel_repair.py": "625ed4f568d310dc3579871bab2bae79e57c62667b92996a96befae5eadde780",
+    "tools/player_travel_workflow.py": "65a8999c0b40ff324ecac7e6d803d55dba936217415f65963338c404bacd6a18",
+    "tests/test_player_travel_ui_stage.py": "ad5d1430068c023accc89d1d40370cfea93709bb17fccdb8438c4facc4395f28",
+    "tests/test_player_travel_candidate.py": "88e03d3241083ec83777cd1225456cf0b852e90ac79bfbc5abb8cc13adda64a6"
+  },
+  "game_started_by_this_work": false,
+  "installed": false,
+  "shared_research_session_preserved": true,
+  "defense_runtime_verified": false,
+  "cue_render_verified": false,
+  "complete_mod": false
+}

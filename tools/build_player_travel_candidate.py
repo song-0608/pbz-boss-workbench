@@ -33,11 +33,13 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
 SOURCES += ('tools/player_spawn_assets.lua', 'tests/test_player_spawn_assets.lua')
 SOURCES += ('tools/player_activity_probe.lua', 'tests/test_player_activity_probe.lua')
 SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stage.py',
+            'tools/player_travel_workflow.py',
             'tools/player_travel_capture.py', 'tests/test_player_travel_capture.py')
 SOURCES += ('tools/creative_workspace.py', 'tools/research_storage.py', 'tests/test_creative_workspace.py',
             'tools/creative_workbench_ui.py', 'tests/test_creative_workbench.py', 'tools/workbench_status_bootstrap.py')
 SOURCES += ('tools/creative_starter_workspace.py','tools/creative_starter_assets.py','tools/creative_starter_view.py','tests/test_creative_starter_workspace.py')
 SOURCES += ('tools/boss_combat_controls.lua', 'tools/boss_cue_bridge.lua', 'tools/boss_native_cues.lua',
+            'tools/boss_combat_host.lua', 'tests/test_boss_combat_host.lua',
             'tools/boss_defense_bridge.lua', 'mod/PBZBossControl/Scripts/boss_defense_input.lua',
             'tests/test_boss_combat_controls.lua', 'tests/test_boss_cue_bridge.lua',
             'tests/test_boss_native_cues.lua', 'tests/test_boss_defense_bridge.lua', 'tests/test_boss_defense_input.lua')
@@ -82,7 +84,7 @@ def payload(root=ROOT, *, creative=None):
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     files[PREFIX + 'player_spawn_assets.lua'] = (root / 'tools/player_spawn_assets.lua').read_bytes()
     files[PREFIX + 'player_activity_probe.lua'] = (root / 'tools/player_activity_probe.lua').read_bytes()
-    for name in ('boss_combat_controls', 'boss_cue_bridge', 'boss_native_cues', 'boss_defense_bridge', 'boss_native_input'):
+    for name in ('boss_combat_controls', 'boss_combat_host', 'boss_cue_bridge', 'boss_native_cues', 'boss_defense_bridge', 'boss_native_input'):
         files[PREFIX + name + '.lua'] = (root / 'tools' / (name + '.lua')).read_bytes()
     files[PREFIX + 'boss_defense_input.lua'] = (root / 'mod/PBZBossControl/Scripts/boss_defense_input.lua').read_bytes()
     change('owned_arena.lua',
@@ -208,15 +210,8 @@ def payload(root=ROOT, *, creative=None):
            '                        local contract=options.native_combat_contract\n'
            "                        local input_statics=StaticFindObject('/Script/Engine.Default__GameplayStatics')\n"
            "                        assert(valid(input_statics),'native combat pause query unavailable')\n"
-           '                        options.native_combat_controls={developer_only=true,now=os.clock,globals=_G,log=log,\n'
-           '                            native_input={binding_verified=contract.native_input_binding_verified,pid=contract.pid},\n'
-           '                            cues=contract.cues,defense=(contract.defense_by_role or{})[profile.id],\n'
-           '                            input_allowed=function(receipt)\n'
-           "                                return runtime.running and session.state=='ACTIVE'and receipt~=nil\n"
-           '                                    and session.receipt==receipt and receipt.input_enabled\n'
-           '                                    and not(workbench and workbench:is_open())\n'
-           '                                    and not input_statics:IsGamePaused(bridge:check(receipt))\n'
-           '                            end}\n'
+           "                        options.native_combat_controls=require('boss_combat_host').options(\n"
+           '                            runtime,profile.id,contract,_G,input_statics,log)\n'
            '                    end\n'
            '                    if options.native_combat_controls then\n'
            "                        assert(options.developer_only==true,'native combat controls require development assembly')\n"

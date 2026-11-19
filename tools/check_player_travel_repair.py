@@ -73,7 +73,7 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'player_target_diagnostics', 'runtime', 'ue_calls', 'ue_combat', 'world_boundary', 'idle_world_watch',
                  'player_spawn_assets',
                  'player_activity_probe',
-                 'boss_defense_input', 'boss_defense_bridge', 'boss_native_cues', 'boss_cue_bridge', 'boss_combat_controls', 'boss_native_input',
+                 'boss_defense_input', 'boss_defense_bridge', 'boss_native_cues', 'boss_cue_bridge', 'boss_combat_controls', 'boss_combat_host', 'boss_native_input',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
                  'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):
