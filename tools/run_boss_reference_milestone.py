@@ -59,6 +59,7 @@ def run():
     names.update(background.combo_dependencies.SOURCES)
     names.update(native_combo.SOURCES)
     names.update(native_combo.bundle.SOURCES)
+    names.update(background.combo_audit.SOURCES)
     names.update(module.replace('.', '/') + '.py' for module in background.TEST_MODULES)
     names.add('tools/run_boss_reference_milestone.py')
     sources = {name: sha(ROOT / name) for name in sorted(names)}

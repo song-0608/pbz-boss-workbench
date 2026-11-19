@@ -92,9 +92,37 @@ def modules(definition,root=ROOT):
         "    end\n")
     scheduler=replace(scheduler,'if key~=ticket.parent_class then ticket.child_active=true end',
         'if key~=ticket.parent_class then ticket.child_active=true;ticket.child_observed=true end')
+    scheduler=replace(scheduler,"        assert(before.address==row.address,'grant identity changed')\n",
+        "        if before.retired then\n"
+        "            assert(before.native_leaf and before.last_active==0,'only an observed-idle temporary leaf may return')\n"
+        "            before.address=row.address;before.retired=nil\n"
+        "            self.log('COMBO_NATIVE_REGRANT',key..'|active='..row.active)\n"
+        "        end\n"
+        "        assert(before.address==row.address,'grant identity changed')\n")
+    scheduler=replace(scheduler,
+        "    end\n    for key in pairs(ticket.baseline)do assert(current[key],'grant disappeared during scheduler experiment')end\n    return changed",
+        "        before.last_active=row.active\n"
+        "    end\n"
+        "    for key,before in pairs(ticket.baseline)do\n"
+        "        if not current[key]then\n"
+        "            assert(before.native_leaf and before.last_active==0,'grant disappeared without observed-idle temporary leaf')\n"
+        "            if not before.retired then self.log('COMBO_NATIVE_RETIRED',key..'|last_active=0')end\n"
+        "            before.retired=true\n"
+        "        end\n"
+        "    end\n"
+        "    return changed")
     scheduler=replace(scheduler,
         'if parent_active>0 or #changed>0 or not receipt.combo_trial.observed[receipt.combo_trial.parent_class]then return false end',
         'if parent_active>0 or #changed>0 or not receipt.combo_trial.observed[receipt.combo_trial.parent_class]or not receipt.combo_trial.child_observed then return false end')
+    scheduler=replace(scheduler,
+        '    local parent_class=receipt.combo_trial.parent_class\n',
+        '    local parent_class=receipt.combo_trial.parent_class\n'
+        '    local parent_active,active_children=0,0\n'
+        '    for _,row in ipairs(changed)do\n'
+        '        if path(row.spec.Ability)==parent_class then parent_active=row.active\n'
+        '        else active_children=active_children+1 end\n'
+        '    end\n'
+        "    self.log('COMBO_CANCEL_BEGIN',receipt.combo_trial.id..'|parent_active='..parent_active..'|active_children='..active_children)\n")
     arena=spawn.payload(root).decode('utf-8')
     arena=replace(arena,'local native_combo_enabled=experiment_combo_scheduler_trial or(',
         'local native_combo_enabled=(experiment_boss_candidate and profile.developer_native_combo==true)or experiment_combo_scheduler_trial or(')

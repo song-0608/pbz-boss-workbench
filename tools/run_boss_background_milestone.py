@@ -21,6 +21,7 @@ import prepare_boss_variant_candidates as variant_candidates
 import boss_subtree_inventory as subtrees
 import prepare_boss_subtree_references as subtree_references
 import boss_combo_dependencies as combo_dependencies
+import boss_native_combo_audit as combo_audit
 
 
 TEST_MODULES = (
@@ -42,6 +43,7 @@ TEST_MODULES = (
     'tests.test_boss_combo_dependencies',
     'tests.test_boss_native_combo_candidate',
     'tests.test_boss_native_combo_workflow',
+    'tests.test_boss_native_combo_audit',
 )
 
 
@@ -81,6 +83,7 @@ def main():
     source_files.update({name: sha(ROOT / name) for name in subtrees.SOURCES})
     source_files.update({name: sha(ROOT / name) for name in subtree_references.SOURCES})
     source_files.update({name: sha(ROOT / name) for name in combo_dependencies.SOURCES})
+    source_files.update({name: sha(ROOT / name) for name in combo_audit.SOURCES})
     checks = [invoke('Python regressions', [sys.executable, '-B', '-X', 'utf8', '-m', 'unittest', *TEST_MODULES])]
     packages = []
     executable = ROOT.parent / 'build/lua-harness/Release/lua-lab.exe'

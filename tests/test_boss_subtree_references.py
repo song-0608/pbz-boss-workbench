@@ -118,6 +118,41 @@ class SubtreeReferenceTests(unittest.TestCase):
         jobs, deferred = references.merge_grant_followups([], characters)
         self.assertFalse(jobs); self.assertEqual(deferred[0]['path'], paths[2])
 
+    def test_published_profile_does_not_hide_unqueried_native_types(self):
+        characters, audit, paths = self.fixture()
+        ability = characters[0]['abilities'][2]
+        ability.update(route='in_v5_profile', v5_skill=True, grants=[self.grant()])
+        extra = paths[3].replace('GA_Move_3', 'GA_Old_Profile')
+        characters[0]['abilities'].append(dict(ability, path=extra))
+        saved = copy.deepcopy(characters)
+        jobs, _, _ = references.plan(characters, [audit])
+        merged, deferred = references.merge_grant_followups(jobs, characters)
+        self.assertEqual(characters, saved, 'type query selection must not rewrite published routes')
+        self.assertFalse(deferred)
+        self.assertEqual(references.request_counts(merged), dict(tree_references=2,
+            historical_grants=2, shared=1, grant_only=1, unique_queries=3))
+        for job in merged:
+            self.assertFalse(job['activation_allowed'])
+            self.assertFalse(job['native_grant_verified'])
+
+    def test_published_types_still_require_unique_closed_grants_and_never_retry_rejections(self):
+        for mode in ('verified','rejected','conflict','duplicate','missing','unproven_profile','foreign'):
+            characters, _, paths = self.fixture()
+            ability = characters[0]['abilities'][2]
+            ability.update(route='in_v5_profile', v5_skill=True, grants=[self.grant()])
+            if mode in ('verified','rejected','conflict'): ability['metadata'] = mode
+            elif mode == 'duplicate': ability['grants'][0]['count'] = 2
+            elif mode == 'missing': ability['grants'] = []
+            elif mode == 'unproven_profile': ability['v5_skill'] = False
+            else: ability['path'] = paths[2].replace('/Fixture/','/Foreign/')
+            with self.subTest(mode=mode):
+                if mode in ('foreign','unproven_profile'):
+                    with self.assertRaises(AssertionError):references.merge_grant_followups([],characters)
+                else:
+                    jobs, deferred = references.merge_grant_followups([],characters)
+                    self.assertFalse(jobs)
+                    self.assertEqual(len(deferred), 0 if mode == 'verified' else 1)
+
     def test_grant_only_query_freezes_closed_source_evidence(self):
         characters, audit, paths = self.fixture()
         grant = self.grant()

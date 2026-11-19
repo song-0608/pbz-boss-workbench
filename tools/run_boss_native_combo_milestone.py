@@ -10,8 +10,9 @@ from boss_adaptation_workflow import ROOT,sha,write_json
 from build_boss_profile_candidate import lua
 import boss_native_combo_candidate as candidate
 import prepare_boss_native_combo_workflow as workflow
+import boss_native_combo_audit as audit
 
-SOURCES=('tools/run_boss_native_combo_milestone.py',)
+SOURCES=('tools/run_boss_native_combo_milestone.py', *audit.SOURCES)
 
 
 def run():
@@ -28,7 +29,8 @@ def run():
         checks.append(dict(name=name,passed=result.returncode==0,output=(result.stdout+result.stderr).strip()))
         print(name+': '+('PASS' if result.returncode==0 else 'FAIL'),flush=True)
     invoke('Exact identity graph and workflow regressions',[sys.executable,'-B','-X','utf8','-m','unittest',
-        'tests.test_boss_combo_dependencies','tests.test_boss_native_combo_candidate','tests.test_boss_native_combo_workflow'])
+        'tests.test_boss_combo_dependencies','tests.test_boss_native_combo_candidate','tests.test_boss_native_combo_workflow',
+        'tests.test_boss_native_combo_audit'])
     fixture=ROOT/'runtime'/('native-combo-fixture-'+sha(bundle/'manifest.json')[:16]+'.lua')
     raw=('return '+lua(record['definition'])+'\n').encode('utf-8')
     if fixture.exists():assert fixture.read_bytes()==raw

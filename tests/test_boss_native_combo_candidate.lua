@@ -99,6 +99,27 @@ test('cancellation closes children and native parent but leaves passive alone',f
     f.rows[3]={Ability=f.ability(next(contract.leaves)),ActiveCount=1}
     assert(f.scheduler:cancel_all(f.receipt) and f.stopped and not f.brain and not f.receipt.combo_trial)
     assert(#f.cancelled==2 and f.rows[2].ActiveCount==1)
+    local observed=0
+    for _,row in ipairs(f.logs)do
+        if row[1]=='COMBO_CANCEL_BEGIN'then
+            observed=observed+1;assert(row[2]=='skill_01|parent_active=1|active_children=1')
+        end
+    end
+    assert(observed==1,'cancellation must log its fresh activity snapshot exactly once')
+end)
+test('cancel evidence does not reuse earlier child activity',function()
+    local f=fixture();assert(f.begin());f.rows[1].ActiveCount=1
+    f.rows[3]={Ability=f.ability(next(contract.leaves)),ActiveCount=1}
+    assert(not f.scheduler:poll(f.receipt,1))
+    f.rows[1].ActiveCount=0;f.rows[3].ActiveCount=0
+    assert(f.scheduler:cancel_all(f.receipt))
+    local observed=false
+    for _,row in ipairs(f.logs)do
+        if row[1]=='COMBO_CANCEL_BEGIN'then
+            assert(row[2]=='skill_01|parent_active=0|active_children=0');observed=true
+        end
+    end
+    assert(observed)
 end)
 test('failed cancellation retains responsibility for recovery',function()
     local f=fixture();assert(f.begin());f.rows[1].ActiveCount=1;f.reject_cancel=true
@@ -129,5 +150,41 @@ test('a different nonzero native tree weight cannot borrow the closed graph',fun
            {get=function()return weight+1 end})
     end end}
     assert(not pcall(f.begin) and not f.brain and not f.receipt.combo_trial)
+end)
+test('an engine-granted leaf may retire only after a real idle snapshot',function()
+    local f=fixture();assert(f.begin());f.rows[1].ActiveCount=1
+    local leaf=next(contract.leaves)
+    f.rows[3]={Ability=f.ability(leaf),ActiveCount=1}
+    assert(not f.scheduler:poll(f.receipt,1))
+    f.rows[3].ActiveCount=0;assert(not f.scheduler:poll(f.receipt,1))
+    f.rows[3]=nil;assert(not f.scheduler:poll(f.receipt,1))
+    assert(f.receipt.combo_trial.baseline[leaf].retired)
+    f.rows[1].ActiveCount=0
+    assert(f.scheduler:poll(f.receipt,0) and not f.brain and not f.receipt.combo_trial)
+end)
+test('idle retirement permits a fresh same-class native grant without retaining old specs',function()
+    local f=fixture();assert(f.begin());f.rows[1].ActiveCount=1
+    local leaf=next(contract.leaves)
+    f.rows[3]={Ability=f.ability(leaf),ActiveCount=1};assert(not f.scheduler:poll(f.receipt,1))
+    f.rows[3].ActiveCount=0;assert(not f.scheduler:poll(f.receipt,1))
+    f.rows[3]=nil;assert(not f.scheduler:poll(f.receipt,1))
+    local replacement=f.ability(leaf);replacement.GetAddress=function()return 'new-native-object' end
+    f.rows[3]={Ability=replacement,ActiveCount=1};assert(not f.scheduler:poll(f.receipt,1))
+    local before=f.receipt.combo_trial.baseline[leaf]
+    assert(before.address=='new-native-object' and not before.retired and before.spec==nil)
+    assert(f.scheduler:cancel_all(f.receipt) and f.rows[3].ActiveCount==0 and f.rows[2].ActiveCount==1)
+end)
+test('active disappearance preexisting grant removal and unretired identity change stay rejected',function()
+    for _,mode in ipairs({'active','preexisting','identity'})do
+        local f=fixture();local leaf=next(contract.leaves)
+        if mode=='preexisting'then f.rows[3]={Ability=f.ability(leaf),ActiveCount=0}end
+        assert(f.begin());f.rows[1].ActiveCount=1
+        if mode~='preexisting'then f.rows[3]={Ability=f.ability(leaf),ActiveCount=1}end
+        assert(not f.scheduler:poll(f.receipt,1))
+        if mode=='identity'then f.rows[3].Ability.GetAddress=function()return 'unverified-replacement' end
+        else f.rows[3]=nil end
+        assert(not pcall(f.scheduler.poll,f.scheduler,f.receipt,1) and f.receipt.combo_trial,mode)
+        assert(f.brain,'read-only rejection must preserve the scheduler recovery responsibility')
+    end
 end)
 print('Native combo adapter fixtures: '..total..' passed; no game acceptance.')

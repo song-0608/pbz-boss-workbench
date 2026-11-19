@@ -90,13 +90,25 @@ def merge_grant_followups(jobs, characters):
     for character in characters:
         selected = []
         for ability in character['abilities']:
-            if ability.get('route') != 'exact_grant_needs_metadata':
+            route = ability.get('route')
+            published = route == 'in_v5_profile'
+            if route != 'exact_grant_needs_metadata' and not published:
                 continue
+            # Published gameplay coverage and native CDO type coverage are
+            # independent facts. Do not hide an unqueried old profile ability
+            # merely because it is already bound in the accepted workbench.
+            if published:
+                assert ability.get('v5_skill') is True, 'exact installed profile provenance required'
+                if ability['metadata'] == 'verified':
+                    continue
             if ability['metadata'] in ('rejected', 'conflict'):
                 deferred.append(dict(path=ability['path'], reason='historical grant type needs review before an explicit retry'))
                 continue
             assert ability['metadata'] != 'verified', 'verified grants must not be queried again'
-            selected.append(ability)
+            if published and not any(g['count'] == 1 for g in ability['grants']):
+                deferred.append(dict(path=ability['path'], reason='published profile type lacks closed unique native grant provenance'))
+                continue
+            selected.append(dict(ability, route='exact_grant_needs_metadata') if published else ability)
         candidates.append(dict(character, abilities=selected))
     for batch in exact_requests(candidates):
         for observed in batch:
