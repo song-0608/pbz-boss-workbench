@@ -47,7 +47,18 @@ def deployment_guard(deployment, manifest, package, state, now):
     assert now < grant['expires_at'] == state['control_probe_expires_at'] <= state['deadline_unix']
 
 
-def stage(flow):
+def combat_launch_payload(content,contract):
+    from build_boss_profile_candidate import lua
+    text=content.decode('utf-8')
+    assert text.count('PBZBossControlLaunch={boss_id=')==1,'exact player launch prefix required'
+    assert 'native_combat_contract' not in text,'combat contract already injected'
+    start=text.index('PBZBossControlLaunch={boss_id=');end=text.index('\n',start)
+    options={key:contract[key] for key in ('pid','cues','defense_by_role','native_input_binding_verified')}
+    return (text[:end]+'\nPBZBossControlLaunch.options.developer_only=true\n'
+        +'PBZBossControlLaunch.options.native_combat_contract='+lua(options)+text[end:]).encode('utf-8')
+
+
+def stage(flow,*,combat_scripts=None,native_input_smoke=None):
     record = workflow.verify(flow)
     package = unlinked_path(Path(record['candidate']))
     manifest = candidate.verify(package)
@@ -75,6 +86,21 @@ def stage(flow):
             cwd=ROOT, capture_output=True, encoding='utf-8', errors='replace', timeout=100)
         (work / (LABEL + '-' + name + '.log')).write_text(result.stdout + result.stderr, encoding='utf-8')
         assert result.returncode == 0, 'read-only contract failed: ' + name
+    combat=None
+    if combat_scripts is not None or native_input_smoke is not None:
+        assert combat_scripts is not None and native_input_smoke is not None
+        import boss_native_input_artifact as native
+        _,proof=native.verify(native_input_smoke)
+        deployed=practice.read(work/'native-combat-input-deployment.json')
+        assert all(deployed[key]==value for key,value in proof.items()),'current deployed helper required'
+        result=subprocess.run([sys.executable,'-B','-X','utf8','tools/inspect_boss_defense_contract.py'],
+            cwd=ROOT,capture_output=True,encoding='utf-8',errors='replace',timeout=90)
+        (work/'combat-reflection.log').write_text(result.stdout+result.stderr,encoding='utf-8')
+        assert result.returncode==0,'current combat reflection query failed'
+        from boss_combat_contract import build
+        combat=build(practice.read(work/'defense-cue-native-contract.json'),pid,state['state_file'],combat_scripts)
+        combat['native_input_binding_verified']=True
+        write_json(work/'native-combat-controls-contract.json',combat)
     # Inspectors consume time but cannot extend the session.
     controls.idle_guard(*practice.owned_session(), time.time())
     raw = practice.log_path(state).read_bytes()
@@ -94,6 +120,17 @@ def stage(flow):
     validation.verify_build(state['ue4ss_loader_manifest'])
     deployment = practice.read(work / 'control-lifecycle-deployment.json')
     deployment_guard(deployment, manifest, package, state, time.time())
+    if combat is not None:
+        data=combat_launch_payload(carrier.read_bytes(),combat)
+        (work/'native-combat-before-launch.lua').write_bytes(carrier.read_bytes())
+        row,=[row for row in state['ue4ss_loader_manifest'] if row['physical_path']==str(carrier)]
+        row['sha256']=hashlib.sha256(data).hexdigest()
+        validation.save(validation.state_path(),state);carrier.write_bytes(data)
+        validation.verify_build(state['ue4ss_loader_manifest'])
+        deployment['native_combat_controls']=dict(developer_only=True,
+            contract_sha256=sha(work/'native-combat-controls-contract.json'),
+            defense_runtime_verified=False,cue_render_verified=False)
+        write_json(work/'control-lifecycle-deployment.json',deployment)
     staged = dict(context, grant_expires_at=deployment['grant']['expires_at'],
         carrier_sha256=sha(carrier), deployment_sha256=sha(work / 'control-lifecycle-deployment.json'))
     write_json(work / (LABEL + '-staged.json'), staged)
@@ -210,6 +247,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=('stage', 'reload-gate', 'status', 'capture'))
     parser.add_argument('workflow', type=Path)
+    parser.add_argument('--combat-scripts',type=Path)
+    parser.add_argument('--native-input-smoke',type=Path)
     args = parser.parse_args()
-    result = {'stage': stage, 'reload-gate': reload_gate, 'status': status, 'capture': capture}[args.action](args.workflow)
+    if args.action=='stage':
+        result=stage(args.workflow,combat_scripts=args.combat_scripts,native_input_smoke=args.native_input_smoke)
+    else:
+        assert args.combat_scripts is None and args.native_input_smoke is None
+        result = {'reload-gate': reload_gate, 'status': status, 'capture': capture}[args.action](args.workflow)
     print(json.dumps(result, ensure_ascii=False, indent=2))

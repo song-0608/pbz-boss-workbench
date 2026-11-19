@@ -73,13 +73,15 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'player_target_diagnostics', 'runtime', 'ue_calls', 'ue_combat', 'world_boundary', 'idle_world_watch',
                  'player_spawn_assets',
                  'player_activity_probe',
+                 'boss_defense_input', 'boss_defense_bridge', 'boss_native_cues', 'boss_cue_bridge', 'boss_combat_controls', 'boss_native_input',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
                  'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):
         selected_loader=fixed_loader if name in ('player_3c','player_locomotion') else loader
         jobs.append((name, [str(executable), str(selected_loader), '.', test_path(package),
                            'tests/test_' + name + '.lua']))
-    for name in ('player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',
+    for name in ('boss_combat_contract', 'boss_combat_support', 'boss_defense_cue_audit', 'boss_combat_script_audit',
+                 'player_travel_candidate', 'player_travel_trial', 'player_travel_progress', 'player_overlay', 'player_status_stream',
                  'workbench_roster', 'workbench_session_status', 'workbench_cmd_entry', 'player_source_checks', 'player_3c_contract',
                  'player_travel_ui_stage', 'player_travel_capture', 'creative_workspace', 'creative_workbench','creative_starter_workspace'):
         command = ([sys.executable, '-B', '-X', 'utf8', 'tests/test_player_overlay.py']
@@ -103,6 +105,9 @@ def check(package, manifest, flow=None, *, source_only=False):
         passed=all(row['passed'] for row in checks), game_started=False, installed=False,
         runtime_verified=False, native_travel_verified=False, all_boss_skills_complete=False)
     record['creative_integration']=identity
+    record['sources_unchanged_after_checks']=all(sha(ROOT/name)==expected
+        for name,expected in record['source_sha256'].items())
+    record['passed']=record['passed'] and record['sources_unchanged_after_checks']
     record['canonical_tuning_contracts']=['player_3c','player_locomotion']
     report = ROOT / 'evidence/adaptation' / (key + ('-source-offline-' + str(time.time_ns()) if source_only else '-offline') + '.json')
     if report.exists():

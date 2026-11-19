@@ -37,6 +37,18 @@ SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stag
 SOURCES += ('tools/creative_workspace.py', 'tools/research_storage.py', 'tests/test_creative_workspace.py',
             'tools/creative_workbench_ui.py', 'tests/test_creative_workbench.py', 'tools/workbench_status_bootstrap.py')
 SOURCES += ('tools/creative_starter_workspace.py','tools/creative_starter_assets.py','tools/creative_starter_view.py','tests/test_creative_starter_workspace.py')
+SOURCES += ('tools/boss_combat_controls.lua', 'tools/boss_cue_bridge.lua', 'tools/boss_native_cues.lua',
+            'tools/boss_defense_bridge.lua', 'mod/PBZBossControl/Scripts/boss_defense_input.lua',
+            'tests/test_boss_combat_controls.lua', 'tests/test_boss_cue_bridge.lua',
+            'tests/test_boss_native_cues.lua', 'tests/test_boss_defense_bridge.lua', 'tests/test_boss_defense_input.lua')
+SOURCES += ('tools/boss_native_input.lua', 'tests/test_boss_native_input.lua',
+            'tools/boss_native_input/CMakeLists.txt', 'tools/boss_native_input/native_input.cpp',
+            'tools/boss_native_input/policy.hpp', 'tools/boss_native_input/add_to_ue4ss.cmake',
+            'tools/boss_native_input/smoke.lua', 'tests/test_boss_native_input.cpp', 'tools/build_boss_native_input.py')
+SOURCES += ('tools/smoke_boss_native_input.py', 'tools/boss_native_input_artifact.py',
+            'tools/boss_combat_contract.py', 'tests/test_boss_combat_contract.py',
+            'tools/inspect_boss_defense_contract.py', 'tools/pbz_ue4ss_baseline.py', 'tools/ahua_practice.py',
+            'tools/launch_boss_combat_research.py')
 
 
 def payload(root=ROOT, *, creative=None):
@@ -70,6 +82,9 @@ def payload(root=ROOT, *, creative=None):
     files[PREFIX + 'player_map_lifecycle.lua'] = (root / 'tools/player_map_lifecycle.lua').read_bytes()
     files[PREFIX + 'player_spawn_assets.lua'] = (root / 'tools/player_spawn_assets.lua').read_bytes()
     files[PREFIX + 'player_activity_probe.lua'] = (root / 'tools/player_activity_probe.lua').read_bytes()
+    for name in ('boss_combat_controls', 'boss_cue_bridge', 'boss_native_cues', 'boss_defense_bridge', 'boss_native_input'):
+        files[PREFIX + name + '.lua'] = (root / 'tools' / (name + '.lua')).read_bytes()
+    files[PREFIX + 'boss_defense_input.lua'] = (root / 'mod/PBZBossControl/Scripts/boss_defense_input.lua').read_bytes()
     change('owned_arena.lua',
            '                        local found={};local specs=player.AbilitySystemComponent.ActivatableAbilities.Items\n'
            "                        local size=specs:GetArrayNum();assert(size<=512,'player ability bound')\n"
@@ -186,6 +201,27 @@ def payload(root=ROOT, *, creative=None):
            "            on_result=function(slot,ok,why)self:report(slot,ok,why)end})\n"
            "    end\n"
            '    self.driver = Driver.new(self.session, { read_input = self.host.read_input })')
+    change('owned_arena.lua', '                    runtime:start();deferred=true',
+           '                    runtime:start()\n'
+           '                    if options.native_combat_contract then\n'
+           "                        assert(options.developer_only==true,'native combat contract requires development assembly')\n"
+           '                        local contract=options.native_combat_contract\n'
+           "                        local input_statics=StaticFindObject('/Script/Engine.Default__GameplayStatics')\n"
+           "                        assert(valid(input_statics),'native combat pause query unavailable')\n"
+           '                        options.native_combat_controls={developer_only=true,now=os.clock,globals=_G,log=log,\n'
+           '                            native_input={binding_verified=contract.native_input_binding_verified,pid=contract.pid},\n'
+           '                            cues=contract.cues,defense=(contract.defense_by_role or{})[profile.id],\n'
+           '                            input_allowed=function(receipt)\n'
+           "                                return runtime.running and session.state=='ACTIVE'and receipt~=nil\n"
+           '                                    and session.receipt==receipt and receipt.input_enabled\n'
+           '                                    and not(workbench and workbench:is_open())\n'
+           '                                    and not input_statics:IsGamePaused(bridge:check(receipt))\n'
+           '                            end}\n'
+           '                    end\n'
+           '                    if options.native_combat_controls then\n'
+           "                        assert(options.developer_only==true,'native combat controls require development assembly')\n"
+           "                        require('boss_combat_controls').attach(runtime.session,options.native_combat_controls)\n"
+           '                    end\n                    deferred=true')
     change('runtime.lua', '                    return self.session:skill(selected)',
            '                    if self.session.request_skill then return self.session:request_skill(selected)end\n'
            '                    return self.session:skill(selected)')
@@ -476,7 +512,10 @@ def expected(root=ROOT):
         travel_repair_base=BASE, travel_repair_identity=identity,
         pending=['native repeated skill activation and completion', 'native walking speed, free camera and facing',
                  'native primary mouse input and cancellation', 'native cross-map travel and frame-time comparison',
-                 'additional Boss native grants and skill acceptance'],
+                 'additional Boss native grants and skill acceptance',
+                 'native defense held-key/focus binding, live grant and combat result',
+                 'native cue avatar binding, post hook and visible lifecycle'],
+        native_defense_runtime_verified=False, native_cue_render_verified=False,
         travel_repair_runtime_verified=False)
     manifest['creative_integration']=selected[1]
     manifest.pop('acceptance_report', None); manifest.pop('acceptance_report_sha256', None)

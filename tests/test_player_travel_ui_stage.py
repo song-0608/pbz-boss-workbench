@@ -18,6 +18,16 @@ READY = '\n'.join(('PBZ_CONTROL_LIFECYCLE:INTERACTIVE_READY=one',
 
 
 class PlayerTravelUIStageTests(unittest.TestCase):
+    def test_native_combat_development_launch_is_injected_once_before_entry(self):
+        original=b'prefix\nPBZBossControlLaunch={boss_id="ahua",options={}}\nreturn run()\n'
+        contract=dict(pid=42,cues={'class_path':'/Cue'},defense_by_role={},native_input_binding_verified=True)
+        output=stage.combat_launch_payload(original,contract)
+        self.assertIn(b'options.developer_only=true',output)
+        self.assertLess(output.index(b'options.native_combat_contract='),output.index(b'return run()'))
+        self.assertTrue(output.endswith(b'return run()\n'))
+        for invalid in (output,original+original,b'unknown'):
+            with self.assertRaises(AssertionError):stage.combat_launch_payload(invalid,contract)
+
     def test_controls_use_exact_frozen_schema_and_reject_changed_or_legacy_bindings(self):
         controls = dict(enter='F6', exit='F10', cycle_target='F7', lock_target='MIDDLE_MOUSE_BUTTON')
         with tempfile.TemporaryDirectory() as name:

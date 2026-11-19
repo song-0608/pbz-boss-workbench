@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "kind": "native_defense_and_cue_development_milestone",
+  "candidate": "ahua-player-travel-dev-ea5d76745c3cad90",
+  "source_only_report": "evidence/adaptation/ahua-player-travel-dev-ea5d76745c3cad90-source-offline-1795095239556159300.json",
+  "source_only_sha256": "321f38cbaca6f88a55d4f9571b704cd3effae06fb0502427c9dada1c28d4c6bd",
+  "check_groups": 59,
+  "all_checks_passed": true,
+  "source_matched": true,
+  "native_helper": {
+    "dll_sha256": "b9bc254f6a9295e21f528f7be458b084c32631626ab39233d776d95c57bdfe9e",
+    "build_sha256": "1dc6b034a4f99ff818ea74a0d08557c73fdff85a4798363ee1fc532746188827",
+    "smoke_sha256": "2493f41759fc9553fe452dd8db4558979348cb3a497665720e96e11105f87e85",
+    "headless_abi_passed": true,
+    "focus_policy_cases": 9,
+    "loader_unchanged": {
+      "UE4SS.dll": "301c337f7c6c32422da2f35754aac1ebb7c4d420949b4d9a5dd30e07e2809a24",
+      "dwmapi.dll": "3c49d48565a0fb86241c18705728b83420e6fa0ab9dbf6b6cc1750a442ff921f"
+    }
+  },
+  "complete_mod": false,
+  "installed": false,
+  "defense_runtime_verified": false,
+  "cue_render_verified": false,
+  "native_key_runtime_verified": false,
+  "actual_pbz_game_started": false,
+  "offline_script_packages": 4,
+  "offline_complete_functions": 95,
+  "published_skills_with_declared_cues": 8,
+  "stance_ancestry_classes": 55,
+  "live_grants_verified": false
+}

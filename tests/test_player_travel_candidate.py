@@ -20,6 +20,8 @@ class TravelCandidateTests(unittest.TestCase):
             'player_role_controls.lua', 'player_native_travel_trial.lua', 'player_controller_query.lua', 'player_reassembly.lua',
             'player_assembly_tasks.lua', 'player_action_queue.lua', 'player_map_lifecycle.lua', 'player_controller_owner.lua',
             'player_spawn_assets.lua', 'player_activity_probe.lua',
+            'boss_combat_controls.lua', 'boss_cue_bridge.lua', 'boss_native_cues.lua',
+            'boss_defense_bridge.lua', 'boss_defense_input.lua', 'boss_native_input.lua',
             'control_bridge.lua', 'boss_catalog.lua', 'ue_calls.lua', 'ue_combat.lua', 'world_boundary.lua',
             'idle_world_watch.lua', 'map_travel_guard.lua', 'owned_arena.lua', 'runtime.lua',
             'ue_host.lua', 'remote_control.lua', 'boss_workbench.lua', 'player_boss_picker.lua', 'player_hud.lua',

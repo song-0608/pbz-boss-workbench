@@ -36,6 +36,16 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
         session:restore('pause menu opened')
         return false,'pause menu opened'
     end
+    if session.sample_combat_input then
+        local sampled,permitted=pcall(session.sample_combat_input,session,input)
+        if not sampled then
+            session:restore('native combat input failed');return false,tostring(permitted)
+        end
+        if permitted~=true then
+            if session.clear_buffered_skill then session:clear_buffered_skill('combat input suspended')end
+            return true,'combat input suspended'
+        end
+    end
     if input.allowed ~= true then
         if session.clear_buffered_skill then session:clear_buffered_skill('input suspended')end
         return true, "input suspended"

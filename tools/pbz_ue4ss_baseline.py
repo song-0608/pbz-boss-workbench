@@ -56,7 +56,8 @@ def remove_declared_loader(state,dll):
         raise RuntimeError('Research loader removal incomplete')
 
 
-def deploy_and_launch(with_signature=False, readonly_smoke=False, readonly_ai=False, readonly_hot_reload=False, load_map_hook_trial=False):
+def deploy_and_launch(with_signature=False, readonly_smoke=False, readonly_ai=False, readonly_hot_reload=False, load_map_hook_trial=False,
+                      native_input_smoke=None):
     state=json.loads(v.state_path().read_text(encoding='utf-8'));work=Path(state['work'])
     if state.get('restored') or time.time()>=state['deadline_unix'] or not state.get('offline_validation'):
         raise RuntimeError('Active offline preparation required')
@@ -120,6 +121,15 @@ def deploy_and_launch(with_signature=False, readonly_smoke=False, readonly_ai=Fa
     if readonly_ai:
         contents['ue4ss/Mods/mods.txt']=b'PBZObserveAI : 1\n'
         contents['ue4ss/Mods/PBZObserveAI/Scripts/main.lua']=(v.ROOT/'adaptation/pbz-26367565/Mods/PBZObserveAI/Scripts/main.lua').read_bytes()
+    if native_input_smoke is not None:
+        assert with_signature and readonly_ai and readonly_hot_reload and load_map_hook_trial, \
+            'native combat input requires the explicit protected development research stack'
+        from boss_native_input_artifact import verify
+        helper,helper_proof=verify(native_input_smoke)
+        contents['ue4ss/Mods/PBZNativeCombatInput/dlls/main.dll']=helper.read_bytes()
+        contents['ue4ss/Mods/mods.txt']=b'PBZNativeCombatInput : 1\n'+contents['ue4ss/Mods/mods.txt']
+        v.save(work/'native-combat-input-deployment.json',dict(helper_proof,source=str(native_input_smoke),
+            formal_install_modified=False,gameplay_called=False))
     if with_signature:
         # 用途：只接受本项目亲自推导且完成静态唯一性/原版运行只读验证的固定配置。
         profile=v.ROOT/'adaptation/pbz-26367565'
