@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "kind": "sanitized_native_offline_capture_milestone",
+  "created_at": "2026-11-20T04:33:57.388805+08:00",
+  "capture_status": "converged_with_known_gaps",
+  "terminal_round": 11,
+  "bounded_traversal_completed": true,
+  "root_folders": 106,
+  "root_packages": 15510,
+  "extracted_roots": 15510,
+  "pending_roots": 0,
+  "extracted_packages": 89028,
+  "declaration_bytes": 28442490819,
+  "ability_classes": 4866,
+  "declared_timelines": 4956,
+  "declared_actions": 107607,
+  "declared_function_exports": 21837,
+  "script_packages_from_receipts": 3990,
+  "complete_script_functions": 21837,
+  "pending_dependency_count": 0,
+  "failed_dependency_count": 1877,
+  "deferred_dependency_count": 13607,
+  "unindexed_reference_count": 412,
+  "native_code_reference_count": 111,
+  "unresolved_script_functions": 0,
+  "ability_indexing_issues": 1,
+  "timeline_inheritance_resolution": {
+    "inherited_declared": 434,
+    "own_declared": 3866,
+    "super_identity_unresolved": 566
+  },
+  "indexed_package_closure_complete": false,
+  "serialized_package_closure_complete": false,
+  "queued_skills": 4865,
+  "quarantined_skills": 1,
+  "native_routes": {
+    "no_closed_native_record": 2523,
+    "needs_variant_grant": 1887,
+    "metadata_or_subtree_review": 147,
+    "utility_or_dependency_review": 156,
+    "in_v5_profile": 58,
+    "leaf_with_historical_grant": 94
+  },
+  "next_actions": {
+    "separate_context_review": 2267,
+    "review_disk_parent_and_observe_exact_native_grant": 2433,
+    "review_native_subtree_dependencies": 28,
+    "keep_accepted_v5_mapping": 58,
+    "review_exact_historical_actor_config_before_candidate": 79
+  },
+  "failure_error_types": {
+    "System.IO.InvalidDataException": 1874,
+    "System.OutOfMemoryException": 3
+  },
+  "failure_error_first_lines": {
+    "System.IO.InvalidDataException: Serialized declarations exceed the 16 MiB per-package bound": 1874,
+    "System.OutOfMemoryException: Insufficient memory to continue the execution of the program.": 3
+  },
+  "failed_packages_with_npc_root": 0,
+  "failed_packages_with_native_ability_generated_class": 0,
+  "failed_packages_with_named_ga_generated_class": 0,
+  "failed_packages_with_function_exports": 37,
+  "function_exports_in_failed_packages": 126,
+  "failure_packages_containing_export_type": {
+    "LevelSequence": 1578,
+    "MovieScene": 1578,
+    "MovieSceneBuiltInEasingFunction": 1578,
+    "MovieSceneCompiledData": 1578,
+    "MovieSceneFloatSection": 1574,
+    "MovieSceneFloatTrack": 1574,
+    "MovieSceneControlRigParameterSection": 1573,
+    "MovieSceneControlRigParameterTrack": 1573,
+    "CultureCondition_C": 1555,
+    "MovieScene3DTransformSection": 948,
+    "MovieScene3DTransformTrack": 948,
+    "MovieSceneVisibilitySection": 947
+  },
+  "failure_export_type_groups_may_overlap": true,
+  "source_sha256": {
+    "boss_offline_capture_workflow.py": "bdd7fa6896f5baa58febac048dccfce4b096beaeecf98caebc397e6baf73caad",
+    "boss_disk_declarations.py": "b118bbe20b5811b36b1b65e29527e70e1fcfede1bcd36beb1e5208cd732dac94",
+    "boss_disk_dependencies.py": "be3210224eb3983f3fbaee06a94e4a6cecf6bf557b5366d9eaa2597622a34238",
+    "boss_disk_skill_index.py": "736ebc86d5d74a206d21fb267293a62f7efa1f7daeb0c89f8ffd9da0374ddb87",
+    "boss_disk_scripts.py": "8d667ce535a7bc0fa2276aa7ed4de6cee5841f5bfaf15eadbbf7196bb647c783",
+    "boss_disk_scan_cache.py": "8b80daaf5ec429210567e8f1fbec40216d49a2e691f0ef201c5ef412b1229b40"
+  },
+  "workflow_result_sha256": "cf68b4425aff373dfbd0452fdff7985ffd8947e03c2e16783dc8241811e45a38",
+  "final_scan_sha256": "d2ef5b937f3218eea35dbdd0d18b8995578303e7ea77d9e84a81ba0be9d50b87",
+  "adaptation_queue_sha256": "5ccef258445837b1e9dd36cbbac1f800654ea1378675aa30d34f0a88600fb208",
+  "queue_summary_sha256": "a18c30e1d56b49477f747d6e5f5083d6a9aa291bf0bd3a9bfa123ed73da7db10",
+  "closed_native_preflight_sha256": "c7adac4748971f051d2599045b063eaacab27cf7cca75d3fd60b29f8d6351f83",
+  "all_ability_rows_keep_activation_disabled": true,
+  "game_started": false,
+  "computer_use_used": false,
+  "installed": false,
+  "all_boss_skills_complete": false,
+  "ready_for_final_delivery": false,
+  "scope": {
+    "all_indexed_npc_boss_common_roots": true,
+    "folders_are_not_playable_boss_count": true,
+    "explicitly_deferred_prefix": "/Game/Cinematics/Prestreaming/",
+    "bounded_reference_traversal_is_not_full_resource_closure": true
+  },
+  "local_evidence_sha256": {
+    "result.json": "cf68b4425aff373dfbd0452fdff7985ffd8947e03c2e16783dc8241811e45a38",
+    "scan-0011.json": "d2ef5b937f3218eea35dbdd0d18b8995578303e7ea77d9e84a81ba0be9d50b87",
+    "adaptation-queue-v1.json": "5ccef258445837b1e9dd36cbbac1f800654ea1378675aa30d34f0a88600fb208",
+    "adaptation-queue-summary-v1.json": "a18c30e1d56b49477f747d6e5f5083d6a9aa291bf0bd3a9bfa123ed73da7db10",
+    "closed-native-input-preflight.json": "c7adac4748971f051d2599045b063eaacab27cf7cca75d3fd60b29f8d6351f83",
+    "terminal-audit-v1.json": "46868c7a62c3f84f7e23414855fa475523e0cece7d3346ab4673471372bc48bf",
+    "terminal-audit-summary-v1.json": "3e0e02c4c1654b754b481d5b0f805f319bc81f372d165ff3b0dc9cc7a504eadf"
+  },
+  "offline_regression": {
+    "passed": true,
+    "tests": 65,
+    "failures": 0,
+    "errors": 0,
+    "log_sha256": "34a4f23fb2edfff4d570f6677ba9c5b26cb9cd2b04a899ca4b98241be76ba7bb",
+    "game_started": false,
+    "computer_use_used": false,
+    "evidence_reused": true,
+    "rerun_in_this_documentation_phase": false,
+    "reuse_reason": "All six fixed capture sources still match terminal audit digests; prior 65-test evidence retained."
+  },
+  "failed_function_gap": {
+    "failed_packages": 37,
+    "unextracted_function_exports": 126,
+    "included_in_successful_decoded_function_count": false
+  },
+  "phase_operations": {
+    "computer_use_calls": 0,
+    "game_launches": 0,
+    "game_inputs": 0,
+    "mod_installs": 0,
+    "steam_launches": 0,
+    "ue_launches": 0
+  },
+  "next_phase": {
+    "name": "offline_backend_adaptation",
+    "frozen_queue_items": 4865,
+    "quarantined_items": 1,
+    "tasks": [
+      "exact actor/variant and skill mapping review",
+      "normal attack and defensive native contracts",
+      "red/blue native cue review",
+      "movement camera and repeated skill lifecycle regression",
+      "cross-map teardown and reacquisition regression"
+    ],
+    "game_launch_allowed": false,
+    "computer_use_allowed": false,
+    "concentrated_live_acceptance_after_backend_milestone": true
+  },
+  "not_final_mod_delivery": true
+}
