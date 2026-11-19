@@ -535,3 +535,7 @@ evidence/adaptation/boss-reference-controller-milestone-f206c3359187d94a.json -t
 evidence/adaptation/boss-reference-controller-milestone-1bb2d317e735bdf5.json -text whitespace=cr-at-eol
 evidence/adaptation/subtree-default-dedup-3e04aa7f3f825ca0.json -text whitespace=cr-at-eol
 evidence/adaptation/boss-reference-controller-milestone-571159f3219b4499.json -text whitespace=cr-at-eol
+tests/test_boss_reference_milestone.py -text whitespace=cr-at-eol
+research/boss-adaptation/REFERENCE_TYPE_WORKFLOW.md -text whitespace=cr-at-eol
+evidence/adaptation/boss-reference-controller-milestone-26640ff3d389990c.json -text whitespace=cr-at-eol
+evidence/adaptation/boss-skill-page-compatibility-2c2638d9c433267b.json -text whitespace=cr-at-eol

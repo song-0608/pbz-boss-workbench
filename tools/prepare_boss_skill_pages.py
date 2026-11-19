@@ -9,6 +9,7 @@ from collections import defaultdict
 import hashlib
 import json
 from pathlib import Path
+import re
 
 import boss_metadata_jobs as metadata
 import boss_offline_inventory as inventory
@@ -24,6 +25,40 @@ REVIEWED_ROLES = ('056_youlong', '057_wanjun', '058_maddoctor',
 SOURCES = ('tools/prepare_boss_skill_pages.py', 'tools/boss_developer_candidate.lua',
            'tools/boss_combat_candidate_policy.py',
            'tests/test_boss_skill_pages.py')
+
+
+def compatible_pages(abilities, actor, config):
+    """Cover moves only with pages co-observed in one complete grant dump.
+
+    Matching Actor/CDO paths alone do not prove simultaneous availability:
+    phase changes can grant different pools on separate instances. A closed
+    session plus its exact GRANTED_COUNT line identifies one native snapshot.
+    """
+    indexed = {ability['path']: ability for ability in abilities}
+    assert len(indexed) == len(abilities), 'duplicate skill page ability'
+    cohorts = defaultdict(set)
+    for ability in abilities:
+        for grant in ability['grants']:
+            if grant['count'] != 1 or (grant['actor'], grant['config']) != (actor, config):
+                continue
+            session, line = grant.get('session'), grant.get('grant_count_line')
+            assert isinstance(session, str) and re.fullmatch(r'\d{8}-\d{6}', session), \
+                'closed native grant session required'
+            assert type(line) is int and line > 0, 'exact complete native grant snapshot required'
+            cohorts[session, line].add(ability['path'])
+    remaining = set(indexed)
+    while remaining:
+        available = [(key, paths & remaining) for key, paths in cohorts.items() if paths & remaining]
+        assert available, 'every page move needs an exact unique native grant'
+        # Prefer the largest co-observed remainder, with deterministic ties.
+        _, paths = min(available, key=lambda row: (-len(row[1]), row[0]))
+        selected = sorted(paths)[:4]
+        compatible = [dict(session=session, grant_count_line=line)
+                      for (session, line), observed in sorted(cohorts.items())
+                      if set(selected) <= observed]
+        assert compatible
+        yield [indexed[path] for path in selected], compatible
+        remaining.difference_update(selected)
 
 
 def closed_identities(root, sources):
@@ -112,10 +147,7 @@ def page_definitions(characters, identities, sources):
                                 for a in abilities)
                 continue
             identity_inputs = {row['receipt']: sources[row['receipt']] for row in observations}
-            ordered = sorted(abilities, key=lambda a: a['path'])
-            assert len({a['path'] for a in ordered}) == len(ordered)
-            for offset in range(0, len(ordered), 4):
-                selected = ordered[offset:offset + 4]
+            for selected, cohorts in compatible_pages(abilities, actor, config):
                 ability_inputs = {p: sources[p] for a in selected for p in a['receipts']}
                 definition = dict(id=identifier, class_path=actor, config_path=config, display_name=next(iter(names)),
                     ability_pool=[a['path'] for a in selected], require_complete_pool=True,
@@ -123,7 +155,8 @@ def page_definitions(characters, identities, sources):
                     ability_metadata_receipt_sha256=hashlib.sha256(metadata.canonical(ability_inputs)).hexdigest())
                 page = hashlib.sha256(metadata.canonical(definition)).hexdigest()[:16]
                 pages.append(dict(page=page, definition=definition, identity_receipts=identity_inputs,
-                    ability_receipts=ability_inputs, historical_unique_grants={a['path']:
+                    ability_receipts=ability_inputs, historical_grant_cohorts=cohorts,
+                    historical_unique_grants={a['path']:
                         [g for g in a['grants'] if g['count'] == 1 and (g['actor'], g['config']) == (actor, config)]
                         for a in selected}))
     return pages, deferred

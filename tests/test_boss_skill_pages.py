@@ -23,7 +23,8 @@ def fixture(count=9):
         path = BASE + f'Ability/GA_Test_{index:02d}.GA_Test_{index:02d}_C'
         character['abilities'].append(dict(path=path, route='leaf_with_historical_grant',
             metadata='verified', kind='leaf', receipts=['ability'],
-            grants=[dict(actor=ACTOR, config=CONFIG, count=1, session='closed')]))
+            grants=[dict(actor=ACTOR, config=CONFIG, count=1,
+                         session='20261119-010000', grant_count_line=20)]))
     return character
 
 
@@ -50,6 +51,65 @@ class SkillPageTests(unittest.TestCase):
         self.assertEqual(len(pages[0]['definition']['ability_pool']), 1)
         self.assertEqual(len(deferred), 1)
         self.assertEqual(len(pages[0]['historical_unique_grants']), 1)
+
+    def test_same_variant_with_disjoint_phase_grants_uses_separate_pages(self):
+        character = fixture(4)
+        for ability in character['abilities'][2:]:
+            ability['grants'][0]['grant_count_line'] = 40
+        pages, deferred = self.plan(character)
+        self.assertFalse(deferred)
+        self.assertEqual([len(p['definition']['ability_pool']) for p in pages], [2, 2])
+        self.assertEqual([p['historical_grant_cohorts'] for p in pages], [
+            [dict(session='20261119-010000', grant_count_line=20)],
+            [dict(session='20261119-010000', grant_count_line=40)]])
+
+    def test_same_line_in_different_sessions_is_not_one_snapshot(self):
+        character = fixture(2)
+        character['abilities'][1]['grants'][0]['session'] = '20261119-020000'
+        pages, _ = self.plan(character)
+        self.assertEqual([len(p['definition']['ability_pool']) for p in pages], [1, 1])
+
+    def test_alternative_complete_snapshots_are_retained(self):
+        character = fixture(2)
+        for ability in character['abilities']:
+            ability['grants'].append(dict(ability['grants'][0], session='20261119-020000'))
+        pages, _ = self.plan(character)
+        self.assertEqual(len(pages), 1)
+        self.assertEqual(pages[0]['historical_grant_cohorts'], [
+            dict(session='20261119-010000', grant_count_line=20),
+            dict(session='20261119-020000', grant_count_line=20)])
+
+    def test_overlapping_snapshots_cover_all_moves_once_and_stay_deterministic(self):
+        character = fixture(7)
+        for index, ability in enumerate(character['abilities']):
+            if index >= 3:
+                ability['grants'][0]['grant_count_line'] = 40
+        character['abilities'][2]['grants'].append(dict(
+            character['abilities'][2]['grants'][0], grant_count_line=40))
+        pages, _ = self.plan(character)
+        pools = [p['definition']['ability_pool'] for p in pages]
+        self.assertEqual([len(pool) for pool in pools], [4, 2, 1])
+        self.assertEqual(len({path for pool in pools for path in pool}), 7)
+        for page in pages:
+            for cohort in page['historical_grant_cohorts']:
+                for path in page['definition']['ability_pool']:
+                    ability = next(a for a in character['abilities'] if a['path'] == path)
+                    self.assertTrue(any(all(g.get(k) == v for k, v in cohort.items())
+                                        for g in ability['grants']))
+        character['abilities'].reverse()
+        for ability in character['abilities']:
+            ability['grants'].reverse()
+        self.assertEqual([p['definition'] for p in self.plan(character)[0]],
+                         [p['definition'] for p in pages])
+
+    def test_missing_or_invalid_snapshot_identity_cannot_merge_grants(self):
+        for key, value in (('session', 'closed'), ('session', None),
+                           ('grant_count_line', None), ('grant_count_line', 0),
+                           ('grant_count_line', True)):
+            character = fixture(1)
+            character['abilities'][0]['grants'][0][key] = value
+            with self.subTest(key=key, value=value), self.assertRaises(AssertionError):
+                self.plan(character)
 
     def test_duplicate_only_or_unverified_grants_do_not_create_pages(self):
         character = fixture(1)
@@ -101,7 +161,8 @@ class SkillPageTests(unittest.TestCase):
         c['variants'][0]['spawn_configs'] = [config]
         for ability in c['abilities']:
             ability.update(route='leaf_with_historical_grant', grants=[dict(actor=actor, config=config, count=1,
-                session='closed', identity_source='explicit_candidate_identity')])
+                session='20261119-010000', grant_count_line=20,
+                identity_source='explicit_candidate_identity')])
         self.assertFalse(definitions(characters, sources)[0])
         pages, deferred = page_definitions(characters, {}, sources)
         self.assertFalse(deferred)
@@ -129,7 +190,8 @@ class SkillPageTests(unittest.TestCase):
         c = characters[0]; c['abilities'] = c['abilities'][:3]
         actor = c['variants'][0]['path']; config = c['variants'][0]['observation']['observed_config']
         for a in c['abilities']:
-            a.update(route='leaf_with_historical_grant', grants=[dict(actor=actor, config=config, count=1)])
+            a.update(route='leaf_with_historical_grant', grants=[dict(actor=actor, config=config, count=1,
+                session='20261119-010000', grant_count_line=20)])
         identity = dict(characters=characters, sources=sources)
         key = hashlib.sha256(canonical(identity)).hexdigest()[:20]
         with tempfile.TemporaryDirectory() as directory:

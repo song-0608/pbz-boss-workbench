@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "kind": "boss_skill_page_compatibility_milestone",
+  "summary": "runtime/boss-skill-pages/ea7248cbed7c4b2115d0/summary.json",
+  "summary_sha256": "7fc4fb12afa156cad244ed4bb2bd57d6b925cfc0a1909d57c2a66c6bc12b51a2",
+  "source_sha256": {
+    "tools/prepare_boss_skill_pages.py": "f5290ca11792e8e309310c0b90145fb087356bf798e866c15b77c4b59dab7ce8",
+    "tools/boss_developer_candidate.lua": "2d75815715c056ab561c125c851021f254d185aa995873cd010b35487c8fdf4b",
+    "tools/boss_combat_candidate_policy.py": "6f0ab383b33efdc4b405ee69862e74ed07d0b100a31be316a98ba12673f2af0f",
+    "tests/test_boss_skill_pages.py": "ed029b0c7bf8b9a615062ee2f760e96e49afe3f71b00f6f5b4a6e7450f8e7f5d",
+    "tests/test_expanded_boss_candidate.lua": "d1c045fdc9800e2e247dba4d4578fff457806db884991d5693b297b9421f855d"
+  },
+  "pages": 18,
+  "skills": 65,
+  "historical_support_snapshots": 318,
+  "roles": {
+    "044_pengmeng": 1,
+    "056_youlong": 6,
+    "057_wanjun": 4,
+    "058_maddoctor": 3,
+    "067_motian": 1,
+    "071_xianzhe": 1,
+    "073_yanqiansui": 2
+  },
+  "checks": [
+    {
+      "id": "044_pengmeng",
+      "page": "78826106ca782c63",
+      "passed": true,
+      "simulated": true,
+      "skills": 3,
+      "output": "PASS 044_pengmeng: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "056_youlong",
+      "page": "427e1e58e7406001",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "056_youlong",
+      "page": "41922e65b3fb02a5",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "056_youlong",
+      "page": "438bdebad873b860",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "056_youlong",
+      "page": "621eb746bb0db8be",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "056_youlong",
+      "page": "4e3c40fcc69ae03c",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "056_youlong",
+      "page": "48dc3e70356c1b88",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 056_youlong: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "057_wanjun",
+      "page": "e459f3fdae11da96",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "057_wanjun",
+      "page": "a21311b9e0300ce1",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "057_wanjun",
+      "page": "d1f678720788e865",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "057_wanjun",
+      "page": "071b694292350c60",
+      "passed": true,
+      "simulated": true,
+      "skills": 2,
+      "output": "PASS 057_wanjun: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "058_maddoctor",
+      "page": "3eba47aa50935662",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "058_maddoctor",
+      "page": "4cc2dc1b68ae7827",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "058_maddoctor",
+      "page": "3504e8cf238b8751",
+      "passed": true,
+      "simulated": true,
+      "skills": 3,
+      "output": "PASS 058_maddoctor: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "067_motian",
+      "page": "ac3ec721160f4d08",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 067_motian: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "071_xianzhe",
+      "page": "5d1729aaf593455e",
+      "passed": true,
+      "simulated": true,
+      "skills": 3,
+      "output": "PASS 071_xianzhe: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "073_yanqiansui",
+      "page": "efc0f8b12c50a4cc",
+      "passed": true,
+      "simulated": true,
+      "skills": 4,
+      "output": "PASS 073_yanqiansui: exact CDO identity, native unique grants, atomic rejection"
+    },
+    {
+      "id": "073_yanqiansui",
+      "page": "f3722a29456d64e9",
+      "passed": true,
+      "simulated": true,
+      "skills": 2,
+      "output": "PASS 073_yanqiansui: exact CDO identity, native unique grants, atomic rejection"
+    }
+  ],
+  "passed": true,
+  "game_started": false,
+  "live_carrier_staged": false,
+  "installed": false,
+  "runtime_acceptance_current": false,
+  "all_boss_skills_complete": false
+}

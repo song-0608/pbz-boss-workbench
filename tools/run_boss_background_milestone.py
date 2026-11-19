@@ -37,6 +37,7 @@ TEST_MODULES = (
     'tests.test_boss_subtree_progress',
     'tests.test_boss_subtree_references',
     'tests.test_stage_boss_subtree_references',
+    'tests.test_boss_reference_milestone',
 )
 
 

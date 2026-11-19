@@ -12,6 +12,36 @@ import run_boss_background_milestone as background
 import stage_boss_subtree_references as collector
 
 BASE = 'evidence/adaptation/boss-subtree-reference-delta-03a3da0f935731f9.json'
+CURRENT = 'runtime/next-boss-reference-query.json'
+
+
+def record_report(report, root=ROOT):
+    # Imported native receipts can change the plan without changing source
+    # bytes. Keep both milestones instead of colliding on a source-only key.
+    identity = {key: report[key] for key in ('base_report', 'base_sha256',
+                'source_sha256', 'reference_plan', 'passed')}
+    identity['checks'] = [{key: value for key, value in check.items() if key != 'output'}
+                          for check in report['checks']]
+    key = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:16]
+    target = root / 'evidence/adaptation' / ('boss-reference-controller-milestone-' + key + '.json')
+    if target.exists():
+        previous = json.loads(target.read_bytes())
+        assert all(previous[name] == report[name] for name in identity if name != 'checks'), \
+            'preserve original milestone identity'
+        assert [{k: v for k, v in check.items() if k != 'output'} for check in previous['checks']] == identity['checks']
+    else:
+        write_json(target, report)
+    plan = report['reference_plan']
+    write_json(root / CURRENT, dict(schema=1,
+        status='ready_for_isolated_metadata_session' if report['passed'] else 'offline_checks_failed',
+        report=target.relative_to(root).as_posix(), report_sha256=sha(target),
+        plan=plan['directory'], plan_manifest_sha256=plan['manifest_sha256'],
+        request_counts=plan['request_counts'], batches=plan['batches'],
+        offline_checks_passed=report['passed'], native_type_queries_executed=False,
+        native_grants_verified=False, playable=False, game_started=False,
+        authentication_state='not_inferred', session_state='check_existing_entry_before_preparing',
+        separate_historical_grant_query_required=False))
+    return target
 
 
 def run():
@@ -67,15 +97,7 @@ def run():
         passed=all(check['passed'] for check in checks), game_started=False,
         ui_input_sent=False, live_carrier_staged=False, installed=False,
         runtime_acceptance_current=False, all_boss_skills_complete=False)
-    key = hashlib.sha256(json.dumps(sources, sort_keys=True).encode()).hexdigest()[:16]
-    target = ROOT / 'evidence/adaptation' / ('boss-reference-controller-milestone-' + key + '.json')
-    if target.exists():
-        previous = json.loads(target.read_bytes())
-        assert previous['source_sha256'] == sources and previous['reference_plan'] == report['reference_plan']
-        # Test timings differ on repetition. Never replace an earlier report.
-        assert previous['passed'] is True and report['passed'] is True
-    else:
-        write_json(target, report)
+    target = record_report(report)
     print(json.dumps(dict(report=str(target), passed=report['passed'], plan=str(directory),
                           queries=len(manifest['jobs']), game_started=False), ensure_ascii=False, indent=2))
     return 0 if report['passed'] else 1
