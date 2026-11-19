@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "fresh_inventory_replay_deduplication",
+  "source_sha256": {
+    "tools/boss_combo_dependencies.py": "4bbb4160d2dfd84479b4189bc7db7320f6f8d474467b46ab39125abe3cf48a10",
+    "tools/boss_native_combo_candidate.py": "27641f7777c1140101549108dde1811ccd4b6aa69f31b0b6bf04c1046287368c",
+    "tests/test_boss_combo_dependencies.py": "604ac93489507103484435a92280422fcc69b0edfd1ae10ea529e0f18e540ff8",
+    "tests/test_boss_native_combo_candidate.py": "e520613076d883d131797df2ade530e424ba525c0555d15bf59c9be3c946677e"
+  },
+  "offline_report_sha256": {
+    "evidence/adaptation/boss-reference-controller-milestone-5a849a56a541b20c.json": "38ebdb987d3003d952d23d706e63cfd870cc44ab44d836b6db95db5c7cec2bb5",
+    "evidence/adaptation/boss-native-combo-offline-41328fb03a39b617-1795068902285888000.json": "8bd66870715903bf782a9d5b8e285f9c8a49d5abdcd89373e541e699c5c60885"
+  },
+  "python_regressions": 218,
+  "combo_python_regressions": 27,
+  "combo_lua_lifecycle_cases": 14,
+  "inventory_replays_per_candidate_before": 2,
+  "inventory_replays_per_candidate_after": 1,
+  "cross_command_cache": false,
+  "source_and_session_checks_retained": true,
+  "game_started": false,
+  "ui_input_sent": false,
+  "installed": false,
+  "runtime_acceptance_current": false,
+  "playable": false,
+  "all_boss_skills_complete": false
+}

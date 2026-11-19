@@ -134,8 +134,7 @@ def modules(definition,root=ROOT):
 
 
 def expected(identifier,root=ROOT):
-    report_path,report=dependencies.build(root)
-    snapshot,*_=inventory.inputs(root)
+    report_path,report,snapshot=dependencies.build_snapshot(root)
     definition=select(identifier,report,snapshot['characters'])
     definition['dependency_report_sha256']=sha(report_path)
     files=modules(definition,root)

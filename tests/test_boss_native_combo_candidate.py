@@ -25,6 +25,19 @@ def fixture():
 
 
 class NativeComboCandidateTests(unittest.TestCase):
+    def test_expected_uses_the_dependency_replay_for_actor_identity(self):
+        report, characters = fixture()
+        report['sources'] = {}
+        snapshot = dict(characters=characters)
+        report_path = combo.ROOT / 'AGENTS.md'
+        with patch.object(combo.dependencies, 'build_snapshot', return_value=(report_path, report, snapshot)) as replay, \
+                patch.object(combo.inventory, 'inputs', side_effect=AssertionError('duplicate inventory replay')), \
+                patch.object(combo, 'modules', return_value={'boss_candidate.lua': b'fixture'}):
+            record, _, _ = combo.expected('044_pengmeng')
+        replay.assert_called_once_with(combo.ROOT)
+        self.assertEqual(record['definition']['class_path'], combo.REVIEWS['044_pengmeng']['actor'])
+        self.assertEqual(record['definition']['dependency_report_sha256'], combo.sha(report_path))
+
     def test_only_exact_reviewed_variant_and_parent_enter_the_candidate(self):
         report,characters=fixture();value=combo.select('044_pengmeng',report,characters)
         self.assertEqual(value['ability_pool'],[combo.REVIEWS['044_pengmeng']['parent']])

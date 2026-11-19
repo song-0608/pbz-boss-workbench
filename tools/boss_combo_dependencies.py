@@ -133,7 +133,13 @@ def plan(characters, audits):
     return sorted(rows, key=lambda row: (row['id'], row['parent_class']))
 
 
-def build(root=ROOT):
+def build_snapshot(root=ROOT):
+    """Return the freshly replayed inventory with its derived dependency report.
+
+    Callers that need exact Actor/CDO observations must use this same replay,
+    rather than independently scanning the entire closed history a second time.
+    No inventory is accepted from a caller or reused across commands.
+    """
     snapshot, *_ = inventory.inputs(root)
     audits = history(root)
     sources = dict(snapshot['sources'])
@@ -157,6 +163,11 @@ def build(root=ROOT):
         assert inventory.read(target) == report, 'preserve frozen dependency report'
     else:
         write_json(target, report)
+    return target, report, snapshot
+
+
+def build(root=ROOT):
+    target, report, _ = build_snapshot(root)
     return target, report
 
 

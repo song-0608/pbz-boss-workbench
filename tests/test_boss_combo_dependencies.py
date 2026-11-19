@@ -1,10 +1,13 @@
 import copy
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from boss_combo_dependencies import declarations, plan, resolve
+import boss_combo_dependencies as dependencies
 
 BASE = '/PBZCombatAsset/ActorData/Mobs/Fixture/'
 PARENT = BASE + 'Ability/GA_Combo.GA_Combo_C'
@@ -39,6 +42,29 @@ def fixture():
 
 
 class ComboDependencyTests(unittest.TestCase):
+    def test_dependency_and_actor_observations_share_one_fresh_replay_per_call(self):
+        character, audit = fixture()
+        snapshot = dict(characters=[character], sources={})
+        audit['sources'] = {}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in dependencies.SOURCES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('fixture', encoding='utf-8')
+            with patch.object(dependencies.inventory, 'inputs', return_value=(snapshot,)) as replay, \
+                    patch.object(dependencies, 'history', return_value=[audit]):
+                target, report, observed = dependencies.build_snapshot(root)
+                replay.assert_called_once_with(root)
+                self.assertIs(observed, snapshot)
+                self.assertEqual(report['parents'], plan(snapshot['characters'], [audit]))
+                self.assertTrue(target.is_file())
+                # A second invocation must replay again, with no process or
+                # on-disk cache of the earlier successful validation.
+                second, same_report = dependencies.build(root)
+                self.assertEqual(replay.call_count, 2)
+                self.assertEqual((second, same_report), (target, report))
+
     def test_nested_subtrees_resolve_to_exact_leaves_without_inventing_execution_order(self):
         a = {p: ability(p, k) for p, k in ((PARENT, 'subtree'), (NESTED, 'subtree'), (LEAF, 'leaf'))}
         result = resolve(PARENT, a, {PARENT: graph(NESTED), NESTED: graph(LEAF)})
