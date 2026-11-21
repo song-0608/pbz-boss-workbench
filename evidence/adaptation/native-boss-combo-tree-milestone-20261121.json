@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "kind": "sanitized_offline_boss_combo_tree_milestone",
+  "scan_sha256": "acc402778642dfdfe57d6db8ee16b7aa58e9fa61dcb89504f575c922d8952351",
+  "queue_sha256": "72d4ac12b16d993e3d57bad7bc657b9c3632d2317140c9740aee7b96297bf201",
+  "source_sha256": "3aa9a40ac72e8b0feea29089479ece9814c958646ef64fb4e330e3a792ef3695",
+  "parents": 150,
+  "mapped_parents": 150,
+  "trees": 256,
+  "parents_with_gaps": 14,
+  "folders": 64,
+  "parents_by_folder": {
+    "000_Hun": 1,
+    "003_MaleThug": 1,
+    "005_ModDog": 1,
+    "006_GoldMaskMan": 1,
+    "008_GreatBladeMan": 4,
+    "011_IronMaskMan": 2,
+    "012_MBoss": 4,
+    "013_MBossVariants": 1,
+    "014_JadeMaskMan": 2,
+    "015_PowerMan": 3,
+    "016_MobManElite": 1,
+    "019_Vessel_Vagrant": 1,
+    "021_Vessel_Man": 1,
+    "024_Vessel_Giant": 1,
+    "025_FemaleThug": 1,
+    "028_YanYan": 1,
+    "034_EMei": 6,
+    "035_HuaShan": 12,
+    "036_SpearMan": 3,
+    "037_GuiChai": 3,
+    "038_AquaKiller": 3,
+    "042_AHua": 4,
+    "044_PengMeng": 4,
+    "045_JingYe": 2,
+    "046_Yuu": 1,
+    "048_HookMan": 2,
+    "050_LeiDang_P2": 2,
+    "051_HookMan_P2": 2,
+    "052_BaiheDisciple": 4,
+    "054_ZuoShang": 1,
+    "056_YouLong": 3,
+    "057_WanJun": 3,
+    "058_MadDoctor": 1,
+    "059_DuYan": 4,
+    "060_GuiChai_Yellow": 5,
+    "063_ChiLian_P1": 2,
+    "064_MuXiaoKui_P2": 1,
+    "068_YuZan": 5,
+    "071_XianZhe": 1,
+    "072_CanQu_BiYuan": 1,
+    "074_WuLengShuang": 1,
+    "075_GuiChai_Red_P2": 4,
+    "076_ZuoShang_P2": 2,
+    "077_LengTu": 1,
+    "079_XuKong": 1,
+    "888_UltimateBoss": 1,
+    "CanQu_BiHai": 1,
+    "DaTouWaWa": 1,
+    "DangHui": 2,
+    "FeiZei": 1,
+    "FemaleDoll": 1,
+    "FengXueDaoKe": 1,
+    "HuaQianXiao": 5,
+    "HuoTongRen": 3,
+    "JiangJun": 2,
+    "LionDancer": 2,
+    "LionDancer_P2": 3,
+    "LuanShi": 3,
+    "MaleDoll": 4,
+    "QiShu": 4,
+    "YingMei": 1,
+    "YuBi": 1,
+    "YuCong": 3,
+    "YuDing_00": 1
+  },
+  "gaps": {
+    "unserialized_task_ability": 11,
+    "subtree_cycle_or_depth_limit": 2,
+    "dynamic_subtree_selection": 2
+  },
+  "files": {
+    "parents.json": "f87168c1287db06161b9f739e7144efe003d68ff254d451ebb000f2e4f947586",
+    "trees.json": "4fb5cba410d4a8da733438c4ad5ce6cb2ef9ae3f72f85ae41710a5fd6a827a95"
+  },
+  "game_started": false,
+  "installed": false,
+  "activation_allowed": false,
+  "execution_order_verified": false,
+  "created_at": "2026-11-21T10:36:24.187203+08:00",
+  "index_summary_sha256": "67528ae1627b960c56bd68d3cd023791a18e8db92cc4361e2787627ac33c43a0",
+  "tests_passed": 74,
+  "focused_roles": {
+    "057_WanJun": [
+      {
+        "class": "GA_WanJun_NightMareCombo_C",
+        "trees": 7,
+        "unique_ability_refs": 16,
+        "coobserved_ability_refs": 15,
+        "gaps": []
+      },
+      {
+        "class": "GA_WanJun_Skill_08_C",
+        "trees": 1,
+        "unique_ability_refs": 4,
+        "coobserved_ability_refs": 0,
+        "gaps": []
+      },
+      {
+        "class": "GA_WanJun_Skill_09_C",
+        "trees": 1,
+        "unique_ability_refs": 2,
+        "coobserved_ability_refs": 1,
+        "gaps": []
+      }
+    ],
+    "056_YouLong": [
+      {
+        "class": "GA_YouLong_CACombo_01_C",
+        "trees": 1,
+        "unique_ability_refs": 6,
+        "coobserved_ability_refs": 0,
+        "gaps": []
+      },
+      {
+        "class": "GA_YouLong_CACombo_01_Mad_C",
+        "trees": 1,
+        "unique_ability_refs": 8,
+        "coobserved_ability_refs": 5,
+        "gaps": []
+      },
+      {
+        "class": "GA_YouLong_Drive_C",
+        "trees": 3,
+        "unique_ability_refs": 19,
+        "coobserved_ability_refs": 10,
+        "gaps": []
+      }
+    ]
+  },
+  "ready_for_mod_delivery": false,
+  "priority_skill_pages": {
+    "page_count": 12,
+    "skill_count": 44,
+    "sha256": "6008feed9375e55b3593335a16f10eb262623f2b6d3920970a68fc44fa37fe29",
+    "fixtures_passed": true
+  }
+}
