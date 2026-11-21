@@ -5,9 +5,11 @@ All output is immutable metadata. No game, editor, input, or live grant API is u
 """
 import argparse
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 import copy
 import csv
 import hashlib
+from itertools import islice
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -345,6 +347,22 @@ def script_reference_map(sources, declarations, mapping_sha256):
     return result, identities, unresolved
 
 
+def checked_declaration(entry, cached):
+    key, item = entry
+    data = Path(item['declaration']).read_bytes()
+    if hashlib.sha256(data).hexdigest() != item['declaration_sha256']:
+        raise ValueError('Declaration digest changed: '+item['package'])
+    return key, item, None if cached else data
+
+
+def verified_declarations(declarations, cache):
+    """Overlap bounded disk reads without relaxing per-file digest checks."""
+    entries = iter(sorted(declarations.items()))
+    with ThreadPoolExecutor(max_workers=8) as readers:
+        while batch := list(islice(entries, 32)):
+            yield from readers.map(checked_declaration, batch, (key in cache for key, _ in batch))
+
+
 def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cinematic_cache=False,
          reuse_scan=None):
     """One verified read per package; return a reusable local dependency graph."""
@@ -361,11 +379,7 @@ def scan(index, sources, script_sources=(), *, allow_incomplete=False, defer_cin
     edges, missing, native, unindexed, deferred = [], set(), set(), set(), set()
     by_folder = Counter()
     ability_count = timeline_count = action_count = issue_count = 0
-    for ordinal, (key, item) in enumerate(sorted(existing.items())):
-        path = Path(item['declaration'])
-        data = path.read_bytes()
-        if hashlib.sha256(data).hexdigest() != item['declaration_sha256']:
-            raise ValueError('Declaration digest changed: '+item['package'])
+    for ordinal, (key, item, data) in enumerate(verified_declarations(existing, cached)):
         previous=cached.get(key)
         if previous is not None:
             # Hashing remains mandatory; only parsing is reused.

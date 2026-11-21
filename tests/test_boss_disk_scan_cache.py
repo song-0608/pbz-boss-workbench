@@ -1,4 +1,5 @@
 import json
+import hashlib
 from pathlib import Path
 import sys
 import tempfile
@@ -46,6 +47,19 @@ class ScanCacheTests(unittest.TestCase):
     def test_changed_semantic_parser_sources_are_rejected(self):
         self.report['sources']['boss_disk_skill_index.py']='0'*64
         with self.assertRaisesRegex(ValueError,'parser sources'):
+            self.load()
+
+    def test_serial_cache_migrates_only_to_the_approved_parallel_reader(self):
+        parser = 'boss_disk_dependencies.py'
+        helper = 'boss_disk_scan_cache.py'
+        self.report['sources'][parser], self.report['sources'][helper] = cache.SERIAL_CAPTURE_SOURCES
+        parser_file = Path(cache.__file__).with_name(parser)
+        self.sources[parser] = hashlib.sha256(parser_file.read_bytes()).hexdigest()
+        identity = self.load()[2]
+        self.assertTrue(identity['serial_read_migration'])
+        self.assertTrue(identity['contents_still_require_sha256'])
+        self.sources[parser] = '0' * 64
+        with self.assertRaisesRegex(ValueError, 'parser sources'):
             self.load()
 
     def test_old_script_inputs_cannot_disappear(self):
