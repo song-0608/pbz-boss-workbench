@@ -13,8 +13,8 @@ function Defense.new(adapter,options)
     return setmetatable({adapter=adapter,interval=interval,held=false,armed=false,owned=false,
         release_pending=false,release_notified=false,next_try=0,last_time=nil,identity=nil,attempts=0},Defense)
 end
-function Defense:context()
-    local c=self.adapter.context()
+function Defense:context(input)
+    local c=self.adapter.context(input)
     assert(type(c)=='table'and finite(c.now)and type(c.identity)=='string'and c.identity~='',
         'current defense context required')
     assert(c.same_world==true,'stale defense world rejected')
@@ -44,8 +44,11 @@ function Defense:release(reason)
 end
 function Defense:step(input)
     assert(type(input)=='table'and type(input.down)=='boolean','sampled defense key required')
-    local c=self:context()
-    if input.allowed~=true or c.allowed~=true then
+    if input.allowed~=true then
+        self:release('input suspended');return false,'suspended'
+    end
+    local c=self:context(input)
+    if c.allowed~=true then
         self:release('input suspended');return false,'suspended'
     end
     if not input.down then self:release('key released');self.armed=true;return true,'idle'end

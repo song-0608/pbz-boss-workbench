@@ -78,7 +78,6 @@ function Controls.attach(session,options)
     end
     function session:sample_combat_input(input)
         if input and input.allowed~=true then
-            self.native_combat_controls.input_permitted=false
             if self.native_combat_controls.defense then
                 self.native_combat_controls.defense:step({down=false,allowed=false})
             end
@@ -93,8 +92,8 @@ function Controls.attach(session,options)
         local c=session.native_combat_controls
         if c.receipt~=session.receipt then return false,'combat receipt changed'end
         if c.failed then return false,c.failed end
-        c:sample() -- Fresh focus/held-state also arbitrates a key callback between frames.
-        if c.options.input_allowed()~=true or c.input_permitted==false then
+        -- A key callback between frames takes its own fresh focus/held sample.
+        if c:sample()~=true then
             if session.clear_buffered_skill then session:clear_buffered_skill('input suspended')end
             return false,'combat input suspended'
         end
@@ -135,10 +134,9 @@ function Controls:begin(receipt)
     assert(not self.receipt and self.session.state=='ACTIVE'and self.session.receipt==receipt,
         'new active combat receipt required')
     self.receipt=receipt;self.failed=nil;self.cleanup_pending=true
-    self.input_permitted=nil
     if self.options.defense then
         self.defense=require('boss_defense_bridge').attach(self.session.bridge,receipt,
-            self.options.defense,self.options.now,self.options.input_allowed)
+            self.options.defense,self.options.now,self.options.input_allowed,self.options.native_input and true)
     end
     if self.options.cues then
         self.cue=require('boss_cue_bridge').new(self.session.bridge,self.options.globals,
@@ -154,21 +152,25 @@ function Controls:sample()
     if not self.receipt then return true end
     assert(self.session.receipt==self.receipt and self.session.state=='ACTIVE','stale combat sample rejected')
     assert(not self.failed,self.failed)
-    local permitted=self.options.input_allowed()==true
-    if not permitted and self.cue then assert(self.cue:cleanup(),'focus-loss cue cleanup failed')end
-    if not self.defense then self.input_permitted=permitted;return permitted end
+    if not self.defense then
+        local permitted=self.options.input_allowed()==true
+        if not permitted and self.cue then assert(self.cue:cleanup(),'focus-loss cue cleanup failed')end
+        return permitted
+    end
     -- Busy is observed from the session, never guessed from elapsed animation time.
     self.receipt.combat_action_active=self.session.current_skill~=nil
     local input=self.options.read_defense(self.receipt,self.options.defense.key)
     assert(type(input)=='table'and type(input.down)=='boolean'and type(input.allowed)=='boolean',
         'verified native defense sample unreadable')
-    self.input_permitted=input.allowed
-    if input.allowed~=true and self.cue then assert(self.cue:cleanup(),'suspended cue cleanup failed')end
-    local ok,why=self.defense:step(input)
+    local permitted=input.allowed
+    if permitted and not self.options.native_input then permitted=self.options.input_allowed()==true end
+    local _,why=self.defense:step({allowed=permitted,down=input.down,now=input.now})
+    if why=='suspended' then permitted=false end
+    if not permitted and self.cue then assert(self.cue:cleanup(),'suspended cue cleanup failed')end
     if self.defense:blocks_action()and self.session.clear_buffered_skill then
         self.session:clear_buffered_skill('defense held')
     end
-    return input.allowed and permitted,why
+    return permitted,why
 end
 function Controls:cleanup()
     if not self.receipt then return true,{}end
@@ -190,7 +192,7 @@ function Controls:cleanup()
     if not self.cleanup_pending then
         self.receipt.combat_action_active=nil
         if self.receipt.native_defense==self.defense then self.receipt.native_defense=nil end
-        self.receipt,self.defense,self.cue,self.input_permitted=nil,nil,nil,nil
+        self.receipt,self.defense,self.cue=nil,nil,nil
     end
     return not self.cleanup_pending,errors
 end
@@ -208,7 +210,7 @@ function Controls:retire()
     end
     if r.native_defense==self.defense then r.native_defense=nil end
     r.combat_action_active=nil
-    self.receipt,self.defense,self.cue,self.input_permitted=nil,nil,nil,nil
+    self.receipt,self.defense,self.cue=nil,nil,nil
     self.cleanup_pending=false
     self.disposal_verified=nil
 end

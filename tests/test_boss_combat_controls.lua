@@ -230,15 +230,28 @@ test('production Session restores across pending and retired Worlds with retryab
 end)
 test('native helper supplies the monotonic clock and fresh fixed-key sample without editing the contract',function()
     local f=fixture()
+    local snapshots,checks=0,0
     f.options.native_input={binding_verified=true,pid=42}
+    f.options.input_allowed=function()checks=checks+1;return f.allowed end
     f.options.globals={PBZNativeCombatInputSnapshot=function()
+        snapshots=snapshots+1
         return{schema=1,pid=42,now=f.now,allowed=f.focused,down=f.focused and f.down}
     end}
     f.options.input_binding_verified=nil;f.options.focus_binding_verified=nil
     f.options.read_defense=function()error('legacy sampler must be replaced')end
-    f.attach();f.session:enter();assert(f.session:sample_combat_input({allowed=true}))
-    f.down=true;f.now=.1;assert(f.session:sample_combat_input({allowed=true}));assert(f.active==1)
+    f.attach();f.session:enter()
+    for _=1,120 do assert(f.session:sample_combat_input({allowed=true})) end
+    assert(snapshots==120 and checks==120 and f.spec_reads==1,'one fresh native sample per idle frame')
+    assert(f.session:skill('one'));assert(snapshots==121 and checks==121 and f.casts==1)
+    f.down=true;f.now=.1;assert(f.session:sample_combat_input({allowed=true}))
+    assert(f.active==1 and snapshots==122 and checks==122)
     f.focused=false;assert(not f.session:sample_combat_input({allowed=true}));assert(f.active==0)
     assert(f.options.focus_binding_verified==nil,'caller contract must remain immutable')
+end)
+test('a denied control check cannot admit movement or a key callback',function()
+    local f=fixture();f.attach();assert(f.session:enter())
+    f.session.bridge.verify_control=function()return false end
+    assert(not f.session:sample_combat_input({allowed=true}))
+    assert(not f.session:skill('one') and f.casts==0)
 end)
 print('Native combat arbitration fixtures: '..total..'; no live defense or visual acceptance')

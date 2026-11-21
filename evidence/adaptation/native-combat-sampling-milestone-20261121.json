@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "kind": "native_combat_input_sampling_milestone",
+  "created_at": "2026-11-21T09:55:59.918327+08:00",
+  "candidate": "ahua-player-travel-dev-788709fb2ec094c6",
+  "candidate_manifest_sha256": "fac6d4863e9edf7a22af0bfe1fb6b17462fd4cee044e80fe6982af788d857706",
+  "source_regression_sha256": "8a78fafe1d5ea1cbc35d1fdf79c48e3d813362e205fa9e0c763db46b3483c1d0",
+  "source_regression_groups": 61,
+  "capture_summary_sha256": "cce8fd06dc240e65dd42d9657017f034509e1616dd1b76959712defd99b84791",
+  "cue_audit_sha256": "99b91979316daaa4bedad0cfb93ab284623c455509e8a57e7078b3d57b09b2ac",
+  "idle_frames_per_fixture": 1000,
+  "native_snapshots_before": 4000,
+  "native_snapshots_after": 1000,
+  "session_gate_calls_before": 3000,
+  "session_gate_calls_after": 1000,
+  "stance_spec_reads_per_fixture": 1,
+  "wanjun_light": {
+    "start_seconds": 1.4061071,
+    "duration_seconds": 0.06,
+    "historical_receipt_sha256": "9b9c222935c33b26665d2b07d66fd033fff455da0846fbb7e094857a420e9bd5",
+    "damage_verified": false
+  },
+  "wanjun_native_cues": {
+    "red": {
+      "slot": "GA_WanJun_HeavyAttack_01_C",
+      "start_seconds": 1.0695332,
+      "duration_seconds": 0.73844683
+    },
+    "blue": {
+      "slot": "GA_WanJun_DodgeAttack_L_C",
+      "start_seconds": 2.6314387,
+      "duration_seconds": 0.40432334
+    }
+  },
+  "youlong_historical_unique_stance_records": 21,
+  "live_frame_time_verified": false,
+  "live_defense_verified": false,
+  "live_cues_verified": false,
+  "cross_map_runtime_verified": false,
+  "game_started": false,
+  "installed": false
+}

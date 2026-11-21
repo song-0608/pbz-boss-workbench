@@ -1,7 +1,7 @@
 -- Explicit development adapter for a role's unique, already granted NPC stance.
 -- No player skeleton transplant, new grants, timer edits or resource/cooldown bypass.
 local Adapter={}
-function Adapter.attach(bridge,receipt,contract,clock,input_allowed)
+function Adapter.attach(bridge,receipt,contract,clock,input_allowed,native_sample)
     assert(not receipt.native_defense,'native defense already attached; release before replacement')
     assert(contract and contract.developer_only==true and contract.declaration_verified==true
         and contract.class_path and contract.active_count_field=='ActiveCount'
@@ -25,10 +25,16 @@ function Adapter.attach(bridge,receipt,contract,clock,input_allowed)
         return spec,active,asc
     end
     local defense=require('boss_defense_input').new({
-        context=function()
+        context=function(input)
             check_owner()
-            return {now=clock(),identity=identity,same_world=true,
-                allowed=receipt.input_enabled and input_allowed()==true and bridge:verify_control(receipt)==true,
+            local now,permitted
+            if native_sample and input then
+                now,permitted=input.now,input.allowed==true
+            else
+                now,permitted=clock(),input_allowed()==true
+            end
+            return {now=now,identity=identity,same_world=true,
+                allowed=receipt.input_enabled and permitted and bridge:verify_control(receipt)==true,
                 busy=receipt.target_transition~=nil or receipt.combat_action_active==true}
         end,
         active=function()local _,count=current();return count>0 end,
