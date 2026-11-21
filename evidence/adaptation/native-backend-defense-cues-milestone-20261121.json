@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "kind": "native-backend-adaptation-and-defense-cues-milestone",
+  "date": "2026-11-21",
+  "background_batch": {
+    "sha256": "e7aa04ad0db8188b87f3b8d3a51028a8a2d00bb7b57fc4e118be93c02d56257a",
+    "passed": true,
+    "check_groups": 147,
+    "variant_pools": 44,
+    "variants": 36,
+    "skill_pages": 22,
+    "skills": 82,
+    "full_catalog_requests": 237,
+    "game_started": false,
+    "installed": false,
+    "playable": false,
+    "local_report": "evidence/adaptation/boss-background-milestone-8bf005dc1a1745a7-1795157044701310500.json"
+  },
+  "control_hot_path": {
+    "sha256": "f43c16efe51bcd350c8fcf8a8398442a736357abdbf9ccbfc4bc0156d9aaa01c",
+    "offline_checks": 60,
+    "remote_reads_per_1000_idle_calls": {
+      "baseline": 13000,
+      "candidate": 6000
+    },
+    "writes": 0,
+    "local_report": "evidence/adaptation/native-backend-performance-milestone-20261120.json"
+  },
+  "defense_and_cues": {
+    "report": "evidence/adaptation/native-defense-cues-development-20261119.json",
+    "sha256": "da9106295caa968471f90fea3d8d5ee103bedac141820f20220d9f9002c9218e",
+    "offline_checks": 59,
+    "offline_script_packages": 4,
+    "complete_functions": 95,
+    "published_skills_with_declared_cues": 8,
+    "stance_ancestry_classes": 55,
+    "cue_render_verified": false,
+    "defense_runtime_verified": false,
+    "native_key_runtime_verified": false,
+    "evidence_scope": "Historical focused defense and cue support baseline"
+  },
+  "repeatability_and_reentry": {
+    "report": "evidence/adaptation/boss-repeat-window-gates-offline-d743ca5ce1ba3b4a.json",
+    "sha256": "faa5b71290fd551c0d91cea1d4aecb655ca95d9fe46095973355226f0ba2d4ab",
+    "offline_tests": 15,
+    "passed": true,
+    "historical_replays": [
+      "evidence/adaptation/boss-skill-repeat-135c1e7a208ac877.json",
+      "evidence/adaptation/boss-skill-repeat-834aab29175f6a9d.json"
+    ],
+    "runtime_acceptance_current": false
+  },
+  "world_and_combo": {
+    "combo_observation_sha256": "94838cef61c5ac95f7c7f457a937fb70b76109b0d5d2bb6b016cf6c6dd97b68d",
+    "cross_map_runtime_verified": false,
+    "combo_execution_order_proven": false,
+    "local_historical_observation": "evidence/adaptation/boss-native-combo-observation-d5e50a6da5f4e623.json"
+  },
+  "phase_operations": {
+    "computer_use_calls": 0,
+    "game_launches": 0,
+    "game_inputs": 0,
+    "mod_installs": 0,
+    "ue_launches": 0
+  },
+  "activation_allowed": false,
+  "playable": false,
+  "all_boss_skills_complete": false,
+  "ready_for_final_delivery": false,
+  "known_next_work": [
+    "Review exact native role and phase grants for the prioritized repertoire",
+    "Confirm stance availability, hit effects, native red/blue rendering, repeated skills and movement during isolated acceptance"
+  ],
+  "terminal_combat_declarations": {
+    "analyzed_abilities": 4865,
+    "quarantined_abilities": 1,
+    "abilities_with_cue_clues": 917,
+    "explicit_cue_action_abilities": 742,
+    "cue_clues_by_native_route": {
+      "no_closed_native_record": 441,
+      "needs_variant_grant": 426,
+      "utility_or_dependency_review": 14,
+      "in_v5_profile": 8,
+      "leaf_with_historical_grant": 28
+    },
+    "unresolved_timeline_by_native_route": {
+      "no_closed_native_record": 320,
+      "metadata_or_subtree_review": 147,
+      "utility_or_dependency_review": 73,
+      "needs_variant_grant": 21,
+      "in_v5_profile": 3,
+      "leaf_with_historical_grant": 2
+    },
+    "capture_gaps": {
+      "failed_dependencies": 1877,
+      "deferred_dependencies": 13607,
+      "unindexed_references": 412,
+      "unresolved_script_functions": 0,
+      "ability_indexing_issues": 1
+    },
+    "sources": {
+      "scan_sha256": "d2ef5b937f3218eea35dbdd0d18b8995578303e7ea77d9e84a81ba0be9d50b87",
+      "queue_sha256": "5ccef258445837b1e9dd36cbbac1f800654ea1378675aa30d34f0a88600fb208",
+      "audit_sha256": "ddc74db296e38130d05f64689bc943d847c96c715b85c5821269592e53497258"
+    },
+    "local_report": "terminal-combat-declarations-v1.json",
+    "report_sha256": "85510c332ab24c33396d91cd2886999f630daebdbc572abbb276c1a95b4c10f6",
+    "npc_stance_classes": 69,
+    "npc_stance_folders": 51,
+    "npc_stances_with_historical_grants": [
+      {
+        "folder": "056_YouLong",
+        "historical_grant_records": 21
+      },
+      {
+        "folder": "067_MoTian",
+        "historical_grant_records": 1
+      }
+    ]
+  },
+  "current_candidate_regression": {
+    "local_report": "ahua-player-travel-dev-44703adc8ae2740d-source-offline-1795220866833119900.json",
+    "sha256": "a391a0734443baa0e5792339a4a316a6a276e79fbc2e336d8fa1ec8380c6fea6",
+    "check_groups": 61,
+    "targeted_python_tests": 34,
+    "combat_arbitration_cases": 18,
+    "idle_frames": 120,
+    "stance_grant_reads_during_idle_frames": 0,
+    "defense_samples_per_idle_frame": 1
+  },
+  "frozen_queue_routes": {
+    "no_closed_native_record": 2523,
+    "needs_variant_grant": 1887,
+    "metadata_or_subtree_review": 147,
+    "utility_or_dependency_review": 156,
+    "in_v5_profile": 58,
+    "leaf_with_historical_grant": 94
+  }
+}

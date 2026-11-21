@@ -118,6 +118,65 @@ class DefenseCueAuditTests(unittest.TestCase):
         self.assertEqual(found['activation_requirements']['RequireTags'], ['Native.Blue'])
         self.assertEqual(found['explicit_cue_assets'], ['/FX/NS_Ground_Red_101.NS_Ground_Red_101'])
 
+    def test_terminal_scan_binds_inherited_cues_to_the_verified_declaration(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'declaration.json'
+            def ref(kind, name, ordinal):
+                return dict(ObjectName=f"{kind}'{name}'", ObjectPath=f'/PBZCombatAsset/GA_Parent.{ordinal}')
+            kind = 'LegoAbilityBlueprintGeneratedClass'
+            path.write_text(json.dumps([
+                dict(Type=kind, Name='GA_Parent_C', Package='/PBZCombatAsset/GA_Parent',
+                     ClassDefaultObject=ref('GA_Parent_C', 'Default__GA_Parent_C', 1),
+                     Properties={'AbilityTimelines': [ref('LGATimeline', 'Main', 2)]}),
+                dict(Type='GA_Parent_C', Name='Default__GA_Parent_C'),
+                dict(Type='LGATimeline', Name='Main', Properties={'Actions': [
+                    dict(Action=ref('GAAction_PowerAttackParticle_C', 'Cue', 3), StartTime=0, duration=1)]}),
+                dict(Type='GAAction_PowerAttackParticle_C', Name='Cue'),
+            ]), encoding='utf-8')
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            abilities = [dict(class_path=class_path, issues=[], export_index=0,
+                              timeline_resolution=resolution, effective_timeline_class=owner,
+                              timeline_override=override)
+                         for class_path, resolution, owner, override in (
+                             (PARENT, 'own_declared', PARENT, 'declared'),
+                             (CHILD, 'inherited_declared', PARENT, 'missing_inherits'),
+                             ('/PBZCombatAsset/GA_Empty.GA_Empty_C', 'own_empty',
+                              '/PBZCombatAsset/GA_Empty.GA_Empty_C', 'explicit_empty'))]
+            scan = dict(ability_classes=3, packages=[dict(folder='fixture', abilities=abilities,
+                        package='ProjectPBZ/Plugins/Secret/PBZCombatAsset/Content/GA_Parent.uasset',
+                        declaration=str(path), declaration_sha256=digest)])
+            queue = dict(rows=[dict(class_path=a['class_path'], timeline_resolution=a['timeline_resolution'],
+                                    effective_timeline_class=a['effective_timeline_class'],
+                                    disk_declaration_sha256=digest, native_route='needs_variant_grant')
+                               for a in abilities], quarantined_rows=[], capture_gaps={})
+            result = audit.audit_terminal_scan(scan, queue)
+            self.assertEqual(result['abilities_with_cue_clues'], 2)
+            self.assertEqual([row['timeline_owner'] for row in result['rows']], [PARENT, PARENT])
+            self.assertFalse(result['activation_allowed'])
+            queue['rows'][1]['effective_timeline_class'] = CHILD
+            with self.assertRaisesRegex(ValueError, 'terminal declaration differ'):
+                audit.audit_terminal_scan(scan, queue)
+            queue['rows'][1]['effective_timeline_class'] = PARENT
+            path.write_text('[]', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'declaration changed'):
+                audit.audit_terminal_scan(scan, queue)
+
+    def test_terminal_stance_parent_requires_matching_type_and_export_index(self):
+        path = '/PBZCombatAsset/ActorData/Mobs/Fixture/GA_Stance.GA_Stance_C'
+        ref = reference(audit.NPC_STANCE_BASE)['Super']
+        parent = dict(class_path=audit.NPC_STANCE_BASE, export_index=123,
+                      export_type='LegoAbilityBlueprintGeneratedClass')
+        scan = dict(packages=[dict(parent_classes=[parent, dict(class_path=path, serialized_super=ref)])])
+        rows = {path: dict(folder='Fixture', native_route='utility_or_dependency_review',
+                           historical_unique_grants=[{}, {}])}
+        stance, = audit.terminal_npc_stances(scan, rows)
+        self.assertEqual(stance['historical_unique_grants'], 2)
+        parent['export_index'] = 121
+        self.assertEqual(audit.terminal_npc_stances(scan, rows), [])
+        parent['export_index'] = 123
+        parent['export_type'] = 'BlueprintGeneratedClass'
+        self.assertEqual(audit.terminal_npc_stances(scan, rows), [])
+
 
 if __name__ == '__main__':
     unittest.main()

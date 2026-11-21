@@ -6,10 +6,12 @@ import json
 from pathlib import Path
 
 import boss_disk_declarations as disk
-from boss_disk_skill_index import OBJECT_NAME, references, resolve_local
+from boss_disk_dependencies import native_package
+from boss_disk_skill_index import OBJECT_NAME, abilities as parse_abilities, references, resolve_local
 
 CUE_ACTIONS = {'GAAction_WeaponParticle_BlueRedEye_C', 'GAAction_PowerAttackParticle_C'}
 STANCE_BASE = '/PBZDeflectSystem/Abilities/BP_StanceAction_Base.BP_StanceAction_Base_C'
+NPC_STANCE_BASE = '/PBZDeflectSystem/Abilities/BP_StanceAction_Base_NPC.BP_StanceAction_Base_NPC_C'
 
 
 def native_contract_ready(classes):
@@ -214,12 +216,139 @@ def build(index_path, coverage_path, support):
     return result
 
 
+def audit_terminal_scan(scan, coverage):
+    """Recheck captured timeline owners before reading exact native cue actions."""
+    indexed = {}
+    quarantined = Counter()
+    for package in scan['packages']:
+        for ability in package['abilities']:
+            path = ability['class_path']
+            if not path or ability['issues']:
+                quarantined[path, package['declaration_sha256']] += 1
+                continue
+            if path in indexed:
+                raise ValueError('Duplicate serialized ability identity')
+            indexed[path] = (package, ability)
+    rows = {row['class_path']: row for row in coverage['rows']}
+    queue_quarantined = Counter((row['class_path'], row['disk_declaration_sha256'])
+                                for row in coverage['quarantined_rows'])
+    if (len(rows) != len(coverage['rows']) or rows.keys() != indexed.keys()
+            or quarantined != queue_quarantined
+            or len(rows) + len(coverage['quarantined_rows']) != scan['ability_classes']):
+        raise ValueError('Coverage does not match the terminal ability inventory')
+
+    cues_by_owner = {}
+    result = []
+    unresolved = Counter()
+    declared = Counter()
+    for path, (package, ability) in indexed.items():
+        row = rows[path]
+        if (row['disk_declaration_sha256'] != package['declaration_sha256']
+                or row['timeline_resolution'] != ability['timeline_resolution']
+                or row['effective_timeline_class'] != ability['effective_timeline_class']):
+            raise ValueError('Coverage and terminal declaration differ: ' + path)
+        route = row['native_route']
+        owner = ability['effective_timeline_class']
+        if owner is None:
+            unresolved[route] += 1
+            continue
+        if owner not in indexed:
+            # An inherited timeline may belong to a class with a quarantined action.
+            unresolved[route] += 1
+            continue
+        if owner not in cues_by_owner:
+            source, origin = indexed[owner]
+            if origin['timeline_override'] == 'explicit_empty':
+                cues_by_owner[owner] = []
+            else:
+                declaration = Path(source['declaration']).read_bytes()
+                if hashlib.sha256(declaration).hexdigest() != source['declaration_sha256']:
+                    raise ValueError('Cue timeline declaration changed: ' + owner)
+                matches = [item for item in parse_abilities(json.loads(declaration),
+                           native_package(source['package']), include_native_types=True)
+                           if item['class_path'] == owner and item['export_index'] == origin['export_index']]
+                if len(matches) != 1 or matches[0]['issues'] or origin['timeline_override'] != 'declared':
+                    raise ValueError('Exact native timeline owner required: ' + owner)
+                cues_by_owner[owner] = list(cue_actions(matches[0], {}))
+        cues = cues_by_owner[owner]
+        if cues:
+            declared[route] += 1
+            result.append(dict(class_path=path, folder=package['folder'], native_route=route,
+                               timeline_owner=owner, cue_actions=cues))
+    return dict(schema=1, kind='terminal_native_cue_declaration_audit',
+                analyzed_abilities=len(rows), quarantined_abilities=len(coverage['quarantined_rows']),
+                abilities_with_cue_clues=len(result), cue_clues_by_native_route=dict(declared),
+                unresolved_timeline_by_native_route=dict(unresolved),
+                explicit_cue_action_abilities=sum(any(action['type'] in CUE_ACTIONS
+                    for action in row['cue_actions']) for row in result),
+                rows=result, capture_gaps=coverage['capture_gaps'], game_started=False,
+                npc_stances=terminal_npc_stances(scan, rows),
+                activation_allowed=False, cue_render_verified=False, defense_runtime_verified=False)
+
+
+def terminal_npc_stances(scan, rows):
+    classes = {item['class_path'].casefold(): item for package in scan['packages']
+               for item in package.get('parent_classes', ())}
+    result = []
+    for path, row in rows.items():
+        if not path.startswith('/PBZCombatAsset/ActorData/Mobs/'):
+            continue
+        current = classes.get(path.casefold())
+        seen = set()
+        while current and current['class_path'] not in seen:
+            current_path = current['class_path']
+            if current_path == NPC_STANCE_BASE:
+                result.append(dict(class_path=path, folder=row['folder'], native_route=row['native_route'],
+                                   historical_unique_grants=len(row['historical_unique_grants'])))
+                break
+            seen.add(current_path)
+            ref = current['serialized_super']
+            parent = class_reference(ref)
+            match = classes.get(parent.casefold()) if parent else None
+            if not match or not ref['ObjectPath'].endswith('.' + str(match['export_index'])):
+                break
+            if OBJECT_NAME.fullmatch(ref['ObjectName'])[1] != match['export_type']:
+                break
+            current = match
+    return result
+
+
+def build_terminal(scan_path, coverage_path):
+    scan_bytes, coverage_bytes = Path(scan_path).read_bytes(), Path(coverage_path).read_bytes()
+    scan, coverage = json.loads(scan_bytes), json.loads(coverage_bytes)
+    scan_sha = hashlib.sha256(scan_bytes).hexdigest()
+    if (scan.get('kind') != 'offline_native_dependency_scan'
+            or scan.get('declaration_contents_verified') is not True
+            or scan.get('pending_roots') != 0 or scan.get('pending_dependency_count') != 0
+            or scan['root_packages'] != scan['extracted_roots']
+            or coverage.get('kind') != 'dependency_disk_and_closed_native_skill_coverage'
+            or coverage.get('disk_dependency_scan_sha256') != scan_sha
+            or any(coverage.get(key) is not False for key in
+                   ('game_started', 'activation_allowed', 'playable'))):
+        raise ValueError('Matching verified terminal scan and adaptation queue required')
+    result = audit_terminal_scan(scan, coverage)
+    result['sources'] = dict(scan_sha256=scan_sha,
+                             queue_sha256=hashlib.sha256(coverage_bytes).hexdigest(),
+                             audit_sha256=disk.digest(__file__))
+    return result
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    for name in ('index', 'coverage', 'support', 'output'):
+    inputs = parser.add_mutually_exclusive_group(required=True)
+    inputs.add_argument('--index', type=Path)
+    inputs.add_argument('--dependency-scan', type=Path)
+    parser.add_argument('--support', type=Path)
+    for name in ('coverage', 'output'):
         parser.add_argument('--'+name, type=Path, required=True)
     args = parser.parse_args()
-    result = build(args.index, args.coverage, args.support)
+    if args.dependency_scan:
+        result = build_terminal(args.dependency_scan, args.coverage)
+    else:
+        if not args.support:
+            parser.error('--index requires --support')
+        result = build(args.index, args.coverage, args.support)
     disk.write_new(args.output, result)
     print(json.dumps({k:v for k,v in result.items() if k not in (
-        'rows', 'cue_class_defaults', 'native_input_mappings', 'sources', 'weapon_config_declarations')}, ensure_ascii=False))
+        'rows', 'npc_stances', 'cue_class_defaults', 'native_input_mappings', 'sources',
+        'weapon_config_declarations')}, ensure_ascii=False))

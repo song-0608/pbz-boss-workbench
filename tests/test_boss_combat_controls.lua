@@ -8,7 +8,7 @@ local function fixture()
     local ability={IsA=function()return true end,GetClass=function()return{}end}
     local spec={Ability=ability}
     local b={check=function(_,receipt)assert(receipt==r)end,verify_control=function()return true end}
-    function b:spec()return spec,f.active,{}end
+    function b:spec()f.spec_reads=(f.spec_reads or 0)+1;return spec,f.active,{}end
     b.calls={activate=function()f.active=1;return true end,
         cancel=function()f.cancels=f.cancels+1;if f.cancel_error then return false end;f.active=0;return true end}
     function b:verify_restored(receipt)
@@ -23,8 +23,8 @@ local function fixture()
     end
     function s:skill()f.casts=f.casts+1;return true end
     function s:request_skill(slot)return self:skill(slot)end
-    function s:flush_buffered_skill()if self.buffered then self.buffered=nil;return self:skill('one')end;return true end
-    function s:clear_buffered_skill()self.buffered=nil;f.clears=f.clears+1 end
+    function s:flush_buffered_skill()if self.buffered_skill then self.buffered_skill=nil;return self:skill('one')end;return true end
+    function s:clear_buffered_skill()self.buffered_skill=nil;f.clears=f.clears+1 end
     local options={developer_only=true,now=function()return f.now end,input_allowed=function()return f.focused end,
         input_binding_verified=true,focus_binding_verified=true,
         read_defense=function()return{down=f.down,allowed=f.allowed}end,
@@ -47,9 +47,22 @@ end)
 test('held defense blocks immediate requests and buffered casts then restores native ability',function()
     local f=fixture();local c=f.attach();assert(f.session:enter());f.session:sample_combat_input({allowed=true})
     f.down=true;f.session:sample_combat_input({allowed=true});assert(f.active==1)
-    f.session.buffered=true;assert(not f.session:request_skill('one'));assert(f.session.buffered==nil)
-    f.session.buffered=true;assert(f.session:flush_buffered_skill());assert(f.casts==0 and f.session.buffered==nil)
+    f.session.buffered_skill=true;assert(not f.session:request_skill('one'));assert(f.session.buffered_skill==nil)
+    f.session.buffered_skill=true;assert(f.session:flush_buffered_skill());assert(f.casts==0 and f.session.buffered_skill==nil)
     assert(f.session:restore());assert(f.cancels==1 and c.receipt==nil and f.session.state=='OFF')
+end)
+test('idle frames sample defense once and skip the native stance grant scan',function()
+    local f=fixture();local samples=0
+    local read=f.options.read_defense
+    f.options.read_defense=function(...)samples=samples+1;return read(...)end
+    f.attach();assert(f.session:enter());assert(f.spec_reads==1)
+    for _=1,120 do
+        assert(f.session:sample_combat_input({allowed=true}))
+        assert(f.session:flush_buffered_skill())
+    end
+    assert(samples==120 and f.spec_reads==1)
+    f.down=true;assert(f.session:sample_combat_input({allowed=true}));assert(f.active==1 and f.spec_reads>1)
+    f.down=false;assert(f.session:sample_combat_input({allowed=true}));assert(f.active==0 and f.cancels==1)
 end)
 test('sampled suspension releases stance and key must cycle after focus returns',function()
     local f=fixture();f.attach();f.session:enter();f.session:sample_combat_input({allowed=true})
@@ -96,8 +109,8 @@ test('the live movement driver respects combat focus permission before movement 
         return{allowed=true,forward=true,yaw_degrees=0}
     end})
     assert(driver:step());assert(moves==1)
-    f.focused=false;f.session.buffered=true
-    assert(driver:step());assert(moves==1 and f.casts==0 and f.session.buffered==nil)
+    f.focused=false;f.session.buffered_skill=true
+    assert(driver:step());assert(moves==1 and f.casts==0 and f.session.buffered_skill==nil)
     f.focused=true;assert(driver:step());assert(moves==2)
 end)
 test('defense native rejection does not block walking or force a fake successful guard',function()

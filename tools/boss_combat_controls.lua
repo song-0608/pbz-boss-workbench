@@ -119,6 +119,7 @@ function Controls.attach(session,options)
     end
     if flush then
         function session:flush_buffered_skill(...)
+            if not self.buffered_skill then return flush(self,...)end
             local ok=allowed()
             if not ok then
                 if self.clear_buffered_skill then self:clear_buffered_skill('combat input suspended')end
