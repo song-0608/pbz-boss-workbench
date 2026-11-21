@@ -76,7 +76,7 @@ def check(package, manifest, flow=None, *, source_only=False):
                  'boss_defense_input', 'boss_defense_bridge', 'boss_native_cues', 'boss_cue_bridge', 'boss_combat_controls', 'boss_combat_host', 'boss_native_input',
                  'map_travel_guard', 'workbench_input', 'player_experience_runtime',
                  'player_action_input', 'player_primary_routes', 'remote_control', 'player_remote_performance', 'target_transition', 'ue_host',
-                 'input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):
+                 'input_driver', 'player_input_driver', 'player_3c', 'player_skill_buffer', 'player_locomotion', 'player_3c_target_lock'):
         selected_loader=fixed_loader if name in ('player_3c','player_locomotion') else loader
         jobs.append((name, [str(executable), str(selected_loader), '.', test_path(package),
                            'tests/test_' + name + '.lua']))

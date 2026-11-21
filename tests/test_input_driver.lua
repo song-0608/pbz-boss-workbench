@@ -88,46 +88,17 @@ test('maintenance happens before strict verification and movement',function()
     s.bridge.verify_control=function()return ready end
     assert(d:step());assert(#s.moves==1 and s.restores==0)
 end)
+test('verified native maintenance folds the duplicate same-frame ownership pass',function()
+    local d,s=fixture({allowed=true,forward=true,yaw_degrees=0});local maintenance,verification=0,0
+    s.bridge.maintenance_verifies_control=true
+    s.bridge.maintain_control=function()maintenance=maintenance+1;return true end
+    s.bridge.verify_control=function()verification=verification+1;return true end
+    assert(d:step());assert(maintenance==1 and verification==0 and #s.moves==1)
+end)
 test('rejected maintenance restores without sampling player input',function()
     local d,s=fixture({allowed=true,forward=true,yaw_degrees=0})
     s.bridge.maintain_control=function()return false end
     d.api.read_input=function()error('must not sample after maintenance failure')end
     assert(not d:step());assert(s.restores==1 and #s.moves==0)
-end)
-test('buffer failure cannot move or turn an obsolete control receipt',function()
-    for _,mode in ipairs({'restored','faulted','replacement'})do
-        local d,s=fixture({allowed=true,forward=true,yaw_degrees=0,look_yaw=2})
-        local cameras=0;s.bridge.update_camera=function()cameras=cameras+1;return true end
-        s.flush_buffered_skill=function()
-            if mode=='restored'then s:restore();s.receipt=nil
-            elseif mode=='faulted'then s.state='FAULTED'
-            else s.receipt={}end
-            return true
-        end
-        assert(not d:step(),mode)
-        assert(#s.moves==0 and #s.looks==0 and cameras==0,'no stale frame may reach bridge input: '..mode)
-        assert(s.restores==1,'restore once, including when the buffered skill already restored')
-    end
-end)
-test('successful buffered skill suppresses movement and keeps same-frame camera',function()
-    local d,s=fixture({allowed=true,forward=true,yaw_degrees=0,look_yaw=2})
-    s.flush_buffered_skill=function()s.current_skill='new native token';return true end
-    assert(d:step());assert(#s.moves==0 and #s.looks==1 and s.restores==0)
-end)
-test('target-follow camera yaw takes precedence over sampled and post-look yaw',function()
-    for _,look_yaw in ipairs({0,2})do
-        local d,s=fixture({allowed=true,forward=true,yaw_degrees=0,look_yaw=look_yaw})
-        s.bridge.look=function()return true,20 end
-        s.bridge.update_camera=function()return true,90 end
-        assert(d:step())
-        assert(math.abs(s.moves[1].x)<1e-10 and math.abs(s.moves[1].y-1)<1e-10)
-    end
-end)
-test('invalid post-camera yaw restores before moving',function()
-    for _,yaw in ipairs({0/0,math.huge,'bad'})do
-        local d,s=fixture({allowed=true,forward=true,yaw_degrees=0})
-        s.bridge.update_camera=function()return true,yaw end
-        assert(not d:step());assert(s.restores==1 and #s.moves==0)
-    end
 end)
 print("Input driver fixtures: "..total.." passed; no runtime movement verification claimed.")

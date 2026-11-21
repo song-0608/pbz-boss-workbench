@@ -2,7 +2,7 @@
 
 - 默认先完成后端实现和离线回归，按里程碑集中实机验收；联机适配暂缓。
 - 用户进一步要求先集中完成Boss/NPC磁盘声明、技能及共享依赖抓取，减少Computer Use与反复启动游戏。本阶段仅后台工作；不能因缺少一条运行时证据就立刻准备研究会话。离线缺口和必须实测的项目分别记录，达到完整里程碑后再集中验收。
-- 最新离线遍历已于2026-11-20在E盘 `原生技能声明/20261120-offline-convergence-03` 第11轮结束，并生成冻结的离线适配队列。下一步消费该队列做后端适配与离线回归，不从头重复抓取，也不为单个原生授予缺口启动游戏。净化记录见 `evidence/adaptation/native-offline-capture-milestone-20261120.json`；`converged_with_known_gaps` 仍有超限、暂缓、索引外与原文问题，不等于全部Boss技能或最终Mod完成。
+- 最新离线遍历已于2026-11-20在E盘 `原生技能声明/20261120-offline-convergence-03` 第11轮结束，并生成冻结的离线适配队列。抓取与后端优化进度分别记录在 `evidence/adaptation/native-offline-capture-milestone-20261120.json`、`evidence/adaptation/native-backend-performance-milestone-20261120.json`。当前完成了F6/锁敌相机离线热路径优化、60组候选离线回归，以及22页82个历史授予技能候选；12项仍延后，候选未安装或实机验收。继续消费冻结队列做映射与回归，不从头重复抓取，也不为单个授予缺口启动游戏。`converged_with_known_gaps` 仍不等于全部Boss技能或最终Mod完成。
 - 当前研究起点为“悲泣溪谷—斧老大斩落处”。已保存游戏原生研究存档到 `E:\项目\PBZ-Boss操控研究\研究场景存档`。
 - 新的普通研究会话使用 `python -B -X utf8 tools/research_scene_checkpoint.py prepare`；集中验收使用同一命令加 `--acceptance`。该入口先执行原准备流程，再核对快照摘要并应用到已关闭的隔离研究箱，启动后选择“继续游戏”。不要直接调用旧 prepare 导致丢失固定起点，也不要每轮要求用户手动传送。
 - 工作台默认入口为 `开始Boss工作台.cmd`，第1步已接入上述场景恢复。正式游戏与正式存档不作为测试对象。

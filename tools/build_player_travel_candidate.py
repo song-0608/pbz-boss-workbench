@@ -29,7 +29,8 @@ SOURCES = ('tools/build_player_travel_candidate.py', 'tools/player_role_controls
            'tools/player_locomotion.lua', 'tools/player_locomotion_native.lua', 'tools/player_3c_contract.py',
            'tests/test_player_3c.lua', 'tests/test_player_skill_buffer.lua', 'tests/test_player_locomotion.lua',
            'tests/test_player_3c_contract.py', 'tools/player_3c_target_lock.lua',
-           'tests/test_player_3c_target_lock.lua', 'tests/test_input_driver.lua')
+           'tests/test_player_3c_target_lock.lua', 'tests/test_player_input_driver.lua',
+           'tests/test_input_driver.lua')
 SOURCES += ('tools/player_spawn_assets.lua', 'tests/test_player_spawn_assets.lua')
 SOURCES += ('tools/player_activity_probe.lua', 'tests/test_player_activity_probe.lua')
 SOURCES += ('tools/player_travel_ui_stage.py', 'tests/test_player_travel_ui_stage.py',
@@ -106,6 +107,33 @@ def payload(root=ROOT, *, creative=None):
            "            log('TARGET_SPAWN_BEGIN',tostring(index or 1))\n"
            '            local pawn=statics:BeginDeferredActorSpawnFromClass(pc,target_class,target_transform,3,nil,0)')
     original_bridge = files[PREFIX + 'control_bridge.lua'].decode('utf-8').replace('\r\n', '\n')
+    change('control_bridge.lua', 'function Bridge:maintain_control(receipt)\n'
+           '    -- 用途：逐帧调度前仍核对本轮构建/World；维护只作用于本次遥控的临时Boss。\n'
+           '    self:check(receipt)',
+           'function Bridge:maintain_control(receipt)\n'
+           '    -- 用途：逐帧调度前仍核对本轮构建/World；维护只作用于本次遥控的临时Boss。\n'
+           '    local pc=self:check(receipt)')
+    change('control_bridge.lua', '    return true\nend\n\nfunction Bridge:verify_control(receipt)\n',
+           '    return self:verify_control(receipt,pc)\nend\n\nfunction Bridge:verify_control(receipt,checked_pc)\n')
+    change('control_bridge.lua', 'function Bridge:verify_control(receipt,checked_pc)\n    local pc = self:check(receipt)',
+           'function Bridge:verify_control(receipt,checked_pc)\n    local pc = checked_pc or self:check(receipt)')
+    change('control_bridge.lua', 'function Bridge:move(receipt, x, y, scale)\n'
+           '    self:check(receipt)\n'
+           '    assert(receipt.input_enabled and self:verify_control(receipt), "movement requires current possession")',
+           'function Bridge:move(receipt, x, y, scale)\n'
+           '    local pc=self:check(receipt)\n'
+           '    assert(receipt.input_enabled and self:verify_control(receipt,pc), "movement requires current possession")')
+    change('control_bridge.lua', 'function Bridge:look(receipt, yaw, pitch)\n'
+           '    self:check(receipt)\n'
+           '    assert(receipt.input_enabled and self:verify_control(receipt), "look requires current possession")',
+           'function Bridge:look(receipt, yaw, pitch,checked_pc)\n'
+           '    local pc=checked_pc or self:check(receipt)\n'
+           '    assert(receipt.input_enabled and self:verify_control(receipt,pc), "look requires current possession")')
+    change('control_bridge.lua', 'function Bridge:update_camera(receipt)\n    local pc=self:check(receipt)',
+           'function Bridge:update_camera(receipt,checked_pc)\n    local pc=checked_pc or self:check(receipt)')
+    change('control_bridge.lua', "return require('player_experience_bridge').extend(Bridge)\n",
+           "Bridge.maintenance_verifies_control=true\n"
+           "return require('player_experience_bridge').extend(Bridge)\n")
     begin = original_bridge.index('function Bridge:player_controller()\n')
     end = original_bridge.index('\nfunction Bridge:world_id(', begin)
     change('control_bridge.lua', original_bridge[begin:end],

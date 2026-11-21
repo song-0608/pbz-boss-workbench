@@ -187,7 +187,7 @@ end)
 test('combo facing refresh occurs only between leaves after target verification',function()
     local f=fixture();assert(f.session:enter());local r=f.session.receipt;local count=0
     r.combo_trial={child_active=true};r.combat={selected_target=f.bridge.calls:reference(f.boss)}
-    f.api.combat={verify_target=function()return true end}
+    f.api.combat={verify=function()return true end,verify_target=function()return true end}
     f.api.face_target=function(boss,target)assert(boss==f.boss and target==f.boss);count=count+1 end
     assert(f.bridge:maintain_control(r)and count==0);r.combo_trial.child_active=false
     assert(f.bridge:maintain_control(r)and count==1)

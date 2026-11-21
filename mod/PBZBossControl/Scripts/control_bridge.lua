@@ -17,7 +17,8 @@ function Bridge.new(api, profile)
         and type(profile.class_path) == "string" and profile.class_path:sub(1, 1) == "/",
         "verified boss class binding required")
     return setmetatable({ api = api, calls = Calls.new(api), profile = profile, serial = 0,
-        tokens = {}, active_receipt = nil, available = true }, Bridge)
+        tokens = {}, active_receipt = nil, available = true,
+        maintenance_verifies_control = true }, Bridge)
 end
 
 function Bridge:environment() -- 用途：每次动作都读取本轮运行租约；不会把写死offline=true当作验证。
@@ -174,9 +175,12 @@ function Bridge:dispose_owned_controller(receipt)
     print('PBZ_CONTROL_RESTORE:OWNED_DISPOSAL_VERIFIED=true\n')
 end
 
-function Bridge:control_health(receipt)
+function Bridge:control_health(receipt,context)
     -- 用途：逐帧与出招前读取真实生命；不补血、不复活，也不把零生命角色继续当作可控Boss。
-    self:check(receipt)
+    assert(receipt==self.active_receipt and type(context)=='table' and context.isolated==true
+        and context.offline==true and context.exe_sha256==self.profile.exe_sha256
+        and context.world_id==receipt.world_id,
+        'health check requires the current context-verified receipt')
     if self:owned_boss_disposed(receipt)then return false,'owned boss disposed'end
     if not self.api.read_health then return true end
     local health=self.api.read_health(self.calls:resolve(receipt.boss))
@@ -218,7 +222,7 @@ end
 
 function Bridge:maintain_control(receipt)
     -- 用途：逐帧调度前仍核对本轮构建/World；维护只作用于本次遥控的临时Boss。
-    self:check(receipt)
+    local pc=self:check(receipt)
     if receipt.remote_control then
         local ready,why=self.api.remote:maintain(receipt.remote_control)
         if not ready then return false,why end
@@ -228,11 +232,12 @@ function Bridge:maintain_control(receipt)
         assert(receipt.combat and self.api.combat:verify_target(receipt.combat),'combo target changed between leaves')
         self.api.face_target(self.calls:resolve(receipt.boss),self.calls:resolve(receipt.combat.selected_target))
     end
-    return true
+    -- 用途：合并Driver随后原本会做的同帧完整回读；下一帧仍重新核验租约和World。
+    return self:_verify_control_checked(receipt,pc)
 end
 
-function Bridge:verify_control(receipt)
-    local pc = self:check(receipt)
+function Bridge:_verify_control_checked(receipt,pc)
+    assert(receipt==self.active_receipt,'control verification receipt mismatch')
     local boss, brain = self.calls:resolve(receipt.boss), self.calls:resolve(receipt.brain)
     local target=receipt.camera_rig and self.api.camera:target(receipt.camera_rig) or boss
     local owned=receipt.remote_control and self.api.remote:verify(receipt.remote_control)
@@ -251,6 +256,10 @@ function Bridge:verify_control(receipt)
         end
     end
     return true
+end
+
+function Bridge:verify_control(receipt,checked_pc)
+    return self:_verify_control_checked(receipt,checked_pc or self:check(receipt))
 end
 
 function Bridge:definition(id)
@@ -489,21 +498,21 @@ function Bridge:verify_restored(receipt)
 end
 
 function Bridge:move(receipt, x, y, scale)
-    self:check(receipt)
-    assert(receipt.input_enabled and self:verify_control(receipt), "movement requires current possession")
+    local pc=self:check(receipt)
+    assert(receipt.input_enabled and self:verify_control(receipt,pc), "movement requires current possession")
     if receipt.remote_control then return self.api.remote:move(receipt.remote_control,x,y,scale)end
     return self.calls:move(self.calls:resolve(receipt.boss), x, y, scale)
 end
 
 function Bridge:look(receipt, yaw, pitch)
-    self:check(receipt)
-    assert(receipt.input_enabled and self:verify_control(receipt), "look requires current possession")
+    local pc=self:check(receipt)
+    assert(receipt.input_enabled and self:verify_control(receipt,pc), "look requires current possession")
     if receipt.remote_control then return self.api.remote:look(receipt.remote_control,yaw,pitch)end
     return self.calls:look(self.calls:resolve(receipt.boss), yaw, pitch)
 end
 
-function Bridge:update_camera(receipt)
-    local pc=self:check(receipt)
+function Bridge:update_camera(receipt,checked_pc)
+    local pc=checked_pc or self:check(receipt)
     if receipt.camera_rig then
         assert(receipt.input_enabled,"camera update requires active input")
         return self.api.camera:update(pc,self.calls:resolve(receipt.boss),receipt.camera_rig)

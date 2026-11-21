@@ -56,13 +56,15 @@ f.destination={X=0,Y=1000,Z=0};assert(f.lock:update())
 assert(f.writes==settled+1,'a moving target must immediately resume camera rotation')
 -- Exercise the actual bridge extension too: the timer must be read from this
 -- receipt's Boss, and free-camera frames must never run the follow clock.
-local rotation={Yaw=0,Pitch=-8};local clock_reads=0
+local rotation={Yaw=0,Pitch=-8};local clock_reads,bridge_checks=0,0
 local boss={K2_GetActorLocation=function()return{X=0,Y=0,Z=0}end}
 local target={K2_GetActorLocation=function()return{X=1000*math.cos(math.rad(20)),Y=1000*math.sin(math.rad(20)),Z=0}end}
 local pc={};local receipt={boss=boss,player={},remote_control={},camera_rig={},input_enabled=true,
     combat={selected_target=target}}
-local Bridge={check=function(_,r)assert(r==receipt);return pc end,verify_control=function()return true end,
-    update_camera=function()return true end,look=function()return true end,restore=function()return true end,
+local Bridge={check=function(_,r)assert(r==receipt);bridge_checks=bridge_checks+1;return pc end,
+    verify_control=function()return true end,
+    update_camera=function(_,r,checked)assert(r==receipt and checked==pc);return true end,
+    look=function()return true end,restore=function()return true end,
     start_skill=function()return false end}
 require('player_experience_bridge').extend(Bridge)
 local bridge=setmetatable({profile={id='056_youlong',camera={pivot_height=80}},
@@ -75,6 +77,9 @@ local bridge=setmetatable({profile={id='056_youlong',camera={pivot_height=80}},
 assert(bridge:update_camera(receipt)and clock_reads==0 and rotation.Yaw==0,'free camera stays outside timed lock')
 assert(bridge:toggle_target_lock(receipt));assert(bridge:update_camera(receipt))
 assert(clock_reads==1 and math.abs(rotation.Yaw-8.75)<1e-8,'bridge must use current Boss native frame time')
+bridge_checks=0
+assert(bridge:update_camera(receipt)and bridge_checks==1,
+    'a locked camera frame must reuse its checked controller through target following and arm update')
 local Driver=require('input_driver')
 local moved
 bridge.move=function(_,r,x,y)assert(r==receipt);moved={x,y};return true end
@@ -82,7 +87,8 @@ local session={state='ACTIVE',receipt=receipt,bridge=bridge,poll=function()retur
     restore=function()error('valid locked movement must not restore')end}
 local driver=Driver.new(session,{read_input=function()return{allowed=true,forward=true,yaw_degrees=0}end})
 assert(driver:step())
-assert(clock_reads==2 and math.abs(rotation.Yaw-13.671875)<1e-8)
+assert(clock_reads==3 and math.abs(rotation.Yaw-16.4404296875)<1e-8,
+    'locked driver frame mismatch: clock_reads='..clock_reads..' yaw='..tostring(rotation.Yaw))
 assert(math.abs(moved[1]-math.cos(math.rad(rotation.Yaw)))<1e-9
     and math.abs(moved[2]-math.sin(math.rad(rotation.Yaw)))<1e-9,'locked movement must follow the final camera yaw')
 print('PASS legacy negative control, 30/60/120 Hz timed camera response, 10 Hz target checks, wrap, zero/hitch/invalid time and target loss')

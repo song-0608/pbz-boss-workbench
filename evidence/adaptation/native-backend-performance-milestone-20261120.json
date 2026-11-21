@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "kind": "native_backend_performance_and_skill_pages_milestone",
+  "date": "2026-11-20",
+  "scope": "Offline control hot-path consolidation and exact historical-grant skill page generation",
+  "performance": {
+    "duplicate_same_frame_ownership_verification_removed": true,
+    "checked_controller_reused_within_synchronous_camera_update_only": true,
+    "fresh_lease_and_world_check_each_frame": true,
+    "target_eligibility_checks_hz": 10,
+    "remote_native_reads_per_1000_idle_maintenance_calls": {
+      "baseline": 13000,
+      "candidate": 6000,
+      "writes": 0
+    },
+    "locked_camera_bridge_checks_per_frame": 1,
+    "gpu_fps_or_in_game_latency_claimed": false
+  },
+  "offline_regression": {
+    "report": "evidence/adaptation/ahua-player-travel-dev-441bee475839eb1d-source-offline-1795153587611963500.json",
+    "report_sha256": "4d56c33b606c85e5a47dcc53bb57fec25d424ca3377081ac646bd3a06c97bf50",
+    "check_groups": 60,
+    "failed_groups": 0,
+    "passed": true,
+    "additional_native_bridge_fixture_cases": 39,
+    "additional_session_fixture_cases": 21
+  },
+  "historical_skill_pages": {
+    "summary": "runtime/boss-skill-pages/459ff6c095e4ddd6a9bf/summary.json",
+    "summary_sha256": "6fd0428ebee54a5e0b53b3effc74c41b24d33f504434f66f11ca7be7d016eda3",
+    "boss_resource_ids": [
+      "044_pengmeng",
+      "056_youlong",
+      "057_wanjun",
+      "058_maddoctor",
+      "067_motian",
+      "071_xianzhe",
+      "073_yanqiansui"
+    ],
+    "pages": 22,
+    "skills": 82,
+    "deferred": 12,
+    "deferred_reasons": {
+      "counter_context_requires_separate_native_trigger": 6,
+      "independent_combat_input_context_unreviewed": 1,
+      "passive_story_heal_recovery_or_summon_review": 4,
+      "historical_nonlocal_displacement_scene_dependency_unresolved": 1
+    },
+    "historical_grants_only": true,
+    "activation_allowed": false,
+    "playable": false,
+    "installed": false
+  },
+  "source_sha256": {
+    "mod/PBZBossControl/Scripts/control_bridge.lua": "0fef644a68ef3de5707d68e141b986cd203507ce11821158ca23bb19c6fcf74b",
+    "mod/PBZBossControl/Scripts/session.lua": "6501003289f2a233a6607dc44c6077a97a78b1fc444bc2f85c1d873f380cb7ef",
+    "mod/PBZBossControl/Scripts/input_driver.lua": "c309918949c1543bd8f81e2cb408b1fd2fcd813ed3bbf2d139eaf5ebd1d48f85",
+    "tools/build_player_travel_candidate.py": "28ffa2f9da2485fd9c790f428587295c10f60ebf801d1e3d042a0bb8674fcb7c",
+    "tools/player_input_driver.lua": "44657684e8cb86bad2894e610964dae06796b94f51fa92a2b8e2bb0cd8ec7e7a",
+    "tools/player_3c_bridge.lua": "c55eb04e35b57b7b0fe5b89b82202c55062f1135dc6b79158172df79d2a694c7",
+    "tests/test_input_driver.lua": "270524554dc3df119a6b32672a34bb89006b71e566b910a5d3bfceff1dd8faba",
+    "tests/test_native_bridge.lua": "5f47fedcb34efda682ea53240a37408411c56fc7e06edb2a6f3e1f01799c1e15",
+    "tests/test_player_3c_target_lock.lua": "f719047ee6569c75119056b8d6b50ca8106b35e023322098ceee4a8ef4b4c2a2"
+  },
+  "phase_operations": {
+    "computer_use_calls": 0,
+    "game_launches": 0,
+    "game_inputs": 0,
+    "mod_installs": 0,
+    "ue_launches": 0
+  },
+  "all_boss_skills_complete": false,
+  "runtime_acceptance_current": false,
+  "ready_for_final_delivery": false,
+  "next": "Continue offline mappings and regressions from the frozen native queue, then perform one concentrated isolated acceptance after the backend milestone."
+}

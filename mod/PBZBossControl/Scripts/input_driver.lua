@@ -21,10 +21,12 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
         end
     end
     -- 用途：即使没按移动键，也要发现控制权被游戏收回，避免继续接受技能输入。
-    local verified, controlled = pcall(session.bridge.verify_control, session.bridge, session.receipt)
-    if not verified or controlled ~= true then
-        session:restore("possession lost")
-        return false, "possession lost"
+    if session.bridge.maintenance_verifies_control~=true then
+        local verified, controlled = pcall(session.bridge.verify_control, session.bridge, session.receipt)
+        if not verified or controlled ~= true then
+            session:restore("possession lost")
+            return false, "possession lost"
+        end
     end
     if session.bridge.update_camera then
         local camera_ok,updated=pcall(session.bridge.update_camera,session.bridge,session.receipt)

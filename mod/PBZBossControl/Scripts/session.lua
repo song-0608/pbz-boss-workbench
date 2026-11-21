@@ -80,9 +80,9 @@ function Session:restore(reason) -- 用途：撤销技能和接管，并回读�
     return true
 end
 
-function Session:health_guard()
+function Session:health_guard(context)
     if type(self.bridge.control_health)~='function'then return true end
-    local ok,alive,reason=call(self.bridge,'control_health',self.receipt)
+    local ok,alive,reason=call(self.bridge,'control_health',self.receipt,context)
     if ok and alive==true then return true end
     local why=ok and(reason or 'boss no longer alive')or 'boss health unreadable'
     self:restore(why)
@@ -125,7 +125,7 @@ function Session:skill(slot) -- 用途：只执行已验证技能，保留原游
     end
     local context, why = self:context()
     if not context then self.state = "FAULTED"; self:record(why); return false, why end
-    local alive,health_reason=self:health_guard();if not alive then return false,health_reason end
+    local alive,health_reason=self:health_guard(context);if not alive then return false,health_reason end
     local can_ok, allowed, rejection = call(self.bridge, "can_start_skill", self.receipt, definition.id)
     if not can_ok or allowed ~= true then return false, rejection or "game state/cooldown rejected skill" end
     local ok, token = call(self.bridge, "start_skill", self.receipt, definition.id)
@@ -165,7 +165,7 @@ function Session:poll() -- 用途：由验证过的游戏线程回调检查技�
     if self.state ~= "ACTIVE" then return false, "not active" end
     local context, why = self:context()
     if not context then self.state = "FAULTED"; self:record(why); return false, why end
-    local alive,health_reason=self:health_guard();if not alive then return false,health_reason end
+    local alive,health_reason=self:health_guard(context);if not alive then return false,health_reason end
     if self.pending_target then
         local ok,status,name=call(self.bridge,'poll_target_change',self.receipt)
         if ok and status=='verified'then
