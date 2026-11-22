@@ -125,9 +125,18 @@ def complex_config_rows(db, folder=None):
 
 
 def write_complex_configs(db, rows):
+    previous = {folder: json.loads(raw) for folder, _, raw in complex_config_rows(db)}
+    records = []
+    for folder, actor, raw in rows:
+        old = previous.get(folder, {})
+        if 'trial' in old:
+            entry = json.loads(raw)
+            if all(old[key] == entry[key] for key in ('class_path', 'bindings', 'metadata_receipt_sha256')):
+                raw = encode(dict(entry, trial=old['trial'], native_grants_verified=True))
+        records.append((folder, actor, raw))
     db.execute(COMPLEX_CONFIGS)
     db.execute('DELETE FROM complex_boss_profiles')
-    db.executemany('INSERT INTO complex_boss_profiles (folder,class_path,payload) VALUES (?,?,?)', rows)
+    db.executemany('INSERT INTO complex_boss_profiles (folder,class_path,payload) VALUES (?,?,?)', records)
 
 
 def priorities(roles, parents, trees):
@@ -324,9 +333,13 @@ def verify(database, catalog):
         profiles = complex_config_rows(db)
         for folder, actor, raw in profiles:
             entry = json.loads(raw)
+            trial = entry.get('trial')
             if (entry['folder'] != folder or entry['class_path'] != actor or entry['playable'] is not False
-                    or entry['native_grants_verified'] is not False
-                    or entry['metadata_verified'] != (actor is not None and bool(entry['bindings']))):
+                    or entry['metadata_verified'] != (actor is not None and bool(entry['bindings']))
+                    or entry['native_grants_verified'] != bool(trial)
+                    or (trial and (trial['class_path'] != actor or trial['playable'] is not False
+                        or trial['owned_cleanup_verified'] is not True
+                        or any(trial['native_grant_counts'].get(slot['class_path']) != 1 for slot in entry['bindings'])))):
                 raise ValueError(f'复杂 Boss 配置状态不一致: {folder}')
         ranked = db.execute('SELECT folder, skill_count, combo_count, tree_count, node_count, phase_groups'
                             ' FROM folders ORDER BY priority LIMIT 12').fetchall()
@@ -427,8 +440,13 @@ class DatabaseCatalog(Catalog):
         if complex_profile:
             lines.extend(('', '复杂 Boss 操控配置'))
             if complex_profile['metadata_verified']:
-                lines.extend((complex_profile['display_name'], complex_profile['class_path'],
-                              '本体与技能类已核对，原生授予与操控待验'))
+                lines.extend((complex_profile['display_name'], complex_profile['class_path']))
+                trial = complex_profile.get('trial')
+                if trial:
+                    hits = {row['key'] for row in trial['natural_completions'] if row['damage_observed']}
+                    lines.append(f"研究副本已验证原生授予，{len(hits)} 个键位产生伤害。会话 {trial['session']}")
+                else:
+                    lines.append('本体与技能类已核对，原生授予与操控待验')
                 lines.extend(f"{row['key']}  {row['class_path'].rsplit('.', 1)[-1]}"
                              + ('（跨阶段共享）' if row['shared'] else '') for row in complex_profile['bindings'])
             else:
