@@ -137,6 +137,7 @@ function Controls:begin(receipt)
     if self.options.defense then
         self.defense=require('boss_defense_bridge').attach(self.session.bridge,receipt,
             self.options.defense,self.options.now,self.options.input_allowed,self.options.native_input and true)
+        if self.options.log then self.options.log('NATIVE_DEFENSE_READY',self.options.defense.key)end
     end
     if self.options.cues then
         self.cue=require('boss_cue_bridge').new(self.session.bridge,self.options.globals,
@@ -177,6 +178,10 @@ function Controls:sample()
     local permitted=input.allowed
     if permitted and not self.options.native_input then permitted=self.options.input_allowed()==true end
     local _,why=self.defense:step({allowed=permitted,down=input.down,now=input.now})
+    if self.defense_status~=why then
+        self.defense_status=why
+        if self.options.log then self.options.log('NATIVE_DEFENSE_STATE',why)end
+    end
     if why=='suspended' then permitted=false end
     if not permitted and self.cue then assert(self.cue:cleanup(),'suspended cue cleanup failed')end
     if self.defense:blocks_action()and self.session.clear_buffered_skill then
@@ -205,6 +210,7 @@ function Controls:cleanup()
         self.receipt.combat_action_active=nil
         if self.receipt.native_defense==self.defense then self.receipt.native_defense=nil end
         self.receipt,self.defense,self.cue,self.cue_failure=nil,nil,nil,nil
+        self.defense_status=nil
     end
     return not self.cleanup_pending,errors
 end
@@ -223,6 +229,7 @@ function Controls:retire()
     if r.native_defense==self.defense then r.native_defense=nil end
     r.combat_action_active=nil
     self.receipt,self.defense,self.cue,self.cue_failure=nil,nil,nil,nil
+    self.defense_status=nil
     self.cleanup_pending=false
     self.disposal_verified=nil
 end

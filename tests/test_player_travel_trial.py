@@ -92,6 +92,19 @@ class TravelInputTests(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 validate_action('native_blue_cue', self.owner, self.deployment, invalid)
 
+    def test_defense_requires_native_combat_and_a_fresh_youlong_binding(self):
+        ready = self.ready.replace('PLAYER_ENTRY_READY=role', 'PLAYER_ENTRY_READY=056_youlong')
+        stance = 'PBZ_CONTROL_LIFECYCLE:NATIVE_DEFENSE_READY=RIGHT_MOUSE_BUTTON\n'
+        enter = '[PBZBossControl] enter success=true state=ACTIVE\n'
+        self.deployment['native_combat_controls'] = dict(developer_only=True)
+        self.assertEqual(validate_action('defense', self.owner, self.deployment, ready + stance + enter),
+                         'RIGHT_MOUSE_BUTTON')
+        exit_line = '[PBZBossControl] exit success=true state=OFF\n'
+        for invalid in (ready + enter, ready + stance + enter + exit_line + enter,
+                        ready.replace('056_youlong', '057_wanjun') + stance + enter):
+            with self.assertRaises(AssertionError):
+                validate_action('defense', self.owner, self.deployment, invalid)
+
     def test_repositioning_requires_the_current_takeover(self):
         for action, key in (('forward', 'w'), ('backward', 's'), ('strafe_left', 'a'), ('strafe_right', 'd')):
             self.assertEqual(validate_action(action, self.owner, self.deployment, self.active), key)

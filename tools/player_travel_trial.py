@@ -15,7 +15,7 @@ WANJUN_ACTIONS = {'native_light': ('skill_07', 'F9'), 'native_blue_cue': ('heavy
                   'native_retreat': ('teleport_left', 'Q')}
 
 def validate_action(action, owner, deployment, text):
-    actions = dict(inherited.ACTIONS, **NATIVE_ACTIONS, primary='LEFT_MOUSE_BUTTON',
+    actions = dict(inherited.ACTIONS, **NATIVE_ACTIONS, primary='LEFT_MOUSE_BUTTON', defense='RIGHT_MOUSE_BUTTON',
                    workbench_alias='Shift_L+F6', workbench_active='F6',
                    picker_up='F1', picker_down='F2', picker_confirm='F6', prepare_native_travel='F12')
     actions.update(MOVEMENT_ACTIONS)
@@ -38,7 +38,7 @@ def validate_action(action, owner, deployment, text):
                   ('PLAYER_ENTRY_READY', 'WORKBENCH_BOSS_SELECTED', 'MAP_TRAVEL_IDLE_CLEANED')] + off)
     active = entered >= 0 and entered > exited
     if action in MOVEMENT_ACTIONS or action in WANJUN_ACTIONS or action in (
-            'lock', 'cycle_target', 'cast', 'shift_cast', 'exit', 'primary', 'workbench_active', 'prepare_native_travel'):
+            'lock', 'cycle_target', 'cast', 'shift_cast', 'exit', 'primary', 'defense', 'workbench_active', 'prepare_native_travel'):
         assert active, 'Current successful active takeover required'
     if action in ('enter', 'down', 'up', 'confirm', 'close', 'picker_up', 'picker_down', 'picker_confirm'):
         assert not active, 'Restore the player before selecting or entering'
@@ -62,6 +62,12 @@ def validate_action(action, owner, deployment, text):
     if action == 'primary':
         bindings = re.findall(r'PLAYER_BINDING=primary_attack\|([^|\r\n]+)\|LEFT_MOUSE_BUTTON(?:\r?\n|$)', assembly)
         assert len(bindings) == 1, 'Current assembly requires exactly one primary mouse binding'
+    if action == 'defense':
+        assert deployment.get('native_combat_controls', {}).get('developer_only') is True
+        roles = re.findall(r'PLAYER_ENTRY_READY=([^\r\n]+)', current[:entered])
+        assert roles and roles[-1] == '056_youlong'
+        assert re.search(r'NATIVE_DEFENSE_READY=RIGHT_MOUSE_BUTTON\r?\n', current[exited:entered]), \
+            'Current takeover requires a verified native stance binding'
     if action in WANJUN_ACTIONS:
         assert 'PLAYER_ENTRY_READY=057_wanjun' in assembly, 'Current WanJun assembly required'
         slot, key = WANJUN_ACTIONS[action]
@@ -85,7 +91,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('workflow', type=Path)
     parser.add_argument('action', choices=(*inherited.ACTIONS, *NATIVE_ACTIONS, *MOVEMENT_ACTIONS,
-                                         'primary', 'workbench_alias', 'workbench_active',
+                                         'primary', 'defense', 'workbench_alias', 'workbench_active',
                                          'picker_up', 'picker_down', 'picker_confirm', 'prepare_native_travel',
                                          *WANJUN_ACTIONS))
     args = parser.parse_args()

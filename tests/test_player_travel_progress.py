@@ -58,6 +58,19 @@ class TravelProgressTests(unittest.TestCase):
         self.assertEqual(data['lifecycle'], [])
         self.assertNotIn('passed', data)
 
+    def test_combat_controls_distinguish_readiness_rejection_and_components(self):
+        text = (self.ready
+                + 'PBZ_CONTROL_LIFECYCLE:NATIVE_DEFENSE_READY=RIGHT_MOUSE_BUTTON\n'
+                + self.active
+                + 'PBZ_CONTROL_LIFECYCLE:NATIVE_DEFENSE_STATE=native conditions rejected\n'
+                + 'PBZ_CONTROL_LIFECYCLE:TARGET_CAMERA_LOCK=true|manual\n'
+                + 'PBZ_CONTROL_LIFECYCLE:NATIVE_CUE_COMPONENTS=native components observed\n')
+        controls = observe(text)['combat_control_observations']
+        self.assertEqual([x['event'] for x in controls], ['NATIVE_DEFENSE_READY',
+            'NATIVE_DEFENSE_STATE', 'TARGET_CAMERA_LOCK', 'NATIVE_CUE_COMPONENTS'])
+        self.assertEqual(controls[1]['detail'], 'native conditions rejected')
+        self.assertTrue(all(x['role'] == '057_wanjun' for x in controls))
+
     def test_overlapping_same_skill_tails_cannot_be_paired_to_newer_primary(self):
         text = (self.ready+self.active+self.begin+self.primary+self.begin
                 +self.end+self.end.replace('8900.0', '8800.0'))

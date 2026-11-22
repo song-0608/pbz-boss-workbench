@@ -16,16 +16,23 @@ local function fixture()
     function action:GetClass()return{GetFullName=function()return self.class end}end
     function action:GetAvatarActor()return f.avatar end
     action['Cascade Comps']=array();action['Niagara Comps']=array()
-    action['Spawn Particles']=setmetatable({},{__call=function(_,...)
+    local spawn_particles={IsValid=function()return true end}
+    local end_particles={IsValid=function()return true end}
+    local function spawn(...)
         assert(select('#',...)==1 and (...)==boss);f.spawns=f.spawns+1
         action['Niagara Comps'][1]={IsValid=function()return true end}
         if f.spawn_error then error('partial native spawn')end
-    end})
-    action['End Particles']=setmetatable({},{__call=function(_,...)
+    end
+    local function finish(...)
         assert(select('#',...)==0)
         if f.end_error then error('native cleanup refused')end
         f.ends=f.ends+1;action['Niagara Comps']=array();action['Cascade Comps']=array()
-    end})
+    end
+    function action:CallFunction(fn,...)
+        assert(self==action)
+        if fn==spawn_particles then return spawn(...)end
+        assert(fn==end_particles);return finish(...)
+    end
     boss.IsValid=function()return true end;f.avatar=boss
     local calls={}
     function calls:reference(o)return{name=o.name,address=o.address,class=o.class}end
@@ -40,6 +47,11 @@ local function fixture()
     local b={calls=calls,active_receipt=r,check=function(_,receipt)assert(receipt==r);return{}end,
         verify_control=function()return f.controlled end}
     local g={}
+    function g.StaticFindObject(path)
+        if path==Adapter.class_path..':Spawn Particles'then return spawn_particles end
+        if path==Adapter.class_path..':End Particles'then return end_particles end
+        error('unexpected reflected function lookup')
+    end
     function g.RegisterHook(path,callback,third)
         assert(third==nil,'Blueprint post must be the first callback')
         if f.register_error and path:find('Received_ActionEnd',1,true)then error('second hook failed')end

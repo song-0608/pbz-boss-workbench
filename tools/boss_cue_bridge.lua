@@ -12,10 +12,17 @@ function Bridge.new(control,g,contract,input_allowed,on_failure,log)
         and contract.class_path==CLASS and contract.blueprint_post_hook_verified==true,
         'reviewed native cue declarations, script gate and Blueprint post hook required')
     assert(type(g.RegisterHook)=='function'and type(g.UnregisterHook)=='function'
+        and type(g.StaticFindObject)=='function'
         and type(input_allowed)=='function'and type(on_failure)=='function','cue host incomplete')
     local self=setmetatable({control=control,g=g,hooks={},enabled=false,failed=false,
         input_allowed=input_allowed,on_failure=on_failure,log=log},Bridge)
     local calls=control.calls
+    local function call(action,name,...)
+        local fn=g.StaticFindObject(CLASS..':'..name)
+        assert(valid(fn),'native cue function unavailable: '..name)
+        action:CallFunction(fn,...)
+        return true
+    end
     local function exact(action)
         return valid(action)and action:GetClass():GetFullName()=='BlueprintGeneratedClass '..CLASS
             and not action:GetFullName():find('Default__',1,true)
@@ -54,10 +61,10 @@ function Bridge.new(control,g,contract,input_allowed,on_failure,log)
         spawn=function(action,owner)
             assert(self.enabled and not self.failed and self.input_allowed()==true
                 and owner.input_enabled and eligible(action,owner),'native cue spawn owner changed')
-            -- The member lookup binds the action; Avatar is the only Blueprint parameter.
-            action['Spawn Particles'](calls:resolve(owner.boss));return true
+            -- CallFunction takes the Blueprint receiver and function separately from Avatar.
+            return call(action,'Spawn Particles',calls:resolve(owner.boss))
         end,
-        finish=function(action)action['End Particles']();return true end,
+        finish=function(action)return call(action,'End Particles')end,
     })
     return self
 end

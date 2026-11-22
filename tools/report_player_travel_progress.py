@@ -16,6 +16,7 @@ def observe(text):
     geometry = {}
     skill_pending = {}
     attacks, skills, roles, routes, events, ambiguous = [], [], [], [], [], []
+    combat_controls = []
     ambiguous_pending = {}
     for number, line in enumerate(text.splitlines(), 1):
         if 'PBZ_CONTROL_LIFECYCLE:SPAWN_ATTEMPT=' in line:
@@ -31,6 +32,10 @@ def observe(text):
             active = False
         if '[PBZBossControl] primary_attack success=true state=ACTIVE' in line:
             primary = dict(role=role, dispatch_line=number, active=active)
+        match = re.search(r'PBZ_CONTROL_LIFECYCLE:(NATIVE_(?:DEFENSE_(?:READY|STATE)|'
+                          r'CUE_(?:UNAVAILABLE|COMPONENTS)|COMBAT_FAULT)|TARGET_CAMERA_LOCK)=(.*)$', line)
+        if match:
+            combat_controls.append(dict(event=match[1], detail=match[2], role=role, line=number))
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:SKILL_GEOMETRY=([^|]+)\|distance=([\d.]+)', line)
         if match:
             geometry[match[1]] = float(match[2])
@@ -92,7 +97,7 @@ def observe(text):
             if 'PBZ_CONTROL_LIFECYCLE:' + event + '=' in line:
                 events.append(dict(event=event, role=role, line=number))
     return dict(ready_roles=roles, primary_observations=attacks, skill_observations=skills,
-        ambiguous_skill_observations=ambiguous,
+        ambiguous_skill_observations=ambiguous, combat_control_observations=combat_controls,
         cross_map_requests=routes, lifecycle=events,
         runtime_fault_lines=[i for i,line in enumerate(text.splitlines(),1)
             if 'state=FAULTED' in line or 'PBZ_CONTROL_LIFECYCLE:ISSUE_' in line])

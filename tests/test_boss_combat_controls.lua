@@ -258,7 +258,7 @@ test('optional cue registration failure preserves takeover only after complete h
     local original=package.loaded.boss_cue_bridge
     for _,clean in ipairs({true,false})do
         local f=fixture();f.options.cues={};local messages={}
-        f.options.log=function(key)messages[#messages+1]=key end
+        f.options.log=function(key)if key=='NATIVE_CUE_UNAVAILABLE'then messages[#messages+1]=key end end
         local cue={enabled=false,hooks=clean and{}or{{}},cues={size=0},
             install=function()error('Blueprint hook unavailable')end,
             close=function()return clean,clean and{}or{'unregister failed'}end}
@@ -279,7 +279,7 @@ test('a failed visual callback preserves gameplay after cleanup and blocks while
     local original=package.loaded.boss_cue_bridge
     local f=fixture();f.options.cues={};local failed,clean,closes=false,false,0
     local messages={}
-    f.options.log=function(key)messages[#messages+1]=key end
+    f.options.log=function(key)if key=='NATIVE_CUE_UNAVAILABLE'then messages[#messages+1]=key end end
     local cue={install=function()return true end,close=function()
         closes=closes+1
         return clean,clean and{}or{'particle still active'}
