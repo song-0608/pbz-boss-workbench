@@ -96,3 +96,16 @@ class ComboIndexTests(unittest.TestCase):
         self.assertEqual(combo.coobserved(parent, dict(historical_unique_grants=changed)), [])
         expected = {key: value for key, value in observed.items() if key != 'count'}
         self.assertEqual(combo.coobserved(parent, parent), [expected])
+
+    def test_disk_discovery_requires_exact_parent_export_and_rejects_cycles(self):
+        self.scheduler('/Game/Base', {})
+        self.scheduler('/Game/Child', {}, ref('/Game/Base', 0, 'BlueprintGeneratedClass', 'Base_C'))
+        self.scheduler('/Game/WrongType', {}, ref('/Game/Base', 0, 'Class', 'Base_C'))
+        self.scheduler('/Game/WrongIndex', {}, ref('/Game/Base', 1, 'BlueprintGeneratedClass', 'Base_C'))
+        self.scheduler('/Game/Cycle', {}, ref('/Game/Cycle', 0, 'BlueprintGeneratedClass', 'Cycle_C'))
+        for package in self.packages:
+            name = Path(package['package']).stem
+            kind = 'LegoAbilityBlueprintGeneratedClass' if name == 'Move' else 'BlueprintGeneratedClass'
+            package['parent_classes'] = [dict(class_path=f'/Game/{name}.{name}_C', export_type=kind, export_index=0)]
+        keys = combo.disk_schedulers(combo.Capture(self.packages))
+        self.assertEqual({key[-1] for key in keys}, {'Base_C', 'Child_C'})

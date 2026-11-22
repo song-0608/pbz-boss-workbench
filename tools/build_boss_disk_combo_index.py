@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 from boss_disk_declarations import digest, write_new
-from boss_disk_dependencies import native_package
+from boss_disk_dependencies import native_package, verified_declarations
 from build_boss_disk_repertoire import read_verified, superclass
 
 
@@ -95,6 +95,43 @@ def mappings(capture, item):
         if not parent or parent['ObjectPath'].startswith('/Script/'):
             raise Unresolved('run_subtree_ancestry_unverified')
         item = capture.resolve(parent)
+
+
+def disk_schedulers(capture):
+    """Find exact RunSubtreeAbility descendants, including classes absent from live receipts."""
+    candidates = {key: row for key, row in capture.packages.items() if row['parent_classes']}
+    parents = {}
+    for key, package, data in verified_declarations(candidates, {}):
+        exports = json.loads(data)
+        for row in package['parent_classes']:
+            ordinal = row['export_index']
+            if type(ordinal) is not int or not 0 <= ordinal < len(exports):
+                raise ValueError('Invalid generated class export index')
+            item = exports[ordinal]
+            if (item['Package'].casefold() != key or item['Type'] != row['export_type']
+                    or item['Package'] + '.' + item['Name'] != row['class_path']):
+                raise ValueError('Captured generated class differs from terminal scan')
+            parent = superclass(item)
+            if parent == NATIVE_PARENT:
+                parents[key, ordinal, item['Type'], item['Name']] = True
+            elif parent and not parent['ObjectPath'].startswith('/Script/'):
+                try:
+                    mount, index, kind, name = split_reference(parent)
+                except Unresolved:
+                    continue
+                parents[key, ordinal, item['Type'], item['Name']] = (mount.casefold(), index, kind, name)
+
+    def terminal(key):
+        trail = set()
+        while key in parents and key not in trail and len(trail) < 64:
+            trail.add(key)
+            parent = parents[key]
+            if parent is True:
+                return True
+            key = parent
+        return False
+
+    return {key for key in parents if terminal(key)}
 
 
 def ordered_nodes(capture, tree_ref):
@@ -222,7 +259,7 @@ def graph(capture, item, tree_for):
     return dict(choices=choices, trees=sorted(trees), referenced_abilities=sorted(hits), issues=sorted(issues)), trees
 
 
-def build(scan_path, queue_path, output):
+def build(scan_path, queue_path, output, *, include_disk_schedulers=False):
     queue_sha = digest(queue_path)
     queue = read_verified(queue_path, queue_sha)
     scan_sha = digest(scan_path)
@@ -240,20 +277,26 @@ def build(scan_path, queue_path, output):
     if routes.keys() != abilities.keys() or len(routes) != len(queue['rows']):
         raise ValueError('Queue does not match captured ability identities')
     tree_for = lru_cache(maxsize=256)(lambda ref: ordered_nodes(capture, ref))
+    disk_classes = disk_schedulers(capture) if include_disk_schedulers else set()
     rows, trees = [], {}
     for path, route in sorted(routes.items()):
-        if route['native_kind'] != 'subtree' or route['native_metadata'] != 'verified':
-            continue
         package, ability = abilities[path]
+        mount, name = path.rsplit('.', 1)
+        key = (mount.casefold(), ability['export_index'], ability['export_type'], name)
+        historical = route['native_kind'] == 'subtree' and route['native_metadata'] == 'verified'
+        if not historical and key not in disk_classes:
+            continue
         if route['disk_declaration_sha256'] != package['declaration_sha256']:
             raise ValueError('Subtree declaration changed after scan')
-        mount, name = path.rsplit('.', 1)
         parent = capture.exact(mount, ability['export_index'], ability['export_type'], name)
         row, parsed = graph(capture, parent, tree_for)
         trees.update(parsed)
         row.update(class_path=path, folder=route['folder'], declaration_sha256=package['declaration_sha256'],
                    historical_unique_grants=route['historical_unique_grants'], context_review=route['context_review'],
                    activation_allowed=False)
+        if include_disk_schedulers:
+            row.update(closed_native_subtree_metadata=historical, disk_ancestry_verified=key in disk_classes,
+                       native_route=route['native_route'])
         row['referenced_abilities'] = [dict(class_path=child, native_route=routes.get(child, {}).get('native_route'),
             historical_grant_cohorts=coobserved(route, routes.get(child, {})))
             for child in row['referenced_abilities']]
@@ -269,6 +312,10 @@ def build(scan_path, queue_path, output):
                    gaps=dict(Counter(issue for r in rows for issue in r['issues'])),
                    files={name: digest(output/name) for name in ('parents.json', 'trees.json')},
                    game_started=False, installed=False, activation_allowed=False, execution_order_verified=False)
+    if include_disk_schedulers:
+        summary.update(disk_ancestry_parents=sum(r['disk_ancestry_verified'] for r in rows),
+                       disk_only_parents=sum(not r['closed_native_subtree_metadata'] for r in rows),
+                       closed_native_metadata_parents=sum(r['closed_native_subtree_metadata'] for r in rows))
     write_new(output/'summary.json', summary)
     return summary
 
@@ -285,5 +332,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('scan', 'queue', 'output'):
         parser.add_argument(name, type=Path)
+    parser.add_argument('--include-disk-schedulers', action='store_true',
+                        help='Include exact serialized RunSubtreeAbility descendants without closed native metadata')
     args = parser.parse_args()
-    print(json.dumps(build(args.scan, args.queue, args.output), ensure_ascii=False))
+    print(json.dumps(build(args.scan, args.queue, args.output,
+                           include_disk_schedulers=args.include_disk_schedulers), ensure_ascii=False))
