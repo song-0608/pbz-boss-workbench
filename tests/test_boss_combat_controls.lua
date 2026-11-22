@@ -254,4 +254,47 @@ test('a denied control check cannot admit movement or a key callback',function()
     assert(not f.session:sample_combat_input({allowed=true}))
     assert(not f.session:skill('one') and f.casts==0)
 end)
+test('optional cue registration failure preserves takeover only after complete hook rollback',function()
+    local original=package.loaded.boss_cue_bridge
+    for _,clean in ipairs({true,false})do
+        local f=fixture();f.options.cues={};local messages={}
+        f.options.log=function(key)messages[#messages+1]=key end
+        local cue={enabled=false,hooks=clean and{}or{{}},cues={size=0},
+            install=function()error('Blueprint hook unavailable')end,
+            close=function()return clean,clean and{}or{'unregister failed'}end}
+        package.loaded.boss_cue_bridge={new=function()return cue end}
+        local controller=f.attach()
+        local entered=f.session:enter()
+        if clean then
+            assert(entered and f.session.state=='ACTIVE' and controller.cue==nil)
+            assert(messages[1]=='NATIVE_CUE_UNAVAILABLE' and f.session:restore())
+        else
+            assert(not entered and controller.cue==cue and controller.cleanup_pending)
+            assert(f.session.state=='FAULTED' and #messages==0)
+        end
+    end
+    package.loaded.boss_cue_bridge=original
+end)
+test('a failed visual callback preserves gameplay after cleanup and blocks while cleanup fails',function()
+    local original=package.loaded.boss_cue_bridge
+    local f=fixture();f.options.cues={};local failed,clean,closes=false,false,0
+    local messages={}
+    f.options.log=function(key)messages[#messages+1]=key end
+    local cue={install=function()return true end,close=function()
+        closes=closes+1
+        return clean,clean and{}or{'particle still active'}
+    end}
+    package.loaded.boss_cue_bridge={new=function(_,_,_,_,on_failure)failed=on_failure;return cue end}
+    local controls=f.attach();assert(f.session:enter())
+    failed('native cue on_begin','partial spawn')
+    local ok,reason=pcall(f.session.sample_combat_input,f.session,{allowed=true})
+    assert(not ok and tostring(reason):find('particle still active',1,true))
+    assert(controls.cue==cue and #messages==0)
+    clean=true
+    assert(f.session:sample_combat_input({allowed=true}))
+    assert(f.session.state=='ACTIVE' and controls.cue==nil and controls.cue_failure==nil)
+    assert(messages[1]=='NATIVE_CUE_UNAVAILABLE' and closes==2 and f.session:skill('one'))
+    assert(f.session:restore())
+    package.loaded.boss_cue_bridge=original
+end)
 print('Native combat arbitration fixtures: '..total..'; no live defense or visual acceptance')

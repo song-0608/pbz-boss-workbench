@@ -11,7 +11,8 @@ local function fixture()
     local pause={IsGamePaused=function(_,actual)assert(actual==pc);f.queries=f.queries+1;return f.paused end}
     local contract={pid=42,native_input_binding_verified=true,cues={},defense_by_role={
         ['056_youlong']={key='RIGHT_MOUSE_BUTTON'}}}
-    f.options=Host.options(rt,'056_youlong',contract,{},pause,function()end)
+    f.pause_query=function(pc)return pause:IsGamePaused(pc)end
+    f.options=Host.options(rt,'056_youlong',contract,{},f.pause_query,function()end)
     f.runtime=rt;f.session=s;f.receipt=r;f.contract=contract;f.pause=pause
     return f
 end
@@ -47,18 +48,18 @@ test('only an explicit false pause query permits input',function()
     assert(not pcall(f.options.input_allowed,f.receipt))
 end)
 test('a role without a declared stance retains cues without borrowing another role ability',function()
-    local f=fixture();local options=Host.options(f.runtime,'057_wanjun',f.contract,{},f.pause)
+    local f=fixture();local options=Host.options(f.runtime,'057_wanjun',f.contract,{},f.pause_query)
     assert(options.defense==nil and options.cues==f.contract.cues)
     assert(options.input_allowed(f.receipt))
 end)
 test('unverified or foreign input contract is rejected at host creation',function()
     for _,value in ipairs({false,0,'true'})do
         local f=fixture();f.contract.native_input_binding_verified=value
-        assert(not pcall(Host.options,f.runtime,'056_youlong',f.contract,{},f.pause))
+        assert(not pcall(Host.options,f.runtime,'056_youlong',f.contract,{},f.pause_query))
     end
     for _,value in ipairs({0,-1,4.5,'42'})do
         local f=fixture();f.contract.pid=value
-        assert(not pcall(Host.options,f.runtime,'056_youlong',f.contract,{},f.pause))
+        assert(not pcall(Host.options,f.runtime,'056_youlong',f.contract,{},f.pause_query))
     end
 end)
 test('native held input still follows fresh menu and pause state through the combat controller',function()
@@ -85,6 +86,9 @@ if arg[2]then
         local first=assert(source:find('                    if options.native_combat_contract then',1,true))
         local last=assert(source:find('                    deferred=true',first,true))
         local f=fixture();f.contract.cues=nil;f.contract.defense_by_role={}
+        -- UE4SS exposes reflected functions as callable objects.
+        local native=f.pause.IsGamePaused
+        f.pause.IsGamePaused=setmetatable({}, {__call=function(_,...)return native(...)end})
         local s=f.session;s.state='OFF';s.receipt=nil
         function s:enter()self.state='ACTIVE';self.receipt=f.receipt;return true end
         function s:restore()self.state='OFF';self.receipt=nil;return true end

@@ -114,9 +114,30 @@ def payload(root=ROOT, *, creative=None):
            '    -- 用途：逐帧调度前仍核对本轮构建/World；维护只作用于本次遥控的临时Boss。\n'
            '    local pc=self:check(receipt)')
     change('control_bridge.lua', '    return true\nend\n\nfunction Bridge:verify_control(receipt)\n',
-           '    return self:verify_control(receipt,pc)\nend\n\nfunction Bridge:verify_control(receipt,checked_pc)\n')
-    change('control_bridge.lua', 'function Bridge:verify_control(receipt,checked_pc)\n    local pc = self:check(receipt)',
-           'function Bridge:verify_control(receipt,checked_pc)\n    local pc = checked_pc or self:check(receipt)')
+           '    if not self:verify_control(receipt,pc,remote_verified) then return false end\n'
+           '    return true,nil,pc\nend\n\nfunction Bridge:verify_control(receipt,checked_pc,remote_verified)\n')
+    change('control_bridge.lua', '    local pc=self:check(receipt)\n    if receipt.remote_control then\n'
+           '        local ready,why=self.api.remote:maintain(receipt.remote_control)',
+           '    local pc=self:check(receipt)\n    local remote_verified=false\n    if receipt.remote_control then\n'
+           '        local ready,why=self.api.remote:maintain(receipt.remote_control)')
+    change('control_bridge.lua', '        if not ready then return false,why end\n    end\n'
+           '    -- 用途：原AIController tick保持关闭；仅子招式间隙重对准已锁定目标，不改正在运行的根运动。',
+           '        if not ready then return false,why end\n        remote_verified=true\n    end\n'
+           '    -- 用途：原AIController tick保持关闭；仅子招式间隙重对准已锁定目标，不改正在运行的根运动。')
+    change('control_bridge.lua', '        self.api.face_target(self.calls:resolve(receipt.boss),self.calls:resolve(receipt.combat.selected_target))\n'
+           '    end\n    if not self:verify_control(receipt,pc,remote_verified)',
+           '        self.api.face_target(self.calls:resolve(receipt.boss),self.calls:resolve(receipt.combat.selected_target))\n'
+           '        remote_verified=false\n    end\n    if not self:verify_control(receipt,pc,remote_verified)')
+    change('control_bridge.lua', 'function Bridge:verify_control(receipt,checked_pc,remote_verified)\n    local pc = self:check(receipt)',
+           'function Bridge:verify_control(receipt,checked_pc,remote_verified)\n    local pc = checked_pc or self:check(receipt)')
+    change('control_bridge.lua', 'local owned=receipt.remote_control and self.api.remote:verify(receipt.remote_control)',
+           'local owned=receipt.remote_control and (remote_verified or self.api.remote:verify(receipt.remote_control))')
+    change('control_bridge.lua', 'and (self.api.remote.brain_policy_valid and self.api.remote:brain_policy_valid(receipt.remote_control)',
+           'and (remote_verified or self.api.remote.brain_policy_valid and self.api.remote:brain_policy_valid(receipt.remote_control)')
+    change('ue_host.lua', 'read_input = function(receipt) return input:read(receipt) end,',
+           'read_input = function(receipt,checked_pc) return input:read(receipt,checked_pc) end,')
+    change('owned_arena.lua', 'host.read_input=function(receipt)\n                        local input=read_input(receipt)',
+           'host.read_input=function(receipt,checked_pc)\n                        local input=read_input(receipt,checked_pc)')
     change('control_bridge.lua', 'function Bridge:move(receipt, x, y, scale)\n'
            '    self:check(receipt)\n'
            '    assert(receipt.input_enabled and self:verify_control(receipt), "movement requires current possession")',
@@ -239,7 +260,8 @@ def payload(root=ROOT, *, creative=None):
            "                        local input_statics=StaticFindObject('/Script/Engine.Default__GameplayStatics')\n"
            "                        assert(valid(input_statics),'native combat pause query unavailable')\n"
            "                        options.native_combat_controls=require('boss_combat_host').options(\n"
-           '                            runtime,profile.id,contract,_G,input_statics,log)\n'
+           '                            runtime,profile.id,contract,_G,\n'
+           '                            function(pc)return input_statics:IsGamePaused(pc)end,log)\n'
            '                    end\n'
            '                    if options.native_combat_controls then\n'
            "                        assert(options.developer_only==true,'native combat controls require development assembly')\n"
@@ -248,6 +270,39 @@ def payload(root=ROOT, *, creative=None):
     change('runtime.lua', '                    return self.session:skill(selected)',
            '                    if self.session.request_skill then return self.session:request_skill(selected)end\n'
            '                    return self.session:skill(selected)')
+    change('control_bridge.lua', '    if finished then self.tokens[token] = nil; return true end',
+           '    record.last_active=active\n'
+           '    if finished then record.finished=true;self.tokens[token] = nil; return true end')
+    change('owned_arena.lua', '                    local skill_samples={}\n',
+           '                    local skill_samples={}\n'
+           '                    local skill_observation\n')
+    change('owned_arena.lua', '                    api.before_skill=function(receipt,id)\n',
+           '                    api.before_skill=function(receipt,id)\n'
+           '                        if skill_observation then\n'
+           "                            log('SKILL_OBSERVATION_STOPPED',skill_observation.id..'|superseded by another activation attempt')\n"
+           '                            skill_observation=nil\n'
+           '                        end\n')
+    change('owned_arena.lua', "                            local sample=assert(skill_samples[id],'pre-activation sample missing')\n",
+           "                            local sample=assert(skill_samples[id],'pre-activation sample missing')\n"
+           '                            skill_samples[id]=nil\n'
+           '                            sample.id=id;skill_observation=sample\n'
+           "                            local activity=assert(bridge.tokens[session.current_skill],'native skill token missing')\n"
+           "                            assert(activity.receipt==session.receipt and activity.id==id,'observation token changed')\n"
+           '                            activity.last_active=activity.last_active or active\n')
+    change('owned_arena.lua', "                                if not observation_scope:current()then log('SKILL_OBSERVATION_STOPPED',id..'|session ended');return end\n",
+           '                                if skill_observation~=sample then return end\n'
+           "                                if not observation_scope:current()then skill_observation=nil;log('SKILL_OBSERVATION_STOPPED',id..'|session ended');return end\n")
+    change('owned_arena.lua', '                                    local current=spec.ActiveCount;peak=math.max(peak,current)\n',
+           '                                    local current=activity.last_active;peak=math.max(peak,current)\n')
+    change('owned_arena.lua', "tostring(peak>0 and current==0 and session.state=='ACTIVE')",
+           "tostring(peak>0 and current==0 and activity.finished==true)")
+    change('owned_arena.lua', '                                    if (ended_at and steps-ended_at>=15)or steps>=200 then\n',
+           '                                    if (ended_at and steps-ended_at>=15)or steps>=200 then\n'
+           '                                        skill_observation=nil\n')
+    change('owned_arena.lua', "                                        log('SKILL_OBSERVATION_STOPPED',id..'|owned Actor/ASC engine-unusable; no Spec read');return\n",
+           "                                        skill_observation=nil;log('SKILL_OBSERVATION_STOPPED',id..'|owned Actor/ASC engine-unusable; no Spec read');return\n")
+    change('owned_arena.lua', "                                if not observed then log('SKILL_OBSERVATION_REJECTED',problem)end\n",
+           "                                if not observed then skill_observation=nil;log('SKILL_OBSERVATION_STOPPED',id..'|read failed');log('SKILL_OBSERVATION_REJECTED',problem)end\n")
     change('owned_arena.lua', "                    api.remote=require('remote_control').new(calls,require('ue_remote').new(experiment_remote_binding),binding)",
            "                    api.remote=require('remote_control').new(calls,require('ue_remote').new(experiment_remote_binding),binding)\n"
            '                    if experiment_player_entry then\n'

@@ -14,11 +14,14 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
     if session.state ~= "ACTIVE" or not session.receipt then return false, "not active" end
     local ok, why = session:poll()
     if not ok then return false, why end
+    local checked_pc
     if session.bridge.maintain_control then
-        local maintained,ready=pcall(session.bridge.maintain_control,session.bridge,session.receipt)
-        if not maintained or ready~=true then
+        local receipt=session.receipt
+        local maintained,ready,_,pc=pcall(session.bridge.maintain_control,session.bridge,receipt)
+        if not maintained or ready~=true or session.state~='ACTIVE' or session.receipt~=receipt then
             session:restore('control maintenance rejected');return false,'control maintenance rejected'
         end
+        if session.bridge.maintenance_verifies_control==true then checked_pc=pc end
     end
     -- 用途：即使没按移动键，也要发现控制权被游戏收回，避免继续接受技能输入。
     if session.bridge.maintenance_verifies_control~=true then
@@ -28,7 +31,7 @@ function Driver:step() -- 用途：由游戏线程周期调用；暂停/失焦/�
             return false, "possession lost"
         end
     end
-    local read_ok, input = pcall(self.api.read_input, session.receipt)
+    local read_ok, input = pcall(self.api.read_input, session.receipt, checked_pc)
     if not read_ok or type(input) ~= "table" then
         session:restore("input unreadable")
         return false, "input unreadable"

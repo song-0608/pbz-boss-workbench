@@ -86,4 +86,28 @@ for _,mode in ipairs({'restored','faulted','replacement'})do
     assert(session.restores==1,'restore must happen once: '..mode)
 end
 
+do
+    local receipt={remote_control={}}
+    local fresh,remote_reads=0,0
+    local pc={GetControlRotation=function()return{Yaw=0}end,
+        GetInputMouseDelta=function(_,x,y)x.DeltaX=0;y.DeltaY=0 end,
+        IsInputKeyDown=function()return false end,
+        IsMoveInputIgnored=function()return true end}
+    local bridge={maintenance_verifies_control=true,
+        maintain_control=function(_,r)assert(r==receipt);return true,nil,pc end,
+        check=function(_,r)assert(r==receipt);fresh=fresh+1;return pc end,
+        api={remote={verify=function(_,ticket)
+            assert(ticket==receipt.remote_control);remote_reads=remote_reads+1;return true
+        end}}}
+    local input=require('ue_input').new(bridge,
+        {make_name=function(key)return key end,game_paused=function(value)assert(value==pc);return false end},
+        {input_verified=true,mouse_scale=.22})
+    local session={state='ACTIVE',receipt=receipt,bridge=bridge,poll=function()return true end}
+    function session:restore(why)error(why)end
+    local driver=Driver.new(session,{read_input=function(...)return input:read(...)end})
+    assert(driver:step() and fresh==0 and remote_reads==0)
+    assert(input:read(receipt).allowed and fresh==1 and remote_reads==1,
+        'input outside the maintained frame must check controller and remote ownership again')
+end
+
 print('PASS buffered skill activity suppresses movement and stale frames cannot be reused')

@@ -46,7 +46,7 @@ class CreativeWorkbenchTests(unittest.TestCase):
                     window.update();time.sleep(.01)
             self.assertEqual(calls,['AHua'])
 
-    def test_one_window_contains_original_boss_and_both_creative_tabs(self):
+    def test_one_window_contains_boss_skills_and_both_creative_tabs(self):
         import tkinter as tk
         from tkinter import ttk
         source=bootstrap.render(base_window.render(ROOT/'runtime/player-workflows/test',6))
@@ -61,7 +61,7 @@ class CreativeWorkbenchTests(unittest.TestCase):
                     books=[w for w in window.winfo_children() if isinstance(w,ttk.Notebook)]
                     self.assertEqual(len(books),1)
                     self.assertEqual([books[0].tab(tab,'text') for tab in books[0].tabs()],
-                        ['Boss 开发与研究','UE 创作与 3C','统一集成与冲突'])
+                        ['Boss 开发与研究','UE 创作与 3C','统一集成与冲突','Boss 技能目录'])
                     self.assertIn('PBZ 统一工作台',window.title());observed.append(True)
                 except Exception as error:errors.append(error)
                 finally:window.destroy()

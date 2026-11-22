@@ -126,6 +126,13 @@ def deploy_and_launch(with_signature=False, readonly_smoke=False, readonly_ai=Fa
             'native combat input requires the explicit protected development research stack'
         from boss_native_input_artifact import verify
         helper,helper_proof=verify(native_input_smoke)
+        # UE 5.7 dispatches Blueprint callbacks through ProcessLocalScriptFunction.
+        # This option also resolves ProcessInternal for RegisterHook's function check.
+        settings,count=re.subn(r'(?m)^HookProcessLocalScriptFunction[ \t]*=.*$',
+            'HookProcessLocalScriptFunction = 1',settings)
+        if count!=1:
+            raise RuntimeError('Expected a single Blueprint callback hook setting')
+        contents['ue4ss/UE4SS-settings.ini']=settings.encode('utf-8')
         contents['ue4ss/Mods/PBZNativeCombatInput/dlls/main.dll']=helper.read_bytes()
         contents['ue4ss/Mods/mods.txt']=b'PBZNativeCombatInput : 1\n'+contents['ue4ss/Mods/mods.txt']
         v.save(work/'native-combat-input-deployment.json',dict(helper_proof,source=str(native_input_smoke),
@@ -156,6 +163,7 @@ def deploy_and_launch(with_signature=False, readonly_smoke=False, readonly_ai=Fa
     (work/'loader-settings.ini').write_text(settings,encoding='utf-8')
     v.save(work/'selfbuilt-baseline-deployment.json',{'at':v.utc8(),'compiled_from_source':True,
         'object_lookup_cache_enabled':bool(readonly_ai),
+        'local_script_function_hook_enabled':native_input_smoke is not None,
         'loader_settings_sha256':digest(work/'loader-settings.ini'),
         'build_verification_file':str(build_record),'build_verification_sha256':digest(build_record),
         'source_revision':built['main_revision'],'dll_sha256':digest(binary/'UE4SS.dll'),

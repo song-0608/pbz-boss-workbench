@@ -8,7 +8,7 @@ function Host.options(runtime,role,contract,g,pause_query,log)
         and contract.native_input_binding_verified==true
         and math.type(contract.pid)=='integer'and contract.pid>0,
         'current native combat input contract required')
-    assert(pause_query and type(pause_query.IsGamePaused)=='function',
+    assert(type(pause_query)=='function',
         'native combat pause query unavailable')
     return {developer_only=true,now=os.clock,globals=g,log=log,
         native_input={binding_verified=true,pid=contract.pid},
@@ -20,7 +20,7 @@ function Host.options(runtime,role,contract,g,pause_query,log)
             local workbench=runtime.host and runtime.host.workbench
             if workbench and workbench:is_open()then return false end
             -- A missing/unreadable pause result must not authorize gameplay input.
-            return pause_query:IsGamePaused(bridge:check(receipt))==false
+            return pause_query(bridge:check(receipt))==false
         end}
 end
 return Host

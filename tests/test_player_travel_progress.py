@@ -81,6 +81,15 @@ class TravelProgressTests(unittest.TestCase):
         self.assertEqual(data['ambiguous_skill_observations'], [])
         self.assertEqual(len(data['primary_observations']), 1)
 
+    def test_superseded_sample_cannot_contaminate_the_next_activation(self):
+        text = (self.ready+self.active+self.primary+self.begin
+                +'PBZ_CONTROL_LIFECYCLE:SKILL_OBSERVATION_STOPPED=skill_01|superseded by another activation attempt\n'
+                +self.primary+self.begin+self.end)
+        data = observe(text)
+        attack, = data['primary_observations']
+        self.assertEqual(attack['dispatch_line'], 7)
+        self.assertEqual(data['ambiguous_skill_observations'], [])
+
 
 if __name__ == '__main__':
     unittest.main()

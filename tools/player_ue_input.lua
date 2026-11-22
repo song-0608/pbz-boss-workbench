@@ -17,10 +17,11 @@ function Input.new(bridge, api, binding)
     return setmetatable({ bridge = bridge, api = api, binding = tuned, key_names = {} }, Input)
 end
 
-function Input:read(receipt)
-    local pc = self.bridge:check(receipt)
+function Input:read(receipt,checked_pc)
+    -- 只在同一次同步调度中复用维护后核对过的控制器。独立读取仍核验 World 和遥控归属。
+    local pc = checked_pc or self.bridge:check(receipt)
     -- 用途：遥控模式由本Mod屏蔽原主角输入，但仍读取原始键位驱动Boss；暂停仍一律停止采样。
-    local remote=receipt.remote_control and self.bridge.api.remote:verify(receipt.remote_control)
+    local remote=receipt.remote_control and (checked_pc~=nil or self.bridge.api.remote:verify(receipt.remote_control))
     if self.api.game_paused(pc)then return {allowed=false,paused=true}end
     if pc:IsMoveInputIgnored()and not remote then return {allowed=false}end
     local function down(name)

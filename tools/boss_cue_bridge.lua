@@ -6,7 +6,7 @@ local function same(a,b)
     return a and b and a.name==b.name and a.address==b.address and a.class==b.class
 end
 local function valid(object)return object and object:IsValid()==true end
-function Bridge.new(control,g,contract,input_allowed,on_failure)
+function Bridge.new(control,g,contract,input_allowed,on_failure,log)
     assert(contract and contract.developer_only==true and contract.declaration_verified==true
         and contract.script_gate_verified==true and contract.avatar_binding_verified==true
         and contract.class_path==CLASS and contract.blueprint_post_hook_verified==true,
@@ -14,7 +14,7 @@ function Bridge.new(control,g,contract,input_allowed,on_failure)
     assert(type(g.RegisterHook)=='function'and type(g.UnregisterHook)=='function'
         and type(input_allowed)=='function'and type(on_failure)=='function','cue host incomplete')
     local self=setmetatable({control=control,g=g,hooks={},enabled=false,failed=false,
-        input_allowed=input_allowed,on_failure=on_failure},Bridge)
+        input_allowed=input_allowed,on_failure=on_failure,log=log},Bridge)
     local calls=control.calls
     local function exact(action)
         return valid(action)and action:GetClass():GetFullName()=='BlueprintGeneratedClass '..CLASS
@@ -54,10 +54,10 @@ function Bridge.new(control,g,contract,input_allowed,on_failure)
         spawn=function(action,owner)
             assert(self.enabled and not self.failed and self.input_allowed()==true
                 and owner.input_enabled and eligible(action,owner),'native cue spawn owner changed')
-            -- Spaces are the exact reflected Blueprint function name, not a fabricated API.
-            action['Spawn Particles'](action,calls:resolve(owner.boss));return true
+            -- The member lookup binds the action; Avatar is the only Blueprint parameter.
+            action['Spawn Particles'](calls:resolve(owner.boss));return true
         end,
-        finish=function(action)action['End Particles'](action);return true end,
+        finish=function(action)action['End Particles']();return true end,
     })
     return self
 end
@@ -66,7 +66,10 @@ function Bridge:dispatch(method,context)
     local ok,why=pcall(function()
         local action=context:get()
         if method=='on_begin'and self.failed then return end
-        self.cues[method](self.cues,action)
+        local observed,result=self.cues[method](self.cues,action)
+        if self.log and method=='on_begin' and (observed or result=='native action produced no components')then
+            self.log('NATIVE_CUE_COMPONENTS',result)
+        end
     end)
     if not ok and not self.failed then
         self.failed=true -- Stop further spawns; native end/cleanup still owns outstanding actions.

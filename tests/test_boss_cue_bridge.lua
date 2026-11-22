@@ -16,15 +16,16 @@ local function fixture()
     function action:GetClass()return{GetFullName=function()return self.class end}end
     function action:GetAvatarActor()return f.avatar end
     action['Cascade Comps']=array();action['Niagara Comps']=array()
-    action['Spawn Particles']=function(self,avatar)
-        assert(avatar==boss);f.spawns=f.spawns+1
-        self['Niagara Comps'][1]={IsValid=function()return true end}
+    action['Spawn Particles']=setmetatable({},{__call=function(_,...)
+        assert(select('#',...)==1 and (...)==boss);f.spawns=f.spawns+1
+        action['Niagara Comps'][1]={IsValid=function()return true end}
         if f.spawn_error then error('partial native spawn')end
-    end
-    action['End Particles']=function(self)
+    end})
+    action['End Particles']=setmetatable({},{__call=function(_,...)
+        assert(select('#',...)==0)
         if f.end_error then error('native cleanup refused')end
-        f.ends=f.ends+1;self['Niagara Comps']=array();self['Cascade Comps']=array()
-    end
+        f.ends=f.ends+1;action['Niagara Comps']=array();action['Cascade Comps']=array()
+    end})
     boss.IsValid=function()return true end;f.avatar=boss
     local calls={}
     function calls:reference(o)return{name=o.name,address=o.address,class=o.class}end

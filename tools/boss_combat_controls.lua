@@ -141,10 +141,16 @@ function Controls:begin(receipt)
     if self.options.cues then
         self.cue=require('boss_cue_bridge').new(self.session.bridge,self.options.globals,
             self.options.cues,self.options.input_allowed,function(label,why)
-                self.failed=label..': '..why
-                if self.options.log then self.options.log('NATIVE_COMBAT_FAULT',self.failed)end
-            end)
-        self.cue:install()
+                self.cue_failure=label..': '..why
+            end,self.options.log)
+        local installed,problem=pcall(self.cue.install,self.cue)
+        if not installed then
+            local cue=self.cue
+            -- Optional visual hooks must not block control after a clean rollback.
+            assert(not cue.enabled and #cue.hooks==0 and cue.cues.size==0,problem)
+            self.cue=nil
+            if self.options.log then self.options.log('NATIVE_CUE_UNAVAILABLE',tostring(problem))end
+        end
     end
     self.cleanup_pending=false
 end
@@ -152,6 +158,12 @@ function Controls:sample()
     if not self.receipt then return true end
     assert(self.session.receipt==self.receipt and self.session.state=='ACTIVE','stale combat sample rejected')
     assert(not self.failed,self.failed)
+    if self.cue_failure then
+        local clean,errors=self.cue:close()
+        assert(clean,self.cue_failure..' | '..table.concat(errors,'; '))
+        if self.options.log then self.options.log('NATIVE_CUE_UNAVAILABLE',self.cue_failure)end
+        self.cue,self.cue_failure=nil,nil
+    end
     if not self.defense then
         local permitted=self.options.input_allowed()==true
         if not permitted and self.cue then assert(self.cue:cleanup(),'focus-loss cue cleanup failed')end
@@ -192,7 +204,7 @@ function Controls:cleanup()
     if not self.cleanup_pending then
         self.receipt.combat_action_active=nil
         if self.receipt.native_defense==self.defense then self.receipt.native_defense=nil end
-        self.receipt,self.defense,self.cue=nil,nil,nil
+        self.receipt,self.defense,self.cue,self.cue_failure=nil,nil,nil,nil
     end
     return not self.cleanup_pending,errors
 end
@@ -210,7 +222,7 @@ function Controls:retire()
     end
     if r.native_defense==self.defense then r.native_defense=nil end
     r.combat_action_active=nil
-    self.receipt,self.defense,self.cue=nil,nil,nil
+    self.receipt,self.defense,self.cue,self.cue_failure=nil,nil,nil,nil
     self.cleanup_pending=false
     self.disposal_verified=nil
 end

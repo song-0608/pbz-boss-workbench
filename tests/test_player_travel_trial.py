@@ -83,6 +83,15 @@ class TravelInputTests(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 validate_action('native_retreat', self.owner, self.deployment, changed)
 
+    def test_blue_cue_requires_current_wanjun_left_dodge_binding(self):
+        binding = 'PLAYER_BINDING=heavy_01|heavy_01|F2\n'
+        text = self.active.replace('PLAYER_ENTRY_READY=role', binding + 'PLAYER_ENTRY_READY=057_wanjun')
+        self.assertEqual(validate_action('native_blue_cue', self.owner, self.deployment, text), 'F2')
+        for invalid in (text.replace(binding, ''), text.replace(binding, binding * 2),
+                        text.replace('057_wanjun', '056_youlong')):
+            with self.assertRaises(AssertionError):
+                validate_action('native_blue_cue', self.owner, self.deployment, invalid)
+
     def test_repositioning_requires_the_current_takeover(self):
         for action, key in (('forward', 'w'), ('backward', 's'), ('strafe_left', 'a'), ('strafe_right', 'd')):
             self.assertEqual(validate_action(action, self.owner, self.deployment, self.active), key)

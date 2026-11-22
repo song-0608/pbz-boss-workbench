@@ -34,6 +34,10 @@ def observe(text):
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:SKILL_GEOMETRY=([^|]+)\|distance=([\d.]+)', line)
         if match:
             geometry[match[1]] = float(match[2])
+        match = re.search(r'PBZ_CONTROL_LIFECYCLE:SKILL_OBSERVATION_STOPPED=([^|]+)\|', line)
+        if match and match[1] not in ambiguous_pending:
+            pending.pop(match[1], None)
+            skill_pending.pop(match[1], None)
         match = re.search(r'PBZ_CONTROL_LIFECYCLE:KEY_SKILL_BEGIN=([^|]+)\|', line)
         if match:
             skill = match[1]
