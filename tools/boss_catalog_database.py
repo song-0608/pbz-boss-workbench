@@ -99,6 +99,14 @@ SELECT f.priority, f.folder, f.family, s.class_path, s.native_route,
 FROM skills s JOIN folders f ON f.folder=s.folder;
 """
 
+COMPLEX_CONFIGS = """
+CREATE TABLE IF NOT EXISTS complex_boss_profiles (
+    folder TEXT PRIMARY KEY REFERENCES folders(folder),
+    class_path TEXT REFERENCES actor_variants(class_path),
+    payload TEXT NOT NULL
+)
+"""
+
 
 def encode(value):
     return json.dumps(value, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
@@ -106,6 +114,20 @@ def encode(value):
 
 def connect_readonly(path):
     return sqlite3.connect(Path(path).resolve().as_uri() + '?mode=ro', uri=True)
+
+
+def complex_config_rows(db, folder=None):
+    if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='complex_boss_profiles'").fetchone():
+        return []
+    if folder is not None:
+        return db.execute('SELECT folder, class_path, payload FROM complex_boss_profiles WHERE folder=?', (folder,)).fetchall()
+    return db.execute('SELECT folder, class_path, payload FROM complex_boss_profiles ORDER BY folder').fetchall()
+
+
+def write_complex_configs(db, rows):
+    db.execute(COMPLEX_CONFIGS)
+    db.execute('DELETE FROM complex_boss_profiles')
+    db.executemany('INSERT INTO complex_boss_profiles (folder,class_path,payload) VALUES (?,?,?)', rows)
 
 
 def priorities(roles, parents, trees):
@@ -299,9 +321,17 @@ def verify(database, catalog):
         counts = {name: db.execute(f'SELECT count(*) FROM {name}').fetchone()[0] for name in tables}
         if counts != expected or counts['folders'] != len(catalog.folders):
             raise ValueError(f'Boss 数据库记录数差异: {counts} != {expected}')
+        profiles = complex_config_rows(db)
+        for folder, actor, raw in profiles:
+            entry = json.loads(raw)
+            if (entry['folder'] != folder or entry['class_path'] != actor or entry['playable'] is not False
+                    or entry['native_grants_verified'] is not False
+                    or entry['metadata_verified'] != (actor is not None and bool(entry['bindings']))):
+                raise ValueError(f'复杂 Boss 配置状态不一致: {folder}')
         ranked = db.execute('SELECT folder, skill_count, combo_count, tree_count, node_count, phase_groups'
                             ' FROM folders ORDER BY priority LIMIT 12').fetchall()
-        return dict(database=str(database), counts=counts, complex_first=ranked, game_started=False)
+        return dict(database=str(database), counts=counts, complex_first=ranked,
+                    complex_profiles=len(profiles), game_started=False)
 
 
 def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=False, log=None):
@@ -309,6 +339,12 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
     database = Path(storage) / DATABASE
     if verify_only or (database.is_file() and not rebuild):
         return verify(database, catalog)
+    profiles = []
+    if database.is_file():
+        with closing(connect_readonly(database)) as previous:
+            sources = previous.execute("SELECT value FROM metadata WHERE key='source_digests'").fetchone()
+            if sources and json.loads(sources[0]) == catalog.source_digests:
+                profiles = complex_config_rows(previous)
     database.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='boss-catalog-', dir=database.parent) as staging:
         candidate = Path(staging) / database.name
@@ -318,6 +354,8 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
             db.execute(f'PRAGMA user_version={VERSION}')
             db.executescript(SCHEMA)
             insert_catalog(db, catalog, log=log)
+            if profiles:
+                write_complex_configs(db, profiles)
         report = verify(candidate, catalog)
         os.replace(candidate, database)
     return dict(report, database=str(database))
@@ -382,9 +420,20 @@ class DatabaseCatalog(Catalog):
             gaps = [row[0] for row in db.execute(
                 "SELECT identifier FROM capture_gaps WHERE category='root-reference-gaps'"
                 " AND json_extract(payload, '$.folder')=?", (folder,))]
+            complex_profile = next((json.loads(raw) for _, _, raw in complex_config_rows(db, folder)), None)
         lines = [folder]
         if len(related) > 1:
             lines.append('同名阶段资源  ' + ' / '.join(related))
+        if complex_profile:
+            lines.extend(('', '复杂 Boss 操控配置'))
+            if complex_profile['metadata_verified']:
+                lines.extend((complex_profile['display_name'], complex_profile['class_path'],
+                              '本体与技能类已核对，原生授予与操控待验'))
+                lines.extend(f"{row['key']}  {row['class_path'].rsplit('.', 1)[-1]}"
+                             + ('（跨阶段共享）' if row['shared'] else '') for row in complex_profile['bindings'])
+            else:
+                lines.append('待核对战斗本体或技能类')
+            lines.append(f"技能池 {len(complex_profile['pools'])}，策略树 {len(complex_profile['strategy_trees'])}")
         lines.extend(('', '角色蓝图', *(actors or ['待核对主身蓝图'])))
         if configs:
             lines.extend(('', '角色与战斗配置', *configs))

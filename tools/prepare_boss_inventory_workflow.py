@@ -5,6 +5,9 @@ import ast
 import hashlib
 import json
 from pathlib import Path
+import subprocess
+import sys
+import time
 
 from boss_adaptation_workflow import ROOT, sha, write_json
 from build_player_experience_candidate import replace
@@ -12,6 +15,40 @@ import boss_inventory_bundle as bundle
 import boss_inventory_spawn_repair as spawn_repair
 from mod_installation import unlinked_path
 import native_grant_ui_stage as previous
+
+
+CONTRACTS = (
+    ('inspect_camera_contract.py', 'camera-native-contract.json'),
+    ('inspect_combat_contract.py', 'combat-native-contract.json'),
+    ('inspect_combat_types.py', 'combat-types.json'),
+    ('inspect_remote_contract.py', 'remote-native-contract.json'),
+    ('inspect_input_barrier_contract.py', 'input-barrier-contract.json'),
+    ('inspect_player_protection_contract.py', 'player-protection-contract.json'),
+    ('inspect_player_ui_contract.py', 'player-ui-native-contract.json'),
+    ('inspect_arena_contract.py', 'arena-native-contract.json'),
+)
+
+
+def prepare_contracts(state, pid, root=ROOT):
+    import stage_readonly_contracts as readonly
+
+    _, observed, _, receipt, tail = readonly.snapshot()
+    if observed['state_file'] != state['state_file'] or receipt['research_pid'] != pid:
+        raise ValueError('Read-only contract belongs to a different research process')
+    readonly.analyze(tail)
+    work = unlinked_path(Path(state['work']))
+    for inspector, filename in CONTRACTS:
+        report = work / filename
+        if report.exists() and bundle.read(unlinked_path(report))['pid'] == pid:
+            continue
+        if time.time() >= state['deadline_unix'] - 180:
+            raise ValueError('Research session needs time for initialization and cleanup')
+        result = subprocess.run([sys.executable, '-B', '-X', 'utf8', str(root / 'tools' / inspector)],
+            cwd=root, capture_output=True, encoding='utf-8', errors='replace', timeout=100)
+        log = work / (inspector + '-' + str(time.time_ns()) + '.log')
+        log.write_text(result.stdout + result.stderr, encoding='utf-8')
+        if result.returncode or not report.is_file() or bundle.read(unlinked_path(report))['pid'] != pid:
+            raise ValueError(f'Current-process contract unavailable: {filename}; see {log}')
 
 
 def render(root=ROOT):
@@ -37,6 +74,13 @@ def render(root=ROOT):
     controller = replace(controller, 'files = render(root)\n    manifest', 'files = previous.render(root)\n    manifest')
     controller = replace(controller, 'source_files={n: sha(root / n) for n in SOURCES},',
                          'source_files=previous.source_hashes(root),')
+    controller = replace(controller,
+        "    assert not list(work.glob(LABEL + '*')), 'preserve prior attempt, including failed staging'\n    raw = practice.log_path(state).read_bytes()",
+        "    assert not list(work.glob(LABEL + '*')), 'preserve prior attempt, including failed staging'\n"
+        "    previous.prepare_contracts(state, pid)\n"
+        "    idle_guard(*practice.owned_session(), time.time())\n"
+        "    assert research_pid(validation) == pid, 'research process changed during preflight'\n"
+        "    raw = practice.log_path(state).read_bytes()")
     controller = replace(controller,
         "    expected_modules = {p.removeprefix('Scripts/'): h for p, h in recorded['base_mod_files'].items()\n"
         "                        if p.startswith('Scripts/') and p != 'Scripts/main.lua'}\n"
@@ -77,7 +121,8 @@ def source_hashes(root=ROOT):
     names = (*previous.SOURCES, *spawn_repair.SOURCES,
              'tools/prepare_boss_inventory_workflow.py', 'tools/boss_inventory_bundle.py',
              'tools/native_grant_skill_gate.py', 'tests/test_native_grant_skill_gate.py',
-             'tests/test_boss_variant_candidates.py')
+             'tests/test_boss_variant_candidates.py', 'tools/stage_readonly_contracts.py',
+             *('tools/' + script for script, _ in CONTRACTS))
     return {name: sha(root / name) for name in names}
 
 

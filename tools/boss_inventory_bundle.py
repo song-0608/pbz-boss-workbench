@@ -54,8 +54,11 @@ def historical_pool(identifier, bundle, root):
 def validate(identifier, bundle, base=None, root=ROOT):
     root = root.resolve()
     bundle = unlinked_path(bundle)
+    import prepare_complex_boss_candidates as complex_bosses
     import prepare_boss_variant_candidates as variants
-    if bundle.is_relative_to(root / variants.OUTPUT):
+    if bundle.is_relative_to(root / complex_bosses.OUTPUT):
+        record = complex_bosses.verify(bundle, root)
+    elif bundle.is_relative_to(root / variants.OUTPUT):
         record = variants.verify(bundle, root)
     else:
         record = historical_pool(identifier, bundle, root)
