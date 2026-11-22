@@ -27,27 +27,34 @@ def short(path):
 
 
 class Catalog:
-    def __init__(self, root, storage=PROJECT_STORAGE):
+    def __init__(self, root, storage=PROJECT_STORAGE, *, read_parents=None):
         self.directory = Path(storage) / CAPTURE
         evidence = Path(root) / EVIDENCE
         skills = load_json(evidence / 'native-boss-skill-repertoire-milestone-20261121.json')
         combos = load_json(evidence / 'native-boss-disk-combo-expansion-20261122.json')
+        self.source_digests = {
+            'repertoire': skills['catalog_summary_sha256'],
+            'combos': combos['expanded_summary_sha256'],
+        }
         self.repertoire = self.directory / 'repertoire'
         self.combo_directory = self.directory / 'combo-index-v2'
-        repertoire = read_verified(self.repertoire / 'summary.json', skills['catalog_summary_sha256'])
-        combo = read_verified(self.combo_directory / 'summary.json', combos['expanded_summary_sha256'])
+        repertoire = read_verified(self.repertoire / 'summary.json', self.source_digests['repertoire'])
+        combo = read_verified(self.combo_directory / 'summary.json', self.source_digests['combos'])
         if (repertoire['kind'] != 'offline_boss_disk_repertoire' or combo['kind'] != 'offline_boss_combo_tree_index'
                 or any(repertoire[key] != combo[key] for key in ('scan_sha256', 'queue_sha256'))
                 or any(record[key] is not False for record in (repertoire, combo)
                        for key in ('activation_allowed', 'game_started', 'installed'))):
             raise ValueError('技能目录和连招目录须来自同一次离线抓取')
+        self.repertoire_summary = repertoire
+        self.combo_summary = combo
         self.files = repertoire['files']
         self.combo_files = combo['files']
         self.folders = tuple(sorted(name[:-5] for name in self.files
                                     if FOLDER_NAME.fullmatch(name) and name not in SPECIAL_FILES))
         if len(self.folders) != repertoire['folders'] + 1 or 'native_support' not in self.folders:
             raise ValueError('技能目录缺少原生资源分组')
-        parents = read_verified(self.combo_directory / 'parents.json', self.combo_files['parents.json'])
+        parents = (read_parents(self) if read_parents else
+                   read_verified(self.combo_directory / 'parents.json', self.combo_files['parents.json']))
         self.parents = {row['class_path']: row for row in parents}
         if len(self.parents) != combo['parents'] or set(row['folder'] for row in parents) - set(self.folders):
             raise ValueError('连招目录的角色分组不完整')
@@ -59,6 +66,10 @@ class Catalog:
                 self.used_by[child['class_path']].append(row['class_path'])
         self.roles = {}
         self.trees = None
+
+    def ordered_folders(self):
+        return tuple(folder for folder in ROLES if folder in self.folders) + tuple(
+            folder for folder in self.folders if folder not in ROLES)
 
     def role(self, folder):
         if folder not in self.folders:

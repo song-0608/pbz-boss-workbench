@@ -1,8 +1,10 @@
 """Read-only skill tab for the desktop Boss workbench."""
+import sqlite3
 import tkinter as tk
 from tkinter import ttk
 
-from workbench_skill_catalog import Catalog, ROLES, short
+from boss_catalog_database import open_catalog
+from workbench_skill_catalog import ROLES, short
 
 
 def attach(notebook, root):
@@ -51,8 +53,19 @@ def attach(notebook, root):
         row = visible.get(selected[0]) if selected else None
         try:
             show(catalog.details(row) if row else '')
-        except (OSError, ValueError, KeyError) as error:
+        except (OSError, ValueError, KeyError, sqlite3.Error) as error:
             show(f'技能详情读取失败：{error}')
+
+    def show_folder():
+        if catalog is None or role.current() < 0:
+            return
+        try:
+            show(catalog.folder_details(folders[role.current()]))
+        except (OSError, ValueError, KeyError, sqlite3.Error) as error:
+            show(f'角色资料读取失败：{error}')
+
+    overview = ttk.Button(toolbar, text='角色资料', command=show_folder, state='disabled')
+    overview.pack(side='left', padx=(6, 0))
 
     def refresh(*_args):
         if catalog is None or role.current() < 0:
@@ -63,7 +76,7 @@ def attach(notebook, root):
         folder = folders[role.current()]
         try:
             rows = catalog.role(folder)['skills']
-        except (OSError, ValueError, KeyError) as error:
+        except (OSError, ValueError, KeyError, sqlite3.Error) as error:
             status.set(f'角色技能读取失败：{error}')
             show('')
             return
@@ -73,7 +86,10 @@ def attach(notebook, root):
             if search in path.casefold():
                 visible[path] = row
                 skills.insert('', 'end', iid=path, text=short(path), values=('是' if path in catalog.parents else '',))
-        status.set(f'显示 {len(visible)} / {len(rows)} 项技能 · 离线资源 · 游戏内生效情况待实测')
+        stats = getattr(catalog, 'metrics', {}).get(folder)
+        scope = (f" · {stats['actors']} 个角色蓝图 · {stats['combos']} 个连招入口 / {stats['trees']} 棵树"
+                 if stats is not None else '')
+        status.set(f'显示 {len(visible)} / {len(rows)} 项技能{scope} · 游戏内生效情况待实测')
         selection = previous[0] if previous and previous[0] in visible else next(iter(visible), None)
         if selection is not None:
             skills.selection_set(selection)
@@ -85,12 +101,13 @@ def attach(notebook, root):
         if notebook.select() != str(tab) or catalog is not None:
             return
         try:
-            catalog = Catalog(root)
-        except (OSError, ValueError, KeyError) as error:
+            catalog = open_catalog(root)
+        except (OSError, ValueError, KeyError, sqlite3.Error) as error:
             status.set(f'离线技能目录读取失败：{error}')
             return
-        folders.extend(folder for folder in ROLES if folder in catalog.folders)
-        folders.extend(folder for folder in catalog.folders if folder not in ROLES)
+        folders.extend(catalog.ordered_folders())
+        if hasattr(catalog, 'folder_details'):
+            overview.configure(state='normal')
         role.configure(values=[f'{ROLES[folder]} · {folder}' if folder in ROLES else folder for folder in folders])
         role.current(0)
         refresh()
