@@ -110,7 +110,9 @@ def render(source):
         "    window.title('PBZ 统一工作台 · Boss · UE 创作 · 集成')\n"
         "    notebook=ttk.Notebook(window)\n    notebook.pack(fill='both',expand=True)\n"
         "    frame=ttk.Frame(notebook,padding=20)\n    notebook.add(frame,text='Boss 开发与研究')\n"
-        "    from creative_workbench_ui import attach\n    creative_tabs=attach(window,notebook,ROOT,smoke=smoke)\n")
+        "    from creative_workbench_ui import attach\n    creative_tabs=attach(window,notebook,ROOT,smoke=smoke)\n"
+        "    from workbench_skill_catalog_ui import attach as attach_skill_catalog\n"
+        "    attach_skill_catalog(notebook,ROOT)\n")
     return source
 
 
