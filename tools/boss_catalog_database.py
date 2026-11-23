@@ -470,6 +470,8 @@ class DatabaseCatalog(Catalog):
             self.native_assets = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_asset_counts'").fetchone())
             self.native_extensions = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_extension_counts'").fetchone())
             self.actor_control = bool(db.execute("SELECT 1 FROM sqlite_master WHERE type='view' AND name='boss_actor_control'").fetchone())
+            self.current_root_references = bool(db.execute("""SELECT 1 FROM sqlite_master
+                WHERE type='table' AND name='boss_root_reference_status'""").fetchone())
             self.actor_animations = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_actor_animation_counts'").fetchone())
             self.editable_clips = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_editable_clip_counts'").fetchone())
             self.config_abilities = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_config_ability_counts'").fetchone())
@@ -515,9 +517,13 @@ class DatabaseCatalog(Catalog):
             models = db.execute('SELECT e.name, e.export_type FROM combat_config_exports e'
                 ' JOIN combat_configs c ON c.package=e.package WHERE c.folder=? ORDER BY e.name', (folder,))
             configs = [f'{name}  {kind}' for name, kind in models if kind in CONFIG_TYPES]
-            gaps = [row[0] for row in db.execute(
-                "SELECT identifier FROM capture_gaps WHERE category='root-reference-gaps'"
-                " AND json_extract(payload, '$.folder')=?", (folder,))]
+            if self.current_root_references:
+                gaps = [mount for mount, in db.execute('''SELECT DISTINCT mount FROM boss_root_reference_status
+                    WHERE folder=? AND status<>'captured' ORDER BY mount''', (folder,))]
+            else:
+                gaps = [row[0] for row in db.execute(
+                    "SELECT identifier FROM capture_gaps WHERE category='root-reference-gaps'"
+                    " AND json_extract(payload, '$.folder')=?", (folder,))]
             complex_profile = next((json.loads(raw) for _, _, raw in complex_config_rows(db, folder)), None)
             additional = db.execute('SELECT class_path,config_path FROM additional_boss_actors WHERE folder=?'
                                     ' ORDER BY class_path', (folder,)).fetchall() if self.native_extensions else []

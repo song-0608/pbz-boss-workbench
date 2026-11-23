@@ -23,7 +23,7 @@ ANIMATION_FOLDERS = {'anim', 'anims', 'animation', 'animations', 'montage', 'mon
 INPUT_ROOTS = ('/game/pbzcontent/input/', '/pbzinput/')
 TABLES = ('additional_boss_packages', 'additional_boss_exports', 'additional_boss_references',
           'additional_boss_actors', 'additional_boss_gaps', 'boss_actor_configs',
-          'boss_animation_dependencies', 'boss_actor_declaration_sources')
+          'boss_animation_dependencies', 'boss_actor_declaration_sources', 'boss_root_reference_status')
 VIEWS = ('boss_native_animation', 'boss_native_control', 'boss_native_actors', 'boss_actor_control', 'boss_group_coverage')
 SCHEMA = '''
 CREATE TABLE additional_boss_packages (
@@ -59,6 +59,11 @@ CREATE TABLE boss_animation_dependencies (
 CREATE TABLE boss_actor_declaration_sources (
     class_path TEXT NOT NULL, package TEXT NOT NULL, source_path TEXT NOT NULL, relation TEXT NOT NULL,
     PRIMARY KEY (class_path, package, source_path, relation)
+) WITHOUT ROWID;
+CREATE TABLE boss_root_reference_status (
+    folder TEXT NOT NULL REFERENCES folders, package TEXT NOT NULL REFERENCES packages,
+    mount TEXT NOT NULL, status TEXT NOT NULL,
+    PRIMARY KEY (package,mount)
 ) WITHOUT ROWID;
 CREATE VIEW boss_native_animation AS
 SELECT a.package,a.export_index,e.name,e.export_type,a.payload,p.declaration,p.declaration_sha256
@@ -292,6 +297,12 @@ def populate(db, scan, extra, identities, index):
                 db.execute('INSERT INTO additional_boss_actors VALUES (?,?,?,?,?,?,?)',
                            (path, folder, config_path, item['package'], i, encode(ancestry), source))
     db.executemany('INSERT INTO additional_boss_gaps VALUES (?,?)', sorted(gaps))
+    for raw, in db.execute("SELECT payload FROM capture_gaps WHERE category='root-reference-gaps'"):
+        reference = json.loads(raw)
+        key = reference['reference'].casefold()
+        status = ('captured' if key in all_packages else 'indexed_without_declaration' if key in indexed else 'not_in_local_index')
+        db.execute('INSERT INTO boss_root_reference_status VALUES (?,?,?,?)',
+                   (reference['folder'], reference['package'], reference['reference'], status))
     index_control_sources(db, capture)
     index_animation_dependencies(db)
     report = dict(counts={name: db.execute(f'SELECT count(*) FROM {name}').fetchone()[0] for name in (*TABLES, *VIEWS)},

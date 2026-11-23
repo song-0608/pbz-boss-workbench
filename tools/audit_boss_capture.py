@@ -1,0 +1,142 @@
+"""Audit offline Boss capture coverage against source receipts and local files."""
+import argparse
+from collections import Counter
+from contextlib import closing
+import json
+from pathlib import Path
+
+from boss_animation_sources import load_records
+from boss_asset_extensions import candidate_body, native_asset_root, validated_inputs
+from boss_catalog_database import DATABASE, capture_inputs, check_identity, connect_readonly, verify
+from boss_disk_declarations import digest, write_new
+from boss_disk_dependencies import MOBS, catalog as package_index, native_package
+from research_storage import PROJECT_STORAGE, ROOT
+
+
+def metadata(db, key):
+    value, = db.execute('SELECT value FROM metadata WHERE key=?', (key,)).fetchone()
+    return json.loads(value)
+
+
+def scan_animation_files(db, log):
+    frozen = metadata(db, 'boss_editable_clip_plans')
+    if set(frozen) != {'skills', 'actor', 'catalog'}:
+        raise ValueError('Skill, actor and catalog animation receipts are required')
+    formats, total, bytes_verified = Counter(), 0, 0
+    for scope, info in frozen.items():
+        path = Path(info['path'])
+        if digest(path / 'plan.json') != info['sha256']:
+            raise ValueError(f'Frozen animation plan changed: {scope}')
+        current = load_records(db, path)
+        stored = {package: json.loads(payload) for package, payload in db.execute(
+            'SELECT package,payload FROM boss_editable_clips WHERE scope=?', (scope,))}
+        if current != stored:
+            raise ValueError(f'Animation sources or database records changed: {scope}')
+        for row in current.values():
+            if row['status'] == 'exported':
+                formats[row['format']] += 1
+                bytes_verified += row['size']
+        total += len(current)
+        if log:
+            log(f'动画已复核 {scope}：{len(current):,} 段')
+    return dict(files_verified=sum(formats.values()), planned=total, formats=dict(formats), bytes_verified=bytes_verified)
+
+
+def check_mounted_references(directory, expected, mapping_sha):
+    job_path = directory / 'job.json'
+    job = json.loads(job_path.read_bytes())
+    path = directory / 'result/conversion-result.json'
+    receipt = json.loads(path.read_bytes())
+    rows = receipt['packages']
+    if (job['mode'] != 'inspect' or receipt['mode'] != 'inspect' or receipt['game_started'] is not False
+            or receipt['input_job_sha256'] != digest(job_path) or receipt['mapping_sha256'] != mapping_sha
+            or [row['package'] for row in rows] != job['packages']):
+        raise ValueError('Mounted package check receipt does not match its offline inputs')
+    checked = {native_package(row['package']).casefold(): 'present' if row['passed'] else row.get('error_type') for row in rows}
+    if checked.keys() != {row['reference'].casefold() for row in expected if row['current_status'] == 'not_in_local_index'}:
+        raise ValueError('Mounted check does not cover the exact index-external root references')
+    return dict(receipt=str(path), receipt_sha256=digest(path), results=checked)
+
+
+def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=None):
+    database = Path(storage) / DATABASE
+    with closing(connect_readonly(database)) as db:
+        data_version, = db.execute('PRAGMA data_version').fetchone()
+        provenance = metadata(db, 'native_extension_sources')
+        catalog, scan, extensions, _ = validated_inputs(index, provenance['sources'], root, storage)
+        check_identity(db, catalog)
+        indexed = package_index(index)
+        original = {native_package(row['package']).casefold(): row for row in scan['packages']}
+        known = {**original, **extensions}
+        rows = {package: (declaration, sha) for package, declaration, sha in db.execute('''
+            SELECT package,declaration,declaration_sha256 FROM packages
+            UNION ALL SELECT package,declaration,declaration_sha256 FROM additional_boss_packages''')}
+        if rows != {r['package']: (r['declaration'], r['declaration_sha256']) for r in known.values()}:
+            raise ValueError('Package rows differ from the verified declaration receipts')
+        mob_roots = {key for key, row in indexed.items() if row['package'].startswith(MOBS)}
+        other_roots = {key for key, row in indexed.items()
+                       if candidate_body(row['package']) or native_asset_root(key)}
+        missing = sorted((mob_roots | other_roots) - known.keys())
+        for number, row in enumerate(sorted(known.values(), key=lambda item: item['declaration']), 1):
+            if digest(row['declaration']) != row['declaration_sha256']:
+                raise ValueError(f'Captured declaration changed: {row["package"]}')
+            if log and number % 15000 == 0:
+                log(f'声明摘要已复核 {number:,} 个包')
+
+        _, queue = capture_inputs(catalog)
+        expected_skills = {row['class_path']: row for row in queue['rows']}
+        actual_skills = {path: json.loads(raw) for path, raw in db.execute('SELECT class_path,adaptation FROM skills')}
+        if expected_skills != actual_skills:
+            raise ValueError('Native skills differ from the frozen adaptation queue')
+
+        root_references = []
+        for raw, in db.execute("SELECT payload FROM capture_gaps WHERE category='root-reference-gaps' ORDER BY ordinal"):
+            row = json.loads(raw)
+            target = row['reference'].casefold()
+            root_references.append(dict(row, current_status='captured' if target in known else
+                                        'indexed_without_declaration' if target in indexed else 'not_in_local_index'))
+        stored_root_status = db.execute('SELECT package,mount,status FROM boss_root_reference_status').fetchall()
+        expected_status = [(row['package'], row['reference'], row['current_status']) for row in root_references]
+        if sorted(stored_root_status) != sorted(expected_status):
+            raise ValueError('Current root reference statuses do not match the audited inventory')
+        probe = check_mounted_references(mounted_check, root_references, scan['mapping_sha256']) if mounted_check else None
+        actor_gaps = [dict(folder=folder, status=status) for folder, status in db.execute('''
+            SELECT folder,body_status FROM boss_group_coverage
+            WHERE actor_count=0 AND folder NOT IN ('Common','Vessel_Common','native_support') ORDER BY folder''')]
+        quarantines = [json.loads(raw) for raw, in db.execute(
+            "SELECT payload FROM capture_gaps WHERE category='quarantined'")]
+        effective_dependency_gaps = dict(Counter(status for _, status in db.execute('SELECT package,reason FROM additional_boss_gaps')))
+        animation = scan_animation_files(db, log)
+        if log:
+            log('开始核对数据库记录、完整性和外键')
+        verified = verify(database, catalog)
+        if db.execute('PRAGMA data_version').fetchone() != (data_version,):
+            raise ValueError('Boss database changed during the audit')
+    config = verified['config_abilities']
+    unresolved_root_references = [row for row in root_references if row['current_status'] != 'captured']
+    native_scope_complete = not (missing or effective_dependency_gaps or unresolved_root_references or actor_gaps
+                                 or quarantines or config['unresolved_links'] or config['diagnostics']
+                                 or animation['planned'] != animation['files_verified'])
+    return dict(mobs_indexed_roots=len(mob_roots), other_indexed_roots=len(other_roots),
+                declaration_files_verified=len(known), missing_root_packages=missing,
+                root_references=root_references, root_reference_blockers=unresolved_root_references,
+                missing_combat_bodies=actor_gaps, quarantined=quarantines, extension_gaps=effective_dependency_gaps,
+                animation_sources=animation, config_abilities=config, mounted_reference_probe=probe,
+                skills=verified['counts']['skills'], actions=verified['counts']['timeline_actions'],
+                historical_failed_dependency_packages=scan['failed_dependency_count'],
+                historical_deferred_dependency_packages=scan['deferred_dependency_count'],
+                historical_unindexed_dependency_references=len(scan['unindexed_references']),
+                native_scope_complete=native_scope_complete, ready_for_delivery=False,
+                game_started=False)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--index', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--mounted-check', type=Path)
+    args = parser.parse_args()
+    result = audit(args.index, log=lambda message: print(message, flush=True), mounted_check=args.mounted_check)
+    write_new(args.output, result)
+    print(json.dumps({key: value for key, value in result.items() if key != 'root_references'},
+                     ensure_ascii=False, indent=2))

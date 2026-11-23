@@ -118,7 +118,7 @@ def source_records(sources, index_sha256, *, allow_incomplete=False):
                     raise ValueError('Complete bounded declaration required')
                 path = source/batch['output']/filename
                 if (path.is_symlink() or not path.is_file()
-                        or not 0 < path.stat().st_size == row['declaration_bytes'] <= disk.MAX_BYTES):
+                        or not 0 < path.stat().st_size == row['declaration_bytes'] <= disk.declaration_limit(job)):
                     raise ValueError('Missing or changed declaration size')
                 key = native_package(row['package']).casefold()
                 item = dict(package=row['package'], declaration=str(path),
@@ -159,21 +159,26 @@ def collect(target, exporter, paks, crypto):
     return disk.summarize(target)
 
 
-def create_plan(index, mapping, target, rows, provenance, purpose, *, compact_declarations=False):
+def create_plan(index, mapping, target, rows, provenance, purpose, *, compact_declarations=False,
+                declaration_limit_bytes=None):
     target, mapping = Path(target).resolve(), Path(mapping).resolve()
     if not rows:
         raise ValueError('No missing indexed packages; do not create an empty plan')
     if not mapping.is_file():
         raise ValueError('Existing exact local mapping required')
+    batch_size = 1 if declaration_limit_bytes is not None and declaration_limit_bytes > disk.MAX_BYTES else 64
     target.mkdir(parents=True, exist_ok=False)
     batches = []
-    for offset in range(0, len(rows), 64):
-        ordinal = offset//64
+    for offset in range(0, len(rows), batch_size):
+        ordinal = offset // batch_size
         job = f'job-{ordinal:04d}.json'
-        packages = [r['package'] for r in rows[offset:offset+64]]
+        packages = [r['package'] for r in rows[offset:offset + batch_size]]
         request = dict(mode='declarations', game='GAME_UE5_7', usmap=str(mapping), packages=packages)
         if compact_declarations:
             request['compact_declarations'] = True
+        if declaration_limit_bytes is not None:
+            request['declaration_limit_bytes'] = declaration_limit_bytes
+        disk.declaration_limit(request)
         disk.write_new(target/job, request)
         batches.append(dict(job=job, sha256=disk.digest(target/job), packages=packages,
                             output=f'batch-{ordinal:04d}'))

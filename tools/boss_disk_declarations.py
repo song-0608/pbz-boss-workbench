@@ -16,6 +16,14 @@ FOLDER = re.compile(r'^ProjectPBZ/Plugins/Secret/PBZCombatAsset/Content/ActorDat
 MAX_BYTES = 16 * 1024 * 1024
 
 
+def declaration_limit(job):
+    limit = job.get('declaration_limit_bytes', MAX_BYTES)
+    if (type(limit) is not int or not 1 <= limit <= 16 * MAX_BYTES
+            or (limit > MAX_BYTES and (job.get('compact_declarations') is not True or len(job['packages']) != 1))):
+        raise ValueError('Large declarations require one exact package and compact serialization')
+    return limit
+
+
 def digest(path):
     with Path(path).open('rb') as stream:
         return hashlib.file_digest(stream, 'sha256').hexdigest()
@@ -108,7 +116,7 @@ def checked_batch(target, batch):
         if not re.fullmatch(r'declaration-[0-9]{4}\.json', name):
             raise ValueError('Unexpected declaration filename')
         path = directory/name
-        if path.is_symlink() or not path.is_file() or not 0 < path.stat().st_size <= MAX_BYTES:
+        if path.is_symlink() or not path.is_file() or not 0 < path.stat().st_size <= declaration_limit(job):
             raise ValueError('Invalid bounded declaration file')
         if digest(path) != row['declaration_sha256'] or path.stat().st_size != row['declaration_bytes']:
             raise ValueError('Declaration digest/size mismatch')
@@ -131,6 +139,7 @@ def checked_plan(target):
         job = json.loads(path.read_bytes())
         if job['mode'] != 'declarations' or job['packages'] != batch['packages'] or not 1 <= len(job['packages']) <= 64:
             raise ValueError('Unexpected bounded declaration job')
+        declaration_limit(job)
         if digest(job['usmap']) != record['mapping_sha256']:
             raise ValueError('Exact mapping changed')
     if [p for b in record['batches'] for p in b['packages']] != [r['package'] for r in record['packages']]:

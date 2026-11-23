@@ -27,6 +27,11 @@ var mode = job.RootElement.GetProperty("mode").GetString();
 if (mode is not ("inspect" or "export" or "declarations")) throw new ArgumentException("Unknown job mode");
 var compactDeclarations = job.RootElement.TryGetProperty("compact_declarations", out var compactValue)
     && compactValue.GetBoolean();
+var maximumDeclarationBytes = job.RootElement.TryGetProperty("declaration_limit_bytes", out var byteLimit)
+    ? byteLimit.GetInt32() : 16 * 1024 * 1024;
+if (maximumDeclarationBytes is < 1 or > 256 * 1024 * 1024
+    || (maximumDeclarationBytes > 16 * 1024 * 1024 && (!compactDeclarations || paths.Length != 1)))
+    throw new ArgumentException("Large declarations require one exact package and compact serialization");
 if (mode == "declarations" && (!job.RootElement.TryGetProperty("usmap", out var requiredMapping)
     || string.IsNullOrWhiteSpace(requiredMapping.GetString()) || !File.Exists(requiredMapping.GetString())))
     throw new ArgumentException("An existing exact local type mapping is required for declarations");
@@ -71,8 +76,9 @@ foreach (var path in paths)
                     MaxDepth = 128, ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Error
                 });
             var bytes = System.Text.Encoding.UTF8.GetBytes(declaration);
-            if (bytes.Length > 16 * 1024 * 1024)
-                throw new InvalidDataException("Serialized declarations exceed the 16 MiB per-package bound");
+            row["serialized_bytes"] = bytes.Length;
+            if (bytes.Length > maximumDeclarationBytes)
+                throw new InvalidDataException($"Serialized declarations exceed the {maximumDeclarationBytes}-byte per-package bound");
             var filename = $"declaration-{results.Count:D4}.json";
             using (var stream = new FileStream(Path.Combine(output, filename), FileMode.CreateNew))
                 stream.Write(bytes);

@@ -78,6 +78,14 @@ class DeclarationTests(unittest.TestCase):
         self.assertFalse(summary['live_grant_verified'])
         self.assertFalse(summary['execution_verified'])
 
+    def test_large_declaration_is_an_explicit_single_package_job(self):
+        job = dict(packages=['One'], compact_declarations=True, declaration_limit_bytes=32 * 1024 * 1024)
+        self.assertGreater(disk.declaration_limit(job), disk.MAX_BYTES)
+        for invalid in (dict(job, packages=['One', 'Two']), dict(job, compact_declarations=False),
+                        dict(job, declaration_limit_bytes=257 * 1024 * 1024)):
+            with self.assertRaisesRegex(ValueError, 'Large declarations'):
+                disk.declaration_limit(invalid)
+
     def test_exact_receipt_digest_and_still_not_playable(self):
         record = self.prepare()
         data, _, _ = self.receipt(record['batches'][0])

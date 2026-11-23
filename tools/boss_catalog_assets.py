@@ -95,6 +95,12 @@ def receipt_rows(path):
 def asset_payload(obj):
     # The exact declaration is available via packages.declaration. Keep the
     # sequence summary in SQLite without duplicating compressed track data.
+    if obj['Type'] == 'SkeletalMesh':
+        result = {k: v for k, v in obj.items() if k in ('Type', 'Name', 'Class', 'Package')}
+        result['Properties'] = {k: v for k, v in obj.get('Properties', {}).items()
+                                if k in ('Skeleton', 'PhysicsAsset', 'PostProcessAnimBlueprint')}
+        result['declaration_fields'] = list(obj)
+        return result
     if obj['Type'] != 'AnimSequence':
         return obj
     result = {k: v for k, v in obj.items() if k in ('Type', 'Name', 'Class', 'Package', 'SkeletonGuid')}
