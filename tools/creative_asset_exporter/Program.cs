@@ -25,6 +25,8 @@ if (paths.Length is < 1 or > 64 || paths.Any(p => string.IsNullOrWhiteSpace(p)
     throw new ArgumentException("Bounded explicit asset paths required");
 var mode = job.RootElement.GetProperty("mode").GetString();
 if (mode is not ("inspect" or "export" or "declarations")) throw new ArgumentException("Unknown job mode");
+var compactDeclarations = job.RootElement.TryGetProperty("compact_declarations", out var compactValue)
+    && compactValue.GetBoolean();
 if (mode == "declarations" && (!job.RootElement.TryGetProperty("usmap", out var requiredMapping)
     || string.IsNullOrWhiteSpace(requiredMapping.GetString()) || !File.Exists(requiredMapping.GetString())))
     throw new ArgumentException("An existing exact local type mapping is required for declarations");
@@ -64,7 +66,8 @@ foreach (var path in paths)
             // properties/references. This is disk metadata, never a live grant
             // or proof that a Blueprint action can execute on a player.
             var declaration = Newtonsoft.Json.JsonConvert.SerializeObject(exports,
-                Newtonsoft.Json.Formatting.Indented, new Newtonsoft.Json.JsonSerializerSettings {
+                compactDeclarations ? Newtonsoft.Json.Formatting.None : Newtonsoft.Json.Formatting.Indented,
+                new Newtonsoft.Json.JsonSerializerSettings {
                     MaxDepth = 128, ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Error
                 });
             var bytes = System.Text.Encoding.UTF8.GetBytes(declaration);

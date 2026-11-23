@@ -159,7 +159,7 @@ def collect(target, exporter, paks, crypto):
     return disk.summarize(target)
 
 
-def create_plan(index, mapping, target, rows, provenance, purpose):
+def create_plan(index, mapping, target, rows, provenance, purpose, *, compact_declarations=False):
     target, mapping = Path(target).resolve(), Path(mapping).resolve()
     if not rows:
         raise ValueError('No missing indexed packages; do not create an empty plan')
@@ -171,8 +171,10 @@ def create_plan(index, mapping, target, rows, provenance, purpose):
         ordinal = offset//64
         job = f'job-{ordinal:04d}.json'
         packages = [r['package'] for r in rows[offset:offset+64]]
-        disk.write_new(target/job, dict(mode='declarations', game='GAME_UE5_7',
-                       usmap=str(mapping), packages=packages))
+        request = dict(mode='declarations', game='GAME_UE5_7', usmap=str(mapping), packages=packages)
+        if compact_declarations:
+            request['compact_declarations'] = True
+        disk.write_new(target/job, request)
         batches.append(dict(job=job, sha256=disk.digest(target/job), packages=packages,
                             output=f'batch-{ordinal:04d}'))
     record = dict(schema=1, kind='offline_boss_disk_declarations', purpose=purpose,

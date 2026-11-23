@@ -354,8 +354,16 @@ def verify(database, catalog):
         if extension:
             from boss_asset_extensions import TABLES, VIEWS
             value = json.loads(extension[0])
-            if value['counts'] != {name: db.execute(f'SELECT count(*) FROM {name}').fetchone()[0] for name in (*TABLES, *VIEWS)}:
+            tables = value['counts'].keys()
+            required = {'additional_boss_packages', 'additional_boss_actors', 'boss_native_animation',
+                        'boss_native_control', 'boss_native_actors'}
+            if (not required <= tables <= set(TABLES + VIEWS) or value['counts'] !=
+                    {name: db.execute(f'SELECT count(*) FROM {name}').fetchone()[0] for name in tables}):
                 raise ValueError('Additional character counts differ from the import receipt')
+            if 'boss_animation_dependencies' in tables:
+                unresolved, = db.execute('SELECT count(*) FROM boss_animation_dependencies WHERE target_package IS NULL').fetchone()
+                if unresolved != value['unresolved_animation_dependencies']:
+                    raise ValueError('Animation dependency resolution differs from the import receipt')
             supplements['native_extensions'] = value
         return dict(database=str(database), counts=counts, complex_first=ranked,
                     complex_profiles=len(profiles), game_started=False, **supplements)
@@ -419,6 +427,7 @@ class DatabaseCatalog(Catalog):
                             for folder, skills, combos, trees, actors in rows}
             self.native_assets = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_asset_counts'").fetchone())
             self.native_extensions = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_extension_counts'").fetchone())
+            self.actor_control = bool(db.execute("SELECT 1 FROM sqlite_master WHERE type='view' AND name='boss_actor_control'").fetchone())
             if self.native_extensions:
                 for folder, count in db.execute('SELECT folder,count(*) FROM additional_boss_actors GROUP BY folder'):
                     self.metrics[folder]['actors'] += count
@@ -468,11 +477,15 @@ class DatabaseCatalog(Catalog):
             additional = db.execute('SELECT class_path,config_path FROM additional_boss_actors WHERE folder=?'
                                     ' ORDER BY class_path', (folder,)).fetchall() if self.native_extensions else []
             coverage = {}
-            if self.native_assets:
+            if self.actor_control:
+                coverage = dict(db.execute('''SELECT domain,count(*) FROM (
+                    SELECT DISTINCT c.package,c.export_index,c.domain FROM boss_actor_control c
+                    JOIN boss_native_actors a USING(class_path) WHERE a.folder=?) GROUP BY domain''', (folder,)))
+            elif self.native_assets:
                 coverage = dict(db.execute('''SELECT c.domain,count(*) FROM control_declarations c
                     WHERE c.package IN (SELECT DISTINCT x.package FROM actor_control_sources x
                         JOIN actor_variants a USING(class_path) WHERE a.folder=?) GROUP BY c.domain''', (folder,)))
-            if additional:
+            if additional and not self.actor_control:
                 for domain, count in db.execute('''SELECT e.domain,count(*) FROM additional_boss_exports e
                     WHERE e.domain IS NOT NULL AND e.domain <> 'animation' AND e.package IN (
                         SELECT DISTINCT package FROM additional_boss_actors WHERE folder=?) GROUP BY e.domain''', (folder,)):

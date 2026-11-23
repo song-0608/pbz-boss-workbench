@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import sqlite3
 
-from boss_catalog_assets import ANIMATION_TYPES, CONTROL_TYPES, asset_payload
+from boss_catalog_assets import ANIMATION_TYPES, CONTROL_TYPES, animation_refs, asset_payload
 from boss_catalog_database import (DATABASE, NPC_BASE, NPC_RENEWAL, Catalog, capture_inputs,
                                    check_identity, encode)
 from boss_disk_declarations import digest
@@ -22,8 +22,9 @@ CHARACTER_GROUPS = {'boss', 'eliteboss', 'elitemonster', 'monster'}
 ANIMATION_FOLDERS = {'anim', 'anims', 'animation', 'animations', 'montage', 'montages', 'animblueprint'}
 INPUT_ROOTS = ('/game/pbzcontent/input/', '/pbzinput/')
 TABLES = ('additional_boss_packages', 'additional_boss_exports', 'additional_boss_references',
-          'additional_boss_actors', 'additional_boss_gaps', 'boss_actor_configs')
-VIEWS = ('boss_native_animation', 'boss_native_control', 'boss_native_actors')
+          'additional_boss_actors', 'additional_boss_gaps', 'boss_actor_configs',
+          'boss_animation_dependencies', 'boss_actor_declaration_sources')
+VIEWS = ('boss_native_animation', 'boss_native_control', 'boss_native_actors', 'boss_actor_control', 'boss_group_coverage')
 SCHEMA = '''
 CREATE TABLE additional_boss_packages (
     package TEXT PRIMARY KEY, declaration TEXT NOT NULL, declaration_sha256 TEXT NOT NULL
@@ -50,6 +51,15 @@ CREATE TABLE boss_actor_configs (
     class_path TEXT PRIMARY KEY, config_path TEXT NOT NULL, source_class TEXT NOT NULL,
     config_package TEXT NOT NULL, declaration_sha256 TEXT NOT NULL
 ) WITHOUT ROWID;
+CREATE TABLE boss_animation_dependencies (
+    source_package TEXT NOT NULL, source_index INTEGER NOT NULL, target_mount TEXT NOT NULL,
+    target_index INTEGER NOT NULL, target_type TEXT NOT NULL, target_name TEXT NOT NULL, target_package TEXT,
+    PRIMARY KEY (source_package, source_index, target_mount, target_index, target_type, target_name)
+) WITHOUT ROWID;
+CREATE TABLE boss_actor_declaration_sources (
+    class_path TEXT NOT NULL, package TEXT NOT NULL, source_path TEXT NOT NULL, relation TEXT NOT NULL,
+    PRIMARY KEY (class_path, package, source_path, relation)
+) WITHOUT ROWID;
 CREATE VIEW boss_native_animation AS
 SELECT a.package,a.export_index,e.name,e.export_type,a.payload,p.declaration,p.declaration_sha256
 FROM animation_assets a JOIN native_package_exports e USING (package,export_index) JOIN packages p USING (package)
@@ -68,6 +78,35 @@ SELECT a.class_path,a.folder,a.package,a.export_index,a.ancestry AS class_ancest
 FROM actor_variants a LEFT JOIN boss_actor_configs c USING (class_path)
 UNION ALL
 SELECT class_path,folder,package,export_index,class_ancestry,config_path FROM additional_boss_actors;
+CREATE VIEW boss_actor_control AS
+SELECT s.class_path,s.source_path,s.relation,c.package,c.export_index,c.name,c.export_type,c.domain,
+       c.payload,c.declaration,c.declaration_sha256
+FROM boss_actor_declaration_sources s JOIN boss_native_control c USING (package)
+WHERE s.relation <> 'config' OR (c.export_type='PDA_ActorConfig_C'
+    AND c.name=substr(s.source_path,instr(s.source_path,'.')+1));
+CREATE VIEW boss_group_coverage AS
+WITH bodies AS (
+    SELECT folder,count(*) AS actor_count,count(config_path) AS body_config_count
+    FROM boss_native_actors GROUP BY folder
+), configs AS (
+    SELECT c.folder,count(*) AS config_exports FROM combat_configs c
+    JOIN combat_config_exports e USING (package)
+    WHERE e.export_type='PDA_ActorConfig_C' GROUP BY c.folder
+), recorded_skills AS (
+    SELECT folder,sum(json_extract(payload,'$.declared_actions')>0) AS skills_with_actions
+    FROM skills GROUP BY folder
+), animated_skills AS (
+    SELECT DISTINCT s.folder,s.class_path FROM skills s JOIN skill_animation_links l ON l.owner=s.timeline_owner
+    WHERE l.package IS NOT NULL
+)
+SELECT f.folder,f.skill_count,f.root_packages,coalesce(b.actor_count,0) AS actor_count,
+       coalesce(b.body_config_count,0) AS body_config_count,coalesce(c.config_exports,0) AS config_exports,
+       coalesce(rs.skills_with_actions,0) AS skills_with_actions,
+       (SELECT count(*) FROM animated_skills a WHERE a.folder=f.folder) AS skills_with_animation,
+       CASE WHEN b.actor_count>0 THEN 'body_indexed' WHEN c.config_exports>0 THEN 'config_without_linked_body'
+            ELSE 'no_serialized_body_or_config' END AS body_status
+FROM folders f LEFT JOIN bodies b USING (folder) LEFT JOIN configs c USING (folder)
+LEFT JOIN recorded_skills rs USING (folder);
 '''
 
 
@@ -137,6 +176,35 @@ def resolve_body(capture, entry):
     return None
 
 
+def index_control_sources(db, capture):
+    for path, raw in db.execute('SELECT class_path,class_ancestry FROM boss_native_actors'):
+        for depth, ancestor in enumerate(json.loads(raw)):
+            mount = ancestor.rsplit('.', 1)[0]
+            if item := capture.packages.get(mount.casefold()):
+                db.execute('INSERT INTO boss_actor_declaration_sources VALUES (?,?,?,?)',
+                           (path, item['package'], ancestor, 'body' if depth == 0 else 'parent'))
+    db.execute('''INSERT INTO boss_actor_declaration_sources
+        SELECT class_path,config_package,config_path,'config' FROM boss_actor_configs''')
+
+
+def index_animation_dependencies(db):
+    targets = {(native_package(package).casefold(), ordinal, kind, name): package
+               for package, ordinal, name, kind in db.execute('''
+                   SELECT package,export_index,name,export_type FROM boss_native_animation''')}
+    rows = db.execute('''SELECT source_package,source_index,target_mount,target_index,target_type,target_name
+                         FROM animation_asset_links''')
+    db.executemany('INSERT INTO boss_animation_dependencies VALUES (?,?,?,?,?,?,?)', (
+        (package, index, mount, ordinal, kind, name, targets.get((mount.casefold(), ordinal, kind, name)))
+        for package, index, mount, ordinal, kind, name in rows))
+    rows = db.execute("SELECT package,export_index,payload FROM additional_boss_exports WHERE domain='animation'")
+    for package, index, payload in rows:
+        own_mount = native_package(package).casefold()
+        refs = sorted(set(animation_refs(json.loads(payload))))
+        db.executemany('INSERT INTO boss_animation_dependencies VALUES (?,?,?,?,?,?,?)', (
+            (package, index, mount, ordinal, kind, name, targets.get((mount.casefold(), ordinal, kind, name)))
+            for mount, ordinal, kind, name in refs if (mount.casefold(), ordinal) != (own_mount, index)))
+
+
 def populate(db, scan, extra, identities, index):
     base = {native_package(row['package']).casefold(): row for row in scan['packages']}
     if set(base) & set(extra):
@@ -164,7 +232,8 @@ def populate(db, scan, extra, identities, index):
     scoped_roots = {key for key, row in indexed.items() if candidate_body(row['package']) or native_asset_root(key)}
     gaps = {(indexed[key]['package'], 'root_export_failed' if key in failures else 'root_pending')
             for key in scoped_roots - all_packages}
-    gaps.update((package, 'extension_export_failed') for source in identities for package in source['failed_packages'])
+    gaps.update((package, 'extension_export_failed') for source in identities for package in source['failed_packages']
+                if native_package(package).casefold() not in all_packages)
     for mount, item in sorted(extra.items()):
         package = item['package']
         exports = capture.exports(mount)
@@ -174,7 +243,7 @@ def populate(db, scan, extra, identities, index):
         for i, obj in enumerate(exports):
             kind, name = obj['Type'], obj['Name']
             domain = 'animation' if kind in ANIMATION_TYPES else CONTROL_TYPES.get(kind)
-            if obj['Name'].startswith('Default__') or 'SkeletalMeshComponent' in kind:
+            if obj['Name'].startswith('Default__') or 'SkeletalMeshComponent' in kind or kind == 'SkeletalMesh':
                 domain = domain or 'character'
             records.append((package, i, kind, name, domain, encode(asset_payload(obj)) if domain else None))
         db.executemany('INSERT INTO additional_boss_exports VALUES (?,?,?,?,?,?)', records)
@@ -223,9 +292,15 @@ def populate(db, scan, extra, identities, index):
                 db.execute('INSERT INTO additional_boss_actors VALUES (?,?,?,?,?,?,?)',
                            (path, folder, config_path, item['package'], i, encode(ancestry), source))
     db.executemany('INSERT INTO additional_boss_gaps VALUES (?,?)', sorted(gaps))
+    index_control_sources(db, capture)
+    index_animation_dependencies(db)
     report = dict(counts={name: db.execute(f'SELECT count(*) FROM {name}').fetchone()[0] for name in (*TABLES, *VIEWS)},
                   scoped_roots=len(scoped_roots), indexed_roots_without_declaration=len(scoped_roots - all_packages),
-                  pending_indexed_references=len(missing), extension_source_count=len(identities), game_started=False)
+                  pending_indexed_references=len(missing), extension_source_count=len(identities),
+                  recovered_error_packages=len(failures & extra.keys()),
+                  unresolved_animation_dependencies=db.execute('''
+                      SELECT count(*) FROM boss_animation_dependencies WHERE target_package IS NULL''').fetchone()[0],
+                  game_started=False)
     db.execute("INSERT OR REPLACE INTO metadata VALUES ('native_extension_counts',?)", (encode(report),))
     db.execute("INSERT OR REPLACE INTO metadata VALUES ('native_extension_sources',?)",
                (encode(dict(index=str(index), sources=[row['path'] for row in identities])),))
