@@ -10,6 +10,7 @@ from boss_asset_extensions import candidate_body, native_asset_root, validated_i
 from boss_catalog_database import DATABASE, capture_inputs, check_identity, connect_readonly, verify
 from boss_disk_declarations import digest, write_new
 from boss_disk_dependencies import MOBS, catalog as package_index, native_package
+from build_boss_disk_repertoire import read_verified
 from research_storage import PROJECT_STORAGE, ROOT
 
 
@@ -40,6 +41,27 @@ def scan_animation_files(db, log):
         if log:
             log(f'动画已复核 {scope}：{len(current):,} 段')
     return dict(files_verified=sum(formats.values()), planned=total, formats=dict(formats), bytes_verified=bytes_verified)
+
+
+def verify_actions_and_scripts(db, catalog):
+    timelines = read_verified(catalog.repertoire / 'timelines.json', catalog.files['timelines.json'])
+    expected_actions = sum(len(timeline['actions']) for row in timelines.values() for timeline in row['timelines'])
+    actual_actions = 0
+    for owner, timeline, ordinal, raw in db.execute('SELECT owner,timeline,ordinal,payload FROM timeline_actions'):
+        action = timelines[owner]['timelines'][timeline]['actions'][ordinal]
+        if json.loads(raw) != action:
+            raise ValueError(f'Database action differs from the frozen timeline: {owner}')
+        actual_actions += 1
+    if expected_actions != actual_actions:
+        raise ValueError('Frozen timeline action coverage differs from the database')
+    scripts = read_verified(catalog.repertoire / 'scripts.json', catalog.files['scripts.json'])
+    actual = {package: (path, sha) for package, path, sha in db.execute('SELECT package,path,sha256 FROM scripts')}
+    if actual != {package: (row['path'], row['sha256']) for package, row in scripts.items()}:
+        raise ValueError('Native script package records differ from the frozen script index')
+    for _, (path, sha) in actual.items():
+        if digest(path) != sha:
+            raise ValueError(f'Captured script changed: {path}')
+    return actual_actions, len(actual)
 
 
 def check_mounted_references(directory, expected, mapping_sha):
@@ -88,6 +110,7 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
         actual_skills = {path: json.loads(raw) for path, raw in db.execute('SELECT class_path,adaptation FROM skills')}
         if expected_skills != actual_skills:
             raise ValueError('Native skills differ from the frozen adaptation queue')
+        actions, script_packages = verify_actions_and_scripts(db, catalog)
 
         root_references = []
         for raw, in db.execute("SELECT payload FROM capture_gaps WHERE category='root-reference-gaps' ORDER BY ordinal"):
@@ -122,7 +145,7 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
                 root_references=root_references, root_reference_blockers=unresolved_root_references,
                 missing_combat_bodies=actor_gaps, quarantined=quarantines, extension_gaps=effective_dependency_gaps,
                 animation_sources=animation, config_abilities=config, mounted_reference_probe=probe,
-                skills=verified['counts']['skills'], actions=verified['counts']['timeline_actions'],
+                skills=verified['counts']['skills'], actions=actions, script_files_verified=script_packages,
                 historical_failed_dependency_packages=scan['failed_dependency_count'],
                 historical_deferred_dependency_packages=scan['deferred_dependency_count'],
                 historical_unindexed_dependency_references=len(scan['unindexed_references']),
