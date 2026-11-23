@@ -27,20 +27,17 @@ WITH RECURSIVE reachable(folder,package,ordinal) AS (
     JOIN boss_animation_dependencies d ON d.source_package=r.package AND d.source_index=r.ordinal
     WHERE d.target_package IS NOT NULL
 )
-SELECT r.folder,a.package,a.export_index,a.name,a.declaration_sha256
-FROM reachable r JOIN boss_native_animation a ON a.package=r.package AND a.export_index=r.ordinal
-WHERE a.export_type='AnimSequence'
-ORDER BY r.folder='888_UltimateBoss' DESC,r.folder,a.package,a.export_index
+SELECT folder,package,ordinal FROM reachable
+ORDER BY folder='888_UltimateBoss' DESC,folder,package,ordinal
 '''
 ACTOR_QUERY = '''
-SELECT DISTINCT b.folder,a.package,a.export_index,a.name,a.declaration_sha256
+SELECT DISTINCT b.folder,x.package,x.export_index
 FROM boss_actor_animations x JOIN boss_native_actors b USING (class_path)
-JOIN boss_native_animation a USING (package,export_index)
 WHERE x.export_type='AnimSequence'
-ORDER BY b.folder='888_UltimateBoss' DESC,b.folder,a.package,a.export_index
+ORDER BY b.folder='888_UltimateBoss' DESC,b.folder,x.package,x.export_index
 '''
-CATALOG_QUERY = '''
-SELECT NULL,package,export_index,name,declaration_sha256 FROM boss_native_animation
+SEQUENCE_QUERY = '''
+SELECT package,export_index,name,declaration_sha256 FROM boss_native_animation
 WHERE export_type='AnimSequence' ORDER BY package,export_index
 '''
 
@@ -54,22 +51,31 @@ def boss_sequence_package(package):
 
 
 def clips(db, scope='skills'):
-    queries = {'skills': QUERY, 'actor': ACTOR_QUERY, 'catalog': CATALOG_QUERY}
-    prior = {'skills': (), 'actor': ('skills',), 'catalog': ('skills', 'actor')}
-    if scope not in queries:
+    scopes = ('skills', 'actor', 'catalog')
+    if scope not in scopes:
         raise ValueError('Unknown animation source scope')
-    excluded = {row['package'] for previous in prior[scope] for row in clips(db, previous)}
-    indexed = {}
-    for folder, package, ordinal, name, sha in db.execute(queries[scope]):
-        if package in excluded or (scope == 'catalog' and not boss_sequence_package(package)):
-            continue
-        entry = indexed.setdefault(package, dict(package=package, export_index=ordinal, name=name,
-                                                declaration_sha256=sha, folders=[]))
-        if (entry['export_index'], entry['name'], entry['declaration_sha256']) != (ordinal, name, sha):
-            raise ValueError(f'Expected one exact skill clip in {package}')
-        if folder is not None:
-            entry['folders'].append(folder)
-    return list(indexed.values())
+    assets = {(package, ordinal): (name, sha) for package, ordinal, name, sha in db.execute(SEQUENCE_QUERY)}
+    excluded = set()
+    for current in scopes:
+        if current == 'catalog':
+            rows = ((None, package, ordinal) for package, ordinal in assets if boss_sequence_package(package))
+        else:
+            rows = db.execute(QUERY if current == 'skills' else ACTOR_QUERY)
+        indexed = {}
+        for folder, package, ordinal in rows:
+            key = package, ordinal
+            if package in excluded or key not in assets:
+                continue
+            name, sha = assets[key]
+            entry = indexed.setdefault(package, dict(package=package, export_index=ordinal, name=name,
+                                                    declaration_sha256=sha, folders=[]))
+            if entry['export_index'] != ordinal:
+                raise ValueError(f'Expected one exact animation clip in {package}')
+            if folder is not None:
+                entry['folders'].append(folder)
+        if current == scope:
+            return list(indexed.values())
+        excluded.update(indexed)
 
 
 def prepare(database, target, mapping, exporter, batch_size=24, scope='skills'):
