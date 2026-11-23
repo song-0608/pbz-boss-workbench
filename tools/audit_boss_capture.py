@@ -1,6 +1,7 @@
 """Audit offline Boss capture coverage against source receipts and local files."""
 import argparse
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
 import json
 from pathlib import Path
@@ -17,6 +18,26 @@ from research_storage import PROJECT_STORAGE, ROOT
 def metadata(db, key):
     value, = db.execute('SELECT value FROM metadata WHERE key=?', (key,)).fetchone()
     return json.loads(value)
+
+
+def verify_declarations(records, log):
+    ordered = sorted(records, key=lambda item: item['declaration'])
+    batch_size = 128
+
+    def check_batch(start):
+        batch = ordered[start:start + batch_size]
+        for row in batch:
+            if digest(row['declaration']) != row['declaration_sha256']:
+                raise ValueError(f'Captured declaration changed: {row["package"]}')
+        return len(batch)
+
+    checked = 0
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        for count in pool.map(check_batch, range(0, len(ordered), batch_size)):
+            if log and checked // 15000 != (checked + count) // 15000:
+                log(f'声明摘要已复核 {checked + count:,} 个包')
+            checked += count
+    return checked
 
 
 def scan_animation_files(db, log):
@@ -99,11 +120,7 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
         other_roots = {key for key, row in indexed.items()
                        if candidate_body(row['package']) or native_asset_root(key)}
         missing = sorted((mob_roots | other_roots) - known.keys())
-        for number, row in enumerate(sorted(known.values(), key=lambda item: item['declaration']), 1):
-            if digest(row['declaration']) != row['declaration_sha256']:
-                raise ValueError(f'Captured declaration changed: {row["package"]}')
-            if log and number % 15000 == 0:
-                log(f'声明摘要已复核 {number:,} 个包')
+        verified_packages = verify_declarations(known.values(), log)
 
         _, queue = capture_inputs(catalog)
         expected_skills = {row['class_path']: row for row in queue['rows']}
@@ -141,7 +158,7 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
                                  or quarantines or config['unresolved_links'] or config['diagnostics']
                                  or animation['planned'] != animation['files_verified'])
     return dict(mobs_indexed_roots=len(mob_roots), other_indexed_roots=len(other_roots),
-                declaration_files_verified=len(known), missing_root_packages=missing,
+                declaration_files_verified=verified_packages, missing_root_packages=missing,
                 root_references=root_references, root_reference_blockers=unresolved_root_references,
                 missing_combat_bodies=actor_gaps, quarantined=quarantines, extension_gaps=effective_dependency_gaps,
                 animation_sources=animation, config_abilities=config, mounted_reference_probe=probe,
