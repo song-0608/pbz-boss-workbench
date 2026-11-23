@@ -343,8 +343,22 @@ def verify(database, catalog):
                 raise ValueError(f'复杂 Boss 配置状态不一致: {folder}')
         ranked = db.execute('SELECT folder, skill_count, combo_count, tree_count, node_count, phase_groups'
                             ' FROM folders ORDER BY priority LIMIT 12').fetchall()
+        supplements = {}
+        native = db.execute("SELECT value FROM metadata WHERE key='native_asset_counts'").fetchone()
+        if native:
+            from boss_catalog_assets import summarize
+            supplements['native_assets'] = summarize(db)
+            if supplements['native_assets'] != json.loads(native[0]):
+                raise ValueError('Native asset counts differ from the import receipt')
+        extension = db.execute("SELECT value FROM metadata WHERE key='native_extension_counts'").fetchone()
+        if extension:
+            from boss_asset_extensions import TABLES, VIEWS
+            value = json.loads(extension[0])
+            if value['counts'] != {name: db.execute(f'SELECT count(*) FROM {name}').fetchone()[0] for name in (*TABLES, *VIEWS)}:
+                raise ValueError('Additional character counts differ from the import receipt')
+            supplements['native_extensions'] = value
         return dict(database=str(database), counts=counts, complex_first=ranked,
-                    complex_profiles=len(profiles), game_started=False)
+                    complex_profiles=len(profiles), game_started=False, **supplements)
 
 
 def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=False, log=None):
@@ -352,12 +366,15 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
     database = Path(storage) / DATABASE
     if verify_only or (database.is_file() and not rebuild):
         return verify(database, catalog)
-    profiles = []
+    profiles, native, extensions = [], False, None
     if database.is_file():
         with closing(connect_readonly(database)) as previous:
             sources = previous.execute("SELECT value FROM metadata WHERE key='source_digests'").fetchone()
             if sources and json.loads(sources[0]) == catalog.source_digests:
                 profiles = complex_config_rows(previous)
+                native = bool(previous.execute("SELECT 1 FROM metadata WHERE key='native_asset_counts'").fetchone())
+                extension = previous.execute("SELECT value FROM metadata WHERE key='native_extension_sources'").fetchone()
+                extensions = json.loads(extension[0]) if extension else None
     database.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='boss-catalog-', dir=database.parent) as staging:
         candidate = Path(staging) / database.name
@@ -369,6 +386,15 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
             insert_catalog(db, catalog, log=log)
             if profiles:
                 write_complex_configs(db, profiles)
+            if native:
+                from boss_catalog_assets import populate
+                scan, _ = capture_inputs(catalog)
+                populate(db, scan, log)
+            if extensions:
+                from boss_asset_extensions import populate, validated_inputs
+                index = Path(extensions['index'])
+                _, scan, extra, identities = validated_inputs(index, extensions['sources'], root, storage)
+                populate(db, scan, extra, identities, index)
         report = verify(candidate, catalog)
         os.replace(candidate, database)
     return dict(report, database=str(database))
@@ -391,6 +417,11 @@ class DatabaseCatalog(Catalog):
                               ' FROM folders f ORDER BY priority')
             self.metrics = {folder: dict(skills=skills, combos=combos, trees=trees, actors=actors)
                             for folder, skills, combos, trees, actors in rows}
+            self.native_assets = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_asset_counts'").fetchone())
+            self.native_extensions = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_extension_counts'").fetchone())
+            if self.native_extensions:
+                for folder, count in db.execute('SELECT folder,count(*) FROM additional_boss_actors GROUP BY folder'):
+                    self.metrics[folder]['actors'] += count
         if self.metrics.keys() != set(self.folders):
             raise ValueError('Boss 数据库资源分组不完整')
 
@@ -434,6 +465,18 @@ class DatabaseCatalog(Catalog):
                 "SELECT identifier FROM capture_gaps WHERE category='root-reference-gaps'"
                 " AND json_extract(payload, '$.folder')=?", (folder,))]
             complex_profile = next((json.loads(raw) for _, _, raw in complex_config_rows(db, folder)), None)
+            additional = db.execute('SELECT class_path,config_path FROM additional_boss_actors WHERE folder=?'
+                                    ' ORDER BY class_path', (folder,)).fetchall() if self.native_extensions else []
+            coverage = {}
+            if self.native_assets:
+                coverage = dict(db.execute('''SELECT c.domain,count(*) FROM control_declarations c
+                    WHERE c.package IN (SELECT DISTINCT x.package FROM actor_control_sources x
+                        JOIN actor_variants a USING(class_path) WHERE a.folder=?) GROUP BY c.domain''', (folder,)))
+            if additional:
+                for domain, count in db.execute('''SELECT e.domain,count(*) FROM additional_boss_exports e
+                    WHERE e.domain IS NOT NULL AND e.domain <> 'animation' AND e.package IN (
+                        SELECT DISTINCT package FROM additional_boss_actors WHERE folder=?) GROUP BY e.domain''', (folder,)):
+                    coverage[domain] = coverage.get(domain, 0) + count
         lines = [folder]
         if len(related) > 1:
             lines.append('同名阶段资源  ' + ' / '.join(related))
@@ -450,9 +493,13 @@ class DatabaseCatalog(Catalog):
                 lines.extend(f"{row['key']}  {row['class_path'].rsplit('.', 1)[-1]}"
                              + ('（跨阶段共享）' if row['shared'] else '') for row in complex_profile['bindings'])
             else:
-                lines.append('待核对战斗本体或技能类')
+                lines.append('已找到磁盘角色蓝图，待核对运行时技能类' if additional else '待核对战斗本体或技能类')
             lines.append(f"技能池 {len(complex_profile['pools'])}，策略树 {len(complex_profile['strategy_trees'])}")
-        lines.extend(('', '角色蓝图', *(actors or ['待核对主身蓝图'])))
+        lines.extend(('', '角色蓝图', *(actors or ([] if additional else ['待核对主身蓝图']))))
+        lines.extend(f'{actor}\n  Actor Config  {config}' for actor, config in additional)
+        if coverage:
+            labels = {'movement': '移动', 'camera': '镜头', 'input': '输入', 'targeting': '锁敌', 'character': '角色'}
+            lines.extend(('', '角色及父类的磁盘声明', ' / '.join(f'{labels[key]} {value}' for key, value in coverage.items())))
         if configs:
             lines.extend(('', '角色与战斗配置', *configs))
         if gaps:
@@ -467,6 +514,9 @@ class DatabaseCatalog(Catalog):
             rows = db.execute('SELECT t.ordinal, t.name, a.start_seconds, a.duration_seconds, a.action_type'
                               ' FROM timelines t LEFT JOIN timeline_actions a ON a.owner=t.owner AND a.timeline=t.ordinal'
                               ' WHERE t.owner=? ORDER BY t.ordinal, a.ordinal', (skill['timeline_owner'],)).fetchall()
+            animations = db.execute('''SELECT DISTINCT target_mount,target_name,target_type,package
+                                       FROM skill_animation_links WHERE owner=? ORDER BY target_mount,target_name''',
+                                    (skill['timeline_owner'],)).fetchall() if self.native_assets else []
         if not rows:
             return description
         lines = [description, '', '时间线动作（秒）']
@@ -479,6 +529,10 @@ class DatabaseCatalog(Catalog):
                 at = '?' if start is None else f'{start:g}'
                 length = '?' if duration is None else f'{duration:g}'
                 lines.append(f'  {at}  {action}  {length}')
+        if animations:
+            lines.extend(('', '关联动画声明'))
+            lines.extend(f'{mount}.{name}  {kind}' + ('' if package else '（待核对）')
+                         for mount, name, kind, package in animations)
         return '\n'.join(lines)
 
 
