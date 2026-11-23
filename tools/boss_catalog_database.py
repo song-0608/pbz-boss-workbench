@@ -365,6 +365,30 @@ def verify(database, catalog):
                 if unresolved != value['unresolved_animation_dependencies']:
                     raise ValueError('Animation dependency resolution differs from the import receipt')
             supplements['native_extensions'] = value
+        actor_animations = db.execute("SELECT value FROM metadata WHERE key='boss_actor_animation_counts'").fetchone()
+        if actor_animations:
+            from boss_actor_animations import summary
+            supplements['actor_animation_sources'] = summary(db)
+            if supplements['actor_animation_sources'] != json.loads(actor_animations[0]):
+                raise ValueError('Actor animation associations differ from the offline import receipt')
+        config_abilities = db.execute("SELECT value FROM metadata WHERE key='boss_config_ability_counts'").fetchone()
+        if config_abilities:
+            from boss_config_abilities import summary
+            supplements['config_abilities'] = summary(db)
+            if supplements['config_abilities'] != json.loads(config_abilities[0]):
+                raise ValueError('Combat configuration links differ from the offline import receipt')
+        editable = db.execute("SELECT value FROM metadata WHERE key='boss_editable_clip_counts'").fetchone()
+        if editable:
+            from boss_animation_sources import clips, summary
+            supplements['editable_clip_exports'] = summary(db)
+            if supplements['editable_clip_exports'] != json.loads(editable[0]):
+                raise ValueError('Editable clip counts differ from the export receipt')
+            for scope, in db.execute('SELECT DISTINCT scope FROM boss_editable_clips'):
+                expected = {(row['package'], row['export_index'], row['declaration_sha256']) for row in clips(db, scope)}
+                actual = set(db.execute('''SELECT package,export_index,json_extract(payload,'$.declaration_sha256')
+                    FROM boss_editable_clips WHERE scope=?''', (scope,)))
+                if expected != actual:
+                    raise ValueError('Editable clip identities no longer match the native catalog')
         return dict(database=str(database), counts=counts, complex_first=ranked,
                     complex_profiles=len(profiles), game_started=False, **supplements)
 
@@ -375,6 +399,7 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
     if verify_only or (database.is_file() and not rebuild):
         return verify(database, catalog)
     profiles, native, extensions = [], False, None
+    actor_animations, config_abilities, editable_plans = False, False, {}
     if database.is_file():
         with closing(connect_readonly(database)) as previous:
             sources = previous.execute("SELECT value FROM metadata WHERE key='source_digests'").fetchone()
@@ -383,6 +408,10 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
                 native = bool(previous.execute("SELECT 1 FROM metadata WHERE key='native_asset_counts'").fetchone())
                 extension = previous.execute("SELECT value FROM metadata WHERE key='native_extension_sources'").fetchone()
                 extensions = json.loads(extension[0]) if extension else None
+                actor_animations = bool(previous.execute("SELECT 1 FROM metadata WHERE key='boss_actor_animation_counts'").fetchone())
+                config_abilities = bool(previous.execute("SELECT 1 FROM metadata WHERE key='boss_config_ability_counts'").fetchone())
+                editable = previous.execute("SELECT value FROM metadata WHERE key='boss_editable_clip_plans'").fetchone()
+                editable_plans = json.loads(editable[0]) if editable else {}
     database.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='boss-catalog-', dir=database.parent) as staging:
         candidate = Path(staging) / database.name
@@ -403,6 +432,19 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
                 index = Path(extensions['index'])
                 _, scan, extra, identities = validated_inputs(index, extensions['sources'], root, storage)
                 populate(db, scan, extra, identities, index)
+            if actor_animations:
+                from boss_actor_animations import populate
+                populate(db)
+            if config_abilities:
+                from boss_config_abilities import populate
+                populate(db)
+            if editable_plans:
+                from boss_animation_sources import digest, load_records, populate
+                paths = {scope: Path(plan['path']) for scope, plan in editable_plans.items()}
+                if any(digest(path / 'plan.json') != editable_plans[scope]['sha256'] for scope, path in paths.items()):
+                    raise ValueError('Frozen editable clip plan changed')
+                records = {scope: load_records(db, path) for scope, path in paths.items()}
+                populate(db, records, paths)
         report = verify(candidate, catalog)
         os.replace(candidate, database)
     return dict(report, database=str(database))
@@ -428,6 +470,9 @@ class DatabaseCatalog(Catalog):
             self.native_assets = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_asset_counts'").fetchone())
             self.native_extensions = bool(db.execute("SELECT 1 FROM metadata WHERE key='native_extension_counts'").fetchone())
             self.actor_control = bool(db.execute("SELECT 1 FROM sqlite_master WHERE type='view' AND name='boss_actor_control'").fetchone())
+            self.actor_animations = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_actor_animation_counts'").fetchone())
+            self.editable_clips = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_editable_clip_counts'").fetchone())
+            self.config_abilities = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_config_ability_counts'").fetchone())
             if self.native_extensions:
                 for folder, count in db.execute('SELECT folder,count(*) FROM additional_boss_actors GROUP BY folder'):
                     self.metrics[folder]['actors'] += count
@@ -490,6 +535,20 @@ class DatabaseCatalog(Catalog):
                     WHERE e.domain IS NOT NULL AND e.domain <> 'animation' AND e.package IN (
                         SELECT DISTINCT package FROM additional_boss_actors WHERE folder=?) GROUP BY e.domain''', (folder,)):
                     coverage[domain] = coverage.get(domain, 0) + count
+            animation_count = editable_count = 0
+            if self.actor_animations:
+                animation_count, = db.execute('''SELECT count(DISTINCT x.package) FROM boss_actor_animations x
+                    JOIN boss_native_actors a USING(class_path) WHERE a.folder=? AND x.export_type='AnimSequence' ''',
+                    (folder,)).fetchone()
+                if self.editable_clips:
+                    editable_count, = db.execute('''SELECT count(DISTINCT x.package) FROM boss_actor_animations x
+                        JOIN boss_native_actors a USING(class_path) JOIN boss_editable_clips e USING(package,export_index)
+                        WHERE a.folder=? AND e.status='exported' ''', (folder,)).fetchone()
+            config_skill_count = 0
+            if self.config_abilities:
+                config_skill_count, = db.execute('''SELECT count(DISTINCT l.matched_skill)
+                    FROM boss_config_ability_links l JOIN boss_combat_config_index c USING(config_path)
+                    WHERE c.folder=?''', (folder,)).fetchone()
         lines = [folder]
         if len(related) > 1:
             lines.append('同名阶段资源  ' + ' / '.join(related))
@@ -513,6 +572,10 @@ class DatabaseCatalog(Catalog):
         if coverage:
             labels = {'movement': '移动', 'camera': '镜头', 'input': '输入', 'targeting': '锁敌', 'character': '角色'}
             lines.extend(('', '角色及父类的磁盘声明', ' / '.join(f'{labels[key]} {value}' for key, value in coverage.items())))
+        if animation_count:
+            lines.extend(('', f'角色蓝图关联动画 {animation_count} 段，已导出动画源 {editable_count} 段'))
+        if config_skill_count:
+            lines.append(f'角色及 AI 配置引用 {config_skill_count} 个已入库技能类')
         if configs:
             lines.extend(('', '角色与战斗配置', *configs))
         if gaps:
