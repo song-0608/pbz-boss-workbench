@@ -341,9 +341,13 @@ def verify(database, catalog):
                         or trial['owned_cleanup_verified'] is not True
                         or any(trial['native_grant_counts'].get(slot['class_path']) != 1 for slot in entry['bindings'])))):
                 raise ValueError(f'复杂 Boss 配置状态不一致: {folder}')
+        from boss_encounter_sources import verified as verified_encounters
+        encounters = verified_encounters(db)
         ranked = db.execute('SELECT folder, skill_count, combo_count, tree_count, node_count, phase_groups'
                             ' FROM folders ORDER BY priority LIMIT 12').fetchall()
         supplements = {}
+        if encounters:
+            supplements['authored_encounter_links'] = len(encounters)
         native = db.execute("SELECT value FROM metadata WHERE key='native_asset_counts'").fetchone()
         if native:
             from boss_catalog_assets import summarize
@@ -373,10 +377,11 @@ def verify(database, catalog):
                 raise ValueError('Actor animation associations differ from the offline import receipt')
         config_abilities = db.execute("SELECT value FROM metadata WHERE key='boss_config_ability_counts'").fetchone()
         if config_abilities:
-            from boss_config_abilities import summary
+            from boss_config_abilities import summary, verify_state_machines
             supplements['config_abilities'] = summary(db)
             if supplements['config_abilities'] != json.loads(config_abilities[0]):
                 raise ValueError('Combat configuration links differ from the offline import receipt')
+            verify_state_machines(db)
         editable = db.execute("SELECT value FROM metadata WHERE key='boss_editable_clip_counts'").fetchone()
         if editable:
             from boss_animation_sources import clips, summary
@@ -400,6 +405,7 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
         return verify(database, catalog)
     profiles, native, extensions = [], False, None
     actor_animations, config_abilities, editable_plans = False, False, {}
+    encounters = []
     if database.is_file():
         with closing(connect_readonly(database)) as previous:
             sources = previous.execute("SELECT value FROM metadata WHERE key='source_digests'").fetchone()
@@ -412,6 +418,8 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
                 config_abilities = bool(previous.execute("SELECT 1 FROM metadata WHERE key='boss_config_ability_counts'").fetchone())
                 editable = previous.execute("SELECT value FROM metadata WHERE key='boss_editable_clip_plans'").fetchone()
                 editable_plans = json.loads(editable[0]) if editable else {}
+                from boss_encounter_sources import verified as verified_encounters
+                encounters = verified_encounters(previous)
     database.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='boss-catalog-', dir=database.parent) as staging:
         candidate = Path(staging) / database.name
@@ -438,6 +446,10 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
             if config_abilities:
                 from boss_config_abilities import populate
                 populate(db)
+            if encounters:
+                from boss_encounter_sources import write
+                for source in encounters:
+                    write(db, source)
             if editable_plans:
                 from boss_animation_sources import digest, load_records, populate
                 paths = {scope: Path(plan['path']) for scope, plan in editable_plans.items()}

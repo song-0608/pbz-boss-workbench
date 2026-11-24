@@ -1,8 +1,9 @@
 """Audit offline Boss capture coverage against source receipts and local files."""
 import argparse
-from collections import Counter
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
+from itertools import chain
 import json
 from pathlib import Path
 
@@ -11,6 +12,7 @@ from boss_asset_extensions import candidate_body, native_asset_root, validated_i
 from boss_catalog_database import DATABASE, capture_inputs, check_identity, connect_readonly, verify
 from boss_disk_declarations import digest, write_new
 from boss_disk_dependencies import MOBS, catalog as package_index, native_package
+from boss_encounter_sources import verified_records
 from build_boss_disk_repertoire import read_verified
 from research_storage import PROJECT_STORAGE, ROOT
 
@@ -85,6 +87,65 @@ def verify_actions_and_scripts(db, catalog):
     return actual_actions, len(actual)
 
 
+def verify_skill_class_coverage(db, quarantines):
+    catalogued = {(path.casefold(), package): path for path, package in db.execute('SELECT class_path,package FROM skills')}
+    base = db.execute('''SELECT mount,name,package,export_type FROM native_package_exports
+        WHERE export_type IN ('LegoAbilityBlueprintGeneratedClass','BlueprintGeneratedClass')''')
+    extra = ((native_package(package), name, package, kind) for name, package, kind in db.execute('''
+        SELECT name,package,export_type FROM additional_boss_exports
+        WHERE export_type IN ('LegoAbilityBlueprintGeneratedClass','BlueprintGeneratedClass')'''))
+    native, indexed, unindexed = set(), set(), []
+    for mount, name, package, kind in chain(base, extra):
+        path = mount + '.' + name
+        key = (path.casefold(), package)
+        if key in catalogued:
+            if key in indexed:
+                raise ValueError(f'Duplicate captured skill export: {path}')
+            indexed.add(key)
+        if kind == 'LegoAbilityBlueprintGeneratedClass':
+            if key in native:
+                raise ValueError(f'Duplicate native ability class identity: {path}')
+            native.add(key)
+            if key not in catalogued:
+                unindexed.append((path, package))
+    if indexed != catalogued.keys():
+        raise ValueError('Skill catalog contains entries without an exact captured class export')
+    quarantine_by_class = {row['class_path'].casefold(): row for row in quarantines}
+    unindexed_classes = []
+    for path, package in sorted(unindexed):
+        disposition = 'unindexed'
+        if quarantine := quarantine_by_class.get(path.casefold()):
+            captured = db.execute('SELECT declaration,declaration_sha256 FROM packages WHERE package=? '
+                                  'UNION ALL SELECT declaration,declaration_sha256 FROM additional_boss_packages WHERE package=?',
+                                  (package, package)).fetchone()
+            if captured != (quarantine['disk_declaration'], quarantine['disk_declaration_sha256']):
+                raise ValueError(f'Quarantine source differs from captured class: {path}')
+            disposition = 'quarantined'
+        unindexed_classes.append(dict(class_path=path, package=package, disposition=disposition))
+    return dict(captured_lego_classes=len(native), indexed_lego_classes=len(native & indexed),
+                indexed_blueprint_classes=len(indexed - native), unindexed=unindexed_classes)
+
+
+def combat_body_coverage(db, encounters, quarantines):
+    encounter_skills = defaultdict(set)
+    for entry in encounters:
+        if entry['actor']['config_path']:
+            encounter_skills[entry['ability_folder']].add(entry['ability_class'])
+    quarantined_folders = {entry['folder'] for entry in quarantines}
+    missing, shared = [], []
+    for folder, status, config_exports in db.execute('''
+        SELECT folder,body_status,config_exports FROM boss_group_coverage
+        WHERE actor_count=0 AND folder NOT IN ('Common','Vessel_Common','native_support') ORDER BY folder'''):
+        expected = {path for path, in db.execute('SELECT class_path FROM skills WHERE folder=?', (folder,))}
+        linked = encounter_skills[folder]
+        if not config_exports and expected and expected == linked and folder not in quarantined_folders:
+            shared.append(dict(folder=folder, status='all_skills_linked_to_authored_encounter_body',
+                               skill_classes=sorted(linked)))
+        else:
+            missing.append(dict(folder=folder, status=status))
+    return missing, shared
+
+
 def check_mounted_references(directory, expected, mapping_sha):
     job_path = directory / 'job.json'
     job = json.loads(job_path.read_bytes())
@@ -140,11 +201,15 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
         if sorted(stored_root_status) != sorted(expected_status):
             raise ValueError('Current root reference statuses do not match the audited inventory')
         probe = check_mounted_references(mounted_check, root_references, scan['mapping_sha256']) if mounted_check else None
-        actor_gaps = [dict(folder=folder, status=status) for folder, status in db.execute('''
-            SELECT folder,body_status FROM boss_group_coverage
-            WHERE actor_count=0 AND folder NOT IN ('Common','Vessel_Common','native_support') ORDER BY folder''')]
         quarantines = [json.loads(raw) for raw, in db.execute(
             "SELECT payload FROM capture_gaps WHERE category='quarantined'")]
+        class_coverage = verify_skill_class_coverage(db, quarantines)
+        encounter_links = verified_records(db)
+        actor_gaps, shared_bodies = combat_body_coverage(db, encounter_links, quarantines)
+        selector_counts = db.execute("SELECT 1 FROM sqlite_master WHERE name='boss_config_strategy_selectors'").fetchone()
+        dynamic_targets_missing = db.execute('''SELECT count(*) FROM boss_config_strategy_selectors
+            WHERE mode='dynamic_subtree' AND json_type(payload,'$.selector.default') IS NULL
+            AND json_type(payload,'$.selector.configured') IS NULL''').fetchone()[0] if selector_counts else None
         effective_dependency_gaps = dict(Counter(status for _, status in db.execute('SELECT package,reason FROM additional_boss_gaps')))
         animation = scan_animation_files(db, log)
         if log:
@@ -155,12 +220,16 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
     config = verified['config_abilities']
     unresolved_root_references = [row for row in root_references if row['current_status'] != 'captured']
     native_scope_complete = not (missing or effective_dependency_gaps or unresolved_root_references or actor_gaps
-                                 or quarantines or config['unresolved_links'] or config['diagnostics']
+                                 or quarantines or class_coverage['unindexed'] or dynamic_targets_missing
+                                 or config['unresolved_links'] or config['diagnostics']
                                  or animation['planned'] != animation['files_verified'])
     return dict(mobs_indexed_roots=len(mob_roots), other_indexed_roots=len(other_roots),
                 declaration_files_verified=verified_packages, missing_root_packages=missing,
                 root_references=root_references, root_reference_blockers=unresolved_root_references,
-                missing_combat_bodies=actor_gaps, quarantined=quarantines, extension_gaps=effective_dependency_gaps,
+                missing_combat_bodies=actor_gaps, encounter_backed_resource_groups=shared_bodies,
+                quarantined=quarantines, extension_gaps=effective_dependency_gaps,
+                native_skill_class_coverage=class_coverage, authored_encounter_links=len(encounter_links),
+                dynamic_selectors_without_static_target=dynamic_targets_missing,
                 animation_sources=animation, config_abilities=config, mounted_reference_probe=probe,
                 skills=verified['counts']['skills'], actions=actions, script_files_verified=script_packages,
                 historical_failed_dependency_packages=scan['failed_dependency_count'],
