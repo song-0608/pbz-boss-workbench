@@ -230,7 +230,7 @@ def verify():
                 assert math.isfinite(height) and height > 0
                 measurement.update(character_pass=True, skeletal_bones=mesh.get_num_bones(), capsule_half_height_cm=height,
                                    animation_status='reference_pose' if role['mesh_preview_only'] else 'original_lab_clips_loaded')
-                if 'visual_revision' in role:
+                if 'visual_revision' in role or 'alias_kind' in role:
                     materials = [material.get_path_name() if material else None for material in mesh.get_materials()]
                     assert materials and all(material and not material.startswith('/Engine/') for material in materials)
                     measurement.update(mesh=role['mesh'], materials=materials)
@@ -360,20 +360,20 @@ def create_visual_review():
     plan = json.loads((WORK / 'visual-plan.json').read_bytes())
     original = json.loads(Path(plan['baseline']).read_bytes())
     changes = plan['changes']
-    review_root = ROOT + 'VisualReview20261124'
-    review_map = review_root + '/L_PBZAllBoss3CVisualReview'
-    catalog_name = 'DA_BossRolesVisualReview20261124'
-    character_name = 'BP_Boss3CCharacterVisualReview20261124'
-    mode_name = 'BP_Boss3CModeVisualReview20261124'
+    review_root = plan.get('review_root', ROOT + 'VisualReview20261124')
+    review_map = plan.get('review_map', review_root + '/L_PBZAllBoss3CVisualReview')
+    catalog_name = plan.get('catalog_name', 'DA_BossRolesVisualReview20261124')
+    character_name = plan.get('character_name', 'BP_Boss3CCharacterVisualReview20261124')
+    mode_name = plan.get('mode_name', 'BP_Boss3CModeVisualReview20261124')
     def existing_or_duplicate(path, source):
         return LIBRARY.load_asset(path) if LIBRARY.does_asset_exist(path) else LIBRARY.duplicate_asset(source, path)
 
     catalog = existing_or_duplicate(review_root + '/' + catalog_name, ROOT + '/DA_BossRoles')
     assert catalog
     roles = list(catalog.get_editor_property('roles'))
-    assert len(roles) == len(original['roles'])
+    assert len(roles) in (len(original['roles']), len(original['roles']) + len(plan.get('role_additions', [])))
     revised = []
-    for role, previous in zip(roles, original['roles'], strict=True):
+    for role, previous in zip(roles[:len(original['roles'])], original['roles'], strict=True):
         assert str(role.get_editor_property('id')) == previous['id']
         change = changes.get(previous['id'])
         if change is None:
@@ -383,6 +383,23 @@ def create_visual_review():
         mesh = load_mesh(change['mesh'])
         role.set_editor_property('mesh', mesh)
         revised.append(dict(previous, mesh=mesh.get_path_name(), visual_revision=change))
+    additions = plan.get('role_additions', [])
+    role_by_id = {str(role.get_editor_property('id')): role for role in roles}
+    for addition in additions:
+        assert addition['mesh_preview_only'] is True
+        mesh = load_mesh(addition['mesh'])
+        role = role_by_id.get(addition['id'])
+        if role is None:
+            role = ue.PBZLabRole()
+            for key, value in dict(id=addition['id'], name=addition['label'], mesh=mesh,
+                                   mesh_preview_only=True).items():
+                role.set_editor_property(key, value)
+            roles.append(role)
+            role_by_id[addition['id']] = role
+        else:
+            assert role.get_editor_property('mesh').get_path_name() == mesh.get_path_name()
+            assert str(role.get_editor_property('name')) == addition['label']
+        revised.append(dict(addition, mesh=mesh.get_path_name()))
     catalog.set_editor_property('roles', roles)
     assert LIBRARY.save_loaded_asset(catalog, only_if_is_dirty=False)
 
@@ -407,15 +424,15 @@ def create_visual_review():
     world = ue.get_editor_subsystem(ue.UnrealEditorSubsystem).get_editor_world()
     world.get_world_settings().set_editor_property('default_game_mode', mode_class)
     assert levels.save_current_level()
-    write('ue-visual-review-map.json', dict(map=review_map, root=review_root, catalog=catalog.get_path_name(),
+    write(plan.get('review_manifest', 'ue-visual-review-map.json'), dict(map=review_map, root=review_root, catalog=catalog.get_path_name(),
           character=character.get_path_name(), mode=mode.get_path_name(), roles=revised,
           changed_roles=sorted(changes)))
 
 
 def verify_author_visual_review():
     plan = json.loads((WORK / 'visual-plan.json').read_bytes())
-    review = json.loads((WORK / 'ue-visual-review-map.json').read_bytes())
-    expected = json.loads((WORK / 'ue-visual-review-pie-result.json').read_bytes())
+    review = json.loads((WORK / plan.get('review_manifest', 'ue-visual-review-map.json')).read_bytes())
+    expected = json.loads((WORK / plan.get('review_pie_result', 'ue-visual-review-pie-result.json')).read_bytes())
     assert expected['completed'] and review['map'] == MAP
     assert Path(ue.Paths.project_dir()).resolve() == PROJECT
     catalog = ue.load_asset(review['catalog'])
@@ -423,7 +440,7 @@ def verify_author_visual_review():
     roles = list(catalog.get_editor_property('roles'))
     revised = {str(row.get_editor_property('id')): row for row in roles}
     expected_ids = set(review['changed_roles'])
-    assert len(roles) == 386 and expected_ids <= set(revised)
+    assert len(roles) == len(review['roles']) and expected_ids <= set(revised)
     passed = {}
     for row in expected['rows']:
         role = revised[row['id']]
@@ -450,7 +467,7 @@ def verify_author_visual_review():
     result = dict(map=review['map'], catalog=review['catalog'], total_roles=len(roles),
                   revised_roles=passed, map_default_game_mode=str(map_game_mode),
                   original_game_started=False, cooked_for_target_game=False)
-    write('author-cold-load.json', result)
+    write(plan.get('author_cold_load', 'author-cold-load.json'), result)
 
 
 def recover_visible_bodies():
