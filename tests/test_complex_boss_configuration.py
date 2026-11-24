@@ -62,6 +62,23 @@ class ConfigurationTests(unittest.TestCase):
         found, issues = strategies(dict(Properties=dict(BehaviorDefinition=[{'BehaviorTree': ref}])), trees.__getitem__)
         self.assertEqual([row['path'] for row in found], ['/Game/Tree.Tree', '/Game/Nested.Nested'])
         self.assertEqual(issues[0]['reason'], 'strategy_tree_cycle_or_depth_limit')
+        self.assertEqual([row[3] for row in issues[0]['cycle']], ['Tree', 'Nested', 'Tree'])
+        self.assertEqual(issues[0]['incoming']['tree_path'], '/Game/Nested.Nested')
+
+    def test_pool_preserves_serialized_empty_slots_and_unresolved_tactics(self):
+        separator = dict(Ability=dict(AssetPathName='', SubPathString=''), Comment='====', Tags=[], Conditions=[])
+        pool = dict(Package='/Game/Pool', Name='Pool', Properties=dict(
+            TacticActions=[separator, dict(separator, Comment='Expected move'), dict(Ability=dict(AssetPathName=self.move))],
+            SubAbilityPools=[None]))
+        pools, issues = ability_pools(None, pool)
+        self.assertEqual([row['class_path'] for row in pools[0]['tactics']], [self.move])
+        self.assertEqual([(row['field'], row['ordinal'], row['reason']) for row in issues], [
+            ('TacticActions', 0, 'authored_tactic_separator'),
+            ('TacticActions', 1, 'tactic_without_serialized_class'),
+            ('SubAbilityPools', 0, 'authored_null_subpool_slot'),
+        ])
+        self.assertEqual(issues[0]['reference'], separator)
+        self.assertIsNone(issues[2]['reference'])
 
 
 class CandidateTests(unittest.TestCase):

@@ -377,11 +377,13 @@ def verify(database, catalog):
                 raise ValueError('Actor animation associations differ from the offline import receipt')
         config_abilities = db.execute("SELECT value FROM metadata WHERE key='boss_config_ability_counts'").fetchone()
         if config_abilities:
-            from boss_config_abilities import summary, verify_state_machines
+            from boss_config_abilities import summary, verify_state_machines, verify_strategy_evidence
             supplements['config_abilities'] = summary(db)
             if supplements['config_abilities'] != json.loads(config_abilities[0]):
                 raise ValueError('Combat configuration links differ from the offline import receipt')
             verify_state_machines(db)
+            if verify_strategy_evidence(db):
+                supplements['strategy_evidence_verified'] = True
         editable = db.execute("SELECT value FROM metadata WHERE key='boss_editable_clip_counts'").fetchone()
         if editable:
             from boss_animation_sources import clips, summary

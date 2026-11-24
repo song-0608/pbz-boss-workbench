@@ -11,6 +11,9 @@ from prepare_complex_boss_configuration import ability_pools, asset_path, strate
 from research_storage import PROJECT_STORAGE
 
 
+STRATEGY_EVIDENCE_KEY = 'boss_config_strategy_evidence_version'
+
+
 def ability_path(capture, value):
     if isinstance(value, dict):
         if value.get('ObjectPath', '').startswith('/Script/'):
@@ -141,6 +144,10 @@ def extract(capture, config, tree_for):
                         if 'ability' in node:
                             remember(tree['path'], 'strategy_task', node['export_index'], node['ability'], node)
                         if 'selector' in node:
+                            if node['selector']['mode'] == 'dynamic_subtree':
+                                node['selector'].update(
+                                    strategy_path=asset_path(obj),
+                                    strategy_sha256=capture.packages[obj['Package'].casefold()]['declaration_sha256'])
                             selectors.append((tree['path'], node['export_index'], tree['declaration_sha256'], node))
                     issues.extend(dict(source=tree['path'], role='strategy_task', reason=reason)
                                   for reason in tree['issues'])
@@ -178,6 +185,38 @@ def database_capture(db):
         UNION ALL SELECT package,declaration,declaration_sha256 FROM additional_boss_packages''')])
 
 
+def configuration_sources(db, capture):
+    tree_for = lru_cache(maxsize=512)(lambda ref: ordered_nodes(capture, ref))
+    configs = db.execute("""SELECT folder,payload FROM combat_config_exports e JOIN combat_configs USING(package)
+        WHERE export_type='PDA_ActorConfig_C' ORDER BY folder,package,export_index""")
+    for folder, raw in configs:
+        config = json.loads(raw)
+        yield asset_path(config), folder, extract(capture, config, tree_for)
+
+
+def selector_rows(path, selectors):
+    return [(path, tree, index, sha, node['selector']['mode'], encode(node))
+            for tree, index, sha, node in selectors]
+
+
+def verify_strategy_evidence(db):
+    version = db.execute('SELECT value FROM metadata WHERE key=?', (STRATEGY_EVIDENCE_KEY,)).fetchone()
+    if version is None:
+        return False
+    if version != ('1',):
+        raise ValueError('Unknown Boss strategy evidence version')
+    configs = dict((path, (folder, ai, raw)) for path, folder, ai, raw in db.execute(
+        'SELECT config_path,folder,ai_config,diagnostics FROM boss_combat_config_index'))
+    for path, folder, (_, issues, ai, selectors) in configuration_sources(db, database_capture(db)):
+        actual = db.execute('SELECT * FROM boss_config_strategy_selectors WHERE config_path=? ORDER BY tree_path,export_index',
+                            (path,)).fetchall()
+        if configs.pop(path, None) != (folder, ai, encode(issues)) or actual != sorted(selector_rows(path, selectors)):
+            raise ValueError(f'Boss strategy records differ from the captured configuration: {path}')
+    if configs:
+        raise ValueError('Boss strategy index contains unknown configurations')
+    return True
+
+
 def state_machine_rows(db, capture):
     configs = db.execute('''SELECT e.payload FROM combat_config_exports e
         JOIN boss_combat_config_index c ON c.config_path=json_extract(e.payload,'$.Package') || '.' || e.name
@@ -206,7 +245,6 @@ def verify_state_machines(db):
 
 def populate(db):
     capture = database_capture(db)
-    tree_for = lru_cache(maxsize=512)(lambda ref: ordered_nodes(capture, ref))
     ids = {path.casefold(): path for path, in db.execute('SELECT class_path FROM skills')}
     declared_classes = {(mount + '.' + name).casefold() for mount, name in db.execute('''
         SELECT mount,name FROM native_package_exports WHERE export_type LIKE '%BlueprintGeneratedClass' ''')}
@@ -247,15 +285,9 @@ def populate(db):
        WHERE e.export_type='PDA_ActorConfig_C' AND j.key IN ('Normal Parameters','Walk Parameters','Sprint Parameters',
          'Crouch Parameters','Crouch Slow Parameters','DriverConfig','Lock Sockets')''')
     db.execute('DELETE FROM boss_combat_config_index')
-    configs = db.execute("""SELECT folder,payload FROM combat_config_exports e JOIN combat_configs USING(package)
-        WHERE export_type='PDA_ActorConfig_C' ORDER BY folder,package,export_index""")
-    for folder, raw in configs:
-        config = json.loads(raw)
-        path = asset_path(config)
-        links, issues, ai, selectors = extract(capture, config, tree_for)
+    for path, folder, (links, issues, ai, selectors) in configuration_sources(db, capture):
         db.execute('INSERT INTO boss_combat_config_index VALUES (?,?,?,?)', (path, folder, ai, encode(issues)))
-        db.executemany('INSERT INTO boss_config_strategy_selectors VALUES (?,?,?,?,?,?)', (
-            (path, tree, index, sha, node['selector']['mode'], encode(node)) for tree, index, sha, node in selectors))
+        db.executemany('INSERT INTO boss_config_strategy_selectors VALUES (?,?,?,?,?,?)', selector_rows(path, selectors))
         for source, relation, i, ability, row in links:
             key = ability.casefold()
             resolution = 'skill' if key in ids else 'class_declaration' if key in declared_classes else 'unresolved'
@@ -264,6 +296,7 @@ def populate(db):
     db.executemany('INSERT INTO boss_config_state_machines VALUES (?,?,?,?,?,?)', state_machine_rows(db, capture))
     result = summary(db)
     db.execute("INSERT OR REPLACE INTO metadata VALUES ('boss_config_ability_counts',?)", (encode(result),))
+    db.execute('INSERT OR REPLACE INTO metadata VALUES (?,?)', (STRATEGY_EVIDENCE_KEY, '1'))
     return result
 
 

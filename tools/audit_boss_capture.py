@@ -162,6 +162,28 @@ def check_mounted_references(directory, expected, mapping_sha):
     return dict(receipt=str(path), receipt_sha256=digest(path), results=checked)
 
 
+def configuration_gaps(db):
+    dynamic_trees, missing, authored, unresolved = set(), [], [], []
+    for config, tree, ordinal, sha, raw in db.execute('''
+        SELECT config_path,tree_path,export_index,source_sha256,payload FROM boss_config_strategy_selectors
+        WHERE mode='dynamic_subtree' ORDER BY config_path,tree_path,export_index'''):
+        selector = json.loads(raw)['selector']
+        dynamic_trees.add((config, tree))
+        if not (selector.get('default') or selector.get('configured')):
+            missing.append(dict(config_path=config, tree_path=tree, export_index=ordinal,
+                                tree_sha256=sha, **selector))
+    for config, raw in db.execute('SELECT config_path,diagnostics FROM boss_combat_config_index ORDER BY config_path'):
+        for issue in json.loads(raw):
+            reason = issue['reason']
+            if (reason == 'dynamic_subtree_selection' and (config, issue['source']) in dynamic_trees
+                    or reason in ('authored_tactic_separator', 'authored_null_subpool_slot')
+                    or reason == 'strategy_tree_cycle_or_depth_limit' and issue.get('cycle')):
+                authored.append(dict(config_path=config, **issue))
+            else:
+                unresolved.append(dict(config_path=config, **issue))
+    return missing, authored, unresolved
+
+
 def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=None):
     database = Path(storage) / DATABASE
     with closing(connect_readonly(database)) as db:
@@ -206,22 +228,21 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
         class_coverage = verify_skill_class_coverage(db, quarantines)
         encounter_links = verified_records(db)
         actor_gaps, shared_bodies = combat_body_coverage(db, encounter_links, quarantines)
-        selector_counts = db.execute("SELECT 1 FROM sqlite_master WHERE name='boss_config_strategy_selectors'").fetchone()
-        dynamic_targets_missing = db.execute('''SELECT count(*) FROM boss_config_strategy_selectors
-            WHERE mode='dynamic_subtree' AND json_type(payload,'$.selector.default') IS NULL
-            AND json_type(payload,'$.selector.configured') IS NULL''').fetchone()[0] if selector_counts else None
         effective_dependency_gaps = dict(Counter(status for _, status in db.execute('SELECT package,reason FROM additional_boss_gaps')))
         animation = scan_animation_files(db, log)
         if log:
             log('开始核对数据库记录、完整性和外键')
         verified = verify(database, catalog)
+        if not verified.get('strategy_evidence_verified'):
+            raise ValueError('Reindex native strategy evidence with boss_config_abilities.py before the capture audit')
+        dynamic_targets_missing, authored_diagnostics, unresolved_diagnostics = configuration_gaps(db)
         if db.execute('PRAGMA data_version').fetchone() != (data_version,):
             raise ValueError('Boss database changed during the audit')
     config = verified['config_abilities']
     unresolved_root_references = [row for row in root_references if row['current_status'] != 'captured']
     native_scope_complete = not (missing or effective_dependency_gaps or unresolved_root_references or actor_gaps
                                  or quarantines or class_coverage['unindexed'] or dynamic_targets_missing
-                                 or config['unresolved_links'] or config['diagnostics']
+                                 or config['unresolved_links'] or unresolved_diagnostics
                                  or animation['planned'] != animation['files_verified'])
     return dict(mobs_indexed_roots=len(mob_roots), other_indexed_roots=len(other_roots),
                 declaration_files_verified=verified_packages, missing_root_packages=missing,
@@ -229,7 +250,12 @@ def audit(index, root=ROOT, storage=PROJECT_STORAGE, log=None, mounted_check=Non
                 missing_combat_bodies=actor_gaps, encounter_backed_resource_groups=shared_bodies,
                 quarantined=quarantines, extension_gaps=effective_dependency_gaps,
                 native_skill_class_coverage=class_coverage, authored_encounter_links=len(encounter_links),
-                dynamic_selectors_without_static_target=dynamic_targets_missing,
+                dynamic_selectors_without_static_target=len(dynamic_targets_missing),
+                dynamic_selector_gaps=dynamic_targets_missing,
+                authored_configuration_diagnostics=dict(Counter(row['reason'] for row in authored_diagnostics)),
+                authored_configuration_details=[row for row in authored_diagnostics
+                                                if row['reason'] != 'dynamic_subtree_selection'],
+                unresolved_configuration_diagnostics=unresolved_diagnostics,
                 animation_sources=animation, config_abilities=config, mounted_reference_probe=probe,
                 skills=verified['counts']['skills'], actions=actions, script_files_verified=script_packages,
                 historical_failed_dependency_packages=scan['failed_dependency_count'],

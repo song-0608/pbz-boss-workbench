@@ -67,17 +67,26 @@ def ability_pools(capture, root_pool):
             return
         props = pool.get('Properties', {})
         tactics = []
-        for item in props.get('TacticActions', ()):
+        for ordinal, item in enumerate(props.get('TacticActions', ())):
             asset = item.get('Ability') or {}
             path_name = asset.get('AssetPathName')
             if not path_name or path_name == 'None':
-                issues.append(dict(pool=path, reason='tactic_without_serialized_class'))
+                comment = item.get('Comment')
+                separator = (asset == {'AssetPathName': '', 'SubPathString': ''}
+                             and isinstance(comment, str) and len(comment) >= 3 and set(comment) == {'='}
+                             and item.get('Tags') == [] and item.get('Conditions') == [])
+                reason = 'authored_tactic_separator' if separator else 'tactic_without_serialized_class'
+                issues.append(dict(pool=path, field='TacticActions', ordinal=ordinal, reference=item, reason=reason))
                 continue
             tactics.append(dict(class_path=path_name, comment=item.get('Comment'),
                 weight=item.get('Weight'), tags=item.get('Tags', []), conditions=item.get('Conditions', [])))
         record = dict(path=path, tactics=tactics, ability_tags=props.get('AbilityTagsMap', []), subpools=[])
         pools[path] = record
-        for ref in props.get('SubAbilityPools', ()):
+        for ordinal, ref in enumerate(props.get('SubAbilityPools', ())):
+            if ref is None:
+                issues.append(dict(pool=path, field='SubAbilityPools', ordinal=ordinal, reference=ref,
+                                   reason='authored_null_subpool_slot'))
+                continue
             try:
                 child = required_reference(capture, ref, 'SGameAIAbilityPool')
             except Unresolved as error:
@@ -107,9 +116,15 @@ def strategies(strategy, tree_for):
             for child in value:
                 collect(child)
 
-    def follow(ref, stack):
-        if ref in stack or len(stack) >= 64:
-            issues.append(dict(reference=list(ref), reason='strategy_tree_cycle_or_depth_limit'))
+    def follow(ref, stack, incoming=None):
+        identity = (ref[0].casefold(), *ref[1:])
+        if identity in stack:
+            issues.append(dict(reference=list(ref), reason='strategy_tree_cycle_or_depth_limit',
+                               cycle=[list(key) for key in (*stack[stack.index(identity):], identity)],
+                               incoming=incoming))
+            return
+        if len(stack) >= 64:
+            issues.append(dict(reference=list(ref), reason='strategy_tree_cycle_or_depth_limit', incoming=incoming))
             return
         try:
             tree = tree_for(ref)
@@ -122,7 +137,8 @@ def strategies(strategy, tree_for):
         trees[path] = tree
         for node in tree['nodes']:
             if 'subtree' in node:
-                follow(tuple(node['subtree']), (*stack, ref))
+                follow(tuple(node['subtree']), (*stack, identity),
+                       dict(tree_path=path, export_index=node.get('export_index')))
 
     collect(strategy.get('Properties', {}))
     return list(trees.values()), issues
