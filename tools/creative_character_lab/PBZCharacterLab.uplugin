@@ -1,0 +1,11 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "PBZ Character Lab",
+  "Description": "Independent UE authoring controls and real animation previews.",
+  "Category": "Authoring",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "Modules": [{"Name": "PBZCharacterLab", "Type": "Runtime", "LoadingPhase": "Default"}]
+}
