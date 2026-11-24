@@ -396,6 +396,9 @@ def verify(database, catalog):
                     FROM boss_editable_clips WHERE scope=?''', (scope,)))
                 if expected != actual:
                     raise ValueError('Editable clip identities no longer match the native catalog')
+        from boss_mechanism_database import verify_inventory
+        if (mechanisms := verify_inventory(db)) is not None:
+            supplements['boss_mechanisms'] = mechanisms
         return dict(database=str(database), counts=counts, complex_first=ranked,
                     complex_profiles=len(profiles), game_started=False, **supplements)
 
@@ -407,6 +410,7 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
         return verify(database, catalog)
     profiles, native, extensions = [], False, None
     actor_animations, config_abilities, editable_plans = False, False, {}
+    mechanism_archive, mechanism_supplements = False, []
     encounters = []
     if database.is_file():
         with closing(connect_readonly(database)) as previous:
@@ -422,6 +426,10 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
                 editable_plans = json.loads(editable[0]) if editable else {}
                 from boss_encounter_sources import verified as verified_encounters
                 encounters = verified_encounters(previous)
+                from boss_mechanism_database import VERSION_KEY, supplement_records
+                mechanism_archive = bool(previous.execute('SELECT 1 FROM metadata WHERE key=?', (VERSION_KEY,)).fetchone())
+                if mechanism_archive:
+                    mechanism_supplements = supplement_records(previous)
     database.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='boss-catalog-', dir=database.parent) as staging:
         candidate = Path(staging) / database.name
@@ -459,6 +467,10 @@ def build(root=ROOT, storage=PROJECT_STORAGE, *, verify_only=False, rebuild=Fals
                     raise ValueError('Frozen editable clip plan changed')
                 records = {scope: load_records(db, path) for scope, path in paths.items()}
                 populate(db, records, paths)
+            if mechanism_archive:
+                from boss_mechanism_database import populate as populate_mechanisms
+                db.executemany('INSERT INTO metadata VALUES (?,?)', mechanism_supplements)
+                populate_mechanisms(db, log)
         report = verify(candidate, catalog)
         os.replace(candidate, database)
     return dict(report, database=str(database))
@@ -489,6 +501,8 @@ class DatabaseCatalog(Catalog):
             self.actor_animations = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_actor_animation_counts'").fetchone())
             self.editable_clips = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_editable_clip_counts'").fetchone())
             self.config_abilities = bool(db.execute("SELECT 1 FROM metadata WHERE key='boss_config_ability_counts'").fetchone())
+            self.mechanism_archive = bool(db.execute("""SELECT 1 FROM sqlite_master
+                WHERE type='view' AND name='boss_mechanisms'""").fetchone())
             if self.native_extensions:
                 for folder, count in db.execute('SELECT folder,count(*) FROM additional_boss_actors GROUP BY folder'):
                     self.metrics[folder]['actors'] += count
@@ -569,6 +583,8 @@ class DatabaseCatalog(Catalog):
                 config_skill_count, = db.execute('''SELECT count(DISTINCT l.matched_skill)
                     FROM boss_config_ability_links l JOIN boss_combat_config_index c USING(config_path)
                     WHERE c.folder=?''', (folder,)).fetchone()
+            mechanisms = dict(db.execute('''SELECT mechanism_type,count(*) FROM boss_mechanisms
+                WHERE folder=? GROUP BY mechanism_type ORDER BY mechanism_type''', (folder,))) if self.mechanism_archive else {}
         lines = [folder]
         if len(related) > 1:
             lines.append('同名阶段资源  ' + ' / '.join(related))
@@ -596,6 +612,13 @@ class DatabaseCatalog(Catalog):
             lines.extend(('', f'角色蓝图关联动画 {animation_count} 段，已导出动画源 {editable_count} 段'))
         if config_skill_count:
             lines.append(f'角色及 AI 配置引用 {config_skill_count} 个已入库技能类')
+        if mechanisms:
+            labels = dict(behavior_tree='行为树', state_and_phase='状态与阶段', ai_strategy='策略与技能池',
+                          hitbox_and_projectile='命中与投射物', damage_and_effect='伤害与效果',
+                          defense_and_reaction='格挡与受击', skill_timeline='技能时间线',
+                          actor_and_equipment='角色与装备', condition='条件', encounter_flow='关卡流程')
+            lines.extend(('', '原生机制导出（本资源目录）',
+                          ' / '.join(f'{labels[key]} {value:,}' for key, value in mechanisms.items())))
         if configs:
             lines.extend(('', '角色与战斗配置', *configs))
         if gaps:
