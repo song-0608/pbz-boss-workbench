@@ -8,8 +8,8 @@ import time
 import unreal as ue
 
 
-ROOT = '/Game/PBZCreative/AllBoss3C20261124'
-MAP = ROOT + '/L_PBZAllBoss3C'
+ROOT = os.environ.get('PBZ_ROSTER_ROOT', '/Game/PBZCreative/AllBoss3C20261124')
+MAP = os.environ.get('PBZ_ROSTER_MAP', ROOT + '/L_PBZAllBoss3C')
 PREVIOUS = '/Game/PBZCreative/CharacterLab20261119_v4'
 LIBRARY = ue.EditorAssetLibrary
 WORK = Path(os.environ['PBZ_ROSTER_WORK'])
@@ -136,14 +136,22 @@ def verify():
     editor = ue.get_editor_subsystem(ue.UnrealEditorSubsystem)
     levels = ue.get_editor_subsystem(ue.LevelEditorSubsystem)
     assert not levels.is_in_play_in_editor()
+    if not editor.get_editor_world().get_path_name().startswith(MAP + '.'):
+        assert levels.load_level(MAP), f'Unable to load 3C test level {MAP}'
     assert editor.get_editor_world().get_path_name().startswith(MAP + '.')
     ue.EditorPythonScripting.set_keep_python_script_alive(True)
     deadline = time.monotonic() + 2400
     first_index = int(os.environ.get('PBZ_ROSTER_PIE_START', '0'))
-    phase, entered, index = 'select', 0, first_index
     result_name = os.environ.get('PBZ_ROSTER_PIE_RESULT', 'ue-pie-result.json')
-    if smoke_count := int(os.environ.get('PBZ_ROSTER_SMOKE_COUNT', '0')):
-        expected = expected[:smoke_count]
+    smoke_count = int(os.environ.get('PBZ_ROSTER_SMOKE_COUNT', '0'))
+    requested_ids = set(filter(None, os.environ.get('PBZ_ROSTER_PIE_IDS', '').split(',')))
+    capture_ids = set(filter(None, os.environ.get('PBZ_ROSTER_CAPTURE_IDS', '').split(',')))
+    assert requested_ids | capture_ids <= {row['id'] for row in expected}
+    indices = [i for i in range(first_index, smoke_count or len(expected))
+               if not requested_ids or expected[i]['id'] in requested_ids]
+    assert indices
+    pending = iter(indices)
+    phase, entered, index = 'select', 0, next(pending)
     results, keys, screenshots = [], set(), []
     measurement = {}
     levels.editor_request_begin_play()
@@ -222,6 +230,10 @@ def verify():
                 assert math.isfinite(height) and height > 0
                 measurement.update(character_pass=True, skeletal_bones=mesh.get_num_bones(), capsule_half_height_cm=height,
                                    animation_status='reference_pose' if role['mesh_preview_only'] else 'original_lab_clips_loaded')
+                if 'visual_revision' in role:
+                    materials = [material.get_path_name() if material else None for material in mesh.get_materials()]
+                    assert materials and all(material and not material.startswith('/Engine/') for material in materials)
+                    measurement.update(mesh=role['mesh'], materials=materials)
                 if not role['mesh_preview_only']:
                     assert pawn.get_editor_property('idle_clip') and pawn.get_editor_property('walk_clip')
                     assert isinstance(mesh.get_anim_instance(), ue.PBZLabAnimInstance)
@@ -264,7 +276,9 @@ def verify():
             elif phase == 'unlock' and elapsed > .15:
                 assert not pawn.has_target(), 'camera did not unlock after mouse movement'
                 measurement.update(camera_pass=True, target_lock=True, manual_unlock=True)
-                if not smoke_count and index in {first_index, 6, 70, len(expected) - 1}:
+                capture = (role['id'] in capture_ids if capture_ids else
+                           not smoke_count and not requested_ids and index in {first_index, 6, 70, len(expected) - 1})
+                if capture:
                     pc.set_control_rotation(ue.Rotator(pitch=-12, yaw=0, roll=0))
                     screenshot = WORK / f'ue-pie-role-{index:03d}.png'
                     ue.SystemLibrary.execute_console_command(pc,
@@ -275,8 +289,8 @@ def verify():
                     phase_to('record', now)
             elif phase in ('record', 'capture') and (phase != 'capture' or elapsed > .8):
                 results.append(measurement)
-                index += 1
-                if index == len(expected):
+                index = next(pending, None)
+                if index is None:
                     finish(pc, complete=True)
                 else:
                     if index % 25 == 0:
@@ -287,14 +301,156 @@ def verify():
                 press(pc, key, False)
             results.append(dict(measurement, error=str(error), phase=phase))
             ue.log_warning(f'PBZ_ROSTER_PIE_FAILED={role["id"]}:{phase}:{error}')
-            index += 1
-            if index == len(expected):
+            index = next(pending, None)
+            if index is None:
                 finish(pc, complete=True)
             else:
                 phase_to('select', now)
 
     holder = {}
     handle = ue.register_slate_post_tick_callback(tick)
+
+
+def revise_visuals():
+    plan = json.loads((WORK / 'visual-plan.json').read_bytes())
+    original = json.loads(Path(plan['baseline']).read_bytes())
+    changes = plan['changes']
+    catalog = ue.load_asset(ROOT + '/DA_BossRoles')
+    roles = list(catalog.get_editor_property('roles'))
+    assert [str(role.get_editor_property('id')) for role in roles] == [row['id'] for row in original['roles']]
+    assert set(changes) <= {row['id'] for row in original['roles']}
+    namespace = 'VisualRevision20261124'
+    assert not LIBRARY.does_directory_exist(f'{ROOT}/{namespace}')
+    sources = {change['glb'] for change in changes.values() if 'glb' in change}
+    imported = {source: import_mesh(source, i, namespace) for i, source in enumerate(sorted(sources))}
+    revised = []
+    for role, previous in zip(roles, original['roles'], strict=True):
+        assert role.get_editor_property('mesh').get_path_name() == previous['mesh']
+        change = changes.get(previous['id'])
+        if change is None:
+            revised.append(previous)
+            continue
+        assert previous['actor'] == change['actor'] and previous['mesh_preview_only']
+        mesh = imported[change['glb']] if 'glb' in change else load_mesh(change['mesh'])
+        assert ue.get_editor_subsystem(ue.SkeletalMeshEditorSubsystem).get_lod_count(mesh) > 0
+        role.set_editor_property('mesh', mesh)
+        revised.append(dict(previous, mesh=mesh.get_path_name(), visual_revision=change))
+    catalog.set_editor_property('roles', roles)
+    meshes = [load_mesh(row['mesh']) for row in revised if 'visual_revision' in row]
+    registry = ue.AssetRegistryHelpers.get_asset_registry()
+    options = ue.AssetRegistryDependencyOptions()
+    options.set_editor_property('include_hard_package_references', True)
+    dependencies = {}
+    for mesh in meshes:
+        queue = [mesh.get_path_name().split('.', 1)[0]]
+        while queue:
+            package = queue.pop()
+            if not package.startswith('/Game/') or package in dependencies:
+                continue
+            assert LIBRARY.does_asset_exist(package), f'Missing local dependency {package}'
+            children = registry.get_dependencies(package, options) or []
+            dependencies[package] = sorted(map(str, children))
+            queue.extend(dependencies[package])
+    assert LIBRARY.save_loaded_asset(catalog, only_if_is_dirty=False)
+    write('ue-visual-revised.json', dict(original, roles=revised, dependencies=dependencies,
+          imported_meshes=original['imported_meshes'] + len(imported)))
+
+
+def create_visual_review():
+    plan = json.loads((WORK / 'visual-plan.json').read_bytes())
+    original = json.loads(Path(plan['baseline']).read_bytes())
+    changes = plan['changes']
+    review_root = ROOT + 'VisualReview20261124'
+    review_map = review_root + '/L_PBZAllBoss3CVisualReview'
+    catalog_name = 'DA_BossRolesVisualReview20261124'
+    character_name = 'BP_Boss3CCharacterVisualReview20261124'
+    mode_name = 'BP_Boss3CModeVisualReview20261124'
+    def existing_or_duplicate(path, source):
+        return LIBRARY.load_asset(path) if LIBRARY.does_asset_exist(path) else LIBRARY.duplicate_asset(source, path)
+
+    catalog = existing_or_duplicate(review_root + '/' + catalog_name, ROOT + '/DA_BossRoles')
+    assert catalog
+    roles = list(catalog.get_editor_property('roles'))
+    assert len(roles) == len(original['roles'])
+    revised = []
+    for role, previous in zip(roles, original['roles'], strict=True):
+        assert str(role.get_editor_property('id')) == previous['id']
+        change = changes.get(previous['id'])
+        if change is None:
+            revised.append(previous)
+            continue
+        assert previous['actor'] == change['actor'] and previous['mesh_preview_only']
+        mesh = load_mesh(change['mesh'])
+        role.set_editor_property('mesh', mesh)
+        revised.append(dict(previous, mesh=mesh.get_path_name(), visual_revision=change))
+    catalog.set_editor_property('roles', roles)
+    assert LIBRARY.save_loaded_asset(catalog, only_if_is_dirty=False)
+
+    character = existing_or_duplicate(review_root + '/' + character_name, ROOT + '/BP_Boss3CCharacter')
+    assert character
+    ue.BlueprintEditorLibrary.compile_blueprint(character)
+    character_class = LIBRARY.load_blueprint_class(review_root + '/' + character_name)
+    ue.get_default_object(character_class).set_editor_property('catalog', catalog)
+    ue.BlueprintEditorLibrary.compile_blueprint(character)
+    assert LIBRARY.save_loaded_asset(character, only_if_is_dirty=False)
+
+    mode = existing_or_duplicate(review_root + '/' + mode_name, ROOT + '/BP_Boss3CMode')
+    assert mode
+    mode_class = LIBRARY.load_blueprint_class(review_root + '/' + mode_name)
+    ue.get_default_object(mode_class).set_editor_property('default_pawn_class', character_class)
+    ue.BlueprintEditorLibrary.compile_blueprint(mode)
+    assert LIBRARY.save_loaded_asset(mode, only_if_is_dirty=False)
+    level = existing_or_duplicate(review_map, MAP)
+    assert level
+    levels = ue.get_editor_subsystem(ue.LevelEditorSubsystem)
+    assert levels.load_level(review_map)
+    world = ue.get_editor_subsystem(ue.UnrealEditorSubsystem).get_editor_world()
+    world.get_world_settings().set_editor_property('default_game_mode', mode_class)
+    assert levels.save_current_level()
+    write('ue-visual-review-map.json', dict(map=review_map, root=review_root, catalog=catalog.get_path_name(),
+          character=character.get_path_name(), mode=mode.get_path_name(), roles=revised,
+          changed_roles=sorted(changes)))
+
+
+def verify_author_visual_review():
+    plan = json.loads((WORK / 'visual-plan.json').read_bytes())
+    review = json.loads((WORK / 'ue-visual-review-map.json').read_bytes())
+    expected = json.loads((WORK / 'ue-visual-review-pie-result.json').read_bytes())
+    assert expected['completed'] and review['map'] == MAP
+    assert Path(ue.Paths.project_dir()).resolve() == PROJECT
+    catalog = ue.load_asset(review['catalog'])
+    assert isinstance(catalog, ue.PBZLabCatalog)
+    roles = list(catalog.get_editor_property('roles'))
+    revised = {str(row.get_editor_property('id')): row for row in roles}
+    expected_ids = set(review['changed_roles'])
+    assert len(roles) == 386 and expected_ids <= set(revised)
+    passed = {}
+    for row in expected['rows']:
+        role = revised[row['id']]
+        mesh = role.get_editor_property('mesh')
+        assert mesh and mesh.get_path_name() == row['mesh']
+        assert mesh.get_editor_property('skeleton')
+        materials = [material.get_editor_property('material_interface').get_path_name()
+                     if material.get_editor_property('material_interface') else None
+                     for material in mesh.get_editor_property('materials')]
+        assert materials == row['materials'] and all(material and not material.startswith('/Engine/') for material in materials)
+        assert LIBRARY.does_asset_exist(row['mesh'].split('.', 1)[0])
+        passed[row['id']] = dict(mesh=mesh.get_path_name(), bones=row['skeletal_bones'], materials=materials)
+    character = LIBRARY.load_blueprint_class(review['character'])
+    mode = LIBRARY.load_blueprint_class(review['mode'])
+    assert character and mode
+    assert ue.get_default_object(character).get_editor_property('catalog') == catalog
+    assert ue.get_default_object(mode).get_editor_property('default_pawn_class') == character
+    assert LIBRARY.does_asset_exist(review['map'])
+    levels = ue.get_editor_subsystem(ue.LevelEditorSubsystem)
+    if not ue.get_editor_subsystem(ue.UnrealEditorSubsystem).get_editor_world().get_path_name().startswith(review['map'] + '.'):
+        assert levels.load_level(review['map'])
+    world = ue.get_editor_subsystem(ue.UnrealEditorSubsystem).get_editor_world()
+    map_game_mode = world.get_world_settings().get_editor_property('default_game_mode')
+    result = dict(map=review['map'], catalog=review['catalog'], total_roles=len(roles),
+                  revised_roles=passed, map_default_game_mode=str(map_game_mode),
+                  original_game_started=False, cooked_for_target_game=False)
+    write('author-cold-load.json', result)
 
 
 def recover_visible_bodies():
@@ -325,4 +481,7 @@ def recover_visible_bodies():
 
 if __name__ == '__main__':
     assert Path(ue.Paths.project_dir()).resolve() == PROJECT
-    {'build': build, 'verify': verify, 'recover': recover_visible_bodies}[os.environ['PBZ_ROSTER_MODE']]()
+    {'build': build, 'verify': verify, 'recover': recover_visible_bodies,
+     'revise_visuals': revise_visuals, 'create_visual_review': create_visual_review,
+     'verify_author_visual_review': verify_author_visual_review}[
+         os.environ['PBZ_ROSTER_MODE']]()
