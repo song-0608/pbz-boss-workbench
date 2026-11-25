@@ -18,7 +18,7 @@ LIMITS={'mouse_scale':(.05,1),'look_step_degrees':(10,45),'manual_unlock_degrees
         'skill_buffer_seconds':(0,.25),'walk_speed_cm_s':(150,900),'turn_rate_degrees_s':(90,900)}
 ROLES={'*','ahua_guitoudao','057_wanjun','073_yanqiansui','056_youlong','058_maddoctor','071_xianzhe'}
 MAX_FILES=512
-MAX_BYTES=512*1024*1024
+MAX_BYTES=640*1024*1024
 MISSING=object()
 
 
@@ -137,7 +137,7 @@ def scan(workspace):
                 source=plain(Path(directory)/name);rel=source.relative_to(workspace).as_posix();relative(rel)
                 assert rel.casefold() not in {x.casefold() for x in found},'case-colliding creative paths'
                 size=source.stat().st_size;total+=size;found[rel]=source
-                assert len(found)<=MAX_FILES and total<=MAX_BYTES,'proposal exceeds 512 files / 512 MiB'
+                assert len(found)<=MAX_FILES and total<=MAX_BYTES,'proposal exceeds 512 files / 640 MiB'
     assert set(CONFIGS)<=set(found),'shared configuration files are required'
     return found
 

@@ -230,7 +230,7 @@ def verify():
                 assert math.isfinite(height) and height > 0
                 measurement.update(character_pass=True, skeletal_bones=mesh.get_num_bones(), capsule_half_height_cm=height,
                                    animation_status='reference_pose' if role['mesh_preview_only'] else 'original_lab_clips_loaded')
-                if 'visual_revision' in role or 'alias_kind' in role:
+                if 'visual_revision' in role or 'alias_kind' in role or 'material_revision' in role:
                     materials = [material.get_path_name() if material else None for material in mesh.get_materials()]
                     assert materials and all(material and not material.startswith('/Engine/') for material in materials)
                     measurement.update(mesh=role['mesh'], materials=materials)
@@ -429,6 +429,90 @@ def create_visual_review():
           changed_roles=sorted(changes)))
 
 
+def create_material_review():
+    plan = json.loads((WORK / 'material-plan-20261125.json').read_bytes())
+    previous = json.loads((WORK / 'ue-coverage-review-map.json').read_bytes())
+    root = plan['review_root']
+    review_map = plan['review_map']
+    catalog_name = plan['catalog_name']
+    character_name = plan['character_name']
+    mode_name = plan['mode_name']
+    assert not LIBRARY.does_directory_exist(root)
+
+    source_glb = Path(plan['crossbow_glb']).resolve()
+    assert source_glb.is_file() and source_glb.suffix.lower() == '.glb'
+    crossbow_mesh = import_mesh(str(source_glb), 0, plan['mesh_namespace'])
+    greatblade_mesh = load_mesh(plan['greatblade_mesh'])
+    catalog = ue.EditorAssetLibrary.duplicate_asset(previous['catalog'], root + '/' + catalog_name)
+    assert catalog
+    roles = list(catalog.get_editor_property('roles'))
+    assert len(roles) == len(previous['roles'])
+    new_roles = []
+    overrides = {
+        '386_GreatBladeMan_Hard_ConfigPreview': greatblade_mesh,
+        '387_HeavyCrossBowMan_StoryProfilePreview': crossbow_mesh,
+    }
+    for role, previous_role in zip(roles, previous['roles'], strict=True):
+        role_id = str(role.get_editor_property('id'))
+        assert role_id == previous_role['id']
+        if role_id in overrides:
+            role.set_editor_property('mesh', overrides[role_id])
+            new_roles.append(dict(previous_role, mesh=overrides[role_id].get_path_name(),
+                                  material_revision=plan['revisions'][role_id]))
+        else:
+            new_roles.append(previous_role)
+    catalog.set_editor_property('roles', roles)
+    assert LIBRARY.save_loaded_asset(catalog, only_if_is_dirty=False)
+
+    character = LIBRARY.duplicate_asset(ROOT + '/BP_Boss3CCharacter', root + '/' + character_name)
+    assert character
+    ue.BlueprintEditorLibrary.compile_blueprint(character)
+    character_class = LIBRARY.load_blueprint_class(root + '/' + character_name)
+    ue.get_default_object(character_class).set_editor_property('catalog', catalog)
+    ue.BlueprintEditorLibrary.compile_blueprint(character)
+    assert LIBRARY.save_loaded_asset(character, only_if_is_dirty=False)
+    mode = LIBRARY.duplicate_asset(ROOT + '/BP_Boss3CMode', root + '/' + mode_name)
+    assert mode
+    mode_class = LIBRARY.load_blueprint_class(root + '/' + mode_name)
+    ue.get_default_object(mode_class).set_editor_property('default_pawn_class', character_class)
+    ue.BlueprintEditorLibrary.compile_blueprint(mode)
+    assert LIBRARY.save_loaded_asset(mode, only_if_is_dirty=False)
+    assert ue.EditorAssetLibrary.duplicate_asset(previous['map'], review_map)
+    levels = ue.get_editor_subsystem(ue.LevelEditorSubsystem)
+    assert levels.load_level(review_map)
+    world = ue.get_editor_subsystem(ue.UnrealEditorSubsystem).get_editor_world()
+    world.get_world_settings().set_editor_property('default_game_mode', mode_class)
+    assert levels.save_current_level()
+
+    registry = ue.AssetRegistryHelpers.get_asset_registry()
+    options = ue.AssetRegistryDependencyOptions()
+    options.set_editor_property('include_hard_package_references', True)
+    dependencies = {}
+    for mesh in overrides.values():
+        queue = [mesh.get_path_name().split('.', 1)[0]]
+        while queue:
+            package = queue.pop()
+            if not package.startswith('/Game/') or package in dependencies:
+                continue
+            assert LIBRARY.does_asset_exist(package), 'Missing material review dependency: ' + package
+            children = registry.get_dependencies(package, options) or []
+            dependencies[package] = sorted(map(str, children))
+            queue.extend(dependencies[package])
+    rows = []
+    for role_id, mesh in overrides.items():
+        materials = [slot.get_editor_property('material_interface').get_path_name()
+                     if slot.get_editor_property('material_interface') else None
+                     for slot in mesh.get_editor_property('materials')]
+        rows.append(dict(id=role_id, mesh=mesh.get_path_name(), materials=materials,
+                         has_non_engine_materials=bool(materials) and all(
+                             material and not material.startswith('/Engine/') for material in materials)))
+    write('ue-material-review-map.json', dict(map=review_map, root=root,
+          catalog=catalog.get_path_name(), character=character.get_path_name(), mode=mode.get_path_name(),
+          roles=new_roles, changed_roles=sorted(overrides), materials=rows,
+          dependencies=dependencies, imported_meshes=previous.get('imported_meshes', 132) + 1,
+          crossbow_source_sha256=__import__('hashlib').sha256(source_glb.read_bytes()).hexdigest()))
+
+
 def verify_author_visual_review():
     plan = json.loads((WORK / 'visual-plan.json').read_bytes())
     review = json.loads((WORK / plan.get('review_manifest', 'ue-visual-review-map.json')).read_bytes())
@@ -500,5 +584,6 @@ if __name__ == '__main__':
     assert Path(ue.Paths.project_dir()).resolve() == PROJECT
     {'build': build, 'verify': verify, 'recover': recover_visible_bodies,
      'revise_visuals': revise_visuals, 'create_visual_review': create_visual_review,
+     'create_material_review': create_material_review,
      'verify_author_visual_review': verify_author_visual_review}[
          os.environ['PBZ_ROSTER_MODE']]()
