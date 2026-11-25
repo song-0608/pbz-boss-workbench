@@ -1,61 +1,21 @@
 # PBZ Boss Control Workbench
 
-This repository contains the Lua mod, the Windows companion workbench, the
-offline research and evidence tools, tests, and Chinese project documentation
-for the verified local Phantom Blade Zero build.
+用于《影之刃零》指定构建的 Windows 离线研究工作台，包含 Lua Mod、启动器和 Boss 适配工具。
 
-## Current status
+默认分支的启动入口对应 **v3 四角色工作台**，支持阿花、万钧、烟千岁和游龙。启动前需要本机已配置的隔离研究环境、对应的游戏构建及加载器。请在隔离副本使用。
 
-Version `ahua-boss-workbench-v3-f7034432a74d819b` is released, installed, and
-enabled for the supported local offline setup. Bride Ahua has 28 abilities and
-29 bindings; WanJun, YanQianSui, and YouLong each have four independent abilities
-and four bindings: **four playable Bosses, 40 abilities, 41 bindings**, with no
-locked previews.
+## 开始使用
 
-All 12 four-Boss offline check groups passed. The publisher verified the inherited
-79 baseline groups, 13 three-Boss release groups, and source-matched skill and
-stability evidence. Session `20261116-173808` completed eight integration checks
-in the open area at Beiqi Valley's axe-Boss checkpoint: workbench restoration,
-selection and cleanup, historical skill revalidation, movement and camera,
-return to Ahua, pre-travel skill, native title/continue with a new World and real
-skill damage, and final return to Ahua. The closed-session collector and publisher
-independently passed. Formal files and host configuration remained unchanged.
-Historical evidence is reused only for unchanged behavior; this does not claim
-all old tests were repeated in the latest game session.
+1. 在已配置的研究环境中双击 [开始Boss工作台.cmd](开始Boss工作台.cmd)，按窗口提示准备隔离副本并进入研究场景。
+2. 按 `Insert` 打开角色选择，用方向键和 `Enter` 确认，再按 `F6` 接管。按 `F10` 恢复主角。
+3. 完成本轮操作后，通过工作台结束会话并检查研究文件。
 
-Start with `开始Boss工作台.cmd`. Controls and acceptance details are in
-[the v3 delivery and player guide](70-四Boss工作台v3操作说明.md).
-The external launcher starts Ahua or WanJun; select YanQianSui or YouLong through
-`Insert` inside the game. YanQianSui requires open terrain; failed clearance
-preserves the current Boss. Historical releases and failed attempts are retained.
+[完整操作与键位](70-四Boss工作台v3操作说明.md) · [v3 发布文件](releases/ahua-boss-workbench-v3-f7034432a74d819b)
 
-## Performance
+## 开发
 
-The severe stutter reported after F6 was traced to the diagnostic launcher
-disabling the native UObject array cache. The performance profile restores
-that cache and uses incremental status reads and input dispatch. Historical
-callback timing improved from about 365 ms to about 2.5 ms; this measures the
-game-thread callback, not GPU frame rate. Details and caveats are recorded in
-the project acceptance documents.
+- [Lua Mod](mod/PBZBossControl) 保存控制、输入和角色配置源码。
+- [Boss 适配指南](docs/boss-adaptation.md) 介绍目录、独立候选、元数据复核和离线测试。
+- [发布包](releases) 保存各版本的载荷和清单；[测试](tests) 保存可重复运行的检查。
 
-## Workbench controls
-
-- `Insert`: open or close Boss selection
-- `Up` / `Down`: select an entry
-- `Enter`: confirm a verified Boss configuration
-- `Esc` / `F10`: close the workbench or restore the original player
-- `F6`: take over the selected Boss after setup settles
-
-The selector is a keyboard-controlled Windows companion overlay over the game
-window, not a native Unreal UMG or mouse-driven menu. The research launcher
-uses an isolated, offline local setup and is not a portable installer for
-arbitrary machines. Do not install it into the formal game directory or copy
-research progress into a formal save.
-
-## Archive scope
-
-Source, tests, curated acceptance summaries, and documentation are tracked.
-Game executables and assets, save files, sandbox images, dependency downloads,
-live session state, raw machine logs, and machine-specific credentials are
-excluded. Rebuild and acceptance prerequisites are local and documented in
-the research workflow.
+仓库文档用于安装、操作、开发和发布复核。单次测试报告、排错过程与交接草稿留在本地；旧里程碑可从历史提交查阅。

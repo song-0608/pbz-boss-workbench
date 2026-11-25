@@ -38,7 +38,7 @@ def main():
         show_status();return
     while True:
         print('\n影之刃零研究工作台（不会启动游戏）')
-        print('1 查看实际状态\n2 运行会话测试及模拟\n3 打开当前结果与下一关\n4 打开控制源码文件夹\n5 只读核对历史备份（不回档）\n6 打开阿花最新实测说明\n7 查看历史37项能力样本（不等于37招可玩）\n8 查看最新镜头实测截图\n9 运行控制、输入和观测本地回归（不启动游戏）\nP 打开阿花离线训练窗口（点击按钮才启动研究游戏）\nH 查看阿花四键操作卡\n0 退出')
+        print('1 查看实际状态\n2 运行会话测试及模拟\n3 打开项目使用指南\n4 打开控制源码文件夹\n5 只读核对历史备份（不回档）\n6 查看本地实测说明或实际状态\n7 查看历史37项能力样本（不等于37招可玩）\n8 查看最新镜头实测截图\n9 运行控制、输入和观测本地回归（不启动游戏）\nP 打开阿花离线训练窗口（点击按钮才启动研究游戏）\nH 查看阿花四键操作卡\n0 退出')
         choice=input('输入数字后回车：').strip()
         if choice=='0':return
         if choice=='1':show_status()
@@ -51,7 +51,7 @@ def main():
                 if result.stderr:print(result.stderr.decode('utf-8',errors='replace'))
                 if result.returncode:break
             print('这是模拟逻辑测试，不是Boss已经能操控。')
-        elif choice=='3':os.startfile(ROOT/'04-当前结果与下一关.md')
+        elif choice=='3':os.startfile(ROOT/'README.md')
         elif choice=='4':os.startfile(ROOT/'mod/PBZBossControl/Scripts')
         elif choice=='5':
             # 用途：仅比较原37个对象，不恢复、不覆盖任何文件。
@@ -59,7 +59,12 @@ def main():
             print(json.dumps(preflight.compare(ROOT/'evidence/latest-preflight.json'),ensure_ascii=False,indent=2))
         elif choice=='6':
             status=json.loads((ROOT/'项目状态.json').read_text(encoding='utf-8'))
-            os.startfile(Path(status.get('latest_result_note',ROOT/'28-阿花定位与Lua观测实测.md')))
+            note = status.get('latest_result_note')
+            note_path = ROOT / note if note else None
+            if note_path is not None and note_path.is_file():
+                os.startfile(note_path)
+            else:
+                show_status()
         elif choice=='7':
             os.startfile(ROOT/'32-阿花能力清单-非全部可玩.csv')
         elif choice=='8':
