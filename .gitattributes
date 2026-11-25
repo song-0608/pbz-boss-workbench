@@ -166,3 +166,5 @@ tests/test_phantom_boss_control_contract.py -text whitespace=cr-at-eol
 tests/test_phantom_boss_launch_gate.lua -text whitespace=cr-at-eol
 tools/inspect_phantom_boss_client_auth.py -text whitespace=cr-at-eol
 tests/test_phantom_boss_client_auth.py -text whitespace=cr-at-eol
+docs/*.md -text whitespace=cr-at-eol
+docs/archive/*.md -text whitespace=cr-at-eol

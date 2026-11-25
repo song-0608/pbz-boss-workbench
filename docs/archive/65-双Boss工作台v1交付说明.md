@@ -4,7 +4,7 @@
 
 ## 开始使用
 
-双击[开始Boss工作台.cmd](开始Boss工作台.cmd)，按窗口步骤准备、确认研究Steam云同步关闭、启动游戏并进入开阔场景，站稳后启用。游戏内按 Insert 打开工作台，↑↓选择，Enter确认；F6接管，WASD移动，鼠标转向，F7切换可见存活目标，F10恢复主角。
+双击[开始Boss工作台.cmd](../../开始Boss工作台.cmd)，按窗口步骤准备、确认研究Steam云同步关闭、启动游戏并进入开阔场景，站稳后启用。游戏内按 Insert 打开工作台，↑↓选择，Enter确认；F6接管，WASD移动，鼠标转向，F7切换可见存活目标，F10恢复主角。
 
 | 已发布角色 | 能力 | 实际绑定 |
 |---|---:|---:|
@@ -31,12 +31,11 @@
 
 ## 文件
 
-- [发布目录](releases/ahua-boss-workbench-v1-f0bcf1323e641e03)
-- [发布ZIP](releases/ahua-boss-workbench-v1-f0bcf1323e641e03.zip)
-- [不可变发布清单](releases/ahua-boss-workbench-v1-f0bcf1323e641e03/pbz-release.json)
-- [发布验收报告](evidence/releases/ahua-boss-workbench-v1-f0bcf1323e641e03-acceptance.json)
-- [其他Boss离线适配工作流](61-多Boss离线适配工作流.md)
-- [GitHub私有仓库](https://github.com/song-0608/pbz-boss-workbench)
+- [发布目录](../../releases/ahua-boss-workbench-v1-f0bcf1323e641e03)
+- [不可变发布清单](../../releases/ahua-boss-workbench-v1-f0bcf1323e641e03/pbz-release.json)
+- [发布验收报告](../../evidence/releases/ahua-boss-workbench-v1-f0bcf1323e641e03-acceptance.json)
+- [当前 Boss 适配开发指南](../boss-adaptation.md)
+- [GitHub 仓库](https://github.com/song-0608/pbz-boss-workbench)
 
 ZIP SHA-256：`46311459f9456fff942c70b72015818bded35eaad3243198ff40554eb0d03269`
 

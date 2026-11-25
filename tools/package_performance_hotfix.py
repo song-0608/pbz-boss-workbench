@@ -37,7 +37,7 @@ def package():
               ROOT/manifest['acceptance_report'],ROOT/'evidence/official-validation'/acceptance['reload_session']/'cache-world-probe.json']
     for path in evidence:
         destination=target/'Evidence'/path.name;destination.parent.mkdir(exist_ok=True);shutil.copy2(path,destination)
-    shutil.copy2(ROOT/'60-接管卡顿修复与验收.md',target/'使用说明.md')
+    shutil.copy2(ROOT/'docs/archive/60-接管卡顿修复与验收.md',target/'使用说明.md')
     (target/'README.md').write_text('''# 阿花 v1.0.1 性能修复完整交付
 
 当前 D:\\mod文档 中的启动器已应用修复，直接双击“开始阿花训练.cmd”即可。
